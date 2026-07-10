@@ -50,6 +50,7 @@ class PlayerNative extends PlayerBase {
   // immediately. Keep the logical value separate from mpv's software stage.
   double? _macOSLogicalVolume;
   bool? _macOSPlayAfterVolumeRestore;
+  Object? _macOSVolumeRestoreToken;
 
   // Gapless-audio arming state (audioOnly). The native playlist is always
   // [current, next?]; these track whether entry 1 exists and what it plays.
@@ -308,6 +309,7 @@ class PlayerNative extends PlayerBase {
     Duration? timelineDuration,
   }) async {
     if (disposed) return;
+    _macOSVolumeRestoreToken = Object();
     await _ensureInitialized();
     // `loadfile replace` (below) clears the native playlist, dropping any
     // gapless entry armed via setNext — settle its content-fd claim first.
@@ -402,6 +404,7 @@ class PlayerNative extends PlayerBase {
   @override
   Future<void> stop() async {
     _macOSPlayAfterVolumeRestore = null;
+    _macOSVolumeRestoreToken = null;
     // `stop` tears down the playlist without mpv opening the armed entry —
     // settle its content-fd claim first. No transition: playback is ending.
     await _clearArmedNext(adoptIfRolledIn: false);
@@ -573,15 +576,16 @@ class PlayerNative extends PlayerBase {
     final playAfterRestore = _macOSPlayAfterVolumeRestore;
     if (name == 'file-loaded' && playAfterRestore != null) {
       _macOSPlayAfterVolumeRestore = null;
-      unawaited(_restoreMacOSVolume(playAfterRestore));
+      unawaited(_restoreMacOSVolume(playAfterRestore, _macOSVolumeRestoreToken));
     }
     super.handlePlayerEvent(name, data);
   }
 
-  Future<void> _restoreMacOSVolume(bool play) async {
+  Future<void> _restoreMacOSVolume(bool play, Object? token) async {
     final logicalVolume = _macOSLogicalVolume;
     if (logicalVolume == null) return;
     await _applyMacOSVolume(logicalVolume);
+    if (token == null || !identical(token, _macOSVolumeRestoreToken)) return;
     if (play && !disposed) await setProperty('pause', 'no');
   }
 
