@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io' show Platform;
 
+import 'package:flutter/gestures.dart' show PointerScrollEvent;
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:flutter/services.dart';
@@ -328,6 +329,10 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
     _onContentStripNavigateUp();
   }
 
+  bool handleContentStripScroll(PointerScrollEvent event) {
+    return _contentStripVisible && (_contentStripKey.currentState?.handlePointerScroll(event) ?? false);
+  }
+
   /// Handle left navigation from first track control - go to volume (or last button on TV)
   void navigateFromTrackToVolume() {
     if (PlatformDetector.isTV()) {
@@ -626,9 +631,25 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
                       clipBehavior: Clip.none,
                       children: [
                         _buildBottomControlsContent(context, hasFrame: true),
-                        // Down arrow hint when strip content is available
                         if (widget.useDpadNavigation && _hasStripContent)
-                          const ContentStripHint(Symbols.keyboard_arrow_down_rounded),
+                          Positioned(
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            child: Center(
+                              child: SizedBox.square(
+                                key: const ValueKey('desktop_content_strip_open'),
+                                dimension: 48,
+                                child: VideoControlButton(
+                                  icon: Symbols.keyboard_arrow_up_rounded,
+                                  color: Colors.white24,
+                                  tooltip: t.videoControls.chaptersButton,
+                                  semanticLabel: t.videoControls.chaptersButton,
+                                  onPressed: _showContentStrip,
+                                ),
+                              ),
+                            ),
+                          ),
                       ],
                     ),
                   ),
@@ -638,10 +659,24 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
                     ContentStripPanel(
                       padding: const EdgeInsets.only(left: 8, right: 8, bottom: 8, top: 32),
                       chevron: Symbols.keyboard_arrow_up_rounded,
+                      header: SizedBox.square(
+                        key: const ValueKey('desktop_content_strip_close'),
+                        dimension: 48,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(color: Colors.black.withValues(alpha: 0.4), shape: BoxShape.circle),
+                          child: VideoControlButton(
+                            icon: Symbols.keyboard_arrow_down_rounded,
+                            color: Colors.white38,
+                            semanticLabel: t.common.close,
+                            onPressed: _onContentStripNavigateUp,
+                          ),
+                        ),
+                      ),
                       child: ContentStrip(
                         key: _contentStripKey,
                         player: widget.player,
                         chapters: widget.chapters,
+                        chaptersLoaded: widget.chaptersLoaded,
                         serverId: widget.serverId,
                         canControl: _canControl,
                         showQueueTab: widget.showQueueTab,
@@ -649,6 +684,7 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
                         onSeekRequested: widget.onSeekRequested,
                         onSeekCompleted: widget.onSeekCompleted,
                         useFocusNavigation: true,
+                        showFocusNavigationLabel: PlatformDetector.isTV(),
                         onNavigateUp: _onContentStripNavigateUp,
                         onFocusActivity: widget.onFocusActivity,
                       ),
