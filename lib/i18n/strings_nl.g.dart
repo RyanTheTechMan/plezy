@@ -94,7 +94,7 @@ class _TranslationsAppNl extends TranslationsAppEn {
 	final TranslationsNl _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -1926,7 +1926,7 @@ class _TranslationsTrackersLibraryFilterNl extends TranslationsTrackersLibraryFi
 extension on TranslationsNl {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signIn' => 'Inloggen',
 			'auth.signInWithPlex' => 'Inloggen met Plex',
 			'auth.showQRCode' => 'Toon QR-code',

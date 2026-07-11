@@ -77,6 +77,8 @@ class _SettingsScreenState extends State<SettingsScreen> with FocusableTab, Moun
   static const _kClearCache = 'clear_cache';
   static const _kResetSettings = 'reset_settings';
   static const _kCheckForUpdates = 'check_for_updates';
+  static const _kOfficialUpdates = 'official_updates';
+  static const _kLabsUpdates = 'labs_updates';
   static const _kAutoCheckUpdatesOnStartup = 'auto_check_updates_on_startup';
   static const _kAbout = 'about';
   static const _kWatchTogetherRelay = 'watch_together_relay';
@@ -89,6 +91,8 @@ class _SettingsScreenState extends State<SettingsScreen> with FocusableTab, Moun
   // Update checking state
   bool _isCheckingForUpdate = false;
   Map<String, dynamic>? _updateInfo;
+  UpdateReleaseSources? _releaseSources;
+  UpdateChannel _updateChannel = UpdateChannel.labs;
 
   @override
   void initState() {
@@ -105,6 +109,7 @@ class _SettingsScreenState extends State<SettingsScreen> with FocusableTab, Moun
         setStateIfMounted(() => _keyboardService = s);
       });
     }
+    unawaited(_loadUpdateSources());
   }
 
   @override
@@ -483,50 +488,51 @@ class _SettingsScreenState extends State<SettingsScreen> with FocusableTab, Moun
   );
 
   Widget _buildUpdateSection() {
-    if (UpdateService.useNativeUpdater) {
-      return Column(
-        crossAxisAlignment: .start,
-        children: [
-          SettingsSectionHeader(t.settings.updates),
-          ListTile(
-            focusNode: _focusTracker.get(_kCheckForUpdates),
-            leading: const AppIcon(Symbols.system_update_rounded, fill: 1),
-            title: Text(t.settings.checkForUpdates),
-            trailing: const AppIcon(Symbols.chevron_right_rounded, fill: 1),
-            onTap: () => UpdateService.checkForUpdatesNative(inBackground: false),
-          ),
-          _buildAutoCheckUpdatesOnStartupTile(),
-        ],
-      );
-    }
-
-    final hasUpdate = _updateInfo != null && _updateInfo!['hasUpdate'] == true;
+    final sources = _releaseSources;
+    final official = sources?.official;
+    final labs = sources?.labs;
+    final labsSubtitle = sources?.labsIsBehindOfficial == true && official != null
+        ? t.settings.labsNotAvailable(version: official.version)
+        : labs == null
+        ? t.settings.releaseStatusUnavailable
+        : t.settings.latestLabsRelease(version: labs.displayVersion);
 
     return Column(
       crossAxisAlignment: .start,
       children: [
         SettingsSectionHeader(t.settings.updates),
         ListTile(
-          focusNode: _focusTracker.get(_kCheckForUpdates),
-          leading: AppIcon(
-            hasUpdate ? Symbols.system_update_rounded : Symbols.check_circle_rounded,
-            fill: 1,
-            color: hasUpdate ? Colors.orange : null,
+          focusNode: _focusTracker.get(_kOfficialUpdates),
+          leading: const AppIcon(Symbols.verified_rounded, fill: 1),
+          title: Text(t.settings.officialPlezy),
+          subtitle: Text(
+            official == null
+                ? t.settings.releaseStatusUnavailable
+                : t.settings.latestOfficialRelease(version: official.version),
           ),
-          title: Text(hasUpdate ? t.settings.updateAvailable : t.settings.checkForUpdates),
-          subtitle: hasUpdate ? Text(t.update.versionAvailable(version: _updateInfo!['latestVersion'])) : null,
+          trailing: _updateChannel == UpdateChannel.official
+              ? const AppIcon(Symbols.check_circle_rounded, fill: 1)
+              : const AppIcon(Symbols.open_in_new_rounded, fill: 1),
+          onTap: _confirmOfficialHandoff,
+        ),
+        ListTile(
+          focusNode: _focusTracker.get(_kLabsUpdates),
+          leading: const AppIcon(Symbols.science_rounded, fill: 1),
+          title: Text(t.settings.plezyLabs),
+          subtitle: Text(labsSubtitle),
+          trailing: _updateChannel == UpdateChannel.labs
+              ? const AppIcon(Symbols.check_circle_rounded, fill: 1)
+              : const AppIcon(Symbols.chevron_right_rounded, fill: 1),
+          onTap: _activateLabsChannel,
+        ),
+        ListTile(
+          focusNode: _focusTracker.get(_kCheckForUpdates),
+          leading: const AppIcon(Symbols.refresh_rounded, fill: 1),
+          title: Text(t.settings.checkForUpdates),
           trailing: _isCheckingForUpdate
               ? const LoadingIndicatorBox(size: 24)
               : const AppIcon(Symbols.chevron_right_rounded, fill: 1),
-          onTap: _isCheckingForUpdate
-              ? null
-              : () {
-                  if (hasUpdate) {
-                    _showUpdateDialog();
-                  } else {
-                    _checkForUpdates();
-                  }
-                },
+          onTap: _isCheckingForUpdate ? null : _checkForUpdates,
         ),
         _buildAutoCheckUpdatesOnStartupTile(),
       ],
@@ -739,19 +745,61 @@ class _SettingsScreenState extends State<SettingsScreen> with FocusableTab, Moun
     }
   }
 
+  Future<void> _loadUpdateSources() async {
+    final results = await Future.wait<Object>([UpdateService.fetchReleaseSources(), UpdateService.getUpdateChannel()]);
+    if (!mounted) return;
+    setState(() {
+      _releaseSources = results[0] as UpdateReleaseSources;
+      _updateChannel = results[1] as UpdateChannel;
+    });
+  }
+
+  Future<void> _confirmOfficialHandoff() async {
+    final confirmed = await showConfirmDialog(
+      context,
+      title: t.update.returnToOfficialTitle,
+      message: t.update.returnToOfficialWarning,
+      confirmText: t.update.openOfficialRelease,
+      isDestructive: true,
+    );
+    if (!confirmed) return;
+
+    await UpdateService.setUpdateChannel(UpdateChannel.official);
+    if (mounted) setState(() => _updateChannel = UpdateChannel.official);
+    final url = _releaseSources?.official?.releaseUrl ?? UpdateService.officialReleasesUrl;
+    await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+  }
+
+  Future<void> _activateLabsChannel() async {
+    await UpdateService.setUpdateChannel(UpdateChannel.labs);
+    if (mounted) setState(() => _updateChannel = UpdateChannel.labs);
+    if (UpdateService.useNativeUpdater) {
+      await UpdateService.checkForUpdatesNative(inBackground: false);
+    } else {
+      await _checkForUpdates();
+    }
+  }
+
   Future<void> _checkForUpdates() async {
     setState(() => _isCheckingForUpdate = true);
 
     try {
+      if (_updateChannel == UpdateChannel.labs && UpdateService.useNativeUpdater) {
+        await UpdateService.checkForUpdatesNative(inBackground: false);
+      }
       final updateInfo = await UpdateService.checkForUpdates();
+      final releaseSources = await UpdateService.fetchReleaseSources();
 
       if (mounted) {
         setState(() {
           _updateInfo = updateInfo;
+          _releaseSources = releaseSources;
           _isCheckingForUpdate = false;
         });
 
-        if (updateInfo == null || updateInfo['hasUpdate'] != true) {
+        if (updateInfo != null && updateInfo['hasUpdate'] == true && !UpdateService.useNativeUpdater) {
+          _showUpdateDialog();
+        } else if (updateInfo == null || updateInfo['hasUpdate'] != true) {
           showAppSnackBar(context, t.update.latestVersion);
         }
       }

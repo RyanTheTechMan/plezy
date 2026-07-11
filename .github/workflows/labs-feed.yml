@@ -1,0 +1,51 @@
+name: Publish Plezy Labs Feed
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Published Labs release tag
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: plezy-labs-feed
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: startsWith(github.event.release.tag_name || inputs.tag, 'labs-v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: labs
+          fetch-depth: 0
+
+      - name: Download and validate published appcast
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.event.release.tag_name || inputs.tag }}
+        run: |
+          set -euo pipefail
+          RELEASE=$(gh api "repos/${{ github.repository }}/releases/tags/$TAG")
+          test "$(jq -r '.draft' <<<"$RELEASE")" = false
+          test "$(jq -r '.prerelease' <<<"$RELEASE")" = true
+          gh release download "$TAG" --pattern appcast.xml
+          grep -q "github.com/${{ github.repository }}/releases/download/$TAG/" appcast.xml
+
+      - name: Replace the Labs feed branch
+        env:
+          TAG: ${{ github.event.release.tag_name || inputs.tag }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          BLOB=$(git hash-object -w appcast.xml)
+          TREE=$(printf "100644 blob %s\tappcast.xml\n" "$BLOB" | git mktree)
+          COMMIT=$(git commit-tree "$TREE" -m "Publish Plezy Labs feed for $TAG")
+          git push origin "$COMMIT:refs/heads/labs-feed" --force

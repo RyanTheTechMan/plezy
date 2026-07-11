@@ -1,0 +1,81 @@
+name: Build Plezy Labs Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish automatically instead of creating a draft
+        default: false
+        type: boolean
+
+permissions:
+  actions: write
+  contents: write
+
+concurrency:
+  group: plezy-labs-release
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: labs
+          fetch-depth: 0
+
+      - name: Validate official release base
+        id: metadata
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          VERSION=$(sed -n 's/^version: \([^+]*\).*/\1/p' pubspec.yaml)
+          OFFICIAL=$(gh api repos/edde746/plezy/releases/latest --jq 'select(.draft == false and .prerelease == false) | .tag_name')
+          OFFICIAL=${OFFICIAL#v}
+          if [ "$VERSION" != "$OFFICIAL" ]; then
+            echo "labs is based on $VERSION, but official Plezy is $OFFICIAL. Run the official sync first." >&2
+            exit 1
+          fi
+
+          git fetch --tags origin
+          ALL_LABS_TAGS=$(git tag --list 'labs-v*-r*')
+          TAG_COUNT=$(printf '%s\n' "$ALL_LABS_TAGS" | sed '/^$/d' | wc -l | tr -d ' ')
+          REVISION_COUNT=$(printf '%s\n' "$ALL_LABS_TAGS" | grep -Ec "^labs-v${VERSION//./\\.}-r[0-9]+$" || true)
+          REVISION=$((REVISION_COUNT + 1))
+          BUILD_NUMBER=$((10000 + TAG_COUNT))
+          if [ "$BUILD_NUMBER" -gt 65535 ]; then
+            echo "Plezy Labs exhausted the Windows-compatible build-number range." >&2
+            exit 1
+          fi
+
+          TAG="labs-v${VERSION}-r${REVISION}"
+          SOURCE_SHA=$(git rev-parse HEAD)
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a "$TAG" "$SOURCE_SHA" -m "Plezy Labs $VERSION r$REVISION (build $BUILD_NUMBER)"
+          git push origin "$TAG"
+
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "revision=$REVISION" >> "$GITHUB_OUTPUT"
+          echo "build_number=$BUILD_NUMBER" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "source_sha=$SOURCE_SHA" >> "$GITHUB_OUTPUT"
+
+      - name: Dispatch immutable desktop build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run build.yml --ref labs \
+            -f build_android=false \
+            -f build_ios=false \
+            -f build_macos=true \
+            -f build_windows=true \
+            -f build_linux=true \
+            -f labs_tag=${{ steps.metadata.outputs.tag }} \
+            -f labs_version=${{ steps.metadata.outputs.version }} \
+            -f labs_revision=${{ steps.metadata.outputs.revision }} \
+            -f labs_build_number=${{ steps.metadata.outputs.build_number }} \
+            -f source_sha=${{ steps.metadata.outputs.source_sha }} \
+            -f publish=${{ inputs.publish }}

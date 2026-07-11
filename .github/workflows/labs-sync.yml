@@ -1,0 +1,111 @@
+name: Sync Official Plezy Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      official_tag:
+        description: Published official Plezy tag to merge
+        required: true
+        type: string
+
+permissions:
+  actions: write
+  contents: write
+  issues: write
+
+concurrency:
+  group: plezy-labs-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: labs
+          fetch-depth: 0
+
+      - name: Fetch and validate the published tag
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TAG='${{ inputs.official_tag }}'
+          RELEASE=$(gh api "repos/edde746/plezy/releases/tags/$TAG")
+          test "$(jq -r '.draft' <<<"$RELEASE")" = false
+          test "$(jq -r '.prerelease' <<<"$RELEASE")" = false
+          git fetch --no-tags https://github.com/edde746/plezy.git "refs/tags/$TAG:refs/tags/$TAG"
+          TAG_VERSION=${TAG#v}
+          SOURCE_VERSION=$(git show "$TAG:pubspec.yaml" | sed -n 's/^version: \([^+]*\).*/\1/p')
+          test "$TAG_VERSION" = "$SOURCE_VERSION" || {
+            echo "Published tag $TAG does not match pubspec version $SOURCE_VERSION" >&2
+            exit 1
+          }
+
+      - name: Check Labs preference compatibility
+        id: preferences
+        continue-on-error: true
+        run: scripts/check-labs-preferences.sh '${{ inputs.official_tag }}'
+
+      - name: Report preference incompatibility
+        if: steps.preferences.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "Plezy Labs preference migration required for ${{ inputs.official_tag }}" \
+            --body "The automatic Labs sync stopped because official Plezy now collides with a Labs-owned preference. Add and test an explicit compatibility migration, then run the sync manually. No merge or release was published."
+
+      - name: Merge the exact official tag
+        if: steps.preferences.outcome == 'success'
+        id: merge
+        run: |
+          set +e
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git merge --no-ff '${{ inputs.official_tag }}' -m "chore(labs): sync official Plezy ${{ inputs.official_tag }}"
+          status=$?
+          if [ "$status" -ne 0 ]; then
+            conflicts=$(git diff --name-only --diff-filter=U | paste -sd ', ' -)
+            git merge --abort
+            echo "conflict=true" >> "$GITHUB_OUTPUT"
+            echo "files=$conflicts" >> "$GITHUB_OUTPUT"
+          else
+            echo "conflict=false" >> "$GITHUB_OUTPUT"
+          fi
+          exit 0
+
+      - name: Report merge conflict
+        if: steps.merge.outputs.conflict == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "Plezy Labs sync conflict for ${{ inputs.official_tag }}" \
+            --body "The exact published tag could not be merged automatically. Conflicting files: ${{ steps.merge.outputs.files }}. No branch update or release was published."
+
+      - name: Run repository checks
+        if: steps.preferences.outcome == 'success' && steps.merge.outputs.conflict == 'false'
+        id: checks
+        continue-on-error: true
+        run: scripts/ci_checks.sh
+
+      - name: Report failed checks
+        if: steps.checks.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "Plezy Labs checks failed for ${{ inputs.official_tag }}" \
+            --body "The published tag merged locally, but repository checks failed. The Labs branch and release were left unchanged. Inspect workflow run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}."
+
+      - name: Push the verified sync
+        if: steps.checks.outcome == 'success'
+        run: git push origin HEAD:labs
+
+      - name: Automatically publish Labs revision 1
+        if: steps.checks.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run labs-release.yml --ref labs -f publish=true

@@ -7,6 +7,7 @@ on:
 
 jobs:
   update-homebrew:
+    if: github.repository == 'edde746/plezy'
     runs-on: macos-latest
     permissions:
       contents: write
@@ -45,6 +46,7 @@ jobs:
           fi
 
   update-winget:
+    if: github.repository == 'edde746/plezy'
     runs-on: windows-latest
     steps:
       - uses: vedantmgoyal9/winget-releaser@v2
@@ -54,6 +56,7 @@ jobs:
           token: ${{ secrets.WINGET_TOKEN }}
 
   update-appcast-branch:
+    if: github.repository == 'edde746/plezy'
     runs-on: ubuntu-latest
     permissions:
       contents: write
