@@ -97,6 +97,7 @@ extension _PlexVideoControlsVisibilityMethods on _PlexVideoControlsState {
   void _handlePointerSignal(PointerSignalEvent event) {
     if (event is! PointerScrollEvent) return;
     _cancelAutoSkipFromUserInteraction();
+    if (_desktopControlsKey.currentState?.handleContentStripScroll(event) ?? false) return;
     widget.volumeController.adjust(-event.scrollDelta.dy / 20);
     _showControlsFromPointerActivity();
   }

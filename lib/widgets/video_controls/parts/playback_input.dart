@@ -881,6 +881,12 @@ extension _PlexVideoControlsPlaybackInputMethods on _PlexVideoControlsState {
 
   void _handleControlsOverlayTap(TapUpDetails details, Size size) {
     if (!PlatformDetector.isMobile(context)) {
+      if (widget.chromeController.contentStripVisible) {
+        _desktopControlsKey.currentState?.dismissContentStrip();
+        widget.chromeController.setContentStripVisible(false);
+        _restartHideTimerForCurrentPlaybackState();
+        return;
+      }
       _handleDesktopClickToggle();
       return;
     }

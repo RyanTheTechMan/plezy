@@ -11,8 +11,9 @@ class ContentStripPanel extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final IconData chevron;
   final Widget child;
+  final Widget? header;
 
-  const ContentStripPanel({super.key, required this.padding, required this.chevron, required this.child});
+  const ContentStripPanel({super.key, required this.padding, required this.chevron, required this.child, this.header});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class ContentStripPanel extends StatelessWidget {
       child: Column(
         mainAxisSize: .min,
         children: [
-          AppIcon(chevron, color: Colors.white38, size: 20),
+          header ?? AppIcon(chevron, color: Colors.white38, size: 20),
           const SizedBox(height: 4),
           child,
         ],
