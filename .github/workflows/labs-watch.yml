@@ -55,4 +55,8 @@ jobs:
         if: steps.release.outputs.sync == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run labs-sync.yml --ref labs -f official_tag=${{ steps.release.outputs.tag }}
+        run: |
+          gh workflow run labs-sync.yml \
+            --repo "${{ github.repository }}" \
+            --ref labs \
+            -f "official_tag=${{ steps.release.outputs.tag }}"
