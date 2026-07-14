@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "features": [
+    {
+      "id": "macos-volume",
+      "enabled": true,
+      "source_ref": "fix/macos-volume",
+      "commits": [
+        "c927c91faa5816523fa500b2a92a6d84b3eff40c",
+        "e8369834fdbdd472e26c6eb116e76f2f9084ed9a"
+      ],
+      "description": "Fix macOS volume control and stale restore behavior",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1515"
+    },
+    {
+      "id": "media-count",
+      "enabled": true,
+      "source_ref": "feature/media-count",
+      "commits": [
+        "910dc1d040de68c272658e6ab371a91d0ee5c684"
+      ],
+      "description": "Show item count in the library browse toolbar",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1516"
+    },
+    {
+      "id": "show-original-bitrate",
+      "enabled": true,
+      "source_ref": "feature/show-original-bitrate",
+      "commits": [
+        "6a0b8985bbea74df43be334e8914eb4c40426342",
+        "00394495b28857d43bc2e9d10acb48c76b34252a"
+      ],
+      "description": "Show the original bitrate in video quality controls",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1534"
+    },
+    {
+      "id": "chapter-select",
+      "enabled": true,
+      "source_ref": "fix/chapter-select",
+      "commits": [
+        "a40744babde77eb89dedc4d225076ba1fe6ed55e"
+      ],
+      "description": "Make the desktop chapter selector interactive",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1574",
+      "backport": {
+        "source_ref": "labs-backports/chapter-select",
+        "commits": [
+          "b08310d9dcf85ef6f8dc54de1946b02110edc7fd"
+        ],
+        "use_native_after": "abf1027b7717aa44d6f8fd5ec44795db208594c2"
+      }
+    },
+    {
+      "id": "pull-to-refresh",
+      "enabled": true,
+      "source_ref": "feature/pull-to-refresh",
+      "commits": [
+        "90c25397810a6beaca2aaa9dc8f58872aaeb0bbb",
+        "6d48eca0b314b56a8455016049ce46d27b508365"
+      ],
+      "description": "Add pull-to-refresh to Discover and Library Browse",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1528"
+    }
+  ]
+}
