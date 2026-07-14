@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "features": [
+    {
+      "id": "macos-volume",
+      "enabled": true,
+      "source_ref": "fix/macos-volume",
+      "commits": [
+        "c927c91faa5816523fa500b2a92a6d84b3eff40c",
+        "e8369834fdbdd472e26c6eb116e76f2f9084ed9a"
+      ],
+      "description": "Fix macOS volume control and stale restore behavior"
+    },
+    {
+      "id": "media-count",
+      "enabled": true,
+      "source_ref": "feature/media-count",
+      "commits": [
+        "910dc1d040de68c272658e6ab371a91d0ee5c684"
+      ],
+      "description": "Show item count in the library browse toolbar"
+    },
+    {
+      "id": "show-original-bitrate",
+      "enabled": true,
+      "source_ref": "feature/show-original-bitrate",
+      "commits": [
+        "6a0b8985bbea74df43be334e8914eb4c40426342",
+        "00394495b28857d43bc2e9d10acb48c76b34252a"
+      ],
+      "description": "Show the original bitrate in video quality controls"
+    }
+  ]
+}
