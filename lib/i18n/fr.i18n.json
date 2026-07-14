@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "S'inscrire avec Plex",
@@ -79,7 +79,15 @@
     "skipVersion": "Ignorer cette version",
     "viewRelease": "Voir la Release",
     "latestVersion": "Vous utilisez la dernière version",
-    "checkFailed": "Échec de la vérification des mises à jour"
+    "checkFailed": "Échec de la vérification des mises à jour",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Paramètres",
@@ -207,6 +215,12 @@
     "updates": "Mises à jour",
     "updateAvailable": "Mise à jour disponible",
     "checkForUpdates": "Vérifier les mises à jour",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "autoCheckUpdatesOnStartup": "Vérifier automatiquement les mises à jour au démarrage",
     "autoCheckUpdatesOnStartupDescription": "Notifier au lancement quand une mise à jour est disponible",
     "validationErrorEnterNumber": "Veuillez saisir un numéro valide",
@@ -336,6 +350,8 @@
     "clearShortcut": "Effacer le raccourci",
     "noShortcutSet": "Aucun raccourci défini",
     "currentShortcut": "Raccourci actuel :",
+    "pressToRecord": "Select to record a shortcut",
+    "recordingShortcut": "Press the shortcut now",
     "actions": {
       "playPause": "Lecture/Pause",
       "volumeUp": "Augmenter le volume",
@@ -434,7 +450,9 @@
     "hue": "Teinte",
     "saturation": "Saturation",
     "brightness": "Luminosité",
-    "hexColor": "Couleur hexadécimale"
+    "hexColor": "Couleur hexadécimale",
+    "expandText": "Expand text",
+    "collapseText": "Collapse text"
   },
   "tooltips": {
     "shufflePlay": "Lecture aléatoire",
@@ -814,8 +832,10 @@
     "title": "À propos",
     "openSourceLicenses": "Licences Open Source",
     "versionLabel": "Version ${version}",
-    "appDescription": "Un magnifique client Plex et Jellyfin pour Flutter",
-    "viewLicensesDescription": "Afficher les licences des bibliothèques tierces"
+    "viewLicensesDescription": "Afficher les licences des bibliothèques tierces",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Aucun serveur trouvé pour ${username} (${email})",
@@ -1048,6 +1068,8 @@
     "hostingSession": "Session d'hébergement",
     "inSession": "En session",
     "sessionCode": "Code de session",
+    "openSessionControls": "Open Watch Together session controls",
+    "copySessionCode": "Copy session code",
     "hostControlsPlayback": "L'hôte contrôle la lecture",
     "anyoneCanControl": "Tout le monde peut contrôler la lecture",
     "hostControls": "Commandes de l'hôte",
@@ -1358,6 +1380,8 @@
     "artworkUpdated": "Artwork mis à jour",
     "artworkUpdateFailed": "Échec de la mise à jour de l'artwork",
     "noArtworkAvailable": "Aucun artwork disponible",
+    "artworkOption": "Artwork option ${index}",
+    "selectedArtworkOption": "Artwork option ${index}, selected",
     "notSet": "Non défini",
     "libraryDefault": "Par défaut de la bibliothèque",
     "accountDefault": "Par défaut du compte",
@@ -1485,6 +1509,7 @@
       "title": "Activer Plezy sur ${service}",
       "body": "Rendez-vous sur ${url} et entrez ce code :",
       "openToActivate": "Ouvrir ${service} pour activer",
+      "copyCode": "Copy activation code",
       "waitingForAuthorization": "En attente d'autorisation…",
       "codeCopied": "Code copié"
     },
@@ -1492,6 +1517,7 @@
       "title": "Se connecter à ${service}",
       "body": "Scannez ce code QR ou ouvrez l'URL sur n'importe quel appareil.",
       "openToSignIn": "Ouvrir ${service} pour se connecter",
+      "copyUrl": "Copy sign-in URL",
       "urlCopied": "URL copiée"
     },
     "libraryFilter": {
