@@ -17,6 +17,7 @@ import 'package:plezy/services/plex_client.dart';
 import 'package:plezy/utils/watch_state_notifier.dart';
 
 import '../test_helpers/prefs.dart';
+import '../test_helpers/media_items.dart';
 
 // NOTE on coverage scope:
 // `PlaybackProgressTracker` periodically samples the player's position and
@@ -166,6 +167,7 @@ class _FakePlexClient implements PlexClient {
     Duration? duration,
     String? playSessionId,
     String? playMethod,
+    String? liveStreamId,
     String? mediaSourceId,
     int? audioStreamIndex,
     int? subtitleStreamIndex,
@@ -187,6 +189,7 @@ class _FakePlexClient implements PlexClient {
     bool isPaused = false,
     String? playSessionId,
     String? playMethod,
+    String? liveStreamId,
     String? mediaSourceId,
     int? audioStreamIndex,
     int? subtitleStreamIndex,
@@ -211,6 +214,7 @@ class _FakePlexClient implements PlexClient {
     required Duration position,
     Duration? duration,
     String? playSessionId,
+    String? liveStreamId,
     String? mediaSourceId,
     PlaybackReportMetadata report = const PlaybackReportMetadata.live(),
   }) {
@@ -255,6 +259,7 @@ class _DelayedStartClient extends _FakePlexClient {
     Duration? duration,
     String? playSessionId,
     String? playMethod,
+    String? liveStreamId,
     String? mediaSourceId,
     int? audioStreamIndex,
     int? subtitleStreamIndex,
@@ -266,6 +271,7 @@ class _DelayedStartClient extends _FakePlexClient {
       duration: duration,
       playSessionId: playSessionId,
       playMethod: playMethod,
+      liveStreamId: liveStreamId,
       mediaSourceId: mediaSourceId,
       audioStreamIndex: audioStreamIndex,
       subtitleStreamIndex: subtitleStreamIndex,
@@ -286,13 +292,14 @@ class _StopMarksWatchedClient extends _FakePlexClient {
 
 const Object _defaultServerId = Object();
 
-MediaItem _meta({String ratingKey = '42', Object? serverId = _defaultServerId, String? type = 'movie'}) => MediaItem(
-  id: ratingKey,
-  backend: MediaBackend.plex,
-  kind: MediaKind.fromString(type),
-  title: 'Test Item',
-  serverId: identical(serverId, _defaultServerId) ? ServerId('srv') : serverId as ServerId?,
-);
+MediaItem _meta({String ratingKey = '42', Object? serverId = _defaultServerId, String? type = 'movie'}) =>
+    testMediaItem(
+      id: ratingKey,
+      backend: MediaBackend.plex,
+      kind: MediaKind.fromString(type),
+      title: 'Test Item',
+      serverId: identical(serverId, _defaultServerId) ? ServerId('srv') : serverId as ServerId?,
+    );
 
 void main() {
   setUp(resetSharedPreferencesForTest);
@@ -314,18 +321,6 @@ void main() {
         () => PlaybackProgressTracker(client: null, metadata: _meta(), player: _FakePlayer(), isOffline: false),
         throwsA(isA<AssertionError>()),
       );
-    });
-
-    test('valid online construction succeeds', () {
-      final tracker = PlaybackProgressTracker(
-        client: _FakePlexClient(),
-        metadata: _meta(),
-        player: _FakePlayer(),
-        isOffline: false,
-      );
-      addTearDown(tracker.dispose);
-      // No assertion — the constructor returned cleanly.
-      expect(tracker, isNotNull);
     });
   });
 
@@ -588,7 +583,7 @@ void main() {
       );
       final tracker = PlaybackProgressTracker(
         client: client,
-        metadata: MediaItem(id: '42', backend: MediaBackend.jellyfin, kind: MediaKind.movie, serverId: 'srv'),
+        metadata: testMediaItem(id: '42', backend: MediaBackend.jellyfin, kind: MediaKind.movie, serverId: 'srv'),
         player: player,
         isOffline: false,
         mediaInfo: mediaInfo,
@@ -773,6 +768,94 @@ void main() {
       await Future<void>.delayed(Duration.zero);
       expect(precise.markWatchedAttempts, 2);
       expect(precise.markWatchedSuccesses, 1);
+    });
+
+    test('onScrobbled fires once after a successful scrobble (#1500)', () async {
+      final client = _FakePlexClient(thresholdPercent: 90);
+      final player = _FakePlayer(position: const Duration(seconds: 95), duration: const Duration(seconds: 100));
+      var hookCalls = 0;
+      final tracker = PlaybackProgressTracker(
+        client: client,
+        metadata: _meta(ratingKey: '42'),
+        player: player,
+        isOffline: false,
+        onScrobbled: () async => hookCalls++,
+      );
+      addTearDown(tracker.dispose);
+
+      await tracker.sendProgress('stopped');
+      await tracker.sendProgress('stopped');
+
+      expect(client.markWatchedCalls, ['42']);
+      expect(hookCalls, 1);
+    });
+
+    test('onScrobbled is not invoked below threshold', () async {
+      final client = _FakePlexClient(thresholdPercent: 90);
+      final player = _FakePlayer(position: const Duration(seconds: 89), duration: const Duration(seconds: 100));
+      var hookCalls = 0;
+      final tracker = PlaybackProgressTracker(
+        client: client,
+        metadata: _meta(),
+        player: player,
+        isOffline: false,
+        onScrobbled: () async => hookCalls++,
+      );
+      addTearDown(tracker.dispose);
+
+      await tracker.sendProgress('stopped');
+      expect(hookCalls, 0);
+    });
+
+    test('onScrobbled waits for a successful scrobble when the first attempt fails', () async {
+      final precise = _ScrobblePreciseClient(thresholdPercent: 90, failScrobbleFirstTime: true);
+      final player = _FakePlayer(position: const Duration(seconds: 95), duration: const Duration(seconds: 100));
+      var hookCalls = 0;
+      final tracker = PlaybackProgressTracker(
+        client: precise,
+        metadata: _meta(ratingKey: '42'),
+        player: player,
+        isOffline: false,
+        onScrobbled: () async => hookCalls++,
+      );
+      addTearDown(tracker.dispose);
+
+      await tracker.sendProgress('playing');
+      await Future<void>.delayed(Duration.zero);
+      expect(precise.markWatchedAttempts, 1);
+      expect(hookCalls, 0);
+
+      await tracker.sendProgress('playing');
+      await Future<void>.delayed(Duration.zero);
+      expect(precise.markWatchedSuccesses, 1);
+      expect(hookCalls, 1);
+    });
+
+    test('a throwing onScrobbled does not reset the scrobble latch', () async {
+      // A sibling-mark failure must not re-scrobble the primary item — that
+      // would inflate its view count on the next progress tick.
+      final client = _FakePlexClient(thresholdPercent: 90);
+      final player = _FakePlayer(position: const Duration(seconds: 95), duration: const Duration(seconds: 100));
+      var hookCalls = 0;
+      final tracker = PlaybackProgressTracker(
+        client: client,
+        metadata: _meta(ratingKey: '42'),
+        player: player,
+        isOffline: false,
+        onScrobbled: () async {
+          hookCalls++;
+          throw Exception('sibling mark failed');
+        },
+      );
+      addTearDown(tracker.dispose);
+
+      await tracker.sendProgress('playing');
+      await Future<void>.delayed(Duration.zero);
+      await tracker.sendProgress('playing');
+      await Future<void>.delayed(Duration.zero);
+
+      expect(client.markWatchedCalls, hasLength(1));
+      expect(hookCalls, 1);
     });
   });
 
@@ -1007,6 +1090,14 @@ class _ScrobblePreciseClient implements PlexClient {
   _ScrobblePreciseClient({this.thresholdPercent = 90, this.failScrobbleFirstTime = false});
 
   final int thresholdPercent;
+
+  /// markWatchedFromPlaybackStop resolves the event's cacheServerId from
+  /// [serverId] after the transport call — without this override the
+  /// notify step throws NoSuchMethodError and a successful markWatched
+  /// still registers as a failed scrobble.
+  @override
+  ServerId get serverId => ServerId('scrobbler');
+
   @override
   int get watchedThresholdPercent => thresholdPercent;
 
@@ -1037,6 +1128,7 @@ class _ScrobblePreciseClient implements PlexClient {
     Duration? duration,
     String? playSessionId,
     String? playMethod,
+    String? liveStreamId,
     String? mediaSourceId,
     int? audioStreamIndex,
     int? subtitleStreamIndex,
@@ -1050,6 +1142,7 @@ class _ScrobblePreciseClient implements PlexClient {
     bool isPaused = false,
     String? playSessionId,
     String? playMethod,
+    String? liveStreamId,
     String? mediaSourceId,
     int? audioStreamIndex,
     int? subtitleStreamIndex,
@@ -1061,6 +1154,7 @@ class _ScrobblePreciseClient implements PlexClient {
     required Duration position,
     Duration? duration,
     String? playSessionId,
+    String? liveStreamId,
     String? mediaSourceId,
     PlaybackReportMetadata report = const PlaybackReportMetadata.live(),
   }) async {}

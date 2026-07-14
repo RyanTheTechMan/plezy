@@ -1,10 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:plezy/media/ids.dart';
 import 'package:plezy/media/media_backend.dart';
-import 'package:plezy/media/media_item.dart';
+
 import 'package:plezy/media/media_kind.dart';
 import 'package:plezy/providers/watch_state_store.dart';
 import 'package:plezy/utils/watch_state_notifier.dart';
+import '../test_helpers/media_items.dart';
 
 Future<void> _emit(WatchStateEvent event) async {
   WatchStateNotifier().notify(event);
@@ -33,7 +34,7 @@ WatchStateEvent _event({
   );
 }
 
-final _episode = MediaItem(
+final _episode = testMediaItem(
   id: 'episode-1',
   backend: MediaBackend.jellyfin,
   kind: MediaKind.episode,
@@ -144,7 +145,7 @@ void main() {
 
     await _emit(_event(changeType: WatchStateChangeType.watched, isNowWatched: true, itemId: 'season-1'));
 
-    final season = MediaItem(
+    final season = testMediaItem(
       id: 'season-1',
       backend: MediaBackend.jellyfin,
       kind: MediaKind.season,
@@ -156,5 +157,52 @@ void main() {
     final resolved = store.apply(season);
     expect(resolved.viewedLeafCount, 10);
     expect(resolved.isWatched, isTrue);
+  });
+
+  test('hydrated parent and item patches retain persisted freshness', () {
+    final store = WatchStateStore();
+    addTearDown(store.dispose);
+    store.setHydratedPatches(const [
+      HydratedWatchStatePatch(
+        globalKey: 'jf-machine:show-1',
+        patch: WatchStatePatch(isWatched: true, hasViewOffsetMs: true, viewOffsetMs: 0),
+        updatedAt: 100,
+        order: 1,
+      ),
+      HydratedWatchStatePatch(
+        globalKey: 'jf-machine:episode-1',
+        patch: WatchStatePatch(isWatched: false, hasViewOffsetMs: true, viewOffsetMs: 0),
+        updatedAt: 200,
+        order: 2,
+      ),
+    ]);
+
+    final resolved = store.apply(_episode.copyWith(viewOffsetMs: 30000));
+    expect(resolved.isWatched, isFalse);
+    expect(resolved.viewOffsetMs, 0);
+  });
+
+  test('hydrated patches are isolated to the active client scope', () {
+    final store = WatchStateStore();
+    addTearDown(store.dispose);
+    store.setHydratedPatches(const [
+      HydratedWatchStatePatch(
+        globalKey: 'jf-machine/user-a:show-1',
+        patch: WatchStatePatch(isWatched: true),
+        updatedAt: 100,
+        order: 1,
+      ),
+      HydratedWatchStatePatch(
+        globalKey: 'jf-machine/user-b:show-1',
+        patch: WatchStatePatch(isWatched: false),
+        updatedAt: 100,
+        order: 2,
+      ),
+    ]);
+
+    store.setActiveClientScopesByServer({'jf-machine': 'jf-machine/user-a'});
+    expect(store.apply(_episode).isWatched, isTrue);
+    store.setActiveClientScopesByServer({'jf-machine': 'jf-machine/user-b'});
+    expect(store.apply(_episode).isWatched, isFalse);
   });
 }

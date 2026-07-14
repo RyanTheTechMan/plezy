@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:plezy/screens/main_screen.dart';
 import 'package:plezy/widgets/side_navigation_rail.dart';
@@ -70,27 +71,38 @@ void main() {
     expect(shouldPass(isAppleTV: false), isFalse);
   });
 
-  test('profile switch waits for one post-bind invalidation', () {
+  test('macOS physical Escape is reserved for native fullscreen only at root Home', () {
+    bool shouldHandle({
+      bool isMacOS = true,
+      bool isPhysicalKeyboardEvent = true,
+      LogicalKeyboardKey logicalKey = LogicalKeyboardKey.escape,
+      bool isCurrentRoute = true,
+      bool isHomeTab = true,
+    }) {
+      return shouldHandleMacOsRootEscape(
+        isMacOS: isMacOS,
+        isPhysicalKeyboardEvent: isPhysicalKeyboardEvent,
+        logicalKey: logicalKey,
+        isCurrentRoute: isCurrentRoute,
+        isHomeTab: isHomeTab,
+      );
+    }
+
+    expect(shouldHandle(), isTrue);
+    expect(shouldHandle(isHomeTab: false), isFalse);
+    expect(shouldHandle(isCurrentRoute: false), isFalse);
+    expect(shouldHandle(isPhysicalKeyboardEvent: false), isFalse);
+    expect(shouldHandle(isMacOS: false), isFalse);
+    expect(shouldHandle(logicalKey: LogicalKeyboardKey.gameButtonB), isFalse);
+  });
+
+  test('profile switch invalidates nothing here — the keyed session remount owns it', () {
     expect(
       profileInvalidationAction(
         previousProfileId: 'owner',
         currentProfileId: 'kids',
         wasBindingPreviously: false,
         isBindingNow: false,
-        hasPendingProfileSwitchInvalidation: false,
-        pendingProfileSwitchInvalidationId: null,
-      ),
-      ProfileInvalidationAction.waitForProfileSwitch,
-    );
-
-    expect(
-      profileInvalidationAction(
-        previousProfileId: 'kids',
-        currentProfileId: 'kids',
-        wasBindingPreviously: true,
-        isBindingNow: false,
-        hasPendingProfileSwitchInvalidation: true,
-        pendingProfileSwitchInvalidationId: 'kids',
       ),
       ProfileInvalidationAction.none,
     );
@@ -103,8 +115,6 @@ void main() {
         currentProfileId: 'owner',
         wasBindingPreviously: true,
         isBindingNow: false,
-        hasPendingProfileSwitchInvalidation: false,
-        pendingProfileSwitchInvalidationId: null,
       ),
       ProfileInvalidationAction.invalidateNow,
     );
@@ -115,8 +125,6 @@ void main() {
         currentProfileId: 'owner',
         wasBindingPreviously: false,
         isBindingNow: false,
-        hasPendingProfileSwitchInvalidation: false,
-        pendingProfileSwitchInvalidationId: null,
       ),
       ProfileInvalidationAction.none,
     );

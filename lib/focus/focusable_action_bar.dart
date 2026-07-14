@@ -5,6 +5,7 @@ import '../widgets/clickable_cursor.dart';
 import 'focus_theme.dart';
 import 'input_mode_tracker.dart';
 import 'key_event_utils.dart';
+import 'owned_focus_node_binding.dart';
 
 typedef FocusableActionBuilder = Widget Function(BuildContext context, FocusableActionBuildState state);
 
@@ -28,6 +29,7 @@ class FocusableAction {
   final IconData icon;
   final Color? iconColor;
   final double iconFill;
+  final double iconSize;
 
   final String? debugLabel;
   final FocusNode? focusNode;
@@ -42,6 +44,7 @@ class FocusableAction {
     this.icon = Icons.circle,
     this.iconColor,
     this.iconFill = 1.0,
+    this.iconSize = 24,
     this.debugLabel,
     this.focusNode,
     this.autofocus = false,
@@ -94,9 +97,8 @@ class FocusableActionBar extends StatefulWidget {
 }
 
 class FocusableActionBarState extends State<FocusableActionBar> {
+  late List<OwnedFocusNodeBinding> _focusBindings;
   late List<FocusNode> _focusNodes;
-  late List<bool> _ownsFocusNodes;
-  late List<VoidCallback> _focusListeners;
   late List<bool> _focusStates;
   bool _hasAnyFocus = false;
 
@@ -131,27 +133,28 @@ class FocusableActionBarState extends State<FocusableActionBar> {
   }
 
   void _initNodes() {
-    _focusNodes = List.generate(
-      widget.actions.length,
-      (i) => widget.actions[i].focusNode ?? FocusNode(debugLabel: widget.actions[i].debugLabel ?? 'ActionBar[$i]'),
-    );
-    _ownsFocusNodes = List.generate(widget.actions.length, (i) => widget.actions[i].focusNode == null);
-    _focusListeners = [];
-    _focusStates = List.generate(widget.actions.length, (i) => _focusNodes[i].hasFocus);
-    _hasAnyFocus = _focusNodes.any((node) => node.hasFocus);
-    for (var i = 0; i < _focusNodes.length; i++) {
-      final idx = i;
-      void listener() {
-        final hasFocus = _focusNodes[idx].hasFocus;
-        if (_focusStates[idx] != hasFocus) {
-          setState(() => _focusStates[idx] = hasFocus);
-        }
-        _notifyRowFocusIfChanged();
-      }
-
-      _focusListeners.add(listener);
-      _focusNodes[i].addListener(listener);
+    _focusBindings = [];
+    _focusNodes = [];
+    _focusStates = List<bool>.filled(widget.actions.length, false);
+    for (var i = 0; i < widget.actions.length; i++) {
+      final index = i;
+      final binding = OwnedFocusNodeBinding();
+      binding.bind(
+        externalNode: widget.actions[i].focusNode,
+        debugLabel: widget.actions[i].debugLabel ?? 'ActionBar[$i]',
+        listener: () {
+          final hasFocus = _focusNodes[index].hasFocus;
+          if (_focusStates[index] != hasFocus) {
+            setState(() => _focusStates[index] = hasFocus);
+          }
+          _notifyRowFocusIfChanged();
+        },
+      );
+      _focusBindings.add(binding);
+      _focusNodes.add(binding.node);
+      _focusStates[i] = binding.node.hasFocus;
     }
+    _hasAnyFocus = _focusNodes.any((node) => node.hasFocus);
   }
 
   void _notifyRowFocusIfChanged() {
@@ -162,11 +165,8 @@ class FocusableActionBarState extends State<FocusableActionBar> {
   }
 
   void _disposeNodes() {
-    for (var i = 0; i < _focusNodes.length; i++) {
-      _focusNodes[i].removeListener(_focusListeners[i]);
-      if (_ownsFocusNodes[i]) {
-        _focusNodes[i].dispose();
-      }
+    for (final binding in _focusBindings) {
+      binding.dispose();
     }
   }
 
@@ -181,7 +181,7 @@ class FocusableActionBarState extends State<FocusableActionBar> {
     final isKeyboard = InputModeTracker.isKeyboardMode(context);
     final duration = FocusTheme.getAnimationDuration(context);
 
-    return Row(
+    final row = Row(
       mainAxisSize: widget.mainAxisSize,
       children: [
         for (var i = 0; i < widget.actions.length; i++) ...[
@@ -190,13 +190,20 @@ class FocusableActionBarState extends State<FocusableActionBar> {
         ],
       ],
     );
+    // While focus is outside the row (the common state — the user is browsing
+    // content), every button is equally dimmed, so dim once at row level:
+    // each sub-1.0 opacity is its own saveLayer, i.e. a full render-pass
+    // switch on the tiled GPUs low-end TVs use, and these bars sit on screen
+    // permanently. Per-button dims (below) take over only while the row holds
+    // focus; mid-transition the two multiply, which stays visually seamless.
+    return AnimatedOpacity(opacity: isKeyboard && !_hasAnyFocus ? 0.6 : 1.0, duration: duration, child: row);
   }
 
   Widget _buildButton(int index, bool isKeyboard, Duration duration) {
     final action = widget.actions[index];
     final isFocused = _focusStates[index];
     final showFocus = isFocused && isKeyboard;
-    final opacity = isKeyboard && !isFocused ? 0.6 : 1.0;
+    final opacity = isKeyboard && _hasAnyFocus && !isFocused ? 0.6 : 1.0;
 
     final buildState = FocusableActionBuildState(
       focusNode: _focusNodes[index],
@@ -241,7 +248,7 @@ class FocusableActionBarState extends State<FocusableActionBar> {
                 child:
                     action.child ??
                     IconButton(
-                      icon: AppIcon(action.icon, fill: action.iconFill, color: action.iconColor),
+                      icon: AppIcon(action.icon, size: action.iconSize, fill: action.iconFill, color: action.iconColor),
                       tooltip: action.tooltip,
                       onPressed: action.onPressed,
                     ),

@@ -39,44 +39,31 @@ jobs:
 
           flutter pub get
 
+      - name: Install saf_util development dependencies
+        working-directory: packages/saf_util
+        run: flutter pub get
+
       - name: Verify generated files committed
+        run: scripts/codegen.sh --check
+
+      - name: Verify translation hygiene
+        run: python3 scripts/clean_translations.py --check --strict
+
+      - name: Verify workflow and script guards
         run: |
-          scripts/codegen.sh
-          if ! git diff --exit-code lib/; then
-            echo "::error::Generated files (.g.dart / .freezed.dart) are out of date."
-            echo "Run 'scripts/codegen.sh' and commit the result."
-            exit 1
-          fi
+          python3 scripts/check_build_workflow.py
+          python3 scripts/check_update_packages_workflow.py
+          python3 scripts/test_pubspec_version.py
+          python3 scripts/test_clean_translations.py
 
       - name: Verify formatting
         run: |
-          # Find all Dart files excluding generated files
-          find lib $([ -d test ] && echo test) -name "*.dart" ! -name "*.g.dart" ! -name "*.freezed.dart" -type f 2>/dev/null | while IFS= read -r file; do
-            files_found=true
-            break
-          done
-          if [ "$files_found" != "true" ]; then
-            echo "No Dart files found to format"
-            exit 0
-          fi
-          find lib $([ -d test ] && echo test) -name "*.dart" ! -name "*.g.dart" ! -name "*.freezed.dart" -type f 2>/dev/null -print0 | xargs -0 dart format --output=none --set-exit-if-changed
+          paths=(lib)
+          [ ! -d test ] || paths+=(test)
+          find "${paths[@]}" -name "*.dart" ! -name "*.g.dart" ! -name "*.freezed.dart" -type f -print0 |
+            xargs -0 -r dart format --output=none --set-exit-if-changed
       - name: Analyze code
-        run: |
-          # Run flutter analyze
-          # Fails on errors or warnings only (info messages are allowed)
-          flutter analyze 2>&1 | tee analyze_output.txt || true
-
-          # Check output for errors or warnings
-          if grep -q "error •" analyze_output.txt; then
-            echo "❌ Analysis failed with errors"
-            exit 1
-          elif grep -q "warning •" analyze_output.txt; then
-            echo "⚠️  Analysis completed with warnings"
-            exit 1
-          else
-            echo "✅ Analysis passed!"
-            exit 0
-          fi
+        run: dart run scripts/check_analyzer.dart
 
       - name: Check for unused code
         run: |
@@ -138,6 +125,60 @@ jobs:
           else
             echo "No tests found, skipping test execution"
           fi
+
+  android-test:
+    name: Android JVM Unit Tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+          flutter-version: "3.44.0"
+          cache: true
+          pub-cache: false
+
+      - name: Cache Pub dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pub-cache
+          key: ${{ runner.os }}-pub-v3-${{ hashFiles('**/pubspec.yaml', '**/pubspec.lock') }}
+
+      - name: Cache Gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Configure Android local properties
+        run: printf 'flutter.sdk=%s\nsdk.dir=%s\n' "$FLUTTER_ROOT" "$ANDROID_HOME" > android/local.properties
+
+      - name: Run Android JVM unit tests
+        working-directory: android
+        run: ./gradlew :app:testDebugUnitTest :saf_util:testDebugUnitTest :libass:testDebugUnitTest -x :app:compileFlutterBuildDebug --continue
+
+      - name: Check Android API compatibility
+        working-directory: android
+        run: ./gradlew :app:lintDebug
 
   native-format:
     name: Native Formatting

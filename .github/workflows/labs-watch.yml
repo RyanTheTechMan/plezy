@@ -33,7 +33,7 @@ jobs:
           OFFICIAL_TAG=$(gh api repos/edde746/plezy/releases/latest --jq 'select(.draft == false and .prerelease == false) | .tag_name')
           OFFICIAL_VERSION=${OFFICIAL_TAG#v}
           LABS_TAG=$(gh api "repos/${{ github.repository }}/releases?per_page=100" \
-            --jq '[.[] | select((.draft == true or .prerelease == true) and (.tag_name | startswith("labs-v")))] | first | .tag_name // ""')
+            --jq '[.[] | select(.draft == false and .prerelease == true and (.tag_name | startswith("labs-v")))] | first | .tag_name // ""')
           LABS_VERSION=$(sed -n 's/^labs-v\([0-9][0-9.]*\)-r[0-9][0-9]*$/\1/p' <<<"$LABS_TAG")
 
           if [ "$OFFICIAL_VERSION" = "$LABS_VERSION" ]; then

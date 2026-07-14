@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import '../../media/media_item.dart';
 import '../../media/media_kind.dart';
 import '../../media/media_server_client.dart';
+import '../../media/playback_timeline.dart';
 import '../../models/trakt/trakt_ids.dart';
 import '../../models/trakt/trakt_scrobble_request.dart';
 import '../../utils/app_logger.dart';
@@ -33,9 +34,6 @@ class TraktScrobbleService implements TrackerRatingSource {
   /// spamming 409s during rapid pause/play cycles.
   static const Duration _startResendThrottle = Duration(seconds: 30);
 
-  /// Position-jump magnitude that counts as a seek (matches DiscordRPCService).
-  static const Duration _seekDetectionThreshold = Duration(seconds: 5);
-
   /// Max one seek-checkpoint per this window — slider drag fires many position
   /// updates per second; we only want to ship one to Trakt.
   static const Duration _seekCheckpointThrottle = Duration(seconds: 5);
@@ -51,11 +49,11 @@ class TraktScrobbleService implements TrackerRatingSource {
   TraktClient? _client;
   TrackerIdResolver? _resolver;
   TraktScrobbleRequest? _currentBody;
-  Duration _currentPosition = Duration.zero;
-  Duration _currentDuration = Duration.zero;
+  final PlaybackTimeline _timeline = PlaybackTimeline();
   TraktScrobbleState? _lastSentState;
   DateTime? _lastSentAt;
   DateTime? _lastSeekCheckpointAt;
+  int _playbackRevision = 0;
 
   Future<void> initialize() async {
     if (_isInitialized) return;
@@ -127,13 +125,18 @@ class TraktScrobbleService implements TrackerRatingSource {
   /// Drop the current scrobble state without sending a stop. Called on profile
   /// switch and when the service is disabled mid-playback.
   void cancelInFlight() {
+    ++_playbackRevision;
+    _clearPlaybackState();
+  }
+
+  void _clearPlaybackState() {
     _currentBody = null;
     _lastSentState = null;
     _lastSentAt = null;
+    _lastSeekCheckpointAt = null;
     _resolver?.clearCache();
     _resolver = null;
-    _currentPosition = Duration.zero;
-    _currentDuration = Duration.zero;
+    _timeline.reset();
   }
 
   bool get _canScrobble => _isEnabled && _client != null;
@@ -213,8 +216,9 @@ class TraktScrobbleService implements TrackerRatingSource {
   }
 
   Future<void> startPlayback(MediaItem metadata, MediaServerClient client, {bool isLive = false}) async {
-    if (!_canScrobble) return;
-    if (isLive) return;
+    final revision = ++_playbackRevision;
+    _clearPlaybackState();
+    if (!_canScrobble || isLive) return;
 
     final type = metadata.kind;
     if (type != MediaKind.movie && type != MediaKind.episode) return;
@@ -227,15 +231,17 @@ class TraktScrobbleService implements TrackerRatingSource {
 
     // Seed with the resume offset so the first real position update doesn't
     // look like a seek when resuming mid-item.
-    _currentPosition = metadata.viewOffsetMs != null ? Duration(milliseconds: metadata.viewOffsetMs!) : Duration.zero;
-    _currentDuration = metadata.durationMs != null ? Duration(milliseconds: metadata.durationMs!) : Duration.zero;
-    _lastSeekCheckpointAt = null;
+    _timeline.reset(
+      position: metadata.viewOffsetMs != null ? Duration(milliseconds: metadata.viewOffsetMs!) : Duration.zero,
+      duration: metadata.durationMs != null ? Duration(milliseconds: metadata.durationMs!) : null,
+    );
     _resolver = TrackerIdResolver(client, needsFribb: () => false);
 
     final body = await _buildBody(metadata);
+    if (revision != _playbackRevision) return;
     if (body == null) {
       appLogger.d('Trakt: skipping scrobble — no usable IDs for ${metadata.id}');
-      cancelInFlight();
+      _clearPlaybackState();
       return;
     }
     _currentBody = body;
@@ -243,8 +249,7 @@ class TraktScrobbleService implements TrackerRatingSource {
   }
 
   void updatePosition(Duration position) {
-    final previous = _currentPosition;
-    _currentPosition = position;
+    final isSeek = _timeline.updatePosition(position);
 
     // Trakt has no seek event — instead, official apps send pause+start with
     // the new progress to checkpoint. Without this, the "resume on another
@@ -252,18 +257,18 @@ class TraktScrobbleService implements TrackerRatingSource {
     // pause/stop.
     if (_currentBody == null) return;
     if (_lastSentState != TraktScrobbleState.start) return;
-    if ((position - previous).abs() <= _seekDetectionThreshold) return;
+    if (!isSeek) return;
 
     final now = DateTime.now();
-    if (_lastSeekCheckpointAt != null && now.difference(_lastSeekCheckpointAt!) < _seekCheckpointThrottle) return;
+    if (_lastSeekCheckpointAt != null && now.difference(_lastSeekCheckpointAt!) < _seekCheckpointThrottle) {
+      return;
+    }
     _lastSeekCheckpointAt = now;
     unawaited(_sendSeekCheckpoint());
   }
 
   void updateDuration(Duration duration) {
-    if (duration.inMilliseconds == 0) return;
-    if (duration == _currentDuration) return;
-    _currentDuration = duration;
+    _timeline.updateDuration(duration);
   }
 
   Future<void> pausePlayback() async {
@@ -277,9 +282,13 @@ class TraktScrobbleService implements TrackerRatingSource {
   }
 
   Future<void> stopPlayback() async {
-    if (_currentBody == null) return;
+    final revision = ++_playbackRevision;
+    if (_currentBody == null) {
+      _clearPlaybackState();
+      return;
+    }
     await _send(TraktScrobbleState.stop, progress: _progressPercent());
-    cancelInFlight();
+    if (revision == _playbackRevision) _clearPlaybackState();
   }
 
   Future<TraktScrobbleRequest?> _buildBody(MediaItem metadata) async {
@@ -306,11 +315,7 @@ class TraktScrobbleService implements TrackerRatingSource {
     );
   }
 
-  double _progressPercent() {
-    if (_currentDuration.inMilliseconds == 0) return 0;
-    final pct = (_currentPosition.inMilliseconds / _currentDuration.inMilliseconds) * 100;
-    return pct.clamp(0.0, 100.0);
-  }
+  double _progressPercent() => _timeline.progressPercent;
 
   /// Send pause→start to Trakt so the playback-progress endpoint reflects the
   /// new position. Bypasses [_send]'s state throttle (this is a checkpoint,

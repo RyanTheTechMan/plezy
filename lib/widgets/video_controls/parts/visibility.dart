@@ -162,29 +162,9 @@ extension _PlexVideoControlsVisibilityMethods on _PlexVideoControlsState {
     }
   }
 
-  /// macOS PiP changed — force controls visible while PiP is active
-  void _onMacPipChanged() {
-    if (!mounted) return;
-    final inPip = _pipService.isPipActive.value;
-    if (inPip) {
-      widget.chromeController.hold(PlayerChromeHold.pip);
-    } else {
-      widget.chromeController.release(PlayerChromeHold.pip);
-    }
-  }
-
   Future<void> _toggleFullscreen() async {
     if (!PlatformDetector.isDesktopOS()) return;
     await FullscreenStateManager().toggleFullscreen();
-  }
-
-  /// Exit fullscreen if the window is actually fullscreen (async check).
-  /// Used by ESC handler on Windows/Linux to avoid relying on _isFullscreen flag.
-  Future<void> _exitFullscreenIfNeeded() async {
-    if (!Platform.isWindows && !Platform.isLinux) return;
-    if (await windowManager.isFullScreen()) {
-      await FullscreenStateManager().exitFullscreen();
-    }
   }
 
   /// Initialize always-on-top state from window manager (desktop only)
@@ -268,11 +248,24 @@ extension _PlexVideoControlsVisibilityMethods on _PlexVideoControlsState {
       _desktopControlsKey.currentState?.hideContentStrip();
       _cancelSkipButtonDismissTimer();
       _setControlsState(() {
+        _controlsOpaque = false;
         if (_currentMarker != null) _skipButtonDismissed = true;
       });
       _reclaimFocusAfterControlsHide();
-    } else {
-      _setControlsState(() {});
+    } else if (visibilityChanged) {
+      _setControlsState(() {
+        _controlsMounted = true;
+        _controlsOpaque = false;
+      });
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted || !_showControls || !_controlsMounted) return;
+        _setControlsState(() => _controlsOpaque = true);
+      });
+    } else if (controlsVisible && !_controlsMounted) {
+      _setControlsState(() {
+        _controlsMounted = true;
+        _controlsOpaque = true;
+      });
     }
 
     if (visibilityChanged && Platform.isMacOS) {

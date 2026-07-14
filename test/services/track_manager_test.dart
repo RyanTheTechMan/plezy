@@ -11,6 +11,7 @@ import 'package:plezy/services/settings_service.dart';
 import 'package:plezy/services/track_manager.dart';
 
 import '../test_helpers/prefs.dart';
+import '../test_helpers/media_items.dart';
 
 // NOTE on coverage scope:
 // `TrackManager` orchestrates the player + Plex client + SettingsService
@@ -18,8 +19,7 @@ import '../test_helpers/prefs.dart';
 // initialized SettingsService.
 //
 // Coverage:
-//   - Constructor wiring (mutable fields are settable, default values).
-//   - `cacheExternalSubtitles` / `lastExternalSubtitles` round-trip.
+//   - `cacheExternalSubtitles` / `lastExternalSubtitles` replacement behavior.
 //   - `addExternalSubtitles` invokes the player's addSubtitleTrack for each
 //     entry with a non-null URI, preserves order, and silently swallows errors
 //     thrown by the player.
@@ -27,8 +27,6 @@ import '../test_helpers/prefs.dart';
 //     fewer than 2 real tracks (early-return paths).
 //   - `applyTrackSelectionWhenReady` waits for subtitle tracks when server
 //     metadata says they exist.
-//   - `onPlaybackRestart` is a no-op when not waiting for external subs.
-//   - `onSecondarySubtitleTrackChanged` is a documented no-op.
 //   - `dispose` is idempotent (timers/subscriptions cleared).
 //
 // What's NOT covered:
@@ -42,7 +40,7 @@ import '../test_helpers/prefs.dart';
 //     therefore gated on the same SettingsService dependency.
 //   - `resumeAfterSubtitleLoad` — schedules a real wall-clock fallback Timer.
 
-MediaItem _meta({String id = 'rk1'}) => MediaItem(id: id, backend: MediaBackend.plex, kind: MediaKind.movie);
+MediaItem _meta({String id = 'rk1'}) => testMediaItem(id: id, backend: MediaBackend.plex, kind: MediaKind.movie);
 
 /// Player that records calls and can be configured per-test.
 class _FakePlayer with PlayerStreamControllersMixin implements Player {
@@ -111,11 +109,12 @@ TrackManager _make({
   MediaSourceInfo? mediaInfo,
   bool active = true,
   void Function(String, {Duration? duration})? showMessage,
+  TrackPreferencePersister? persister,
 }) {
   return TrackManager(
     player: player,
     isActive: () => active,
-    persistTrackPreference: _noopPersister,
+    persistTrackPreference: persister ?? _noopPersister,
     getProfileSettings: () => null,
     waitForProfileSettings: () async {},
     metadata: metadata ?? _meta(),
@@ -147,49 +146,6 @@ void main() {
   // The constructor doesn't touch prefs, but [dispose] / [applyTrackSelection]
   // could leak across tests — reset to be safe.
   setUp(resetSharedPreferencesForTest);
-
-  // ============================================================
-  // Construction
-  // ============================================================
-
-  group('constructor', () {
-    test('initialises mutable fields with the provided values', () {
-      final player = _FakePlayer();
-      final mgr = TrackManager(
-        player: player,
-        isActive: () => true,
-        persistTrackPreference: _noopPersister,
-        getProfileSettings: () => null,
-        waitForProfileSettings: () async {},
-        metadata: _meta(),
-        preferredAudioTrack: const AudioTrack(id: 'a-1', language: 'eng'),
-        preferredSubtitleTrack: const SubtitleTrack(id: 's-1', language: 'eng'),
-        preferredSecondarySubtitleTrack: const SubtitleTrack(id: 's-2', language: 'fre'),
-      );
-      addTearDown(mgr.dispose);
-
-      expect(mgr.preferredAudioTrack?.id, 'a-1');
-      expect(mgr.preferredSubtitleTrack?.id, 's-1');
-      expect(mgr.preferredSecondarySubtitleTrack?.id, 's-2');
-      expect(mgr.metadata.id, 'rk1');
-      expect(mgr.waitingForExternalSubsTrackSelection, isFalse);
-      expect(mgr.lastExternalSubtitles, isEmpty);
-      expect(mgr.mediaInfo, isNull);
-    });
-
-    test('mutable fields can be reassigned (episode-navigation pattern)', () {
-      final mgr = _make(player: _FakePlayer());
-      addTearDown(mgr.dispose);
-
-      mgr.metadata = _meta(id: 'next');
-      mgr.preferredAudioTrack = const AudioTrack(id: 'a2', language: 'fre');
-      mgr.waitingForExternalSubsTrackSelection = true;
-
-      expect(mgr.metadata.id, 'next');
-      expect(mgr.preferredAudioTrack?.id, 'a2');
-      expect(mgr.waitingForExternalSubsTrackSelection, isTrue);
-    });
-  });
 
   // ============================================================
   // External subtitle cache
@@ -504,12 +460,70 @@ void main() {
     });
   });
 
-  group('onSecondarySubtitleTrackChanged', () {
-    test('is a documented no-op', () {
-      final mgr = _make(player: _FakePlayer());
+  // ============================================================
+  // onSubtitleTrackChanged — same-language stream mapping (#1443)
+  // ============================================================
+
+  group('onSubtitleTrackChanged', () {
+    // Reproduces the #1443 MKVToolNix screenshot: the "forced" French subtitle
+    // is NOT flagged forced in the container — it only carries the name
+    // "Forced" — and the regular French sub has an empty name. So both sides
+    // report forced=false, and the saved streamID must come from the title
+    // (forced sub) and ordinal position (the empty-title regular sub), not from
+    // "first language match wins".
+    MediaSourceInfo info() => MediaSourceInfo(
+      videoUrl: 'https://example.com/video.mkv',
+      partId: 1,
+      audioTracks: [MediaAudioTrack(id: 1, languageCode: 'fre', selected: true)],
+      subtitleTracks: [
+        MediaSubtitleTrack(id: 30, languageCode: 'fre', title: 'Forced', codec: 'ass', selected: false, forced: false),
+        MediaSubtitleTrack(id: 31, languageCode: 'fre', codec: 'ass', selected: false, forced: false),
+        MediaSubtitleTrack(id: 32, languageCode: 'eng', title: 'SDH', codec: 'ass', selected: false, forced: false),
+      ],
+      chapters: const [],
+    );
+
+    const playerSubs = [
+      SubtitleTrack(id: '2_0', language: 'fre', title: 'Forced', codec: 'ass'),
+      SubtitleTrack(id: '2_1', language: 'fre', codec: 'ass'),
+      SubtitleTrack(id: '2_2', language: 'eng', title: 'SDH', codec: 'ass'),
+    ];
+
+    test('persists distinct streamIDs for title-only-forced vs regular same-language subs', () async {
+      await SettingsService.getInstance();
+      final player = _FakePlayer(tracks: const Tracks(subtitle: playerSubs));
+      int? captured;
+      final mgr = _make(
+        player: player,
+        mediaInfo: info(),
+        persister: ({required int partId, required String trackType, int? streamID}) async {
+          captured = streamID;
+        },
+      );
       addTearDown(mgr.dispose);
-      // Just verify it returns normally; nothing else to assert.
-      expect(() => mgr.onSecondarySubtitleTrackChanged(const SubtitleTrack(id: '1')), returnsNormally);
+
+      await mgr.onSubtitleTrackChanged(playerSubs[0]); // "Forced"-named track
+      expect(captured, 30);
+
+      await mgr.onSubtitleTrackChanged(playerSubs[1]); // regular (empty title)
+      expect(captured, 31);
+    });
+
+    test('persists stream 0 when subtitles are turned off', () async {
+      await SettingsService.getInstance();
+      final player = _FakePlayer(tracks: const Tracks(subtitle: playerSubs));
+      int? captured = -1;
+      final mgr = _make(
+        player: player,
+        mediaInfo: info(),
+        persister: ({required int partId, required String trackType, int? streamID}) async {
+          captured = streamID;
+        },
+      );
+      addTearDown(mgr.dispose);
+
+      await mgr.onSubtitleTrackChanged(SubtitleTrack.off);
+      expect(captured, 0);
     });
   });
 

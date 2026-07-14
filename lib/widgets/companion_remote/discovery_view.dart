@@ -16,9 +16,33 @@ import '../../profiles/active_profile_provider.dart';
 import '../../profiles/plex_home_service.dart';
 import '../../profiles/profile_connection_registry.dart';
 import '../../providers/companion_remote_provider.dart';
+import '../../services/base_peer_service.dart';
 import '../../services/settings_service.dart';
 import '../../utils/app_logger.dart';
+
 import '../loading_indicator_box.dart';
+
+@visibleForTesting
+String companionRemotePairingErrorMessage(Object error) {
+  if (error is PeerError) {
+    return switch (error.type) {
+      PeerErrorType.timeout => t.companionRemote.pairing.connectionTimedOut,
+      PeerErrorType.connectionFailed || PeerErrorType.invalidSession => t.companionRemote.pairing.sessionNotFound,
+      PeerErrorType.authFailed => t.companionRemote.pairing.authFailed,
+      _ => error.message,
+    };
+  }
+
+  final message = error.toString().replaceFirst('Exception: ', '');
+  if (message.contains('timeout') || message.contains('Timed out')) {
+    return t.companionRemote.pairing.connectionTimedOut;
+  } else if (message.contains('Failed to connect')) {
+    return t.companionRemote.pairing.sessionNotFound;
+  } else if (message.contains('Authentication failed')) {
+    return t.companionRemote.pairing.authFailed;
+  }
+  return t.companionRemote.pairing.failedToConnect(error: message);
+}
 
 /// Discovers LAN hosts and provides UI to connect to them.
 class DiscoveryView extends StatefulWidget {
@@ -38,6 +62,7 @@ class _DiscoveryViewState extends State<DiscoveryView> with ControllerDisposerMi
   String? _errorMessage;
   bool _showManualEntry = false;
   bool _cryptoReady = false;
+  bool _initializing = true;
 
   late final CompanionRemoteProvider _provider;
   StreamSubscription<List<DiscoveredHost>>? _discoverySubscription;
@@ -64,36 +89,47 @@ class _DiscoveryViewState extends State<DiscoveryView> with ControllerDisposerMi
   }
 
   Future<void> _initCryptoAndDiscover() async {
-    final connections = context.read<ConnectionRegistry>();
-    final activeProfile = context.read<ActiveProfileProvider>();
-    final profileConnections = context.read<ProfileConnectionRegistry>();
-    final plexHome = context.read<PlexHomeService>();
-    final identity = await resolveActivePlexIdentity(
-      activeProfile: activeProfile,
-      connections: connections,
-      profileConnections: profileConnections,
-    );
-    if (!mounted) return;
-    final home = await _resolveHome(identity?.account.id);
-    if (!mounted) return;
-    await _provider.ensureCryptoReady(
-      home,
-      connections: connections,
-      activeProfile: activeProfile,
-      profileConnections: profileConnections,
-      identity: identity,
-      plexHomeForConnection: plexHome.materializePlexHomeForConnection,
-    );
+    try {
+      final connections = context.read<ConnectionRegistry>();
+      final activeProfile = context.read<ActiveProfileProvider>();
+      final profileConnections = context.read<ProfileConnectionRegistry>();
+      final plexHome = context.read<PlexHomeService>();
+      final identity = await resolveActivePlexIdentity(
+        activeProfile: activeProfile,
+        connections: connections,
+        profileConnections: profileConnections,
+      );
+      if (!mounted) return;
+      final home = await _resolveHome(identity?.account.id);
+      if (!mounted) return;
+      await _provider.ensureCryptoReady(
+        home,
+        connections: connections,
+        activeProfile: activeProfile,
+        profileConnections: profileConnections,
+        identity: identity,
+        plexHomeForConnection: plexHome.materializePlexHomeForConnection,
+      );
+    } catch (e) {
+      appLogger.e('CompanionRemote: crypto init failed', error: e);
+    }
     if (!mounted) return;
 
+    // The "crypto init failed" card only surfaces once init has actually
+    // finished — while it's running the section shows a loading state so we
+    // don't flash an error at open, and a thrown init still resolves to a
+    // stable (non-stuck) failure card.
     if (_provider.isCryptoReady) {
-      setState(() => _cryptoReady = true);
+      setState(() {
+        _cryptoReady = true;
+        _initializing = false;
+      });
       _startDiscovery();
     } else {
       setState(() {
         _cryptoReady = false;
+        _initializing = false;
         _isSearching = false;
-        _errorMessage = t.companionRemote.pairing.cryptoInitFailed;
       });
     }
   }
@@ -146,7 +182,7 @@ class _DiscoveryViewState extends State<DiscoveryView> with ControllerDisposerMi
     } catch (e) {
       appLogger.e('Failed to connect', error: e);
       if (!mounted) return;
-      setState(() => _errorMessage = _parseErrorMessage(e.toString()));
+      setState(() => _errorMessage = companionRemotePairingErrorMessage(e));
     } finally {
       setStateIfMounted(() => _isConnecting = false);
     }
@@ -170,17 +206,6 @@ class _DiscoveryViewState extends State<DiscoveryView> with ControllerDisposerMi
         await _saveManualHostAddress(hostAddress);
       }),
     );
-  }
-
-  String _parseErrorMessage(String error) {
-    if (error.contains('timeout') || error.contains('Timed out')) {
-      return t.companionRemote.pairing.connectionTimedOut;
-    } else if (error.contains('Failed to connect')) {
-      return t.companionRemote.pairing.sessionNotFound;
-    } else if (error.contains('Authentication failed')) {
-      return t.companionRemote.pairing.authFailed;
-    }
-    return t.companionRemote.pairing.failedToConnect(error: error.replaceAll('Exception: ', ''));
   }
 
   IconData _platformIcon(String platform) {
@@ -245,6 +270,21 @@ class _DiscoveryViewState extends State<DiscoveryView> with ControllerDisposerMi
   }
 
   Widget _buildDiscoverySection() {
+    if (_initializing) {
+      return Card(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            children: [
+              const SizedBox(width: 32, height: 32, child: CircularProgressIndicator(strokeWidth: 3)),
+              const SizedBox(height: 16),
+              Text(t.companionRemote.pairing.searchingForDevices, style: Theme.of(context).textTheme.bodyMedium),
+            ],
+          ),
+        ),
+      );
+    }
+
     if (!_cryptoReady) {
       return Card(
         child: Padding(

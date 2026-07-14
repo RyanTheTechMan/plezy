@@ -15,14 +15,19 @@ import 'package:plezy/widgets/video_controls/widgets/media_selector_thumbnail.da
 import 'package:provider/provider.dart';
 
 import '../test_helpers/prefs.dart';
+import '../test_helpers/media_items.dart';
 
 const _testTokens = MonoTokens(
   radiusSm: 8,
   radiusMd: 12,
+  radiusLg: 20,
+  radiusXs: 5,
+  groupGap: 2,
   space: 8,
   fast: Duration(milliseconds: 1),
   normal: Duration(milliseconds: 1),
   slow: Duration(milliseconds: 1),
+  expressive: Duration(milliseconds: 1),
   bg: Colors.black,
   surface: Colors.black,
   outline: Colors.white24,
@@ -136,7 +141,7 @@ PlaybackStateProvider _playbackWithQueue() {
       items: [
         _episode('spoiler-episode', title: 'Spoiler Episode'),
         _episode('watched-episode', title: 'Watched Episode', viewCount: 1),
-        MediaItem(
+        testMediaItem(
           id: 'movie',
           backend: MediaBackend.plex,
           kind: MediaKind.movie,
@@ -150,7 +155,7 @@ PlaybackStateProvider _playbackWithQueue() {
 }
 
 MediaItem _episode(String id, {required String title, int? viewCount}) {
-  return MediaItem(
+  return testMediaItem(
     id: id,
     backend: MediaBackend.plex,
     kind: MediaKind.episode,

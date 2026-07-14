@@ -23,10 +23,13 @@ import 'package:plezy/services/playlist_items_loader.dart';
 import 'package:plezy/services/plex_api_cache.dart';
 import 'package:plezy/services/settings_service.dart';
 import 'package:plezy/theme/mono_theme.dart';
+
+import '../test_helpers/paged_fakes.dart';
 import 'package:plezy/utils/media_server_http_client.dart';
 import 'package:provider/provider.dart';
 
 import '../test_helpers/prefs.dart';
+import '../test_helpers/media_items.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +43,7 @@ void main() {
   testWidgets('loads playlist continuation pages from an unmodifiable first page', (tester) async {
     final items = List.generate(
       playlistItemsPageSize + 5,
-      (index) => MediaItem(
+      (index) => testMediaItem(
         id: 'item_$index',
         backend: MediaBackend.plex,
         kind: MediaKind.movie,
@@ -70,6 +73,41 @@ void main() {
     expect(find.text('Item ${playlistItemsPageSize + 4}'), findsOneWidget);
     expect(find.textContaining('Unsupported operation'), findsNothing);
     expect(find.text(t.common.retry), findsNothing);
+  });
+
+  testWidgets('keeps partial playlist pages and retries from the failed offset', (tester) async {
+    final items = _mediaItems(playlistItemsPageSize * 2 + 5);
+    final harness = await _createHarness(items, failOnceAt: playlistItemsPageSize);
+
+    await tester.pumpWidget(
+      harness.wrap(const SizedBox(width: 1280, height: 720, child: PlaylistDetailScreen(playlist: _playlist))),
+    );
+
+    for (var i = 0; i < 10 && find.text(t.common.retry).evaluate().isEmpty; i++) {
+      await tester.pump(const Duration(milliseconds: 10));
+    }
+
+    await tester.drag(find.byType(CustomScrollView), const Offset(0, -30000));
+    await tester.pumpAndSettle();
+
+    expect(harness.client.requestedStarts, [0, playlistItemsPageSize]);
+    expect(find.text(t.common.retry), findsOneWidget);
+    expect(find.text('Item ${playlistItemsPageSize - 1}'), findsOneWidget);
+
+    await tester.tap(find.text(t.common.retry));
+    await tester.pumpAndSettle();
+
+    expect(harness.client.requestedStarts, [
+      0,
+      playlistItemsPageSize,
+      playlistItemsPageSize,
+      playlistItemsPageSize * 2,
+    ]);
+    expect(find.text(t.common.retry), findsNothing);
+
+    await tester.drag(find.byType(CustomScrollView), const Offset(0, -50000));
+    await tester.pumpAndSettle();
+    expect(find.text('Item ${playlistItemsPageSize * 2 + 4}'), findsOneWidget);
   });
 
   testWidgets('iOS top safe-area tap scrolls long playlists to top', (tester) async {
@@ -141,7 +179,7 @@ const _playlist = MediaPlaylist(
 List<MediaItem> _mediaItems(int count) {
   return List.generate(
     count,
-    (index) => MediaItem(
+    (index) => testMediaItem(
       id: 'item_$index',
       backend: MediaBackend.plex,
       kind: MediaKind.movie,
@@ -152,7 +190,7 @@ List<MediaItem> _mediaItems(int count) {
   );
 }
 
-Future<_PlaylistHarness> _createHarness(List<MediaItem> items) async {
+Future<_PlaylistHarness> _createHarness(List<MediaItem> items, {int? failOnceAt}) async {
   await SettingsService.getInstance();
 
   final db = AppDatabase.forTesting(NativeDatabase.memory());
@@ -168,7 +206,7 @@ Future<_PlaylistHarness> _createHarness(List<MediaItem> items) async {
   final downloadProvider = DownloadProvider.forTesting(downloadManager: downloadManager, database: db);
   await downloadProvider.ensureInitialized();
 
-  final client = _PagedPlaylistClient(items);
+  final client = _PagedPlaylistClient(items, failOnceAt: failOnceAt);
   final manager = MultiServerManager()..debugRegisterClientForTesting(client);
   final multiServerProvider = MultiServerProvider(manager, DataAggregationService(manager));
 
@@ -207,10 +245,12 @@ class _PlaylistHarness {
 
 class _PagedPlaylistClient implements MediaServerClient {
   final List<MediaItem> items;
+  final int? failOnceAt;
   final List<int?> requestedStarts = [];
   final List<int?> requestedSizes = [];
+  bool _hasFailed = false;
 
-  _PagedPlaylistClient(this.items);
+  _PagedPlaylistClient(this.items, {this.failOnceAt});
 
   @override
   ServerId get serverId => ServerId('server_1');
@@ -230,8 +270,11 @@ class _PagedPlaylistClient implements MediaServerClient {
     requestedSizes.add(size);
 
     final offset = start ?? 0;
-    final limit = size ?? items.length;
-    return LibraryPage(items: items.skip(offset).take(limit).toList(), totalCount: items.length, offset: offset);
+    if (!_hasFailed && offset == failOnceAt) {
+      _hasFailed = true;
+      throw StateError('temporary continuation failure');
+    }
+    return fakeLibraryPage(items, start: start, size: size);
   }
 
   @override

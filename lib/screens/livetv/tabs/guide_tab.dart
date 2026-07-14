@@ -8,6 +8,8 @@ import 'package:material_symbols_icons/symbols.dart';
 import 'package:provider/provider.dart';
 
 import '../../../focus/dpad_navigator.dart';
+import '../../../focus/dpad_select_long_press_controller.dart';
+import '../../../focus/focus_theme.dart';
 import '../../../focus/input_mode_tracker.dart';
 import '../../../focus/key_event_utils.dart';
 import '../../../i18n/strings.g.dart';
@@ -17,7 +19,9 @@ import '../../../models/livetv_program.dart';
 import '../../../models/media_grab_operation.dart';
 import '../../../providers/multi_server_provider.dart';
 import '../../../media/media_server_client.dart';
+import '../../../theme/mono_tokens.dart';
 import '../../../utils/app_logger.dart';
+import '../live_tv_refresh_lifecycle.dart';
 import '../../../utils/formatters.dart';
 import '../../../utils/live_tv_grouping.dart';
 import '../../../utils/live_tv_matching.dart';
@@ -27,8 +31,8 @@ import '../../../utils/platform_detector.dart';
 import '../../../widgets/app_icon.dart';
 import '../../../widgets/app_menu.dart';
 import '../../../widgets/clickable_cursor.dart';
-import '../../../widgets/overlay_sheet.dart';
 import '../../../widgets/optimized_media_image.dart';
+import '../livetv_styles.dart';
 import '../program_details_sheet.dart';
 
 class GuideTab extends StatefulWidget {
@@ -49,6 +53,30 @@ class GuideTab extends StatefulWidget {
 
   @override
   State<GuideTab> createState() => GuideTabState();
+}
+
+@visibleForTesting
+({String channelScopeKey, ({String kind, String value})? programId, int? beginsAt, int? endsAt}) guideAiringIdentity(
+  LiveTvChannel channel,
+  LiveTvProgram program,
+) {
+  ({String kind, String value})? programId;
+  if (program.ratingKey case final ratingKey? when ratingKey.isNotEmpty) {
+    programId = (kind: 'ratingKey', value: ratingKey);
+  } else if (program.guid case final guid? when guid.isNotEmpty) {
+    programId = (kind: 'guid', value: guid);
+  } else if (program.key case final key? when key.isNotEmpty) {
+    programId = (kind: 'key', value: key);
+  }
+
+  // Keep the slot even with an ID so repeated airings cannot inherit each
+  // other's hold; with no ID, channel scope plus timing is the fallback.
+  return (
+    channelScopeKey: liveTvChannelScopeKey(channel),
+    programId: programId,
+    beginsAt: program.beginsAt,
+    endsAt: program.endsAt,
+  );
 }
 
 enum _GuideZone { timeNav, grid }
@@ -77,7 +105,6 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
   static const _sourceHeaderRowHeight = 40.0;
   static const _timeHeaderHeight = 40.0;
   static const _minutesPerSlot = 30;
-  static const _longPressDuration = Duration(milliseconds: 500);
 
   /// Minimum time away (backgrounded or on another section) before the
   /// viewport is realigned to the live line on return.
@@ -97,7 +124,7 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
   bool _syncingScroll = false;
 
   Timer? _timeIndicatorTimer;
-  Timer? _programSelectLongPressTimer;
+  final _programSelectController = DpadSelectLongPressController();
   final _dayPickerKey = GlobalKey();
 
   // Stale-window catch-up state (#1297). The grid window is only auto
@@ -117,7 +144,6 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
   final ValueNotifier<bool> _hasFocusNotifier = ValueNotifier(false);
   LiveTvProgram? _focusedProgram;
   bool _pendingFocus = false;
-  bool _isProgramSelectKeyDown = false;
 
   /// Focus into the guide content (called from tab bar navigation or initial load).
   void focusContent() {
@@ -192,14 +218,12 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    switch (state) {
-      case AppLifecycleState.paused:
-      case AppLifecycleState.hidden:
-        _hiddenSince ??= DateTime.now();
-      case AppLifecycleState.resumed:
-        _catchUpIfStale();
-      case AppLifecycleState.inactive:
-      case AppLifecycleState.detached:
+    switch (liveTvRefreshTransition(state)) {
+      case LiveTvRefreshLifecycleTransition.pause:
+        pauseRefresh();
+      case LiveTvRefreshLifecycleTransition.resume:
+        if (_isGuideVisible) resumeRefresh();
+      case LiveTvRefreshLifecycleTransition.ignore:
         break;
     }
   }
@@ -215,7 +239,7 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
-    _programSelectLongPressTimer?.cancel();
+    _programSelectController.dispose();
     _guideFocusNode.dispose();
     _gridVerticalController.dispose();
     _gridHorizontalController.removeListener(_syncGridToHeader);
@@ -235,10 +259,7 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
     _hasFocusNotifier.value = hasFocus;
   }
 
-  void _resetProgramSelectLongPressState() {
-    _programSelectLongPressTimer?.cancel();
-    _isProgramSelectKeyDown = false;
-  }
+  void _resetProgramSelectLongPressState() => _programSelectController.reset();
 
   void _syncGridToHeader() {
     if (_syncingScroll) return;
@@ -399,9 +420,10 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
     required ServerId serverId,
     required Set<String> keys,
   }) async {
-    if (!client.capabilities.liveTvDvr) return;
+    final dvr = client.liveTvDvr;
+    if (dvr == null) return;
     try {
-      final grabs = await client.liveTv.fetchScheduledRecordings();
+      final grabs = await dvr.fetchScheduledRecordings();
       for (final grab in grabs) {
         _addRecordingKeysForGrab(grab, serverId: ServerId(serverId), keys: keys);
       }
@@ -410,7 +432,7 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
     }
 
     try {
-      final rules = await client.liveTv.fetchRecordingRules(includeGrabs: true, includeStorage: false);
+      final rules = await dvr.fetchRecordingRules(includeGrabs: true, includeStorage: false);
       for (final rule in rules) {
         for (final grab in rule.grabOperations) {
           _addRecordingKeysForGrab(grab, serverId: ServerId(serverId), keys: keys);
@@ -577,39 +599,28 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
   }
 
   KeyEventResult _handleFocusedProgramSelectKey(KeyEvent event) {
-    if (!event.logicalKey.isSelectKey) return KeyEventResult.ignored;
     final target = _focusedProgramTarget();
     if (target == null) return KeyEventResult.ignored;
 
-    if (event is KeyDownEvent) {
-      if (!_isProgramSelectKeyDown) {
-        _isProgramSelectKeyDown = true;
-        _programSelectLongPressTimer?.cancel();
-        _programSelectLongPressTimer = Timer(_longPressDuration, () {
-          if (!mounted || !_isProgramSelectKeyDown) return;
-          SelectKeyUpSuppressor.suppressSelectUntilKeyUp();
-          _resetProgramSelectLongPressState();
-          _showProgramDetails(target.channel, target.program);
-        });
-      }
-      return KeyEventResult.handled;
-    }
+    final ownerChannelIndex = _gridChannelIndex;
+    final targetIdentity = guideAiringIdentity(target.channel, target.program);
+    return _programSelectController.handleKeyEvent(
+      event,
+      isOwnerActive: () {
+        if (!mounted || _focusZone != _GuideZone.grid || _gridColumn != 1 || _gridChannelIndex != ownerChannelIndex) {
+          return false;
+        }
 
-    if (event is KeyRepeatEvent) {
-      return KeyEventResult.handled;
-    }
-
-    if (event is KeyUpEvent) {
-      final timerWasActive = _programSelectLongPressTimer?.isActive ?? false;
-      _programSelectLongPressTimer?.cancel();
-      if (timerWasActive && _isProgramSelectKeyDown) {
-        _activateProgram(target.channel, target.program);
-      }
-      _isProgramSelectKeyDown = false;
-      return KeyEventResult.handled;
-    }
-
-    return KeyEventResult.ignored;
+        final activeTarget = _focusedProgramTarget();
+        return activeTarget != null &&
+            guideAiringIdentity(activeTarget.channel, activeTarget.program) == targetIdentity;
+      },
+      onShortPress: () => _activateProgram(target.channel, target.program),
+      onLongPress: () {
+        _programSelectController.reset();
+        _showProgramDetails(target.channel, target.program);
+      },
+    );
   }
 
   KeyEventResult _handleFocusedProgramContextMenuKey(KeyEvent event) {
@@ -872,13 +883,11 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
       return const Center(child: CircularProgressIndicator());
     }
 
-    return OverlaySheetHost(
-      child: Focus(
-        focusNode: _guideFocusNode,
-        onFocusChange: _handleGuideFocusChange,
-        onKeyEvent: _handleKeyEvent,
-        child: _buildGuideGrid(theme),
-      ),
+    return Focus(
+      focusNode: _guideFocusNode,
+      onFocusChange: _handleGuideFocusChange,
+      onKeyEvent: _handleKeyEvent,
+      child: _buildGuideGrid(theme),
     );
   }
 
@@ -1099,6 +1108,7 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
         }),
       ],
     );
+    if (!mounted) return;
     if (value == null) {
       _guideFocusNode.requestFocus();
       return;
@@ -1112,18 +1122,15 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
       _gridEnd = _gridStart.add(const Duration(hours: 6));
       _nowWasInWindow = _nowInWindow(DateTime.now());
     });
-    _loadPrograms();
+    unawaited(_loadPrograms());
     _guideFocusNode.requestFocus();
   }
 
-  Widget _timeNavFocusWrap({required Widget child, required int index, required ThemeData theme}) {
+  Widget _timeNavFocusWrap({required Widget child, required int index}) {
     final isFocused = _hasFocus && _focusZone == _GuideZone.timeNav && _timeNavIndex == index;
     if (!isFocused) return child;
     return Container(
-      decoration: BoxDecoration(
-        color: theme.colorScheme.primary.withValues(alpha: 0.15),
-        borderRadius: const BorderRadius.all(Radius.circular(8)),
-      ),
+      decoration: FocusTheme.textFillFocusDecoration(context, isFocused: true, borderRadius: MonoTokens.radiusFull),
       child: child,
     );
   }
@@ -1132,16 +1139,12 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
     final timeLabel = formatClockTime(_gridStart, is24Hour: MediaQuery.alwaysUse24HourFormatOf(context));
     final dayLabel = _dayLabel(_gridStart);
 
-    return Container(
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-      decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(color: theme.dividerColor.withValues(alpha: 0.3))),
-      ),
       child: Row(
         children: [
           _timeNavFocusWrap(
             index: 0,
-            theme: theme,
             child: IconButton(
               icon: const AppIcon(Symbols.chevron_left_rounded),
               onPressed: () => _shiftTimeRange(-2),
@@ -1155,13 +1158,16 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
               children: [
                 _timeNavFocusWrap(
                   index: 1,
-                  theme: theme,
                   child: ClickableCursor(
                     child: GestureDetector(
                       key: _dayPickerKey,
                       onTap: _showDayPicker,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: tokens(context).text.withValues(alpha: 0.08),
+                          borderRadius: const BorderRadius.all(Radius.circular(MonoTokens.radiusFull)),
+                        ),
                         child: Row(
                           mainAxisSize: .min,
                           children: [
@@ -1181,7 +1187,6 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
           ),
           _timeNavFocusWrap(
             index: 2,
-            theme: theme,
             child: IconButton(
               icon: const AppIcon(Symbols.chevron_right_rounded),
               onPressed: () => _shiftTimeRange(2),
@@ -1208,10 +1213,7 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Align(
               alignment: .centerLeft,
-              child: Text(
-                timeStr,
-                style: theme.textTheme.labelSmall?.copyWith(color: theme.colorScheme.onSurfaceVariant),
-              ),
+              child: Text(timeStr, style: theme.textTheme.labelSmall?.copyWith(color: tokens(context).textMuted)),
             ),
           ),
         ),
@@ -1226,17 +1228,10 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
     return Container(
       height: _sourceHeaderRowHeight,
       padding: const EdgeInsets.symmetric(horizontal: 8),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.35),
-        border: Border(
-          bottom: BorderSide(color: theme.dividerColor.withValues(alpha: 0.3)),
-          right: BorderSide(color: theme.dividerColor.withValues(alpha: 0.3)),
-        ),
-      ),
       alignment: .centerLeft,
       child: Text(
         label,
-        style: theme.textTheme.labelSmall?.copyWith(color: theme.colorScheme.onSurfaceVariant, fontWeight: .w700),
+        style: theme.textTheme.labelSmall?.copyWith(color: tokens(context).textMuted, fontWeight: .w700),
         maxLines: 2,
         overflow: .ellipsis,
       ),
@@ -1244,12 +1239,8 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
   }
 
   Widget _buildSourceHeaderGridRow(String label, ThemeData theme) {
-    return Container(
+    return SizedBox(
       height: _sourceHeaderRowHeight,
-      decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.25),
-        border: Border(bottom: BorderSide(color: theme.dividerColor.withValues(alpha: 0.3))),
-      ),
       child: ClipRect(
         child: ListenableBuilder(
           listenable: _gridHorizontalController,
@@ -1264,7 +1255,7 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
               child: Text(
                 label,
                 style: theme.textTheme.labelSmall?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.8),
+                  color: tokens(context).textMuted,
                   fontWeight: .w700,
                   letterSpacing: 0.3,
                 ),
@@ -1307,7 +1298,7 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
         if (channel.number != null)
           Text(
             channel.number!,
-            style: theme.textTheme.labelSmall?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+            style: theme.textTheme.labelSmall?.copyWith(color: tokens(context).textMuted),
             maxLines: 1,
           ),
         Text(
@@ -1328,15 +1319,17 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
     required int channelIndex,
   }) {
     if (programs.isEmpty) {
-      return Container(
+      final tk = tokens(context);
+      return SizedBox(
         height: _rowHeight,
-        decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(color: theme.dividerColor.withValues(alpha: 0.3))),
-        ),
-        child: Center(
-          child: Text(
-            t.liveTv.noPrograms,
-            style: theme.textTheme.bodySmall?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+        child: Padding(
+          padding: EdgeInsets.only(right: tk.groupGap, bottom: tk.groupGap),
+          child: Material(
+            color: Color.alphaBlend(tk.surface.withValues(alpha: 0.5), tk.bg),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(tk.radiusXs)),
+            child: Center(
+              child: Text(t.liveTv.noPrograms, style: theme.textTheme.bodySmall?.copyWith(color: tk.textMuted)),
+            ),
           ),
         ),
       );
@@ -1362,7 +1355,8 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
       final duration = progEnd - progStart;
       final left = (startOffset / (_minutesPerSlot * 60)) * _slotWidth;
       final width = (duration / (_minutesPerSlot * 60)) * _slotWidth;
-      final clampedWidth = width.clamp(2.0, double.infinity);
+      // Keep slivers wide enough to survive the trailing groupGap padding.
+      final clampedWidth = width.clamp(6.0, double.infinity);
 
       blocks.add(
         Positioned(
@@ -1374,8 +1368,6 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
             channel,
             program,
             theme,
-            isFirst: progStart == gridStartEpoch,
-            isLast: program == programs.last && progEnd != gridEndEpoch,
             isFocused: identical(program, focusProg),
             tileLeft: left,
             tileWidth: clampedWidth,
@@ -1384,11 +1376,8 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
       );
     }
 
-    return Container(
+    return SizedBox(
       height: _rowHeight,
-      decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(color: theme.dividerColor.withValues(alpha: 0.3))),
-      ),
       child: Stack(children: blocks),
     );
   }
@@ -1397,112 +1386,98 @@ class GuideTabState extends State<GuideTab> with MountedSetStateMixin, WidgetsBi
     LiveTvChannel channel,
     LiveTvProgram program,
     ThemeData theme, {
-    bool isFirst = false,
-    bool isLast = false,
     bool isFocused = false,
     double tileLeft = 0,
     double tileWidth = 0,
   }) {
+    final tk = tokens(context);
     final isCurrentlyAiring = program.isCurrentlyAiring;
     final isPast = program.endsAt != null && program.endsAt! < DateTime.now().millisecondsSinceEpoch ~/ 1000;
     final isRecordingScheduled = _isRecordingScheduled(program);
 
-    Color materialColor;
+    final Color fillColor;
+    final Color titleColor;
+    final Color subtitleColor;
     if (isFocused) {
-      materialColor = theme.colorScheme.primary.withValues(alpha: 0.15);
+      // Inverted focus card: primary == text in the mono theme, so the cursor
+      // reads as a solid inverted cell (white card, dark text in dark mode).
+      fillColor = theme.colorScheme.primary;
+      titleColor = theme.colorScheme.onPrimary;
+      subtitleColor = theme.colorScheme.onPrimary.withValues(alpha: 0.7);
+    } else if (isPast) {
+      fillColor = Color.alphaBlend(tk.surface.withValues(alpha: 0.5), tk.bg);
+      titleColor = tk.text.withValues(alpha: 0.5);
+      subtitleColor = tk.text.withValues(alpha: 0.3);
     } else if (isCurrentlyAiring) {
-      materialColor = theme.colorScheme.onSurface.withValues(alpha: 0.12);
+      fillColor = airingFill(context);
+      titleColor = tk.text;
+      subtitleColor = tk.textMuted;
     } else {
-      materialColor = theme.colorScheme.onSurface.withValues(alpha: 0.05);
+      fillColor = tk.surface;
+      titleColor = tk.text;
+      subtitleColor = tk.textMuted;
     }
+    final radius = BorderRadius.circular(isFocused ? tk.radiusSm : tk.radiusXs);
 
-    Color titleColor;
-    if (isFocused) {
-      titleColor = theme.colorScheme.primary;
-    } else if (isCurrentlyAiring) {
-      titleColor = theme.colorScheme.onSurface;
-    } else {
-      titleColor = theme.colorScheme.onSurface;
-    }
-
-    Color subtitleColor;
-    if (isFocused) {
-      subtitleColor = theme.colorScheme.primary.withValues(alpha: 0.7);
-    } else if (isCurrentlyAiring) {
-      subtitleColor = theme.colorScheme.onSurfaceVariant;
-    } else {
-      subtitleColor = theme.colorScheme.onSurfaceVariant;
-    }
-
-    return Opacity(
-      opacity: isPast ? 0.5 : 1.0,
+    return Padding(
+      padding: EdgeInsets.only(right: tk.groupGap, bottom: tk.groupGap),
       child: Material(
-        color: isFocused ? materialColor : Colors.transparent,
-        shape: RoundedRectangleBorder(
-          side: isFocused ? BorderSide(color: theme.colorScheme.primary, width: 2) : BorderSide.none,
-        ),
+        color: fillColor,
+        shape: RoundedRectangleBorder(borderRadius: radius),
         child: InkWell(
+          borderRadius: radius,
           mouseCursor: SystemMouseCursors.click,
           canRequestFocus: false,
           onTap: () => _activateProgram(channel, program),
           onLongPress: () => _showProgramDetails(channel, program),
           onSecondaryTap: () => _showProgramDetails(channel, program),
-          child: Container(
-            decoration: BoxDecoration(
-              border: Border(
-                left: isFirst ? BorderSide.none : BorderSide(color: theme.dividerColor.withValues(alpha: 0.3)),
-                right: isLast ? BorderSide(color: theme.dividerColor.withValues(alpha: 0.3)) : BorderSide.none,
-              ),
-            ),
-            child: ListenableBuilder(
-              listenable: _gridHorizontalController,
-              builder: (context, _) {
-                const basePadding = 6.0;
-                final scrollOffset = _gridHorizontalController.hasClients ? _gridHorizontalController.offset : 0.0;
-                final maxInset = (tileWidth - 2 * basePadding - 20).clamp(0.0, double.infinity);
-                final leftInset = (scrollOffset - tileLeft).clamp(0.0, maxInset);
-                return Container(
-                  color: isFocused ? null : materialColor,
-                  padding: .fromLTRB(basePadding + leftInset, 4, basePadding, 4),
-                  child: Column(
-                    crossAxisAlignment: .start,
-                    mainAxisAlignment: .center,
-                    children: [
-                      Row(
-                        children: [
-                          if (isRecordingScheduled) ...[
-                            _RecordingDot(color: Colors.red, tooltip: t.liveTv.recordingScheduled),
-                            const SizedBox(width: 5),
-                          ],
-                          Expanded(
-                            child: Text(
-                              program.grandparentTitle ?? program.title,
-                              style: theme.textTheme.bodyMedium?.copyWith(fontWeight: .w600, color: titleColor),
-                              maxLines: 1,
-                              overflow: .ellipsis,
-                            ),
-                          ),
+          child: ListenableBuilder(
+            listenable: _gridHorizontalController,
+            builder: (context, _) {
+              const basePadding = 6.0;
+              final scrollOffset = _gridHorizontalController.hasClients ? _gridHorizontalController.offset : 0.0;
+              final maxInset = (tileWidth - tk.groupGap - 2 * basePadding - 20).clamp(0.0, double.infinity);
+              final leftInset = (scrollOffset - tileLeft).clamp(0.0, maxInset);
+              return Padding(
+                padding: .fromLTRB(basePadding + leftInset, 4, basePadding, 4),
+                child: Column(
+                  crossAxisAlignment: .start,
+                  mainAxisAlignment: .center,
+                  children: [
+                    Row(
+                      children: [
+                        if (isRecordingScheduled) ...[
+                          _RecordingDot(color: Colors.red, tooltip: t.liveTv.recordingScheduled),
+                          const SizedBox(width: 5),
                         ],
+                        Expanded(
+                          child: Text(
+                            program.grandparentTitle ?? program.title,
+                            style: theme.textTheme.bodyMedium?.copyWith(fontWeight: .w600, color: titleColor),
+                            maxLines: 1,
+                            overflow: .ellipsis,
+                          ),
+                        ),
+                      ],
+                    ),
+                    if (program.grandparentTitle != null)
+                      Text(
+                        '${program.parentIndex != null && program.index != null ? 'S${program.parentIndex}E${program.index} · ' : ''}${program.title}',
+                        style: theme.textTheme.labelSmall?.copyWith(color: subtitleColor),
+                        maxLines: 1,
+                        overflow: .ellipsis,
                       ),
-                      if (program.grandparentTitle != null)
-                        Text(
-                          '${program.parentIndex != null && program.index != null ? 'S${program.parentIndex}E${program.index} · ' : ''}${program.title}',
-                          style: theme.textTheme.labelSmall?.copyWith(color: subtitleColor),
-                          maxLines: 1,
-                          overflow: .ellipsis,
-                        ),
-                      if (program.startTime != null)
-                        Text(
-                          '${formatClockTime(program.startTime!, is24Hour: MediaQuery.alwaysUse24HourFormatOf(context))} · ${formatDurationTextual(program.durationMinutes * 60_000)}',
-                          style: theme.textTheme.labelSmall?.copyWith(color: subtitleColor),
-                          maxLines: 1,
-                          overflow: .ellipsis,
-                        ),
-                    ],
-                  ),
-                );
-              },
-            ),
+                    if (program.startTime != null)
+                      Text(
+                        '${formatClockTime(program.startTime!, is24Hour: MediaQuery.alwaysUse24HourFormatOf(context))} · ${formatDurationTextual(program.durationMinutes * 60_000)}',
+                        style: theme.textTheme.labelSmall?.copyWith(color: subtitleColor),
+                        maxLines: 1,
+                        overflow: .ellipsis,
+                      ),
+                  ],
+                ),
+              );
+            },
           ),
         ),
       ),
@@ -1596,7 +1571,11 @@ class _ChannelCellState extends State<_ChannelCell> {
   @override
   Widget build(BuildContext context) {
     final theme = widget.theme;
+    final tk = tokens(context);
     final showAction = _hovered || widget.isFocused;
+    final radius = BorderRadius.circular(widget.isFocused ? tk.radiusSm : tk.radiusXs);
+    // Inverted focus card, matching the program-block cursor.
+    final contentColor = widget.isFocused ? theme.colorScheme.onPrimary : theme.colorScheme.onSurface;
 
     return MouseRegion(
       cursor: SystemMouseCursors.click,
@@ -1604,45 +1583,50 @@ class _ChannelCellState extends State<_ChannelCell> {
       onExit: (_) => setState(() => _hovered = false),
       child: GestureDetector(
         onSecondaryTap: widget.onLongPress,
-        child: Material(
-          color: widget.isFocused ? theme.colorScheme.primary.withValues(alpha: 0.15) : Colors.transparent,
-          child: InkWell(
-            canRequestFocus: false,
-            onTap: widget.onTap,
-            onLongPress: widget.onLongPress,
-            child: Container(
-              height: widget.rowHeight,
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(color: theme.dividerColor.withValues(alpha: 0.3)),
-                  right: BorderSide(color: theme.dividerColor.withValues(alpha: 0.3)),
-                ),
-              ),
-              child: Stack(
-                alignment: .center,
-                children: [
-                  AnimatedOpacity(
-                    opacity: showAction ? 0.3 : 1.0,
-                    duration: const Duration(milliseconds: 150),
-                    child: widget.channelThumb != null && widget.client != null
-                        ? OptimizedMediaImage.thumb(
-                            client: widget.client!,
-                            imagePath: widget.channelThumb,
-                            width: widget.channelColumnWidth - 16,
-                            height: widget.rowHeight - 16,
-                            fit: BoxFit.contain,
-                          )
-                        : widget.fallbackBuilder(),
+        child: SizedBox(
+          height: widget.rowHeight,
+          child: Padding(
+            padding: EdgeInsets.only(right: tk.groupGap, bottom: tk.groupGap),
+            child: Material(
+              color: widget.isFocused ? theme.colorScheme.primary : tk.surface,
+              shape: RoundedRectangleBorder(borderRadius: radius),
+              child: InkWell(
+                borderRadius: radius,
+                canRequestFocus: false,
+                onTap: widget.onTap,
+                onLongPress: widget.onLongPress,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Stack(
+                    alignment: .center,
+                    children: [
+                      AnimatedOpacity(
+                        opacity: showAction ? 0.3 : 1.0,
+                        duration: FocusTheme.getAnimationDuration(context),
+                        child: widget.channelThumb != null && widget.client != null
+                            ? OptimizedMediaImage.thumb(
+                                client: widget.client!,
+                                imagePath: widget.channelThumb,
+                                width: widget.channelColumnWidth - 16,
+                                height: widget.rowHeight - 16,
+                                fit: BoxFit.contain,
+                              )
+                            : widget.fallbackBuilder(),
+                      ),
+                      if (showAction) AppIcon(Symbols.play_arrow_rounded, size: 32, color: contentColor),
+                      if (widget.isFavorite)
+                        Positioned(
+                          top: 2,
+                          right: 0,
+                          child: AppIcon(
+                            Symbols.star_rounded,
+                            size: 14,
+                            color: widget.isFocused ? theme.colorScheme.onPrimary : theme.colorScheme.primary,
+                          ),
+                        ),
+                    ],
                   ),
-                  if (showAction) AppIcon(Symbols.play_arrow_rounded, size: 32, color: theme.colorScheme.onSurface),
-                  if (widget.isFavorite)
-                    Positioned(
-                      top: 2,
-                      right: 0,
-                      child: AppIcon(Symbols.star_rounded, size: 14, color: theme.colorScheme.primary),
-                    ),
-                ],
+                ),
               ),
             ),
           ),

@@ -1,5 +1,9 @@
+import '../test_helpers/paged_fakes.dart';
+import 'dart:convert';
+
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
@@ -7,11 +11,17 @@ import 'package:plezy/connection/connection.dart';
 import 'package:plezy/connection/connection_registry.dart';
 import 'package:plezy/database/app_database.dart';
 import 'package:plezy/i18n/strings.g.dart';
+import 'package:plezy/media/ids.dart';
+import 'package:plezy/media/library_query.dart';
 import 'package:plezy/media/media_backend.dart';
 import 'package:plezy/media/media_item.dart';
 import 'package:plezy/media/media_kind.dart';
+import 'package:plezy/media/media_playlist.dart';
+import 'package:plezy/media/media_server_client.dart';
+import 'package:plezy/media/server_capabilities.dart';
 import 'package:plezy/metadata_edit/metadata_edit_adapters.dart';
 import 'package:plezy/models/plex/plex_home_user.dart';
+import 'package:plezy/models/plex/plex_config.dart';
 import 'package:plezy/profiles/profile.dart';
 import 'package:plezy/profiles/active_profile_provider.dart';
 import 'package:plezy/profiles/plex_home_service.dart';
@@ -20,11 +30,16 @@ import 'package:plezy/profiles/profile_registry.dart';
 import 'package:plezy/providers/multi_server_provider.dart';
 import 'package:plezy/services/data_aggregation_service.dart';
 import 'package:plezy/services/jellyfin_client.dart';
+import 'package:plezy/services/music/music_playback_service.dart';
 import 'package:plezy/services/multi_server_manager.dart';
+import 'package:plezy/services/plex_api_cache.dart';
+import 'package:plezy/services/plex_client.dart';
 import 'package:plezy/theme/mono_theme.dart';
+import 'package:plezy/utils/media_server_http_client.dart';
 import 'package:plezy/utils/platform_detector.dart';
 import 'package:plezy/widgets/media_context_menu.dart';
 import 'package:provider/provider.dart';
+import '../test_helpers/media_items.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -77,6 +92,108 @@ void main() {
   });
 
   group('MediaContextMenu actions', () {
+    testWidgets('audio playlist play and shuffle actions use music playback', (tester) async {
+      LocaleSettings.setLocaleSync(AppLocale.en);
+      TvDetectionService.debugSetAppleTVOverride(true);
+      addTearDown(() => TvDetectionService.debugSetAppleTVOverride(null));
+
+      final tracks = [
+        testMediaItem(
+          id: 'track-1',
+          backend: MediaBackend.jellyfin,
+          kind: MediaKind.track,
+          title: 'Track One',
+          serverId: 'srv-1',
+        ),
+        testMediaItem(
+          id: 'track-2',
+          backend: MediaBackend.jellyfin,
+          kind: MediaKind.track,
+          title: 'Track Two',
+          serverId: 'srv-1',
+        ),
+      ];
+      final client = _AudioPlaylistClient(tracks);
+      final music = _RecordingMusicPlaybackService();
+      final db = AppDatabase.forTesting(NativeDatabase.memory());
+      final manager = MultiServerManager()..debugRegisterClientForTesting(client);
+      final multiServerProvider = MultiServerProvider(manager, DataAggregationService(manager));
+      final connections = ConnectionRegistry(db);
+      final profileConnections = ProfileConnectionRegistry(db);
+      final plexHome = PlexHomeService(
+        connections: connections,
+        profileConnections: profileConnections,
+        plexHomeUserFetcher: (_) async => const [],
+      );
+      final activeProfileProvider = ActiveProfileProvider(
+        registry: ProfileRegistry(db),
+        plexHome: plexHome,
+        connections: connections,
+      );
+      addTearDown(() async {
+        activeProfileProvider.dispose();
+        await plexHome.dispose();
+        music.dispose();
+        multiServerProvider.dispose();
+        manager.dispose();
+        await db.close();
+      });
+
+      final menuKey = GlobalKey<MediaContextMenuState>();
+      const playlist = MediaPlaylist(
+        id: 'playlist-1',
+        backend: MediaBackend.jellyfin,
+        title: 'Road Trip',
+        playlistType: 'audio',
+        serverId: 'srv-1',
+      );
+
+      await tester.pumpWidget(
+        TranslationProvider(
+          child: MultiProvider(
+            providers: [
+              ChangeNotifierProvider<MultiServerProvider>.value(value: multiServerProvider),
+              ChangeNotifierProvider<ActiveProfileProvider>.value(value: activeProfileProvider),
+              ChangeNotifierProvider<MusicPlaybackService>.value(value: music),
+            ],
+            child: MaterialApp(
+              theme: monoTheme(dark: true),
+              home: Scaffold(
+                body: Center(
+                  child: MediaContextMenu(
+                    key: menuKey,
+                    item: playlist,
+                    child: const SizedBox(width: 120, height: 80, child: Text('audio target')),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+
+      menuKey.currentState!.showContextMenu(tester.element(find.text('audio target')));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(t.common.play));
+      await tester.pumpAndSettle();
+
+      expect(music.playedTracks, tracks);
+      expect(music.playedContext?.id, playlist.id);
+      expect(music.playedContext?.title, playlist.title);
+      expect(music.playedContext?.kind, MusicPlayContextKind.playlist);
+      expect(music.shuffle, isFalse);
+
+      menuKey.currentState!.showContextMenu(tester.element(find.text('audio target')));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(t.mediaMenu.shufflePlay));
+      await tester.pumpAndSettle();
+
+      expect(music.callCount, 2);
+      expect(music.playedTracks, tracks);
+      expect(music.shuffle, isTrue);
+      expect(tester.takeException(), isNull);
+    });
+
     testWidgets('file info client resolution failure shows an error without popping another route', (tester) async {
       LocaleSettings.setLocaleSync(AppLocale.en);
       TvDetectionService.debugSetAppleTVOverride(true);
@@ -106,7 +223,7 @@ void main() {
       });
 
       final menuKey = GlobalKey<MediaContextMenuState>();
-      final item = MediaItem(
+      final item = testMediaItem(
         id: 'movie-1',
         backend: MediaBackend.jellyfin,
         kind: MediaKind.movie,
@@ -147,7 +264,207 @@ void main() {
       expect(find.byType(SnackBar), findsOneWidget);
       expect(find.text('target'), findsOneWidget);
     });
+
+    testWidgets('playlist picker filters playlists by title', (tester) async {
+      final playlists = [
+        for (var i = 0; i < 10; i++) (id: '$i', title: 'Alpha $i'),
+        (id: 'gamma', title: 'Gamma Nights'),
+      ];
+      final menuKey = await _pumpPlexMovieMenu(tester, playlists);
+
+      await _openPlaylistPicker(tester, menuKey);
+      final textField = tester.widget<TextField>(find.byType(TextField));
+      textField.controller!.text = 'gamma';
+      textField.onChanged!('gamma');
+      await tester.pumpAndSettle();
+
+      expect(find.text('Gamma Nights'), findsOneWidget);
+      expect(find.text('Alpha 0'), findsNothing);
+      expect(find.text(t.common.createNew), findsOneWidget);
+    });
+
+    testWidgets('playlist picker wires TV focus, D-pad down, and back', (tester) async {
+      final playlists = [for (var i = 0; i < 10; i++) (id: '$i', title: 'Playlist $i')];
+      final menuKey = await _pumpPlexMovieMenu(tester, playlists);
+
+      await _openPlaylistPicker(tester, menuKey);
+
+      final textField = tester.widget<TextField>(find.byType(TextField));
+      expect(textField.focusNode!.hasFocus, isTrue);
+
+      await tester.sendKeyDownEvent(LogicalKeyboardKey.arrowDown);
+      await tester.sendKeyUpEvent(LogicalKeyboardKey.arrowDown);
+      await tester.pump();
+      expect(Focus.of(tester.element(find.text(t.common.createNew))).hasFocus, isTrue);
+
+      await tester.sendKeyDownEvent(LogicalKeyboardKey.escape);
+      await tester.pumpAndSettle();
+
+      expect(find.text(t.playlists.selectPlaylist), findsNothing);
+      expect(find.text('picker target'), findsOneWidget);
+    });
   });
+}
+
+Future<GlobalKey<MediaContextMenuState>> _pumpPlexMovieMenu(
+  WidgetTester tester,
+  List<({String id, String title})> playlists,
+) async {
+  LocaleSettings.setLocaleSync(AppLocale.en);
+  TvDetectionService.debugSetAppleTVOverride(true);
+  addTearDown(() => TvDetectionService.debugSetAppleTVOverride(null));
+
+  final db = AppDatabase.forTesting(NativeDatabase.memory());
+  PlexApiCache.initialize(db);
+  final client = PlexClient.forTesting(
+    config: PlexConfig(
+      baseUrl: 'https://plex.example.com',
+      token: 'token',
+      clientIdentifier: 'client-id',
+      product: 'Plezy',
+      version: '1',
+    ),
+    serverId: ServerId('plex-1'),
+    httpClient: MockClient((request) async {
+      if (request.url.path != '/playlists') return http.Response('not found', 404);
+      return http.Response(
+        jsonEncode({
+          'MediaContainer': {
+            'size': playlists.length,
+            'totalSize': playlists.length,
+            'Metadata': [
+              for (final playlist in playlists)
+                {
+                  'ratingKey': playlist.id,
+                  'key': '/playlists/${playlist.id}/items',
+                  'type': 'playlist',
+                  'playlistType': 'video',
+                  'title': playlist.title,
+                  'smart': false,
+                },
+            ],
+          },
+        }),
+        200,
+        headers: {'content-type': 'application/json'},
+      );
+    }),
+  );
+  final manager = MultiServerManager()..debugRegisterClientForTesting(client);
+  final multiServerProvider = MultiServerProvider(manager, DataAggregationService(manager));
+  final connections = ConnectionRegistry(db);
+  final profileConnections = ProfileConnectionRegistry(db);
+  final plexHome = PlexHomeService(
+    connections: connections,
+    profileConnections: profileConnections,
+    plexHomeUserFetcher: (_) async => const [],
+  );
+  final activeProfileProvider = ActiveProfileProvider(
+    registry: ProfileRegistry(db),
+    plexHome: plexHome,
+    connections: connections,
+  );
+  addTearDown(() async {
+    activeProfileProvider.dispose();
+    await plexHome.dispose();
+    multiServerProvider.dispose();
+    manager.dispose();
+    await db.close();
+  });
+
+  final menuKey = GlobalKey<MediaContextMenuState>();
+  final item = testMediaItem(
+    id: 'movie-1',
+    backend: MediaBackend.plex,
+    kind: MediaKind.movie,
+    title: 'Movie',
+    serverId: 'plex-1',
+  );
+  await tester.pumpWidget(
+    TranslationProvider(
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<MultiServerProvider>.value(value: multiServerProvider),
+          ChangeNotifierProvider<ActiveProfileProvider>.value(value: activeProfileProvider),
+        ],
+        child: MaterialApp(
+          theme: monoTheme(dark: true),
+          home: Scaffold(
+            body: Center(
+              child: MediaContextMenu(
+                key: menuKey,
+                item: item,
+                child: const SizedBox(width: 120, height: 80, child: Text('picker target')),
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+  return menuKey;
+}
+
+Future<void> _openPlaylistPicker(WidgetTester tester, GlobalKey<MediaContextMenuState> menuKey) async {
+  menuKey.currentState!.showContextMenu(tester.element(find.text('picker target')));
+  await tester.pumpAndSettle();
+  await tester.tap(find.text(t.common.addTo));
+  await tester.pumpAndSettle();
+  await tester.tap(find.text(t.playlists.playlist));
+  await tester.pumpAndSettle();
+  expect(find.text(t.playlists.selectPlaylist), findsOneWidget);
+}
+
+class _AudioPlaylistClient implements MediaServerClient {
+  final List<MediaItem> tracks;
+
+  _AudioPlaylistClient(this.tracks);
+
+  @override
+  ServerId get serverId => ServerId('srv-1');
+
+  @override
+  String? get serverName => 'Server';
+
+  @override
+  MediaBackend get backend => MediaBackend.jellyfin;
+
+  @override
+  ServerCapabilities get capabilities => ServerCapabilities.jellyfin;
+
+  @override
+  Future<LibraryPage<MediaItem>> fetchPlaylistPage(String id, {int? start, int? size, AbortController? abort}) async {
+    return fakeLibraryPage(tracks, start: start, size: size);
+  }
+
+  @override
+  void close() {}
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+}
+
+class _RecordingMusicPlaybackService extends StubMusicPlaybackService {
+  List<MediaItem>? playedTracks;
+  MusicPlayContext? playedContext;
+  bool? shuffle;
+  int callCount = 0;
+
+  @override
+  bool get isAvailable => true;
+
+  @override
+  Future<void> playFromList({
+    required List<MediaItem> tracks,
+    MediaItem? startTrack,
+    required MusicPlayContext playContext,
+    bool shuffle = false,
+  }) async {
+    callCount++;
+    playedTracks = tracks;
+    playedContext = playContext;
+    this.shuffle = shuffle;
+  }
 }
 
 PlexHomeUser _homeUser({required bool admin}) {

@@ -76,6 +76,7 @@ import 'widgets/mobile_skip_zones.dart';
 import 'widgets/skip_marker_button.dart';
 import 'widgets/track_chapter_controls.dart';
 import 'widgets/performance_overlay/performance_overlay.dart';
+import '../rasterized_gradient.dart';
 import 'mobile_video_controls.dart';
 import 'desktop_video_controls.dart';
 import 'package:provider/provider.dart';
@@ -180,10 +181,168 @@ bool shouldShowSkipMarkerButton({
   return hasFirstFrame && hasMarker && !hasPlayNextPrompt && (!skipButtonDismissed || controlsVisible);
 }
 
-@visibleForTesting
-KeyEventResult handlePromptDismissBackKey(KeyEvent event, VoidCallback? onDismissPrompt) {
-  if (onDismissPrompt == null || !event.logicalKey.isBackKey) return KeyEventResult.ignored;
-  return handleBackKeyAction(event, onDismissPrompt);
+enum PlayerNavigationKey { none, physicalEscape, back, home }
+
+enum PlayerBackDisposition { closeContentStrip, exitFullscreenIfActive, hideControls, exitPlayer }
+
+/// Coordinates the player-level stages shared by keyboard, controller, and
+/// companion navigation after descendants have handled local overlays.
+class PlayerNavigationCoordinator {
+  final PlayerChromeController chromeController;
+  final bool Function() isPromptOpen;
+  final VoidCallback dismissPrompt;
+  final bool Function() isChromePresented;
+  final Future<bool> Function() exitFullscreenIfActive;
+  final bool physicalEscapeExitsFullscreen;
+  final VoidCallback exitPlayer;
+  final VoidCallback navigateHome;
+  final bool Function() isActive;
+
+  bool _handlingPhysicalEscape = false;
+
+  PlayerNavigationCoordinator({
+    required this.chromeController,
+    required this.isPromptOpen,
+    required this.dismissPrompt,
+    required this.isChromePresented,
+    required this.exitFullscreenIfActive,
+    this.physicalEscapeExitsFullscreen = true,
+    required this.exitPlayer,
+    required this.navigateHome,
+    bool Function()? isActive,
+  }) : isActive = isActive ?? _alwaysActive;
+
+  static bool _alwaysActive() => true;
+
+  void handle(PlayerNavigationKey navigationKey) {
+    if (navigationKey == PlayerNavigationKey.home) {
+      navigateHome();
+      return;
+    }
+    if (isPromptOpen()) {
+      dismissPrompt();
+      return;
+    }
+    final disposition = resolvePlayerBackDisposition(
+      navigationKey: navigationKey,
+      contentStripVisible: chromeController.contentStripVisible,
+      controlsVisible: isChromePresented(),
+      physicalEscapeExitsFullscreen: physicalEscapeExitsFullscreen,
+    );
+    _applyDisposition(disposition);
+  }
+
+  void _applyDisposition(PlayerBackDisposition disposition) {
+    switch (disposition) {
+      case PlayerBackDisposition.closeContentStrip:
+        chromeController.setContentStripVisible(false);
+        return;
+      case PlayerBackDisposition.exitFullscreenIfActive:
+        unawaited(_handlePhysicalEscape());
+        return;
+      case PlayerBackDisposition.hideControls:
+        chromeController.hide();
+        return;
+      case PlayerBackDisposition.exitPlayer:
+        exitPlayer();
+        return;
+    }
+  }
+
+  Future<void> _handlePhysicalEscape() async {
+    if (_handlingPhysicalEscape) return;
+    _handlingPhysicalEscape = true;
+    final chromeWasPresented = isChromePresented();
+    try {
+      if (await exitFullscreenIfActive()) return;
+      if (!isActive()) return;
+      final disposition = resolvePlayerBackDisposition(
+        navigationKey: PlayerNavigationKey.back,
+        contentStripVisible: chromeController.contentStripVisible,
+        controlsVisible: chromeWasPresented || isChromePresented(),
+      );
+      _applyDisposition(disposition);
+    } finally {
+      _handlingPhysicalEscape = false;
+    }
+  }
+}
+
+// ignore: unused-code
+PlayerBackDisposition resolvePlayerBackDisposition({
+  required PlayerNavigationKey navigationKey,
+  required bool contentStripVisible,
+  required bool controlsVisible,
+  bool physicalEscapeExitsFullscreen = true,
+}) {
+  assert(navigationKey == PlayerNavigationKey.physicalEscape || navigationKey == PlayerNavigationKey.back);
+  if (contentStripVisible) return PlayerBackDisposition.closeContentStrip;
+  if (navigationKey == PlayerNavigationKey.physicalEscape && physicalEscapeExitsFullscreen) {
+    return PlayerBackDisposition.exitFullscreenIfActive;
+  }
+  return controlsVisible ? PlayerBackDisposition.hideControls : PlayerBackDisposition.exitPlayer;
+}
+
+PlayerNavigationKey classifyPlayerNavigationKey(KeyEvent event, {required bool isAppleTV, bool? hasModifiers}) {
+  final key = event.logicalKey;
+  if (key == LogicalKeyboardKey.escape) {
+    return event.isPhysicalKeyboardEvent && !isAppleTV ? PlayerNavigationKey.physicalEscape : PlayerNavigationKey.back;
+  }
+  if (key.isBackKey) return PlayerNavigationKey.back;
+
+  final modifiersPressed =
+      hasModifiers ??
+      (HardwareKeyboard.instance.isShiftPressed ||
+          HardwareKeyboard.instance.isControlPressed ||
+          HardwareKeyboard.instance.isAltPressed ||
+          HardwareKeyboard.instance.isMetaPressed);
+  if (key == LogicalKeyboardKey.backspace && event.isPhysicalKeyboardEvent && !modifiersPressed) {
+    return PlayerNavigationKey.back;
+  }
+  if ((key == LogicalKeyboardKey.home || key == LogicalKeyboardKey.browserHome) && !modifiersPressed) {
+    return PlayerNavigationKey.home;
+  }
+  return PlayerNavigationKey.none;
+}
+
+/// Gives the player route ownership of navigation that arrives while its
+/// loading/error body is still establishing focus. The matching key-up still
+/// performs the action through the normal [Focus.onKeyEvent] path.
+bool primePlayerNavigationFocusForEvent(
+  KeyEvent event, {
+  required FocusNode focusNode,
+  required bool playerReady,
+  required bool isCurrentRoute,
+  required bool isAppleTV,
+}) {
+  if (!isCurrentRoute || playerReady || event is! KeyDownEvent) return false;
+  if (classifyPlayerNavigationKey(event, isAppleTV: isAppleTV) == PlayerNavigationKey.none) return false;
+  focusNode.requestFocus();
+  return true;
+}
+
+KeyEventResult handlePlayerNavigationKeyAction(
+  KeyEvent event,
+  PlayerNavigationKey navigationKey,
+  VoidCallback onAction,
+) {
+  if (navigationKey == PlayerNavigationKey.none) return KeyEventResult.ignored;
+
+  // macOS may also translate Backspace / Escape / browser Back into a route
+  // pop on key-down. Suppress that parallel path before the player performs
+  // its single staged action on key-up.
+  if (navigationKey != PlayerNavigationKey.home && event is KeyDownEvent) {
+    BackKeyCoordinator.markHandled();
+  }
+  if (event.logicalKey.isBackKey) return handleBackKeyAction(event, onAction);
+
+  if (event is KeyUpEvent) {
+    if (navigationKey != PlayerNavigationKey.home) {
+      BackKeyCoordinator.markHandled();
+    }
+    onAction();
+  }
+  return KeyEventResult.handled;
 }
 
 @visibleForTesting
@@ -249,10 +408,6 @@ class PlexVideoControls extends StatefulWidget {
 
   /// Called when back button is pressed (for Watch Together session leave confirmation)
   final VoidCallback? onBack;
-
-  /// Called when Back should dismiss a visible playback prompt before normal
-  /// player back handling.
-  final VoidCallback? onDismissPrompt;
 
   /// Called when the video has effectively reached the end (e.g. credits extend
   /// to EOF and can't be seeked past). Parent should route this into its normal
@@ -354,7 +509,6 @@ class PlexVideoControls extends StatefulWidget {
     this.onPlayPauseRequested,
     this.onSeekCompleted,
     this.onBack,
-    this.onDismissPrompt,
     this.onReachedEnd,
     this.canControl = true,
     this.hasFirstFrame,
@@ -386,6 +540,8 @@ class _PlexVideoControlsState extends State<PlexVideoControls>
   bool get _hasRenderedFirstFrame => widget.hasFirstFrame?.value ?? true;
 
   late bool _lastControlsVisible;
+  late bool _controlsMounted;
+  late bool _controlsOpaque;
   bool _isLoadingExtras = false;
   // Item key the in-flight extras load belongs to, so a load for a swapped
   // item can start while a stale one is still in flight (and the stale
@@ -502,6 +658,8 @@ class _PlexVideoControlsState extends State<PlexVideoControls>
   void initState() {
     super.initState();
     _lastControlsVisible = widget.chromeController.controlsVisible;
+    _controlsMounted = _lastControlsVisible;
+    _controlsOpaque = _lastControlsVisible;
     _focusNode = FocusNode();
     _skipMarkerFocusNode = FocusNode(debugLabel: 'SkipMarkerButton');
     _seekThrottle = throttle(
@@ -567,11 +725,6 @@ class _PlexVideoControlsState extends State<PlexVideoControls>
     HardwareKeyboard.instance.addHandler(_handleGlobalKeyEvent);
     // Listen for first frame to start auto-hide timer
     widget.hasFirstFrame?.addListener(_onFirstFrameReady);
-    // On macOS, show controls and disable auto-hide when PiP activates
-    if (Platform.isMacOS) {
-      _pipService.isPipActive.addListener(_onMacPipChanged);
-    }
-
     // Defer context-dependent initialization to after first build
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
@@ -599,6 +752,8 @@ class _PlexVideoControlsState extends State<PlexVideoControls>
     if (oldWidget.chromeController != widget.chromeController) {
       oldWidget.chromeController.removeListener(_onChromeChanged);
       _lastControlsVisible = widget.chromeController.controlsVisible;
+      _controlsMounted = _lastControlsVisible;
+      _controlsOpaque = _lastControlsVisible;
       widget.chromeController.addListener(_onChromeChanged);
     }
     // The same controls instance survives in-place episode swaps — re-key
@@ -661,7 +816,6 @@ class _PlexVideoControlsState extends State<PlexVideoControls>
     }
     if (Platform.isMacOS) {
       FullscreenStateManager().removeListener(_onFullscreenStateChanged);
-      _pipService.isPipActive.removeListener(_onMacPipChanged);
       _trafficLightVisibilityGeneration++;
       unawaited(MacOSWindowService.setTrafficLightsVisible(true));
     }
@@ -680,7 +834,12 @@ class _PlexVideoControlsState extends State<PlexVideoControls>
   void _onEdgeAdjustmentPipChanged() {
     final isInPip = _pipService.isPipActive.value;
     _deviceAdjustmentService.setRestoreSuppressed(isInPip);
-    if (isInPip) _cancelEdgeAdjustmentGesture();
+    if (isInPip) {
+      widget.chromeController.hold(PlayerChromeHold.pip);
+      _cancelEdgeAdjustmentGesture();
+    } else {
+      widget.chromeController.release(PlayerChromeHold.pip);
+    }
   }
 
   @override
@@ -785,117 +944,126 @@ class _PlexVideoControlsState extends State<PlexVideoControls>
                   // Custom controls overlay
                   // Positioned AFTER double-tap zones so controls receive taps first
                   Positioned.fill(
-                    child: IgnorePointer(
-                      ignoring: !_showControls,
-                      child: FocusScope(
-                        // Prevent focus from entering controls when hidden
-                        canRequestFocus: _showControls,
-                        child: AnimatedOpacity(
-                          opacity: _showControls ? 1.0 : 0.0,
-                          duration: const Duration(milliseconds: 200),
-                          child: Builder(
-                            builder: (context) {
-                              return GestureDetector(
-                                onTapUp: (details) => _handleControlsOverlayTap(details, _sizeOf(context)),
-                                onLongPressStart: (_) => _handleLongPressStart(),
-                                onLongPressEnd: (_) => _handleLongPressEnd(),
-                                onLongPressCancel: _handleLongPressCancel,
-                                behavior: HitTestBehavior.deferToChild,
-                                child: ValueListenableBuilder<bool>(
-                                  valueListenable: widget.hasFirstFrame ?? _fallbackHasFirstFrame,
-                                  builder: (context, hasFrame, child) {
-                                    return Container(
-                                      decoration: BoxDecoration(
-                                        // Use solid black when loading, gradient when loaded
-                                        color: hasFrame ? null : Colors.black,
-                                        gradient: hasFrame
-                                            ? LinearGradient(
-                                                begin: Alignment.topCenter,
-                                                end: Alignment.bottomCenter,
-                                                colors: [
-                                                  Colors.black.withValues(alpha: 0.7),
-                                                  Colors.transparent,
-                                                  Colors.transparent,
-                                                  Colors.black.withValues(alpha: 0.7),
-                                                ],
-                                                stops: const [0.0, 0.2, 0.8, 1.0],
-                                              )
-                                            : null,
-                                      ),
-                                      child: child,
-                                    );
-                                  },
-                                  child: isMobile
-                                      ? Listener(
-                                          behavior: HitTestBehavior.translucent,
-                                          onPointerDown: (_) {
-                                            if (!widget.chromeController.contentStripVisible) {
-                                              _restartHideTimerForCurrentPlaybackState();
-                                            }
-                                          },
-                                          child: Builder(
-                                            builder: (context) {
-                                              final playbackState = context.watch<PlaybackStateProvider>();
-                                              final hasStripContent =
-                                                  _chapters.isNotEmpty || playbackState.isQueueActive;
-                                              return MobileVideoControls(
-                                                player: widget.player,
-                                                metadata: widget.metadata,
-                                                chapters: _chapters,
-                                                chaptersLoaded: _chaptersLoaded,
-                                                showChapterMarkersOnTimeline: _showChapterMarkersOnTimeline,
-                                                seekTimeSmall: _seekTimeSmall,
-                                                trackChapterControls: _buildTrackChapterControlsWidget(
-                                                  hideChaptersAndQueue: hasStripContent,
-                                                ),
-                                                onSeek: _throttledSeek,
-                                                onSeekEnd: _finalizeSeek,
-                                                onScrubStart: _holdTimelineScrub,
-                                                onScrubEnd: _releaseTimelineScrub,
-                                                onSeekRequested: widget.onSeekRequested,
-                                                onSeekCompleted: widget.onSeekCompleted,
-                                                // ignore: no-empty-block - play/pause handled by parent VideoControlsState
-                                                onPlayPause: () {},
-                                                onCancelAutoHide: widget.chromeController.cancelAutoHide,
-                                                onStartAutoHide: widget.chromeController.startAutoHide,
-                                                onBack: widget.onBack,
-                                                onNext: widget.onNext,
-                                                onPrevious: widget.onPrevious,
-                                                canControl: widget.canControl,
-                                                hasFirstFrame: widget.hasFirstFrame,
-                                                thumbnailDataBuilder: widget.thumbnailDataBuilder,
-                                                isLive: widget.isLive,
-                                                liveChannelName: widget.liveChannelName,
-                                                captureBuffer: widget.captureBuffer,
-                                                isAtLiveEdge: widget.isAtLiveEdge,
-                                                streamStartEpoch: widget.streamStartEpoch,
-                                                onLiveSeek: widget.onLiveSeek,
-                                                serverId: widget.metadata.serverId,
-                                                showQueueTab: playbackState.isQueueActive,
-                                                onQueueItemSelected: playbackState.isQueueActive
-                                                    ? _onQueueItemSelected
-                                                    : null,
-                                                chromeController: widget.chromeController,
-                                                onStripVisibilityChanged: (visible) {
-                                                  if (visible) {
-                                                    widget.chromeController.setContentStripVisible(true);
-                                                  } else {
-                                                    widget.chromeController.setContentStripVisible(false);
+                    child: !_controlsMounted
+                        ? const SizedBox.shrink()
+                        : IgnorePointer(
+                            ignoring: !_showControls,
+                            child: FocusScope(
+                              // Prevent focus from entering controls when hidden
+                              canRequestFocus: _showControls,
+                              child: AnimatedOpacity(
+                                opacity: _controlsOpaque ? 1.0 : 0.0,
+                                duration: const Duration(milliseconds: 200),
+                                onEnd: () {
+                                  if (!_showControls) {
+                                    widget.chromeController.markControlsHidden();
+                                    if (_controlsMounted) setState(() => _controlsMounted = false);
+                                  }
+                                },
+                                child: Builder(
+                                  builder: (context) {
+                                    return GestureDetector(
+                                      onTapUp: (details) => _handleControlsOverlayTap(details, _sizeOf(context)),
+                                      onLongPressStart: (_) => _handleLongPressStart(),
+                                      onLongPressEnd: (_) => _handleLongPressEnd(),
+                                      onLongPressCancel: _handleLongPressCancel,
+                                      behavior: HitTestBehavior.deferToChild,
+                                      child: ValueListenableBuilder<bool>(
+                                        valueListenable: widget.hasFirstFrame ?? _fallbackHasFirstFrame,
+                                        builder: (context, hasFrame, child) {
+                                          // Solid black while loading, scrim once frames flow.
+                                          // Both states share one widget type: hasFrame flips
+                                          // on every in-place episode switch / live-TV zap, and
+                                          // a runtimeType change here would re-inflate the whole
+                                          // controls subtree and drop its state.
+                                          return RasterizedGradient(
+                                            gradient: hasFrame
+                                                ? LinearGradient(
+                                                    begin: Alignment.topCenter,
+                                                    end: Alignment.bottomCenter,
+                                                    colors: [
+                                                      Colors.black.withValues(alpha: 0.7),
+                                                      Colors.transparent,
+                                                      Colors.transparent,
+                                                      Colors.black.withValues(alpha: 0.7),
+                                                    ],
+                                                    stops: const [0.0, 0.2, 0.8, 1.0],
+                                                  )
+                                                : const LinearGradient(colors: [Colors.black, Colors.black]),
+                                            child: child,
+                                          );
+                                        },
+                                        child: isMobile
+                                            ? Listener(
+                                                behavior: HitTestBehavior.translucent,
+                                                onPointerDown: (_) {
+                                                  if (!widget.chromeController.contentStripVisible) {
+                                                    _restartHideTimerForCurrentPlaybackState();
                                                   }
                                                 },
-                                                isInEdgeAdjustmentZone: _isGlobalPositionInEdgeAdjustmentZone,
-                                              );
-                                            },
-                                          ),
-                                        )
-                                      : _buildDesktopControlsListener(),
+                                                child: Builder(
+                                                  builder: (context) {
+                                                    final playbackState = context.watch<PlaybackStateProvider>();
+                                                    final hasStripContent =
+                                                        _chapters.isNotEmpty || playbackState.isQueueActive;
+                                                    return MobileVideoControls(
+                                                      player: widget.player,
+                                                      metadata: widget.metadata,
+                                                      chapters: _chapters,
+                                                      chaptersLoaded: _chaptersLoaded,
+                                                      showChapterMarkersOnTimeline: _showChapterMarkersOnTimeline,
+                                                      seekTimeSmall: _seekTimeSmall,
+                                                      trackChapterControls: _buildTrackChapterControlsWidget(
+                                                        hideChaptersAndQueue: hasStripContent,
+                                                      ),
+                                                      onSeek: _throttledSeek,
+                                                      onSeekEnd: _finalizeSeek,
+                                                      onScrubStart: _holdTimelineScrub,
+                                                      onScrubEnd: _releaseTimelineScrub,
+                                                      onSeekRequested: widget.onSeekRequested,
+                                                      onSeekCompleted: widget.onSeekCompleted,
+                                                      // ignore: no-empty-block - play/pause handled by parent VideoControlsState
+                                                      onPlayPause: () {},
+                                                      onCancelAutoHide: widget.chromeController.cancelAutoHide,
+                                                      onStartAutoHide: widget.chromeController.startAutoHide,
+                                                      onBack: widget.onBack,
+                                                      onNext: widget.onNext,
+                                                      onPrevious: widget.onPrevious,
+                                                      canControl: widget.canControl,
+                                                      hasFirstFrame: widget.hasFirstFrame,
+                                                      thumbnailDataBuilder: widget.thumbnailDataBuilder,
+                                                      isLive: widget.isLive,
+                                                      liveChannelName: widget.liveChannelName,
+                                                      captureBuffer: widget.captureBuffer,
+                                                      isAtLiveEdge: widget.isAtLiveEdge,
+                                                      streamStartEpoch: widget.streamStartEpoch,
+                                                      onLiveSeek: widget.onLiveSeek,
+                                                      serverId: widget.metadata.serverId,
+                                                      showQueueTab: playbackState.isQueueActive,
+                                                      onQueueItemSelected: playbackState.isQueueActive
+                                                          ? _onQueueItemSelected
+                                                          : null,
+                                                      chromeController: widget.chromeController,
+                                                      onStripVisibilityChanged: (visible) {
+                                                        if (visible) {
+                                                          widget.chromeController.setContentStripVisible(true);
+                                                        } else {
+                                                          widget.chromeController.setContentStripVisible(false);
+                                                        }
+                                                      },
+                                                      isInEdgeAdjustmentZone: _isGlobalPositionInEdgeAdjustmentZone,
+                                                    );
+                                                  },
+                                                ),
+                                              )
+                                            : _buildDesktopControlsListener(),
+                                      ),
+                                    );
+                                  },
                                 ),
-                              );
-                            },
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
                   ),
                   // Visual feedback overlay for double-tap
                   if (isMobile && _showDoubleTapFeedback)
@@ -979,10 +1147,19 @@ class _PlexVideoControlsState extends State<PlexVideoControls>
                       curve: Curves.easeInOut,
                       top: _showControls ? (isMobile ? 100.0 : 60.0) : 16.0,
                       left: 16,
-                      child: AnimatedOpacity(
-                        opacity: (!_autoHidePerformanceOverlay || _showControls) ? 1.0 : 0.0,
-                        duration: const Duration(milliseconds: 200),
-                        child: IgnorePointer(child: PlayerPerformanceOverlay(player: widget.player)),
+                      right: 16,
+                      // Clear the bottom controls (same clearance as the skip button) so the
+                      // overlay can shrink to fit instead of being clipped by the screen edge.
+                      bottom: !_showControls ? 16.0 : (isMobile ? 80.0 : 115.0),
+                      // Align loosens the tight constraints from the fully-anchored Positioned;
+                      // without it the card would stretch to fill the whole region.
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: AnimatedOpacity(
+                          opacity: (!_autoHidePerformanceOverlay || _showControls) ? 1.0 : 0.0,
+                          duration: const Duration(milliseconds: 200),
+                          child: IgnorePointer(child: PlayerPerformanceOverlay(player: widget.player)),
+                        ),
                       ),
                     ),
                   if (_isScreenLocked)

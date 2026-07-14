@@ -8,11 +8,11 @@ import '../services/trackers/tracker_account_store.dart';
 import '../services/trackers/tracker_connect_runner.dart';
 import '../services/trackers/tracker_constants.dart';
 import '../services/trackers/tracker_session.dart';
+import '../services/trackers/tracker_username_enricher.dart';
 import '../services/trakt/trakt_auth_service.dart';
 import '../services/trakt/trakt_client.dart';
 import '../services/trakt/trakt_scrobble_service.dart';
 import '../services/trakt/trakt_sync_service.dart';
-import '../utils/app_logger.dart';
 
 /// Owns the active Trakt session for the currently-selected Plex profile.
 ///
@@ -27,11 +27,17 @@ class TraktAccountProvider extends ChangeNotifier with DisposableChangeNotifierM
   int _bindingGeneration = 0;
   bool _isConnecting = false;
   Completer<void>? _cancelCompleter;
+  TraktClient? _catalogClient;
 
   TrackerSession? get session => _session;
   bool get isConnected => _session != null;
   String? get username => _session?.username;
   bool get isConnecting => _isConnecting;
+
+  /// Client for the catalog/watchlist surfaces (Explore tab). Owned and
+  /// rebound here alongside the scrobble/sync services; null when
+  /// disconnected.
+  TraktClient? get catalogClient => _catalogClient;
 
   /// Cancel an in-flight `connect()` (e.g. user dismissed the device-code
   /// dialog). Completing the completer both wakes the blocking `Future.any`
@@ -81,19 +87,12 @@ class TraktAccountProvider extends ChangeNotifier with DisposableChangeNotifierM
     }
   }
 
-  Future<TrackerSession> _enrichUsername(TrackerSession raw) async {
-    TraktClient? tmp;
-    try {
-      tmp = TraktClient(raw, onSessionInvalidated: () {});
-      final user = await tmp.getUserSettings();
-      return raw.copyWith(username: user.username);
-    } catch (e) {
-      appLogger.d('Trakt: getUserSettings failed (non-fatal)', error: e);
-      return raw;
-    } finally {
-      tmp?.dispose();
-    }
-  }
+  Future<TrackerSession> _enrichUsername(TrackerSession raw) => enrichTrackerSessionUsername(
+    session: raw,
+    failureMessage: 'Trakt: getUserSettings failed (non-fatal)',
+    createClient: () => TraktClient(raw, onSessionInvalidated: () {}),
+    fetchUsername: (client) async => (await client.getUserSettings()).username,
+  );
 
   /// Revoke the access token and clear local state.
   Future<void> disconnect() async {
@@ -134,6 +133,10 @@ class TraktAccountProvider extends ChangeNotifier with DisposableChangeNotifierM
       onSessionInvalidated: handleInvalidated,
       onSessionUpdated: handleUpdated,
     );
+    _catalogClient?.dispose();
+    _catalogClient = session == null
+        ? null
+        : TraktClient(session, onSessionInvalidated: handleInvalidated, onSessionUpdated: handleUpdated);
     safeNotifyListeners();
   }
 
@@ -146,6 +149,7 @@ class TraktAccountProvider extends ChangeNotifier with DisposableChangeNotifierM
     _session = session;
     TraktScrobbleService.instance.updateSession(session);
     TraktSyncService.instance.updateSession(session);
+    _catalogClient?.updateSession(session);
     unawaited(_store.save(userUuid, session));
     safeNotifyListeners();
   }
@@ -175,6 +179,8 @@ class TraktAccountProvider extends ChangeNotifier with DisposableChangeNotifierM
   @override
   void dispose() {
     _auth.dispose();
+    _catalogClient?.dispose();
+    _catalogClient = null;
     super.dispose();
   }
 }

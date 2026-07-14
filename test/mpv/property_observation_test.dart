@@ -1,7 +1,8 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:plezy/mpv/player/platform/player_android.dart';
-import 'package:plezy/mpv/player/player_base.dart';
 import 'package:plezy/mpv/player/player_native.dart';
 import 'package:plezy/services/settings_service.dart';
 
@@ -60,11 +61,6 @@ void main() {
 
   Set<String> names(List<MethodCall> calls) => calls.map((c) => (c.arguments as Map)['name'] as String).toSet();
 
-  test('the shared core table covers every state-critical property', () {
-    final tableNames = PlayerBase.corePropertyObservations.map((e) => e.$1).toSet()..add('track-list');
-    expect(tableNames, coreNames);
-  });
-
   test('ExoPlayer registers the core properties (plus its cache extra)', () async {
     final player = PlayerAndroid();
     final observations = await capturedObservations(
@@ -94,5 +90,12 @@ void main() {
     final registered = names(observations);
     expect(registered, containsAll(coreNames));
     expect(registered, containsAll({'secondary-sid', 'demuxer-cache-state', 'audio-device-list', 'audio-device'}));
+    final structuredFormat = Platform.isAndroid ? 'string' : 'node';
+    for (final call in observations.where((call) {
+      final name = (call.arguments as Map)['name'];
+      return name == 'track-list' || name == 'demuxer-cache-state' || name == 'audio-device-list';
+    })) {
+      expect((call.arguments as Map)['format'], structuredFormat);
+    }
   });
 }

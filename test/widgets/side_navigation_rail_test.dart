@@ -4,6 +4,8 @@ import 'package:plezy/media/ids.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_symbols_icons/symbols.dart';
+import 'package:plezy/focus/input_mode_tracker.dart';
 import 'package:plezy/i18n/strings.g.dart';
 import 'package:plezy/media/media_backend.dart';
 import 'package:plezy/media/media_kind.dart';
@@ -26,10 +28,14 @@ import '../test_helpers/prefs.dart';
 const _testTokens = MonoTokens(
   radiusSm: 8,
   radiusMd: 12,
+  radiusLg: 20,
+  radiusXs: 5,
+  groupGap: 2,
   space: 8,
   fast: Duration(milliseconds: 1),
   normal: Duration(milliseconds: 1),
   slow: Duration(milliseconds: 1),
+  expressive: Duration(milliseconds: 1),
   bg: Colors.black,
   surface: Colors.black,
   outline: Colors.white24,
@@ -511,5 +517,47 @@ void main() {
     await _press(tester, LogicalKeyboardKey.enter);
 
     expect(selectedLibraryKey, hiddenServerALibrary.globalKey);
+  });
+
+  testWidgets('rail item focus repaints locally without rebuilding its parent', (tester) async {
+    final focusNode = FocusNode();
+    addTearDown(focusNode.dispose);
+    var parentBuilds = 0;
+
+    await tester.pumpWidget(
+      InputModeTracker(
+        child: MaterialApp(
+          theme: ThemeData(extensions: const [_testTokens]),
+          home: Scaffold(
+            body: Builder(
+              builder: (context) {
+                parentBuilds++;
+                return NavigationRailItem(
+                  icon: Symbols.home_rounded,
+                  label: const Text('Home'),
+                  isSelected: false,
+                  onTap: () {},
+                  focusNode: focusNode,
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+
+    final item = find.byType(NavigationRailItem);
+    expect(_railItemDecoration(tester, item)?.color, isNull);
+    expect(parentBuilds, 1);
+
+    await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
+    await tester.pump();
+
+    focusNode.requestFocus();
+    await tester.pump();
+
+    expect(focusNode.hasFocus, isTrue);
+    expect(_railItemDecoration(tester, item)?.color, isNotNull);
+    expect(parentBuilds, 1);
   });
 }

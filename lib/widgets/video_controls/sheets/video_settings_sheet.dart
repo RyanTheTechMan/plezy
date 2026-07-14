@@ -268,8 +268,8 @@ class _VideoSettingsSheetState extends State<VideoSettingsSheet> {
     final propertyName = isSubtitle ? 'sub-delay' : 'audio-delay';
     final initialOffset = isSubtitle ? _subtitleSyncOffset : _audioSyncOffset;
 
-    // Created here so we can pass it as initialFocusNode to the overlay sheet,
-    // ensuring the slider gets focus when the bar opens. Disposed by _CompactSyncBar.
+    // Created here so it can be passed as the overlay's initial focus target.
+    // The creator disposes it after the overlay's lifecycle completes.
     final sliderFocusNode = FocusNode(debugLabel: 'SyncSlider');
 
     // show() with new alignment replaces the current sheet (completing the
@@ -299,6 +299,7 @@ class _VideoSettingsSheetState extends State<VideoSettingsSheet> {
           ),
         )
         .whenComplete(() {
+          sliderFocusNode.dispose();
           widget.onStartAutoHide?.call();
         });
 
@@ -547,7 +548,7 @@ class _VideoSettingsSheetState extends State<VideoSettingsSheet> {
             },
           ),
 
-        // Audio Passthrough (desktop and Android TV)
+        // Audio Passthrough (desktop, Android TV, and Apple TV)
         if (PlatformDetector.supportsAudioPassthrough())
           _SettingsToggleItem(
             pref: SettingsService.audioPassthrough,
@@ -562,6 +563,18 @@ class _VideoSettingsSheetState extends State<VideoSettingsSheet> {
           icon: Symbols.graphic_eq_rounded,
           title: t.videoSettings.audioNormalization,
           onAfterWrite: widget.player.setAudioNormalization,
+        ),
+
+        // Stereo Downmix
+        _SettingsToggleItem(
+          pref: SettingsService.audioDownmix,
+          icon: Symbols.headphones_rounded,
+          title: t.videoSettings.audioDownmix,
+          onAfterWrite: (enabled) => widget.player.setAudioDownmix(
+            enabled: enabled,
+            centerBoostDb: SettingsService.instance.read(SettingsService.downmixCenterBoost),
+            normalize: SettingsService.instance.read(SettingsService.audioDownmixNormalize),
+          ),
         ),
 
         // Shader Preset (MPV only)
@@ -1061,7 +1074,6 @@ class _CompactSyncBarState extends State<_CompactSyncBar> {
 
   @override
   void dispose() {
-    widget.sliderFocusNode.dispose();
     _resetFocusNode.dispose();
     _closeFocusNode.dispose();
     super.dispose();

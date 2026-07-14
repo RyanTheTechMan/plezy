@@ -1,9 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../i18n/strings.g.dart';
 import '../providers/download_provider.dart';
 import '../widgets/deletion_progress_dialog.dart';
-import 'dialogs.dart';
 
 class SmartDeletionHandler {
   /// Execute deletion with smart progress dialog
@@ -14,13 +15,12 @@ class SmartDeletionHandler {
     required String globalKey,
     int delayMs = 500,
   }) async {
-    bool dialogShown = false;
     bool deletionComplete = false;
+    ({NavigatorState navigator, DialogRoute<void> route})? progressDialog;
 
-    Future.delayed(Duration(milliseconds: delayMs), () {
+    final progressTimer = Timer(Duration(milliseconds: delayMs), () {
       if (!deletionComplete && context.mounted) {
-        dialogShown = true;
-        _showProgressDialog(context, provider, globalKey);
+        progressDialog = _showProgressDialog(context, globalKey);
       }
     });
 
@@ -28,18 +28,23 @@ class SmartDeletionHandler {
       await provider.deleteDownload(globalKey);
     } finally {
       deletionComplete = true;
-      // Close dialog if shown (with canPop guard to prevent double-pop)
-      if (dialogShown && context.mounted && Navigator.canPop(context)) {
-        Navigator.of(context).pop();
+      progressTimer.cancel();
+      final dialog = progressDialog;
+      if (dialog != null && dialog.navigator.mounted && dialog.route.isActive) {
+        dialog.navigator.removeRoute(dialog.route);
       }
     }
   }
 
-  static void _showProgressDialog(BuildContext context, DownloadProvider _, String globalKey) {
-    showScopedDialog<void>(
+  static ({NavigatorState navigator, DialogRoute<void> route}) _showProgressDialog(
+    BuildContext context,
+    String globalKey,
+  ) {
+    final navigator = Navigator.of(context);
+    final route = DialogRoute<void>(
       context: context,
       barrierDismissible: false,
-      builder: (dialogContext) => Consumer<DownloadProvider>(
+      builder: (_) => Consumer<DownloadProvider>(
         builder: (context, provider, child) {
           final progress = provider.getDeletionProgress(globalKey);
 
@@ -56,5 +61,7 @@ class SmartDeletionHandler {
         },
       ),
     );
+    navigator.push(route);
+    return (navigator: navigator, route: route);
   }
 }

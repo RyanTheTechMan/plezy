@@ -5,12 +5,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:plezy/widgets/app_icon.dart';
 
+import '../../widgets/dialog_action_button.dart';
 import '../../focus/focusable_button.dart';
 import '../../focus/focusable_text_field.dart';
 import '../../i18n/strings.g.dart';
 import '../../models/external_player_models.dart';
 import '../../services/settings_service.dart';
 import '../../utils/dialogs.dart';
+import '../../widgets/expressive_button_group.dart';
+import '../../widgets/focusable_list_tile.dart';
 import '../../widgets/setting_tile.dart';
 import '../../widgets/settings_builder.dart';
 import '../../widgets/settings_page.dart';
@@ -25,11 +28,15 @@ class ExternalPlayerScreen extends StatelessWidget {
     return SettingsPage(
       title: Text(t.externalPlayer.title),
       children: [
-        SettingSwitchTile(
-          pref: SettingsService.useExternalPlayer,
-          icon: Symbols.open_in_new_rounded,
-          title: t.externalPlayer.useExternalPlayer,
-          subtitle: t.externalPlayer.useExternalPlayerDescription,
+        SettingsGroup(
+          children: [
+            SettingSwitchTile(
+              pref: SettingsService.useExternalPlayer,
+              icon: Symbols.open_in_new_rounded,
+              title: t.externalPlayer.useExternalPlayer,
+              subtitle: t.externalPlayer.useExternalPlayerDescription,
+            ),
+          ],
         ),
         SettingsBuilder(
           prefs: [
@@ -44,14 +51,20 @@ class ExternalPlayerScreen extends StatelessWidget {
             final custom = svc.read(SettingsService.customExternalPlayers);
             return Column(
               children: [
-                SettingsSectionHeader(t.externalPlayer.selectPlayer),
-                ...knownPlayers.map((p) => _PlayerTile(player: p, selectedId: selected.id)),
-                SettingsSectionHeader(t.externalPlayer.customPlayers),
-                ...custom.map((p) => _PlayerTile(player: p, selectedId: selected.id, isCustom: true)),
-                ListTile(
-                  leading: const AppIcon(Symbols.add_rounded, fill: 1),
-                  title: Text(t.externalPlayer.addCustomPlayer),
-                  onTap: () => _showAddCustomPlayerDialog(context),
+                SettingsGroup(
+                  title: t.externalPlayer.selectPlayer,
+                  children: [for (final p in knownPlayers) _PlayerTile(player: p, selectedId: selected.id)],
+                ),
+                SettingsGroup(
+                  title: t.externalPlayer.customPlayers,
+                  children: [
+                    for (final p in custom) _PlayerTile(player: p, selectedId: selected.id, isCustom: true),
+                    FocusableListTile(
+                      leading: const AppIcon(Symbols.add_rounded, fill: 1),
+                      title: Text(t.externalPlayer.addCustomPlayer),
+                      onTap: () => _showAddCustomPlayerDialog(context),
+                    ),
+                  ],
                 ),
               ],
             );
@@ -94,16 +107,20 @@ class _PlayerTile extends StatelessWidget {
       leading = const AppIcon(Symbols.play_circle_rounded, fill: 1, size: 32);
     }
 
-    return ListTile(
+    return FocusableListTile(
       leading: leading,
       title: Text(player.id == 'system_default' ? t.externalPlayer.systemDefault : player.name),
       trailing: Row(
         mainAxisSize: .min,
         children: [
           if (isCustom)
-            IconButton(
-              icon: const AppIcon(Symbols.delete_rounded, fill: 1, size: 20),
+            FocusableButton(
               onPressed: () => svc.removeCustomExternalPlayer(player.id),
+              autoScroll: false,
+              child: IconButton(
+                icon: const AppIcon(Symbols.delete_rounded, fill: 1, size: 20),
+                onPressed: () => svc.removeCustomExternalPlayer(player.id),
+              ),
             ),
           AppIcon(
             isSelected ? Symbols.radio_button_checked_rounded : Symbols.radio_button_unchecked_rounded,
@@ -197,19 +214,16 @@ class _AddCustomPlayerDialogState extends State<_AddCustomPlayerDialog> {
               onSubmitted: (_) => _valueFocusNode.requestFocus(),
             ),
             const SizedBox(height: 16),
-            SizedBox(
-              width: double.infinity,
-              child: SegmentedButton<CustomPlayerType>(
-                segments: [
-                  ButtonSegment(
-                    value: CustomPlayerType.command,
-                    label: Text(Platform.isAndroid ? t.externalPlayer.playerPackage : t.externalPlayer.playerCommand),
-                  ),
-                  ButtonSegment(value: CustomPlayerType.urlScheme, label: Text(t.externalPlayer.playerUrlScheme)),
-                ],
-                selected: {_selectedType},
-                onSelectionChanged: (value) => setState(() => _selectedType = value.first),
-              ),
+            ExpressiveButtonGroup<CustomPlayerType>(
+              segments: [
+                ButtonSegment(
+                  value: CustomPlayerType.command,
+                  label: Text(Platform.isAndroid ? t.externalPlayer.playerPackage : t.externalPlayer.playerCommand),
+                ),
+                ButtonSegment(value: CustomPlayerType.urlScheme, label: Text(t.externalPlayer.playerUrlScheme)),
+              ],
+              selected: _selectedType,
+              onChanged: (value) => setState(() => _selectedType = value),
             ),
             const SizedBox(height: 16),
             FocusableTextField(
@@ -223,15 +237,8 @@ class _AddCustomPlayerDialogState extends State<_AddCustomPlayerDialog> {
         ),
       ),
       actions: [
-        FocusableButton(
-          onPressed: () => Navigator.pop(context),
-          child: TextButton(onPressed: () => Navigator.pop(context), child: Text(t.common.cancel)),
-        ),
-        FocusableButton(
-          focusNode: _saveFocusNode,
-          onPressed: _submit,
-          child: FilledButton(onPressed: _submit, child: Text(t.common.save)),
-        ),
+        DialogActionButton(onPressed: () => Navigator.pop(context), label: t.common.cancel),
+        DialogActionButton(focusNode: _saveFocusNode, onPressed: _submit, label: t.common.save, isPrimary: true),
       ],
     );
   }

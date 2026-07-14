@@ -1,5 +1,9 @@
 part of '../../video_player_screen.dart';
 
+/// Fallback for OS skip commands that arrive without an interval (the
+/// platforms normally send one — Android hardcodes 15s).
+const _defaultMediaControlSkip = Duration(seconds: 15);
+
 extension _VideoPlayerPlaybackServiceMethods on VideoPlayerScreenState {
   void _queueScrubPreviewLoad({
     required MediaItem metadata,
@@ -80,6 +84,12 @@ extension _VideoPlayerPlaybackServiceMethods on VideoPlayerScreenState {
           _rearmCompletionLatch();
         }
       }
+      // A mid-file EOF is the stream dying under us (#1520), not the media
+      // ending: it must never mark the item watched, prompt Play Next, or
+      // exit a movie. Intercepted here and not inside _onVideoCompleted
+      // because the credits-marker auto-skip legitimately calls
+      // _onVideoCompleted from mid-credits positions.
+      if (done && _interceptSpuriousEof(currentPlayer)) return;
       _onVideoCompleted(done);
     });
 
@@ -110,9 +120,15 @@ extension _VideoPlayerPlaybackServiceMethods on VideoPlayerScreenState {
           final isOnline = statusMap[serverId] == true;
           if (!isOnline) {
             wasOffline = true;
-          } else if (wasOffline && _isBuffering.value) {
+          } else if (wasOffline && (_isBuffering.value || _spuriousEofRecoveryParked)) {
             wasOffline = false;
-            _forceStreamReconnect();
+            if (_spuriousEofRecoveryParked) {
+              // A parked stream is dead server-side; a seek-in-place would
+              // land in the drained cache — only a fresh resolve replaces it.
+              unawaited(_retrySpuriousEofRecovery(reason: 'server back online'));
+            } else {
+              _forceStreamReconnect();
+            }
           }
         });
       }
@@ -123,6 +139,7 @@ extension _VideoPlayerPlaybackServiceMethods on VideoPlayerScreenState {
       _lastLogError = null;
       _sawServer500 = false;
       _live.fallbackLevel = 0;
+      _live.retryFailed = false;
       final markFirstFrameReady = _markFirstFrameReady(currentPlayer, settingsService);
       _trackManager?.onPlaybackRestart();
       await markFirstFrameReady;
@@ -144,6 +161,16 @@ extension _VideoPlayerPlaybackServiceMethods on VideoPlayerScreenState {
           unawaited(_markFirstFrameReady(currentPlayer, settingsService));
         }
         lastObservedPositionMs = position.inMilliseconds;
+      }
+
+      // A recovered stream that progressed well past the recovery point
+      // proves the reload worked — restore the full spurious-EOF retry
+      // budget for the next stream death.
+      final recoveryBaselineMs = _spuriousEofRecoveryBaselineMs;
+      if (recoveryBaselineMs != null &&
+          position.inMilliseconds >= recoveryBaselineMs + VideoPlayerScreenState._spuriousEofProgressResetMs) {
+        _spuriousEofRecoveryAttempts = 0;
+        _spuriousEofRecoveryBaselineMs = null;
       }
 
       final duration = activePlayer.state.duration;
@@ -226,15 +253,35 @@ extension _VideoPlayerPlaybackServiceMethods on VideoPlayerScreenState {
     // Local media still reports live when its server is online; only queue
     // locally when no reporting client is reachable.
     if (mediaClient != null) {
+      // Captured now (synchronously); resolved at scrobble time because the
+      // play queue holding the siblings is created fire-and-forget and may
+      // not exist yet when the tracker is wired.
+      final playbackState = context.read<PlaybackStateProvider>();
+      final effectivePlayMethod = playMethod ?? (_isTranscoding ? 'Transcode' : 'DirectPlay');
       _progressTracker = PlaybackProgressTracker(
         client: mediaClient,
         metadata: metadata,
         player: currentPlayer,
         offlineWatchService: offlineWatchService,
         queueOnOnlineFailure: _playbackContext?.shouldQueueOnReportFailure ?? _usesLocalPlaybackSource,
-        playMethod: playMethod ?? (_isTranscoding ? 'Transcode' : 'DirectPlay'),
+        playMethod: effectivePlayMethod,
         playSessionId: playSessionId,
         mediaInfo: mediaInfo,
+        onPausedKeepalive: mediaClient is PlexClient && effectivePlayMethod == 'Transcode'
+            ? () => mediaClient.pingTranscodeSession(_playbackTranscodeSessionId)
+            : null,
+        onScrobbled: () async {
+          // Other episodes of a Plex multi-episode file share this item's
+          // part — watching the file watched them too (#1500). Reusing
+          // markWatchedFromPlaybackStop keeps the local watched-event
+          // emission and the Jellyfin double-scrobble guard (#1287).
+          final siblings = playbackState.sameFileSiblings(metadata, playedPartId: mediaInfo?.partId?.toString());
+          for (final sibling in siblings) {
+            if (sibling.isWatched) continue;
+            await mediaClient.markWatchedFromPlaybackStop(sibling);
+            appLogger.d('Scrobbled same-file sibling ${sibling.id} of ${metadata.id}');
+          }
+        },
       );
       _progressTracker!.startTracking();
     } else if (_isOfflinePlayback) {
@@ -274,13 +321,7 @@ extension _VideoPlayerPlaybackServiceMethods on VideoPlayerScreenState {
     _mediaControlSubscription = mediaControlsManager.controlEvents.listen((event) {
       final activePlayer = player;
       if (_mediaControlsSuspendedForTvBackground) {
-        final eventLabel = event.runtimeType.toString();
-        if (activePlayer != null && (event is PlayEvent || event is TogglePlayPauseEvent)) {
-          appLogger.d('Media control: $eventLabel received while Android TV background-suspended');
-          unawaited(_requestForegroundResumeFromSuspendedMediaControl(eventLabel));
-        } else {
-          appLogger.d('Media control: $eventLabel ignored while Android TV background-suspended');
-        }
+        appLogger.d('Media control: ${event.runtimeType} ignored while Android TV background-suspended');
         return;
       }
 
@@ -331,6 +372,21 @@ extension _VideoPlayerPlaybackServiceMethods on VideoPlayerScreenState {
       } else if (event is PreviousTrackEvent) {
         appLogger.d('Media control: Previous track event received');
         unawaited(_restartOrPlayPrevious());
+      } else if (event is StopEvent) {
+        // Same semantics as the companion remote's stop: exit the player.
+        appLogger.d('Media control: Stop event received');
+        unawaited(_handleBackButton());
+      } else if (event is SkipForwardEvent) {
+        appLogger.d('Media control: Skip forward event received (${event.interval})');
+        unawaited(_seekRelative(event.interval ?? _defaultMediaControlSkip));
+      } else if (event is SkipBackwardEvent) {
+        appLogger.d('Media control: Skip backward event received (${event.interval})');
+        unawaited(_seekRelative(-(event.interval ?? _defaultMediaControlSkip)));
+      } else if (event is SetSpeedEvent) {
+        // UI, Discord, and the media-session state all follow reactively
+        // via streams.rate — same unguarded path as keyboard shortcuts.
+        appLogger.d('Media control: Set speed event received (${event.speed}x)');
+        unawaited(activePlayer!.setRate(event.speed));
       }
     });
 
@@ -516,5 +572,99 @@ extension _VideoPlayerPlaybackServiceMethods on VideoPlayerScreenState {
     // so the real end-of-file can trigger Play Next after we recover.
     _rearmCompletionLatch();
     unawaited(_seekPlayback(pos));
+  }
+
+  /// Intercept an EOF signal that fired far from the end of the media.
+  ///
+  /// The player reports a clean EOF when a network stream dies mid-file
+  /// (#1520) — no libmpv signal distinguishes it from the real end, so
+  /// position vs best-known duration is the only discriminator (see
+  /// [classifyEofSignal]). Returns true when the signal was spurious and
+  /// handled here (recovery started, or playback stays parked); false lets
+  /// the caller run the normal completion flow.
+  bool _interceptSpuriousEof(Player currentPlayer) {
+    // Live EOFs have their own handling, an offline file can't lose its
+    // stream, and in-flight transitions already produce expected EOFs that
+    // _onVideoCompleted ignores — all fall through untouched.
+    if (widget.isLive || _isOfflinePlayback) return false;
+    if (_playbackTransition != _PlaybackTransition.idle) return false;
+    // Already parked: swallow duplicate EOF signals without burning budget
+    // or re-toasting.
+    if (_spuriousEofRecoveryParked) return true;
+
+    final positionMs = currentPlayer.state.position.inMilliseconds;
+    final playerDurationMs = currentPlayer.state.duration.inMilliseconds;
+    final metadataDurationMs = _currentMetadata.durationMs;
+    final signal = classifyEofSignal(
+      positionMs: positionMs,
+      playerDurationMs: playerDurationMs,
+      metadataDurationMs: metadataDurationMs,
+    );
+    if (signal != EofSignalClass.spurious) return false;
+
+    appLogger.w(
+      'Spurious EOF at ${positionMs}ms (playerDuration=${playerDurationMs}ms, '
+      'metadataDuration=${metadataDurationMs}ms, '
+      'cacheEnd=${currentPlayer.state.buffer.inMilliseconds}ms), '
+      'recovery attempt ${_spuriousEofRecoveryAttempts + 1}/'
+      '${VideoPlayerScreenState._maxSpuriousEofRecoveryAttempts}',
+    );
+
+    if (_spuriousEofRecoveryAttempts >= VideoPlayerScreenState._maxSpuriousEofRecoveryAttempts) {
+      _parkAfterFailedRecovery();
+      return true;
+    }
+    _spuriousEofRecoveryAttempts++;
+    _spuriousEofRecoveryBaselineMs = positionMs;
+    unawaited(_recoverFromSpuriousEof(currentPlayer));
+    return true;
+  }
+
+  /// Leave playback parked on the dead stream: no auto-exit — the user keeps
+  /// their place and the snackbar names the actions that actually rebuild the
+  /// stream (play/seek route to [_retrySpuriousEofRecovery] while parked).
+  void _parkAfterFailedRecovery() {
+    _spuriousEofRecoveryParked = true;
+    unawaited(_setWakelock(false));
+    showGlobalErrorSnackBar(t.messages.streamInterrupted);
+  }
+
+  /// Recover from a spurious EOF by re-running the full playback decision in
+  /// place — the same path as the TV background suspend restore, because the
+  /// failure is the same: the server-side stream is gone and only a fresh
+  /// resolve replaces it (a seek-in-place lands inside the dead cache, and a
+  /// same-session transcode seek can hit the reaped session).
+  Future<void> _recoverFromSpuriousEof(Player currentPlayer) async {
+    final outcome = await _reloadMediaInPlace(
+      metadata: _currentMetadata,
+      resumePosition: currentPlayer.state.position,
+      preserveCurrentTrackSelection: true,
+      startPaused: !_playbackIntentShouldPlay,
+      showErrorUi: false,
+      reason: 'spurious EOF recovery',
+    );
+    if (outcome == _MediaReloadOutcome.failed) _parkAfterFailedRecovery();
+    // rejected/superseded: another flow owns the player and will commit
+    // fresh media (clearing any park). opened: recovered — the budget
+    // resets via 30s of progress or an item change.
+  }
+
+  /// Rebuild the dead stream after playback parked on a spurious EOF.
+  /// User actions and the server-online monitor land here; these retries are
+  /// always allowed and never consume the automatic budget.
+  Future<void> _retrySpuriousEofRecovery({required String reason, Duration? resumePosition}) async {
+    final currentPlayer = player;
+    if (currentPlayer == null || _playbackTransition != _PlaybackTransition.idle) return;
+    appLogger.i('Retrying dead-stream recovery ($reason)');
+    _spuriousEofRecoveryParked = false;
+    final outcome = await _reloadMediaInPlace(
+      metadata: _currentMetadata,
+      resumePosition: resumePosition ?? currentPlayer.state.position,
+      preserveCurrentTrackSelection: true,
+      startPaused: !_playbackIntentShouldPlay,
+      showErrorUi: false,
+      reason: 'stream recovery ($reason)',
+    );
+    if (outcome == _MediaReloadOutcome.failed) _parkAfterFailedRecovery();
   }
 }

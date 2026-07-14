@@ -18,6 +18,11 @@ linter:
     avoid_print: true
 
 dart_code_linter:
+  rules-exclude:
+    - "test/**"
+  metrics-exclude:
+    - "test/**"
+
   extends:
     - package:dart_code_linter/presets/recommended.yaml
 

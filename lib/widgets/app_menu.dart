@@ -3,7 +3,6 @@ import 'dart:math' as math;
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
 import '../focus/dpad_navigator.dart';
@@ -185,7 +184,7 @@ class AppMenuButtonState<T> extends State<AppMenuButton<T>> {
   }
 
   Future<void> _handlePressed() async {
-    await showButtonMenu(focusFirstItem: InputModeTracker.isKeyboardMode(context));
+    await showButtonMenu(focusFirstItem: InputModeTracker.isKeyboardMode(context, listen: false));
   }
 
   @override
@@ -388,7 +387,7 @@ class _AppMenuItemTileState<T> extends State<AppMenuItemTile<T>> with FocusableT
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final enabled = item.enabled && widget.onPressed != null;
-    final active = enabled && (_isFocused || _isHovered);
+    final active = enabled && ((_isFocused && InputModeTracker.isKeyboardMode(context)) || _isHovered);
     final foreground = _foregroundColor(context, active: active);
     final subtitleColor = foreground.withValues(alpha: active && item.stateLayerColor != null ? 0.86 : 0.68);
     final background = _backgroundColor(context, active: active);

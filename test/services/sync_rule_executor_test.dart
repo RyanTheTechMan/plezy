@@ -17,14 +17,14 @@ import 'package:plezy/services/jellyfin_client.dart';
 import 'package:plezy/services/multi_server_manager.dart';
 import 'package:plezy/services/sync_rule_executor.dart';
 
+import '../test_helpers/backend_client_fixtures.dart';
 import '../test_helpers/prefs.dart';
+import '../test_helpers/media_items.dart';
 
-JellyfinConnection _jellyfinConnection(String userId) => JellyfinConnection(
-  id: 'jf-machine/$userId',
-  baseUrl: 'https://jf.example.com',
-  serverName: 'Shared JF',
-  serverMachineId: 'jf-machine',
+JellyfinConnection _jellyfinConnection(String userId) => testJellyfinConnection(
+  machineId: 'jf-machine',
   userId: userId,
+  serverName: 'Shared JF',
   userName: userId,
   accessToken: 'token-$userId',
   deviceId: 'device',
@@ -315,7 +315,7 @@ void main() {
     manager.debugRegisterClientForTesting(client);
 
     const ruleKey = 'profile-a|plex-machine:show-1';
-    final show = MediaItem(id: 'show-1', backend: MediaBackend.plex, kind: MediaKind.show, title: 'Show');
+    final show = testMediaItem(id: 'show-1', backend: MediaBackend.plex, kind: MediaKind.show, title: 'Show');
     await db.insertSyncRule(
       profileId: 'profile-a',
       serverId: ServerId('plex-machine'),
@@ -358,7 +358,7 @@ void main() {
     manager.debugRegisterClientForTesting(client);
 
     const ruleKey = 'profile-a|plex-machine:collection-1';
-    final collection = MediaItem(
+    final collection = testMediaItem(
       id: 'collection-1',
       backend: MediaBackend.plex,
       kind: MediaKind.collection,
@@ -396,10 +396,47 @@ void main() {
     expect(client.collectionPageCalls, [(start: 0, size: 100)]);
     expect(client.fetchChildrenCalled, isFalse);
   });
+
+  test('collectItemsForList accepts tracks and expands albums/artists', () async {
+    final db = AppDatabase.forTesting(NativeDatabase.memory());
+    addTearDown(db.close);
+    final executor = SyncRuleExecutor(database: db);
+
+    final albumTracks = [_track('album-track-1'), _track('album-track-2', played: true)];
+    final client = _PlayableDescendantsClient(albumTracks);
+
+    final items = [
+      _track('loose-track'),
+      testMediaItem(id: 'album-1', backend: MediaBackend.plex, kind: MediaKind.album, title: 'Album'),
+      testMediaItem(id: 'artist-1', backend: MediaBackend.plex, kind: MediaKind.artist, title: 'Artist'),
+      // Still skipped: nested lists / unplayable kinds.
+      testMediaItem(id: 'photo-1', backend: MediaBackend.plex, kind: MediaKind.photo, title: 'Photo'),
+    ];
+
+    final out = <MediaItem>[];
+    await executor.collectItemsForList(client, items, unwatchedOnly: false, out: out);
+
+    expect(client.fetchPlayableDescendantsCalls, ['album-1', 'artist-1']);
+    expect(out.map((i) => i.id), ['loose-track', 'album-track-1', 'album-track-2', 'album-track-1', 'album-track-2']);
+
+    // unwatchedOnly applies the play-count filter to tracks too.
+    final unwatched = <MediaItem>[];
+    await executor.collectItemsForList(
+      client,
+      [_track('played-track', played: true), items[1]],
+      unwatchedOnly: true,
+      out: unwatched,
+    );
+    expect(unwatched.map((i) => i.id), ['album-track-1']);
+  });
+}
+
+MediaItem _track(String id, {bool played = false}) {
+  return testMediaItem(id: id, backend: MediaBackend.plex, kind: MediaKind.track, title: id, viewCount: played ? 1 : 0);
 }
 
 MediaItem _episode(String id, {required int parentIndex, required int index, String? originallyAvailableAt}) {
-  return MediaItem(
+  return testMediaItem(
     id: id,
     backend: MediaBackend.plex,
     kind: MediaKind.episode,
@@ -490,7 +527,7 @@ class _CollectionPagingClient implements MediaServerClient {
     collectionPageCalls.add((start: start, size: size));
     expect(collectionId, 'collection-1');
     return LibraryPage(
-      items: [MediaItem(id: 'movie-1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie')],
+      items: [testMediaItem(id: 'movie-1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie')],
       totalCount: 1,
       offset: start ?? 0,
     );

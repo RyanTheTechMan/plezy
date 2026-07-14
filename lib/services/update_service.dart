@@ -69,6 +69,8 @@ class UpdateService {
 
   static bool _nativeUpdaterInitialized = false;
 
+  static bool get isLabsBuild => const bool.fromEnvironment('PLEZY_LABS', defaultValue: false);
+
   static bool get isUpdateCheckEnabled => const bool.fromEnvironment('ENABLE_UPDATE_CHECK', defaultValue: false);
 
   /// Whether this installation type supports Sparkle/WinSparkle.
@@ -236,6 +238,7 @@ class UpdateService {
     await prefs.remove(_keySkippedVersion);
   }
 
+  /// Check if cooldown period has passed since last check
   static Future<bool> shouldCheckForUpdates() async {
     final prefs = await BaseSharedPreferencesService.sharedCache();
     final lastCheckString = prefs.getString(_keyLastCheckTime);

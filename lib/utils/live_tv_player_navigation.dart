@@ -2,6 +2,7 @@ import 'dart:async';
 import '../media/ids.dart';
 
 import 'package:flutter/material.dart';
+import '../i18n/strings.g.dart';
 
 import '../media/media_item.dart';
 import '../media/media_kind.dart';
@@ -28,13 +29,13 @@ Future<void> navigateToLiveTv(
 }) async {
   final serverInfo = liveTvServerInfoForChannel(multiServer, channel);
   if (serverInfo == null) {
-    showErrorSnackBar(context, 'Live TV server is not available.');
+    showErrorSnackBar(context, Translations.of(context).liveTv.serverUnavailable);
     return;
   }
 
   final client = multiServer.getClientForServer(ServerId(serverInfo.serverId));
   if (client == null) {
-    showErrorSnackBar(context, 'Live TV server is not connected.');
+    showErrorSnackBar(context, Translations.of(context).liveTv.serverNotConnected);
     return;
   }
 
@@ -64,14 +65,11 @@ Future<void> navigateToLiveTv(
     appLogger.w('Live TV launch channel was not present in navigation list; prepending ${channel.key}');
   }
 
-  final route = PageRouteBuilder<bool>(
-    settings: const RouteSettings(name: kVideoPlayerRouteName),
-    pageBuilder: (context, animation, secondaryAnimation) => VideoPlayerScreen(
+  final route = buildVideoPlayerRoute(
+    builder: (_) => VideoPlayerScreen(
       metadata: placeholder,
       live: LiveTvSessionArgs(channel: channel, channels: normalizedChannels, currentChannelIndex: currentChannelIndex),
     ),
-    transitionDuration: Duration.zero,
-    reverseTransitionDuration: Duration.zero,
   );
 
   unawaited(navigator.push<bool>(route));

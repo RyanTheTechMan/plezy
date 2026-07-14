@@ -15,6 +15,15 @@ import 'dialogs.dart';
 import 'download_version_utils.dart';
 import 'snackbar_helper.dart';
 
+@visibleForTesting
+String? validateEpisodeCountInput(String text, {required bool allowZero}) {
+  final count = int.tryParse(text);
+  if (count == null || count < 0 || (!allowZero && count == 0)) {
+    return t.downloads.invalidEpisodeCount;
+  }
+  return null;
+}
+
 /// Dialog option for the download picker. Typed to avoid stringly-typed values.
 enum _DownloadChoice { all, unwatched, next5, next10, custom, delete }
 
@@ -31,11 +40,16 @@ class DownloadResult {
   /// "created" snackbar wording (no "unwatched episodes" suffix).
   final bool isListRule;
 
+  /// `true` when the queued leaves are tracks (album/artist/track download)
+  /// — picks "tracks queued" over "episodes queued" wording.
+  final bool isMusic;
+
   const DownloadResult({
     required this.count,
     this.syncRuleCreated = false,
     this.syncRuleUpdated = false,
     this.isListRule = false,
+    this.isMusic = false,
   });
 
   String toSnackBarMessage() {
@@ -43,7 +57,7 @@ class DownloadResult {
     if (syncRuleCreated) {
       return isListRule ? t.downloads.syncRuleListCreated : t.downloads.syncRuleCreated(count: count.toString());
     }
-    if (count > 1) return t.downloads.episodesQueued(count: count);
+    if (count > 1) return isMusic ? t.downloads.tracksQueued(count: count) : t.downloads.episodesQueued(count: count);
     return t.downloads.downloadQueued;
   }
 }
@@ -185,6 +199,7 @@ Future<DownloadResult?> showDownloadOptionsAndQueue(
     count: count,
     syncRuleCreated: keepSynced && !syncRuleUpdated,
     syncRuleUpdated: syncRuleUpdated,
+    isMusic: kind.isMusic,
   );
 }
 
@@ -307,11 +322,7 @@ Future<int?> _showEpisodeCountDialog(
     confirmText: t.common.ok,
     keyboardType: TextInputType.number,
     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-    validator: (text) {
-      final n = int.tryParse(text);
-      if (n == null || n < 0 || (!allowZero && n == 0)) return '';
-      return null;
-    },
+    validator: (text) => validateEpisodeCountInput(text, allowZero: allowZero),
   );
   if (result == null) return null;
   return int.tryParse(result);

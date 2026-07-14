@@ -10,18 +10,51 @@ import 'package:flutter/services.dart';
 import 'package:logger/logger.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '../../focus/focusable_action_bar.dart';
-import '../../focus/focusable_button.dart';
+import '../../widgets/dialog_action_button.dart';
 import '../../focus/key_event_utils.dart';
 import '../../i18n/strings.g.dart';
 import '../../mixins/mounted_set_state_mixin.dart';
 import '../../utils/dialogs.dart';
 import '../../main.dart' show gitCommit;
+import '../../services/device_performance.dart';
 import '../../utils/app_logger.dart';
 import '../../utils/formatters.dart';
 import '../../utils/platform_detector.dart';
 import '../../utils/snackbar_helper.dart';
 import '../../widgets/desktop_app_bar.dart';
 import '../../widgets/ios_status_bar_tap_scroll_to_top.dart';
+
+/// Relay `/logs` accepts 1 MiB. The in-memory buffer intentionally remains
+/// larger for local viewing and copying; uploads retain the device header and
+/// newest log lines within this transport contract.
+const int maxLogUploadBytes = 1 * 1024 * 1024;
+
+String constrainLogUploadPayload({required String header, required String logs, int maxBytes = maxLogUploadBytes}) {
+  if (maxBytes <= 0) return '';
+
+  final headerBytes = utf8.encode(header);
+  if (headerBytes.length >= maxBytes) {
+    var end = maxBytes;
+    while (end > 0 && end < headerBytes.length && (headerBytes[end] & 0xC0) == 0x80) {
+      end--;
+    }
+    return utf8.decode(headerBytes.sublist(0, end));
+  }
+
+  final logBytes = utf8.encode(logs);
+  final availableLogBytes = maxBytes - headerBytes.length;
+  if (logBytes.length <= availableLogBytes) return '$header$logs';
+
+  var start = logBytes.length - availableLogBytes;
+  while (start < logBytes.length && (logBytes[start] & 0xC0) == 0x80) {
+    start++;
+  }
+  final nextLine = logBytes.indexOf(0x0A, start);
+  if (nextLine >= 0 && nextLine + 1 < logBytes.length) {
+    start = nextLine + 1;
+  }
+  return header + utf8.decode(logBytes.sublist(start));
+}
 
 class LogsScreen extends StatefulWidget {
   const LogsScreen({super.key});
@@ -58,6 +91,15 @@ class _LogsScreenState extends State<LogsScreen> with MountedSetStateMixin {
         final suffix = reasons.isEmpty ? '' : ' (${reasons.join(', ')})';
         buffer.writeln('TV mode: yes$suffix');
       }
+      // Renderer + effects tier turn "did the reduced tier engage on this
+      // device" into something answerable from any uploaded log (#1349).
+      String renderer;
+      try {
+        renderer = await const MethodChannel('com.plezy/theme').invokeMethod<String>('getRenderer') ?? 'unknown';
+      } catch (_) {
+        renderer = 'unknown';
+      }
+      buffer.writeln('Renderer: $renderer');
     } else if (Platform.isIOS) {
       final info = await deviceInfo.iosInfo;
       buffer.writeln('iOS ${info.systemVersion}');
@@ -70,6 +112,8 @@ class _LogsScreenState extends State<LogsScreen> with MountedSetStateMixin {
       final info = await deviceInfo.linuxInfo;
       buffer.writeln('Linux ${info.versionId ?? info.id}');
     }
+
+    buffer.writeln('Effects: ${DevicePerformance.describeSync()}');
 
     setStateIfMounted(() => _deviceInfo = buffer.toString().trimRight());
   }
@@ -102,28 +146,28 @@ class _LogsScreenState extends State<LogsScreen> with MountedSetStateMixin {
     showSuccessSnackBar(context, t.messages.logsCleared);
   }
 
-  String _formatAllLogs() {
-    final buffer = StringBuffer();
-    if (_deviceInfo.isNotEmpty) {
-      buffer.writeln(_deviceInfo);
-      buffer.writeln('---');
-    }
-    bool isFirst = true;
+  String _formatAllLogs({int? maxBytes}) {
+    final header = _deviceInfo.isEmpty ? '' : '$_deviceInfo\n---\n';
+    final logs = StringBuffer();
+    var isFirst = true;
     for (final log in _logs.reversed) {
       if (!isFirst) {
-        buffer.write('\n');
+        logs.write('\n');
       }
       isFirst = false;
 
-      buffer.write('[${_formatTime(log.timestamp)}] [${log.level.name.toUpperCase()}] ${log.message}');
+      logs.write('[${_formatTime(log.timestamp)}] [${log.level.name.toUpperCase()}] ${log.message}');
       if (log.error != null) {
-        buffer.write('\nError: ${log.error}');
+        logs.write('\nError: ${log.error}');
       }
       if (log.stackTrace != null) {
-        buffer.write('\nStack trace:\n${log.stackTrace}');
+        logs.write('\nStack trace:\n${log.stackTrace}');
       }
     }
-    return buffer.toString();
+    final logText = logs.toString();
+    return maxBytes == null
+        ? '$header$logText'
+        : constrainLogUploadPayload(header: header, logs: logText, maxBytes: maxBytes);
   }
 
   void _copyAllLogs() {
@@ -132,7 +176,7 @@ class _LogsScreenState extends State<LogsScreen> with MountedSetStateMixin {
   }
 
   Future<void> _uploadLogs() async {
-    final logText = _formatAllLogs();
+    final logText = _formatAllLogs(maxBytes: maxLogUploadBytes);
 
     showLoadingDialog(context);
 
@@ -172,11 +216,7 @@ class _LogsScreenState extends State<LogsScreen> with MountedSetStateMixin {
               ],
             ),
             actions: [
-              FocusableButton(
-                autofocus: true,
-                onPressed: () => Navigator.of(ctx).pop(),
-                child: TextButton(onPressed: () => Navigator.of(ctx).pop(), child: Text(t.common.close)),
-              ),
+              DialogActionButton(autofocus: true, onPressed: () => Navigator.of(ctx).pop(), label: t.common.close),
             ],
           ),
         ),

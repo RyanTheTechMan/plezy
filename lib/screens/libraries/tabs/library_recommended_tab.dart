@@ -4,23 +4,24 @@ import '../../../media/ids.dart';
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
+import '../../../focus/hub_vertical_navigation.dart';
 import '../../../i18n/strings.g.dart';
 import '../../../media/media_hub.dart';
 import '../../../media/media_item.dart';
 import '../../../media/media_server_client.dart';
+import '../../../mixins/deletion_aware.dart';
 import '../../../mixins/item_updatable.dart';
 import '../../../mixins/watch_state_aware.dart';
 import '../../../services/settings_service.dart';
-import '../../../utils/debouncer.dart';
+import '../../../utils/deletion_notifier.dart';
 import '../../../utils/global_key_utils.dart';
-import '../../../utils/layout_constants.dart';
 import '../../../utils/platform_detector.dart';
 import '../../../utils/provider_extensions.dart';
 import '../../../utils/watch_state_notifier.dart';
 import '../../../widgets/hub_section.dart';
 import '../../../widgets/settings_builder.dart';
 import '../../../widgets/tv_browse_rail.dart';
-import '../../../widgets/tv_spotlight_background.dart';
+import '../../../widgets/tv_spotlight_scaffold.dart';
 import '../../main_screen.dart';
 import 'base_library_tab.dart';
 
@@ -44,47 +45,17 @@ class LibraryRecommendedTab extends BaseLibraryTab<MediaHub> {
 }
 
 class _LibraryRecommendedTabState extends BaseLibraryTabState<MediaHub, LibraryRecommendedTab>
-    with ItemUpdatable, WatchStateAware {
+    with ItemUpdatable, WatchStateAware, DeletionAware {
   /// GlobalKeys for each hub section to enable vertical navigation
   final List<GlobalKey<HubSectionState>> _hubKeys = [];
   final _tvBrowseRailKey = GlobalKey<TvBrowseRailState>();
-  // ValueNotifier (not setState) so a spotlight swap rebuilds only the
-  // TvSpotlightBackground subtree, never the rail/rows.
-  final ValueNotifier<MediaItem?> _spotlightItem = ValueNotifier(null);
-  // Settle delay so d-pad scrubbing across a row doesn't fetch/decode a
-  // full-screen backdrop for every intermediate item.
-  final Debouncer _spotlightDebouncer = Debouncer(const Duration(milliseconds: 150));
+  final TvSpotlightController _spotlight = TvSpotlightController();
 
-  MediaItem? get _defaultSpotlightItem {
-    for (final hub in items) {
-      if (hub.items.isNotEmpty) return hub.items.first;
-    }
-    return null;
-  }
-
-  MediaItem? get _effectiveSpotlightItem {
-    final current = _spotlightItem.value;
-    if (current == null) return _defaultSpotlightItem;
-    for (final hub in items) {
-      if (hub.items.any((item) => item.globalKey == current.globalKey)) return current;
-    }
-    return _defaultSpotlightItem;
-  }
-
-  void _setSpotlightItem(MediaItem item) {
-    // Same-key check lives inside the callback: an A→B→A scrub must cancel
-    // the pending B, not early-return and let it fire.
-    _spotlightDebouncer.run(() {
-      if (!mounted) return;
-      if (_spotlightItem.value?.globalKey == item.globalKey) return;
-      _spotlightItem.value = item;
-    });
-  }
+  void _setSpotlightItem(MediaItem item) => _spotlight.select(item);
 
   @override
   void dispose() {
-    _spotlightDebouncer.dispose();
-    _spotlightItem.dispose();
+    _spotlight.dispose();
     super.dispose();
   }
 
@@ -93,6 +64,18 @@ class _LibraryRecommendedTabState extends BaseLibraryTabState<MediaHub, LibraryR
 
   @override
   String? get watchStateServerId => widget.library.serverId;
+
+  @override
+  String? get deletionServerId => widget.library.serverId;
+
+  // Deletion filtering needs the same id sets as watch state: each visible
+  // item plus its parents, so deleting a season/show also matches the
+  // episodes it contains here.
+  @override
+  Set<String>? get deletionIds => watchedIds;
+
+  @override
+  Set<String>? get deletionGlobalKeys => watchedGlobalKeys;
 
   @override
   Set<String>? get watchedIds {
@@ -162,11 +145,37 @@ class _LibraryRecommendedTabState extends BaseLibraryTabState<MediaHub, LibraryR
   }
 
   void _removeContinueWatchingItem(String itemId) {
+    _removeItemsFromHubs(hubMatches: _isContinueWatchingHub, itemMatches: (item) => item.id == itemId);
+  }
+
+  @override
+  void onDeletionEvent(DeletionEvent event) {
+    // This tab is server-backed: a download-only deletion leaves the server
+    // item in place, so it must not evict anything here.
+    if (event.isDownloadOnly) return;
+
+    // Drop the item and any descendants (season/show deletions take their
+    // episodes with them) from every hub, then resync with the server for
+    // parent leaf counts and replacement on-deck items — same
+    // remove-in-place-then-reload shape as the removedFromContinueWatching
+    // path above.
+    _removeItemsFromHubs(
+      hubMatches: (_) => true,
+      itemMatches: (item) =>
+          item.id == event.itemId || item.parentId == event.itemId || item.grandparentId == event.itemId,
+    );
+    unawaited(loadItems());
+  }
+
+  void _removeItemsFromHubs({
+    required bool Function(MediaHub) hubMatches,
+    required bool Function(MediaItem) itemMatches,
+  }) {
     setState(() {
       for (var i = 0; i < items.length; i++) {
         final hub = items[i];
-        if (!_isContinueWatchingHub(hub)) continue;
-        final newItems = hub.items.where((item) => item.id != itemId).toList();
+        if (!hubMatches(hub)) continue;
+        final newItems = hub.items.where((item) => !itemMatches(item)).toList();
         if (newItems.length != hub.items.length) {
           items[i] = hub.copyWith(items: newItems, size: newItems.length);
         }
@@ -227,27 +236,15 @@ class _LibraryRecommendedTabState extends BaseLibraryTabState<MediaHub, LibraryR
 
   /// Handle vertical navigation between hubs
   bool _handleVerticalNavigation(int hubIndex, bool isUp) {
-    final targetIndex = isUp ? hubIndex - 1 : hubIndex + 1;
-
-    // Check if target is valid
-    if (targetIndex < 0) {
-      // At top boundary - return false to allow onNavigateUp to handle it
-      return false;
-    }
-
-    if (targetIndex >= _hubKeys.length) {
-      // At bottom boundary, block navigation
-      return true;
-    }
-
-    // Navigate to target hub with column memory
-    final targetState = _hubKeys[targetIndex].currentState;
-    if (targetState != null) {
-      targetState.requestFocusFromMemory();
-      return true;
-    }
-
-    return false;
+    return navigateVerticalHubRows(
+      hubCount: items.length,
+      hubIndex: hubIndex,
+      isUp: isUp,
+      propagateTopBoundary: true,
+      requestFocus: (targetIndex) {
+        _hubKeys[targetIndex].currentState?.requestFocusFromMemory();
+      },
+    );
   }
 
   /// Focus the first item in the first hub (for tab activation)
@@ -277,7 +274,7 @@ class _LibraryRecommendedTabState extends BaseLibraryTabState<MediaHub, LibraryR
 
   /// Navigate focus to the sidebar
   void _navigateToSidebar() {
-    MainScreenFocusScope.of(context, listen: false)?.focusSidebar();
+    MainScreenFocusScope.focusSidebarOf(context);
   }
 
   // Extra top padding for focus decoration (scale + border extends beyond item bounds)
@@ -330,99 +327,33 @@ class _LibraryRecommendedTabState extends BaseLibraryTabState<MediaHub, LibraryR
 
   Widget _buildTvContent(List<MediaHub> items) {
     final tvHubs = items.where((hub) => hub.items.isNotEmpty).toList();
-    final size = MediaQuery.sizeOf(context);
-    final theme = Theme.of(context);
-    final svc = SettingsService.instance;
-    final scale = TvLayoutConstants.scaleForSize(size);
-    // Only layout-aspect (flip-stable) scope values may be read here: an
-    // offset-aspect read at this level would rebuild the whole screen on
-    // every sidebar focus flip. Offset values are read in small Builders
-    // around the widgets that position against them.
-    final railSize = MainScreenFocusScope.foregroundSizeOf(context);
-    final fullBleedWidth = MainScreenFocusScope.fullBleedWidthOf(context);
-    final railHeight = tvHubs.isEmpty
-        ? 0.0
-        : TvBrowseRailLayout.estimateHeight(
-            size: railSize,
-            hubs: tvHubs,
-            density: svc.read(SettingsService.libraryDensity),
-            episodePosterMode: svc.read(SettingsService.episodePosterMode),
-            fullCardLayout: svc.read(SettingsService.tvFullCardLayout),
-            tallPosterScale: TvBrowseRailLayout.compactTallPosterScale,
-          );
-    final spotlightTop = (size.height * 0.075).clamp(64.0 * scale, 120.0 * scale).toDouble();
-    final minimumSpotlightBottom = railHeight + (8 * scale);
-    final baseSpotlightBottom = (size.height * 0.48).clamp(160.0, 820.0).toDouble();
-    final desiredSpotlightBottom = minimumSpotlightBottom > baseSpotlightBottom
-        ? minimumSpotlightBottom
-        : baseSpotlightBottom;
-    final maxSpotlightBottom = (size.height - spotlightTop - (96 * scale)).clamp(0.0, double.infinity).toDouble();
-    final spotlightBottom = desiredSpotlightBottom > maxSpotlightBottom ? maxSpotlightBottom : desiredSpotlightBottom;
-    final spotlightLeft = (24 * scale).clamp(18.0, 40.0).toDouble();
-
-    return Material(
-      color: theme.scaffoldBackgroundColor,
-      child: SizedBox.expand(
-        child: Stack(
-          fit: StackFit.expand,
-          clipBehavior: Clip.none,
-          children: [
-            // The animated -bleed mirrors the content-slide tween in
-            // MainScreen, keeping the full-bleed background viewport-pinned
-            // while the content box slides during sidebar expansion. The
-            // Builder scopes the offset-aspect dependency to this subtree.
-            Builder(
-              builder: (context) {
-                final foregroundLeft = MainScreenFocusScope.foregroundLeftOf(context);
-                return SideNavigationBleedBuilder(
-                  targetBleed: foregroundLeft,
-                  child: ValueListenableBuilder<MediaItem?>(
-                    valueListenable: _spotlightItem,
-                    builder: (context, _, _) {
-                      final spotlight = _effectiveSpotlightItem;
-                      final client = context.tryGetMediaClientForServer(
-                        serverIdOrNull(spotlight?.serverId ?? widget.library.serverId),
-                      );
-                      return TvSpotlightBackground(
-                        item: spotlight,
-                        client: client,
-                        hideSpoilers: svc.read(SettingsService.hideSpoilers),
-                        contentTop: spotlightTop,
-                        contentBottom: spotlightBottom,
-                        contentLeft: spotlightLeft + foregroundLeft,
-                        compact: true,
-                        showPrimaryAction: false,
-                      );
-                    },
-                  ),
-                  builder: (context, animatedBleed, child) =>
-                      Positioned(top: 0, bottom: 0, left: -animatedBleed, width: fullBleedWidth, child: child!),
-                );
-              },
-            ),
-            if (tvHubs.isNotEmpty)
-              Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0,
-                child: TvBrowseRail(
-                  key: _tvBrowseRailKey,
-                  hubs: tvHubs,
-                  iconForHub: (hub, _) => _getHubIcon(hub),
-                  onFocusedItemChanged: _setSpotlightItem,
-                  onRefresh: updateItem,
-                  onRemoveFromContinueWatching: _refreshContinueWatching,
-                  isContinueWatchingHub: _isContinueWatchingHub,
-                  usesContinueWatchingAction: _usesContinueWatchingAction,
-                  onNavigateUp: widget.onNavigateToChrome ?? widget.onBack,
-                  onNavigateToSidebar: _navigateToSidebar,
-                  onBack: widget.onBack,
-                  tallPosterScale: TvBrowseRailLayout.compactTallPosterScale,
-                ),
+    return TvSpotlightScaffold(
+      hubs: tvHubs,
+      spotlightListenable: _spotlight,
+      resolveSpotlight: () => _spotlight.resolve(tvHubs),
+      resolveClient: (spotlight) =>
+          context.tryGetMediaClientForServer(serverIdOrNull(spotlight?.serverId ?? widget.library.serverId)),
+      foreground: tvHubs.isEmpty
+          ? const SizedBox.shrink()
+          : Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: TvBrowseRail(
+                key: _tvBrowseRailKey,
+                hubs: tvHubs,
+                iconForHub: (hub, _) => _getHubIcon(hub),
+                onFocusedItemChanged: _setSpotlightItem,
+                onRefresh: updateItem,
+                onRemoveFromContinueWatching: _refreshContinueWatching,
+                isContinueWatchingHub: _isContinueWatchingHub,
+                usesContinueWatchingAction: _usesContinueWatchingAction,
+                onNavigateUp: widget.onNavigateToChrome ?? widget.onBack,
+                onNavigateToSidebar: _navigateToSidebar,
+                onBack: widget.onBack,
+                tallPosterScale: TvBrowseRailLayout.compactTallPosterScale,
               ),
-          ],
-        ),
-      ),
+            ),
     );
   }
 

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../focus/focusable_button.dart';
+import '../focus/focusable_wrapper.dart';
 import '../i18n/strings.g.dart';
 import '../models/trackers/device_code.dart';
 import '../utils/snackbar_helper.dart';
@@ -30,32 +31,40 @@ class DeviceCodeDialog extends StatelessWidget {
   Future<void> _copy(BuildContext context) async {
     await Clipboard.setData(ClipboardData(text: code.userCode));
     if (!context.mounted) return;
-    showAppSnackBar(context, t.trackers.deviceCode.codeCopied);
+    showAppSnackBar(context, t.services.deviceCode.codeCopied);
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return AlertDialog(
-      title: Text(t.trackers.deviceCode.title(service: serviceName)),
+      title: Text(t.services.deviceCode.title(service: serviceName)),
       content: Column(
         mainAxisSize: .min,
         crossAxisAlignment: .start,
         children: [
-          Text(t.trackers.deviceCode.body(url: code.verificationUrl), style: theme.textTheme.bodyMedium),
+          Text(t.services.deviceCode.body(url: code.verificationUrl), style: theme.textTheme.bodyMedium),
           const SizedBox(height: 16),
           Center(
-            child: InkWell(
-              onTap: () => _copy(context),
-              borderRadius: BorderRadius.circular(8),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                child: Text(
-                  code.userCode,
-                  style: theme.textTheme.displaySmall?.copyWith(
-                    fontFeatures: const [FontFeature.tabularFigures()],
-                    letterSpacing: 4,
-                    fontWeight: .w600,
+            child: FocusableWrapper(
+              onSelect: () => _copy(context),
+              semanticLabel: t.services.deviceCode.copyCode,
+              descendantsAreFocusable: false,
+              useBackgroundFocus: true,
+              borderRadius: 8,
+              child: InkWell(
+                canRequestFocus: false,
+                onTap: () => _copy(context),
+                borderRadius: BorderRadius.circular(8),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  child: Text(
+                    code.userCode,
+                    style: theme.textTheme.displaySmall?.copyWith(
+                      fontFeatures: const [FontFeature.tabularFigures()],
+                      letterSpacing: 4,
+                      fontWeight: .w600,
+                    ),
                   ),
                 ),
               ),
@@ -66,9 +75,10 @@ class DeviceCodeDialog extends StatelessWidget {
             width: double.infinity,
             child: FocusableButton(
               onPressed: _open,
+              useBackgroundFocus: true,
               child: FilledButton.icon(
                 icon: const Icon(Icons.open_in_new),
-                label: Text(t.trackers.deviceCode.openToActivate(service: serviceName)),
+                label: Text(t.services.deviceCode.openToActivate(service: serviceName)),
                 onPressed: _open,
               ),
             ),
@@ -78,7 +88,7 @@ class DeviceCodeDialog extends StatelessWidget {
             children: [
               const LoadingIndicatorBox(size: 16),
               const SizedBox(width: 12),
-              Expanded(child: Text(t.trackers.deviceCode.waitingForAuthorization, style: theme.textTheme.bodySmall)),
+              Expanded(child: Text(t.services.deviceCode.waitingForAuthorization, style: theme.textTheme.bodySmall)),
             ],
           ),
         ],

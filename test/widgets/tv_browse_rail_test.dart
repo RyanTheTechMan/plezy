@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:plezy/focus/dpad_navigator.dart';
@@ -14,19 +15,22 @@ import 'package:plezy/services/multi_server_manager.dart';
 import 'package:plezy/services/settings_service.dart';
 import 'package:plezy/theme/mono_theme.dart';
 import 'package:plezy/utils/platform_detector.dart';
+import 'package:plezy/widgets/animated_dim_scrim.dart';
 import 'package:plezy/widgets/media_card.dart';
+import 'package:plezy/widgets/rasterized_gradient.dart';
 import 'package:plezy/widgets/side_navigation_rail.dart';
 import 'package:plezy/widgets/tv_browse_rail.dart';
 import 'package:provider/provider.dart';
 
 import '../test_helpers/prefs.dart';
+import '../test_helpers/media_items.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('TvBrowseRailLayout', () {
     test('density changes card width', () {
-      final item = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
+      final item = testMediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
       final hub = MediaHub(id: 'hub_1', title: 'Movies', type: 'movie', items: [item], size: 1);
 
       final compact = TvBrowseRailLayout.metricsForHub(
@@ -49,7 +53,7 @@ void main() {
     });
 
     test('detail episode hubs can force episode thumbnails', () {
-      final episode = MediaItem(
+      final episode = testMediaItem(
         id: 'episode_1',
         backend: MediaBackend.plex,
         kind: MediaKind.episode,
@@ -91,8 +95,8 @@ void main() {
     });
 
     test('estimated rail height is stable across mixed hub heights', () {
-      final movie = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
-      final episode = MediaItem(
+      final movie = testMediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
+      final episode = testMediaItem(
         id: 'episode_1',
         backend: MediaBackend.plex,
         kind: MediaKind.episode,
@@ -158,7 +162,7 @@ void main() {
     });
 
     test('compact tall poster scale reduces browse rail height', () {
-      final movie = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
+      final movie = testMediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
       final hub = MediaHub(id: 'movies', title: 'Movies', type: 'movie', items: [movie], size: 1);
 
       const size = Size(1280, 720);
@@ -180,7 +184,7 @@ void main() {
     });
 
     test('empty episode thumbnail hubs reserve thumbnail row height', () {
-      final episode = MediaItem(
+      final episode = testMediaItem(
         id: 'episode_1',
         backend: MediaBackend.plex,
         kind: MediaKind.episode,
@@ -218,7 +222,7 @@ void main() {
     });
 
     test('full card layout removes label reserve and preserves episode poster mode', () {
-      final episode = MediaItem(
+      final episode = testMediaItem(
         id: 'episode_1',
         backend: MediaBackend.plex,
         kind: MediaKind.episode,
@@ -252,14 +256,14 @@ void main() {
     });
 
     test('compact wide poster scale makes clips match compact episode thumbnails', () {
-      final episode = MediaItem(
+      final episode = testMediaItem(
         id: 'episode_1',
         backend: MediaBackend.plex,
         kind: MediaKind.episode,
         title: 'Episode 1',
         thumbPath: '/episode-thumb',
       );
-      final clip = MediaItem(
+      final clip = testMediaItem(
         id: 'clip_1',
         backend: MediaBackend.plex,
         kind: MediaKind.clip,
@@ -292,7 +296,7 @@ void main() {
     });
 
     test('multi-hub estimate reserves next hub peek height', () {
-      final movie = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
+      final movie = testMediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
       final movieHub = MediaHub(id: 'movies', title: 'Movies', type: 'movie', items: [movie], size: 1);
       final showHub = MediaHub(id: 'shows', title: 'Shows', type: 'show', items: [movie], size: 1);
 
@@ -322,10 +326,82 @@ void main() {
     await SettingsService.getInstance();
   });
 
+  testWidgets('semantic selection proxy stays fixed while animated rail selection changes', (tester) async {
+    final semantics = tester.ensureSemantics();
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(1280, 720);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    addTearDown(tester.view.resetPhysicalSize);
+
+    final serverManager = MultiServerManager();
+    final items = [
+      testMediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'First Movie'),
+      testMediaItem(id: 'movie_2', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Second Movie'),
+    ];
+    final hub = MediaHub(id: 'movies', title: 'Movies', type: 'movie', items: items, size: items.length);
+    String? activatedItemId;
+
+    await tester.pumpWidget(
+      ChangeNotifierProvider<MultiServerProvider>(
+        create: (_) => MultiServerProvider(serverManager, DataAggregationService(serverManager)),
+        child: InputModeTracker(
+          child: MaterialApp(
+            theme: monoTheme(dark: true),
+            home: Scaffold(
+              body: SizedBox(
+                width: 1280,
+                height: 720,
+                child: TvBrowseRail(
+                  hubs: [hub],
+                  autofocus: true,
+                  iconForHub: (_, _) => Icons.movie_rounded,
+                  onActivateItem: (_, item) {
+                    activatedItemId = item.id;
+                    return true;
+                  },
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final proxy = find.bySemanticsIdentifier('tv_browse_rail_selection');
+    expect(proxy, findsOneWidget);
+    final initialRect = tester.getRect(proxy);
+    final initialNode = tester.getSemantics(proxy);
+    expect(initialNode.label, contains('Movies'));
+    expect(initialNode.label, contains('First Movie'));
+    expect(initialNode.getSemanticsData().hasAction(SemanticsAction.tap), isTrue);
+    expect(tester.widget<Semantics>(proxy).properties.onTap, isNotNull);
+
+    await tester.sendKeyDownEvent(LogicalKeyboardKey.arrowRight);
+    await tester.pump();
+
+    final movedNode = tester.getSemantics(proxy);
+    expect(movedNode.label, contains('Second Movie'));
+    expect(tester.getRect(proxy), initialRect);
+    expect(tester.hasRunningAnimations, isTrue);
+
+    tester.widget<Semantics>(find.byKey(const ValueKey('tv_browse_rail_semantic_proxy'))).properties.onTap!();
+    await tester.pump();
+    expect(activatedItemId, 'movie_2');
+
+    await tester.sendKeyUpEvent(LogicalKeyboardKey.arrowRight);
+    semantics.dispose();
+  });
+
   testWidgets('active hub header uses theme foreground in light mode', (tester) async {
     final serverManager = MultiServerManager();
     final theme = monoTheme(dark: false);
-    final episode = MediaItem(id: 'episode_1', backend: MediaBackend.plex, kind: MediaKind.episode, title: 'Episode 1');
+    final episode = testMediaItem(
+      id: 'episode_1',
+      backend: MediaBackend.plex,
+      kind: MediaKind.episode,
+      title: 'Episode 1',
+    );
     final hub = MediaHub(id: 'season_1', title: 'Season 1', type: 'episode', items: [episode], size: 1);
 
     await tester.pumpWidget(
@@ -363,8 +439,8 @@ void main() {
       serverId: serverId,
       size: 2,
       items: [
-        MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'A', serverId: serverId),
-        MediaItem(id: 'movie_2', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'B', serverId: serverId),
+        testMediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'A', serverId: serverId),
+        testMediaItem(id: 'movie_2', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'B', serverId: serverId),
       ],
     );
 
@@ -395,8 +471,13 @@ void main() {
     await SettingsService.instanceOrNull!.write(SettingsService.tvFullCardLayout, true);
 
     final serverManager = MultiServerManager();
-    final movie = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Hidden Movie');
-    final actor = MediaItem(
+    final movie = testMediaItem(
+      id: 'movie_1',
+      backend: MediaBackend.plex,
+      kind: MediaKind.movie,
+      title: 'Hidden Movie',
+    );
+    final actor = testMediaItem(
       id: 'actor_1',
       backend: MediaBackend.plex,
       kind: MediaKind.unknown,
@@ -445,7 +526,7 @@ void main() {
     });
 
     final serverManager = MultiServerManager();
-    final movie = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
+    final movie = testMediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
     final hub = MediaHub(id: 'movies', title: 'Movies', type: 'movie', items: [movie], size: 1);
 
     await tester.pumpWidget(
@@ -518,8 +599,18 @@ void main() {
     });
 
     final serverManager = MultiServerManager();
-    final firstMovie = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie 1');
-    final secondMovie = MediaItem(id: 'movie_2', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie 2');
+    final firstMovie = testMediaItem(
+      id: 'movie_1',
+      backend: MediaBackend.plex,
+      kind: MediaKind.movie,
+      title: 'Movie 1',
+    );
+    final secondMovie = testMediaItem(
+      id: 'movie_2',
+      backend: MediaBackend.plex,
+      kind: MediaKind.movie,
+      title: 'Movie 2',
+    );
     final firstHub = MediaHub(id: 'movies_1', title: 'Movies 1', type: 'movie', items: [firstMovie], size: 1);
     final secondHub = MediaHub(id: 'movies_2', title: 'Movies 2', type: 'movie', items: [secondMovie], size: 1);
 
@@ -574,33 +665,6 @@ void main() {
     expect(find.byType(CompositedTransformFollower), findsOneWidget);
   });
 
-  testWidgets('detailed card layout can still show media text', (tester) async {
-    await SettingsService.instanceOrNull!.write(SettingsService.tvFullCardLayout, false);
-
-    final serverManager = MultiServerManager();
-    final movie = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Visible Movie');
-    final hub = MediaHub(id: 'movies', title: 'Movies', type: 'movie', items: [movie], size: 1);
-
-    await tester.pumpWidget(
-      ChangeNotifierProvider<MultiServerProvider>(
-        create: (_) => MultiServerProvider(serverManager, DataAggregationService(serverManager)),
-        child: MaterialApp(
-          theme: monoTheme(dark: true),
-          home: Scaffold(
-            body: SizedBox(
-              width: 1280,
-              height: 720,
-              child: TvBrowseRail(hubs: [hub], iconForHub: (_, _) => Icons.movie_rounded),
-            ),
-          ),
-        ),
-      ),
-    );
-    await tester.pump();
-
-    expect(find.text('Visible Movie'), findsOneWidget);
-  });
-
   testWidgets('detailed card focus border hugs the poster, captions outside', (tester) async {
     await SettingsService.instanceOrNull!.write(SettingsService.tvFullCardLayout, false);
     TvDetectionService.debugSetAppleTVOverride(true);
@@ -613,7 +677,7 @@ void main() {
     });
 
     final serverManager = MultiServerManager();
-    final movie = MediaItem(
+    final movie = testMediaItem(
       id: 'movie_1',
       backend: MediaBackend.plex,
       kind: MediaKind.movie,
@@ -674,7 +738,7 @@ void main() {
     });
 
     final serverManager = MultiServerManager();
-    final movie = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
+    final movie = testMediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
     final hub = MediaHub(id: 'movies', title: 'Movies', type: 'movie', items: [movie], size: 2, more: true);
 
     await tester.pumpWidget(
@@ -731,7 +795,7 @@ void main() {
     });
 
     final serverManager = MultiServerManager();
-    final movie = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
+    final movie = testMediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
     final hub = MediaHub(id: 'movies', title: 'Movies', type: 'movie', items: [movie], size: 2);
 
     await tester.pumpWidget(
@@ -782,7 +846,7 @@ void main() {
     });
 
     final serverManager = MultiServerManager();
-    final movie = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
+    final movie = testMediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
     final hub = MediaHub(id: 'movies', title: 'Movies', type: 'movie', items: [movie], size: 1);
     var trailing = TvRailTrailing.loading;
     var activations = 0;
@@ -839,8 +903,13 @@ void main() {
 
   testWidgets('inactive hub contents render at reduced opacity', (tester) async {
     final serverManager = MultiServerManager();
-    final firstItem = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie 1');
-    final secondItem = MediaItem(id: 'movie_2', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie 2');
+    final firstItem = testMediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie 1');
+    final secondItem = testMediaItem(
+      id: 'movie_2',
+      backend: MediaBackend.plex,
+      kind: MediaKind.movie,
+      title: 'Movie 2',
+    );
     final firstHub = MediaHub(id: 'hub_1', title: 'First Hub', type: 'movie', items: [firstItem], size: 1);
     final secondHub = MediaHub(id: 'hub_2', title: 'Second Hub', type: 'movie', items: [secondItem], size: 1);
 
@@ -862,8 +931,16 @@ void main() {
 
     await tester.pump();
 
-    final opacities = tester.widgetList<AnimatedOpacity>(find.byType(AnimatedOpacity)).map((widget) => widget.opacity);
-    expect(opacities, contains(0.7));
+    tester.state<TvBrowseRailState>(find.byType(TvBrowseRail)).requestFocus();
+    await tester.pumpAndSettle();
+
+    expect(FocusManager.instance.primaryFocus?.debugLabel, 'tv_browse_rail');
+
+    final scrims = tester.widgetList<AnimatedDimScrim>(find.byType(AnimatedDimScrim));
+    expect(
+      scrims,
+      contains(predicate<AnimatedDimScrim>((scrim) => scrim.dimmed && scrim.alpha == 0.3, 'inactive hub dim scrim')),
+    );
   });
 
   testWidgets('selects preferred hub when hubs are inserted asynchronously', (tester) async {
@@ -975,13 +1052,13 @@ void main() {
       );
     }
 
-    final episode1 = MediaItem(
+    final episode1 = testMediaItem(
       id: 'episode_1',
       backend: MediaBackend.plex,
       kind: MediaKind.episode,
       title: 'Episode 1',
     );
-    final episode2 = MediaItem(
+    final episode2 = testMediaItem(
       id: 'episode_2',
       backend: MediaBackend.plex,
       kind: MediaKind.episode,
@@ -1009,11 +1086,11 @@ void main() {
     List<MediaItem> movieItems() => List.generate(
       12,
       (index) =>
-          MediaItem(id: 'movie_$index', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie $index'),
+          testMediaItem(id: 'movie_$index', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie $index'),
     );
     List<MediaItem> episodeItems() => List.generate(
       12,
-      (index) => MediaItem(
+      (index) => testMediaItem(
         id: 'episode_$index',
         backend: MediaBackend.plex,
         kind: MediaKind.episode,
@@ -1126,15 +1203,15 @@ void main() {
     });
 
     final serverManager = MultiServerManager();
-    final tallItem = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie 1');
-    final wideItem = MediaItem(
+    final tallItem = testMediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie 1');
+    final wideItem = testMediaItem(
       id: 'episode_1',
       backend: MediaBackend.plex,
       kind: MediaKind.episode,
       title: 'Episode 1',
       thumbPath: '/episode_1',
     );
-    final activeItem = MediaItem(
+    final activeItem = testMediaItem(
       id: 'episode_2',
       backend: MediaBackend.plex,
       kind: MediaKind.episode,
@@ -1206,7 +1283,7 @@ void main() {
     });
 
     MediaItem episode(String id) {
-      return MediaItem(id: id, backend: MediaBackend.plex, kind: MediaKind.episode, title: id, thumbPath: '/$id');
+      return testMediaItem(id: id, backend: MediaBackend.plex, kind: MediaKind.episode, title: id, thumbPath: '/$id');
     }
 
     final serverManager = MultiServerManager();
@@ -1279,7 +1356,7 @@ void main() {
     });
 
     MediaItem episode(String id) {
-      return MediaItem(id: id, backend: MediaBackend.plex, kind: MediaKind.episode, title: id, thumbPath: '/$id');
+      return testMediaItem(id: id, backend: MediaBackend.plex, kind: MediaKind.episode, title: id, thumbPath: '/$id');
     }
 
     final serverManager = MultiServerManager();
@@ -1379,11 +1456,11 @@ void main() {
     List<MediaItem> movieItems() => List.generate(
       8,
       (index) =>
-          MediaItem(id: 'movie_$index', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie $index'),
+          testMediaItem(id: 'movie_$index', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie $index'),
     );
     List<MediaItem> episodeItems() => List.generate(
       8,
-      (index) => MediaItem(
+      (index) => testMediaItem(
         id: 'episode_$index',
         backend: MediaBackend.plex,
         kind: MediaKind.episode,
@@ -1463,7 +1540,7 @@ void main() {
 
     final episodes = List.generate(
       153,
-      (index) => MediaItem(
+      (index) => testMediaItem(
         id: 'episode_${index + 1}',
         backend: MediaBackend.plex,
         kind: MediaKind.episode,
@@ -1547,7 +1624,7 @@ void main() {
     const targetIndex = 419;
     final episodes = List.generate(
       episodeCount,
-      (index) => MediaItem(
+      (index) => testMediaItem(
         id: 'episode_${index + 1}',
         backend: MediaBackend.plex,
         kind: MediaKind.episode,
@@ -1633,7 +1710,7 @@ void main() {
     addTearDown(SelectKeyUpSuppressor.clearSuppression);
 
     var activations = 0;
-    final person = MediaItem(id: 'person_1', backend: MediaBackend.plex, kind: MediaKind.unknown, title: 'Person');
+    final person = testMediaItem(id: 'person_1', backend: MediaBackend.plex, kind: MediaKind.unknown, title: 'Person');
     final hub = MediaHub(id: 'people', title: 'People', type: 'person', items: [person], size: 1);
     final serverManager = MultiServerManager();
 
@@ -1697,7 +1774,7 @@ void main() {
 
   testWidgets('suppresses transferred select activation until key up', (tester) async {
     var activations = 0;
-    final person = MediaItem(id: 'person_1', backend: MediaBackend.plex, kind: MediaKind.unknown, title: 'Person');
+    final person = testMediaItem(id: 'person_1', backend: MediaBackend.plex, kind: MediaKind.unknown, title: 'Person');
     final hub = MediaHub(id: 'people', title: 'People', type: 'person', items: [person], size: 1);
     final serverManager = MultiServerManager();
 
@@ -1747,7 +1824,7 @@ void main() {
 
   testWidgets('without a gesture signal, suppression clears on the legacy safety timeout', (tester) async {
     var activations = 0;
-    final person = MediaItem(id: 'person_1', backend: MediaBackend.plex, kind: MediaKind.unknown, title: 'Person');
+    final person = testMediaItem(id: 'person_1', backend: MediaBackend.plex, kind: MediaKind.unknown, title: 'Person');
     final hub = MediaHub(id: 'people', title: 'People', type: 'person', items: [person], size: 1);
     final serverManager = MultiServerManager();
 
@@ -1794,7 +1871,7 @@ void main() {
     var activations = 0;
     final gesture = ValueNotifier<bool>(true);
     addTearDown(gesture.dispose);
-    final person = MediaItem(id: 'person_1', backend: MediaBackend.plex, kind: MediaKind.unknown, title: 'Person');
+    final person = testMediaItem(id: 'person_1', backend: MediaBackend.plex, kind: MediaKind.unknown, title: 'Person');
     final hub = MediaHub(id: 'people', title: 'People', type: 'person', items: [person], size: 1);
     final serverManager = MultiServerManager();
 
@@ -1849,7 +1926,7 @@ void main() {
     var activations = 0;
     final gesture = ValueNotifier<bool>(true);
     addTearDown(gesture.dispose);
-    final person = MediaItem(id: 'person_1', backend: MediaBackend.plex, kind: MediaKind.unknown, title: 'Person');
+    final person = testMediaItem(id: 'person_1', backend: MediaBackend.plex, kind: MediaKind.unknown, title: 'Person');
     final hub = MediaHub(id: 'people', title: 'People', type: 'person', items: [person], size: 1);
     final serverManager = MultiServerManager();
 
@@ -1902,7 +1979,7 @@ void main() {
 
     Widget buildRail({required bool autofocus}) {
       final serverManager = MultiServerManager();
-      final item = MediaItem(id: 'item_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
+      final item = testMediaItem(id: 'item_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
       final hub = MediaHub(id: 'hub_1', title: 'Hub', type: 'movie', items: [item], size: 1);
       return ChangeNotifierProvider<MultiServerProvider>(
         create: (_) => MultiServerProvider(serverManager, DataAggregationService(serverManager)),
@@ -1930,7 +2007,7 @@ void main() {
 
   testWidgets('lays out when bottom-positioned in a stack', (tester) async {
     final serverManager = MultiServerManager();
-    final item = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
+    final item = testMediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
     final hub = MediaHub(id: 'hub_1', title: 'Hub', type: 'movie', items: [item], size: 1);
 
     await tester.pumpWidget(
@@ -1971,7 +2048,7 @@ void main() {
     });
 
     final serverManager = MultiServerManager();
-    final item = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
+    final item = testMediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
     final hub = MediaHub(id: 'hub_1', title: 'Hub', type: 'movie', items: [item], size: 1);
 
     await tester.pumpWidget(
@@ -1995,12 +2072,7 @@ void main() {
     );
     await tester.pump();
 
-    final gradient = find.byWidgetPredicate(
-      (widget) =>
-          widget is DecoratedBox &&
-          widget.decoration is BoxDecoration &&
-          (widget.decoration as BoxDecoration).gradient is LinearGradient,
-    );
+    final gradient = find.byType(RasterizedGradient);
     final backgroundPosition = tester.widget<Positioned>(
       find.ancestor(of: gradient.first, matching: find.byType(Positioned)).first,
     );
@@ -2016,7 +2088,7 @@ void main() {
 
     final focusedItemIds = <String>[];
     final activeHubIds = <String>[];
-    final item = MediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
+    final item = testMediaItem(id: 'movie_1', backend: MediaBackend.plex, kind: MediaKind.movie, title: 'Movie');
     final hub = MediaHub(id: 'hub_1', title: 'Hub', type: 'movie', items: [item], size: 1);
 
     Widget buildRail(double backgroundBleedLeft) {

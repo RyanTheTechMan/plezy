@@ -67,7 +67,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh workflow run build.yml --ref labs \
+          gh workflow run labs-build.yml \
+            --repo "${{ github.repository }}" \
+            --ref labs \
             -f build_android=false \
             -f build_ios=false \
             -f build_macos=true \

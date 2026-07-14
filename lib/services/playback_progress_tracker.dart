@@ -7,6 +7,7 @@ import '../media/media_backend.dart';
 import '../media/media_item.dart';
 import '../media/media_server_client.dart';
 import '../media/media_source_info.dart';
+import '../media/watch_progress.dart';
 import 'offline_watch_sync_service.dart';
 import 'playback_report_session.dart';
 import 'settings_service.dart';
@@ -55,6 +56,21 @@ class PlaybackProgressTracker {
   /// Jellyfin stream indexes in playback-progress reports.
   final MediaSourceInfo? mediaInfo;
 
+  /// Invoked once after the item is successfully scrobbled. The player wires
+  /// this to mark same-file sibling episodes of a Plex multi-episode file
+  /// watched (#1500) — resolved lazily here because the play queue holding
+  /// the siblings is created fire-and-forget and may not exist when this
+  /// tracker is constructed. Best-effort: failures are logged and never
+  /// un-scrobble the primary item.
+  final Future<void> Function()? onScrobbled;
+
+  /// Invoked on every paused progress tick. The player wires this to the
+  /// Plex transcoder keepalive ping (`/video/:/transcode/universal/ping`) —
+  /// timeline reports alone historically have not been enough to stop PMS
+  /// from reaping an idle transcode, so official Plex clients send both
+  /// while paused. Best-effort; failures are the callee's to swallow.
+  final Future<void> Function()? onPausedKeepalive;
+
   /// Timer for periodic progress updates
   Timer? _progressTimer;
 
@@ -68,9 +84,6 @@ class PlaybackProgressTracker {
 
   /// Timer ticks to skip before retrying after failures (exponential backoff).
   int _ticksToSkip = 0;
-
-  /// Counts timer ticks while paused to send periodic "paused" heartbeats.
-  int _pausedTickCounter = 0;
 
   /// Whether we've already scrobbled (marked as watched) for this playback session.
   bool _scrobbled = false;
@@ -96,6 +109,8 @@ class PlaybackProgressTracker {
     this.playMethod,
     this.playSessionId,
     this.mediaInfo,
+    this.onScrobbled,
+    this.onPausedKeepalive,
     this.updateInterval = const Duration(seconds: 10),
   }) : assert(!isOffline || offlineWatchService != null, 'offlineWatchService is required when isOffline is true'),
        assert(isOffline || client != null, 'client is required when isOffline is false'),
@@ -128,27 +143,22 @@ class PlaybackProgressTracker {
     }
 
     _progressTimer = Timer.periodic(updateInterval, (timer) {
+      // Skip ticks when backing off after consecutive failures to avoid
+      // flooding the network with doomed requests during an outage.
+      if (_ticksToSkip > 0) {
+        _ticksToSkip--;
+        return;
+      }
       if (player.state.isActive) {
-        _pausedTickCounter = 0;
-        // Skip ticks when backing off after consecutive failures to avoid
-        // flooding the network with doomed requests during an outage.
-        if (_ticksToSkip > 0) {
-          _ticksToSkip--;
-          return;
-        }
         _sendProgress('playing');
       } else {
-        // Send periodic "paused" updates to keep the server session alive
-        // (~60s with default 10s interval)
-        _pausedTickCounter++;
-        if (_pausedTickCounter >= 6) {
-          _pausedTickCounter = 0;
-          if (_ticksToSkip > 0) {
-            _ticksToSkip--;
-            return;
-          }
-          _sendProgress('paused');
-        }
+        // Report every tick while paused too — official clients do the
+        // same (~10s); the timeline heartbeat is what keeps the server
+        // session and its transcoder from being reaped during a long
+        // pause (#1520).
+        _sendProgress('paused');
+        final keepalive = onPausedKeepalive;
+        if (keepalive != null) unawaited(keepalive());
       }
     });
 
@@ -325,24 +335,37 @@ class PlaybackProgressTracker {
     // Explicitly scrobble once progress crosses the watched threshold.
     // Some servers (Plex with no active play session, Jellyfin always)
     // don't auto-mark from progress updates alone.
-    if (!_scrobbled && duration.inMilliseconds > 0) {
+    if (!_scrobbled &&
+        isWatchedProgress(
+          positionMs: position.inMilliseconds,
+          durationMs: duration.inMilliseconds,
+          threshold: c.watchedThreshold,
+        )) {
       final percent = position.inMilliseconds / duration.inMilliseconds;
       final threshold = c.watchedThreshold;
-      if (percent >= threshold) {
-        _scrobbled = true;
+      _scrobbled = true;
+      try {
+        // Backends that mark the item played from the playback-stopped report
+        // (Jellyfin) only emit the local watch event here — an explicit
+        // markWatched would double-scrobble via the Trakt plugin (#1287).
+        // Plex still issues the server call. Either path emits the watched
+        // event through WatchStateNotifier, so no extra notify is needed.
+        await c.markWatchedFromPlaybackStop(metadata);
+        appLogger.d(
+          'Scrobbled ${metadata.id} (${(percent * 100).toStringAsFixed(0)}% >= ${(threshold * 100).toStringAsFixed(0)}%)',
+        );
+      } catch (e) {
+        appLogger.w('Failed to scrobble ${metadata.id}', error: e);
+        _scrobbled = false; // Retry on next tick
+      }
+      // After (and only after) the primary mark succeeded. A failure here
+      // must not reset _scrobbled — that would re-scrobble the primary
+      // item and inflate its view count.
+      if (_scrobbled && onScrobbled != null) {
         try {
-          // Backends that mark the item played from the playback-stopped report
-          // (Jellyfin) only emit the local watch event here — an explicit
-          // markWatched would double-scrobble via the Trakt plugin (#1287).
-          // Plex still issues the server call. Either path emits the watched
-          // event through WatchStateNotifier, so no extra notify is needed.
-          await c.markWatchedFromPlaybackStop(metadata);
-          appLogger.d(
-            'Scrobbled ${metadata.id} (${(percent * 100).toStringAsFixed(0)}% >= ${(threshold * 100).toStringAsFixed(0)}%)',
-          );
+          await onScrobbled!();
         } catch (e) {
-          appLogger.w('Failed to scrobble ${metadata.id}', error: e);
-          _scrobbled = false; // Retry on next tick
+          appLogger.w('Post-scrobble hook failed for ${metadata.id}', error: e);
         }
       }
     }

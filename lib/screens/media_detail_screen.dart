@@ -6,7 +6,9 @@ import 'package:cached_network_image_ce/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../navigation/profile_navigation_scope.dart';
+import '../services/device_performance.dart';
 import '../services/image_cache_service.dart';
+import '../services/fullscreen_state_manager.dart';
 import 'package:flutter/services.dart';
 import 'package:plezy/utils/platform_detector.dart';
 import 'package:plezy/widgets/app_icon.dart';
@@ -16,11 +18,13 @@ import '../widgets/collapsible_text.dart';
 import '../widgets/rating_bottom_sheet.dart';
 
 import '../focus/dpad_navigator.dart';
+import '../focus/dpad_select_long_press_controller.dart';
 import '../focus/focusable_action_bar.dart';
 import '../focus/focusable_wrapper.dart';
+import '../focus/hub_vertical_navigation.dart';
 import '../focus/key_event_utils.dart';
 import '../focus/input_mode_tracker.dart';
-import '../focus/card_focus_scope.dart';
+import '../widgets/cast_member_strip.dart';
 import '../widgets/focus_builders.dart';
 import '../media/library_query.dart';
 import '../media/media_hub.dart';
@@ -50,12 +54,13 @@ import '../utils/download_utils.dart';
 import '../services/settings_service.dart';
 import '../services/watch_actions.dart';
 import '../widgets/settings_builder.dart';
-import '../utils/grid_size_calculator.dart';
 import '../utils/layout_constants.dart';
+import '../models/catalog/catalog_item.dart';
+import '../providers/catalog_sources_provider.dart';
 import '../providers/download_provider.dart';
 import '../providers/offline_watch_provider.dart';
 import '../providers/watch_state_store.dart';
-import '../theme/mono_tokens.dart';
+import '../services/catalog/catalog_source.dart';
 import '../utils/app_logger.dart';
 import '../utils/formatters.dart';
 import '../utils/scroll_utils.dart';
@@ -63,6 +68,9 @@ import '../utils/dialogs.dart';
 import '../utils/snackbar_helper.dart';
 import '../utils/video_player_navigation.dart';
 import '../widgets/app_bar_back_button.dart';
+import '../widgets/app_menu.dart';
+import '../widgets/catalog_source_logo.dart';
+import '../widgets/desktop_app_bar.dart';
 import '../utils/desktop_window_padding.dart';
 import '../widgets/horizontal_scroll_with_arrows.dart';
 import '../widgets/media_context_menu.dart';
@@ -83,6 +91,7 @@ import '../widgets/focusable_tab_chip.dart';
 import '../widgets/hub_section.dart';
 import '../widgets/ios_status_bar_tap_scroll_to_top.dart';
 import '../widgets/loading_indicator_box.dart';
+import '../widgets/rasterized_gradient.dart';
 import '../widgets/tv_browse_rail.dart';
 import '../widgets/tv_spotlight_background.dart';
 
@@ -99,6 +108,10 @@ const String _tvDetailActorsHubId = 'detail_actors';
 const String _tvDetailActorPersonIdRawKey = 'tvDetailActorPersonId';
 
 enum _SyncRuleAction { edit, remove, delete }
+
+/// A watchlist-capable catalog source paired with this item's ids in that
+/// source's terms (see `_resolveWatchlistIds`).
+typedef WatchlistCandidate = ({CatalogSource source, CatalogItemIds ids});
 
 class _SeasonEpisodePager {
   final Map<String, PagedMediaListState<MediaItem>> _states = {};
@@ -154,18 +167,18 @@ class _SeasonEpisodePager {
     _moreLoadsInFlight.remove(seasonId);
   }
 
+  /// Drops cached episode pages for seasons outside [keepSeasonIds].
+  /// In-flight sets are left alone — a completing prefetch just re-adds one
+  /// bounded page. Evicted seasons transparently refetch through the normal
+  /// unloaded-hub path when refocused.
+  void retainOnly(Set<String> keepSeasonIds) {
+    _states.removeWhere((seasonId, _) => !keepSeasonIds.contains(seasonId));
+  }
+
   void removeEpisode(String episodeId) {
     for (final entry in _states.entries.toList()) {
       _states[entry.key] = entry.value.removeWhere((episode) => episode.id == episodeId);
     }
-  }
-
-  void updateEpisode(String seasonId, int index, MediaItem updated) {
-    final state = _states[seasonId];
-    if (state == null || index < 0 || index >= state.items.length) return;
-    final next = List<MediaItem>.of(state.items);
-    next[index] = updated;
-    _states[seasonId] = state.replaceItems(next);
   }
 
   void patchEpisode(String episodeId, MediaItem Function(MediaItem existing) patch) {
@@ -225,7 +238,13 @@ PageRoute<bool> mediaDetailRoute({
   if (!PlatformDetector.isTV()) return MaterialPageRoute<bool>(builder: (_) => page);
 
   return PageRouteBuilder<bool>(
-    opaque: false,
+    // Opaque so the covered route stops painting/building once the fade
+    // completes (the framework only offstages routes below after the
+    // transition settles, so push/pop fades still composite over live
+    // content). The detail screen paints a full-screen opaque background
+    // immediately, and the video player route is itself opaque and never
+    // sits below a detail route, so nothing can leak through.
+    opaque: true,
     pageBuilder: (_, _, _) => page,
     transitionsBuilder: (_, animation, _, child) {
       return FadeTransition(
@@ -273,8 +292,20 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
   bool _hasLoadedEpisodes = false;
   double? _tvDetailPendingRailHeight;
   double? _tvDetailStableRailHeight;
-  MediaItem? _tvDetailFocusedEpisode;
+  // ValueNotifier (not setState) so d-pad scrubbing across episodes rebuilds
+  // only the foreground info panel, never the whole screen with its rail
+  // (same isolation pattern as DiscoverScreen._spotlightItem).
+  final ValueNotifier<MediaItem?> _tvDetailFocusedEpisode = ValueNotifier(null);
   bool _tvDetailActionRowHasFocus = false;
+
+  // Watchlist action (external catalog sources: Trakt, MAL). External ids
+  // resolve once via the owning server, then per capable source; membership
+  // comes from each source's session snapshot, so opening details never
+  // costs a provider call. Multiple candidates → the toggle opens a chooser.
+  List<WatchlistCandidate> _watchlistCandidates = const [];
+  List<CatalogSource> _watchlistListenedSources = const [];
+  final GlobalKey _watchlistButtonKey = GlobalKey();
+  bool _watchlistMutationInFlight = false;
 
   // Inline season tabs
   int _selectedSeasonIndex = 0;
@@ -321,16 +352,14 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
 
   late final FocusNode _playButtonFocusNode;
   late final FocusNode _ratingChipFocusNode;
-  Timer? _selectKeyTimer;
-  bool _isSelectKeyDown = false;
-  bool _longPressTriggered = false;
-  static const _longPressDuration = Duration(milliseconds: 500);
+  final _extrasSelectLongPress = DpadSelectLongPressController();
 
   // Context menu key for the three-dots button
   final _contextMenuKey = GlobalKey<MediaContextMenuState>();
 
   // Locked focus pattern for extras
   int _focusedExtraIndex = 0;
+  final ValueNotifier<int> _focusedExtraIndexNotifier = ValueNotifier<int>(0);
   late final FocusNode _extrasFocusNode;
   final Map<int, GlobalKey<MediaCardState>> _extraCardKeys = {};
   final _extrasSectionKey = GlobalKey();
@@ -339,10 +368,7 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
   late final FocusNode _overviewFocusNode;
   final _overviewSectionKey = GlobalKey();
 
-  // Locked focus pattern for cast
-  int _focusedCastIndex = 0;
-  late final FocusNode _castFocusNode;
-  final ScrollController _castScrollController = ScrollController();
+  final _castStripKey = GlobalKey<CastMemberStripState>();
   final _castSectionKey = GlobalKey();
   final _seasonsSectionKey = GlobalKey();
 
@@ -648,9 +674,49 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
     _playButtonFocusNode = FocusNode(debugLabel: 'play_button');
     _ratingChipFocusNode = FocusNode(debugLabel: 'rating_chip');
     _overviewFocusNode = FocusNode(debugLabel: 'overview');
-    _castFocusNode = FocusNode(debugLabel: 'cast_row');
     _infoRowsFocusNode = FocusNode(debugLabel: 'info_rows');
     _loadFullMetadata();
+    _initWatchlistState();
+  }
+
+  /// Hook up the watchlist action's data: every watchlist-capable catalog
+  /// source this item resolves in, with its per-source ids. No-ops offline
+  /// and for non-movie/show kinds.
+  void _initWatchlistState() {
+    if (widget.isOffline || (!_metadata.isMovie && !_metadata.isShow)) return;
+    final sources = Provider.of<CatalogSourcesProvider?>(context, listen: false)?.watchlistCapableSources;
+    if (sources == null || sources.isEmpty) return;
+    _watchlistListenedSources = sources;
+    for (final source in sources) {
+      source.watchlistChanges.addListener(_onWatchlistSourceChanged);
+      unawaited(source.ensureWatchlistLoaded());
+    }
+    unawaited(_resolveWatchlistIds(sources));
+  }
+
+  Future<void> _resolveWatchlistIds(List<CatalogSource> sources) async {
+    try {
+      final ids = await _getMediaClientForMetadata(context)?.fetchExternalIds(_metadata.id);
+      if (!mounted || ids == null || !ids.hasAny) return;
+      // Sources can require their own id forms (MAL maps external ids to an
+      // anime id via Fribb); null means the item is outside that source's
+      // domain. The action shows for the sources that resolved; with more
+      // than one, the toggle opens a source chooser.
+      final candidates = <WatchlistCandidate>[];
+      for (final source in sources) {
+        final resolved = await source.resolveItemIds(_metadata.kind, ids);
+        if (resolved != null) candidates.add((source: source, ids: resolved));
+      }
+      if (!mounted || candidates.isEmpty) return;
+      setState(() => _watchlistCandidates = candidates);
+    } catch (e) {
+      appLogger.d('Watchlist external-id resolution failed', error: e);
+    }
+  }
+
+  void _onWatchlistSourceChanged() {
+    // ignore: no-empty-block - membership state lives in the source
+    setStateIfMounted(() {});
   }
 
   void _onScroll() {
@@ -700,6 +766,11 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
       return;
     }
     Navigator.pop(context, _watchStateChanged);
+  }
+
+  void _handleMediaDetailSystemBack() {
+    if (BackKeyCoordinator.consumeIfHandled()) return;
+    _popMediaDetailIfBackNotSuppressed();
   }
 
   bool _isTvDetailReadyToReveal(MediaItem metadata) {
@@ -775,19 +846,22 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
 
   @override
   void dispose() {
+    for (final source in _watchlistListenedSources) {
+      source.watchlistChanges.removeListener(_onWatchlistSourceChanged);
+    }
     _routeObserver?.unsubscribe(this);
     _scrollController.dispose();
     _scrollOffset.dispose();
+    _tvDetailFocusedEpisode.dispose();
     _extrasScrollController.dispose();
     _extrasFocusNode.removeListener(_handleExtrasFocusChange);
     _extrasFocusNode.dispose();
+    _focusedExtraIndexNotifier.dispose();
     _playButtonFocusNode.dispose();
     _ratingChipFocusNode.dispose();
     _overviewFocusNode.dispose();
-    _castFocusNode.dispose();
     _infoRowsFocusNode.dispose();
-    _castScrollController.dispose();
-    _selectKeyTimer?.cancel();
+    _extrasSelectLongPress.dispose();
     for (final node in _seasonTabFocusNodes) {
       node.dispose();
     }
@@ -942,11 +1016,12 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
     final isNumeric = mediaClient?.capabilities.numericUserRating ?? true;
     final hasRating = metadata.userRating != null && metadata.userRating! > 0;
     final starValue = hasRating ? metadata.userRating! / 2.0 : 0.0;
+    final active = isNumeric ? hasRating : metadata.isFavorite == true;
 
-    final iconData = isNumeric ? Symbols.star_rounded : Symbols.thumb_up_rounded;
-    final activeIconColor = isNumeric ? Colors.amber : Colors.teal;
-    // Numeric backends show the formatted rating when set; binary backends
-    // rely on the filled icon to communicate the like state and keep the
+    final iconData = isNumeric ? Symbols.star_rounded : Symbols.favorite_rounded;
+    final activeIconColor = isNumeric ? Colors.amber : Colors.redAccent;
+    // Numeric backends show the formatted rating when set; favorite backends
+    // rely on the filled heart to communicate the favorite state and keep the
     // "Rate" label as the action prompt either way.
     final label = isNumeric && hasRating ? formatRating(starValue) : t.mediaMenu.rate;
 
@@ -993,8 +1068,8 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
                 children: [
                   AppIcon(
                     iconData,
-                    fill: hasRating ? 1 : 0,
-                    color: showFocus ? fgColor : (hasRating ? activeIconColor : fgColor),
+                    fill: active ? 1 : 0,
+                    color: showFocus ? fgColor : (active ? activeIconColor : fgColor),
                     size: 16,
                   ),
                   const SizedBox(width: 4),
@@ -1012,14 +1087,19 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
   }
 
   void _showRatingDialog(BuildContext sheetContext, MediaItem metadata) {
-    OverlaySheetController.showAdaptive(
-      sheetContext,
+    OverlaySheetController.of(sheetContext).show(
+      showDragHandle: true,
       builder: (context) => RatingBottomSheet(
         item: metadata,
         serverClient: _getMediaClientForMetadata(this.context),
         onServerRatingChanged: (rating) {
           setStateIfMounted(() {
             _fullMetadata = (_fullMetadata ?? widget.metadata).copyWith(userRating: rating);
+          });
+        },
+        onServerFavoriteChanged: (favorite) {
+          setStateIfMounted(() {
+            _fullMetadata = (_fullMetadata ?? widget.metadata).copyWith(isFavorite: favorite);
           });
         },
       ),
@@ -1941,7 +2021,7 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
   void _focusSectionAboveExtras() {
     final metadata = _fullMetadata ?? _metadata;
     if (metadata.roles != null && metadata.roles!.isNotEmpty) {
-      _castFocusNode.requestFocus();
+      _castStripKey.currentState?.requestFocus();
       _scrollSectionIntoView(_castSectionKey);
     } else {
       _focusSectionAboveCast();
@@ -2069,7 +2149,7 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
     if (!widget.isOffline) _ratingChipFocusNode.requestFocus();
   }
 
-  /// Focus the first available section below the primary action row.
+  /// Focus the overview, or the first available content section when there is no overview.
   void _focusBelowActionRow() {
     final metadata = _fullMetadata ?? _metadata;
 
@@ -2078,13 +2158,20 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
       return;
     }
 
-    // DOWN order: overview → seasons → cast → extras
-    if (!PlatformDetector.isTV() && metadata.summary != null && metadata.summary!.isNotEmpty) {
+    if (metadata.summary != null && metadata.summary!.isNotEmpty) {
       _overviewFocusNode.requestFocus();
       _scrollSectionIntoView(_overviewSectionKey);
       return;
     }
 
+    _focusBelowOverview();
+  }
+
+  /// Focus the first available content section after the overview.
+  void _focusBelowOverview() {
+    final metadata = _fullMetadata ?? _metadata;
+
+    // DOWN order: season tabs → episodes → cast → extras → related hubs → info rows.
     if (metadata.isShow && !_showEpisodesDirectly && _seasons.isNotEmpty && _seasonTabFocusNodes.isNotEmpty) {
       // Focus the selected season tab chip
       _seasonTabFocusNodes[_selectedSeasonIndex].requestFocus();
@@ -2099,7 +2186,7 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
     }
 
     if (metadata.roles != null && metadata.roles!.isNotEmpty) {
-      _castFocusNode.requestFocus();
+      _castStripKey.currentState?.requestFocus();
       _scrollSectionIntoView(_castSectionKey);
       return;
     }
@@ -2114,59 +2201,16 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
       _relatedHubKeys.first.currentState?.requestFocusFromMemory();
       return;
     }
+
+    if (_hasInfoRows) {
+      _focusInfoRows();
+    }
   }
 
   /// Get the responsive card width used by seasons/extras/cast rows.
-  /// Uses the shared grid size calculator for consistency with library grids.
-  double _getResponsiveCardWidth() {
-    final density = SettingsService.instance.read(SettingsService.libraryDensity);
-    final availableWidth = MediaQuery.sizeOf(context).width;
-    return GridSizeCalculator.getCellWidth(availableWidth, context, density);
-  }
-
-  /// Handle key events for the overview section
-  KeyEventResult _handleOverviewKeyEvent(FocusNode _, KeyEvent event) {
-    final key = event.logicalKey;
-    if (key.isBackKey) return KeyEventResult.ignored;
-    if (!event.isActionable) return KeyEventResult.ignored;
-
-    final metadata = _fullMetadata ?? _metadata;
-
-    // UP: always play button (overview is directly below play)
-    if (key.isUpKey) {
-      _scrollController.animateTo(0, duration: const Duration(milliseconds: 200), curve: Curves.easeOut);
-      _playButtonFocusNode.requestFocus();
-      return KeyEventResult.handled;
-    }
-
-    if (key.isDownKey) {
-      if (metadata.isShow && !_showEpisodesDirectly && _seasons.isNotEmpty && _seasonTabFocusNodes.isNotEmpty) {
-        _seasonTabFocusNodes[_selectedSeasonIndex].requestFocus();
-        _scrollSectionIntoView(_seasonsSectionKey);
-      } else if (_episodes.isNotEmpty) {
-        _firstEpisodeFocusNode.requestFocus();
-        _scrollSectionIntoView(_seasonsSectionKey);
-      } else if (metadata.roles != null && metadata.roles!.isNotEmpty) {
-        _castFocusNode.requestFocus();
-        _scrollSectionIntoView(_castSectionKey);
-      } else if (_extras != null && _extras!.isNotEmpty) {
-        _extrasFocusNode.requestFocus();
-        _scrollSectionIntoView(_extrasSectionKey);
-      } else if (_relatedHubs.isNotEmpty) {
-        _relatedHubKeys.first.currentState?.requestFocusFromMemory();
-      } else if (_hasInfoRows) {
-        _focusInfoRows();
-      }
-      return KeyEventResult.handled;
-    }
-
-    // LEFT/RIGHT/SELECT: consume to prevent unwanted traversal
-    if (key.isLeftKey || key.isRightKey || key.isSelectKey) {
-      return KeyEventResult.handled;
-    }
-
-    return KeyEventResult.ignored;
-  }
+  /// Delegates to the cast strip's calculator so the dpad scroll math and
+  /// the rendered cards can never disagree.
+  double _getResponsiveCardWidth() => CastMemberStrip.responsiveCardWidth(context);
 
   /// Show context menu for a season tab
   void _showSeasonTabContextMenu(int index, {Offset? position}) {
@@ -2332,44 +2376,42 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
 
     if (key.isBackKey) return KeyEventResult.ignored;
 
-    // Handle SELECT with long-press detection
-    if (key.isSelectKey) {
-      if (event is KeyDownEvent) {
-        _selectKeyTimer?.cancel();
-        _isSelectKeyDown = true;
-        _longPressTriggered = false;
-        _selectKeyTimer = Timer(_longPressDuration, () {
-          if (!mounted) return;
-          if (_isSelectKeyDown) {
-            _longPressTriggered = true;
-            SelectKeyUpSuppressor.suppressSelectUntilKeyUp();
-            _extraCardKeys[_focusedExtraIndex]?.currentState?.showContextMenu();
-          }
-        });
-        return KeyEventResult.handled;
-      } else if (event is KeyRepeatEvent) {
-        return KeyEventResult.handled;
-      } else if (event is KeyUpEvent) {
-        final timerWasActive = _selectKeyTimer?.isActive ?? false;
-        _selectKeyTimer?.cancel();
-        if (!_longPressTriggered && timerWasActive && _isSelectKeyDown) {
-          if (_focusedExtraIndex < _extras!.length) {
-            navigateToVideoPlayer(context, metadata: _extras![_focusedExtraIndex]);
-          }
-        }
-        _isSelectKeyDown = false;
-        _longPressTriggered = false;
-        return KeyEventResult.handled;
+    if (SelectKeyUpSuppressor.consumeIfSuppressed(event)) {
+      if (event is KeyUpEvent && key.isSelectKey) {
+        _extrasSelectLongPress.reset();
       }
+      return KeyEventResult.handled;
     }
 
+    final extras = _extras;
+    if (extras == null || extras.isEmpty) {
+      _extrasSelectLongPress.reset();
+      return KeyEventResult.ignored;
+    }
+
+    final selectResult = _extrasSelectLongPress.handleKeyEvent(
+      event,
+      isOwnerActive: () => mounted,
+      onShortPress: () {
+        if (_focusedExtraIndex < extras.length) {
+          navigateToVideoPlayer(context, metadata: extras[_focusedExtraIndex]);
+        }
+      },
+      onLongPress: () {
+        if (_focusedExtraIndex < _extraCardKeys.length) {
+          _extraCardKeys[_focusedExtraIndex]?.currentState?.showContextMenu();
+        }
+      },
+    );
+    if (selectResult != KeyEventResult.ignored) return selectResult;
+
     if (!event.isActionable) return KeyEventResult.ignored;
-    if (_extras == null || _extras!.isEmpty) return KeyEventResult.ignored;
 
     // LEFT: previous extra
     if (key.isLeftKey) {
       if (_focusedExtraIndex > 0) {
-        setState(() => _focusedExtraIndex--);
+        _focusedExtraIndex--;
+        _focusedExtraIndexNotifier.value = _focusedExtraIndex;
         scrollListToIndex(
           _extrasScrollController,
           _focusedExtraIndex,
@@ -2383,7 +2425,8 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
     // RIGHT: next extra
     if (key.isRightKey) {
       if (_focusedExtraIndex < _extras!.length - 1) {
-        setState(() => _focusedExtraIndex++);
+        _focusedExtraIndex++;
+        _focusedExtraIndexNotifier.value = _focusedExtraIndex;
         scrollListToIndex(
           _extrasScrollController,
           _focusedExtraIndex,
@@ -2417,112 +2460,55 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
   }
 
   void _resetExtrasLongPressState() {
-    _selectKeyTimer?.cancel();
-    _isSelectKeyDown = false;
-    _longPressTriggered = false;
+    _extrasSelectLongPress.reset();
   }
 
-  /// Handle key events for the cast row (locked focus pattern)
-  KeyEventResult _handleCastKeyEvent(FocusNode _, KeyEvent event) {
-    final key = event.logicalKey;
-    if (key.isBackKey) return KeyEventResult.ignored;
-    if (!event.isActionable) return KeyEventResult.ignored;
-
-    final metadata = _fullMetadata ?? _metadata;
-    final roleCount = metadata.roles?.length ?? 0;
-
-    // LEFT: previous cast member
-    if (key.isLeftKey) {
-      if (_focusedCastIndex > 0) {
-        setState(() => _focusedCastIndex--);
-        scrollListToIndex(
-          _castScrollController,
-          _focusedCastIndex,
-          itemExtent: _getResponsiveCardWidth() + 6 + 4,
-          leadingPadding: 0,
-        );
-      }
-      return KeyEventResult.handled;
+  void _focusSectionDirectlyAboveCast() {
+    if (_episodes.isNotEmpty) {
+      final useLastEpisode = _episodes.length > 1;
+      if (useLastEpisode) _suppressNextLastEpisodeFocusLoad = true;
+      final target = useLastEpisode ? _lastEpisodeFocusNode : _firstEpisodeFocusNode;
+      target.requestFocus();
+    } else {
+      _focusSectionAboveCast();
     }
+  }
 
-    // RIGHT: next cast member
-    if (key.isRightKey) {
-      if (_focusedCastIndex < roleCount - 1) {
-        setState(() => _focusedCastIndex++);
-        scrollListToIndex(
-          _castScrollController,
-          _focusedCastIndex,
-          itemExtent: _getResponsiveCardWidth() + 6 + 4,
-          leadingPadding: 0,
-        );
-      }
-      return KeyEventResult.handled;
+  /// Focus the first visible section below cast.
+  void _focusSectionBelowCast() {
+    if (_extras != null && _extras!.isNotEmpty) {
+      _extrasFocusNode.requestFocus();
+      _scrollSectionIntoView(_extrasSectionKey);
+    } else if (_relatedHubs.isNotEmpty) {
+      _relatedHubKeys.first.currentState?.requestFocusFromMemory();
+    } else if (_hasInfoRows) {
+      _focusInfoRows();
     }
-
-    if (key.isUpKey) {
-      // If episodes are visible, focus the last episode (cast is right below episodes)
-      if (_episodes.isNotEmpty) {
-        final useLastEpisode = _episodes.length > 1;
-        if (useLastEpisode) _suppressNextLastEpisodeFocusLoad = true;
-        final target = useLastEpisode ? _lastEpisodeFocusNode : _firstEpisodeFocusNode;
-        target.requestFocus();
-      } else {
-        _focusSectionAboveCast();
-      }
-      return KeyEventResult.handled;
-    }
-
-    // DOWN: extras → related hubs → info rows → consume
-    if (key.isDownKey) {
-      if (_extras != null && _extras!.isNotEmpty) {
-        _extrasFocusNode.requestFocus();
-        _scrollSectionIntoView(_extrasSectionKey);
-      } else if (_relatedHubs.isNotEmpty) {
-        _relatedHubKeys.first.currentState?.requestFocusFromMemory();
-      } else if (_hasInfoRows) {
-        _focusInfoRows();
-      }
-      return KeyEventResult.handled;
-    }
-
-    // SELECT: navigate to actor media
-    if (key.isSelectKey) {
-      final metadata = _fullMetadata ?? _metadata;
-      if (_focusedCastIndex < (metadata.roles?.length ?? 0)) {
-        _navigateToActorMedia(metadata.roles![_focusedCastIndex]);
-      }
-      return KeyEventResult.handled;
-    }
-
-    return KeyEventResult.ignored;
   }
 
   /// Handle vertical navigation between related hub sections
   bool _handleRelatedHubNavigation(int hubIndex, bool isUp) {
-    if (_relatedHubKeys.isEmpty) return false;
-
-    if (isUp && hubIndex == 0) {
-      if (_extras != null && _extras!.isNotEmpty) {
-        _extrasFocusNode.requestFocus();
-        _scrollSectionIntoView(_extrasSectionKey);
-      } else {
-        _focusSectionAboveExtras();
-      }
-      return true;
-    }
-
-    final targetIndex = isUp ? hubIndex - 1 : hubIndex + 1;
-    if (targetIndex < 0 || targetIndex >= _relatedHubKeys.length) {
-      if (!isUp && _hasInfoRows) _focusInfoRows();
-      return true; // at boundary, consume
-    }
-
-    _relatedHubKeys[targetIndex].currentState?.requestFocusFromMemory();
-    return true;
+    return navigateVerticalHubRows(
+      hubCount: _relatedHubKeys.length,
+      hubIndex: hubIndex,
+      isUp: isUp,
+      onTopBoundary: () {
+        if (_extras != null && _extras!.isNotEmpty) {
+          _extrasFocusNode.requestFocus();
+          _scrollSectionIntoView(_extrasSectionKey);
+        } else {
+          _focusSectionAboveExtras();
+        }
+      },
+      onBottomBoundary: _hasInfoRows ? _focusInfoRows : null,
+      requestFocus: (targetIndex) {
+        _relatedHubKeys[targetIndex].currentState?.requestFocusFromMemory();
+      },
+    );
   }
 
   /// Handle key events for the trailing info rows (studio / contentRating).
-  /// UP returns to the previous focusable section; all other directions consume.
+  /// UP returns to the previous focusable section; terminal geometry is trapped.
   KeyEventResult _handleInfoRowsKeyEvent(FocusNode _, KeyEvent event) {
     final key = event.logicalKey;
     if (key.isBackKey) return KeyEventResult.ignored;
@@ -2533,8 +2519,10 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
       return KeyEventResult.handled;
     }
 
-    // DOWN / LEFT / RIGHT / SELECT: consume — info rows are the terminal row.
-    return KeyEventResult.handled;
+    if (key.isDownKey || key.isLeftKey || key.isRightKey || key.isSelectKey) {
+      return KeyEventResult.handled;
+    }
+    return KeyEventResult.ignored;
   }
 
   IconData _getRelatedHubIcon(MediaHub hub) {
@@ -2579,6 +2567,8 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
     final client = _getMediaClientForMetadata(context);
     final hasPinnedLastEpisode = _hasPinnedLastEpisodeInList;
     return ListView.builder(
+      addAutomaticKeepAlives: false,
+      addSemanticIndexes: false,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       padding: .zero,
@@ -2909,7 +2899,7 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
     final render = tailContext.findRenderObject();
     if (render is! RenderBox || !render.hasSize) return;
     final tailTop = render.localToGlobal(Offset.zero).dy;
-    final viewportHeight = MediaQuery.of(context).size.height;
+    final viewportHeight = MediaQuery.sizeOf(context).height;
     // Prefetch once the tail is within ~one viewport of the visible bottom.
     if (tailTop <= viewportHeight * 2) unawaited(_loadMoreEpisodeList());
   }
@@ -2955,6 +2945,9 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
   /// resumes it. No-op once a backend on-deck episode exists, or when every
   /// loaded episode is watched (keep the default S1E1 for a rewatch).
   void _ensureFallbackOnDeckEpisode() {
+    // Reached via unawaited fetch continuations — the screen may be gone by
+    // now, and _freshAll reads providers through State.context.
+    if (!mounted) return;
     if (_onDeckEpisode != null) return;
     final next = firstUnwatchedEpisode(_freshAll(_episodes));
     if (next == null) return;
@@ -3073,11 +3066,26 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
 
     // Show loading state while fetching full metadata
     if (_isLoadingMetadata) {
-      final loading = Focus(
-        onKeyEvent: _handleMediaDetailBackKey,
-        child: Scaffold(
-          appBar: AppBar(),
-          body: const Center(child: CircularProgressIndicator()),
+      // A bare AppBar's auto-implied back button ignores the macOS traffic
+      // lights; route the leading through the shared desktop padding logic.
+      final backButton = AppBarBackButton(
+        style: BackButtonStyle.plain,
+        onPressed: () => Navigator.pop(context, _watchStateChanged),
+      );
+      final loading = ListenableBuilder(
+        listenable: FullscreenStateManager(),
+        builder: (context, _) => Focus(
+          onKeyEvent: _handleMediaDetailBackKey,
+          child: Scaffold(
+            appBar: AppBar(
+              leading: DesktopAppBarSections.buildLeadingSection(leading: backButton, context: context),
+              leadingWidth: DesktopAppBarSections.calculateLeadingWidthForSection(
+                leading: backButton,
+                context: context,
+              ),
+            ),
+            body: const Center(child: CircularProgressIndicator()),
+          ),
         ),
       );
       final blockSystemBack = InputModeTracker.shouldBlockSystemBack(context);
@@ -3086,8 +3094,9 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
       }
       return PopScope(
         canPop: false, // Prevent system back from double-popping on Android keyboard/TV
-        // ignore: no-empty-block - required callback, blocks system back on Android TV
-        onPopInvokedWithResult: (didPop, result) {},
+        onPopInvokedWithResult: (didPop, result) {
+          if (!didPop) _handleMediaDetailSystemBack();
+        },
         child: loading,
       );
     }
@@ -3112,6 +3121,7 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
           // keyboard/TV (the key handler owns dpad back); elsewhere canPop:true
           // keeps the iOS swipe-back. The host also closes an open sheet on back.
           canPop: !blockSystemBack,
+          onSystemBack: _handleMediaDetailSystemBack,
           child: Focus(
             onKeyEvent: _handleMediaDetailBackKey,
             child: Scaffold(
@@ -3142,40 +3152,23 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
                               if (!isTv && metadata.summary != null && metadata.summary!.isNotEmpty) ...[
                                 Text(key: _overviewSectionKey, t.discover.overview, style: sectionTitleStyle),
                                 const SizedBox(height: 12),
-                                Focus(
+                                CollapsibleText(
+                                  text: metadata.summary!,
+                                  maxLines: isMobile ? 6 : 4,
+                                  style: theme.textTheme.bodyLarge?.copyWith(height: 1.6),
                                   focusNode: _overviewFocusNode,
-                                  onKeyEvent: _handleOverviewKeyEvent,
-                                  child: ListenableBuilder(
-                                    listenable: _overviewFocusNode,
-                                    builder: (context, _) {
-                                      final showFocus =
-                                          _overviewFocusNode.hasFocus && InputModeTracker.isKeyboardMode(context);
-                                      return AnimatedContainer(
-                                        duration: const Duration(milliseconds: 150),
-                                        padding: const EdgeInsets.all(4),
-                                        decoration: BoxDecoration(
-                                          borderRadius: const BorderRadius.all(Radius.circular(8)),
-                                          border: Border.all(
-                                            color: showFocus
-                                                ? theme.colorScheme.primary.withValues(alpha: 0.5)
-                                                : Colors.transparent,
-                                            width: 2,
-                                          ),
-                                        ),
-                                        child: () {
-                                          final summaryStyle = theme.textTheme.bodyLarge?.copyWith(height: 1.6);
-                                          if (isTv) {
-                                            return Text(metadata.summary!, style: summaryStyle);
-                                          }
-                                          return CollapsibleText(
-                                            text: metadata.summary!,
-                                            maxLines: isMobile ? 6 : 4,
-                                            style: summaryStyle,
-                                          );
-                                        }(),
-                                      );
-                                    },
-                                  ),
+                                  skipTraversal: false,
+                                  onNavigateUp: () {
+                                    _scrollController.animateTo(
+                                      0,
+                                      duration: const Duration(milliseconds: 200),
+                                      curve: Curves.easeOut,
+                                    );
+                                    _playButtonFocusNode.requestFocus();
+                                  },
+                                  onNavigateDown: _focusBelowOverview,
+                                  onNavigateLeft: () {},
+                                  onNavigateRight: () {},
                                 ),
                                 const SizedBox(height: 24),
                               ],
@@ -3297,9 +3290,9 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
                           child: child!,
                         ),
                       ),
-                      child: Container(
+                      child: SizedBox(
                         height: MediaQuery.paddingOf(context).top + 58,
-                        decoration: BoxDecoration(
+                        child: RasterizedGradient(
                           gradient: LinearGradient(
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
@@ -3368,7 +3361,11 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
           right: size.width * 0.43,
           top: spotlightTop,
           bottom: foregroundBottom,
-          child: _buildTvDetailForeground(context, metadata, hideSpoilers: hideSpoilers, scale: detailScale),
+          child: ValueListenableBuilder<MediaItem?>(
+            valueListenable: _tvDetailFocusedEpisode,
+            builder: (context, _, _) =>
+                _buildTvDetailForeground(context, metadata, hideSpoilers: hideSpoilers, scale: detailScale),
+          ),
         ),
         Positioned(
           top: 0,
@@ -3413,6 +3410,7 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
       // blockSystemBack keeps the route from double-popping on Android keyboard/
       // TV (the key handler owns dpad back); the host also closes an open sheet.
       canPop: !blockSystemBack,
+      onSystemBack: _handleMediaDetailSystemBack,
       child: Focus(
         onKeyEvent: handleBack,
         child: Scaffold(
@@ -3504,64 +3502,83 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
                   mainAxisSize: .min,
                   crossAxisAlignment: .start,
                   children: [
-                    if (showLogo) ...[
-                      _buildDetailLogoOrTitle(
-                        context,
-                        metadata,
-                        width: logoWidth,
-                        height: logoHeight,
-                        titleBuilder: (context, title) => _buildDetailTitle(
-                          context,
-                          title,
-                          fontSize: 56 * scale,
-                          fontWeight: .w800,
-                          shadowBlur: 12,
-                          color: foregroundColor,
-                          shadowColor: _tvDetailTitleShadowColor(context),
-                        ),
-                      ),
-                      SizedBox(height: logoMetadataGap),
-                    ],
-                    SizedBox(
-                      height: metadataLineHeight,
-                      child: Align(alignment: .centerLeft, child: _buildTvDetailMetadataLine(context, metadata, scale)),
-                    ),
-                    if (genres.isNotEmpty) ...[
-                      SizedBox(height: genreGap),
-                      SizedBox(
-                        height: genreLineHeight,
-                        child: Align(
-                          alignment: .centerLeft,
-                          child: Text(
-                            genres.join('  •  '),
-                            maxLines: 1,
-                            overflow: .ellipsis,
-                            style: TextStyle(
-                              color: mutedForegroundColor,
-                              fontSize: 16 * scale,
-                              fontWeight: .w600,
-                              letterSpacing: 0.1,
+                    Semantics(
+                      key: const ValueKey('tv_detail_information_semantics'),
+                      identifier: 'tv_detail_information',
+                      container: true,
+                      label: _tvDetailInformationSemanticLabel(metadata, description: description, genres: genres),
+                      child: ExcludeSemantics(
+                        // This is one non-interactive announcement. The action
+                        // buttons below remain separate accessible controls.
+                        child: Column(
+                          mainAxisSize: .min,
+                          crossAxisAlignment: .start,
+                          children: [
+                            if (showLogo) ...[
+                              _buildDetailLogoOrTitle(
+                                context,
+                                metadata,
+                                width: logoWidth,
+                                height: logoHeight,
+                                titleBuilder: (context, title) => _buildDetailTitle(
+                                  context,
+                                  title,
+                                  fontSize: 56 * scale,
+                                  fontWeight: .w800,
+                                  shadowBlur: 12,
+                                  color: foregroundColor,
+                                  shadowColor: _tvDetailTitleShadowColor(context),
+                                ),
+                              ),
+                              SizedBox(height: logoMetadataGap),
+                            ],
+                            SizedBox(
+                              height: metadataLineHeight,
+                              child: Align(
+                                alignment: .centerLeft,
+                                child: _buildTvDetailMetadataLine(context, metadata, scale),
+                              ),
                             ),
-                          ),
+                            if (genres.isNotEmpty) ...[
+                              SizedBox(height: genreGap),
+                              SizedBox(
+                                height: genreLineHeight,
+                                child: Align(
+                                  alignment: .centerLeft,
+                                  child: Text(
+                                    genres.join('  •  '),
+                                    maxLines: 1,
+                                    overflow: .ellipsis,
+                                    style: TextStyle(
+                                      color: mutedForegroundColor,
+                                      fontSize: 16 * scale,
+                                      fontWeight: .w600,
+                                      letterSpacing: 0.1,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                            if (hasDescription && summaryMaxLines > 0) ...[
+                              SizedBox(height: summaryGap),
+                              SizedBox(
+                                height: summaryLineHeight * summaryMaxLines,
+                                child: Text(
+                                  description,
+                                  maxLines: summaryMaxLines,
+                                  overflow: .ellipsis,
+                                  style: theme.textTheme.bodyLarge?.copyWith(
+                                    color: mutedForegroundColor,
+                                    fontSize: summaryFontSize,
+                                    height: 1.35,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ],
                         ),
                       ),
-                    ],
-                    if (hasDescription && summaryMaxLines > 0) ...[
-                      SizedBox(height: summaryGap),
-                      SizedBox(
-                        height: summaryLineHeight * summaryMaxLines,
-                        child: Text(
-                          description,
-                          maxLines: summaryMaxLines,
-                          overflow: .ellipsis,
-                          style: theme.textTheme.bodyLarge?.copyWith(
-                            color: mutedForegroundColor,
-                            fontSize: summaryFontSize,
-                            height: 1.35,
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                     SizedBox(height: actionGap),
                     SizedBox(height: actionHeight, child: _buildActionButtons(metadata)),
                   ],
@@ -3572,6 +3589,46 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
         );
       },
     );
+  }
+
+  String _tvDetailInformationSemanticLabel(
+    MediaItem metadata, {
+    required String? description,
+    required List<String> genres,
+  }) {
+    final lineMetadata = _tvDetailFocusedEpisode.value ?? metadata;
+    final parts = <String>[];
+
+    void add(String? value) {
+      if (value == null || value.isEmpty || parts.contains(value)) return;
+      parts.add(value);
+    }
+
+    add(metadata.displayTitle);
+    if (!identical(lineMetadata, metadata)) add(lineMetadata.displayTitle);
+
+    final episodeLabel = formatSeasonEpisodeLabel(lineMetadata.parentIndex, lineMetadata.index);
+    if (lineMetadata.isEpisode) add(episodeLabel);
+    if (lineMetadata.isMovie) {
+      add(t.discover.movie);
+    } else if (lineMetadata.isShow) {
+      add(t.discover.tvShow);
+    }
+    add(MediaRatingBadge.semanticLabelForMedia(lineMetadata, fallbackItem: metadata));
+    if (lineMetadata.contentRating != null) add(formatContentRating(lineMetadata.contentRating!));
+    if (lineMetadata.durationMs != null) add(formatDurationTextual(lineMetadata.durationMs!));
+    if (lineMetadata.isEpisode && lineMetadata.originallyAvailableAt != null) {
+      add(formatAbbreviatedDate(lineMetadata.originallyAvailableAt!));
+    } else if (lineMetadata.year != null) {
+      add(lineMetadata.year.toString());
+    }
+    for (final label in buildMediaQualityLabels(lineMetadata)) {
+      add(label);
+    }
+    if (genres.isNotEmpty) add(genres.join(', '));
+    add(description);
+
+    return parts.join(', ');
   }
 
   Color _tvDetailForegroundColor(BuildContext context) => Theme.of(context).colorScheme.onSurface;
@@ -3642,7 +3699,7 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
   }
 
   Widget _buildTvDetailMetadataLine(BuildContext context, MediaItem metadata, double scale) {
-    final lineMetadata = _tvDetailFocusedEpisode ?? metadata;
+    final lineMetadata = _tvDetailFocusedEpisode.value ?? metadata;
     final episodeLabel = formatSeasonEpisodeLabel(lineMetadata.parentIndex, lineMetadata.index);
     final qualityLabels = buildMediaQualityLabels(lineMetadata);
     final textStyle = TextStyle(
@@ -3705,7 +3762,7 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
   }
 
   String? _tvDetailDescription(MediaItem metadata, {required bool hideSpoilers}) {
-    final focusedEpisode = _tvDetailFocusedEpisode;
+    final focusedEpisode = _tvDetailFocusedEpisode.value;
     if (focusedEpisode == null) return _tvDetailItemDescription(metadata, hideSpoilers: hideSpoilers);
 
     final episodeDescription = _tvDetailItemDescription(
@@ -3936,10 +3993,7 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
   }
 
   void _clearTvDetailFocusedEpisode() {
-    if (_tvDetailFocusedEpisode == null) return;
-    setStateIfMounted(() {
-      _tvDetailFocusedEpisode = null;
-    });
+    _tvDetailFocusedEpisode.value = null;
   }
 
   void _setTvDetailActionRowFocus(bool hasFocus) {
@@ -3962,10 +4016,8 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
       _clearTvDetailFocusedEpisode();
       return;
     }
-    if (_tvDetailFocusedEpisode?.id == item.id) return;
-    setStateIfMounted(() {
-      _tvDetailFocusedEpisode = item;
-    });
+    if (_tvDetailFocusedEpisode.value?.id == item.id) return;
+    _tvDetailFocusedEpisode.value = item;
     if (hub.id == 'detail_episodes') {
       if (!_allEpisodesPageError && _episodes.isNotEmpty && item.id == _episodes.last.id) {
         unawaited(_loadMoreAllEpisodes());
@@ -4005,6 +4057,7 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
         _episodes = List.of(_seasonEpisodePager.stateFor(season.id).items);
       });
       unawaited(_prefetchAdjacentSeasonEpisodePages(seasonIndex));
+      _pruneDistantSeasonPages(seasonIndex);
       return;
     }
 
@@ -4015,6 +4068,20 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
     });
     unawaited(_fetchSeasonEpisodes(seasonIndex));
     unawaited(_prefetchAdjacentSeasonEpisodePages(seasonIndex));
+    _pruneDistantSeasonPages(seasonIndex);
+  }
+
+  /// Low-end TV only: keep episode pages for the selected season ±1 (the
+  /// prefetch window) and drop the rest. Visited 200-item pages otherwise
+  /// accumulate for the screen's lifetime — irrelevant for a 3-season show,
+  /// tens of MB of retained heap for a 30-season one.
+  void _pruneDistantSeasonPages(int seasonIndex) {
+    if (!DevicePerformance.isLowEndHardware || !PlatformDetector.isTV()) return;
+    final keep = <String>{
+      for (var i = seasonIndex - 1; i <= seasonIndex + 1; i++)
+        if (i >= 0 && i < _seasons.length) _seasons[i].id,
+    };
+    _seasonEpisodePager.retainOnly(keep);
   }
 
   /// What the rail should show in a hub's trailing slot: a spinner while the
@@ -4119,14 +4186,28 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
           child: Builder(
             builder: (context) {
               final bgColor = Theme.of(context).scaffoldBackgroundColor;
-              return Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Colors.transparent, bgColor.withValues(alpha: 0.9), bgColor],
-                    stops: const [0.3, 0.8, 1.0],
-                  ),
+              // Full-height eased scrim. The light global dim (alpha 0.2 at
+              // the very top) lowers the contrast the ramp has to bridge on
+              // bright artwork — without it, any fade to solid compresses
+              // into a visible band above the content stack. The body samples
+              // easeInOut (continuous curvature — hand-picked stops kink at
+              // every boundary); the tail instead decays the remaining
+              // transparency geometrically (~1/8 per sample) because an eased
+              // zero-slope landing leaves a faint artwork glow that pure-black
+              // (OLED) backgrounds expose. Solid bg from 94% so nothing ghosts
+              // at the header/content boundary on any theme.
+              const scrimAlphas = [0.20, 0.234, 0.325, 0.453, 0.60, 0.747, 0.875, 0.985, 0.998, 1.0];
+              const scrimXs = [0.0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 0.9375, 1.0];
+              const solidStop = 0.94;
+              return RasterizedGradient(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    for (final a in scrimAlphas) bgColor.withValues(alpha: a),
+                    bgColor,
+                  ],
+                  stops: [for (final x in scrimXs) solidStop * x, 1.0],
                 ),
               );
             },
@@ -4315,93 +4396,14 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
   }
 
   Widget _buildCastSectionContent(MediaItem metadata) {
-    final cardWidth = _getResponsiveCardWidth();
-    const innerPadding = 3.0;
-    final imageSize = cardWidth;
-    // image + inner padding + text area + outer list padding + focus scale headroom
-    final containerHeight = imageSize + innerPadding * 2 + 58 + 10;
-
-    final theme = Theme.of(context);
-    final actorNameStyle = theme.textTheme.bodyMedium?.copyWith(fontWeight: .w600);
-    final actorRoleStyle = theme.textTheme.bodySmall?.copyWith(color: theme.colorScheme.onSurfaceVariant);
-
-    return Focus(
-      focusNode: _castFocusNode,
-      onKeyEvent: _handleCastKeyEvent,
-      child: ListenableBuilder(
-        listenable: _castFocusNode,
-        builder: (context, _) {
-          final hasFocus = _castFocusNode.hasFocus;
-
-          return SizedBox(
-            height: containerHeight,
-            child: HorizontalScrollWithArrows(
-              controller: _castScrollController,
-              builder: (scrollController) => ListView.builder(
-                controller: scrollController,
-                scrollDirection: Axis.horizontal,
-                clipBehavior: Clip.none,
-                padding: const EdgeInsets.symmetric(vertical: 5),
-                itemCount: metadata.roles!.length,
-                itemBuilder: (context, index) {
-                  final actor = metadata.roles![index];
-                  final isFocused = hasFocus && index == _focusedCastIndex;
-
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 4),
-                    child: FocusBuilders.buildLockedFocusWrapper(
-                      context: context,
-                      isFocused: isFocused,
-                      borderRadius: tokens(context).radiusSm,
-                      onTap: () => _navigateToActorMedia(actor),
-                      delegateFocusBorder: true,
-                      child: Padding(
-                        padding: const EdgeInsets.all(innerPadding),
-                        child: SizedBox(
-                          width: cardWidth,
-                          child: Column(
-                            crossAxisAlignment: .start,
-                            children: [
-                              CardFocusBorder(
-                                borderRadius: tokens(context).radiusSm,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(tokens(context).radiusSm),
-                                  child: OptimizedMediaImage(
-                                    client: getServerBoundMediaClient(context),
-                                    imagePath: actor.thumbPath,
-                                    width: imageSize,
-                                    height: imageSize,
-                                    fit: BoxFit.cover,
-                                    imageType: ImageType.avatar,
-                                    fallbackIcon: Symbols.person_rounded,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 8),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: .start,
-                                  children: [
-                                    Text(actor.tag, style: actorNameStyle, maxLines: 2, overflow: .ellipsis),
-                                    if (actor.role != null) ...[
-                                      const SizedBox(height: 2),
-                                      Text(actor.role!, style: actorRoleStyle, maxLines: 1, overflow: .ellipsis),
-                                    ],
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
-          );
-        },
-      ),
+    final roles = metadata.roles!;
+    return CastMemberStrip(
+      key: _castStripKey,
+      members: [for (final actor in roles) (name: actor.tag, secondary: actor.role, imagePath: actor.thumbPath)],
+      imageClient: getServerBoundMediaClient(context),
+      onNavigateUp: _focusSectionDirectlyAboveCast,
+      onNavigateDown: _focusSectionBelowCast,
+      onMemberTap: (index) => _navigateToActorMedia(roles[index]),
     );
   }
 
@@ -4422,7 +4424,7 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
       focusNode: _extrasFocusNode,
       onKeyEvent: _handleExtrasKeyEvent,
       child: ListenableBuilder(
-        listenable: _extrasFocusNode,
+        listenable: Listenable.merge([_extrasFocusNode, _focusedExtraIndexNotifier]),
         builder: (context, _) {
           final hasFocus = _extrasFocusNode.hasFocus;
 
@@ -4431,6 +4433,8 @@ class _MediaDetailScreenState extends State<MediaDetailScreen>
             child: HorizontalScrollWithArrows(
               controller: _extrasScrollController,
               builder: (scrollController) => ListView.builder(
+                addAutomaticKeepAlives: false,
+                addSemanticIndexes: false,
                 controller: scrollController,
                 scrollDirection: Axis.horizontal,
                 clipBehavior: Clip.none,

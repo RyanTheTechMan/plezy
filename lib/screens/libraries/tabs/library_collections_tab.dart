@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/symbols.dart';
+import '../../../focus/input_mode_tracker.dart';
 import '../../../media/library_query.dart';
 import '../../../media/media_item.dart';
 import '../../../mixins/library_tab_focus_mixin.dart';
 import '../../../mixins/paginated_item_loader.dart';
 import '../../../services/settings_service.dart';
 import '../../../utils/app_logger.dart';
-import '../../../utils/grid_size_calculator.dart';
 import '../../../utils/layout_constants.dart';
 import '../../../utils/library_refresh_notifier.dart';
 import '../../../utils/media_server_http_client.dart';
 import '../../../utils/platform_detector.dart';
+import '../../../widgets/card_inflation_budget.dart';
 import '../../../widgets/focusable_media_card.dart';
-import '../../../widgets/media_grid_delegate.dart';
+import '../../../widgets/media_card_sliver_layout.dart';
 import '../../../widgets/settings_builder.dart';
 import '../../../widgets/skeleton_media_card.dart';
-import '../../../widgets/sliver_cross_axis_layout_builder.dart';
+import '../../../widgets/sliver_child_memo.dart';
 import '../../../i18n/strings.g.dart';
 import '../../main_screen.dart';
 import 'base_library_tab.dart';
@@ -39,8 +40,15 @@ class LibraryCollectionsTab extends BaseLibraryTab<MediaItem> {
 }
 
 class _LibraryCollectionsTabState extends BaseLibraryTabState<MediaItem, LibraryCollectionsTab>
-    with LibraryTabFocusMixin<LibraryCollectionsTab>, PaginatedItemLoader<MediaItem, LibraryCollectionsTab> {
+    with
+        LibraryTabFocusMixin<LibraryCollectionsTab>,
+        PaginatedItemLoader<MediaItem, LibraryCollectionsTab>,
+        SkeletonUpgradeScheduler {
   static const int _pageSize = 36;
+
+  /// Reuses card widgets across delegate swaps so tab-level setStates
+  /// (pagination, refreshes) don't rebuild every realized card inside layout.
+  final SliverChildMemo<MediaItem> _cardMemo = SliverChildMemo<MediaItem>();
 
   @override
   String get focusNodeDebugLabel => 'collections_first_item';
@@ -71,38 +79,34 @@ class _LibraryCollectionsTabState extends BaseLibraryTabState<MediaItem, Library
 
   @override
   Future<void> loadItems() async {
-    setState(() {
-      isLoading = true;
-      errorMessage = null;
-      items = [];
-      resetPaginationState();
-    });
-
-    try {
-      final initialPage = await loadInitialPageWithStatus(_pageSize);
-      if (!initialPage.applied || !mounted) return;
-
-      setState(() {
-        items = loadedItems.values.toList();
+    await loadInitialPaginatedItems(
+      pageSize: _pageSize,
+      resetViewState: () {
+        isLoading = true;
+        errorMessage = null;
+        items = [];
+      },
+      applyLoadedItems: (loaded) {
+        items = loaded;
         isLoading = false;
-      });
-
-      hasLoadedData = true;
-      tryFocus();
-
-      if (widget.onDataLoaded != null) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          if (mounted) widget.onDataLoaded!();
-        });
-      }
-    } catch (e, st) {
-      appLogger.e('Error loading $errorContext', error: e, stackTrace: st);
-      if (!mounted) return;
-      setState(() {
-        errorMessage = 'Failed to load $errorContext: ${e.toString()}';
+      },
+      applyError: (error, _) {
+        errorMessage = 'Failed to load $errorContext: ${error.toString()}';
         isLoading = false;
-      });
-    }
+      },
+      onLoaded: (_, _) {
+        hasLoadedData = true;
+        tryFocus();
+        if (widget.onDataLoaded != null) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (mounted) widget.onDataLoaded!();
+          });
+        }
+      },
+      onError: (error, stackTrace) {
+        appLogger.e('Error loading $errorContext', error: error, stackTrace: stackTrace);
+      },
+    );
   }
 
   @override
@@ -118,10 +122,7 @@ class _LibraryCollectionsTabState extends BaseLibraryTabState<MediaItem, Library
           clipBehavior: Clip.none,
           slivers: [
             SliverOverlapInjector(handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context)),
-            if (viewMode == ViewMode.list)
-              _buildListSliver(density)
-            else
-              _buildGridSliver(density, fullCardLayout: fullCardLayout),
+            _buildItemsSliver(viewMode, density, fullCardLayout: fullCardLayout),
           ],
         );
       },
@@ -135,40 +136,52 @@ class _LibraryCollectionsTabState extends BaseLibraryTabState<MediaItem, Library
     return base.copyWith(top: base.top + _focusDecorationPadding);
   }
 
-  Widget _buildListSliver(int density) {
-    return SliverPadding(
+  Widget _buildItemsSliver(ViewMode viewMode, int density, {required bool fullCardLayout}) {
+    return MediaCardSliverLayout(
+      viewMode: viewMode,
+      itemCount: totalSize,
+      density: density,
       padding: _effectivePadding,
-      sliver: SliverList.builder(
-        itemCount: totalSize,
-        itemBuilder: (context, index) =>
-            _buildMediaCardItem(index, isFirstRow: index == 0, isFirstColumn: true, disableScale: true),
-      ),
-    );
-  }
+      fullBleedImage: fullCardLayout,
+      listEpoch: (ViewMode.list, totalSize, density),
+      gridEpochBuilder: (geometry) => (ViewMode.grid, geometry.columnCount, totalSize, fullCardLayout, density),
+      itemBuilder: (context, position) {
+        final index = position.index;
+        final item = loadedItems[index];
+        if (item == null) {
+          ensureIndexLoaded(index, pageSize: _pageSize);
+          return const SkeletonMediaCard();
+        }
+        if (!position.isGrid) {
+          return _cardMemo.widgetFor(
+            index,
+            item,
+            epoch: position.layoutEpoch!,
+            build: () =>
+                _buildMediaCardItem(index, isFirstRow: position.isFirstRow, isFirstColumn: true, disableScale: true),
+          );
+        }
 
-  Widget _buildGridSliver(int density, {required bool fullCardLayout}) {
-    return SliverPadding(
-      padding: _effectivePadding,
-      sliver: SliverCrossAxisLayoutBuilder(
-        builder: (context, crossAxisExtent) {
-          final geometry = MediaGridGeometry.resolve(
-            context: context,
-            crossAxisExtent: crossAxisExtent,
-            density: density,
+        final cached = _cardMemo.tryGet(index, item, epoch: position.layoutEpoch!);
+        if (cached != null) return cached;
+        if (CardInflationBudget.isScrollingContext(context) &&
+            !InputModeTracker.isKeyboardMode(context) &&
+            !CardInflationBudget.tryTake()) {
+          scheduleSkeletonUpgrade();
+          return const SkeletonMediaCard();
+        }
+        return _cardMemo.widgetFor(
+          index,
+          item,
+          epoch: position.layoutEpoch!,
+          build: () => _buildMediaCardItem(
+            index,
+            isFirstRow: position.isFirstRow,
+            isFirstColumn: position.isFirstColumn,
             fullBleedImage: fullCardLayout,
-          );
-          return SliverGrid.builder(
-            gridDelegate: geometry.delegate,
-            itemCount: totalSize,
-            itemBuilder: (context, index) => _buildMediaCardItem(
-              index,
-              isFirstRow: GridSizeCalculator.isFirstRow(index, geometry.columnCount),
-              isFirstColumn: GridSizeCalculator.isFirstColumn(index, geometry.columnCount),
-              fullBleedImage: fullCardLayout,
-            ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 
@@ -199,7 +212,7 @@ class _LibraryCollectionsTabState extends BaseLibraryTabState<MediaItem, Library
   }
 
   void _navigateToSidebar() {
-    MainScreenFocusScope.of(context, listen: false)?.focusSidebar();
+    MainScreenFocusScope.focusSidebarOf(context);
   }
 
   @override

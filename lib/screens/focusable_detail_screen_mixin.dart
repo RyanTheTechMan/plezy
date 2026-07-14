@@ -9,11 +9,9 @@ import '../services/settings_service.dart';
 import '../utils/platform_detector.dart';
 import '../widgets/ios_status_bar_tap_scroll_to_top.dart';
 import '../widgets/settings_builder.dart';
-import '../utils/grid_size_calculator.dart';
 import '../widgets/focusable_media_card.dart';
-import '../widgets/media_grid_delegate.dart';
+import '../widgets/media_card_sliver_layout.dart';
 import '../widgets/skeleton_media_card.dart';
-import '../widgets/sliver_cross_axis_layout_builder.dart';
 
 /// Extract the stable id from a [MediaItem]/[MediaPlaylist] for use as a
 /// Flutter widget Key.
@@ -151,7 +149,7 @@ mixin FocusableDetailScreenMixin<T extends StatefulWidget> on State<T>, GridFocu
     if (mounted && hasItems) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
-        if (InputModeTracker.isKeyboardMode(context)) {
+        if (InputModeTracker.isKeyboardMode(context, listen: false)) {
           setState(() {
             isAppBarFocused = false;
           });
@@ -162,81 +160,50 @@ mixin FocusableDetailScreenMixin<T extends StatefulWidget> on State<T>, GridFocu
   }
 
   /// Build a standard focusable grid sliver for media items.
-  /// Used by collection and smart playlist detail screens.
+  /// Used by collection, smart playlist, and music artist detail screens.
+  /// [shape] overrides the grid cell silhouette (e.g. [CardShape.square]
+  /// for album grids); null keeps the stock poster geometry.
   Widget buildFocusableGrid({
     required List<dynamic> items,
     required void Function(String itemId) onRefresh,
     String? collectionId,
     VoidCallback? onListRefresh,
+    CardShape? shape,
   }) {
     return SettingsBuilder(
       prefs: const [SettingsService.viewMode, SettingsService.libraryDensity, SettingsService.tvFullCardLayout],
       builder: (context) {
         final svc = SettingsService.instance;
-        final isListMode = svc.read(SettingsService.viewMode) == ViewMode.list;
+        final viewMode = svc.read(SettingsService.viewMode);
         final libraryDensity = svc.read(SettingsService.libraryDensity);
         final fullCardLayout = PlatformDetector.isTV() && svc.read(SettingsService.tvFullCardLayout);
 
-        if (isListMode) {
-          return SliverPadding(
-            padding: const EdgeInsets.all(8),
-            sliver: SliverList.builder(
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                final item = items[index];
-                final focusNode = _focusNodeForIndex(index);
-
-                return FocusableMediaCard(
-                  key: Key(_idForItem(item)),
-                  item: item,
-                  focusNode: focusNode,
-                  disableScale: true,
-                  onRefresh: onRefresh,
-                  collectionId: collectionId,
-                  onListRefresh: onListRefresh,
-                  onNavigateUp: index == 0 ? navigateToAppBar : null,
-                  onBack: handleBackFromContent,
-                  onFocusChange: (hasFocus) => trackGridItemFocus(index, hasFocus),
-                );
-              },
-            ),
-          );
-        }
-
-        return SliverPadding(
+        return MediaCardSliverLayout(
+          viewMode: viewMode,
+          itemCount: items.length,
+          density: libraryDensity,
           padding: const EdgeInsets.all(8),
-          sliver: SliverCrossAxisLayoutBuilder(
-            builder: (context, crossAxisExtent) {
-              final geometry = MediaGridGeometry.resolve(
-                context: context,
-                crossAxisExtent: crossAxisExtent,
-                density: libraryDensity,
-                fullBleedImage: fullCardLayout,
-              );
-              return SliverGrid.builder(
-                gridDelegate: geometry.delegate,
-                itemCount: items.length,
-                itemBuilder: (context, index) {
-                  final item = items[index];
-                  final inFirstRow = GridSizeCalculator.isFirstRow(index, geometry.columnCount);
-                  final focusNode = _focusNodeForIndex(index);
+          fullBleedImage: fullCardLayout,
+          shape: shape,
+          itemBuilder: (context, position) {
+            final index = position.index;
+            final item = items[index];
+            final focusNode = _focusNodeForIndex(index);
 
-                  return FocusableMediaCard(
-                    key: Key(_idForItem(item)),
-                    item: item,
-                    focusNode: focusNode,
-                    onRefresh: onRefresh,
-                    collectionId: collectionId,
-                    onListRefresh: onListRefresh,
-                    fullBleedImage: fullCardLayout,
-                    onNavigateUp: inFirstRow ? navigateToAppBar : null,
-                    onBack: handleBackFromContent,
-                    onFocusChange: (hasFocus) => trackGridItemFocus(index, hasFocus),
-                  );
-                },
-              );
-            },
-          ),
+            return FocusableMediaCard(
+              key: Key(_idForItem(item)),
+              item: item,
+              focusNode: focusNode,
+              disableScale: position.disableScale,
+              onRefresh: onRefresh,
+              collectionId: collectionId,
+              onListRefresh: onListRefresh,
+              fullBleedImage: fullCardLayout && position.isGrid,
+              onNavigateUp: position.isFirstRow ? navigateToAppBar : null,
+              onBack: handleBackFromContent,
+              onFocusChange: (hasFocus) => trackGridItemFocus(index, hasFocus),
+            );
+          },
         );
       },
     );
@@ -258,7 +225,7 @@ mixin FocusableDetailScreenMixin<T extends StatefulWidget> on State<T>, GridFocu
       prefs: const [SettingsService.viewMode, SettingsService.libraryDensity, SettingsService.tvFullCardLayout],
       builder: (context) {
         final svc = SettingsService.instance;
-        final isListMode = svc.read(SettingsService.viewMode) == ViewMode.list;
+        final viewMode = svc.read(SettingsService.viewMode);
         final libraryDensity = svc.read(SettingsService.libraryDensity);
         final fullCardLayout = PlatformDetector.isTV() && svc.read(SettingsService.tvFullCardLayout);
 
@@ -284,37 +251,14 @@ mixin FocusableDetailScreenMixin<T extends StatefulWidget> on State<T>, GridFocu
           );
         }
 
-        if (isListMode) {
-          return SliverPadding(
-            padding: const EdgeInsets.all(8),
-            sliver: SliverList.builder(
-              itemCount: totalItems,
-              itemBuilder: (context, index) => buildTile(index, inFirstRow: index == 0, disableScale: true),
-            ),
-          );
-        }
-
-        return SliverPadding(
+        return MediaCardSliverLayout(
+          viewMode: viewMode,
+          itemCount: totalItems,
+          density: libraryDensity,
           padding: const EdgeInsets.all(8),
-          sliver: SliverCrossAxisLayoutBuilder(
-            builder: (context, crossAxisExtent) {
-              final geometry = MediaGridGeometry.resolve(
-                context: context,
-                crossAxisExtent: crossAxisExtent,
-                density: libraryDensity,
-                fullBleedImage: fullCardLayout,
-              );
-              return SliverGrid.builder(
-                gridDelegate: geometry.delegate,
-                itemCount: totalItems,
-                itemBuilder: (context, index) => buildTile(
-                  index,
-                  inFirstRow: GridSizeCalculator.isFirstRow(index, geometry.columnCount),
-                  disableScale: false,
-                ),
-              );
-            },
-          ),
+          fullBleedImage: fullCardLayout,
+          itemBuilder: (context, position) =>
+              buildTile(position.index, inFirstRow: position.isFirstRow, disableScale: position.disableScale),
         );
       },
     );

@@ -26,6 +26,7 @@ import 'package:plezy/services/plex_auth_service.dart';
 import 'package:provider/provider.dart';
 
 import '../../test_helpers/prefs.dart';
+import '../../test_helpers/media_items.dart';
 
 PlexConnection _plexConnection() {
   return PlexConnection(
@@ -75,16 +76,26 @@ JellyfinClient _jellyfinClient(JellyfinConnection connection) {
 }
 
 MediaItem _show(ServerId serverId, String ratingKey, String title) {
-  return MediaItem(id: ratingKey, backend: MediaBackend.plex, kind: MediaKind.show, title: title, serverId: serverId);
+  return testMediaItem(
+    id: ratingKey,
+    backend: MediaBackend.plex,
+    kind: MediaKind.show,
+    title: title,
+    serverId: serverId,
+  );
 }
 
 class _FakeConnectionRegistry extends ConnectionRegistry {
   _FakeConnectionRegistry(super.db, this.connections);
 
   final List<Connection> connections;
+  int watchCalls = 0;
 
   @override
-  Stream<List<Connection>> watchConnections() => Stream.value(connections);
+  Stream<List<Connection>> watchConnections() {
+    watchCalls++;
+    return Stream.value(connections);
+  }
 }
 
 void main() {
@@ -95,7 +106,7 @@ void main() {
   late DownloadManagerService downloadManager;
   late MultiServerManager serverManager;
   MultiServerProvider? multiServerProvider;
-  late ConnectionRegistry connectionRegistry;
+  late _FakeConnectionRegistry connectionRegistry;
   late List<Connection> connections;
 
   setUp(() async {
@@ -242,6 +253,18 @@ void main() {
     expect(downloadProvider.syncRules, isEmpty);
     expect(find.text('76672'), findsNothing);
     expect(find.text('No sync rules'), findsOneWidget);
+  });
+
+  testWidgets('provider rebuilds reuse the connection stream subscription', (tester) async {
+    multiServerProvider = MultiServerProvider(serverManager, DataAggregationService(serverManager));
+    await insertRule(ServerId('orphan-srv'), '76672');
+    await pumpScreen(tester);
+
+    expect(connectionRegistry.watchCalls, 1);
+    await downloadProvider.updateSyncRuleCount(downloadProvider.syncRules.keys.single, 6);
+    await tester.pump();
+
+    expect(connectionRegistry.watchCalls, 1);
   });
 
   testWidgets('does not autofocus the first sync rule in pointer mode', (tester) async {

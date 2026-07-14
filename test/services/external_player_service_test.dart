@@ -12,6 +12,7 @@ import 'package:plezy/services/external_player_service.dart';
 import 'package:plezy/services/jellyfin_api_cache.dart';
 import 'package:plezy/services/multi_server_manager.dart';
 import 'package:plezy/services/offline_watch_sync_service.dart';
+import '../test_helpers/media_items.dart';
 
 class _RecordingClient implements MediaServerClient {
   _RecordingClient({this.backend = MediaBackend.plex});
@@ -44,6 +45,7 @@ class _RecordingClient implements MediaServerClient {
     Duration? duration,
     String? playSessionId,
     String? playMethod,
+    String? liveStreamId,
     String? mediaSourceId,
     int? audioStreamIndex,
     int? subtitleStreamIndex,
@@ -58,6 +60,7 @@ class _RecordingClient implements MediaServerClient {
     required Duration position,
     Duration? duration,
     String? playSessionId,
+    String? liveStreamId,
     String? mediaSourceId,
     PlaybackReportMetadata report = const PlaybackReportMetadata.live(),
   }) async {
@@ -75,7 +78,7 @@ class _RecordingClient implements MediaServerClient {
 }
 
 MediaItem _item({int? durationMs}) {
-  return MediaItem(
+  return testMediaItem(
     id: 'item-1',
     backend: MediaBackend.plex,
     kind: MediaKind.movie,

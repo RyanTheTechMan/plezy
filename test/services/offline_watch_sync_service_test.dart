@@ -19,7 +19,9 @@ import 'package:plezy/services/offline_mode_source.dart';
 import 'package:plezy/services/offline_watch_sync_service.dart';
 import 'package:plezy/utils/watch_state_notifier.dart';
 
+import '../test_helpers/backend_client_fixtures.dart';
 import '../test_helpers/prefs.dart';
+import '../test_helpers/media_items.dart';
 
 // NOTE on coverage scope:
 // The actual sync-to-server path (`syncPendingItems`, `syncWatchStatesFromServer`,
@@ -92,7 +94,7 @@ class _RecordingMediaClient implements MediaServerClient {
 
   @override
   Future<MediaItem?> fetchItem(String id) async =>
-      MediaItem(id: id, backend: backend, kind: MediaKind.movie, serverId: serverId);
+      testMediaItem(id: id, backend: backend, kind: MediaKind.movie, serverId: serverId);
 
   @override
   Future<void> reportPlaybackStarted({
@@ -101,6 +103,7 @@ class _RecordingMediaClient implements MediaServerClient {
     Duration? duration,
     String? playSessionId,
     String? playMethod,
+    String? liveStreamId,
     String? mediaSourceId,
     int? audioStreamIndex,
     int? subtitleStreamIndex,
@@ -114,6 +117,7 @@ class _RecordingMediaClient implements MediaServerClient {
     required Duration position,
     Duration? duration,
     String? playSessionId,
+    String? liveStreamId,
     String? mediaSourceId,
     PlaybackReportMetadata report = const PlaybackReportMetadata.live(),
   }) async {
@@ -135,6 +139,13 @@ class _RecordingMediaClient implements MediaServerClient {
   dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
+class _ScopedRecordingMediaClient extends _RecordingMediaClient implements ScopedMediaServerClient {
+  _ScopedRecordingMediaClient({required super.serverId, required super.backend, required this.scopedServerId});
+
+  @override
+  final String scopedServerId;
+}
+
 /// Build a service against an in-memory database and a bare-metal
 /// [MultiServerManager] (no servers added).
 ({OfflineWatchSyncService svc, AppDatabase db, MultiServerManager mgr}) _makeService() {
@@ -145,12 +156,10 @@ class _RecordingMediaClient implements MediaServerClient {
   return (svc: svc, db: db, mgr: mgr);
 }
 
-JellyfinConnection _jellyfinConnection(String userId) => JellyfinConnection(
-  id: 'jf-machine/$userId',
-  baseUrl: 'https://jf.example.com',
-  serverName: 'Shared JF',
-  serverMachineId: 'jf-machine',
+JellyfinConnection _jellyfinConnection(String userId) => testJellyfinConnection(
+  machineId: 'jf-machine',
   userId: userId,
+  serverName: 'Shared JF',
   userName: userId,
   accessToken: 'token-$userId',
   deviceId: 'device',
@@ -346,6 +355,7 @@ void main() {
         mgr.dispose();
         await db.close();
       });
+      svc.setActiveProfileId('p1');
 
       final client = _RecordingMediaClient(serverId: ServerId('srv'), backend: MediaBackend.plex);
       mgr.debugRegisterClientForTesting(client);
@@ -371,6 +381,7 @@ void main() {
         mgr.dispose();
         await db.close();
       });
+      svc.setActiveProfileId('p1');
 
       final client = _RecordingMediaClient(serverId: ServerId('srv'), backend: MediaBackend.plex);
       mgr.debugRegisterClientForTesting(client);
@@ -395,6 +406,7 @@ void main() {
         mgr.dispose();
         await db.close();
       });
+      svc.setActiveProfileId('p1');
 
       final client = _RecordingMediaClient(serverId: ServerId('srv'), backend: MediaBackend.plex);
       mgr.debugRegisterClientForTesting(client);
@@ -421,6 +433,7 @@ void main() {
         mgr.dispose();
         await db.close();
       });
+      svc.setActiveProfileId('p1');
 
       final client = _RecordingMediaClient(serverId: ServerId('srv'), backend: MediaBackend.jellyfin);
       mgr.debugRegisterClientForTesting(client);
@@ -442,6 +455,69 @@ void main() {
   // queueProgressUpdate (also exercised so we can test the progress branches
   // of getLocalWatchStatus / getLocalViewOffset).
   // ============================================================
+
+  group('syncPendingItems profile scoping', () {
+    test('defers entirely when no profile is active', () async {
+      final (svc: svc, db: db, mgr: mgr) = _makeService();
+      addTearDown(() async {
+        svc.dispose();
+        mgr.dispose();
+        await db.close();
+      });
+
+      svc.setActiveProfileId('p1');
+      final client = _RecordingMediaClient(serverId: ServerId('srv'), backend: MediaBackend.plex);
+      mgr.debugRegisterClientForTesting(client);
+      await svc.queueMarkWatched(serverId: ServerId('srv'), itemId: '42');
+
+      // Active profile cleared (sign-out/teardown window): replaying the
+      // queue through whatever clients are bound would hit the wrong user.
+      svc.setActiveProfileId(null);
+      await svc.syncPendingItems();
+
+      expect(client.watched, isEmpty);
+      expect(await db.getPendingSyncCount(), 1);
+    });
+
+    test('requeues remaining actions when the active profile changes mid-sync', () async {
+      final (svc: svc, db: db, mgr: mgr) = _makeService();
+      addTearDown(() async {
+        svc.dispose();
+        mgr.dispose();
+        await db.close();
+      });
+
+      svc.setActiveProfileId('p1');
+      final posts = <String>[];
+      final client = JellyfinClient.forTesting(
+        connection: _jellyfinConnection('user-a'),
+        httpClient: MockClient((request) async {
+          if (request.method == 'GET' && request.url.path.startsWith('/Users/user-a/Items/')) {
+            final id = request.url.pathSegments.last;
+            return http.Response('{"Id":"$id","Type":"Movie","Name":"Movie $id"}', 200);
+          }
+          if (request.method == 'POST' && request.url.path.startsWith('/UserPlayedItems/')) {
+            posts.add(request.url.path);
+            // The switch lands while action 1 is mid-flight — the binder
+            // would now be rebinding this server id to another user.
+            svc.setActiveProfileId('p2');
+            return http.Response('', 204);
+          }
+          return http.Response('not found', 404);
+        }),
+      );
+      addTearDown(client.close);
+      mgr.debugRegisterJellyfinClientForTesting(client);
+
+      await svc.queueMarkWatched(serverId: ServerId('jf-machine'), itemId: 'item-1');
+      await svc.queueMarkWatched(serverId: ServerId('jf-machine'), itemId: 'item-2');
+
+      await svc.syncPendingItems();
+
+      expect(posts, hasLength(1));
+      expect(await db.getPendingSyncCount(), 1);
+    });
+  });
 
   group('queueProgressUpdate', () {
     test('persists a progress row with shouldMarkWatched=false below threshold', () async {
@@ -773,6 +849,37 @@ void main() {
   });
 
   group('Jellyfin scoped sync', () {
+    test('empty active scope falls back to the downloaded scope during client pre-bind', () async {
+      final (svc: svc, db: db, mgr: mgr) = _makeService();
+      addTearDown(() async {
+        svc.dispose();
+        mgr.dispose();
+        await db.close();
+      });
+
+      await db.insertDownload(
+        serverId: ServerId('jf-machine'),
+        clientScopeId: 'jf-machine/user-a',
+        ratingKey: 'item-1',
+        globalKey: 'jf-machine:item-1',
+        type: 'movie',
+        status: 3,
+      );
+      mgr.debugRegisterClientForTesting(
+        _ScopedRecordingMediaClient(
+          serverId: ServerId('jf-machine'),
+          backend: MediaBackend.jellyfin,
+          scopedServerId: '',
+        ),
+      );
+
+      final returnedScope = await svc.queueMarkWatched(serverId: ServerId('jf-machine'), itemId: 'item-1');
+
+      final queued = await db.getPendingWatchActions();
+      expect(returnedScope, 'jf-machine/user-a');
+      expect(queued.single.clientScopeId, 'jf-machine/user-a');
+    });
+
     test('queues with downloaded Jellyfin source scope when no active client is registered', () async {
       final (svc: svc, db: db, mgr: mgr) = _makeService();
       addTearDown(() async {
@@ -881,6 +988,7 @@ void main() {
         mgr.dispose();
         await db.close();
       });
+      svc.setActiveProfileId('p1');
 
       final pathsByUser = <String, List<String>>{'user-a': [], 'user-b': []};
 

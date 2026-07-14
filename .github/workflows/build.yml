@@ -1,15 +1,15 @@
-name: Build Plezy Labs Desktop Artifacts
+name: Build
 
 on:
   workflow_dispatch:
     inputs:
       build_android:
         description: Build Android
-        default: false
+        default: true
         type: boolean
       build_ios:
         description: Build iOS
-        default: false
+        default: true
         type: boolean
       build_macos:
         description: Build macOS
@@ -23,35 +23,10 @@ on:
         description: Build Linux
         default: true
         type: boolean
-      labs_tag:
-        description: Immutable Labs release tag
-        required: true
-        type: string
-      labs_version:
-        description: Published official Plezy base version
-        required: true
-        type: string
-      labs_revision:
-        description: Labs revision within the official version
-        required: true
-        type: string
-      labs_build_number:
-        description: Globally increasing Labs updater build
-        required: true
-        type: string
-      source_sha:
-        description: Exact source commit to build
-        required: true
-        type: string
-      publish:
-        description: Publish immediately instead of creating a draft
-        default: false
-        type: boolean
 
 env:
   SENTRY_DART_DEFINE: ${{ github.repository == 'edde746/plezy' && '--dart-define=ENABLE_SENTRY=true' || '' }}
-  GIT_COMMIT_DART_DEFINE: --dart-define=GIT_COMMIT=${{ inputs.source_sha }}
-  LABS_DART_DEFINES: --dart-define=PLEZY_LABS=true --dart-define=LABS_REVISION=${{ inputs.labs_revision }}
+  GIT_COMMIT_DART_DEFINE: --dart-define=GIT_COMMIT=${{ github.sha }}
   SENTRY_ENV_DART_DEFINE: --dart-define=SENTRY_ENVIRONMENT=github
   DONATIONS_DART_DEFINE: --dart-define=ENABLE_DONATIONS=true
   LINUX_APT_PACKAGES: >
@@ -63,13 +38,9 @@ env:
     libgbm-dev libwayland-dev wayland-protocols liblcms2-dev libmujs-dev liblua5.2-dev
     ruby ruby-dev rubygems build-essential rpm libarchive-tools imagemagick libcurl4-openssl-dev
 
-concurrency:
-  group: plezy-labs-desktop-build
-  cancel-in-progress: false
-
 jobs:
   build-android:
-    if: ${{ inputs.build_android && vars.ENABLE_LABS_MOBILE == 'true' }}
+    if: ${{ inputs.build_android }}
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -77,8 +48,6 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.source_sha }}
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -162,7 +131,7 @@ jobs:
             plezy-android-x86_64.tar.gz
 
   build-ios:
-    if: ${{ inputs.build_ios && vars.ENABLE_LABS_MOBILE == 'true' }}
+    if: ${{ inputs.build_ios }}
     runs-on: macos-26
     permissions:
       id-token: write
@@ -170,8 +139,6 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.source_sha }}
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -238,15 +205,6 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.source_sha }}
-
-      - name: Configure Plezy Labs updater key
-        env:
-          LABS_UPDATE_PUBLIC_KEY: ${{ vars.LABS_UPDATE_PUBLIC_KEY }}
-        run: |
-          test -n "$LABS_UPDATE_PUBLIC_KEY" || { echo "LABS_UPDATE_PUBLIC_KEY is required"; exit 1; }
-          /usr/libexec/PlistBuddy -c "Set :SUPublicEDKey $LABS_UPDATE_PUBLIC_KEY" macos/Runner/Info.plist
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -278,7 +236,7 @@ jobs:
         run: flutter pub get --enforce-lockfile --no-example
 
       - name: Build macOS
-        run: flutter build macos --release --build-name=${{ inputs.labs_version }} --build-number=${{ inputs.labs_build_number }} --dart-define=ENABLE_UPDATE_CHECK=true ${{ env.LABS_DART_DEFINES }} ${{ env.SENTRY_DART_DEFINE }} ${{ env.GIT_COMMIT_DART_DEFINE }} ${{ env.SENTRY_ENV_DART_DEFINE }} --dart-define=SENTRY_DIST=github-macos ${{ env.DONATIONS_DART_DEFINE }} --split-debug-info=debug-info/macos
+        run: flutter build macos --release --dart-define=ENABLE_UPDATE_CHECK=true ${{ env.SENTRY_DART_DEFINE }} ${{ env.GIT_COMMIT_DART_DEFINE }} ${{ env.SENTRY_ENV_DART_DEFINE }} --dart-define=SENTRY_DIST=github-macos ${{ env.DONATIONS_DART_DEFINE }} --split-debug-info=debug-info/macos
 
       - name: Upload symbols to bugs.plezy.app
         if: github.repository == 'edde746/plezy'
@@ -384,11 +342,11 @@ jobs:
           hdiutil create -format ULMO -srcfolder dmg-staging -volname "Plezy" plezy-macos.dmg
 
       - name: Sign DMG for Sparkle (EdDSA)
+        if: env.SPARKLE_PRIVATE_KEY != ''
         env:
-          LABS_SPARKLE_PRIVATE_KEY: ${{ secrets.LABS_SPARKLE_PRIVATE_KEY }}
+          SPARKLE_PRIVATE_KEY: ${{ secrets.SPARKLE_PRIVATE_KEY }}
         run: |
-          test -n "$LABS_SPARKLE_PRIVATE_KEY" || { echo "LABS_SPARKLE_PRIVATE_KEY is required"; exit 1; }
-          printf '%s' "$LABS_SPARKLE_PRIVATE_KEY" > ed25519_key.pem
+          printf -- "-----BEGIN ED25519 PRIVATE KEY-----\n%s\n-----END ED25519 PRIVATE KEY-----\n" "$SPARKLE_PRIVATE_KEY" > ed25519_key.pem
           OUTPUT=$(dart run auto_updater:sign_update plezy-macos.dmg ed25519_key.pem)
           rm ed25519_key.pem
           # Extract edSignature value from output like: sparkle:edSignature="..." length="..."
@@ -415,25 +373,43 @@ jobs:
             macos-ed-signature.txt
             macos-dmg-size.txt
 
-  build-windows-x64:
+  build-windows:
+    name: Build Windows (${{ matrix.arch }})
     if: ${{ inputs.build_windows }}
-    runs-on: windows-latest
+    runs-on: ${{ matrix.runner }}
     permissions:
       contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: x64
+            runner: windows-latest
+            flutter_setup: action
+            native_cache_path: build/windows/x64/_deps
+          - arch: arm64
+            runner: windows-11-arm
+            flutter_setup: git
+            native_cache_path: |
+              build/windows/arm64/_deps
+              build/windows/arm64/mpv-dev-arm64
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.source_sha }}
 
-      - name: Configure Plezy Labs updater key
+      - name: Cache Windows native dependencies
+        id: windows-native-cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ matrix.native_cache_path }}
+          key: windows-native-${{ matrix.arch }}-${{ hashFiles('windows/CMakeLists.txt') }}
+
+      - name: Install 7-Zip
+        if: matrix.arch == 'arm64' && steps.windows-native-cache.outputs.cache-hit != 'true'
         shell: pwsh
-        env:
-          LABS_UPDATE_PUBLIC_KEY: ${{ vars.LABS_UPDATE_PUBLIC_KEY }}
-        run: |
-          if (-not $env:LABS_UPDATE_PUBLIC_KEY) { throw "LABS_UPDATE_PUBLIC_KEY is required" }
-          (Get-Content windows/runner/Runner.rc -Raw).Replace('PLEZY_LABS_UPDATE_PUBLIC_KEY', $env:LABS_UPDATE_PUBLIC_KEY) | Set-Content windows/runner/Runner.rc -NoNewline
+        run: choco install 7zip -y
 
       - name: Setup Flutter
+        if: matrix.flutter_setup == 'action'
         uses: subosito/flutter-action@v2
         with:
           channel: "stable"
@@ -441,6 +417,20 @@ jobs:
           cache: true
           pub-cache: false
 
+      - name: Set up Flutter 3.44.0 (git tag)
+        if: matrix.flutter_setup == 'git'
+        # Flutter publishes no windows-arm64 SDK archive, so subosito can't
+        # resolve 3.44.0 for arm64: the stable manifest has no arm64 entry, and
+        # `channel: master` would git-clone master HEAD (whose engine != our
+        # patched 3.44.0). Clone the 3.44.0 tag directly to get engine rev
+        # 4c525dac, which install-patched-engine.ps1 asserts before swapping.
+        shell: pwsh
+        run: |
+          $root = "$env:RUNNER_TEMP\flutter"
+          git clone --depth 1 --branch 3.44.0 https://github.com/flutter/flutter.git $root
+          "$root\bin" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
+          & "$root\bin\flutter.bat" --version
+
       - name: Cache Pub dependencies
         uses: actions/cache@v4
         with:
@@ -448,100 +438,36 @@ jobs:
             ~\AppData\Local\Pub\Cache
           key: ${{ runner.os }}-${{ runner.arch }}-pub-v2-${{ hashFiles('pubspec.yaml', 'pubspec.lock') }}
 
-      - name: Cache Windows native dependencies
-        uses: actions/cache@v4
-        with:
-          path: build/windows/x64/_deps
-          key: windows-native-x64-${{ hashFiles('windows/CMakeLists.txt') }}
-
       - name: Install dependencies
+        shell: pwsh
         run: flutter pub get --enforce-lockfile --no-example
 
-      - name: Build Windows x64
-        run: flutter build windows --release --build-name=${{ inputs.labs_version }} --build-number=${{ inputs.labs_build_number }} --dart-define=ENABLE_UPDATE_CHECK=true ${{ env.LABS_DART_DEFINES }} ${{ env.SENTRY_DART_DEFINE }} ${{ env.GIT_COMMIT_DART_DEFINE }} ${{ env.SENTRY_ENV_DART_DEFINE }} --dart-define=SENTRY_DIST=github-windows-x64 ${{ env.DONATIONS_DART_DEFINE }} --split-debug-info=debug-info/windows-x64
-
-      - name: Upload symbols to bugs.plezy.app
-        if: github.repository == 'edde746/plezy'
+      - name: Install patched Flutter engine (DComp)
         shell: pwsh
-        env:
-          BUGS_ADMIN_TOKEN: ${{ secrets.BUGS_ADMIN_TOKEN }}
-          SENTRY_DIST: github-windows-x64
-        run: .\scripts\upload-symbols.ps1 windows-x64
-
-      - name: Upload x64 build
-        uses: actions/upload-artifact@v4
-        with:
-          name: windows-x64-build
-          path: build/windows/x64/runner/Release/
-
-  build-windows-arm64:
-    if: ${{ inputs.build_windows }}
-    runs-on: windows-11-arm
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.source_sha }}
-
-      - name: Configure Plezy Labs updater key
-        shell: pwsh
-        env:
-          LABS_UPDATE_PUBLIC_KEY: ${{ vars.LABS_UPDATE_PUBLIC_KEY }}
         run: |
-          if (-not $env:LABS_UPDATE_PUBLIC_KEY) { throw "LABS_UPDATE_PUBLIC_KEY is required" }
-          (Get-Content windows/runner/Runner.rc -Raw).Replace('PLEZY_LABS_UPDATE_PUBLIC_KEY', $env:LABS_UPDATE_PUBLIC_KEY) | Set-Content windows/runner/Runner.rc -NoNewline
+          flutter precache --windows
+          .\windows\tool\install-patched-engine.ps1
 
-      - name: Cache Windows native dependencies
-        id: windows-native-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            build/windows/arm64/_deps
-            build/windows/arm64/mpv-dev-arm64
-          key: windows-native-arm64-${{ hashFiles('windows/CMakeLists.txt') }}
-
-      - name: Install 7-Zip
-        if: steps.windows-native-cache.outputs.cache-hit != 'true'
-        run: choco install 7zip -y
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: "master"
-          flutter-version: "3.44.0"
-          cache: true
-          pub-cache: false
-
-      - name: Cache Pub dependencies
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~\AppData\Local\Pub\Cache
-          key: ${{ runner.os }}-${{ runner.arch }}-pub-v2-${{ hashFiles('pubspec.yaml', 'pubspec.lock') }}
-
-      - name: Install dependencies
-        run: flutter pub get --no-example
-
-      - name: Build Windows arm64
-        run: flutter build windows --release --build-name=${{ inputs.labs_version }} --build-number=${{ inputs.labs_build_number }} --dart-define=ENABLE_UPDATE_CHECK=true ${{ env.LABS_DART_DEFINES }} ${{ env.SENTRY_DART_DEFINE }} ${{ env.GIT_COMMIT_DART_DEFINE }} ${{ env.SENTRY_ENV_DART_DEFINE }} --dart-define=SENTRY_DIST=github-windows-arm64 ${{ env.DONATIONS_DART_DEFINE }} --split-debug-info=debug-info/windows-arm64
+      - name: Build Windows ${{ matrix.arch }}
+        shell: pwsh
+        run: flutter build windows --release --dart-define=ENABLE_UPDATE_CHECK=true ${{ env.SENTRY_DART_DEFINE }} ${{ env.GIT_COMMIT_DART_DEFINE }} ${{ env.SENTRY_ENV_DART_DEFINE }} --dart-define=SENTRY_DIST=github-windows-${{ matrix.arch }} ${{ env.DONATIONS_DART_DEFINE }} --split-debug-info=debug-info/windows-${{ matrix.arch }}
 
       - name: Upload symbols to bugs.plezy.app
         if: github.repository == 'edde746/plezy'
         shell: pwsh
         env:
           BUGS_ADMIN_TOKEN: ${{ secrets.BUGS_ADMIN_TOKEN }}
-          SENTRY_DIST: github-windows-arm64
-        run: .\scripts\upload-symbols.ps1 windows-arm64
+          SENTRY_DIST: github-windows-${{ matrix.arch }}
+        run: .\scripts\upload-symbols.ps1 windows-${{ matrix.arch }}
 
-      - name: Upload arm64 build
+      - name: Upload ${{ matrix.arch }} build
         uses: actions/upload-artifact@v4
         with:
-          name: windows-arm64-build
-          path: build/windows/arm64/runner/Release/
+          name: windows-${{ matrix.arch }}-build
+          path: build/windows/${{ matrix.arch }}/runner/Release/
 
   package-windows:
-    needs: [build-windows-x64, build-windows-arm64]
+    needs: build-windows
     if: ${{ inputs.build_windows }}
     runs-on: windows-latest
     permissions:
@@ -550,8 +476,6 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.source_sha }}
 
       - name: Setup Dart
         uses: dart-lang/setup-dart@v1
@@ -579,17 +503,17 @@ jobs:
         run: .\windows\build-installer.ps1 -X64BuildDir "build-x64" -Arm64BuildDir "build-arm64" -Version "${{ steps.version.outputs.version }}"
 
       - name: Sign installer for WinSparkle (EdDSA)
+        if: env.SPARKLE_PRIVATE_KEY != ''
         env:
-          LABS_SPARKLE_PRIVATE_KEY: ${{ secrets.LABS_SPARKLE_PRIVATE_KEY }}
+          SPARKLE_PRIVATE_KEY: ${{ secrets.SPARKLE_PRIVATE_KEY }}
         shell: pwsh
         run: |
-          if (-not $env:LABS_SPARKLE_PRIVATE_KEY) { throw "LABS_SPARKLE_PRIVATE_KEY is required" }
           mkdir _signer | Out-Null
           @{name="signer"; environment=@{sdk=">=3.0.0 <4.0.0"}; dependencies=@{cryptography="^2.7.0"}} | ConvertTo-Json -Depth 3 | Out-File _signer/pubspec.yaml
           Invoke-WebRequest -Uri "https://raw.githubusercontent.com/edde746/auto_updater/main/packages/auto_updater/bin/sign_update.dart" -OutFile _signer/sign.dart
           Push-Location _signer
           dart pub get
-          Set-Content -Path ed25519_key.pem -Value $env:LABS_SPARKLE_PRIVATE_KEY -Encoding ascii -NoNewline
+          Set-Content -Path ed25519_key.pem -Value $env:SPARKLE_PRIVATE_KEY -Encoding ascii -NoNewline
           $output = dart run sign.dart ../plezy-windows-installer.exe ed25519_key.pem
           Pop-Location
           Remove-Item _signer -Recurse -Force
@@ -626,22 +550,33 @@ jobs:
             win-ed-signature.txt
             win-installer-size.txt
 
-  build-linux-x64:
+  build-linux:
+    name: Build Linux (${{ matrix.arch }})
     if: ${{ inputs.build_linux }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.runner }}
     permissions:
       id-token: write
       attestations: write
       contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: x64
+            runner: ubuntu-latest
+            flutter_channel: stable
+            pkg_config_arch: x86_64-linux-gnu
+          - arch: arm64
+            runner: ubuntu-24.04-arm
+            flutter_channel: master
+            pkg_config_arch: aarch64-linux-gnu
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.source_sha }}
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: "stable"
+          channel: ${{ matrix.flutter_channel }}
           flutter-version: "3.44.0"
           cache: true
           pub-cache: false
@@ -660,6 +595,7 @@ jobs:
           version: 1.1
 
       - name: Install Linux dependencies
+        shell: bash
         run: |
           read -r -a packages <<< "$LINUX_APT_PACKAGES"
 
@@ -684,45 +620,73 @@ jobs:
 
       - name: Build libmpv
         if: steps.libmpv-cache.outputs.cache-hit != 'true'
+        shell: bash
         run: bash linux/packaging/build-libmpv.sh
 
       - name: Install fpm
+        shell: bash
         run: sudo gem install fpm
 
       - name: Install dependencies
+        shell: bash
         run: flutter pub get --enforce-lockfile --no-example
 
-      - name: Build Linux x64
-        run: flutter build linux --release --build-name=${{ inputs.labs_version }} --build-number=${{ inputs.labs_build_number }} --dart-define=ENABLE_UPDATE_CHECK=true ${{ env.LABS_DART_DEFINES }} ${{ env.SENTRY_DART_DEFINE }} ${{ env.GIT_COMMIT_DART_DEFINE }} ${{ env.SENTRY_ENV_DART_DEFINE }} --dart-define=SENTRY_DIST=github-linux-x64 ${{ env.DONATIONS_DART_DEFINE }} --split-debug-info=debug-info/linux-x64
+      - name: Build Linux ${{ matrix.arch }}
+        shell: bash
+        run: flutter build linux --release --dart-define=ENABLE_UPDATE_CHECK=true ${{ env.SENTRY_DART_DEFINE }} ${{ env.GIT_COMMIT_DART_DEFINE }} ${{ env.SENTRY_ENV_DART_DEFINE }} --dart-define=SENTRY_DIST=github-linux-${{ matrix.arch }} ${{ env.DONATIONS_DART_DEFINE }} --split-debug-info=debug-info/linux-${{ matrix.arch }}
         env:
-          PKG_CONFIG_PATH: ${{ github.workspace }}/libmpv-prefix/lib/pkgconfig:${{ github.workspace }}/libmpv-prefix/lib/x86_64-linux-gnu/pkgconfig
+          PKG_CONFIG_PATH: ${{ github.workspace }}/libmpv-prefix/lib/pkgconfig:${{ github.workspace }}/libmpv-prefix/lib/${{ matrix.pkg_config_arch }}/pkgconfig
 
       - name: Upload symbols to bugs.plezy.app
         if: github.repository == 'edde746/plezy'
+        shell: bash
         env:
           BUGS_ADMIN_TOKEN: ${{ secrets.BUGS_ADMIN_TOKEN }}
-          SENTRY_DIST: github-linux-x64
-        run: ./scripts/upload-symbols.sh linux-x64
+          SENTRY_DIST: github-linux-${{ matrix.arch }}
+        run: ./scripts/upload-symbols.sh linux-${{ matrix.arch }}
+
+      - name: Resolve bundle directory
+        shell: bash
+        run: |
+          if [[ "${{ matrix.arch }}" == "x64" ]]; then
+            bundle_dir=build/linux/x64/release/bundle
+          else
+            bundle_dir=$(find build/linux -path "*/release/bundle" -type d | head -1)
+          fi
+          if [[ -z "$bundle_dir" || ! -d "$bundle_dir" ]]; then
+            echo "ERROR: Linux bundle directory not found" >&2
+            exit 1
+          fi
+          echo "BUNDLE_DIR=$bundle_dir" >> "$GITHUB_ENV"
 
       - name: Build Linux Packages
-        run: ARCH_SUFFIX=x64 OUTPUT_DIR=$GITHUB_WORKSPACE LABS_VERSION=${{ inputs.labs_version }} LABS_PACKAGE_ITERATION=labs.${{ inputs.labs_revision }} LABS_PACKAGE_BUILD=${{ inputs.labs_build_number }} python3 linux/packaging/build-packages.py
+        shell: bash
+        run: |
+          BUILD_DIR="$BUNDLE_DIR" \
+          ARCH_SUFFIX=${{ matrix.arch }} \
+          OUTPUT_DIR="$GITHUB_WORKSPACE" \
+          python3 linux/packaging/build-packages.py
 
       - name: Copy libmpv into bundle
+        shell: bash
         run: |
-          BUNDLE_LIB=build/linux/x64/release/bundle/lib
+          BUNDLE_LIB="$BUNDLE_DIR/lib"
           LIBMPV_DIR=$(dirname "$(find libmpv-prefix -name 'libmpv.so' | head -1)")
           cp -a "$LIBMPV_DIR"/libmpv.so* "$BUNDLE_LIB/"
           cp -a libmpv-prefix/lib/libshaderc_shared.so* "$BUNDLE_LIB/"
 
       - name: Bundle shared libraries for portable tarball
-        run: bash linux/packaging/bundle-libs.sh build/linux/x64/release/bundle
+        shell: bash
+        run: bash linux/packaging/bundle-libs.sh "$BUNDLE_DIR"
 
       - name: Copy wrapper script into bundle
-        run: cp linux/packaging/plezy.sh build/linux/x64/release/bundle/plezy.sh
+        shell: bash
+        run: cp linux/packaging/plezy.sh "$BUNDLE_DIR/plezy.sh"
 
       - name: Verify no missing dependencies
+        shell: bash
         run: |
-          cd build/linux/x64/release/bundle
+          cd "$BUNDLE_DIR"
           MISSING=$(LD_LIBRARY_PATH=lib ldd ./plezy 2>&1 | grep "not found" || true)
           if [[ -n "$MISSING" ]]; then
             echo "ERROR: Unresolved dependencies found:" >&2
@@ -732,179 +696,39 @@ jobs:
           echo "All dependencies resolved."
 
       - name: Create tarball
+        shell: bash
         run: |
-          cd build/linux/x64/release/bundle
-          tar -czf $GITHUB_WORKSPACE/plezy-linux-x64.tar.gz *
+          cd "$BUNDLE_DIR"
+          tar -czf "$GITHUB_WORKSPACE/plezy-linux-${{ matrix.arch }}.tar.gz" *
 
-      - name: Attest Linux x64 artifacts
+      - name: Attest Linux ${{ matrix.arch }} artifacts
         uses: actions/attest-build-provenance@v2
         with:
           subject-path: |
-            plezy-linux-x64.tar.gz
-            plezy-linux-x64.deb
-            plezy-linux-x64.rpm
-            plezy-linux-x64.pkg.tar.zst
+            plezy-linux-${{ matrix.arch }}.tar.gz
+            plezy-linux-${{ matrix.arch }}.deb
+            plezy-linux-${{ matrix.arch }}.rpm
+            plezy-linux-${{ matrix.arch }}.pkg.tar.zst
 
-      - name: Upload Linux x64 artifacts
+      - name: Upload Linux ${{ matrix.arch }} artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: linux-x64
+          name: linux-${{ matrix.arch }}
           path: |
-            plezy-linux-x64.tar.gz
-            plezy-linux-x64.deb
-            plezy-linux-x64.rpm
-            plezy-linux-x64.pkg.tar.zst
-
-  build-linux-arm64:
-    if: ${{ inputs.build_linux }}
-    runs-on: ubuntu-24.04-arm
-    permissions:
-      id-token: write
-      attestations: write
-      contents: read
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.source_sha }}
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: "master"
-          flutter-version: "3.44.0"
-          cache: true
-          pub-cache: false
-
-      - name: Cache Pub dependencies
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.pub-cache
-          key: ${{ runner.os }}-${{ runner.arch }}-pub-v2-${{ hashFiles('pubspec.yaml', 'pubspec.lock') }}
-
-      - name: Cache APT packages
-        uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: ${{ env.LINUX_APT_PACKAGES }}
-          version: 1.1
-
-      - name: Install Linux dependencies
-        run: |
-          read -r -a packages <<< "$LINUX_APT_PACKAGES"
-
-          for attempt in 1 2 3; do
-            if sudo apt-get update -o Acquire::Retries=3 && sudo apt-get install -y -o Acquire::Retries=3 "${packages[@]}"; then
-              exit 0
-            fi
-
-            sudo apt-get clean
-            sudo rm -rf /var/lib/apt/lists/*
-            sleep $((attempt * 15))
-          done
-
-          exit 1
-
-      - name: Cache libmpv build
-        id: libmpv-cache
-        uses: actions/cache@v4
-        with:
-          path: libmpv-prefix
-          key: libmpv-${{ runner.arch }}-${{ hashFiles('linux/packaging/build-libmpv.sh') }}
-
-      - name: Build libmpv
-        if: steps.libmpv-cache.outputs.cache-hit != 'true'
-        run: bash linux/packaging/build-libmpv.sh
-
-      - name: Install fpm
-        run: sudo gem install fpm
-
-      - name: Install dependencies
-        run: flutter pub get --no-example
-
-      - name: Build Linux arm64
-        run: flutter build linux --release --build-name=${{ inputs.labs_version }} --build-number=${{ inputs.labs_build_number }} --dart-define=ENABLE_UPDATE_CHECK=true ${{ env.LABS_DART_DEFINES }} ${{ env.SENTRY_DART_DEFINE }} ${{ env.GIT_COMMIT_DART_DEFINE }} ${{ env.SENTRY_ENV_DART_DEFINE }} --dart-define=SENTRY_DIST=github-linux-arm64 ${{ env.DONATIONS_DART_DEFINE }} --split-debug-info=debug-info/linux-arm64
-        env:
-          PKG_CONFIG_PATH: ${{ github.workspace }}/libmpv-prefix/lib/pkgconfig:${{ github.workspace }}/libmpv-prefix/lib/aarch64-linux-gnu/pkgconfig
-
-      - name: Upload symbols to bugs.plezy.app
-        if: github.repository == 'edde746/plezy'
-        env:
-          BUGS_ADMIN_TOKEN: ${{ secrets.BUGS_ADMIN_TOKEN }}
-          SENTRY_DIST: github-linux-arm64
-        run: ./scripts/upload-symbols.sh linux-arm64
-
-      - name: Find bundle directory
-        id: find-bundle
-        run: |
-          BUNDLE_DIR=$(find build/linux -path "*/release/bundle" -type d | head -1)
-          echo "bundle_dir=$BUNDLE_DIR" >> $GITHUB_OUTPUT
-
-      - name: Build Linux Packages
-        run: |
-          BUILD_DIR=${{ steps.find-bundle.outputs.bundle_dir }} \
-          ARCH_SUFFIX=arm64 \
-          OUTPUT_DIR=$GITHUB_WORKSPACE \
-          LABS_VERSION=${{ inputs.labs_version }} LABS_PACKAGE_ITERATION=labs.${{ inputs.labs_revision }} LABS_PACKAGE_BUILD=${{ inputs.labs_build_number }} python3 linux/packaging/build-packages.py
-
-      - name: Copy libmpv into bundle
-        run: |
-          BUNDLE_LIB=${{ steps.find-bundle.outputs.bundle_dir }}/lib
-          LIBMPV_DIR=$(dirname "$(find libmpv-prefix -name 'libmpv.so' | head -1)")
-          cp -a "$LIBMPV_DIR"/libmpv.so* "$BUNDLE_LIB/"
-          cp -a libmpv-prefix/lib/libshaderc_shared.so* "$BUNDLE_LIB/"
-
-      - name: Bundle shared libraries for portable tarball
-        run: bash linux/packaging/bundle-libs.sh ${{ steps.find-bundle.outputs.bundle_dir }}
-
-      - name: Copy wrapper script into bundle
-        run: cp linux/packaging/plezy.sh ${{ steps.find-bundle.outputs.bundle_dir }}/plezy.sh
-
-      - name: Verify no missing dependencies
-        run: |
-          cd ${{ steps.find-bundle.outputs.bundle_dir }}
-          MISSING=$(LD_LIBRARY_PATH=lib ldd ./plezy 2>&1 | grep "not found" || true)
-          if [[ -n "$MISSING" ]]; then
-            echo "ERROR: Unresolved dependencies found:" >&2
-            echo "$MISSING" >&2
-            exit 1
-          fi
-          echo "All dependencies resolved."
-
-      - name: Create tarball
-        run: |
-          cd ${{ steps.find-bundle.outputs.bundle_dir }}
-          tar -czf $GITHUB_WORKSPACE/plezy-linux-arm64.tar.gz *
-
-      - name: Attest Linux arm64 artifacts
-        uses: actions/attest-build-provenance@v2
-        with:
-          subject-path: |
-            plezy-linux-arm64.tar.gz
-            plezy-linux-arm64.deb
-            plezy-linux-arm64.rpm
-            plezy-linux-arm64.pkg.tar.zst
-
-      - name: Upload Linux arm64 artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: linux-arm64
-          path: |
-            plezy-linux-arm64.tar.gz
-            plezy-linux-arm64.deb
-            plezy-linux-arm64.rpm
-            plezy-linux-arm64.pkg.tar.zst
+            plezy-linux-${{ matrix.arch }}.tar.gz
+            plezy-linux-${{ matrix.arch }}.deb
+            plezy-linux-${{ matrix.arch }}.rpm
+            plezy-linux-${{ matrix.arch }}.pkg.tar.zst
 
   create-release:
-    needs: [build-android, build-ios, build-macos, build-windows-x64, build-windows-arm64, package-windows, build-linux-x64, build-linux-arm64]
+    needs: [build-android, build-ios, build-macos, build-windows, package-windows, build-linux]
     if: ${{ always() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') && (inputs.build_android || inputs.build_ios || inputs.build_macos || inputs.build_windows || inputs.build_linux) }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      actions: write
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.source_sha }}
           sparse-checkout: pubspec.yaml
           sparse-checkout-cone-mode: false
 
@@ -967,33 +791,13 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R artifacts
 
-      - name: Validate release metadata
+      - name: Read version from pubspec.yaml
         id: version
         run: |
-          VERSION="${{ inputs.labs_version }}"
-          BUILD_NUMBER="${{ inputs.labs_build_number }}"
-          SOURCE_VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //' | sed 's/+.*//')
-          test "$VERSION" = "$SOURCE_VERSION" || {
-            echo "Labs version $VERSION does not match source version $SOURCE_VERSION"
-            exit 1
-          }
-          test "$BUILD_NUMBER" -ge 10000 -a "$BUILD_NUMBER" -le 65535 || {
-            echo "Labs build number must be between 10000 and 65535"
-            exit 1
-          }
+          VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //' | sed 's/+.*//')
+          BUILD_NUMBER=$(grep '^version:' pubspec.yaml | sed 's/.*+//')
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "build_number=$BUILD_NUMBER" >> $GITHUB_OUTPUT
-
-      - name: Require signed native updater artifacts
-        run: |
-          if [ "${{ inputs.build_macos }}" = "true" ]; then
-            test -s artifacts/macos-dmg/macos-ed-signature.txt
-            grep -q '[^[:space:]]' artifacts/macos-dmg/macos-ed-signature.txt
-          fi
-          if [ "${{ inputs.build_windows }}" = "true" ]; then
-            test -s artifacts/windows-installer/win-ed-signature.txt
-            grep -q '[^[:space:]]' artifacts/windows-installer/win-ed-signature.txt
-          fi
 
       - name: Generate appcast.xml
         run: |
@@ -1024,18 +828,18 @@ jobs:
           <?xml version="1.0" encoding="utf-8"?>
           <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
             <channel>
-              <title>Plezy Labs Updates</title>
+              <title>Plezy Updates</title>
               <item>
-                <title>Plezy Labs ${VERSION} r${{ inputs.labs_revision }}</title>
+                <title>Version ${VERSION}</title>
                 <sparkle:version>${BUILD_NUMBER}</sparkle:version>
                 <sparkle:shortVersionString>${VERSION}</sparkle:shortVersionString>
-                <sparkle:releaseNotesLink>https://github.com/${{ github.repository }}/releases/tag/${{ inputs.labs_tag }}</sparkle:releaseNotesLink>
+                <sparkle:releaseNotesLink>https://gh-html.edde746.dev/edde746/plezy/${VERSION}</sparkle:releaseNotesLink>
           XMLEOF
 
           # macOS enclosure
           if [ -n "$MACOS_ED_SIG" ]; then
             cat >> appcast.xml << XMLEOF
-                <enclosure url="https://github.com/${{ github.repository }}/releases/download/${{ inputs.labs_tag }}/plezy-macos.dmg"
+                <enclosure url="https://github.com/edde746/plezy/releases/download/${VERSION}/plezy-macos.dmg"
                            length="${MACOS_DMG_SIZE}" type="application/octet-stream"
                            sparkle:edSignature="${MACOS_ED_SIG}"
                            sparkle:os="macos" />
@@ -1045,7 +849,7 @@ jobs:
           # Windows enclosure
           if [ -n "$WIN_ED_SIG" ]; then
             cat >> appcast.xml << XMLEOF
-                <enclosure url="https://github.com/${{ github.repository }}/releases/download/${{ inputs.labs_tag }}/plezy-windows-installer.exe"
+                <enclosure url="https://github.com/edde746/plezy/releases/download/${VERSION}/plezy-windows-installer.exe"
                            length="${WIN_INSTALLER_SIZE}" type="application/octet-stream"
                            sparkle:edSignature="${WIN_ED_SIG}"
                            sparkle:installerArguments="/SILENT /SP-"
@@ -1097,18 +901,10 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ inputs.labs_tag }}
-          target_commitish: ${{ inputs.source_sha }}
-          name: Plezy Labs ${{ inputs.labs_version }} r${{ inputs.labs_revision }}
+          tag_name: ${{ steps.version.outputs.version }}
           files: ${{ steps.release-files.outputs.files }}
-          draft: ${{ !inputs.publish }}
-          prerelease: true
+          draft: true
+          prerelease: false
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish Labs feed for automatic releases
-        if: ${{ inputs.publish }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run labs-feed.yml --ref labs -f tag=${{ inputs.labs_tag }}

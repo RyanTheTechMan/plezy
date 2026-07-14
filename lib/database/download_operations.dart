@@ -22,9 +22,8 @@ extension DownloadDatabaseOperations on AppDatabase {
     await (delete(downloadOwners)..where((t) => t.profileId.equals(profileId) & t.globalKey.equals(globalKey))).go();
   }
 
-  Future<void> removeDownloadOwnersForProfile(String profileId) async {
-    if (profileId.isEmpty) return;
-    await (delete(downloadOwners)..where((t) => t.profileId.equals(profileId))).go();
+  Future<void> clearAllDownloadOwners() async {
+    await delete(downloadOwners).go();
   }
 
   Future<Set<String>> getDownloadOwnerKeysForProfile(String profileId) async {
@@ -55,22 +54,32 @@ extension DownloadDatabaseOperations on AppDatabase {
     final connectionRows = await select(connections).get();
     final connectionIds = connectionRows.map((row) => row.id).toSet();
     return candidates
-        .where((row) {
-          if (localProfileIds.contains(row.profileId)) return true;
-          final plexHome = parsePlexHomeProfileId(row.profileId);
-          if (plexHome != null) return connectionIds.contains(plexHome.accountConnectionId);
-          return localProfileIds.isEmpty;
-        })
+        .where((row) => _isValidDownloadOwner(row, localProfileIds: localProfileIds, connectionIds: connectionIds))
         .toList(growable: false);
   }
 
   /// Claim pre-v17 shared download rows for [profileId]. Rows that already
-  /// have any owner are left untouched so later profiles do not inherit them.
+  /// have any valid owner are left untouched so later profiles do not
+  /// inherit them.
+  ///
+  /// Runs on every profile switch — validity context is computed once and
+  /// applied in memory instead of the per-download full-table rescan
+  /// `getDownloadOwnerCount` would do.
   Future<void> adoptLegacyDownloadsForProfile(String profileId) async {
     if (profileId.isEmpty) return;
     final rows = await select(downloadedMedia).get();
+    if (rows.isEmpty) return;
+
+    final owners = await select(downloadOwners).get();
+    final localProfileIds = (await select(profiles).get()).map((row) => row.id).toSet();
+    final connectionIds = (await select(connections).get()).map((row) => row.id).toSet();
+    final ownedKeys = <String>{
+      for (final owner in owners)
+        if (_isValidDownloadOwner(owner, localProfileIds: localProfileIds, connectionIds: connectionIds))
+          owner.globalKey,
+    };
     for (final row in rows) {
-      if (await getDownloadOwnerCount(row.globalKey) == 0) {
+      if (!ownedKeys.contains(row.globalKey)) {
         await addDownloadOwner(profileId: profileId, globalKey: row.globalKey);
       }
     }
@@ -238,6 +247,43 @@ extension DownloadDatabaseOperations on AppDatabase {
         .get();
   }
 
+  /// Downloaded tracks belonging to an album (parentRatingKey). Mirrors
+  /// [getEpisodesBySeason] but filters on type so an id collision with a
+  /// season key can never mix media kinds.
+  Future<List<DownloadedMediaItem>> getTracksByAlbum(
+    String albumKey, {
+    ServerId? serverId,
+    String? clientScopeId,
+    bool filterClientScope = false,
+  }) {
+    return (select(downloadedMedia)..where(
+          (t) =>
+              t.type.equals('track') &
+              t.parentRatingKey.equals(albumKey) &
+              _optionalServerPredicate(t.serverId, serverIdOrNull(serverId)) &
+              _optionalClientScopePredicate(t.clientScopeId, clientScopeId, filterClientScope: filterClientScope),
+        ))
+        .get();
+  }
+
+  /// Downloaded tracks belonging to an artist (grandparentRatingKey). Mirrors
+  /// [getEpisodesByShow] with the same type filter as [getTracksByAlbum].
+  Future<List<DownloadedMediaItem>> getTracksByArtist(
+    String artistKey, {
+    ServerId? serverId,
+    String? clientScopeId,
+    bool filterClientScope = false,
+  }) {
+    return (select(downloadedMedia)..where(
+          (t) =>
+              t.type.equals('track') &
+              t.grandparentRatingKey.equals(artistKey) &
+              _optionalServerPredicate(t.serverId, serverIdOrNull(serverId)) &
+              _optionalClientScopePredicate(t.clientScopeId, clientScopeId, filterClientScope: filterClientScope),
+        ))
+        .get();
+  }
+
   Future<List<DownloadedMediaItem>> getDownloadsByServerId(ServerId serverId) {
     return (select(downloadedMedia)..where((t) => t.serverId.equals(serverId))).get();
   }
@@ -270,4 +316,15 @@ extension DownloadDatabaseOperations on AppDatabase {
     final item = await getDownloadedMedia(globalKey);
     return item?.bgTaskId;
   }
+}
+
+bool _isValidDownloadOwner(
+  DownloadOwnerItem owner, {
+  required Set<String> localProfileIds,
+  required Set<String> connectionIds,
+}) {
+  if (localProfileIds.contains(owner.profileId)) return true;
+  final plexHome = parsePlexHomeProfileId(owner.profileId);
+  if (plexHome != null) return connectionIds.contains(plexHome.accountConnectionId);
+  return localProfileIds.isEmpty;
 }

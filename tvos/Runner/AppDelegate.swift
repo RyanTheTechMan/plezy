@@ -121,7 +121,6 @@ import wakelock_plus
     do {
       let session = AVAudioSession.sharedInstance()
       try session.setCategory(.playback, mode: .default)
-      try session.setActive(true)
     } catch {
       print("Failed to configure audio session: \(error)")
     }
@@ -137,6 +136,12 @@ import wakelock_plus
     }
     if let r = self.registrar(forPlugin: "MpvPlayerPlugin") {
       MpvPlayerPlugin.register(with: r)
+    }
+    if let r = self.registrar(forPlugin: "MpvAudioPlayerPlugin") {
+      MpvAudioPlayerPlugin.register(with: r)
+    }
+    if let r = self.registrar(forPlugin: "AtmosProbePlugin") {
+      AtmosProbePlugin.register(with: r)
     }
     if let r = self.registrar(forPlugin: "PackageInfoPlusPlugin") {
       PackageInfoPlusPlugin.register(with: r)

@@ -61,6 +61,8 @@ PlexVideoPlaybackData parsePlexVideoPlaybackDataFromJson(
   required String baseUrl,
   required String? token,
   int mediaIndex = 0,
+  String? selectedMediaSourceId,
+  String? preferredVersionSignature,
   void Function(int requestedIndex, int fallbackIndex)? onVersionFallback,
 }) {
   String? videoUrl;
@@ -76,6 +78,24 @@ PlexVideoPlaybackData parsePlexVideoPlaybackDataFromJson(
       availableVersions = mediaList
           .map((media) => PlexMappers.mediaVersionFromJson(Map<String, dynamic>.from(media)))
           .toList();
+
+      // Re-resolve version evidence against this (authoritative) Media list:
+      // stable id first, then signature. The positional index is the last
+      // resort — and all an explicit user pick carries besides its id, so a
+      // saved-preference signature can never override one.
+      final requestedSourceId = selectedMediaSourceId?.trim();
+      var resolvedBySourceId = false;
+      if (requestedSourceId != null && requestedSourceId.isNotEmpty) {
+        final byId = availableVersions.indexWhere((v) => v.id == requestedSourceId);
+        if (byId >= 0) {
+          mediaIndex = byId;
+          resolvedBySourceId = true;
+        }
+      }
+      if (!resolvedBySourceId && preferredVersionSignature != null && preferredVersionSignature.isNotEmpty) {
+        final bySignature = MediaVersion.findMatchingIndex(availableVersions, {preferredVersionSignature});
+        if (bySignature != null) mediaIndex = bySignature;
+      }
 
       if (mediaIndex < 0 || mediaIndex >= mediaList.length) {
         mediaIndex = 0;
@@ -112,7 +132,7 @@ PlexVideoPlaybackData parsePlexVideoPlaybackDataFromJson(
             chapters: chapters,
             partId: flexibleInt(part['id']),
             displayCriteria: PlexMappers.displayCriteriaFromJson(Map<String, dynamic>.from(media), streams.videoStream),
-            videoAspectRatio: (media['aspectRatio'] as num?)?.toDouble(),
+            videoAspectRatio: flexibleDouble(media['aspectRatio']),
           );
         }
       }
@@ -152,27 +172,27 @@ MediaFileInfo? parsePlexFileInfoFromJson(Map<String, dynamic>? metadataJson) {
       videoResolution: media['videoResolution'] as String?,
       videoFrameRate: media['videoFrameRate'] as String?,
       videoProfile: media['videoProfile'] as String?,
-      width: media['width'] as int?,
-      height: media['height'] as int?,
-      aspectRatio: (media['aspectRatio'] as num?)?.toDouble(),
-      bitrate: media['bitrate'] as int?,
-      duration: media['duration'] as int?,
+      width: flexibleInt(media['width']),
+      height: flexibleInt(media['height']),
+      aspectRatio: flexibleDouble(media['aspectRatio']),
+      bitrate: flexibleInt(media['bitrate']),
+      duration: flexibleInt(media['duration']),
       audioCodec: media['audioCodec'] as String?,
       audioProfile: media['audioProfile'] as String?,
-      audioChannels: media['audioChannels'] as int?,
+      audioChannels: flexibleInt(media['audioChannels']),
       optimizedForStreaming: flexibleBool(media['optimizedForStreaming']),
       has64bitOffsets: flexibleBool(media['has64bitOffsets']),
       // Part level properties (file)
       filePath: part?['file'] as String?,
-      fileSize: part?['size'] as int?,
+      fileSize: flexibleInt(part?['size']),
       // Video stream details
       colorSpace: videoStream?['colorSpace'] as String?,
       colorRange: videoStream?['colorRange'] as String?,
       colorPrimaries: videoStream?['colorPrimaries'] as String?,
       chromaSubsampling: videoStream?['chromaSubsampling'] as String?,
-      frameRate: (videoStream?['frameRate'] as num?)?.toDouble(),
-      bitDepth: videoStream?['bitDepth'] as int?,
-      videoBitrate: videoStream?['bitrate'] as int?,
+      frameRate: flexibleDouble(videoStream?['frameRate']),
+      bitDepth: flexibleInt(videoStream?['bitDepth']),
+      videoBitrate: flexibleInt(videoStream?['bitrate']),
       // Audio stream details
       audioChannelLayout: audioStream?['audioChannelLayout'] as String?,
       // All audio and subtitle tracks

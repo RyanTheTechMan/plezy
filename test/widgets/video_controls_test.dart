@@ -1,6 +1,10 @@
+import 'dart:async';
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:plezy/focus/key_event_utils.dart';
 import 'package:plezy/i18n/strings.g.dart';
 import 'package:plezy/media/media_source_info.dart';
 import 'package:plezy/media/media_version.dart';
@@ -8,6 +12,7 @@ import 'package:plezy/models/shader_preset.dart';
 import 'package:plezy/mpv/mpv.dart';
 import 'package:plezy/theme/mono_tokens.dart';
 import 'package:plezy/widgets/video_controls/video_controls.dart';
+import 'package:plezy/widgets/video_controls/player_chrome_controller.dart';
 import 'package:plezy/widgets/video_controls/painters/buffer_range_painter.dart';
 import 'package:plezy/widgets/video_controls/widgets/mobile_skip_zones.dart';
 import 'package:plezy/widgets/video_controls/widgets/skip_marker_button.dart';
@@ -20,10 +25,14 @@ import '../test_helpers/watch_together_fakes.dart';
 const _testTokens = MonoTokens(
   radiusSm: 8,
   radiusMd: 12,
+  radiusLg: 20,
+  radiusXs: 5,
+  groupGap: 2,
   space: 8,
   fast: Duration(milliseconds: 1),
   normal: Duration(milliseconds: 1),
   slow: Duration(milliseconds: 1),
+  expressive: Duration(milliseconds: 1),
   bg: Colors.black,
   surface: Colors.black,
   outline: Colors.white24,
@@ -211,35 +220,488 @@ void main() {
     });
   });
 
-  group('handlePromptDismissBackKey', () {
-    test('ignores back keys when no prompt is visible', () {
-      var dismissCount = 0;
-
-      final result = handlePromptDismissBackKey(_keyUp(LogicalKeyboardKey.goBack), null);
-
-      expect(result, KeyEventResult.ignored);
-      expect(dismissCount, 0);
+  group('classifyPlayerNavigationKey', () {
+    test('reserves only physical keyboard Escape for fullscreen', () {
+      expect(
+        classifyPlayerNavigationKey(
+          _navigationKeyDown(LogicalKeyboardKey.escape, ui.KeyEventDeviceType.keyboard),
+          isAppleTV: false,
+        ),
+        PlayerNavigationKey.physicalEscape,
+      );
+      expect(
+        classifyPlayerNavigationKey(
+          _navigationKeyDown(LogicalKeyboardKey.escape, ui.KeyEventDeviceType.gamepad),
+          isAppleTV: false,
+        ),
+        PlayerNavigationKey.back,
+      );
+      expect(
+        classifyPlayerNavigationKey(
+          _navigationKeyDown(LogicalKeyboardKey.escape, ui.KeyEventDeviceType.directionalPad),
+          isAppleTV: false,
+        ),
+        PlayerNavigationKey.back,
+      );
     });
 
-    test('consumes key down and dismisses on key up', () {
-      var dismissCount = 0;
-      void dismissPrompt() => dismissCount++;
+    test('treats tvOS keyboard Escape as semantic Back', () {
+      expect(
+        classifyPlayerNavigationKey(
+          _navigationKeyDown(LogicalKeyboardKey.escape, ui.KeyEventDeviceType.keyboard),
+          isAppleTV: true,
+        ),
+        PlayerNavigationKey.back,
+      );
+    });
 
-      final downResult = handlePromptDismissBackKey(_keyDown(LogicalKeyboardKey.goBack), dismissPrompt);
-      final upResult = handlePromptDismissBackKey(_keyUp(LogicalKeyboardKey.goBack), dismissPrompt);
+    test('recognizes controller and browser Back keys', () {
+      for (final key in [LogicalKeyboardKey.gameButtonB, LogicalKeyboardKey.goBack, LogicalKeyboardKey.browserBack]) {
+        expect(
+          classifyPlayerNavigationKey(_navigationKeyDown(key, ui.KeyEventDeviceType.gamepad), isAppleTV: false),
+          PlayerNavigationKey.back,
+        );
+      }
+    });
+
+    test('recognizes only bare physical Backspace as player Back', () {
+      final event = _navigationKeyDown(LogicalKeyboardKey.backspace, ui.KeyEventDeviceType.keyboard);
+
+      expect(classifyPlayerNavigationKey(event, isAppleTV: false, hasModifiers: false), PlayerNavigationKey.back);
+      expect(classifyPlayerNavigationKey(event, isAppleTV: false, hasModifiers: true), PlayerNavigationKey.none);
+    });
+
+    test('recognizes bare keyboard and browser Home', () {
+      for (final key in [LogicalKeyboardKey.home, LogicalKeyboardKey.browserHome]) {
+        expect(
+          classifyPlayerNavigationKey(
+            _navigationKeyDown(key, ui.KeyEventDeviceType.keyboard),
+            isAppleTV: false,
+            hasModifiers: false,
+          ),
+          PlayerNavigationKey.home,
+        );
+      }
+    });
+  });
+
+  group('handlePlayerNavigationKeyAction', () {
+    testWidgets('semantic Back activates once on key up', (tester) async {
+      var actions = 0;
+
+      final downResult = handlePlayerNavigationKeyAction(
+        _keyDown(LogicalKeyboardKey.gameButtonB),
+        PlayerNavigationKey.back,
+        () => actions++,
+      );
+      final upResult = handlePlayerNavigationKeyAction(
+        _keyUp(LogicalKeyboardKey.gameButtonB),
+        PlayerNavigationKey.back,
+        () => actions++,
+      );
 
       expect(downResult, KeyEventResult.handled);
       expect(upResult, KeyEventResult.handled);
-      expect(dismissCount, 1);
+      expect(actions, 1);
+      await tester.pump();
     });
 
-    test('ignores non-back keys', () {
-      var dismissCount = 0;
+    testWidgets('Backspace alias activates once on key up', (tester) async {
+      var actions = 0;
 
-      final result = handlePromptDismissBackKey(_keyDown(LogicalKeyboardKey.arrowLeft), () => dismissCount++);
+      handlePlayerNavigationKeyAction(
+        _keyDown(LogicalKeyboardKey.backspace),
+        PlayerNavigationKey.back,
+        () => actions++,
+      );
+      expect(BackKeyCoordinator.consumeIfHandled(), isTrue, reason: 'parallel route pop is suppressed on key down');
+      handlePlayerNavigationKeyAction(_keyUp(LogicalKeyboardKey.backspace), PlayerNavigationKey.back, () => actions++);
 
-      expect(result, KeyEventResult.ignored);
-      expect(dismissCount, 0);
+      expect(actions, 1);
+      await tester.pump();
+    });
+  });
+
+  group('primePlayerNavigationFocusForEvent', () {
+    testWidgets('claims loading-route focus on navigation key down', (tester) async {
+      final playerFocus = FocusNode();
+      final otherFocus = FocusNode();
+      addTearDown(playerFocus.dispose);
+      addTearDown(otherFocus.dispose);
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Column(
+            children: [
+              Focus(focusNode: playerFocus, child: const SizedBox()),
+              Focus(focusNode: otherFocus, child: const SizedBox()),
+            ],
+          ),
+        ),
+      );
+      otherFocus.requestFocus();
+      await tester.pump();
+
+      final primed = primePlayerNavigationFocusForEvent(
+        _keyDown(LogicalKeyboardKey.gameButtonB),
+        focusNode: playerFocus,
+        playerReady: false,
+        isCurrentRoute: true,
+        isAppleTV: false,
+      );
+      await tester.pump();
+
+      expect(primed, isTrue);
+      expect(playerFocus.hasPrimaryFocus, isTrue);
+    });
+
+    testWidgets('does not steal focus after the player is ready', (tester) async {
+      final playerFocus = FocusNode();
+      final otherFocus = FocusNode();
+      addTearDown(playerFocus.dispose);
+      addTearDown(otherFocus.dispose);
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Column(
+            children: [
+              Focus(focusNode: playerFocus, child: const SizedBox()),
+              Focus(focusNode: otherFocus, child: const SizedBox()),
+            ],
+          ),
+        ),
+      );
+      otherFocus.requestFocus();
+      await tester.pump();
+
+      final primed = primePlayerNavigationFocusForEvent(
+        _keyDown(LogicalKeyboardKey.gameButtonB),
+        focusNode: playerFocus,
+        playerReady: true,
+        isCurrentRoute: true,
+        isAppleTV: false,
+      );
+      await tester.pump();
+
+      expect(primed, isFalse);
+      expect(otherFocus.hasPrimaryFocus, isTrue);
+    });
+
+    testWidgets('does not steal focus from a route above the player', (tester) async {
+      final playerFocus = FocusNode();
+      final overlayFocus = FocusNode();
+      addTearDown(playerFocus.dispose);
+      addTearDown(overlayFocus.dispose);
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Column(
+            children: [
+              Focus(focusNode: playerFocus, child: const SizedBox()),
+              Focus(focusNode: overlayFocus, child: const SizedBox()),
+            ],
+          ),
+        ),
+      );
+      overlayFocus.requestFocus();
+      await tester.pump();
+
+      final primed = primePlayerNavigationFocusForEvent(
+        _keyDown(LogicalKeyboardKey.gameButtonB),
+        focusNode: playerFocus,
+        playerReady: false,
+        isCurrentRoute: false,
+        isAppleTV: false,
+      );
+      await tester.pump();
+
+      expect(primed, isFalse);
+      expect(overlayFocus.hasPrimaryFocus, isTrue);
+    });
+  });
+
+  group('PlayerNavigationCoordinator focus dispatch', () {
+    PlayerNavigationCoordinator coordinatorFor(
+      PlayerChromeController chromeController, {
+      bool Function()? isPromptOpen,
+      VoidCallback? dismissPrompt,
+      bool Function()? isChromePresented,
+      Future<bool> Function()? exitFullscreenIfActive,
+      bool physicalEscapeExitsFullscreen = true,
+      VoidCallback? exitPlayer,
+      VoidCallback? navigateHome,
+      bool Function()? isActive,
+    }) {
+      return PlayerNavigationCoordinator(
+        chromeController: chromeController,
+        isPromptOpen: isPromptOpen ?? () => false,
+        dismissPrompt: dismissPrompt ?? () {},
+        isChromePresented: isChromePresented ?? () => chromeController.controlsPresented,
+        exitFullscreenIfActive: exitFullscreenIfActive ?? () async => false,
+        physicalEscapeExitsFullscreen: physicalEscapeExitsFullscreen,
+        exitPlayer: exitPlayer ?? () {},
+        navigateHome: navigateHome ?? () {},
+        isActive: isActive,
+      );
+    }
+
+    Future<void> pumpNavigationFocus(WidgetTester tester, PlayerNavigationCoordinator coordinator) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Focus(
+            autofocus: true,
+            onKeyEvent: (_, event) {
+              final navigationKey = classifyPlayerNavigationKey(event, isAppleTV: false);
+              return handlePlayerNavigationKeyAction(event, navigationKey, () => coordinator.handle(navigationKey));
+            },
+            child: const SizedBox.expand(),
+          ),
+        ),
+      );
+      await tester.pump();
+    }
+
+    testWidgets('one Back hides presented chrome and the next exits once after fade-out', (tester) async {
+      final chromeController = PlayerChromeController();
+      addTearDown(chromeController.dispose);
+      var exits = 0;
+      final coordinator = coordinatorFor(chromeController, exitPlayer: () => exits++);
+      await pumpNavigationFocus(tester, coordinator);
+
+      await tester.sendKeyEvent(LogicalKeyboardKey.gameButtonB);
+
+      expect(chromeController.controlsVisible, isFalse);
+      expect(chromeController.controlsPresented, isTrue);
+      expect(exits, 0);
+
+      chromeController.markControlsHidden();
+      await tester.sendKeyEvent(LogicalKeyboardKey.gameButtonB);
+
+      expect(exits, 1);
+    });
+
+    testWidgets('Back exits during pre-first-frame loading even when controls default visible', (tester) async {
+      final chromeController = PlayerChromeController();
+      addTearDown(chromeController.dispose);
+      var exits = 0;
+      final coordinator = coordinatorFor(chromeController, isChromePresented: () => false, exitPlayer: () => exits++);
+      await pumpNavigationFocus(tester, coordinator);
+
+      await tester.sendKeyEvent(LogicalKeyboardKey.gameButtonB);
+
+      expect(chromeController.controlsVisible, isTrue);
+      expect(exits, 1);
+    });
+
+    testWidgets('physical Escape outside fullscreen hides presented chrome without exiting', (tester) async {
+      final chromeController = PlayerChromeController();
+      addTearDown(chromeController.dispose);
+      var fullscreenChecks = 0;
+      var exits = 0;
+      final coordinator = coordinatorFor(
+        chromeController,
+        exitFullscreenIfActive: () async {
+          fullscreenChecks++;
+          return false;
+        },
+        exitPlayer: () => exits++,
+      );
+      await pumpNavigationFocus(tester, coordinator);
+
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pump();
+
+      expect(fullscreenChecks, 1);
+      expect(chromeController.controlsVisible, isFalse);
+      expect(exits, 0);
+    });
+
+    testWidgets('physical Escape preserves event-time chrome presentation across fullscreen check', (tester) async {
+      final chromeController = PlayerChromeController();
+      addTearDown(chromeController.dispose);
+      final fullscreenResult = Completer<bool>();
+      var exits = 0;
+      final coordinator = coordinatorFor(
+        chromeController,
+        exitFullscreenIfActive: () => fullscreenResult.future,
+        exitPlayer: () => exits++,
+      );
+      await pumpNavigationFocus(tester, coordinator);
+
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      chromeController.hide();
+      chromeController.markControlsHidden();
+      fullscreenResult.complete(false);
+      await tester.pump();
+
+      expect(chromeController.controlsVisible, isFalse);
+      expect(chromeController.controlsPresented, isFalse);
+      expect(exits, 0);
+    });
+
+    testWidgets('physical Escape exits native fullscreen before chrome', (tester) async {
+      final chromeController = PlayerChromeController();
+      addTearDown(chromeController.dispose);
+      var exits = 0;
+      final coordinator = coordinatorFor(
+        chromeController,
+        exitFullscreenIfActive: () async => true,
+        exitPlayer: () => exits++,
+      );
+      await pumpNavigationFocus(tester, coordinator);
+
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pump();
+
+      expect(chromeController.controlsVisible, isTrue);
+      expect(exits, 0);
+    });
+
+    testWidgets('macOS physical Escape stages through chrome and player without leaving fullscreen', (tester) async {
+      final chromeController = PlayerChromeController();
+      addTearDown(chromeController.dispose);
+      var fullscreenChecks = 0;
+      var exits = 0;
+      final coordinator = coordinatorFor(
+        chromeController,
+        exitFullscreenIfActive: () async {
+          fullscreenChecks++;
+          return true;
+        },
+        physicalEscapeExitsFullscreen: false,
+        exitPlayer: () => exits++,
+      );
+      await pumpNavigationFocus(tester, coordinator);
+
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+
+      expect(fullscreenChecks, 0);
+      expect(chromeController.controlsVisible, isFalse);
+      expect(exits, 0);
+
+      chromeController.markControlsHidden();
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+
+      expect(fullscreenChecks, 0);
+      expect(exits, 1);
+    });
+
+    testWidgets('physical Escape does nothing after its player route is disposed', (tester) async {
+      final chromeController = PlayerChromeController();
+      addTearDown(chromeController.dispose);
+      final fullscreenResult = Completer<bool>();
+      var active = true;
+      var exits = 0;
+      final coordinator = coordinatorFor(
+        chromeController,
+        exitFullscreenIfActive: () => fullscreenResult.future,
+        exitPlayer: () => exits++,
+        isActive: () => active,
+      );
+      await pumpNavigationFocus(tester, coordinator);
+
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      active = false;
+      fullscreenResult.complete(false);
+      await tester.pump();
+
+      expect(chromeController.controlsVisible, isTrue);
+      expect(exits, 0);
+    });
+
+    testWidgets('Back closes the content strip without hiding chrome or exiting', (tester) async {
+      final chromeController = PlayerChromeController()..setContentStripVisible(true);
+      addTearDown(chromeController.dispose);
+      var exits = 0;
+      final coordinator = coordinatorFor(chromeController, exitPlayer: () => exits++);
+      await pumpNavigationFocus(tester, coordinator);
+
+      await tester.sendKeyEvent(LogicalKeyboardKey.gameButtonB);
+
+      expect(chromeController.contentStripVisible, isFalse);
+      expect(chromeController.controlsVisible, isTrue);
+      expect(exits, 0);
+      chromeController.cancelAutoHide();
+    });
+
+    testWidgets('Home bypasses staged Back layers', (tester) async {
+      final chromeController = PlayerChromeController()..setContentStripVisible(true);
+      addTearDown(chromeController.dispose);
+      var promptOpen = true;
+      var promptDismissals = 0;
+      var homeNavigations = 0;
+      final coordinator = coordinatorFor(
+        chromeController,
+        isPromptOpen: () => promptOpen,
+        dismissPrompt: () {
+          promptOpen = false;
+          promptDismissals++;
+        },
+        navigateHome: () => homeNavigations++,
+      );
+      await pumpNavigationFocus(tester, coordinator);
+
+      await tester.sendKeyEvent(LogicalKeyboardKey.home);
+
+      expect(homeNavigations, 1);
+      expect(promptDismissals, 0);
+      expect(chromeController.contentStripVisible, isTrue);
+      expect(chromeController.controlsVisible, isTrue);
+    });
+
+    testWidgets('global observation and focus dispatch produce one native Back action', (tester) async {
+      final chromeController = PlayerChromeController();
+      addTearDown(chromeController.dispose);
+      var globalEvents = 0;
+      var exits = 0;
+      bool globalHandler(KeyEvent event) {
+        if (classifyPlayerNavigationKey(event, isAppleTV: false) != PlayerNavigationKey.none) {
+          globalEvents++;
+        }
+        return false;
+      }
+
+      HardwareKeyboard.instance.addHandler(globalHandler);
+      addTearDown(() => HardwareKeyboard.instance.removeHandler(globalHandler));
+      await pumpNavigationFocus(tester, coordinatorFor(chromeController, exitPlayer: () => exits++));
+
+      await tester.sendKeyEvent(LogicalKeyboardKey.backspace);
+
+      expect(globalEvents, 2);
+      expect(chromeController.controlsVisible, isFalse);
+      expect(exits, 0);
+    });
+  });
+
+  group('resolvePlayerBackDisposition', () {
+    test('closes a content strip before other Back behavior', () {
+      expect(
+        resolvePlayerBackDisposition(
+          navigationKey: PlayerNavigationKey.physicalEscape,
+          contentStripVisible: true,
+          controlsVisible: true,
+        ),
+        PlayerBackDisposition.closeContentStrip,
+      );
+    });
+
+    test('checks fullscreen only for physical Escape', () {
+      expect(
+        resolvePlayerBackDisposition(
+          navigationKey: PlayerNavigationKey.physicalEscape,
+          contentStripVisible: false,
+          controlsVisible: false,
+        ),
+        PlayerBackDisposition.exitFullscreenIfActive,
+      );
+      expect(
+        resolvePlayerBackDisposition(
+          navigationKey: PlayerNavigationKey.back,
+          contentStripVisible: false,
+          controlsVisible: false,
+        ),
+        PlayerBackDisposition.exitPlayer,
+      );
     });
   });
 
@@ -815,6 +1277,15 @@ KeyDownEvent _keyDown(LogicalKeyboardKey key) {
 
 KeyUpEvent _keyUp(LogicalKeyboardKey key) {
   return KeyUpEvent(physicalKey: PhysicalKeyboardKey.escape, logicalKey: key, timeStamp: Duration.zero);
+}
+
+KeyDownEvent _navigationKeyDown(LogicalKeyboardKey key, ui.KeyEventDeviceType deviceType) {
+  return KeyDownEvent(
+    physicalKey: PhysicalKeyboardKey.escape,
+    logicalKey: key,
+    timeStamp: Duration.zero,
+    deviceType: deviceType,
+  );
 }
 
 Future<void> _pumpSkipMarkerButton(

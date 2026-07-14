@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 
 import '../../focus/dpad_navigator.dart';
 import '../../media/media_item.dart';
+import '../../media/stepped_seek.dart';
 import '../../mpv/mpv.dart';
 import '../../media/media_source_info.dart';
 import '../../services/fullscreen_state_manager.dart';
@@ -19,6 +20,7 @@ import '../../i18n/strings.g.dart';
 import '../../focus/focusable_wrapper.dart';
 import '../../models/livetv_capture_buffer.dart';
 import 'models/track_controls_state.dart';
+import 'player_chrome_controller.dart';
 import 'widgets/content_strip.dart';
 import 'widgets/live_timeline_bar.dart';
 import 'widgets/first_frame_guard.dart';
@@ -101,6 +103,7 @@ class DesktopVideoControls extends StatefulWidget {
 
   /// Called when content strip visibility changes
   final ValueChanged<bool>? onContentStripVisibilityChanged;
+  final PlayerChromeController? chromeController;
 
   /// Called when a seek should be executed by the owning screen.
   final Future<void> Function(Duration position)? onSeekRequested;
@@ -150,6 +153,7 @@ class DesktopVideoControls extends StatefulWidget {
     this.onCancelAutoHide,
     this.onStartAutoHide,
     this.onContentStripVisibilityChanged,
+    this.chromeController,
     this.onSeekRequested,
     this.onSeekCompleted,
   });
@@ -190,13 +194,8 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
   // Preview thumbnail during sustained dpad/keyboard seeking
   bool _showKeyRepeatThumbnail = false;
   Timer? _keyRepeatThumbnailTimer;
-  Timer? _timelineSeekDebounceTimer;
-  Timer? _timelinePreviewClearTimer;
-  Duration? _timelinePreviewPosition;
-  Duration? _lastFlushedTimelinePreviewPosition;
+  late final DebouncedSeekAccumulator _timelineSeek;
   static const _keyRepeatThumbnailTimeout = Duration(milliseconds: 400);
-  static const _timelineSeekDebounce = Duration(milliseconds: 350);
-  static const _timelinePreviewClearDelay = Duration(seconds: 2);
 
   // Content strip state
   bool _contentStripVisible = false;
@@ -237,13 +236,31 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
       _nextItemFocusNode,
       _goToLiveFocusNode,
     ];
+    widget.chromeController?.addListener(_onChromeControllerChanged);
+    _timelineSeek = DebouncedSeekAccumulator(
+      currentPosition: () => widget.player.state.position,
+      duration: () => widget.player.state.duration,
+      seek: widget.onSeekEnd,
+      onChanged: () {
+        if (mounted) setState(() {});
+      },
+    );
+  }
+
+  @override
+  void didUpdateWidget(DesktopVideoControls oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.chromeController != widget.chromeController) {
+      oldWidget.chromeController?.removeListener(_onChromeControllerChanged);
+      widget.chromeController?.addListener(_onChromeControllerChanged);
+    }
   }
 
   @override
   void dispose() {
+    widget.chromeController?.removeListener(_onChromeControllerChanged);
     _keyRepeatThumbnailTimer?.cancel();
-    _timelineSeekDebounceTimer?.cancel();
-    _timelinePreviewClearTimer?.cancel();
+    _timelineSeek.dispose();
     _prevItemFocusNode.dispose();
     _prevChapterFocusNode.dispose();
     _skipBackFocusNode.dispose();
@@ -260,6 +277,12 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
     super.dispose();
   }
 
+  void _onChromeControllerChanged() {
+    if (widget.chromeController?.contentStripVisible == false) {
+      hideContentStrip();
+    }
+  }
+
   /// Request focus on the play/pause button (called when controls shown via keyboard)
   void requestPlayPauseFocus() {
     _playPauseFocusNode.requestFocus();
@@ -269,12 +292,6 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
   void requestTimelineFocus() {
     _timelineFocusNode.requestFocus();
   }
-
-  /// Get focus node for volume control
-  FocusNode get volumeFocusNode => _volumeFocusNode;
-
-  /// Get focus nodes for track controls
-  List<FocusNode> get trackControlFocusNodes => _trackControlFocusNodes;
 
   /// Hide content strip (called by parent when controls hide)
   void hideContentStrip() {
@@ -315,7 +332,7 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
       widget.onFocusActivity?.call();
     } else {
       // Reset progressive seek state when timeline loses focus
-      _flushTimelinePreviewSeek();
+      _timelineSeek.flush();
       _resetSeekState();
     }
   }
@@ -469,40 +486,6 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
     }
   }
 
-  void _clearTimelinePreviewIfStill(Duration target) {
-    if (!mounted || _timelinePreviewPosition != target) return;
-    setState(() => _timelinePreviewPosition = null);
-  }
-
-  void _scheduleTimelinePreviewClear(Duration target) {
-    _timelinePreviewClearTimer?.cancel();
-    _timelinePreviewClearTimer = Timer(_timelinePreviewClearDelay, () => _clearTimelinePreviewIfStill(target));
-  }
-
-  void _flushTimelinePreviewSeek() {
-    final target = _timelinePreviewPosition;
-    _timelineSeekDebounceTimer?.cancel();
-    _timelineSeekDebounceTimer = null;
-    if (target == null) return;
-    if (_lastFlushedTimelinePreviewPosition == target) return;
-    _lastFlushedTimelinePreviewPosition = target;
-    widget.onSeekEnd(target);
-    _scheduleTimelinePreviewClear(target);
-  }
-
-  void _scheduleTimelinePreviewSeekFlush() {
-    _timelineSeekDebounceTimer?.cancel();
-    _timelineSeekDebounceTimer = Timer(_timelineSeekDebounce, _flushTimelinePreviewSeek);
-  }
-
-  void _setTimelinePreviewPosition(Duration position) {
-    _timelinePreviewClearTimer?.cancel();
-    _timelinePreviewClearTimer = null;
-    if (_timelinePreviewPosition == position) return;
-    _lastFlushedTimelinePreviewPosition = null;
-    setState(() => _timelinePreviewPosition = position);
-  }
-
   /// Show the timeline preview thumbnail during sustained key-repeat seeking.
   /// Arms a short timer that hides the thumbnail once repeats stop.
   void _triggerKeyRepeatThumbnail() {
@@ -516,32 +499,17 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
     });
   }
 
-  /// Calculate seek multiplier based on repeat count (stepped tiers)
-  double _getSeekMultiplier() {
-    if (_seekRepeatCount <= 5) {
-      return 1.5;
-    } else if (_seekRepeatCount <= 15) {
-      return 3.0;
-    } else if (_seekRepeatCount <= 30) {
-      return 6.0;
-    } else {
-      return 10.0;
-    }
-  }
-
   /// Handle key events for timeline navigation
   KeyEventResult _handleTimelineKeyEvent(FocusNode _, KeyEvent event) {
     final key = event.logicalKey;
 
-    // Handle key release to reset progressive seek state
+    // Handle key release: commit the accumulated scrub target with a single
+    // seek (a no-op when nothing is pending) and reset progressive seek state.
     if (event is KeyUpEvent) {
       if (key == LogicalKeyboardKey.arrowLeft || key == LogicalKeyboardKey.arrowRight) {
-        if (_trackControlsState.isTranscoding) {
-          _flushTimelinePreviewSeek();
-          _resetSeekState();
-          return KeyEventResult.handled;
-        }
+        _timelineSeek.flush();
         _resetSeekState();
+        return KeyEventResult.handled;
       }
       return KeyEventResult.ignored;
     }
@@ -551,11 +519,10 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
     }
 
     final duration = widget.player.state.duration;
-    final position = widget.player.state.position;
 
     // UP arrow - hide controls and reset seek state
     if (key == LogicalKeyboardKey.arrowUp) {
-      _flushTimelinePreviewSeek();
+      _timelineSeek.flush();
       _resetSeekState();
       widget.onHideControls?.call();
       return KeyEventResult.handled;
@@ -563,7 +530,7 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
 
     // DOWN arrow - move focus to play/pause button and reset seek state
     if (key == LogicalKeyboardKey.arrowDown) {
-      _flushTimelinePreviewSeek();
+      _timelineSeek.flush();
       _resetSeekState();
       _playPauseFocusNode.requestFocus();
       widget.onFocusActivity?.call();
@@ -586,7 +553,7 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
       }
 
       final isForward = key == LogicalKeyboardKey.arrowRight;
-      final effectiveMultiplier = event is KeyRepeatEvent ? _getSeekMultiplier() : 1.0;
+      final effectiveMultiplier = event is KeyRepeatEvent ? steppedSeekMultiplier(_seekRepeatCount) : 1.0;
 
       // Live TV: relative epoch-based seeking via the parent accumulator, which
       // coalesces a rapid/held burst into one transcode re-open (#1253). The
@@ -605,22 +572,15 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
       final stepMs = (baseStepMs * effectiveMultiplier).clamp(500, 120_000).toInt();
       final step = Duration(milliseconds: stepMs);
 
-      final newPosition = isForward ? position + step : position - step;
+      _timelineSeek.seekBy(isForward ? step : -step);
 
-      // Clamp to valid range
-      final clampedPosition = Duration(milliseconds: newPosition.inMilliseconds.clamp(0, duration.inMilliseconds));
-
-      if (_trackControlsState.isTranscoding) {
-        final previewBase = _timelinePreviewPosition ?? position;
-        final previewPosition = isForward ? previewBase + step : previewBase - step;
-        final clampedPreview = Duration(milliseconds: previewPosition.inMilliseconds.clamp(0, duration.inMilliseconds));
-        _setTimelinePreviewPosition(clampedPreview);
-        _scheduleTimelinePreviewSeekFlush();
-        widget.onFocusActivity?.call();
-        return KeyEventResult.handled;
-      }
-
-      widget.onSeek(clampedPosition);
+      // Move only the preview while the key is held; commit a single seek once
+      // the burst pauses (debounce) or the key is released. Firing a real seek
+      // per key-repeat floods a direct/progressive stream with overlapping range
+      // requests and wedges low-power devices (e.g. Fire TV Stick) in BUFFERING.
+      // The player's `buffering` flag lags the key-repeat rate, so it can't gate
+      // this reliably — coalescing unconditionally matches the existing transcode
+      // path and cannot flood regardless of hardware.
       widget.onFocusActivity?.call();
       return KeyEventResult.handled;
     }
@@ -733,6 +693,8 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
               metadata: widget.metadata,
               style: Platform.isMacOS ? VideoHeaderStyle.singleLine : VideoHeaderStyle.multiLine,
               onBack: widget.onBack,
+              onCancelAutoHide: widget.onCancelAutoHide,
+              onStartAutoHide: widget.onStartAutoHide,
             ),
           ),
           if (_isLive && (widget.captureBuffer == null || widget.isAtLiveEdge)) ...[
@@ -790,7 +752,7 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
               enabled: canInteract,
               thumbnailDataBuilder: widget.thumbnailDataBuilder,
               showKeyRepeatThumbnail: _showKeyRepeatThumbnail,
-              previewPosition: _timelinePreviewPosition,
+              previewPosition: _timelineSeek.pendingPosition,
             ),
           ],
           // Row 2: Playback controls and options
@@ -1015,28 +977,14 @@ class DesktopVideoControlsState extends State<DesktopVideoControls> {
 
   /// Returns the label of the next chapter the user would seek to, or null.
   String? _getNextChapterLabel(Duration position) {
-    if (widget.chapters.isEmpty) return null;
-    final currentPositionMs = position.inMilliseconds;
-    for (final chapter in widget.chapters) {
-      final chapterStart = chapter.startTimeOffset ?? 0;
-      if (chapterStart > currentPositionMs) {
-        return chapter.label;
-      }
-    }
-    return null;
+    final index = MediaChapter.seekTargetIndex(position, widget.chapters, forward: true);
+    return index == null ? null : widget.chapters[index].label;
   }
 
   /// Returns the label of the previous chapter the user would seek to, or null.
   String? _getPreviousChapterLabel(Duration position) {
-    if (widget.chapters.isEmpty) return null;
-    final currentPositionMs = position.inMilliseconds;
-    for (int i = widget.chapters.length - 1; i >= 0; i--) {
-      final chapterStart = widget.chapters[i].startTimeOffset ?? 0;
-      if (currentPositionMs > chapterStart + 3000) {
-        return widget.chapters[i].label;
-      }
-    }
-    return null;
+    final index = MediaChapter.seekTargetIndex(position, widget.chapters, forward: false);
+    return index == null ? null : widget.chapters[index].label;
   }
 
   Widget _buildFocusableButton({

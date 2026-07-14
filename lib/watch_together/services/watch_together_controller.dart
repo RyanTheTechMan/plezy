@@ -5,6 +5,7 @@ import '../../utils/app_logger.dart';
 import '../models/playback_state.dart';
 import '../models/sync_message.dart';
 import '../models/watch_session.dart';
+import '../primitives.dart';
 import 'attached_player.dart';
 import 'clock_sync.dart';
 import 'guest_playback_reconciler.dart';
@@ -28,7 +29,7 @@ class WatchTogetherController {
     int Function()? nowMs,
   }) : _peerService = peerService,
        _session = session,
-       _nowMs = nowMs ?? _systemNowMs {
+       _nowMs = nowMs ?? watchTogetherSystemNowMs {
     if (session.isHost) {
       _coordinator = HostPlaybackCoordinator(
         myPeerId: peerService.myPeerId ?? '',
@@ -65,8 +66,6 @@ class WatchTogetherController {
     _subscriptions.add(peerService.onPeerDisconnected.listen(_handlePeerDisconnected));
   }
 
-  static int _systemNowMs() => DateTime.now().millisecondsSinceEpoch;
-
   final WatchTogetherPeerService _peerService;
   final int Function() _nowMs;
   WatchSession _session;
@@ -90,6 +89,7 @@ class WatchTogetherController {
   void Function(bool correcting)? onCorrectingChanged;
   void Function(ControlMode mode)? onControlModeReceived;
   void Function(String ratingKey, String serverId, String? mediaTitle)? onMediaStateReceived;
+  void Function()? onHostExitedPlayer;
   void Function(String peerId, PlaybackActionHint hint)? onRemoteAction;
   void Function(String peerId)? onPeerNeedsUpdate;
   void Function(List<String> peerIds)? onResumedWithout;
@@ -339,7 +339,12 @@ class WatchTogetherController {
         break;
 
       case SyncMessageType.hostExitedPlayer:
-        // Handled at the provider level.
+        // Rides the ordered queue so it can't locally overtake state
+        // messages that preceded it on the wire. Only the host may end the
+        // media epoch.
+        if (!_session.isHost && senderId == _session.hostPeerId) {
+          onHostExitedPlayer?.call();
+        }
         break;
     }
   }
