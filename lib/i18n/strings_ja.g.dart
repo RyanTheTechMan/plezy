@@ -96,7 +96,7 @@ class _TranslationsAppJa extends TranslationsAppEn {
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -204,6 +204,14 @@ class _TranslationsUpdateJa extends TranslationsUpdateEn {
 	@override String get viewRelease => 'リリースを表示';
 	@override String get latestVersion => '最新バージョンです';
 	@override String get checkFailed => 'アップデートの確認に失敗しました';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -338,6 +346,12 @@ class _TranslationsSettingsJa extends TranslationsSettingsEn {
 	@override String get updates => 'アップデート';
 	@override String get updateAvailable => 'アップデート利用可能';
 	@override String get checkForUpdates => 'アップデートを確認';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => '起動時にアップデートを自動的に確認';
 	@override String get autoCheckUpdatesOnStartupDescription => '起動時にアップデートがある場合は通知します';
 	@override String get validationErrorEnterNumber => '有効な数値を入力してください';
@@ -481,6 +495,8 @@ class _TranslationsHotkeysJa extends TranslationsHotkeysEn {
 	@override String get clearShortcut => 'ショートカットをクリア';
 	@override String get noShortcutSet => 'ショートカット未設定';
 	@override String get currentShortcut => '現在のショートカット:';
+	@override String get pressToRecord => 'Select to record a shortcut';
+	@override String get recordingShortcut => 'Press the shortcut now';
 	@override late final _TranslationsHotkeysActionsJa actions = _TranslationsHotkeysActionsJa._(_root);
 }
 
@@ -582,6 +598,8 @@ class _TranslationsAccessibilityJa extends TranslationsAccessibilityEn {
 	@override String get saturation => '彩度';
 	@override String get brightness => '明るさ';
 	@override String get hexColor => '16進カラー';
+	@override String get expandText => 'Expand text';
+	@override String get collapseText => 'Collapse text';
 }
 
 // Path: tooltips
@@ -992,8 +1010,10 @@ class _TranslationsAboutJa extends TranslationsAboutEn {
 	@override String get title => 'アプリについて';
 	@override String get openSourceLicenses => 'オープンソースライセンス';
 	@override String versionLabel({required Object version}) => 'バージョン ${version}';
-	@override String get appDescription => 'Flutter製の美しいPlex・Jellyfinクライアント';
 	@override String get viewLicensesDescription => 'サードパーティライブラリのライセンスを表示';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1071,6 +1091,7 @@ class _TranslationsExploreJa extends TranslationsExploreEn {
 	@override late final _TranslationsExploreRowsJa rows = _TranslationsExploreRowsJa._(_root);
 	@override late final _TranslationsExploreStatusJa status = _TranslationsExploreStatusJa._(_root);
 	@override String episodeCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: '${n} episode',
 		other: '${n} 話',
 	);
 	@override String get cast => 'キャスト';
@@ -1243,6 +1264,7 @@ class _TranslationsMusicJa extends TranslationsMusicEn {
 	@override String get addToQueue => 'キューに追加';
 	@override String discNumber({required Object n}) => 'ディスク ${n}';
 	@override String trackCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: '${n} track',
 		other: '${n} 曲',
 	);
 	@override String get nowPlaying => '再生中';
@@ -1282,6 +1304,8 @@ class _TranslationsWatchTogetherJa extends TranslationsWatchTogetherEn {
 	@override String get hostingSession => 'セッションをホスト中';
 	@override String get inSession => 'セッション中';
 	@override String get sessionCode => 'セッションコード';
+	@override String get openSessionControls => 'Open Watch Together session controls';
+	@override String get copySessionCode => 'Copy session code';
 	@override String get hostControlsPlayback => 'ホストが再生を制御';
 	@override String get anyoneCanControl => '全員が再生を制御可能';
 	@override String get hostControls => 'ホストが制御';
@@ -1576,6 +1600,8 @@ class _TranslationsMetadataEditJa extends TranslationsMetadataEditEn {
 	@override String get artworkUpdated => 'アートワークを更新しました';
 	@override String get artworkUpdateFailed => 'アートワークの更新に失敗しました';
 	@override String get noArtworkAvailable => 'アートワークがありません';
+	@override String artworkOption({required Object index}) => 'Artwork option ${index}';
+	@override String selectedArtworkOption({required Object index}) => 'Artwork option ${index}, selected';
 	@override String get notSet => '未設定';
 	@override String get libraryDefault => 'ライブラリのデフォルト';
 	@override String get accountDefault => 'アカウントのデフォルト';
@@ -2052,6 +2078,7 @@ class _TranslationsServicesDeviceCodeJa extends TranslationsServicesDeviceCodeEn
 	@override String title({required Object service}) => '${service} で Plezy を有効化';
 	@override String body({required Object url}) => '${url} にアクセスしてこのコードを入力:';
 	@override String openToActivate({required Object service}) => '${service} を開いて有効化';
+	@override String get copyCode => 'Copy activation code';
 	@override String get waitingForAuthorization => '認証を待っています…';
 	@override String get codeCopied => 'コードをコピーしました';
 }
@@ -2066,6 +2093,7 @@ class _TranslationsServicesOauthProxyJa extends TranslationsServicesOauthProxyEn
 	@override String title({required Object service}) => '${service} にサインイン';
 	@override String get body => 'このQRコードをスキャンするか、任意のデバイスでURLを開いてください。';
 	@override String openToSignIn({required Object service}) => '${service} を開いてサインイン';
+	@override String get copyUrl => 'Copy sign-in URL';
 	@override String get urlCopied => 'URLをコピーしました';
 }
 
@@ -2098,7 +2126,7 @@ class _TranslationsServicesLibraryFilterJa extends TranslationsServicesLibraryFi
 extension on TranslationsJa {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Plexでサインイン',
 			'auth.showQRCode' => 'QRコードを表示',
 			'auth.authenticate' => '認証',
@@ -2170,6 +2198,14 @@ extension on TranslationsJa {
 			'update.viewRelease' => 'リリースを表示',
 			'update.latestVersion' => '最新バージョンです',
 			'update.checkFailed' => 'アップデートの確認に失敗しました',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => '設定',
 			'settings.supportDeveloper' => 'Plezy を支援',
 			'settings.supportDeveloperDescription' => 'Liberapay で寄付して開発を支援',
@@ -2295,6 +2331,12 @@ extension on TranslationsJa {
 			'settings.updates' => 'アップデート',
 			'settings.updateAvailable' => 'アップデート利用可能',
 			'settings.checkForUpdates' => 'アップデートを確認',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => '起動時にアップデートを自動的に確認',
 			'settings.autoCheckUpdatesOnStartupDescription' => '起動時にアップデートがある場合は通知します',
 			'settings.validationErrorEnterNumber' => '有効な数値を入力してください',
@@ -2420,6 +2462,8 @@ extension on TranslationsJa {
 			'hotkeys.clearShortcut' => 'ショートカットをクリア',
 			'hotkeys.noShortcutSet' => 'ショートカット未設定',
 			'hotkeys.currentShortcut' => '現在のショートカット:',
+			'hotkeys.pressToRecord' => 'Select to record a shortcut',
+			'hotkeys.recordingShortcut' => 'Press the shortcut now',
 			'hotkeys.actions.playPause' => '再生/一時停止',
 			'hotkeys.actions.volumeUp' => '音量を上げる',
 			'hotkeys.actions.volumeDown' => '音量を下げる',
@@ -2509,6 +2553,8 @@ extension on TranslationsJa {
 			'accessibility.saturation' => '彩度',
 			'accessibility.brightness' => '明るさ',
 			'accessibility.hexColor' => '16進カラー',
+			'accessibility.expandText' => 'Expand text',
+			'accessibility.collapseText' => 'Collapse text',
 			'tooltips.shufflePlay' => 'シャッフル再生',
 			'tooltips.playTrailer' => '予告編を再生',
 			'tooltips.markAsWatched' => '視聴済みにする',
@@ -2592,6 +2638,8 @@ extension on TranslationsJa {
 			'videoControls.noAudioTracksAvailable' => '利用可能な音声トラックはありません',
 			'videoControls.noTracksAvailable' => '利用可能なトラックはありません',
 			'videoControls.subtitleDownloaded' => '字幕をダウンロードしました',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.subtitleDownloadFailed' => '字幕のダウンロードに失敗しました',
 			'videoControls.searchLanguages' => '言語を検索...',
 			'messages.markedAsWatched' => '視聴済みにしました',
@@ -2610,8 +2658,6 @@ extension on TranslationsJa {
 			'messages.noDescriptionAvailable' => '説明はありません',
 			'messages.noProfilesAvailable' => '利用可能なプロフィールがありません',
 			'messages.contactAdminForProfiles' => 'プロファイルを追加するにはサーバー管理者に連絡してください',
-			_ => null,
-		} ?? switch (path) {
 			'messages.unableToDetermineLibrarySection' => 'このアイテムのライブラリセクションを判別できません',
 			'messages.logsCleared' => 'ログをクリアしました',
 			'messages.logsCopied' => 'ログをクリップボードにコピーしました',
@@ -2855,8 +2901,10 @@ extension on TranslationsJa {
 			'about.title' => 'アプリについて',
 			'about.openSourceLicenses' => 'オープンソースライセンス',
 			'about.versionLabel' => ({required Object version}) => 'バージョン ${version}',
-			'about.appDescription' => 'Flutter製の美しいPlex・Jellyfinクライアント',
 			'about.viewLicensesDescription' => 'サードパーティライブラリのライセンスを表示',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email})のサーバーが見つかりません',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'サーバーの読み込みに失敗しました: ${error}',
 			'hubDetail.title' => 'タイトル',
@@ -2894,7 +2942,7 @@ extension on TranslationsJa {
 			'explore.status.ended' => '放送終了',
 			'explore.status.canceled' => '打ち切り',
 			'explore.status.upcoming' => '放送予定',
-			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: '${n} 話', ), 
+			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: '${n} episode', other: '${n} 話', ), 
 			'explore.cast' => 'キャスト',
 			'explore.characters' => 'キャラクター',
 			'explore.addToWatchlist' => 'ウォッチリストに追加',
@@ -3028,7 +3076,7 @@ extension on TranslationsJa {
 			'music.playNext' => '次に再生',
 			'music.addToQueue' => 'キューに追加',
 			'music.discNumber' => ({required Object n}) => 'ディスク ${n}',
-			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: '${n} 曲', ), 
+			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: '${n} track', other: '${n} 曲', ), 
 			'music.nowPlaying' => '再生中',
 			'music.playingFrom' => ({required Object title}) => '${title} から再生',
 			'music.queue' => '再生キュー',
@@ -3057,6 +3105,8 @@ extension on TranslationsJa {
 			'watchTogether.hostingSession' => 'セッションをホスト中',
 			'watchTogether.inSession' => 'セッション中',
 			'watchTogether.sessionCode' => 'セッションコード',
+			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
+			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'ホストが再生を制御',
 			'watchTogether.anyoneCanControl' => '全員が再生を制御可能',
 			'watchTogether.hostControls' => 'ホストが制御',
@@ -3102,6 +3152,8 @@ extension on TranslationsJa {
 			'watchTogether.resumingWithout' => ({required Object name}) => '${name} なしで再開',
 			'watchTogether.waitingForParticipants' => '他の参加者の読み込みを待っています...',
 			'watchTogether.waitingForName' => ({required Object name}) => '${name}を待っています...',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.recentRooms' => '最近のルーム',
 			'watchTogether.renameRoom' => 'ルーム名を変更',
 			'watchTogether.removeRoom' => '削除',
@@ -3124,8 +3176,6 @@ extension on TranslationsJa {
 			'downloads.episodesQueued' => ({required Object count}) => '${count}エピソードをダウンロードキューに追加しました',
 			'downloads.downloadDeleted' => 'ダウンロードを削除しました',
 			'downloads.deleteConfirm' => ({required Object title}) => 'このデバイスから「${title}」を削除しますか？',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.cancelledDownloadTitle' => 'キャンセルされたダウンロード',
 			'downloads.cancelledDownloadMessage' => 'このダウンロードはキャンセルされました。どうしますか？',
 			'downloads.allEpisodesAlreadyDownloaded' => 'すべてのエピソードはすでにダウンロード済みです',
@@ -3347,6 +3397,8 @@ extension on TranslationsJa {
 			'metadataEdit.artworkUpdated' => 'アートワークを更新しました',
 			'metadataEdit.artworkUpdateFailed' => 'アートワークの更新に失敗しました',
 			'metadataEdit.noArtworkAvailable' => 'アートワークがありません',
+			'metadataEdit.artworkOption' => ({required Object index}) => 'Artwork option ${index}',
+			'metadataEdit.selectedArtworkOption' => ({required Object index}) => 'Artwork option ${index}, selected',
 			'metadataEdit.notSet' => '未設定',
 			'metadataEdit.libraryDefault' => 'ライブラリのデフォルト',
 			'metadataEdit.accountDefault' => 'アカウントのデフォルト',
@@ -3461,11 +3513,13 @@ extension on TranslationsJa {
 			'services.deviceCode.title' => ({required Object service}) => '${service} で Plezy を有効化',
 			'services.deviceCode.body' => ({required Object url}) => '${url} にアクセスしてこのコードを入力:',
 			'services.deviceCode.openToActivate' => ({required Object service}) => '${service} を開いて有効化',
+			'services.deviceCode.copyCode' => 'Copy activation code',
 			'services.deviceCode.waitingForAuthorization' => '認証を待っています…',
 			'services.deviceCode.codeCopied' => 'コードをコピーしました',
 			'services.oauthProxy.title' => ({required Object service}) => '${service} にサインイン',
 			'services.oauthProxy.body' => 'このQRコードをスキャンするか、任意のデバイスでURLを開いてください。',
 			'services.oauthProxy.openToSignIn' => ({required Object service}) => '${service} を開いてサインイン',
+			'services.oauthProxy.copyUrl' => 'Copy sign-in URL',
 			'services.oauthProxy.urlCopied' => 'URLをコピーしました',
 			'services.libraryFilter.title' => 'ライブラリフィルター',
 			'services.libraryFilter.subtitleAllSyncing' => 'すべてのライブラリを同期中',

@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Inloggen met Plex",
@@ -79,7 +79,15 @@
     "skipVersion": "Deze versie overslaan",
     "viewRelease": "Bekijk release",
     "latestVersion": "Je hebt de nieuwste versie",
-    "checkFailed": "Kon niet controleren op updates"
+    "checkFailed": "Kon niet controleren op updates",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Instellingen",
@@ -207,6 +215,12 @@
     "updates": "Updates",
     "updateAvailable": "Update beschikbaar",
     "checkForUpdates": "Controleer op updates",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "autoCheckUpdatesOnStartup": "Automatisch controleren op updates bij opstarten",
     "autoCheckUpdatesOnStartupDescription": "Melden wanneer er bij start een update beschikbaar is",
     "validationErrorEnterNumber": "Voer een geldig nummer in",
@@ -336,6 +350,8 @@
     "clearShortcut": "Wis sneltoets",
     "noShortcutSet": "Geen sneltoets ingesteld",
     "currentShortcut": "Huidige sneltoets:",
+    "pressToRecord": "Select to record a shortcut",
+    "recordingShortcut": "Press the shortcut now",
     "actions": {
       "playPause": "Afspelen/Pauzeren",
       "volumeUp": "Volume omhoog",
@@ -434,7 +450,9 @@
     "hue": "Tint",
     "saturation": "Verzadiging",
     "brightness": "Helderheid",
-    "hexColor": "Hexkleur"
+    "hexColor": "Hexkleur",
+    "expandText": "Expand text",
+    "collapseText": "Collapse text"
   },
   "tooltips": {
     "shufflePlay": "Willekeurig afspelen",
@@ -814,8 +832,10 @@
     "title": "Over",
     "openSourceLicenses": "Open Source licenties",
     "versionLabel": "Versie ${version}",
-    "appDescription": "Een mooie Plex- en Jellyfin-client voor Flutter",
-    "viewLicensesDescription": "Bekijk licenties van third-party bibliotheken"
+    "viewLicensesDescription": "Bekijk licenties van third-party bibliotheken",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Geen servers gevonden voor ${username} (${email})",
@@ -1048,6 +1068,8 @@
     "hostingSession": "Sessie Hosten",
     "inSession": "In Sessie",
     "sessionCode": "Sessiecode",
+    "openSessionControls": "Open Watch Together session controls",
+    "copySessionCode": "Copy session code",
     "hostControlsPlayback": "Host bedient het afspelen",
     "anyoneCanControl": "Iedereen kan het afspelen bedienen",
     "hostControls": "Host bedient",
@@ -1358,6 +1380,8 @@
     "artworkUpdated": "Artwork bijgewerkt",
     "artworkUpdateFailed": "Artwork bijwerken mislukt",
     "noArtworkAvailable": "Geen artwork beschikbaar",
+    "artworkOption": "Artwork option ${index}",
+    "selectedArtworkOption": "Artwork option ${index}, selected",
     "notSet": "Niet ingesteld",
     "libraryDefault": "Bibliotheekstandaard",
     "accountDefault": "Accountstandaard",
@@ -1485,6 +1509,7 @@
       "title": "Plezy activeren op ${service}",
       "body": "Ga naar ${url} en voer deze code in:",
       "openToActivate": "Open ${service} om te activeren",
+      "copyCode": "Copy activation code",
       "waitingForAuthorization": "Wachten op autorisatie…",
       "codeCopied": "Code gekopieerd"
     },
@@ -1492,6 +1517,7 @@
       "title": "Aanmelden bij ${service}",
       "body": "Scan deze QR-code of open de URL op een apparaat.",
       "openToSignIn": "${service} openen om aan te melden",
+      "copyUrl": "Copy sign-in URL",
       "urlCopied": "URL gekopieerd"
     },
     "libraryFilter": {

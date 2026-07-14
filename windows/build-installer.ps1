@@ -113,7 +113,7 @@ if ($DualArch) {
     $IssContent = @"
 #define Name "Plezy"
 #define Version "$Version"
-#define Publisher "edde746"
+#define Publisher "RyanTheTechMan (Plezy Labs)"
 #define ExeName "plezy.exe"
 
 [Setup]
@@ -189,7 +189,7 @@ end;
     $IssContent = @"
 #define Name "Plezy"
 #define Version "$Version"
-#define Publisher "edde746"
+#define Publisher "RyanTheTechMan (Plezy Labs)"
 #define ExeName "plezy.exe"
 
 [Setup]

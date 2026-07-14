@@ -1,0 +1,82 @@
+#!/usr/bin/env python3
+"""Guard the release-channel invariants that keep Labs reproducible."""
+
+from pathlib import Path
+import re
+
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def require(path: str, snippets: list[str]) -> str:
+    text = (ROOT / path).read_text(encoding="utf-8")
+    missing = [snippet for snippet in snippets if snippet not in text]
+    if missing:
+        formatted = "\n".join(f"  - {snippet}" for snippet in missing)
+        raise SystemExit(f"{path} is missing required Labs behavior:\n{formatted}")
+    return text
+
+
+workflow_names = sorted(path.name for path in (ROOT / ".github" / "workflows").glob("labs-*.yml"))
+expected = ["labs-build.yml", "labs-watch.yml"]
+if workflow_names != expected:
+    raise SystemExit(f"Expected exactly the two Labs workflows {expected}, found {workflow_names}")
+
+main = require(
+    ".github/workflows/labs-build.yml",
+    [
+        "name: Plezy Labs",
+        "scripts/rebuild-labs.py",
+        "tool/labs_features.json",
+        "--force-with-lease=",
+        'elif [[ "$state" == disabled_* ]]',
+        "scripts/check-labs-preferences.sh",
+        "scripts/check-labs-candidate.sh",
+        "scripts/check-labs-workflows.py",
+        "scripts/manage-labs-issue.sh",
+        "scripts/publish-labs-feed.sh",
+        "flutter_version: ${{ steps.metadata.outputs.flutter_version }}",
+        "git show \"$TAG:.github/workflows/build.yml\"",
+        "flutter-version: ${{ needs.prepare.outputs.flutter_version }}",
+        '$version = "${{ needs.prepare.outputs.flutter_version }}"',
+        "--dart-define=PLEZY_LABS=true",
+        "LABS_PACKAGE_ITERATION=labs.${{ needs.prepare.outputs.revision }}",
+        "draft: ${{ !inputs.publish }}",
+        "prerelease: true",
+        "types: [published]",
+    ],
+)
+if re.search(r"\bgit merge(?:\s|$)", main):
+    raise SystemExit("Labs orchestration must reconstruct with patches, never merge old Labs history")
+
+require(
+    ".github/workflows/labs-watch.yml",
+    [
+        "timezone: America/New_York",
+        ".draft == false and .prerelease == true",
+        "gh workflow run labs-build.yml",
+        "-f publish=true",
+    ],
+)
+require(
+    "scripts/check-labs-candidate.sh",
+    [
+        "scripts/ci_checks.sh",
+        "Candidate hit the known analyzer crash",
+        "worktree add --detach",
+        "dart run scripts/check_analyzer.dart",
+        "normalized_diagnostics",
+        "Official $OFFICIAL_TAG reproduces the same analyzer-plugin crash and diagnostics",
+    ],
+)
+require(
+    "scripts/rebuild-labs.py",
+    [
+        "Mandatory Labs base",
+        "skipped_official_features",
+        'git(repo, "reset", "--hard", official)',
+        'git(repo, "rev-list", "--merges"',
+    ],
+)
+
+print("Plezy Labs workflow guards passed.")
