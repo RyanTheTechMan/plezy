@@ -387,7 +387,9 @@
       "subSeekPrev": "前の字幕にシーク",
       "shaderToggle": "シェーダー切替",
       "skipMarker": "イントロ/クレジットをスキップ",
-      "screenshot": "スクリーンショットを撮る"
+      "screenshot": "スクリーンショットを撮る",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -530,6 +532,10 @@
     "pipActive": "ピクチャーインピクチャーで再生中",
     "pipFailed": "ピクチャーインピクチャーの開始に失敗しました",
     "screenshotSaved": "スクリーンショットを保存しました",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "zoomPercent": "ズーム ${percent}%",
     "pipErrors": {
       "androidVersion": "Android 8.0以降が必要です",
