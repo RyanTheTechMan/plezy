@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Plex 계정으로 로그인",
@@ -79,7 +79,15 @@
     "skipVersion": "이 버전 건너뛰기",
     "viewRelease": "릴리스 정보 보기",
     "latestVersion": "최신 버전을 사용 중입니다",
-    "checkFailed": "업데이트 확인 실패"
+    "checkFailed": "업데이트 확인 실패",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "설정",
@@ -207,6 +215,12 @@
     "updates": "업데이트",
     "updateAvailable": "사용 가능한 업데이트 있음",
     "checkForUpdates": "업데이트 확인",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "autoCheckUpdatesOnStartup": "시작 시 자동으로 업데이트 확인",
     "autoCheckUpdatesOnStartupDescription": "실행 시 업데이트가 있으면 알림",
     "validationErrorEnterNumber": "유효한 숫자를 입력하세요",
@@ -336,6 +350,8 @@
     "clearShortcut": "단축키 삭제",
     "noShortcutSet": "설정된 단축키 없음",
     "currentShortcut": "현재 단축키:",
+    "pressToRecord": "Select to record a shortcut",
+    "recordingShortcut": "Press the shortcut now",
     "actions": {
       "playPause": "재생/일시정지",
       "volumeUp": "볼륨 높이기",
@@ -434,7 +450,9 @@
     "hue": "색조",
     "saturation": "채도",
     "brightness": "밝기",
-    "hexColor": "16진수 색상"
+    "hexColor": "16진수 색상",
+    "expandText": "Expand text",
+    "collapseText": "Collapse text"
   },
   "tooltips": {
     "shufflePlay": "무작위 재생",
@@ -814,8 +832,10 @@
     "title": "소개",
     "openSourceLicenses": "오픈소스 라이선스",
     "versionLabel": "버전 ${version}",
-    "appDescription": "아름다운 Flutter용 Plex 및 Jellyfin 클라이언트",
-    "viewLicensesDescription": "타사 라이브러리 라이선스 보기"
+    "viewLicensesDescription": "타사 라이브러리 라이선스 보기",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email})의 서버를 찾을 수 없습니다.",
@@ -870,6 +890,7 @@
       "upcoming": "방영 예정"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n}화"
     },
     "cast": "출연진",
@@ -1014,6 +1035,7 @@
     "addToQueue": "대기열에 추가",
     "discNumber": "디스크 ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n}곡"
     },
     "nowPlaying": "재생 중",
@@ -1046,6 +1068,8 @@
     "hostingSession": "세션 호스팅",
     "inSession": "세션 중",
     "sessionCode": "세션 코드",
+    "openSessionControls": "Open Watch Together session controls",
+    "copySessionCode": "Copy session code",
     "hostControlsPlayback": "호스트 재생 제어",
     "anyoneCanControl": "누구나 재생 제어 가능",
     "hostControls": "호스트 제어",
@@ -1356,6 +1380,8 @@
     "artworkUpdated": "아트워크가 업데이트되었습니다",
     "artworkUpdateFailed": "아트워크 업데이트 실패",
     "noArtworkAvailable": "사용 가능한 아트워크 없음",
+    "artworkOption": "Artwork option ${index}",
+    "selectedArtworkOption": "Artwork option ${index}, selected",
     "notSet": "설정되지 않음",
     "libraryDefault": "라이브러리 기본값",
     "accountDefault": "계정 기본값",
@@ -1483,6 +1509,7 @@
       "title": "${service}에서 Plezy 활성화",
       "body": "${url}을 방문하여 이 코드를 입력하세요:",
       "openToActivate": "활성화하려면 ${service} 열기",
+      "copyCode": "Copy activation code",
       "waitingForAuthorization": "인증을 기다리는 중…",
       "codeCopied": "코드가 복사되었습니다"
     },
@@ -1490,6 +1517,7 @@
       "title": "${service}에 로그인",
       "body": "이 QR 코드를 스캔하거나 아무 기기에서 URL을 여세요.",
       "openToSignIn": "로그인하려면 ${service} 열기",
+      "copyUrl": "Copy sign-in URL",
       "urlCopied": "URL이 복사되었습니다"
     },
     "libraryFilter": {

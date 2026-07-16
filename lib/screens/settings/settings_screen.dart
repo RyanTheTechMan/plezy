@@ -47,6 +47,7 @@ import 'about_screen.dart';
 import 'add_connection_screen.dart';
 import 'appearance_settings_screen.dart';
 import 'keyboard_shortcuts_screen.dart';
+import 'labs_update_settings_section.dart';
 import 'logs_screen.dart';
 import 'playback_settings_screen.dart';
 import '../profile/profile_switch_screen.dart';
@@ -80,6 +81,8 @@ class _SettingsScreenState extends State<SettingsScreen> with FocusableTab, Moun
   static const _kClearCache = 'clear_cache';
   static const _kResetSettings = 'reset_settings';
   static const _kCheckForUpdates = 'check_for_updates';
+  static const _kOfficialUpdates = 'official_updates';
+  static const _kLabsUpdates = 'labs_updates';
   static const _kAutoCheckUpdatesOnStartup = 'auto_check_updates_on_startup';
   static const _kAbout = 'about';
   static const _kWatchTogetherRelay = 'watch_together_relay';
@@ -494,6 +497,15 @@ class _SettingsScreenState extends State<SettingsScreen> with FocusableTab, Moun
   );
 
   Widget _buildUpdateSection() {
+    if (UpdateService.isLabsBuild) {
+      return LabsUpdateSettingsSection(
+        officialFocusNode: _focusTracker.get(_kOfficialUpdates),
+        labsFocusNode: _focusTracker.get(_kLabsUpdates),
+        checkFocusNode: _focusTracker.get(_kCheckForUpdates),
+        autoCheckFocusNode: _focusTracker.get(_kAutoCheckUpdatesOnStartup),
+      );
+    }
+
     if (UpdateService.useNativeUpdater) {
       return SettingsGroup(
         title: t.settings.updates,
