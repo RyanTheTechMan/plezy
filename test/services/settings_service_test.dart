@@ -162,6 +162,18 @@ void main() {
     });
   });
 
+  group('SettingsService shaders', () {
+    test('resetShaders restores the global preset to none', () async {
+      final settings = await SettingsService.getInstance();
+      await settings.write(SettingsService.globalShaderPreset, 'artcnn_c4f16_neutral');
+
+      await settings.resetShaders();
+
+      expect(settings.read(SettingsService.globalShaderPreset), 'none');
+      expect(settings.prefs.getString(SettingsService.globalShaderPreset.key), 'none');
+    });
+  });
+
   group('SettingsService platform gates', () {
     test('audio passthrough stays available on desktop and Apple TV', () {
       expect(PlatformDetector.supportsAudioPassthrough(), isTrue);

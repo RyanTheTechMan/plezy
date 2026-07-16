@@ -896,6 +896,8 @@ class SettingsService extends BaseSharedPreferencesService {
     refreshListenables();
   }
 
+  Future<void> resetShaders() => write(globalShaderPreset, globalShaderPreset.defaultValue);
+
   /// Push current stored values into every active listenable. Use after bulk
   /// operations that bypass [write] (e.g. import-from-file rewrites the
   /// underlying SharedPreferences directly).

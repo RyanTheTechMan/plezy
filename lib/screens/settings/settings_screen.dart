@@ -82,6 +82,7 @@ class _SettingsScreenState extends State<SettingsScreen> with FocusableTab, Moun
   static const _kDebugLogging = 'debug_logging';
   static const _kViewLogs = 'view_logs';
   static const _kClearCache = 'clear_cache';
+  static const _kResetShaders = 'reset_shaders';
   static const _kResetSettings = 'reset_settings';
   static const _kCheckForUpdates = 'check_for_updates';
   static const _kOfficialUpdates = 'official_updates';
@@ -494,6 +495,14 @@ class _SettingsScreenState extends State<SettingsScreen> with FocusableTab, Moun
           onTap: () => _showClearCacheDialog(),
         ),
         FocusableListTile(
+          focusNode: _focusTracker.get(_kResetShaders),
+          leading: const AppIcon(Symbols.auto_fix_high_rounded, fill: 1),
+          title: Text(t.settings.resetShaders),
+          subtitle: Text(t.settings.resetShadersDescription),
+          trailing: const AppIcon(Symbols.chevron_right_rounded, fill: 1),
+          onTap: () => _showResetShadersDialog(),
+        ),
+        FocusableListTile(
           focusNode: _focusTracker.get(_kResetSettings),
           leading: const AppIcon(Symbols.restore_rounded, fill: 1),
           title: Text(t.settings.resetSettings),
@@ -843,6 +852,18 @@ class _SettingsScreenState extends State<SettingsScreen> with FocusableTab, Moun
     await _settingsService.resetAllSettings();
     await _keyboardService?.resetToDefaults();
     if (mounted) showSuccessSnackBar(context, t.settings.resetSettingsSuccess);
+  }
+
+  Future<void> _showResetShadersDialog() async {
+    final confirmed = await showConfirmDialog(
+      context,
+      title: t.settings.resetShaders,
+      message: t.settings.resetShadersDescription,
+      confirmText: t.common.reset,
+    );
+    if (!confirmed) return;
+    await _settingsService.resetShaders();
+    if (mounted) showSuccessSnackBar(context, t.settings.resetShadersSuccess);
   }
 
   Future<void> _handleExportSettings() async {
