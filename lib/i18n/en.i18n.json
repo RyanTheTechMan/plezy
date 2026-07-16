@@ -403,7 +403,9 @@
       "subSeekPrev": "Seek to Previous Subtitle",
       "shaderToggle": "Toggle Shaders",
       "skipMarker": "Skip Intro/Credits",
-      "screenshot": "Take Screenshot"
+      "screenshot": "Take Screenshot",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -646,6 +648,27 @@
     "pipActive": "Playing in Picture-in-Picture",
     "pipFailed": "Picture-in-picture failed to start",
     "screenshotSaved": "Screenshot saved",
+    "zoomPercent": "Zoom ${percent}%",
+    "pipErrors": {
+      "androidVersion": "Requires Android 8.0 or newer",
+      "iosVersion": "Requires iOS 15.0 or newer",
+      "permissionDisabled": "Picture-in-picture is disabled. Enable it in system settings.",
+      "notSupported": "Device doesn't support picture-in-picture mode",
+      "voSwitchFailed": "Failed to switch video output for picture-in-picture",
+      "failed": "Picture-in-picture failed to start",
+      "unknown": "An error occurred: ${error}"
+    },
+    "chapters": "Chapters",
+    "noChaptersAvailable": "No chapters available",
+    "queue": "Queue",
+    "noQueueItems": "No items in queue",
+    "searchSubtitles": "Search Subtitles",
+    "language": "Language",
+    "noSubtitlesFound": "No subtitles found",
+    "subtitleDownloaded": "Subtitle downloaded",
+    "subtitleDownloadedNotApplied": "Subtitle downloaded, but it could not be selected",
+    "subtitleDownloadFailed": "Failed to download subtitle",
+    "searchLanguages": "Search languages...",
     "clip": {
       "title": "Clip",
       "vodOnly": "Clips are available for on-demand video playback.",
@@ -684,27 +707,10 @@
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
     },
-    "zoomPercent": "Zoom ${percent}%",
-    "pipErrors": {
-      "androidVersion": "Requires Android 8.0 or newer",
-      "iosVersion": "Requires iOS 15.0 or newer",
-      "permissionDisabled": "Picture-in-picture is disabled. Enable it in system settings.",
-      "notSupported": "Device doesn't support picture-in-picture mode",
-      "voSwitchFailed": "Failed to switch video output for picture-in-picture",
-      "failed": "Picture-in-picture failed to start",
-      "unknown": "An error occurred: ${error}"
-    },
-    "chapters": "Chapters",
-    "noChaptersAvailable": "No chapters available",
-    "queue": "Queue",
-    "noQueueItems": "No items in queue",
-    "searchSubtitles": "Search Subtitles",
-    "language": "Language",
-    "noSubtitlesFound": "No subtitles found",
-    "subtitleDownloaded": "Subtitle downloaded",
-    "subtitleDownloadedNotApplied": "Subtitle downloaded, but it could not be selected",
-    "subtitleDownloadFailed": "Failed to download subtitle",
-    "searchLanguages": "Search languages..."
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    }
   },
   "userStatus": {},
   "messages": {
