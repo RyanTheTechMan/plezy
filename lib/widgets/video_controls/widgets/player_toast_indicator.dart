@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
+import 'package:plezy/i18n/strings.g.dart';
 import 'package:plezy/widgets/app_icon.dart';
 
 import 'transport_feedback_indicator.dart';
@@ -71,11 +73,12 @@ enum PlayerToastKind {
 /// Owns the currently-displayed toast + auto-hide timer.
 /// Created per video-player session; disposed with the screen.
 class PlayerToastController extends ChangeNotifier {
-  ({IconData icon, String text, PlayerToastKind kind, int pulse})? _current;
+  ({IconData icon, String text, PlayerToastKind kind, int pulse, Object key})? _current;
   Timer? _timer;
   int _pulse = 0;
+  int _frameSteps = 0;
 
-  ({IconData icon, String text, PlayerToastKind kind, int pulse})? get current => _current;
+  ({IconData icon, String text, PlayerToastKind kind, int pulse, Object key})? get current => _current;
 
   /// Maestro builds hold every pill far longer: accessibility-tree queries on
   /// physical devices routinely outlast the production timeout, the same
@@ -98,12 +101,34 @@ class PlayerToastController extends ChangeNotifier {
     Duration duration = const Duration(milliseconds: 1200),
     PlayerToastKind kind = PlayerToastKind.notice,
   }) {
+    _frameSteps = 0;
+    _show(icon, text, duration, kind: kind, key: '${icon.codePoint}:$text');
+  }
+
+  void showFrameStep(int step) {
+    _frameSteps = _frameSteps.sign == step.sign ? _frameSteps + step : step;
+    _show(
+      step > 0 ? Symbols.fast_forward_rounded : Symbols.fast_rewind_rounded,
+      t.videoControls.frameCount(n: _frameSteps.abs()),
+      const Duration(milliseconds: 1200),
+      kind: PlayerToastKind.notice,
+      key: 'frame:${step.sign}',
+    );
+  }
+
+  void _show(
+    IconData icon,
+    String text,
+    Duration duration, {
+    required PlayerToastKind kind,
+    required Object key,
+  }) {
     _timer?.cancel();
     // Every accepted command carries a fresh pulse. Two identical commands in a
     // row (an explicit pause while already paused, say) produce an identical
     // icon/text pair, so without this the animated child would be reused and
     // its one-shot pop would never replay.
-    _current = (icon: icon, text: text, kind: kind, pulse: ++_pulse);
+    _current = (icon: icon, text: text, kind: kind, pulse: ++_pulse, key: key);
     notifyListeners();
     final effective = const bool.fromEnvironment('PLEZY_MAESTRO_E2E') && duration < _maestroMinimumDuration
         ? _maestroMinimumDuration
@@ -111,6 +136,7 @@ class PlayerToastController extends ChangeNotifier {
     _timer = Timer(effective, () {
       _current = null;
       _timer = null;
+      _frameSteps = 0;
       notifyListeners();
     });
   }
@@ -118,6 +144,7 @@ class PlayerToastController extends ChangeNotifier {
   void hide() {
     _timer?.cancel();
     _timer = null;
+    _frameSteps = 0;
     if (_current != null) {
       _current = null;
       notifyListeners();
