@@ -599,7 +599,9 @@
       "subSeekPrev": "Seek to Previous Subtitle",
       "shaderToggle": "Toggle Shaders",
       "skipMarker": "Skip Intro/Credits",
-      "screenshot": "Take Screenshot"
+      "screenshot": "Take Screenshot",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -811,6 +813,10 @@
     "track": "Audio Track ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Audio",
     "subtitlesLabel": "Subtitles",
     "addTime": "+${amount}${unit}",
