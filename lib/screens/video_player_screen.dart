@@ -1515,7 +1515,6 @@ class VideoPlayerScreenState extends State<VideoPlayerScreen> with WidgetsBindin
     _isExiting.dispose();
     _chromeController.dispose();
     _toastController.dispose();
-    unawaited(_clipExportService.cancelActiveExport());
     _clipExportService.dispose();
 
     // The release sequence below mirrors _tearDownFailedPlayerAttempt but is
