@@ -70,6 +70,7 @@ class _VideoState extends State<Video> {
       _syncExternalFirstFrame();
     }
     if (oldWidget.player != widget.player) {
+      _lastRect = null;
       _playbackRestartSubscription?.cancel();
       _listenForPlaybackRestart();
       _syncExternalFirstFrame();

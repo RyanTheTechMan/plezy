@@ -9,6 +9,7 @@ import 'player_native.dart';
 import 'player_state.dart';
 import 'player_streams.dart';
 import 'platform/player_linux.dart';
+import 'platform/player_preview_native.dart';
 import 'platform/player_windows.dart';
 
 export 'player_base.dart';
@@ -152,7 +153,12 @@ abstract class Player {
   /// [title] - Optional display title.
   /// [language] - Optional language code.
   /// [select] - Whether to select this track immediately.
-  Future<void> addSubtitleTrack({required String uri, String? title, String? language, bool select = false});
+  Future<void> addSubtitleTrack({
+    required String uri,
+    String? title,
+    String? language,
+    bool select = false,
+  });
 
   /// Set the playback volume.
   ///
@@ -206,7 +212,10 @@ abstract class Player {
   ///
   /// [extraDelayMs] is added after a native display-switch completion event,
   /// for TVs or AVRs that need extra HDMI settle time.
-  Future<void> setDisplayCriteria(MediaDisplayCriteria? criteria, {int extraDelayMs = 0});
+  Future<void> setDisplayCriteria(
+    MediaDisplayCriteria? criteria, {
+    int extraDelayMs = 0,
+  });
 
   /// Configure subtitle fonts for libass rendering.
   ///
@@ -240,7 +249,11 @@ abstract class Player {
   /// chain via `audio-channels`; Android ExoPlayer routes a
   /// ChannelMixingAudioProcessor in the audio sink and force-decodes
   /// encoded audio while enabled.
-  Future<void> setAudioDownmix({required bool enabled, required int centerBoostDb, required bool normalize});
+  Future<void> setAudioDownmix({
+    required bool enabled,
+    required int centerBoostDb,
+    required bool normalize,
+  });
 
   /// Show or hide the video rendering layer.
   ///
@@ -415,9 +428,40 @@ abstract class Player {
   /// `PlaybackCoordinator`), and the video core only exists while the video
   /// player screen is open.
   factory Player.audio() {
-    if (Platform.isAndroid || Platform.isMacOS || Platform.isIOS || Platform.isWindows || Platform.isLinux) {
+    if (Platform.isAndroid ||
+        Platform.isMacOS ||
+        Platform.isIOS ||
+        Platform.isWindows ||
+        Platform.isLinux) {
       return PlayerNative.audio();
     }
     throw UnsupportedError('Player is not supported on this platform');
+  }
+
+  /// Creates a dedicated muted player for embedded clip previews.
+  ///
+  /// This always uses a separate native core/channel pair so clip editing
+  /// cannot seek, pause, or unload the main playback session.
+  factory Player.preview() {
+    if (Platform.isMacOS || Platform.isLinux) {
+      return PlayerPreviewNative();
+    }
+    if (Platform.isWindows) {
+      return PlayerWindows.preview();
+    }
+    throw UnsupportedError('Clip preview is only supported on desktop');
+  }
+
+  /// Creates an mpv core configured for clip encoding before initialization.
+  ///
+  /// It sequentially reuses the clip-preview native channel, so callers must
+  /// release the preview player before constructing this player.
+  factory Player.clipEncoder(Map<String, String> initialOptions) {
+    if (Platform.isMacOS || Platform.isWindows) {
+      return PlayerNative.clipEncoder(initialOptions);
+    }
+    throw UnsupportedError(
+      'Clip encoding is only supported on macOS and Windows',
+    );
   }
 }

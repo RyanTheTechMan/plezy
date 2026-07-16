@@ -15,8 +15,22 @@ class _OverlaySheetEntry {
   final WidgetBuilder builder;
   final Completer<dynamic> completer;
   final FocusNode? initialFocusNode;
+  final VoidCallback? onCloseStart;
 
-  _OverlaySheetEntry({required this.builder, required this.completer, this.initialFocusNode});
+  _OverlaySheetEntry({required this.builder, required this.completer, this.initialFocusNode, this.onCloseStart});
+}
+
+class _OverlaySheetCloseStartScope extends InheritedWidget {
+  final VoidCallback onCloseStart;
+
+  const _OverlaySheetCloseStartScope({required this.onCloseStart, required super.child});
+
+  static VoidCallback? maybeOf(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<_OverlaySheetCloseStartScope>()?.onCloseStart;
+  }
+
+  @override
+  bool updateShouldNotify(_OverlaySheetCloseStartScope oldWidget) => onCloseStart != oldWidget.onCloseStart;
 }
 
 /// Provides [OverlaySheetController] to descendants via [of] / [maybeOf].
@@ -69,6 +83,7 @@ class OverlaySheetController {
     FocusNode? initialFocusNode,
     Alignment alignment = Alignment.bottomCenter,
     bool showDragHandle = false,
+    VoidCallback? onCloseStart,
   }) {
     return _state._show<T>(
       builder: builder,
@@ -78,6 +93,7 @@ class OverlaySheetController {
       initialFocusNode: initialFocusNode,
       alignment: alignment,
       showDragHandle: showDragHandle,
+      onCloseStart: onCloseStart,
     );
   }
 
@@ -140,7 +156,15 @@ class OverlaySheetController {
     FocusNode? initialFocusNode,
     Alignment alignment = Alignment.bottomCenter,
     bool showDragHandle = false,
+    VoidCallback? onCloseStart,
   }) async {
+    var closeStarted = false;
+    void notifyCloseStart() {
+      if (closeStarted) return;
+      closeStarted = true;
+      onCloseStart?.call();
+    }
+
     final controller = maybeOf(context);
     if (controller != null) {
       return controller.show<T>(
@@ -151,6 +175,7 @@ class OverlaySheetController {
         initialFocusNode: initialFocusNode,
         alignment: alignment,
         showDragHandle: showDragHandle,
+        onCloseStart: onCloseStart,
       );
     }
     // Apply the same default constraints the overlay system uses so sheets
@@ -162,7 +187,10 @@ class OverlaySheetController {
         context: context,
         // The host path insets its sheet by the bottom safe area; mirror that
         // here so the last row clears the home indicator / gesture nav bar.
-        builder: (context) => SafeArea(top: false, child: builder(context)),
+        builder: (context) => _OverlaySheetCloseStartScope(
+          onCloseStart: notifyCloseStart,
+          child: SafeArea(top: false, child: builder(context)),
+        ),
         constraints: effectiveConstraints,
         backgroundColor: backgroundColor ?? Theme.of(context).colorScheme.surface,
         barrierColor: Colors.black54,
@@ -171,6 +199,7 @@ class OverlaySheetController {
         showDragHandle: showDragHandle,
       );
     } finally {
+      notifyCloseStart();
       openSheetCount.value--;
     }
   }
@@ -228,6 +257,7 @@ class OverlaySheetController {
     if (controller != null) {
       controller.close(result);
     } else {
+      _OverlaySheetCloseStartScope.maybeOf(context)?.call();
       Navigator.pop(context, result);
     }
   }
@@ -239,6 +269,7 @@ class OverlaySheetController {
     if (controller != null) {
       controller.pop(result);
     } else {
+      _OverlaySheetCloseStartScope.maybeOf(context)?.call();
       Navigator.pop(context, result);
     }
   }
@@ -298,6 +329,7 @@ class _OverlaySheetHostState extends State<OverlaySheetHost> with SingleTickerPr
 
   bool _isOpen = false;
   bool _isClosing = false;
+  bool _closeStartNotified = false;
   bool _barrierDismissible = true;
   bool _showDragHandle = false;
   BoxConstraints? _constraints;
@@ -341,6 +373,7 @@ class _OverlaySheetHostState extends State<OverlaySheetHost> with SingleTickerPr
 
   @override
   void dispose() {
+    _notifyCloseStart();
     for (final entry in _pageStack) {
       if (!entry.completer.isCompleted) {
         entry.completer.complete(null);
@@ -363,11 +396,13 @@ class _OverlaySheetHostState extends State<OverlaySheetHost> with SingleTickerPr
     FocusNode? initialFocusNode,
     Alignment alignment = Alignment.bottomCenter,
     bool showDragHandle = false,
+    VoidCallback? onCloseStart,
   }) {
     BackKeyCoordinator.clear();
     // If already open, close first (instant)
     final wasOpen = _isOpen;
     if (_isOpen) {
+      _notifyCloseStart();
       for (final entry in _pageStack) {
         if (!entry.completer.isCompleted) {
           entry.completer.complete(null);
@@ -378,7 +413,12 @@ class _OverlaySheetHostState extends State<OverlaySheetHost> with SingleTickerPr
     }
 
     final completer = Completer<T?>();
-    final entry = _OverlaySheetEntry(builder: builder, completer: completer, initialFocusNode: initialFocusNode);
+    final entry = _OverlaySheetEntry(
+      builder: builder,
+      completer: completer,
+      initialFocusNode: initialFocusNode,
+      onCloseStart: onCloseStart,
+    );
     final horizontalAnchor = _resolveSheetHorizontalAnchor(alignment);
 
     setState(() {
@@ -386,6 +426,7 @@ class _OverlaySheetHostState extends State<OverlaySheetHost> with SingleTickerPr
       _sheetSession++;
       _isOpen = true;
       _isClosing = false;
+      _closeStartNotified = false;
       _barrierDismissible = barrierDismissible;
       _showDragHandle = showDragHandle;
       _constraints = constraints;
@@ -443,6 +484,7 @@ class _OverlaySheetHostState extends State<OverlaySheetHost> with SingleTickerPr
   void _close([dynamic result]) {
     if (!_isOpen || _isClosing) return;
     _isClosing = true;
+    _notifyCloseStart();
 
     _animationController.reverse().then((_) {
       if (!mounted) return;
@@ -455,6 +497,7 @@ class _OverlaySheetHostState extends State<OverlaySheetHost> with SingleTickerPr
         _pageStack.clear();
         _isOpen = false;
         _isClosing = false;
+        _closeStartNotified = false;
         _dragOffset = 0;
         _isDragging = false;
         _sheetHorizontalAnchor = null;
@@ -462,6 +505,14 @@ class _OverlaySheetHostState extends State<OverlaySheetHost> with SingleTickerPr
       widget.onOpenChanged?.call(false);
       OverlaySheetController.openSheetCount.value--;
     });
+  }
+
+  void _notifyCloseStart() {
+    if (_closeStartNotified) return;
+    _closeStartNotified = true;
+    for (final entry in _pageStack) {
+      entry.onCloseStart?.call();
+    }
   }
 
   void _rememberPointerPosition(PointerEvent event) {
