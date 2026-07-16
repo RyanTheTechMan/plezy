@@ -26,6 +26,7 @@ class Video extends StatefulWidget {
   final Widget Function(BuildContext context)? controls;
   final Color backgroundColor;
   final ValueListenable<bool>? hasFirstFrame;
+  final Listenable? rectUpdateListenable;
 
   const Video({
     super.key,
@@ -33,6 +34,7 @@ class Video extends StatefulWidget {
     this.controls,
     this.backgroundColor = Colors.black,
     this.hasFirstFrame,
+    this.rectUpdateListenable,
   });
 
   @override
@@ -51,6 +53,8 @@ class _VideoState extends State<Video> {
   int _sentBottom = 0;
   double _sentDevicePixelRatio = 0;
   bool _hasFirstFrame = false;
+  BuildContext? _videoSurfaceContext;
+  bool _rectUpdateScheduled = false;
   StreamSubscription<void>? _playbackRestartSubscription;
 
   @override
@@ -58,6 +62,7 @@ class _VideoState extends State<Video> {
     super.initState();
     _hasFirstFrame = widget.hasFirstFrame?.value ?? false;
     widget.hasFirstFrame?.addListener(_syncExternalFirstFrame);
+    widget.rectUpdateListenable?.addListener(_scheduleVideoRectUpdate);
     _listenForPlaybackRestart();
   }
 
@@ -69,8 +74,14 @@ class _VideoState extends State<Video> {
       widget.hasFirstFrame?.addListener(_syncExternalFirstFrame);
       _syncExternalFirstFrame();
     }
+    if (oldWidget.rectUpdateListenable != widget.rectUpdateListenable) {
+      oldWidget.rectUpdateListenable?.removeListener(_scheduleVideoRectUpdate);
+      widget.rectUpdateListenable?.addListener(_scheduleVideoRectUpdate);
+      _scheduleVideoRectUpdate();
+    }
     if (oldWidget.player != widget.player) {
       _lastRect = null;
+      _videoSurfaceContext = null;
       _playbackRestartSubscription?.cancel();
       _listenForPlaybackRestart();
       _syncExternalFirstFrame();
@@ -85,14 +96,17 @@ class _VideoState extends State<Video> {
   @override
   void dispose() {
     widget.hasFirstFrame?.removeListener(_syncExternalFirstFrame);
+    widget.rectUpdateListenable?.removeListener(_scheduleVideoRectUpdate);
     _playbackRestartSubscription?.cancel();
     super.dispose();
   }
 
   void _listenForPlaybackRestart() {
-    _playbackRestartSubscription = widget.player.streams.playbackRestart.listen((_) {
-      _setHasFirstFrame(true);
-    });
+    _playbackRestartSubscription = widget.player.streams.playbackRestart.listen(
+      (_) {
+        _setHasFirstFrame(true);
+      },
+    );
   }
 
   void _syncExternalFirstFrame() {
@@ -127,17 +141,28 @@ class _VideoState extends State<Video> {
     if (widget.player is VideoRectSupport) {
       return LayoutBuilder(
         builder: (context, constraints) {
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _updateVideoRect(context, constraints);
-          });
+          _videoSurfaceContext = context;
+          _scheduleVideoRectUpdate();
           return const SizedBox.expand();
         },
       );
     }
+    _videoSurfaceContext = null;
     return const SizedBox.expand();
   }
 
-  void _updateVideoRect(BuildContext context, BoxConstraints _) {
+  void _scheduleVideoRectUpdate() {
+    if (_rectUpdateScheduled) return;
+    _rectUpdateScheduled = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _rectUpdateScheduled = false;
+      if (!mounted) return;
+      final context = _videoSurfaceContext;
+      if (context != null) _updateVideoRect(context);
+    });
+  }
+
+  void _updateVideoRect(BuildContext context) {
     final renderBox = context.findRenderObject() as RenderBox?;
     if (renderBox == null || !renderBox.hasSize) return;
 
@@ -188,29 +213,37 @@ class _VideoState extends State<Video> {
     _sentDevicePixelRatio = dpr;
 
     final player = widget.player as VideoRectSupport;
-    player.setVideoRect(left: left, top: top, right: right, bottom: bottom, devicePixelRatio: dpr).catchError((
-      Object e,
-    ) {
-      // Geometry is the only thing that makes the native surface visible,
-      // so a rejected rect is a black video area, not a cosmetic glitch.
-      // Post-frame callbacks have nobody to rethrow to, so route it to the
-      // player's error stream rather than leaving an unhandled async error.
-      //
-      // Drop the sent-rect cache too: it was recorded before the call
-      // resolved, and keeping it would short-circuit every later identical
-      // layout pass, freezing the failure in place. Cleared, the next layout
-      // or resize retries for free.
-      if (mounted &&
-          _sentLeft == left &&
-          _sentTop == top &&
-          _sentRight == right &&
-          _sentBottom == bottom &&
-          _sentDevicePixelRatio == dpr) {
-        _hasSentRect = false;
-      }
-      if (!player.errorController.isClosed) {
-        player.errorController.add(PlayerError('Failed to set video rect: $e'));
-      }
-    });
+    player
+        .setVideoRect(
+          left: left,
+          top: top,
+          right: right,
+          bottom: bottom,
+          devicePixelRatio: dpr,
+        )
+        .catchError((Object e) {
+          // Geometry is the only thing that makes the native surface visible,
+          // so a rejected rect is a black video area, not a cosmetic glitch.
+          // Post-frame callbacks have nobody to rethrow to, so route it to the
+          // player's error stream rather than leaving an unhandled async error.
+          //
+          // Drop the sent-rect cache too: it was recorded before the call
+          // resolved, and keeping it would short-circuit every later identical
+          // layout pass, freezing the failure in place. Cleared, the next layout
+          // or resize retries for free.
+          if (mounted &&
+              _sentLeft == left &&
+              _sentTop == top &&
+              _sentRight == right &&
+              _sentBottom == bottom &&
+              _sentDevicePixelRatio == dpr) {
+            _hasSentRect = false;
+          }
+          if (!player.errorController.isClosed) {
+            player.errorController.add(
+              PlayerError('Failed to set video rect: $e'),
+            );
+          }
+        });
   }
 }
