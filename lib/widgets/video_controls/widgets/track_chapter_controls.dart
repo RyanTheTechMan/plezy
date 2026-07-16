@@ -1,3 +1,5 @@
+import 'dart:async' show unawaited;
+
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:flutter/services.dart';
@@ -226,6 +228,26 @@ class TrackChapterControls extends StatelessWidget {
                         .whenComplete(() => state.onStartAutoHide?.call());
                   },
                 );
+              },
+            ),
+          );
+          buttonIndex++;
+        }
+
+        // Clip button (VOD only, hidden by state for TV/live playback)
+        if (onClipRequested != null) {
+          final currentIndex = buttonIndex;
+          buttons.add(
+            _buildTrackButton(
+              buttonIndex: currentIndex,
+              icon: Symbols.content_cut_rounded,
+              tooltip: 'Clip',
+              semanticLabel: 'Clip',
+              isMobile: isMobile,
+              isDesktop: isDesktop,
+              onPressed: () {
+                onCancelAutoHide?.call();
+                unawaited(onClipRequested!().whenComplete(() => onStartAutoHide?.call()));
               },
             ),
           );
@@ -463,6 +485,7 @@ class TrackChapterControls extends StatelessWidget {
     final state = trackControlsState;
     int count = 1; // Settings button always shown
     count++; // Audio & subtitles button always shown
+    if (state.onClipRequested != null) count++;
     if (chapters.isNotEmpty && !hideChaptersAndQueue) count++;
     if (state.showQueueButton && state.onQueueItemSelected != null && !hideChaptersAndQueue) count++;
     if (state.onTogglePIPMode != null) count++;
