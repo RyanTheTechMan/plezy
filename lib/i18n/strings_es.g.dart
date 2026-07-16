@@ -691,6 +691,10 @@ class _TranslationsVideoControlsEs extends TranslationsVideoControlsEn {
 	@override String get pipActive => 'Reproduciendo en Imagen en Imagen';
 	@override String get pipFailed => 'Error al iniciar Imagen en Imagen';
 	@override String get screenshotSaved => 'Captura de pantalla guardada';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('es'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String zoomPercent({required Object percent}) => 'Zoom ${percent}%';
 	@override late final _TranslationsVideoControlsPipErrorsEs pipErrors = _TranslationsVideoControlsPipErrorsEs._(_root);
 	@override String get chapters => 'Capítulos';
@@ -1840,6 +1844,8 @@ class _TranslationsHotkeysActionsEs extends TranslationsHotkeysActionsEn {
 	@override String get shaderToggle => 'Alternar Shaders';
 	@override String get skipMarker => 'Saltar Intro/Créditos';
 	@override String get screenshot => 'Tomar captura de pantalla';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2555,6 +2561,8 @@ extension on TranslationsEs {
 			'hotkeys.actions.shaderToggle' => 'Alternar Shaders',
 			'hotkeys.actions.skipMarker' => 'Saltar Intro/Créditos',
 			'hotkeys.actions.screenshot' => 'Tomar captura de pantalla',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Información del Archivo',
 			'fileInfo.video' => 'Video',
 			'fileInfo.audio' => 'Audio',
@@ -2684,6 +2692,7 @@ extension on TranslationsEs {
 			'videoControls.pipActive' => 'Reproduciendo en Imagen en Imagen',
 			'videoControls.pipFailed' => 'Error al iniciar Imagen en Imagen',
 			'videoControls.screenshotSaved' => 'Captura de pantalla guardada',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('es'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Zoom ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Requiere Android 8.0 o más reciente',
 			'videoControls.pipErrors.iosVersion' => 'Requiere iOS 15.0 o más reciente',
@@ -2691,11 +2700,11 @@ extension on TranslationsEs {
 			'videoControls.pipErrors.notSupported' => 'El dispositivo no soporta el modo Imagen en Imagen',
 			'videoControls.pipErrors.voSwitchFailed' => 'Error al cambiar la salida de video para Imagen en Imagen',
 			'videoControls.pipErrors.failed' => 'Error al iniciar Imagen en Imagen',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.pipErrors.unknown' => ({required Object error}) => 'Ocurrió un error: ${error}',
 			'videoControls.chapters' => 'Capítulos',
 			'videoControls.noChaptersAvailable' => 'No hay capítulos disponibles',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.queue' => 'Cola',
 			'videoControls.noQueueItems' => 'No hay elementos en la cola',
 			'videoControls.searchSubtitles' => 'Buscar subtítulos',
@@ -3205,11 +3214,11 @@ extension on TranslationsEs {
 			'watchTogether.hostOnly' => 'Solo el Anfitrión',
 			'watchTogether.anyone' => 'Cualquiera',
 			'watchTogether.hostingSession' => 'Anfitrión de la Sesión',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.inSession' => 'En Sesión',
 			'watchTogether.sessionCode' => 'Código de Sesión',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'El anfitrión controla la reproducción',
 			'watchTogether.anyoneCanControl' => 'Cualquiera puede controlar la reproducción',

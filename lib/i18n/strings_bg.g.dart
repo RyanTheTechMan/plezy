@@ -691,6 +691,10 @@ class _TranslationsVideoControlsBg extends TranslationsVideoControlsEn {
 	@override String get pipActive => 'Възпроизвеждане в режим картина в картината';
 	@override String get pipFailed => 'Режимът картина в картината не успя да стартира';
 	@override String get screenshotSaved => 'Екранната снимка е запазена';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('bg'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String zoomPercent({required Object percent}) => 'Мащаб ${percent}%';
 	@override late final _TranslationsVideoControlsPipErrorsBg pipErrors = _TranslationsVideoControlsPipErrorsBg._(_root);
 	@override String get chapters => 'Глави';
@@ -1840,6 +1844,8 @@ class _TranslationsHotkeysActionsBg extends TranslationsHotkeysActionsEn {
 	@override String get shaderToggle => 'Превключи шейдъри';
 	@override String get skipMarker => 'Прескочи интро/финални надписи';
 	@override String get screenshot => 'Направи екранна снимка';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2555,6 +2561,8 @@ extension on TranslationsBg {
 			'hotkeys.actions.shaderToggle' => 'Превключи шейдъри',
 			'hotkeys.actions.skipMarker' => 'Прескочи интро/финални надписи',
 			'hotkeys.actions.screenshot' => 'Направи екранна снимка',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Информация за файла',
 			'fileInfo.video' => 'Видео',
 			'fileInfo.audio' => 'Аудио',
@@ -2684,6 +2692,7 @@ extension on TranslationsBg {
 			'videoControls.pipActive' => 'Възпроизвеждане в режим картина в картината',
 			'videoControls.pipFailed' => 'Режимът картина в картината не успя да стартира',
 			'videoControls.screenshotSaved' => 'Екранната снимка е запазена',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('bg'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Мащаб ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Изисква Android 8.0 или по-нова версия',
 			'videoControls.pipErrors.iosVersion' => 'Изисква iOS 15.0 или по-нова версия',
@@ -2691,11 +2700,11 @@ extension on TranslationsBg {
 			'videoControls.pipErrors.notSupported' => 'Устройството не поддържа режим картина в картината',
 			'videoControls.pipErrors.voSwitchFailed' => 'Неуспешна смяна на видео изхода за режим картина в картината',
 			'videoControls.pipErrors.failed' => 'Режимът картина в картината не успя да стартира',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.pipErrors.unknown' => ({required Object error}) => 'Възникна грешка: ${error}',
 			'videoControls.chapters' => 'Глави',
 			'videoControls.noChaptersAvailable' => 'Няма налични глави',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.queue' => 'Опашка',
 			'videoControls.noQueueItems' => 'Няма елементи в опашката',
 			'videoControls.searchSubtitles' => 'Търсене на субтитри',
@@ -3205,11 +3214,11 @@ extension on TranslationsBg {
 			'watchTogether.hostOnly' => 'Само домакинът',
 			'watchTogether.anyone' => 'Всеки',
 			'watchTogether.hostingSession' => 'Сесия с домакин',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.inSession' => 'В сесия',
 			'watchTogether.sessionCode' => 'Код на сесията',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'Домакинът управлява възпроизвеждането',
 			'watchTogether.anyoneCanControl' => 'Всеки може да управлява възпроизвеждането',

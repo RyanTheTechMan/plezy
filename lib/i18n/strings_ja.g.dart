@@ -691,6 +691,10 @@ class _TranslationsVideoControlsJa extends TranslationsVideoControlsEn {
 	@override String get pipActive => 'ピクチャーインピクチャーで再生中';
 	@override String get pipFailed => 'ピクチャーインピクチャーの開始に失敗しました';
 	@override String get screenshotSaved => 'スクリーンショットを保存しました';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String zoomPercent({required Object percent}) => 'ズーム ${percent}%';
 	@override late final _TranslationsVideoControlsPipErrorsJa pipErrors = _TranslationsVideoControlsPipErrorsJa._(_root);
 	@override String get chapters => 'チャプター';
@@ -1840,6 +1844,8 @@ class _TranslationsHotkeysActionsJa extends TranslationsHotkeysActionsEn {
 	@override String get shaderToggle => 'シェーダー切替';
 	@override String get skipMarker => 'イントロ/クレジットをスキップ';
 	@override String get screenshot => 'スクリーンショットを撮る';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2555,6 +2561,8 @@ extension on TranslationsJa {
 			'hotkeys.actions.shaderToggle' => 'シェーダー切替',
 			'hotkeys.actions.skipMarker' => 'イントロ/クレジットをスキップ',
 			'hotkeys.actions.screenshot' => 'スクリーンショットを撮る',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'ファイル情報',
 			'fileInfo.video' => '映像',
 			'fileInfo.audio' => '音声',
@@ -2684,6 +2692,7 @@ extension on TranslationsJa {
 			'videoControls.pipActive' => 'ピクチャーインピクチャーで再生中',
 			'videoControls.pipFailed' => 'ピクチャーインピクチャーの開始に失敗しました',
 			'videoControls.screenshotSaved' => 'スクリーンショットを保存しました',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.zoomPercent' => ({required Object percent}) => 'ズーム ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0以降が必要です',
 			'videoControls.pipErrors.iosVersion' => 'iOS 15.0以降が必要です',
@@ -2691,11 +2700,11 @@ extension on TranslationsJa {
 			'videoControls.pipErrors.notSupported' => 'デバイスはピクチャーインピクチャーモードをサポートしていません',
 			'videoControls.pipErrors.voSwitchFailed' => 'ピクチャーインピクチャーの映像出力切替に失敗しました',
 			'videoControls.pipErrors.failed' => 'ピクチャーインピクチャーの開始に失敗しました',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.pipErrors.unknown' => ({required Object error}) => 'エラーが発生しました: ${error}',
 			'videoControls.chapters' => 'チャプター',
 			'videoControls.noChaptersAvailable' => 'チャプターがありません',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.queue' => 'キュー',
 			'videoControls.noQueueItems' => 'キューにアイテムがありません',
 			'videoControls.searchSubtitles' => '字幕を検索',
@@ -3205,11 +3214,11 @@ extension on TranslationsJa {
 			'watchTogether.hostOnly' => 'ホストのみ',
 			'watchTogether.anyone' => '全員',
 			'watchTogether.hostingSession' => 'セッションをホスト中',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.inSession' => 'セッション中',
 			'watchTogether.sessionCode' => 'セッションコード',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'ホストが再生を制御',
 			'watchTogether.anyoneCanControl' => '全員が再生を制御可能',

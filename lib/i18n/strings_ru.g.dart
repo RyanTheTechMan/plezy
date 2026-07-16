@@ -691,6 +691,12 @@ class _TranslationsVideoControlsRu extends TranslationsVideoControlsEn {
 	@override String get pipActive => 'Воспроизводится в режиме «картинка в картинке»';
 	@override String get pipFailed => 'Не удалось запустить режим «картинка в картинке»';
 	@override String get screenshotSaved => 'Снимок экрана сохранён';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ru'))(n,
+		one: '${n} frame',
+		few: '',
+		many: '',
+		other: '${n} frames',
+	);
 	@override String zoomPercent({required Object percent}) => 'Масштаб ${percent}%';
 	@override late final _TranslationsVideoControlsPipErrorsRu pipErrors = _TranslationsVideoControlsPipErrorsRu._(_root);
 	@override String get chapters => 'Главы';
@@ -1844,6 +1850,8 @@ class _TranslationsHotkeysActionsRu extends TranslationsHotkeysActionsEn {
 	@override String get shaderToggle => 'Вкл./выкл. шейдеры';
 	@override String get skipMarker => 'Пропустить вступление/титры';
 	@override String get screenshot => 'Сделать снимок экрана';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2559,6 +2567,8 @@ extension on TranslationsRu {
 			'hotkeys.actions.shaderToggle' => 'Вкл./выкл. шейдеры',
 			'hotkeys.actions.skipMarker' => 'Пропустить вступление/титры',
 			'hotkeys.actions.screenshot' => 'Сделать снимок экрана',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Информация о файле',
 			'fileInfo.video' => 'Видео',
 			'fileInfo.audio' => 'Аудио',
@@ -2688,6 +2698,7 @@ extension on TranslationsRu {
 			'videoControls.pipActive' => 'Воспроизводится в режиме «картинка в картинке»',
 			'videoControls.pipFailed' => 'Не удалось запустить режим «картинка в картинке»',
 			'videoControls.screenshotSaved' => 'Снимок экрана сохранён',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ru'))(n, one: '${n} frame', few: '', many: '', other: '${n} frames', ), 
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Масштаб ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Требуется Android 8.0 или новее',
 			'videoControls.pipErrors.iosVersion' => 'Требуется iOS 15.0 или новее',
@@ -2695,11 +2706,11 @@ extension on TranslationsRu {
 			'videoControls.pipErrors.notSupported' => 'Устройство не поддерживает режим «картинка в картинке»',
 			'videoControls.pipErrors.voSwitchFailed' => 'Не удалось переключить видеовыход для «картинки в картинке»',
 			'videoControls.pipErrors.failed' => 'Не удалось запустить режим «картинка в картинке»',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.pipErrors.unknown' => ({required Object error}) => 'Произошла ошибка: ${error}',
 			'videoControls.chapters' => 'Главы',
 			'videoControls.noChaptersAvailable' => 'Главы недоступны',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.queue' => 'Очередь',
 			'videoControls.noQueueItems' => 'В очереди нет элементов',
 			'videoControls.searchSubtitles' => 'Поиск субтитров',
@@ -3209,11 +3220,11 @@ extension on TranslationsRu {
 			'watchTogether.hostOnly' => 'Только хост',
 			'watchTogether.anyone' => 'Все',
 			'watchTogether.hostingSession' => 'Хостинг сессии',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.inSession' => 'В сессии',
 			'watchTogether.sessionCode' => 'Код сессии',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'Хост управляет воспроизведением',
 			'watchTogether.anyoneCanControl' => 'Любой может управлять воспроизведением',
