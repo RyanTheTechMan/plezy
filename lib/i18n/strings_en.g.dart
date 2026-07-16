@@ -695,6 +695,15 @@ class TranslationsSettingsEn {
 	/// en: 'Cache cleared successfully'
 	String get clearCacheSuccess => 'Cache cleared successfully';
 
+	/// en: 'Reset Shaders'
+	String get resetShaders => 'Reset Shaders';
+
+	/// en: 'Turn off video shaders and restore the default shader setting.'
+	String get resetShadersDescription => 'Turn off video shaders and restore the default shader setting.';
+
+	/// en: 'Shaders reset successfully'
+	String get resetShadersSuccess => 'Shaders reset successfully';
+
 	/// en: 'Reset Settings'
 	String get resetSettings => 'Reset Settings';
 
@@ -5337,6 +5346,9 @@ extension on Translations {
 			'settings.clearCache' => 'Clear Cache',
 			'settings.clearCacheDescription' => 'Clear cached images and data. Content may load slower.',
 			'settings.clearCacheSuccess' => 'Cache cleared successfully',
+			'settings.resetShaders' => 'Reset Shaders',
+			'settings.resetShadersDescription' => 'Turn off video shaders and restore the default shader setting.',
+			'settings.resetShadersSuccess' => 'Shaders reset successfully',
 			'settings.resetSettings' => 'Reset Settings',
 			'settings.resetSettingsDescription' => 'Restore default settings. This can\'t be undone.',
 			'settings.resetSettingsSuccess' => 'Settings reset successfully',
@@ -5662,11 +5674,11 @@ extension on Translations {
 			'videoControls.pipErrors.androidVersion' => 'Requires Android 8.0 or newer',
 			'videoControls.pipErrors.iosVersion' => 'Requires iOS 15.0 or newer',
 			'videoControls.pipErrors.permissionDisabled' => 'Picture-in-picture is disabled. Enable it in system settings.',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.pipErrors.notSupported' => 'Device doesn\'t support picture-in-picture mode',
 			'videoControls.pipErrors.voSwitchFailed' => 'Failed to switch video output for picture-in-picture',
 			'videoControls.pipErrors.failed' => 'Picture-in-picture failed to start',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.pipErrors.unknown' => ({required Object error}) => 'An error occurred: ${error}',
 			'videoControls.chapters' => 'Chapters',
 			'videoControls.noChaptersAvailable' => 'No chapters available',
@@ -6176,11 +6188,11 @@ extension on Translations {
 			'watchTogether.controlMode' => 'Control Mode',
 			'watchTogether.controlModeQuestion' => 'Who can control playback?',
 			'watchTogether.hostOnly' => 'Host Only',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.anyone' => 'Anyone',
 			'watchTogether.hostingSession' => 'Hosting Session',
 			'watchTogether.inSession' => 'In Session',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.sessionCode' => 'Session Code',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
 			'watchTogether.copySessionCode' => 'Copy session code',
