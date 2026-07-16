@@ -691,6 +691,10 @@ class _TranslationsVideoControlsNb extends TranslationsVideoControlsEn {
 	@override String get pipActive => 'Spiller i bilde-i-bilde';
 	@override String get pipFailed => 'Bilde-i-bilde kunne ikke starte';
 	@override String get screenshotSaved => 'Skjermbilde lagret';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('nb'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String zoomPercent({required Object percent}) => 'Zoom ${percent}%';
 	@override late final _TranslationsVideoControlsPipErrorsNb pipErrors = _TranslationsVideoControlsPipErrorsNb._(_root);
 	@override String get chapters => 'Kapitler';
@@ -1840,6 +1844,8 @@ class _TranslationsHotkeysActionsNb extends TranslationsHotkeysActionsEn {
 	@override String get shaderToggle => 'Veksle shadere';
 	@override String get skipMarker => 'Hopp over intro/rulletekst';
 	@override String get screenshot => 'Ta skjermbilde';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2555,6 +2561,8 @@ extension on TranslationsNb {
 			'hotkeys.actions.shaderToggle' => 'Veksle shadere',
 			'hotkeys.actions.skipMarker' => 'Hopp over intro/rulletekst',
 			'hotkeys.actions.screenshot' => 'Ta skjermbilde',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Filinformasjon',
 			'fileInfo.video' => 'Video',
 			'fileInfo.audio' => 'Lyd',
@@ -2684,6 +2692,7 @@ extension on TranslationsNb {
 			'videoControls.pipActive' => 'Spiller i bilde-i-bilde',
 			'videoControls.pipFailed' => 'Bilde-i-bilde kunne ikke starte',
 			'videoControls.screenshotSaved' => 'Skjermbilde lagret',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('nb'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Zoom ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Krever Android 8.0 eller nyere',
 			'videoControls.pipErrors.iosVersion' => 'Krever iOS 15.0 eller nyere',
@@ -2691,11 +2700,11 @@ extension on TranslationsNb {
 			'videoControls.pipErrors.notSupported' => 'Enheten støtter ikke bilde-i-bilde-modus',
 			'videoControls.pipErrors.voSwitchFailed' => 'Kunne ikke bytte videoutgang for bilde-i-bilde',
 			'videoControls.pipErrors.failed' => 'Bilde-i-bilde kunne ikke starte',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.pipErrors.unknown' => ({required Object error}) => 'En feil oppstod: ${error}',
 			'videoControls.chapters' => 'Kapitler',
 			'videoControls.noChaptersAvailable' => 'Ingen kapitler tilgjengelig',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.queue' => 'Kø',
 			'videoControls.noQueueItems' => 'Ingen elementer i kø',
 			'videoControls.searchSubtitles' => 'Søk etter undertekster',
@@ -3205,11 +3214,11 @@ extension on TranslationsNb {
 			'watchTogether.hostOnly' => 'Kun vert',
 			'watchTogether.anyone' => 'Alle',
 			'watchTogether.hostingSession' => 'Er vert for økt',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.inSession' => 'I økt',
 			'watchTogether.sessionCode' => 'Øktkode',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'Verten kontrollerer avspilling',
 			'watchTogether.anyoneCanControl' => 'Alle kan kontrollere avspilling',

@@ -691,6 +691,10 @@ class _TranslationsVideoControlsKo extends TranslationsVideoControlsEn {
 	@override String get pipActive => '화면 속 화면으로 재생 중';
 	@override String get pipFailed => '화면 속 화면 모드를 시작할 수 없습니다';
 	@override String get screenshotSaved => '스크린샷 저장됨';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String zoomPercent({required Object percent}) => '확대/축소 ${percent}%';
 	@override late final _TranslationsVideoControlsPipErrorsKo pipErrors = _TranslationsVideoControlsPipErrorsKo._(_root);
 	@override String get chapters => '챕터';
@@ -1840,6 +1844,8 @@ class _TranslationsHotkeysActionsKo extends TranslationsHotkeysActionsEn {
 	@override String get shaderToggle => '셰이더 전환';
 	@override String get skipMarker => '인트로/크레딧 건너뛰기';
 	@override String get screenshot => '스크린샷 찍기';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2555,6 +2561,8 @@ extension on TranslationsKo {
 			'hotkeys.actions.shaderToggle' => '셰이더 전환',
 			'hotkeys.actions.skipMarker' => '인트로/크레딧 건너뛰기',
 			'hotkeys.actions.screenshot' => '스크린샷 찍기',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => '파일 정보',
 			'fileInfo.video' => '비디오',
 			'fileInfo.audio' => '오디오',
@@ -2684,6 +2692,7 @@ extension on TranslationsKo {
 			'videoControls.pipActive' => '화면 속 화면으로 재생 중',
 			'videoControls.pipFailed' => '화면 속 화면 모드를 시작할 수 없습니다',
 			'videoControls.screenshotSaved' => '스크린샷 저장됨',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.zoomPercent' => ({required Object percent}) => '확대/축소 ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0 이상이 필요합니다',
 			'videoControls.pipErrors.iosVersion' => 'iOS 15.0 이상이 필요합니다',
@@ -2691,11 +2700,11 @@ extension on TranslationsKo {
 			'videoControls.pipErrors.notSupported' => '이 기기는 화면 속 화면 모드를 지원하지 않습니다',
 			'videoControls.pipErrors.voSwitchFailed' => '화면 속 화면을 위한 비디오 출력 전환에 실패했습니다',
 			'videoControls.pipErrors.failed' => '화면 속 화면 모드를 시작할 수 없습니다',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.pipErrors.unknown' => ({required Object error}) => '오류가 발생했습니다: ${error}',
 			'videoControls.chapters' => '챕터',
 			'videoControls.noChaptersAvailable' => '사용 가능한 챕터가 없습니다',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.queue' => '재생 대기열',
 			'videoControls.noQueueItems' => '대기열에 항목이 없습니다',
 			'videoControls.searchSubtitles' => '자막 검색',
@@ -3205,11 +3214,11 @@ extension on TranslationsKo {
 			'watchTogether.hostOnly' => '호스트만',
 			'watchTogether.anyone' => '누구나',
 			'watchTogether.hostingSession' => '세션 호스팅',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.inSession' => '세션 중',
 			'watchTogether.sessionCode' => '세션 코드',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => '호스트 재생 제어',
 			'watchTogether.anyoneCanControl' => '누구나 재생 제어 가능',

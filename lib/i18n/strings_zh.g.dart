@@ -691,6 +691,10 @@ class _TranslationsVideoControlsZh extends TranslationsVideoControlsEn {
 	@override String get pipActive => '正在画中画模式中播放';
 	@override String get pipFailed => '画中画启动失败';
 	@override String get screenshotSaved => '截图已保存';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String zoomPercent({required Object percent}) => '缩放 ${percent}%';
 	@override late final _TranslationsVideoControlsPipErrorsZh pipErrors = _TranslationsVideoControlsPipErrorsZh._(_root);
 	@override String get chapters => '章节';
@@ -1840,6 +1844,8 @@ class _TranslationsHotkeysActionsZh extends TranslationsHotkeysActionsEn {
 	@override String get shaderToggle => '切换着色器';
 	@override String get skipMarker => '跳过片头/片尾';
 	@override String get screenshot => '截图';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2555,6 +2561,8 @@ extension on TranslationsZh {
 			'hotkeys.actions.shaderToggle' => '切换着色器',
 			'hotkeys.actions.skipMarker' => '跳过片头/片尾',
 			'hotkeys.actions.screenshot' => '截图',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => '文件信息',
 			'fileInfo.video' => '视频',
 			'fileInfo.audio' => '音频',
@@ -2684,6 +2692,7 @@ extension on TranslationsZh {
 			'videoControls.pipActive' => '正在画中画模式中播放',
 			'videoControls.pipFailed' => '画中画启动失败',
 			'videoControls.screenshotSaved' => '截图已保存',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.zoomPercent' => ({required Object percent}) => '缩放 ${percent}%',
 			'videoControls.pipErrors.androidVersion' => '需要 Android 8.0 或更高版本',
 			'videoControls.pipErrors.iosVersion' => '需要 iOS 15.0 或更高版本',
@@ -2691,11 +2700,11 @@ extension on TranslationsZh {
 			'videoControls.pipErrors.notSupported' => '此设备不支持画中画模式',
 			'videoControls.pipErrors.voSwitchFailed' => '无法切换画中画的视频输出',
 			'videoControls.pipErrors.failed' => '画中画启动失败',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.pipErrors.unknown' => ({required Object error}) => '发生错误：${error}',
 			'videoControls.chapters' => '章节',
 			'videoControls.noChaptersAvailable' => '没有可用的章节',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.queue' => '播放队列',
 			'videoControls.noQueueItems' => '队列中没有项目',
 			'videoControls.searchSubtitles' => '搜索字幕',
@@ -3205,11 +3214,11 @@ extension on TranslationsZh {
 			'watchTogether.hostOnly' => '仅主持人',
 			'watchTogether.anyone' => '任何人',
 			'watchTogether.hostingSession' => '主持会话',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.inSession' => '在会话中',
 			'watchTogether.sessionCode' => '会话代码',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => '主持人控制播放',
 			'watchTogether.anyoneCanControl' => '任何人都可以控制播放',

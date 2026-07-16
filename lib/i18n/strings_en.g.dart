@@ -1648,6 +1648,12 @@ class TranslationsVideoControlsEn {
 	/// en: 'Screenshot saved'
 	String get screenshotSaved => 'Screenshot saved';
 
+	/// en: '(one) {${n} frame} (other) {${n} frames}'
+	String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
+
 	/// en: 'Zoom ${percent}%'
 	String zoomPercent({required Object percent}) => 'Zoom ${percent}%';
 
@@ -4426,6 +4432,12 @@ class TranslationsHotkeysActionsEn {
 
 	/// en: 'Take Screenshot'
 	String get screenshot => 'Take Screenshot';
+
+	/// en: 'Previous Frame'
+	String get framePrevious => 'Previous Frame';
+
+	/// en: 'Next Frame'
+	String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -5517,6 +5529,8 @@ extension on Translations {
 			'hotkeys.actions.shaderToggle' => 'Toggle Shaders',
 			'hotkeys.actions.skipMarker' => 'Skip Intro/Credits',
 			'hotkeys.actions.screenshot' => 'Take Screenshot',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'File Info',
 			'fileInfo.video' => 'Video',
 			'fileInfo.audio' => 'Audio',
@@ -5646,6 +5660,7 @@ extension on Translations {
 			'videoControls.pipActive' => 'Playing in Picture-in-Picture',
 			'videoControls.pipFailed' => 'Picture-in-picture failed to start',
 			'videoControls.screenshotSaved' => 'Screenshot saved',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Zoom ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Requires Android 8.0 or newer',
 			'videoControls.pipErrors.iosVersion' => 'Requires iOS 15.0 or newer',
@@ -5653,11 +5668,11 @@ extension on Translations {
 			'videoControls.pipErrors.notSupported' => 'Device doesn\'t support picture-in-picture mode',
 			'videoControls.pipErrors.voSwitchFailed' => 'Failed to switch video output for picture-in-picture',
 			'videoControls.pipErrors.failed' => 'Picture-in-picture failed to start',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.pipErrors.unknown' => ({required Object error}) => 'An error occurred: ${error}',
 			'videoControls.chapters' => 'Chapters',
 			'videoControls.noChaptersAvailable' => 'No chapters available',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.queue' => 'Queue',
 			'videoControls.noQueueItems' => 'No items in queue',
 			'videoControls.searchSubtitles' => 'Search Subtitles',
@@ -6167,11 +6182,11 @@ extension on Translations {
 			'watchTogether.hostOnly' => 'Host Only',
 			'watchTogether.anyone' => 'Anyone',
 			'watchTogether.hostingSession' => 'Hosting Session',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.inSession' => 'In Session',
 			'watchTogether.sessionCode' => 'Session Code',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'Host controls playback',
 			'watchTogether.anyoneCanControl' => 'Anyone can control playback',
