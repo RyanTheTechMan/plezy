@@ -411,7 +411,7 @@ class _PlaybackSettingsScreenState extends State<PlaybackSettingsScreen> {
   };
 
   Widget _bufferSizeTile() {
-    final bufferOptions = const [0, 64, 128, 256, 512, 1024];
+    final bufferOptions = const [0, 64, 128, 256, 512, 1024, 2048];
     return SettingSelectionTile<int, int>(
       pref: SettingsService.bufferSize,
       icon: Symbols.memory_rounded,
