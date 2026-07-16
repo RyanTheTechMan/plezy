@@ -96,7 +96,7 @@ class _TranslationsAppDe extends TranslationsAppEn {
 	final TranslationsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -204,6 +204,14 @@ class _TranslationsUpdateDe extends TranslationsUpdateEn {
 	@override String get viewRelease => 'Release anzeigen';
 	@override String get latestVersion => 'Aktuellste Version installiert';
 	@override String get checkFailed => 'Fehler bei der Updateprüfung';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -338,6 +346,12 @@ class _TranslationsSettingsDe extends TranslationsSettingsEn {
 	@override String get updates => 'Updates';
 	@override String get updateAvailable => 'Update verfügbar';
 	@override String get checkForUpdates => 'Nach Updates suchen';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => 'Beim Start automatisch nach Updates suchen';
 	@override String get autoCheckUpdatesOnStartupDescription => 'Beim Start benachrichtigen, wenn ein Update verfügbar ist';
 	@override String get validationErrorEnterNumber => 'Bitte eine gültige Zahl eingeben';
@@ -481,6 +495,8 @@ class _TranslationsHotkeysDe extends TranslationsHotkeysEn {
 	@override String get clearShortcut => 'Kürzel löschen';
 	@override String get noShortcutSet => 'Keine Tastenkombination festgelegt';
 	@override String get currentShortcut => 'Aktuelle Tastenkombination:';
+	@override String get pressToRecord => 'Select to record a shortcut';
+	@override String get recordingShortcut => 'Press the shortcut now';
 	@override late final _TranslationsHotkeysActionsDe actions = _TranslationsHotkeysActionsDe._(_root);
 }
 
@@ -582,6 +598,8 @@ class _TranslationsAccessibilityDe extends TranslationsAccessibilityEn {
 	@override String get saturation => 'Sättigung';
 	@override String get brightness => 'Helligkeit';
 	@override String get hexColor => 'Hex-Farbe';
+	@override String get expandText => 'Expand text';
+	@override String get collapseText => 'Collapse text';
 }
 
 // Path: tooltips
@@ -992,8 +1010,10 @@ class _TranslationsAboutDe extends TranslationsAboutEn {
 	@override String get title => 'Über';
 	@override String get openSourceLicenses => 'Open-Source-Lizenzen';
 	@override String versionLabel({required Object version}) => 'Version ${version}';
-	@override String get appDescription => 'Ein schöner Plex- und Jellyfin-Client für Flutter';
 	@override String get viewLicensesDescription => 'Lizenzen von Drittanbieter-Bibliotheken anzeigen';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1284,6 +1304,8 @@ class _TranslationsWatchTogetherDe extends TranslationsWatchTogetherEn {
 	@override String get hostingSession => 'Sitzung Hosten';
 	@override String get inSession => 'In Sitzung';
 	@override String get sessionCode => 'Sitzungscode';
+	@override String get openSessionControls => 'Open Watch Together session controls';
+	@override String get copySessionCode => 'Copy session code';
 	@override String get hostControlsPlayback => 'Host steuert die Wiedergabe';
 	@override String get anyoneCanControl => 'Alle können die Wiedergabe steuern';
 	@override String get hostControls => 'Host steuert';
@@ -1578,6 +1600,8 @@ class _TranslationsMetadataEditDe extends TranslationsMetadataEditEn {
 	@override String get artworkUpdated => 'Artwork aktualisiert';
 	@override String get artworkUpdateFailed => 'Artwork konnte nicht aktualisiert werden';
 	@override String get noArtworkAvailable => 'Kein Artwork verfügbar';
+	@override String artworkOption({required Object index}) => 'Artwork option ${index}';
+	@override String selectedArtworkOption({required Object index}) => 'Artwork option ${index}, selected';
 	@override String get notSet => 'Nicht festgelegt';
 	@override String get libraryDefault => 'Bibliotheksstandard';
 	@override String get accountDefault => 'Kontostandard';
@@ -2054,6 +2078,7 @@ class _TranslationsServicesDeviceCodeDe extends TranslationsServicesDeviceCodeEn
 	@override String title({required Object service}) => 'Plezy auf ${service} aktivieren';
 	@override String body({required Object url}) => 'Gehe zu ${url} und gib diesen Code ein:';
 	@override String openToActivate({required Object service}) => '${service} zum Aktivieren öffnen';
+	@override String get copyCode => 'Copy activation code';
 	@override String get waitingForAuthorization => 'Warte auf Autorisierung…';
 	@override String get codeCopied => 'Code kopiert';
 }
@@ -2068,6 +2093,7 @@ class _TranslationsServicesOauthProxyDe extends TranslationsServicesOauthProxyEn
 	@override String title({required Object service}) => 'Bei ${service} anmelden';
 	@override String get body => 'Scanne diesen QR-Code oder öffne die URL auf einem beliebigen Gerät.';
 	@override String openToSignIn({required Object service}) => '${service} zum Anmelden öffnen';
+	@override String get copyUrl => 'Copy sign-in URL';
 	@override String get urlCopied => 'URL kopiert';
 }
 
@@ -2100,7 +2126,7 @@ class _TranslationsServicesLibraryFilterDe extends TranslationsServicesLibraryFi
 extension on TranslationsDe {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Mit Plex anmelden',
 			'auth.showQRCode' => 'QR-Code anzeigen',
 			'auth.authenticate' => 'Authentifizieren',
@@ -2172,6 +2198,14 @@ extension on TranslationsDe {
 			'update.viewRelease' => 'Release anzeigen',
 			'update.latestVersion' => 'Aktuellste Version installiert',
 			'update.checkFailed' => 'Fehler bei der Updateprüfung',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Einstellungen',
 			'settings.supportDeveloper' => 'Plezy unterstützen',
 			'settings.supportDeveloperDescription' => 'Per Liberapay spenden, um die Entwicklung zu fördern',
@@ -2297,6 +2331,12 @@ extension on TranslationsDe {
 			'settings.updates' => 'Updates',
 			'settings.updateAvailable' => 'Update verfügbar',
 			'settings.checkForUpdates' => 'Nach Updates suchen',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => 'Beim Start automatisch nach Updates suchen',
 			'settings.autoCheckUpdatesOnStartupDescription' => 'Beim Start benachrichtigen, wenn ein Update verfügbar ist',
 			'settings.validationErrorEnterNumber' => 'Bitte eine gültige Zahl eingeben',
@@ -2422,6 +2462,8 @@ extension on TranslationsDe {
 			'hotkeys.clearShortcut' => 'Kürzel löschen',
 			'hotkeys.noShortcutSet' => 'Keine Tastenkombination festgelegt',
 			'hotkeys.currentShortcut' => 'Aktuelle Tastenkombination:',
+			'hotkeys.pressToRecord' => 'Select to record a shortcut',
+			'hotkeys.recordingShortcut' => 'Press the shortcut now',
 			'hotkeys.actions.playPause' => 'Wiedergabe/Pause',
 			'hotkeys.actions.volumeUp' => 'Lauter',
 			'hotkeys.actions.volumeDown' => 'Leiser',
@@ -2511,6 +2553,8 @@ extension on TranslationsDe {
 			'accessibility.saturation' => 'Sättigung',
 			'accessibility.brightness' => 'Helligkeit',
 			'accessibility.hexColor' => 'Hex-Farbe',
+			'accessibility.expandText' => 'Expand text',
+			'accessibility.collapseText' => 'Collapse text',
 			'tooltips.shufflePlay' => 'Zufallswiedergabe',
 			'tooltips.playTrailer' => 'Trailer abspielen',
 			'tooltips.markAsWatched' => 'Als gesehen markieren',
@@ -2594,6 +2638,8 @@ extension on TranslationsDe {
 			'videoControls.noAudioTracksAvailable' => 'Keine Audiospuren verfügbar',
 			'videoControls.noTracksAvailable' => 'Keine Spuren verfügbar',
 			'videoControls.subtitleDownloaded' => 'Untertitel heruntergeladen',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.subtitleDownloadFailed' => 'Untertitel konnte nicht heruntergeladen werden',
 			'videoControls.searchLanguages' => 'Sprachen suchen...',
 			'messages.markedAsWatched' => 'Als gesehen markiert',
@@ -2612,8 +2658,6 @@ extension on TranslationsDe {
 			'messages.noDescriptionAvailable' => 'Keine Beschreibung verfügbar',
 			'messages.noProfilesAvailable' => 'Keine Profile verfügbar',
 			'messages.contactAdminForProfiles' => 'Kontaktiere deinen Serveradministrator, um Profile hinzuzufügen',
-			_ => null,
-		} ?? switch (path) {
 			'messages.unableToDetermineLibrarySection' => 'Bibliotheksbereich für dieses Element kann nicht ermittelt werden',
 			'messages.logsCleared' => 'Protokolle gelöscht',
 			'messages.logsCopied' => 'Protokolle in Zwischenablage kopiert',
@@ -2857,8 +2901,10 @@ extension on TranslationsDe {
 			'about.title' => 'Über',
 			'about.openSourceLicenses' => 'Open-Source-Lizenzen',
 			'about.versionLabel' => ({required Object version}) => 'Version ${version}',
-			'about.appDescription' => 'Ein schöner Plex- und Jellyfin-Client für Flutter',
 			'about.viewLicensesDescription' => 'Lizenzen von Drittanbieter-Bibliotheken anzeigen',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Keine Server gefunden für ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Server konnten nicht geladen werden: ${error}',
 			'hubDetail.title' => 'Titel',
@@ -3059,6 +3105,8 @@ extension on TranslationsDe {
 			'watchTogether.hostingSession' => 'Sitzung Hosten',
 			'watchTogether.inSession' => 'In Sitzung',
 			'watchTogether.sessionCode' => 'Sitzungscode',
+			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
+			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'Host steuert die Wiedergabe',
 			'watchTogether.anyoneCanControl' => 'Alle können die Wiedergabe steuern',
 			'watchTogether.hostControls' => 'Host steuert',
@@ -3104,6 +3152,8 @@ extension on TranslationsDe {
 			'watchTogether.resumingWithout' => ({required Object name}) => 'Fortfahren ohne ${name}',
 			'watchTogether.waitingForParticipants' => 'Warte auf andere zum Laden...',
 			'watchTogether.waitingForName' => ({required Object name}) => 'Warten auf ${name}...',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.recentRooms' => 'Letzte Räume',
 			'watchTogether.renameRoom' => 'Raum umbenennen',
 			'watchTogether.removeRoom' => 'Entfernen',
@@ -3126,8 +3176,6 @@ extension on TranslationsDe {
 			'downloads.episodesQueued' => ({required Object count}) => '${count} Episoden zum Download hinzugefügt',
 			'downloads.downloadDeleted' => 'Download gelöscht',
 			'downloads.deleteConfirm' => ({required Object title}) => '"${title}" von diesem Gerät löschen?',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.cancelledDownloadTitle' => 'Abgebrochener Download',
 			'downloads.cancelledDownloadMessage' => 'Dieser Download wurde abgebrochen. Was möchtest du tun?',
 			'downloads.allEpisodesAlreadyDownloaded' => 'Alle Episoden sind bereits heruntergeladen',
@@ -3349,6 +3397,8 @@ extension on TranslationsDe {
 			'metadataEdit.artworkUpdated' => 'Artwork aktualisiert',
 			'metadataEdit.artworkUpdateFailed' => 'Artwork konnte nicht aktualisiert werden',
 			'metadataEdit.noArtworkAvailable' => 'Kein Artwork verfügbar',
+			'metadataEdit.artworkOption' => ({required Object index}) => 'Artwork option ${index}',
+			'metadataEdit.selectedArtworkOption' => ({required Object index}) => 'Artwork option ${index}, selected',
 			'metadataEdit.notSet' => 'Nicht festgelegt',
 			'metadataEdit.libraryDefault' => 'Bibliotheksstandard',
 			'metadataEdit.accountDefault' => 'Kontostandard',
@@ -3463,11 +3513,13 @@ extension on TranslationsDe {
 			'services.deviceCode.title' => ({required Object service}) => 'Plezy auf ${service} aktivieren',
 			'services.deviceCode.body' => ({required Object url}) => 'Gehe zu ${url} und gib diesen Code ein:',
 			'services.deviceCode.openToActivate' => ({required Object service}) => '${service} zum Aktivieren öffnen',
+			'services.deviceCode.copyCode' => 'Copy activation code',
 			'services.deviceCode.waitingForAuthorization' => 'Warte auf Autorisierung…',
 			'services.deviceCode.codeCopied' => 'Code kopiert',
 			'services.oauthProxy.title' => ({required Object service}) => 'Bei ${service} anmelden',
 			'services.oauthProxy.body' => 'Scanne diesen QR-Code oder öffne die URL auf einem beliebigen Gerät.',
 			'services.oauthProxy.openToSignIn' => ({required Object service}) => '${service} zum Anmelden öffnen',
+			'services.oauthProxy.copyUrl' => 'Copy sign-in URL',
 			'services.oauthProxy.urlCopied' => 'URL kopiert',
 			'services.libraryFilter.title' => 'Bibliothekfilter',
 			'services.libraryFilter.subtitleAllSyncing' => 'Alle Bibliotheken werden synchronisiert',

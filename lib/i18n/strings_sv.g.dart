@@ -96,7 +96,7 @@ class _TranslationsAppSv extends TranslationsAppEn {
 	final TranslationsSv _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -204,6 +204,14 @@ class _TranslationsUpdateSv extends TranslationsUpdateEn {
 	@override String get viewRelease => 'Visa release';
 	@override String get latestVersion => 'Du har den senaste versionen';
 	@override String get checkFailed => 'Misslyckades att kontrollera uppdateringar';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -338,6 +346,12 @@ class _TranslationsSettingsSv extends TranslationsSettingsEn {
 	@override String get updates => 'Uppdateringar';
 	@override String get updateAvailable => 'Uppdatering tillgänglig';
 	@override String get checkForUpdates => 'Kontrollera uppdateringar';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => 'Kontrollera uppdateringar automatiskt vid start';
 	@override String get autoCheckUpdatesOnStartupDescription => 'Meddela när en uppdatering finns vid start';
 	@override String get validationErrorEnterNumber => 'Vänligen ange ett giltigt nummer';
@@ -481,6 +495,8 @@ class _TranslationsHotkeysSv extends TranslationsHotkeysEn {
 	@override String get clearShortcut => 'Rensa genväg';
 	@override String get noShortcutSet => 'Ingen genväg angiven';
 	@override String get currentShortcut => 'Aktuell genväg:';
+	@override String get pressToRecord => 'Select to record a shortcut';
+	@override String get recordingShortcut => 'Press the shortcut now';
 	@override late final _TranslationsHotkeysActionsSv actions = _TranslationsHotkeysActionsSv._(_root);
 }
 
@@ -582,6 +598,8 @@ class _TranslationsAccessibilitySv extends TranslationsAccessibilityEn {
 	@override String get saturation => 'Mättnad';
 	@override String get brightness => 'Ljusstyrka';
 	@override String get hexColor => 'Hexfärg';
+	@override String get expandText => 'Expand text';
+	@override String get collapseText => 'Collapse text';
 }
 
 // Path: tooltips
@@ -992,8 +1010,10 @@ class _TranslationsAboutSv extends TranslationsAboutEn {
 	@override String get title => 'Om';
 	@override String get openSourceLicenses => 'Öppen källkod-licenser';
 	@override String versionLabel({required Object version}) => 'Version ${version}';
-	@override String get appDescription => 'En vacker Plex- och Jellyfin-klient för Flutter';
 	@override String get viewLicensesDescription => 'Visa licenser för tredjepartsbibliotek';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1284,6 +1304,8 @@ class _TranslationsWatchTogetherSv extends TranslationsWatchTogetherEn {
 	@override String get hostingSession => 'Värd för Session';
 	@override String get inSession => 'I Session';
 	@override String get sessionCode => 'Sessionskod';
+	@override String get openSessionControls => 'Open Watch Together session controls';
+	@override String get copySessionCode => 'Copy session code';
 	@override String get hostControlsPlayback => 'Värden styr uppspelningen';
 	@override String get anyoneCanControl => 'Alla kan styra uppspelningen';
 	@override String get hostControls => 'Värd styr';
@@ -1578,6 +1600,8 @@ class _TranslationsMetadataEditSv extends TranslationsMetadataEditEn {
 	@override String get artworkUpdated => 'Artwork uppdaterad';
 	@override String get artworkUpdateFailed => 'Kunde inte uppdatera artwork';
 	@override String get noArtworkAvailable => 'Ingen artwork tillgänglig';
+	@override String artworkOption({required Object index}) => 'Artwork option ${index}';
+	@override String selectedArtworkOption({required Object index}) => 'Artwork option ${index}, selected';
 	@override String get notSet => 'Inte angiven';
 	@override String get libraryDefault => 'Biblioteksstandard';
 	@override String get accountDefault => 'Kontostandard';
@@ -2054,6 +2078,7 @@ class _TranslationsServicesDeviceCodeSv extends TranslationsServicesDeviceCodeEn
 	@override String title({required Object service}) => 'Aktivera Plezy på ${service}';
 	@override String body({required Object url}) => 'Besök ${url} och ange den här koden:';
 	@override String openToActivate({required Object service}) => 'Öppna ${service} för att aktivera';
+	@override String get copyCode => 'Copy activation code';
 	@override String get waitingForAuthorization => 'Väntar på auktorisering…';
 	@override String get codeCopied => 'Kod kopierad';
 }
@@ -2068,6 +2093,7 @@ class _TranslationsServicesOauthProxySv extends TranslationsServicesOauthProxyEn
 	@override String title({required Object service}) => 'Logga in på ${service}';
 	@override String get body => 'Skanna den här QR-koden eller öppna URL:en på valfri enhet.';
 	@override String openToSignIn({required Object service}) => 'Öppna ${service} för att logga in';
+	@override String get copyUrl => 'Copy sign-in URL';
 	@override String get urlCopied => 'URL kopierad';
 }
 
@@ -2100,7 +2126,7 @@ class _TranslationsServicesLibraryFilterSv extends TranslationsServicesLibraryFi
 extension on TranslationsSv {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Logga in med Plex',
 			'auth.showQRCode' => 'Visa QR-kod',
 			'auth.authenticate' => 'Autentisera',
@@ -2172,6 +2198,14 @@ extension on TranslationsSv {
 			'update.viewRelease' => 'Visa release',
 			'update.latestVersion' => 'Du har den senaste versionen',
 			'update.checkFailed' => 'Misslyckades att kontrollera uppdateringar',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Inställningar',
 			'settings.supportDeveloper' => 'Stöd Plezy',
 			'settings.supportDeveloperDescription' => 'Donera via Liberapay för att finansiera utvecklingen',
@@ -2297,6 +2331,12 @@ extension on TranslationsSv {
 			'settings.updates' => 'Uppdateringar',
 			'settings.updateAvailable' => 'Uppdatering tillgänglig',
 			'settings.checkForUpdates' => 'Kontrollera uppdateringar',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => 'Kontrollera uppdateringar automatiskt vid start',
 			'settings.autoCheckUpdatesOnStartupDescription' => 'Meddela när en uppdatering finns vid start',
 			'settings.validationErrorEnterNumber' => 'Vänligen ange ett giltigt nummer',
@@ -2422,6 +2462,8 @@ extension on TranslationsSv {
 			'hotkeys.clearShortcut' => 'Rensa genväg',
 			'hotkeys.noShortcutSet' => 'Ingen genväg angiven',
 			'hotkeys.currentShortcut' => 'Aktuell genväg:',
+			'hotkeys.pressToRecord' => 'Select to record a shortcut',
+			'hotkeys.recordingShortcut' => 'Press the shortcut now',
 			'hotkeys.actions.playPause' => 'Spela/Pausa',
 			'hotkeys.actions.volumeUp' => 'Höj volym',
 			'hotkeys.actions.volumeDown' => 'Sänk volym',
@@ -2511,6 +2553,8 @@ extension on TranslationsSv {
 			'accessibility.saturation' => 'Mättnad',
 			'accessibility.brightness' => 'Ljusstyrka',
 			'accessibility.hexColor' => 'Hexfärg',
+			'accessibility.expandText' => 'Expand text',
+			'accessibility.collapseText' => 'Collapse text',
 			'tooltips.shufflePlay' => 'Blanda uppspelning',
 			'tooltips.playTrailer' => 'Spela trailer',
 			'tooltips.markAsWatched' => 'Markera som sedd',
@@ -2594,6 +2638,8 @@ extension on TranslationsSv {
 			'videoControls.noAudioTracksAvailable' => 'Inga ljudspår tillgängliga',
 			'videoControls.noTracksAvailable' => 'Inga spår tillgängliga',
 			'videoControls.subtitleDownloaded' => 'Undertext nedladdad',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.subtitleDownloadFailed' => 'Kunde inte ladda ner undertext',
 			'videoControls.searchLanguages' => 'Sök språk...',
 			'messages.markedAsWatched' => 'Markerad som sedd',
@@ -2612,8 +2658,6 @@ extension on TranslationsSv {
 			'messages.noDescriptionAvailable' => 'Ingen beskrivning tillgänglig',
 			'messages.noProfilesAvailable' => 'Inga profiler tillgängliga',
 			'messages.contactAdminForProfiles' => 'Kontakta din serveradministratör för att lägga till profiler',
-			_ => null,
-		} ?? switch (path) {
 			'messages.unableToDetermineLibrarySection' => 'Kan inte avgöra biblioteksavdelningen för detta objekt',
 			'messages.logsCleared' => 'Loggar rensade',
 			'messages.logsCopied' => 'Loggar kopierade till urklipp',
@@ -2857,8 +2901,10 @@ extension on TranslationsSv {
 			'about.title' => 'Om',
 			'about.openSourceLicenses' => 'Öppen källkod-licenser',
 			'about.versionLabel' => ({required Object version}) => 'Version ${version}',
-			'about.appDescription' => 'En vacker Plex- och Jellyfin-klient för Flutter',
 			'about.viewLicensesDescription' => 'Visa licenser för tredjepartsbibliotek',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Inga servrar hittades för ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Misslyckades att ladda servrar: ${error}',
 			'hubDetail.title' => 'Titel',
@@ -3059,6 +3105,8 @@ extension on TranslationsSv {
 			'watchTogether.hostingSession' => 'Värd för Session',
 			'watchTogether.inSession' => 'I Session',
 			'watchTogether.sessionCode' => 'Sessionskod',
+			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
+			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'Värden styr uppspelningen',
 			'watchTogether.anyoneCanControl' => 'Alla kan styra uppspelningen',
 			'watchTogether.hostControls' => 'Värd styr',
@@ -3104,6 +3152,8 @@ extension on TranslationsSv {
 			'watchTogether.resumingWithout' => ({required Object name}) => 'Återupptar utan ${name}',
 			'watchTogether.waitingForParticipants' => 'Väntar på att andra laddar...',
 			'watchTogether.waitingForName' => ({required Object name}) => 'Väntar på ${name}...',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.recentRooms' => 'Senaste rum',
 			'watchTogether.renameRoom' => 'Byt namn på rum',
 			'watchTogether.removeRoom' => 'Ta bort',
@@ -3126,8 +3176,6 @@ extension on TranslationsSv {
 			'downloads.episodesQueued' => ({required Object count}) => '${count} avsnitt köade för nedladdning',
 			'downloads.downloadDeleted' => 'Nedladdning borttagen',
 			'downloads.deleteConfirm' => ({required Object title}) => 'Ta bort "${title}" från den här enheten?',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.cancelledDownloadTitle' => 'Avbruten nedladdning',
 			'downloads.cancelledDownloadMessage' => 'Den här nedladdningen avbröts. Vad vill du göra?',
 			'downloads.allEpisodesAlreadyDownloaded' => 'Alla avsnitt är redan nedladdade',
@@ -3349,6 +3397,8 @@ extension on TranslationsSv {
 			'metadataEdit.artworkUpdated' => 'Artwork uppdaterad',
 			'metadataEdit.artworkUpdateFailed' => 'Kunde inte uppdatera artwork',
 			'metadataEdit.noArtworkAvailable' => 'Ingen artwork tillgänglig',
+			'metadataEdit.artworkOption' => ({required Object index}) => 'Artwork option ${index}',
+			'metadataEdit.selectedArtworkOption' => ({required Object index}) => 'Artwork option ${index}, selected',
 			'metadataEdit.notSet' => 'Inte angiven',
 			'metadataEdit.libraryDefault' => 'Biblioteksstandard',
 			'metadataEdit.accountDefault' => 'Kontostandard',
@@ -3463,11 +3513,13 @@ extension on TranslationsSv {
 			'services.deviceCode.title' => ({required Object service}) => 'Aktivera Plezy på ${service}',
 			'services.deviceCode.body' => ({required Object url}) => 'Besök ${url} och ange den här koden:',
 			'services.deviceCode.openToActivate' => ({required Object service}) => 'Öppna ${service} för att aktivera',
+			'services.deviceCode.copyCode' => 'Copy activation code',
 			'services.deviceCode.waitingForAuthorization' => 'Väntar på auktorisering…',
 			'services.deviceCode.codeCopied' => 'Kod kopierad',
 			'services.oauthProxy.title' => ({required Object service}) => 'Logga in på ${service}',
 			'services.oauthProxy.body' => 'Skanna den här QR-koden eller öppna URL:en på valfri enhet.',
 			'services.oauthProxy.openToSignIn' => ({required Object service}) => 'Öppna ${service} för att logga in',
+			'services.oauthProxy.copyUrl' => 'Copy sign-in URL',
 			'services.oauthProxy.urlCopied' => 'URL kopierad',
 			'services.libraryFilter.title' => 'Biblioteksfilter',
 			'services.libraryFilter.subtitleAllSyncing' => 'Synkroniserar alla bibliotek',
