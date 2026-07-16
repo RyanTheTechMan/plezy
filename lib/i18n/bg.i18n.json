@@ -377,7 +377,9 @@
       "subSeekPrev": "Отиди до предишен субтитър",
       "shaderToggle": "Превключи шейдъри",
       "skipMarker": "Прескочи интро/финални надписи",
-      "screenshot": "Направи екранна снимка"
+      "screenshot": "Направи екранна снимка",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -520,6 +522,10 @@
     "pipActive": "Възпроизвеждане в режим картина в картината",
     "pipFailed": "Режимът картина в картината не успя да стартира",
     "screenshotSaved": "Екранната снимка е запазена",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "zoomPercent": "Мащаб ${percent}%",
     "pipErrors": {
       "androidVersion": "Изисква Android 8.0 или по-нова версия",

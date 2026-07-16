@@ -377,7 +377,9 @@
       "subSeekPrev": "Ir para Legenda Anterior",
       "shaderToggle": "Alternar Shaders",
       "skipMarker": "Pular Intro/Créditos",
-      "screenshot": "Capturar tela"
+      "screenshot": "Capturar tela",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -520,6 +522,10 @@
     "pipActive": "Reproduzindo em Picture-in-Picture",
     "pipFailed": "Falha ao iniciar picture-in-picture",
     "screenshotSaved": "Captura de tela salva",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "zoomPercent": "Zoom ${percent}%",
     "pipErrors": {
       "androidVersion": "Requer Android 8.0 ou superior",

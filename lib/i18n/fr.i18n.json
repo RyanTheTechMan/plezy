@@ -377,7 +377,9 @@
       "subSeekPrev": "Rechercher le sous-titre précédent",
       "shaderToggle": "Activer/désactiver les shaders",
       "skipMarker": "Passer l'intro/le générique",
-      "screenshot": "Prendre une capture d'écran"
+      "screenshot": "Prendre une capture d'écran",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -520,6 +522,10 @@
     "pipActive": "Lecture en mode image dans l'image",
     "pipFailed": "Échec du démarrage du mode image dans l'image",
     "screenshotSaved": "Capture d'écran enregistrée",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "zoomPercent": "Zoom ${percent} %",
     "pipErrors": {
       "androidVersion": "Nécessite Android 8.0 ou plus récent",

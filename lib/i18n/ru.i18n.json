@@ -377,7 +377,9 @@
       "subSeekPrev": "К предыдущему субтитру",
       "shaderToggle": "Вкл./выкл. шейдеры",
       "skipMarker": "Пропустить вступление/титры",
-      "screenshot": "Сделать снимок экрана"
+      "screenshot": "Сделать снимок экрана",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -520,6 +522,12 @@
     "pipActive": "Воспроизводится в режиме «картинка в картинке»",
     "pipFailed": "Не удалось запустить режим «картинка в картинке»",
     "screenshotSaved": "Снимок экрана сохранён",
+    "frameCount": {
+      "one": "${n} frame",
+      "few": "",
+      "many": "",
+      "other": "${n} frames"
+    },
     "zoomPercent": "Масштаб ${percent}%",
     "pipErrors": {
       "androidVersion": "Требуется Android 8.0 или новее",

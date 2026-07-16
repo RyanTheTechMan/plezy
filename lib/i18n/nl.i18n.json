@@ -377,7 +377,9 @@
       "subSeekPrev": "Naar vorige ondertitel",
       "shaderToggle": "Shaders aan/uit",
       "skipMarker": "Intro/aftiteling overslaan",
-      "screenshot": "Schermafbeelding maken"
+      "screenshot": "Schermafbeelding maken",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -520,6 +522,10 @@
     "pipActive": "Afspelen in beeld-in-beeld",
     "pipFailed": "Beeld-in-beeld kon niet worden gestart",
     "screenshotSaved": "Schermafbeelding opgeslagen",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "zoomPercent": "Zoom ${percent}%",
     "pipErrors": {
       "androidVersion": "Vereist Android 8.0 of nieuwer",
