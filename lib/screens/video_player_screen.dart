@@ -1242,7 +1242,6 @@ class VideoPlayerScreenState extends State<VideoPlayerScreen> with WidgetsBindin
     _isExiting.dispose();
     _chromeController.dispose();
     _toastController.dispose();
-    unawaited(_clipExportService.cancelActiveExport());
     _clipExportService.dispose();
 
     // Stop progress tracking and send final state. Normal back navigation
