@@ -508,17 +508,23 @@ class _SettingsScreenState extends State<SettingsScreen>
 
   Widget _buildCaptureSection() {
     return SettingsGroup(
-      title: 'Media capture',
+      title: t.settings.mediaCapture,
       children: [
         _buildCaptureLocationTile(
           focusKey: _kClipLocation,
-          title: 'Clips',
+          title: t.settings.clips,
+          description: t.settings.clipLocationDescription,
+          changedMessage: t.settings.clipLocationChanged,
+          resetMessage: t.settings.clipLocationReset,
           preference: settings.SettingsService.customClipPath,
           directoryProvider: ClipExportService.clipDirectory,
         ),
         _buildCaptureLocationTile(
           focusKey: _kScreenshotLocation,
-          title: 'Screenshots',
+          title: t.settings.screenshots,
+          description: t.settings.screenshotLocationDescription,
+          changedMessage: t.settings.screenshotLocationChanged,
+          resetMessage: t.settings.screenshotLocationReset,
           preference: settings.SettingsService.customScreenshotPath,
           directoryProvider: ClipExportService.screenshotDirectory,
         ),
@@ -529,6 +535,9 @@ class _SettingsScreenState extends State<SettingsScreen>
   Widget _buildCaptureLocationTile({
     required String focusKey,
     required String title,
+    required String description,
+    required String changedMessage,
+    required String resetMessage,
     required settings.NullableStringPref preference,
     required Future<Directory> Function() directoryProvider,
   }) {
@@ -544,6 +553,9 @@ class _SettingsScreenState extends State<SettingsScreen>
           trailing: const AppIcon(Symbols.chevron_right_rounded, fill: 1),
           onTap: () => _showCaptureLocationDialog(
             title: title,
+            description: description,
+            changedMessage: changedMessage,
+            resetMessage: resetMessage,
             preference: preference,
             directoryProvider: directoryProvider,
           ),
@@ -809,6 +821,9 @@ class _SettingsScreenState extends State<SettingsScreen>
 
   Future<void> _showCaptureLocationDialog({
     required String title,
+    required String description,
+    required String changedMessage,
+    required String resetMessage,
     required settings.NullableStringPref preference,
     required Future<Directory> Function() directoryProvider,
   }) async {
@@ -817,12 +832,12 @@ class _SettingsScreenState extends State<SettingsScreen>
     await showScopedDialog<void>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text('$title location'),
+        title: Text(t.settings.captureLocationTitle(title: title)),
         content: Column(
           mainAxisSize: .min,
           crossAxisAlignment: .start,
           children: [
-            Text('Choose where ${title.toLowerCase()} are saved.'),
+            Text(description),
             const SizedBox(height: 16),
             FutureBuilder<Directory>(
               future: directoryProvider(),
@@ -837,7 +852,7 @@ class _SettingsScreenState extends State<SettingsScreen>
           if (isCustom)
             DialogActionButton(
               onPressed: () async {
-                await _resetCaptureLocation(preference, title);
+                await _resetCaptureLocation(preference, resetMessage);
                 if (dialogContext.mounted) Navigator.pop(dialogContext);
               },
               label: t.settings.resetToDefault,
@@ -848,7 +863,7 @@ class _SettingsScreenState extends State<SettingsScreen>
           ),
           DialogActionButton(
             onPressed: () async {
-              await _selectCaptureLocation(preference, title);
+              await _selectCaptureLocation(preference, changedMessage);
               if (dialogContext.mounted) Navigator.pop(dialogContext);
             },
             label: t.settings.selectFolder,
@@ -927,7 +942,7 @@ class _SettingsScreenState extends State<SettingsScreen>
 
   Future<void> _selectCaptureLocation(
     settings.NullableStringPref preference,
-    String title,
+    String changedMessage,
   ) async {
     try {
       final selectedPath = await FilePickerService.instance.getDirectoryPath(
@@ -947,7 +962,7 @@ class _SettingsScreenState extends State<SettingsScreen>
       if (mounted) {
         // ignore: no-empty-block - setState refreshes the displayed capture path
         setState(() {});
-        showSuccessSnackBar(context, '$title location changed');
+        showSuccessSnackBar(context, changedMessage);
       }
     } catch (_) {
       if (mounted)
@@ -957,13 +972,13 @@ class _SettingsScreenState extends State<SettingsScreen>
 
   Future<void> _resetCaptureLocation(
     settings.NullableStringPref preference,
-    String title,
+    String resetMessage,
   ) async {
     await _settingsService.write(preference, null);
     if (mounted) {
       // ignore: no-empty-block - setState refreshes the displayed capture path
       setState(() {});
-      showAppSnackBar(context, '$title location reset to Desktop');
+      showAppSnackBar(context, resetMessage);
     }
   }
 
