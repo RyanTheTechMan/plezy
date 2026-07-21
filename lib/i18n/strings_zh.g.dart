@@ -96,7 +96,7 @@ class _TranslationsAppZh extends TranslationsAppEn {
 	final TranslationsZh _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -204,6 +204,14 @@ class _TranslationsUpdateZh extends TranslationsUpdateEn {
 	@override String get viewRelease => '查看发布详情';
 	@override String get latestVersion => '已安装的版本是可用的最新版本';
 	@override String get checkFailed => '无法检查更新';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -338,6 +346,12 @@ class _TranslationsSettingsZh extends TranslationsSettingsEn {
 	@override String get updates => '更新';
 	@override String get updateAvailable => '有可用更新';
 	@override String get checkForUpdates => '检查更新';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => '启动时自动检查更新';
 	@override String get autoCheckUpdatesOnStartupDescription => '启动时有可用更新则通知';
 	@override String get validationErrorEnterNumber => '请输入一个有效的数字';
@@ -481,6 +495,8 @@ class _TranslationsHotkeysZh extends TranslationsHotkeysEn {
 	@override String get clearShortcut => '清除快捷键';
 	@override String get noShortcutSet => '未设置快捷键';
 	@override String get currentShortcut => '当前快捷键:';
+	@override String get pressToRecord => 'Select to record a shortcut';
+	@override String get recordingShortcut => 'Press the shortcut now';
 	@override late final _TranslationsHotkeysActionsZh actions = _TranslationsHotkeysActionsZh._(_root);
 }
 
@@ -582,6 +598,8 @@ class _TranslationsAccessibilityZh extends TranslationsAccessibilityEn {
 	@override String get saturation => '饱和度';
 	@override String get brightness => '亮度';
 	@override String get hexColor => '十六进制颜色';
+	@override String get expandText => 'Expand text';
+	@override String get collapseText => 'Collapse text';
 }
 
 // Path: tooltips
@@ -992,8 +1010,10 @@ class _TranslationsAboutZh extends TranslationsAboutEn {
 	@override String get title => '关于';
 	@override String get openSourceLicenses => '开源许可证';
 	@override String versionLabel({required Object version}) => '版本 ${version}';
-	@override String get appDescription => '一款精美的 Flutter Plex 和 Jellyfin 客户端';
 	@override String get viewLicensesDescription => '查看第三方库的许可证';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1071,6 +1091,7 @@ class _TranslationsExploreZh extends TranslationsExploreEn {
 	@override late final _TranslationsExploreRowsZh rows = _TranslationsExploreRowsZh._(_root);
 	@override late final _TranslationsExploreStatusZh status = _TranslationsExploreStatusZh._(_root);
 	@override String episodeCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} episode',
 		other: '${n} 集',
 	);
 	@override String get cast => '演员表';
@@ -1243,6 +1264,7 @@ class _TranslationsMusicZh extends TranslationsMusicEn {
 	@override String get addToQueue => '添加到队列';
 	@override String discNumber({required Object n}) => '碟片 ${n}';
 	@override String trackCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} track',
 		other: '${n} 首',
 	);
 	@override String get nowPlaying => '正在播放';
@@ -1282,6 +1304,8 @@ class _TranslationsWatchTogetherZh extends TranslationsWatchTogetherEn {
 	@override String get hostingSession => '主持会话';
 	@override String get inSession => '在会话中';
 	@override String get sessionCode => '会话代码';
+	@override String get openSessionControls => 'Open Watch Together session controls';
+	@override String get copySessionCode => 'Copy session code';
 	@override String get hostControlsPlayback => '主持人控制播放';
 	@override String get anyoneCanControl => '任何人都可以控制播放';
 	@override String get hostControls => '主持人控制';
@@ -1576,6 +1600,8 @@ class _TranslationsMetadataEditZh extends TranslationsMetadataEditEn {
 	@override String get artworkUpdated => '封面图片已更新';
 	@override String get artworkUpdateFailed => '封面图片更新失败';
 	@override String get noArtworkAvailable => '没有可用的封面图片';
+	@override String artworkOption({required Object index}) => 'Artwork option ${index}';
+	@override String selectedArtworkOption({required Object index}) => 'Artwork option ${index}, selected';
 	@override String get notSet => '未设置';
 	@override String get libraryDefault => '媒体库默认';
 	@override String get accountDefault => '账户默认';
@@ -2052,6 +2078,7 @@ class _TranslationsServicesDeviceCodeZh extends TranslationsServicesDeviceCodeEn
 	@override String title({required Object service}) => '在 ${service} 上激活 Plezy';
 	@override String body({required Object url}) => '访问 ${url} 并输入此代码：';
 	@override String openToActivate({required Object service}) => '打开 ${service} 以激活';
+	@override String get copyCode => 'Copy activation code';
 	@override String get waitingForAuthorization => '等待授权…';
 	@override String get codeCopied => '代码已复制';
 }
@@ -2066,6 +2093,7 @@ class _TranslationsServicesOauthProxyZh extends TranslationsServicesOauthProxyEn
 	@override String title({required Object service}) => '登录 ${service}';
 	@override String get body => '扫描此二维码，或在任意设备上打开 URL。';
 	@override String openToSignIn({required Object service}) => '打开 ${service} 以登录';
+	@override String get copyUrl => 'Copy sign-in URL';
 	@override String get urlCopied => 'URL 已复制';
 }
 
@@ -2098,7 +2126,7 @@ class _TranslationsServicesLibraryFilterZh extends TranslationsServicesLibraryFi
 extension on TranslationsZh {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => '使用 Plex 登录',
 			'auth.showQRCode' => '显示二维码',
 			'auth.authenticate' => '验证',
@@ -2170,6 +2198,14 @@ extension on TranslationsZh {
 			'update.viewRelease' => '查看发布详情',
 			'update.latestVersion' => '已安装的版本是可用的最新版本',
 			'update.checkFailed' => '无法检查更新',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => '设置',
 			'settings.supportDeveloper' => '支持 Plezy',
 			'settings.supportDeveloperDescription' => '通过 Liberapay 捐赠支持开发',
@@ -2295,6 +2331,12 @@ extension on TranslationsZh {
 			'settings.updates' => '更新',
 			'settings.updateAvailable' => '有可用更新',
 			'settings.checkForUpdates' => '检查更新',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => '启动时自动检查更新',
 			'settings.autoCheckUpdatesOnStartupDescription' => '启动时有可用更新则通知',
 			'settings.validationErrorEnterNumber' => '请输入一个有效的数字',
@@ -2420,6 +2462,8 @@ extension on TranslationsZh {
 			'hotkeys.clearShortcut' => '清除快捷键',
 			'hotkeys.noShortcutSet' => '未设置快捷键',
 			'hotkeys.currentShortcut' => '当前快捷键:',
+			'hotkeys.pressToRecord' => 'Select to record a shortcut',
+			'hotkeys.recordingShortcut' => 'Press the shortcut now',
 			'hotkeys.actions.playPause' => '播放/暂停',
 			'hotkeys.actions.volumeUp' => '增大音量',
 			'hotkeys.actions.volumeDown' => '减小音量',
@@ -2509,6 +2553,8 @@ extension on TranslationsZh {
 			'accessibility.saturation' => '饱和度',
 			'accessibility.brightness' => '亮度',
 			'accessibility.hexColor' => '十六进制颜色',
+			'accessibility.expandText' => 'Expand text',
+			'accessibility.collapseText' => 'Collapse text',
 			'tooltips.shufflePlay' => '随机播放',
 			'tooltips.playTrailer' => '播放预告片',
 			'tooltips.markAsWatched' => '标记为已观看',
@@ -2592,6 +2638,8 @@ extension on TranslationsZh {
 			'videoControls.noAudioTracksAvailable' => '没有可用音轨',
 			'videoControls.noTracksAvailable' => '没有可用轨道',
 			'videoControls.subtitleDownloaded' => '字幕已下载',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.subtitleDownloadFailed' => '字幕下载失败',
 			'videoControls.searchLanguages' => '搜索语言...',
 			'messages.markedAsWatched' => '已标记为已观看',
@@ -2610,8 +2658,6 @@ extension on TranslationsZh {
 			'messages.noDescriptionAvailable' => '暂无描述',
 			'messages.noProfilesAvailable' => '没有可用的用户',
 			'messages.contactAdminForProfiles' => '请联系服务器管理员添加用户配置',
-			_ => null,
-		} ?? switch (path) {
 			'messages.unableToDetermineLibrarySection' => '无法确定此项目的库分区',
 			'messages.logsCleared' => '日志已清除',
 			'messages.logsCopied' => '日志已复制到剪贴板',
@@ -2855,8 +2901,10 @@ extension on TranslationsZh {
 			'about.title' => '关于',
 			'about.openSourceLicenses' => '开源许可证',
 			'about.versionLabel' => ({required Object version}) => '版本 ${version}',
-			'about.appDescription' => '一款精美的 Flutter Plex 和 Jellyfin 客户端',
 			'about.viewLicensesDescription' => '查看第三方库的许可证',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '未找到 ${username} (${email}) 的服务器',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => '无法加载服务器: ${error}',
 			'hubDetail.title' => '标题',
@@ -2894,7 +2942,7 @@ extension on TranslationsZh {
 			'explore.status.ended' => '已完结',
 			'explore.status.canceled' => '已取消',
 			'explore.status.upcoming' => '即将上线',
-			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 集', ), 
+			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} episode', other: '${n} 集', ), 
 			'explore.cast' => '演员表',
 			'explore.characters' => '角色',
 			'explore.addToWatchlist' => '添加到想看列表',
@@ -3028,7 +3076,7 @@ extension on TranslationsZh {
 			'music.playNext' => '下一首播放',
 			'music.addToQueue' => '添加到队列',
 			'music.discNumber' => ({required Object n}) => '碟片 ${n}',
-			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 首', ), 
+			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} track', other: '${n} 首', ), 
 			'music.nowPlaying' => '正在播放',
 			'music.playingFrom' => ({required Object title}) => '来自 ${title}',
 			'music.queue' => '播放队列',
@@ -3057,6 +3105,8 @@ extension on TranslationsZh {
 			'watchTogether.hostingSession' => '主持会话',
 			'watchTogether.inSession' => '在会话中',
 			'watchTogether.sessionCode' => '会话代码',
+			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
+			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => '主持人控制播放',
 			'watchTogether.anyoneCanControl' => '任何人都可以控制播放',
 			'watchTogether.hostControls' => '主持人控制',
@@ -3102,6 +3152,8 @@ extension on TranslationsZh {
 			'watchTogether.resumingWithout' => ({required Object name}) => '不等待 ${name}，继续播放',
 			'watchTogether.waitingForParticipants' => '等待其他人加载...',
 			'watchTogether.waitingForName' => ({required Object name}) => '正在等待 ${name}...',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.recentRooms' => '最近的房间',
 			'watchTogether.renameRoom' => '重命名房间',
 			'watchTogether.removeRoom' => '移除',
@@ -3124,8 +3176,6 @@ extension on TranslationsZh {
 			'downloads.episodesQueued' => ({required Object count}) => '${count} 集已加入下载队列',
 			'downloads.downloadDeleted' => '下载已删除',
 			'downloads.deleteConfirm' => ({required Object title}) => '要从此设备删除“${title}”吗？',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.cancelledDownloadTitle' => '已取消的下载',
 			'downloads.cancelledDownloadMessage' => '此下载已取消。你想怎么做？',
 			'downloads.allEpisodesAlreadyDownloaded' => '所有剧集均已下载',
@@ -3347,6 +3397,8 @@ extension on TranslationsZh {
 			'metadataEdit.artworkUpdated' => '封面图片已更新',
 			'metadataEdit.artworkUpdateFailed' => '封面图片更新失败',
 			'metadataEdit.noArtworkAvailable' => '没有可用的封面图片',
+			'metadataEdit.artworkOption' => ({required Object index}) => 'Artwork option ${index}',
+			'metadataEdit.selectedArtworkOption' => ({required Object index}) => 'Artwork option ${index}, selected',
 			'metadataEdit.notSet' => '未设置',
 			'metadataEdit.libraryDefault' => '媒体库默认',
 			'metadataEdit.accountDefault' => '账户默认',
@@ -3461,11 +3513,13 @@ extension on TranslationsZh {
 			'services.deviceCode.title' => ({required Object service}) => '在 ${service} 上激活 Plezy',
 			'services.deviceCode.body' => ({required Object url}) => '访问 ${url} 并输入此代码：',
 			'services.deviceCode.openToActivate' => ({required Object service}) => '打开 ${service} 以激活',
+			'services.deviceCode.copyCode' => 'Copy activation code',
 			'services.deviceCode.waitingForAuthorization' => '等待授权…',
 			'services.deviceCode.codeCopied' => '代码已复制',
 			'services.oauthProxy.title' => ({required Object service}) => '登录 ${service}',
 			'services.oauthProxy.body' => '扫描此二维码，或在任意设备上打开 URL。',
 			'services.oauthProxy.openToSignIn' => ({required Object service}) => '打开 ${service} 以登录',
+			'services.oauthProxy.copyUrl' => 'Copy sign-in URL',
 			'services.oauthProxy.urlCopied' => 'URL 已复制',
 			'services.libraryFilter.title' => '媒体库筛选',
 			'services.libraryFilter.subtitleAllSyncing' => '同步所有媒体库',

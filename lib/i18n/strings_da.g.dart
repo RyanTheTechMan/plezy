@@ -96,7 +96,7 @@ class _TranslationsAppDa extends TranslationsAppEn {
 	final TranslationsDa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -204,6 +204,14 @@ class _TranslationsUpdateDa extends TranslationsUpdateEn {
 	@override String get viewRelease => 'Vis udgivelse';
 	@override String get latestVersion => 'Du har den nyeste version';
 	@override String get checkFailed => 'Kunne ikke søge efter opdateringer';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -338,6 +346,12 @@ class _TranslationsSettingsDa extends TranslationsSettingsEn {
 	@override String get updates => 'Opdateringer';
 	@override String get updateAvailable => 'Opdatering tilgængelig';
 	@override String get checkForUpdates => 'Søg efter opdateringer';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => 'Søg automatisk efter opdateringer ved opstart';
 	@override String get autoCheckUpdatesOnStartupDescription => 'Giv besked, når en opdatering er tilgængelig ved start';
 	@override String get validationErrorEnterNumber => 'Indtast et gyldigt tal';
@@ -481,6 +495,8 @@ class _TranslationsHotkeysDa extends TranslationsHotkeysEn {
 	@override String get clearShortcut => 'Ryd genvej';
 	@override String get noShortcutSet => 'Ingen genvej angivet';
 	@override String get currentShortcut => 'Nuværende genvej:';
+	@override String get pressToRecord => 'Select to record a shortcut';
+	@override String get recordingShortcut => 'Press the shortcut now';
 	@override late final _TranslationsHotkeysActionsDa actions = _TranslationsHotkeysActionsDa._(_root);
 }
 
@@ -582,6 +598,8 @@ class _TranslationsAccessibilityDa extends TranslationsAccessibilityEn {
 	@override String get saturation => 'Mætning';
 	@override String get brightness => 'Lysstyrke';
 	@override String get hexColor => 'Hexfarve';
+	@override String get expandText => 'Expand text';
+	@override String get collapseText => 'Collapse text';
 }
 
 // Path: tooltips
@@ -992,8 +1010,10 @@ class _TranslationsAboutDa extends TranslationsAboutEn {
 	@override String get title => 'Om';
 	@override String get openSourceLicenses => 'Open source-licenser';
 	@override String versionLabel({required Object version}) => 'Version ${version}';
-	@override String get appDescription => 'En smuk Plex- og Jellyfin-klient til Flutter';
 	@override String get viewLicensesDescription => 'Se licenser for tredjepartsbiblioteker';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1284,6 +1304,8 @@ class _TranslationsWatchTogetherDa extends TranslationsWatchTogetherEn {
 	@override String get hostingSession => 'Vært for session';
 	@override String get inSession => 'I session';
 	@override String get sessionCode => 'Sessionskode';
+	@override String get openSessionControls => 'Open Watch Together session controls';
+	@override String get copySessionCode => 'Copy session code';
 	@override String get hostControlsPlayback => 'Vært styrer afspilning';
 	@override String get anyoneCanControl => 'Alle kan styre afspilning';
 	@override String get hostControls => 'Værtskontrol';
@@ -1578,6 +1600,8 @@ class _TranslationsMetadataEditDa extends TranslationsMetadataEditEn {
 	@override String get artworkUpdated => 'Grafik opdateret';
 	@override String get artworkUpdateFailed => 'Kunne ikke opdatere grafik';
 	@override String get noArtworkAvailable => 'Ingen grafik tilgængelig';
+	@override String artworkOption({required Object index}) => 'Artwork option ${index}';
+	@override String selectedArtworkOption({required Object index}) => 'Artwork option ${index}, selected';
 	@override String get notSet => 'Ikke indstillet';
 	@override String get libraryDefault => 'Biblioteksstandard';
 	@override String get accountDefault => 'Kontostandard';
@@ -2054,6 +2078,7 @@ class _TranslationsServicesDeviceCodeDa extends TranslationsServicesDeviceCodeEn
 	@override String title({required Object service}) => 'Aktiver Plezy på ${service}';
 	@override String body({required Object url}) => 'Besøg ${url} og indtast denne kode:';
 	@override String openToActivate({required Object service}) => 'Åbn ${service} for at aktivere';
+	@override String get copyCode => 'Copy activation code';
 	@override String get waitingForAuthorization => 'Venter på godkendelse…';
 	@override String get codeCopied => 'Kode kopieret';
 }
@@ -2068,6 +2093,7 @@ class _TranslationsServicesOauthProxyDa extends TranslationsServicesOauthProxyEn
 	@override String title({required Object service}) => 'Log ind på ${service}';
 	@override String get body => 'Scan denne QR-kode, eller åbn URL\'en på en enhed.';
 	@override String openToSignIn({required Object service}) => 'Åbn ${service} for at logge ind';
+	@override String get copyUrl => 'Copy sign-in URL';
 	@override String get urlCopied => 'URL kopieret';
 }
 
@@ -2100,7 +2126,7 @@ class _TranslationsServicesLibraryFilterDa extends TranslationsServicesLibraryFi
 extension on TranslationsDa {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Log ind med Plex',
 			'auth.showQRCode' => 'Vis QR-kode',
 			'auth.authenticate' => 'Godkend',
@@ -2172,6 +2198,14 @@ extension on TranslationsDa {
 			'update.viewRelease' => 'Vis udgivelse',
 			'update.latestVersion' => 'Du har den nyeste version',
 			'update.checkFailed' => 'Kunne ikke søge efter opdateringer',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Indstillinger',
 			'settings.supportDeveloper' => 'Støt Plezy',
 			'settings.supportDeveloperDescription' => 'Doner via Liberapay for at finansiere udviklingen',
@@ -2297,6 +2331,12 @@ extension on TranslationsDa {
 			'settings.updates' => 'Opdateringer',
 			'settings.updateAvailable' => 'Opdatering tilgængelig',
 			'settings.checkForUpdates' => 'Søg efter opdateringer',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => 'Søg automatisk efter opdateringer ved opstart',
 			'settings.autoCheckUpdatesOnStartupDescription' => 'Giv besked, når en opdatering er tilgængelig ved start',
 			'settings.validationErrorEnterNumber' => 'Indtast et gyldigt tal',
@@ -2422,6 +2462,8 @@ extension on TranslationsDa {
 			'hotkeys.clearShortcut' => 'Ryd genvej',
 			'hotkeys.noShortcutSet' => 'Ingen genvej angivet',
 			'hotkeys.currentShortcut' => 'Nuværende genvej:',
+			'hotkeys.pressToRecord' => 'Select to record a shortcut',
+			'hotkeys.recordingShortcut' => 'Press the shortcut now',
 			'hotkeys.actions.playPause' => 'Afspil/Pause',
 			'hotkeys.actions.volumeUp' => 'Lydstyrke op',
 			'hotkeys.actions.volumeDown' => 'Lydstyrke ned',
@@ -2511,6 +2553,8 @@ extension on TranslationsDa {
 			'accessibility.saturation' => 'Mætning',
 			'accessibility.brightness' => 'Lysstyrke',
 			'accessibility.hexColor' => 'Hexfarve',
+			'accessibility.expandText' => 'Expand text',
+			'accessibility.collapseText' => 'Collapse text',
 			'tooltips.shufflePlay' => 'Afspil tilfældigt',
 			'tooltips.playTrailer' => 'Afspil trailer',
 			'tooltips.markAsWatched' => 'Markér som set',
@@ -2594,6 +2638,8 @@ extension on TranslationsDa {
 			'videoControls.noAudioTracksAvailable' => 'Ingen lydspor tilgængelige',
 			'videoControls.noTracksAvailable' => 'Ingen spor tilgængelige',
 			'videoControls.subtitleDownloaded' => 'Undertekst downloadet',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.subtitleDownloadFailed' => 'Kunne ikke downloade undertekst',
 			'videoControls.searchLanguages' => 'Søg sprog...',
 			'messages.markedAsWatched' => 'Markeret som set',
@@ -2612,8 +2658,6 @@ extension on TranslationsDa {
 			'messages.noDescriptionAvailable' => 'Ingen beskrivelse tilgængelig',
 			'messages.noProfilesAvailable' => 'Ingen profiler tilgængelige',
 			'messages.contactAdminForProfiles' => 'Kontakt din serveradministrator for at tilføje profiler',
-			_ => null,
-		} ?? switch (path) {
 			'messages.unableToDetermineLibrarySection' => 'Kan ikke bestemme biblioteksafdeling for dette element',
 			'messages.logsCleared' => 'Logs ryddet',
 			'messages.logsCopied' => 'Logs kopieret til udklipsholder',
@@ -2857,8 +2901,10 @@ extension on TranslationsDa {
 			'about.title' => 'Om',
 			'about.openSourceLicenses' => 'Open source-licenser',
 			'about.versionLabel' => ({required Object version}) => 'Version ${version}',
-			'about.appDescription' => 'En smuk Plex- og Jellyfin-klient til Flutter',
 			'about.viewLicensesDescription' => 'Se licenser for tredjepartsbiblioteker',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Ingen servere fundet for ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Kunne ikke indlæse servere: ${error}',
 			'hubDetail.title' => 'Titel',
@@ -3059,6 +3105,8 @@ extension on TranslationsDa {
 			'watchTogether.hostingSession' => 'Vært for session',
 			'watchTogether.inSession' => 'I session',
 			'watchTogether.sessionCode' => 'Sessionskode',
+			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
+			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'Vært styrer afspilning',
 			'watchTogether.anyoneCanControl' => 'Alle kan styre afspilning',
 			'watchTogether.hostControls' => 'Værtskontrol',
@@ -3104,6 +3152,8 @@ extension on TranslationsDa {
 			'watchTogether.resumingWithout' => ({required Object name}) => 'Fortsætter uden ${name}',
 			'watchTogether.waitingForParticipants' => 'Venter på at andre indlæser...',
 			'watchTogether.waitingForName' => ({required Object name}) => 'Venter på ${name}...',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.recentRooms' => 'Seneste rum',
 			'watchTogether.renameRoom' => 'Omdøb rum',
 			'watchTogether.removeRoom' => 'Fjern',
@@ -3126,8 +3176,6 @@ extension on TranslationsDa {
 			'downloads.episodesQueued' => ({required Object count}) => '${count} episoder i downloadkø',
 			'downloads.downloadDeleted' => 'Download slettet',
 			'downloads.deleteConfirm' => ({required Object title}) => 'Slet "${title}" fra denne enhed?',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.cancelledDownloadTitle' => 'Annulleret download',
 			'downloads.cancelledDownloadMessage' => 'Denne download blev annulleret. Hvad vil du gøre?',
 			'downloads.allEpisodesAlreadyDownloaded' => 'Alle episoder er allerede downloadet',
@@ -3349,6 +3397,8 @@ extension on TranslationsDa {
 			'metadataEdit.artworkUpdated' => 'Grafik opdateret',
 			'metadataEdit.artworkUpdateFailed' => 'Kunne ikke opdatere grafik',
 			'metadataEdit.noArtworkAvailable' => 'Ingen grafik tilgængelig',
+			'metadataEdit.artworkOption' => ({required Object index}) => 'Artwork option ${index}',
+			'metadataEdit.selectedArtworkOption' => ({required Object index}) => 'Artwork option ${index}, selected',
 			'metadataEdit.notSet' => 'Ikke indstillet',
 			'metadataEdit.libraryDefault' => 'Biblioteksstandard',
 			'metadataEdit.accountDefault' => 'Kontostandard',
@@ -3463,11 +3513,13 @@ extension on TranslationsDa {
 			'services.deviceCode.title' => ({required Object service}) => 'Aktiver Plezy på ${service}',
 			'services.deviceCode.body' => ({required Object url}) => 'Besøg ${url} og indtast denne kode:',
 			'services.deviceCode.openToActivate' => ({required Object service}) => 'Åbn ${service} for at aktivere',
+			'services.deviceCode.copyCode' => 'Copy activation code',
 			'services.deviceCode.waitingForAuthorization' => 'Venter på godkendelse…',
 			'services.deviceCode.codeCopied' => 'Kode kopieret',
 			'services.oauthProxy.title' => ({required Object service}) => 'Log ind på ${service}',
 			'services.oauthProxy.body' => 'Scan denne QR-kode, eller åbn URL\'en på en enhed.',
 			'services.oauthProxy.openToSignIn' => ({required Object service}) => 'Åbn ${service} for at logge ind',
+			'services.oauthProxy.copyUrl' => 'Copy sign-in URL',
 			'services.oauthProxy.urlCopied' => 'URL kopieret',
 			'services.libraryFilter.title' => 'Bibliotekfilter',
 			'services.libraryFilter.subtitleAllSyncing' => 'Synkroniserer alle biblioteker',
