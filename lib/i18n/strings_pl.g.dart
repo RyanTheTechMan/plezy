@@ -383,6 +383,16 @@ class _TranslationsSettingsPl extends TranslationsSettingsEn {
 	@override String get downloadLocationReset => 'Lokalizacja pobierania przywrócona do domyślnej';
 	@override String get downloadLocationInvalid => 'Wybrany folder nie jest zapisywalny';
 	@override String get downloadLocationSelectError => 'Nie udało się wybrać folderu';
+	@override String get mediaCapture => 'Przechwytywanie multimediów';
+	@override String get clips => 'Klipy';
+	@override String get screenshots => 'Zrzuty ekranu';
+	@override String captureLocationTitle({required Object title}) => 'Lokalizacja ${title}';
+	@override String get clipLocationDescription => 'Wybierz miejsce zapisywania klipów.';
+	@override String get screenshotLocationDescription => 'Wybierz miejsce zapisywania zrzutów ekranu.';
+	@override String get clipLocationChanged => 'Zmieniono lokalizację klipu';
+	@override String get screenshotLocationChanged => 'Zmieniono lokalizację zrzutu ekranu';
+	@override String get clipLocationReset => 'Lokalizacja klipu została zresetowana do pulpitu';
+	@override String get screenshotLocationReset => 'Lokalizacja zrzutu ekranu została zresetowana do pulpitu';
 	@override String get downloadOnWifiOnly => 'Pobieraj tylko przez WiFi';
 	@override String get downloadOnWifiOnlyDescription => 'Blokuj pobieranie na danych komórkowych';
 	@override String get autoRemoveWatchedDownloads => 'Automatycznie usuwaj obejrzane pobrania';
@@ -697,6 +707,7 @@ class _TranslationsVideoControlsPl extends TranslationsVideoControlsEn {
 	@override String get subtitleDownloaded => 'Napisy pobrane';
 	@override String get subtitleDownloadFailed => 'Nie udało się pobrać napisów';
 	@override String get searchLanguages => 'Szukaj języków...';
+	@override late final _TranslationsVideoControlsClipPl clip = _TranslationsVideoControlsClipPl._(_root);
 }
 
 // Path: messages
@@ -1851,6 +1862,50 @@ class _TranslationsVideoControlsPipErrorsPl extends TranslationsVideoControlsPip
 	@override String unknown({required Object error}) => 'Wystąpił błąd: ${error}';
 }
 
+// Path: videoControls.clip
+class _TranslationsVideoControlsClipPl extends TranslationsVideoControlsClipEn {
+	_TranslationsVideoControlsClipPl._(TranslationsPl root) : this._root = root, super.internal(root);
+
+	final TranslationsPl _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Klips';
+	@override String get vodOnly => 'Klipy są dostępne do odtwarzania wideo na żądanie.';
+	@override String get sourceUnavailable => 'Źródło klipu nie jest dostępne dla tej sesji odtwarzania.';
+	@override String get playAtLeastOneSecond => 'Odtwórz co najmniej 1 sekundę przed przycięciem.';
+	@override String get startBeforeBeginning => 'Początek klipu nie może przypadać przed początkiem filmu.';
+	@override String get endAfterStart => 'Koniec klipu musi znajdować się po początku.';
+	@override String get minimumDuration => 'Klipy muszą mieć długość co najmniej 1 sekundy.';
+	@override String get endPastVideo => 'Koniec klipu znajduje się poza końcem wideo.';
+	@override String get exportCanceled => 'Eksport klipu anulowany.';
+	@override String get cacheUnavailable => 'Nie można w pełni zapisać wybranego zakresu w pamięci podręcznej na potrzeby eksportu oryginalnego. Wypróbuj krótszy klip lub odtwórz podgląd raz przed zapisaniem.';
+	@override String get sourceCopyNoEncoder => 'Eksport kopii źródłowej nie korzysta z kodera.';
+	@override String get encodingDesktopOnly => 'Kodowanie klipów H.264 i HEVC jest obecnie dostępne w systemach macOS i Windows.';
+	@override String get hdrRequiresSource => 'Eksport HDR wymaga źródła bezpośredniego odtwarzania HDR10 lub HLG.';
+	@override String get transcodeStartUnavailable => 'Ten klip rozpoczyna się przed aktywnym transkodowanym strumieniem. Wyszukaj wcześniej i otwórz ponownie wycinek lub przełącz na oryginalną jakość.';
+	@override String get previewRequired => 'Podgląd klipu musi zostać załadowany, zanim będzie można go zapisać.';
+	@override String get h264Failed => 'Tego źródła nie można zakodować w formacie H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'Tego źródła nie można zakodować w formacie HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'Tego źródła nie można zakodować w formacie HEVC HDR MP4.';
+	@override String get originalFailed => 'Nie można skopiować tego źródła z pamięci podręcznej mpv.';
+	@override String get previewUnavailable => 'W tej kompilacji nie jest dostępne odtwarzanie podglądu klipu.';
+	@override String get previewFailed => 'Odtwarzanie podglądu klipu nie powiodło się.';
+	@override String get previewLoadingScreenshot => 'Przed zrobieniem zrzutu ekranu podgląd klipu musi się zakończyć.';
+	@override String get screenshotInProgress => 'Zrzut ekranu jest już zapisywany.';
+	@override String get saveAsDialog => 'Zapisz klip jako';
+	@override String savedTo({required Object fileName}) => 'Zapisano w ${fileName}';
+	@override String get openFolder => 'Otwórz folder';
+	@override String get saveAs => 'Zapisz jako';
+	@override String get cancelExport => 'Anuluj eksport';
+	@override String get saving => 'Oszczędność...';
+	@override String savingProgress({required Object percent}) => 'Oszczędność ${percent}%';
+	@override String get mutePreview => 'Wycisz podgląd';
+	@override String get unmutePreview => 'Wyłącz wyciszenie podglądu';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: libraries.tabs
 class _TranslationsLibrariesTabsPl extends TranslationsLibrariesTabsEn {
 	_TranslationsLibrariesTabsPl._(TranslationsPl root) : this._root = root, super.internal(root);
@@ -2372,6 +2427,16 @@ extension on TranslationsPl {
 			'settings.downloadLocationReset' => 'Lokalizacja pobierania przywrócona do domyślnej',
 			'settings.downloadLocationInvalid' => 'Wybrany folder nie jest zapisywalny',
 			'settings.downloadLocationSelectError' => 'Nie udało się wybrać folderu',
+			'settings.mediaCapture' => 'Przechwytywanie multimediów',
+			'settings.clips' => 'Klipy',
+			'settings.screenshots' => 'Zrzuty ekranu',
+			'settings.captureLocationTitle' => ({required Object title}) => 'Lokalizacja ${title}',
+			'settings.clipLocationDescription' => 'Wybierz miejsce zapisywania klipów.',
+			'settings.screenshotLocationDescription' => 'Wybierz miejsce zapisywania zrzutów ekranu.',
+			'settings.clipLocationChanged' => 'Zmieniono lokalizację klipu',
+			'settings.screenshotLocationChanged' => 'Zmieniono lokalizację zrzutu ekranu',
+			'settings.clipLocationReset' => 'Lokalizacja klipu została zresetowana do pulpitu',
+			'settings.screenshotLocationReset' => 'Lokalizacja zrzutu ekranu została zresetowana do pulpitu',
 			'settings.downloadOnWifiOnly' => 'Pobieraj tylko przez WiFi',
 			'settings.downloadOnWifiOnlyDescription' => 'Blokuj pobieranie na danych komórkowych',
 			'settings.autoRemoveWatchedDownloads' => 'Automatycznie usuwaj obejrzane pobrania',
@@ -2632,6 +2697,8 @@ extension on TranslationsPl {
 			'videoControls.pipErrors.unknown' => ({required Object error}) => 'Wystąpił błąd: ${error}',
 			'videoControls.chapters' => 'Rozdziały',
 			'videoControls.noChaptersAvailable' => 'Brak dostępnych rozdziałów',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.queue' => 'Kolejka',
 			'videoControls.noQueueItems' => 'Brak elementów w kolejce',
 			'videoControls.searchSubtitles' => 'Szukaj napisów',
@@ -2642,10 +2709,43 @@ extension on TranslationsPl {
 			'videoControls.noAudioTracksAvailable' => 'Brak dostępnych ścieżek audio',
 			'videoControls.noTracksAvailable' => 'Brak dostępnych ścieżek',
 			'videoControls.subtitleDownloaded' => 'Napisy pobrane',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.subtitleDownloadFailed' => 'Nie udało się pobrać napisów',
 			'videoControls.searchLanguages' => 'Szukaj języków...',
+			'videoControls.clip.title' => 'Klips',
+			'videoControls.clip.vodOnly' => 'Klipy są dostępne do odtwarzania wideo na żądanie.',
+			'videoControls.clip.sourceUnavailable' => 'Źródło klipu nie jest dostępne dla tej sesji odtwarzania.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Odtwórz co najmniej 1 sekundę przed przycięciem.',
+			'videoControls.clip.startBeforeBeginning' => 'Początek klipu nie może przypadać przed początkiem filmu.',
+			'videoControls.clip.endAfterStart' => 'Koniec klipu musi znajdować się po początku.',
+			'videoControls.clip.minimumDuration' => 'Klipy muszą mieć długość co najmniej 1 sekundy.',
+			'videoControls.clip.endPastVideo' => 'Koniec klipu znajduje się poza końcem wideo.',
+			'videoControls.clip.exportCanceled' => 'Eksport klipu anulowany.',
+			'videoControls.clip.cacheUnavailable' => 'Nie można w pełni zapisać wybranego zakresu w pamięci podręcznej na potrzeby eksportu oryginalnego. Wypróbuj krótszy klip lub odtwórz podgląd raz przed zapisaniem.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Eksport kopii źródłowej nie korzysta z kodera.',
+			'videoControls.clip.encodingDesktopOnly' => 'Kodowanie klipów H.264 i HEVC jest obecnie dostępne w systemach macOS i Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'Eksport HDR wymaga źródła bezpośredniego odtwarzania HDR10 lub HLG.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Ten klip rozpoczyna się przed aktywnym transkodowanym strumieniem. Wyszukaj wcześniej i otwórz ponownie wycinek lub przełącz na oryginalną jakość.',
+			'videoControls.clip.previewRequired' => 'Podgląd klipu musi zostać załadowany, zanim będzie można go zapisać.',
+			'videoControls.clip.h264Failed' => 'Tego źródła nie można zakodować w formacie H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'Tego źródła nie można zakodować w formacie HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'Tego źródła nie można zakodować w formacie HEVC HDR MP4.',
+			'videoControls.clip.originalFailed' => 'Nie można skopiować tego źródła z pamięci podręcznej mpv.',
+			'videoControls.clip.previewUnavailable' => 'W tej kompilacji nie jest dostępne odtwarzanie podglądu klipu.',
+			'videoControls.clip.previewFailed' => 'Odtwarzanie podglądu klipu nie powiodło się.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Przed zrobieniem zrzutu ekranu podgląd klipu musi się zakończyć.',
+			'videoControls.clip.screenshotInProgress' => 'Zrzut ekranu jest już zapisywany.',
+			'videoControls.clip.saveAsDialog' => 'Zapisz klip jako',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Zapisano w ${fileName}',
+			'videoControls.clip.openFolder' => 'Otwórz folder',
+			'videoControls.clip.saveAs' => 'Zapisz jako',
+			'videoControls.clip.cancelExport' => 'Anuluj eksport',
+			'videoControls.clip.saving' => 'Oszczędność...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Oszczędność ${percent}%',
+			'videoControls.clip.mutePreview' => 'Wycisz podgląd',
+			'videoControls.clip.unmutePreview' => 'Wyłącz wyciszenie podglądu',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'Oznaczono jako obejrzane',
 			'messages.markedAsUnwatched' => 'Oznaczono jako nieobejrzane',
 			'messages.markedAsWatchedOffline' => 'Oznaczono jako obejrzane (zsynchronizuje się po połączeniu)',
@@ -3111,6 +3211,8 @@ extension on TranslationsPl {
 			'watchTogether.sessionCode' => 'Kod sesji',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
 			'watchTogether.copySessionCode' => 'Copy session code',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.hostControlsPlayback' => 'Host kontroluje odtwarzanie',
 			'watchTogether.anyoneCanControl' => 'Każdy może kontrolować odtwarzanie',
 			'watchTogether.hostControls' => 'Kontrola hosta',
@@ -3156,8 +3258,6 @@ extension on TranslationsPl {
 			'watchTogether.resumingWithout' => ({required Object name}) => 'Wznawianie bez ${name}',
 			'watchTogether.waitingForParticipants' => 'Oczekiwanie na załadowanie u innych...',
 			'watchTogether.waitingForName' => ({required Object name}) => 'Oczekiwanie na ${name}...',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.recentRooms' => 'Ostatnie pokoje',
 			'watchTogether.renameRoom' => 'Zmień nazwę pokoju',
 			'watchTogether.removeRoom' => 'Usuń',
