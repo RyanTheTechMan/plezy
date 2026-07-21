@@ -387,7 +387,9 @@
       "subSeekPrev": "Zum vorherigen Untertitel springen",
       "shaderToggle": "Shader umschalten",
       "skipMarker": "Intro/Abspann überspringen",
-      "screenshot": "Screenshot aufnehmen"
+      "screenshot": "Screenshot aufnehmen",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -530,6 +532,10 @@
     "pipActive": "Wiedergabe im Bild-in-Bild-Modus",
     "pipFailed": "Bild-in-Bild konnte nicht gestartet werden",
     "screenshotSaved": "Screenshot gespeichert",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "zoomPercent": "Zoom ${percent}%",
     "pipErrors": {
       "androidVersion": "Erfordert Android 8.0 oder neuer",

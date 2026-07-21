@@ -387,7 +387,9 @@
       "subSeekPrev": "Søg til forrige undertekst",
       "shaderToggle": "Skift shadere",
       "skipMarker": "Spring intro/rulletekster over",
-      "screenshot": "Tag skærmbillede"
+      "screenshot": "Tag skærmbillede",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -530,6 +532,10 @@
     "pipActive": "Afspiller i billede-i-billede",
     "pipFailed": "Billede-i-billede kunne ikke starte",
     "screenshotSaved": "Skærmbillede gemt",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "zoomPercent": "Zoom ${percent}%",
     "pipErrors": {
       "androidVersion": "Kræver Android 8.0 eller nyere",

@@ -387,7 +387,9 @@
       "subSeekPrev": "Przewiń do poprzedniego napisu",
       "shaderToggle": "Przełącz shadery",
       "skipMarker": "Pomiń intro/napisy końcowe",
-      "screenshot": "Zrób zrzut ekranu"
+      "screenshot": "Zrób zrzut ekranu",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -530,6 +532,12 @@
     "pipActive": "Odtwarzanie w trybie obraz w obrazie",
     "pipFailed": "Nie udało się uruchomić trybu obraz w obrazie",
     "screenshotSaved": "Zrzut ekranu zapisany",
+    "frameCount": {
+      "one": "${n} frame",
+      "few": "",
+      "many": "",
+      "other": "${n} frames"
+    },
     "zoomPercent": "Zoom ${percent}%",
     "pipErrors": {
       "androidVersion": "Wymaga Androida 8.0 lub nowszego",
