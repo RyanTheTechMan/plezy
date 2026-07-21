@@ -1883,6 +1883,7 @@ class _TranslationsVideoControlsClipBg extends TranslationsVideoControlsClipEn {
 	@override String get h264Failed => 'Този източник не може да бъде кодиран като H.264 SDR MP4.';
 	@override String get hevcSdrFailed => 'Този източник не може да бъде кодиран като HEVC SDR MP4.';
 	@override String get hevcHdrFailed => 'Този източник не можа да бъде кодиран като HEVC HDR MP4.';
+	@override String get gifFailed => 'Този източник не можа да бъде кодиран като GIF.';
 	@override String get originalFailed => 'Този източник не можа да бъде копиран от mpv кеша.';
 	@override String get previewUnavailable => 'Възпроизвеждането на предварителен преглед на клип не е налично в тази компилация.';
 	@override String get previewFailed => 'Неуспешно възпроизвеждане на визуализация на клип.';
@@ -2725,6 +2726,7 @@ extension on TranslationsBg {
 			'videoControls.clip.h264Failed' => 'Този източник не може да бъде кодиран като H.264 SDR MP4.',
 			'videoControls.clip.hevcSdrFailed' => 'Този източник не може да бъде кодиран като HEVC SDR MP4.',
 			'videoControls.clip.hevcHdrFailed' => 'Този източник не можа да бъде кодиран като HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Този източник не можа да бъде кодиран като GIF.',
 			'videoControls.clip.originalFailed' => 'Този източник не можа да бъде копиран от mpv кеша.',
 			'videoControls.clip.previewUnavailable' => 'Възпроизвеждането на предварителен преглед на клип не е налично в тази компилация.',
 			'videoControls.clip.previewFailed' => 'Неуспешно възпроизвеждане на визуализация на клип.',
@@ -3206,9 +3208,9 @@ extension on TranslationsBg {
 			'watchTogether.inSession' => 'В сесия',
 			'watchTogether.sessionCode' => 'Код на сесията',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			'watchTogether.copySessionCode' => 'Copy session code',
 			_ => null,
 		} ?? switch (path) {
+			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'Домакинът управлява възпроизвеждането',
 			'watchTogether.anyoneCanControl' => 'Всеки може да управлява възпроизвеждането',
 			'watchTogether.hostControls' => 'Контроли на домакина',

@@ -1883,6 +1883,7 @@ class _TranslationsVideoControlsClipZh extends TranslationsVideoControlsClipEn {
 	@override String get h264Failed => '该源无法编码为 H.264 SDR MP4。';
 	@override String get hevcSdrFailed => '该源无法编码为 HEVC SDR MP4。';
 	@override String get hevcHdrFailed => '该源无法编码为 HEVC HDR MP4。';
+	@override String get gifFailed => '无法将此源编码为 GIF。';
 	@override String get originalFailed => '无法从 mpv 缓存复制此源。';
 	@override String get previewUnavailable => '此版本中不支持剪辑预览播放。';
 	@override String get previewFailed => '剪辑预览播放失败。';
@@ -2725,6 +2726,7 @@ extension on TranslationsZh {
 			'videoControls.clip.h264Failed' => '该源无法编码为 H.264 SDR MP4。',
 			'videoControls.clip.hevcSdrFailed' => '该源无法编码为 HEVC SDR MP4。',
 			'videoControls.clip.hevcHdrFailed' => '该源无法编码为 HEVC HDR MP4。',
+			'videoControls.clip.gifFailed' => '无法将此源编码为 GIF。',
 			'videoControls.clip.originalFailed' => '无法从 mpv 缓存复制此源。',
 			'videoControls.clip.previewUnavailable' => '此版本中不支持剪辑预览播放。',
 			'videoControls.clip.previewFailed' => '剪辑预览播放失败。',
@@ -3206,9 +3208,9 @@ extension on TranslationsZh {
 			'watchTogether.inSession' => '在会话中',
 			'watchTogether.sessionCode' => '会话代码',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			'watchTogether.copySessionCode' => 'Copy session code',
 			_ => null,
 		} ?? switch (path) {
+			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => '主持人控制播放',
 			'watchTogether.anyoneCanControl' => '任何人都可以控制播放',
 			'watchTogether.hostControls' => '主持人控制',

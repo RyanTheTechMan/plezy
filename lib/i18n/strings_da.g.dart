@@ -1883,6 +1883,7 @@ class _TranslationsVideoControlsClipDa extends TranslationsVideoControlsClipEn {
 	@override String get h264Failed => 'Denne kilde kunne ikke kodes som en H.264 SDR MP4.';
 	@override String get hevcSdrFailed => 'Denne kilde kunne ikke kodes som en HEVC SDR MP4.';
 	@override String get hevcHdrFailed => 'Denne kilde kunne ikke kodes som en HEVC HDR MP4.';
+	@override String get gifFailed => 'Denne kilde kunne ikke kodes som en GIF.';
 	@override String get originalFailed => 'Denne kilde kunne ikke kopieres fra mpv-cachen.';
 	@override String get previewUnavailable => 'Afspilning af forhåndsvisning af klip er ikke tilgængelig i denne build.';
 	@override String get previewFailed => 'Afspilning af forhåndsvisning af klip mislykkedes.';
@@ -2725,6 +2726,7 @@ extension on TranslationsDa {
 			'videoControls.clip.h264Failed' => 'Denne kilde kunne ikke kodes som en H.264 SDR MP4.',
 			'videoControls.clip.hevcSdrFailed' => 'Denne kilde kunne ikke kodes som en HEVC SDR MP4.',
 			'videoControls.clip.hevcHdrFailed' => 'Denne kilde kunne ikke kodes som en HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Denne kilde kunne ikke kodes som en GIF.',
 			'videoControls.clip.originalFailed' => 'Denne kilde kunne ikke kopieres fra mpv-cachen.',
 			'videoControls.clip.previewUnavailable' => 'Afspilning af forhåndsvisning af klip er ikke tilgængelig i denne build.',
 			'videoControls.clip.previewFailed' => 'Afspilning af forhåndsvisning af klip mislykkedes.',
@@ -3206,9 +3208,9 @@ extension on TranslationsDa {
 			'watchTogether.inSession' => 'I session',
 			'watchTogether.sessionCode' => 'Sessionskode',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			'watchTogether.copySessionCode' => 'Copy session code',
 			_ => null,
 		} ?? switch (path) {
+			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'Vært styrer afspilning',
 			'watchTogether.anyoneCanControl' => 'Alle kan styre afspilning',
 			'watchTogether.hostControls' => 'Værtskontrol',

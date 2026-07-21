@@ -1883,6 +1883,7 @@ class _TranslationsVideoControlsClipSv extends TranslationsVideoControlsClipEn {
 	@override String get h264Failed => 'Denna källa kunde inte kodas som en H.264 SDR MP4.';
 	@override String get hevcSdrFailed => 'Denna källa kunde inte kodas som en HEVC SDR MP4.';
 	@override String get hevcHdrFailed => 'Den här källan kunde inte kodas som en HEVC HDR MP4.';
+	@override String get gifFailed => 'Den här källan kunde inte kodas som en GIF.';
 	@override String get originalFailed => 'Den här källan kunde inte kopieras från mpv-cachen.';
 	@override String get previewUnavailable => 'Förhandsvisning av klipp är inte tillgängligt i den här versionen.';
 	@override String get previewFailed => 'Förhandsvisning av klipp misslyckades.';
@@ -2725,6 +2726,7 @@ extension on TranslationsSv {
 			'videoControls.clip.h264Failed' => 'Denna källa kunde inte kodas som en H.264 SDR MP4.',
 			'videoControls.clip.hevcSdrFailed' => 'Denna källa kunde inte kodas som en HEVC SDR MP4.',
 			'videoControls.clip.hevcHdrFailed' => 'Den här källan kunde inte kodas som en HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Den här källan kunde inte kodas som en GIF.',
 			'videoControls.clip.originalFailed' => 'Den här källan kunde inte kopieras från mpv-cachen.',
 			'videoControls.clip.previewUnavailable' => 'Förhandsvisning av klipp är inte tillgängligt i den här versionen.',
 			'videoControls.clip.previewFailed' => 'Förhandsvisning av klipp misslyckades.',
@@ -3206,9 +3208,9 @@ extension on TranslationsSv {
 			'watchTogether.inSession' => 'I Session',
 			'watchTogether.sessionCode' => 'Sessionskod',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			'watchTogether.copySessionCode' => 'Copy session code',
 			_ => null,
 		} ?? switch (path) {
+			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'Värden styr uppspelningen',
 			'watchTogether.anyoneCanControl' => 'Alla kan styra uppspelningen',
 			'watchTogether.hostControls' => 'Värd styr',

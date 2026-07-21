@@ -1887,6 +1887,7 @@ class _TranslationsVideoControlsClipPl extends TranslationsVideoControlsClipEn {
 	@override String get h264Failed => 'Tego źródła nie można zakodować w formacie H.264 SDR MP4.';
 	@override String get hevcSdrFailed => 'Tego źródła nie można zakodować w formacie HEVC SDR MP4.';
 	@override String get hevcHdrFailed => 'Tego źródła nie można zakodować w formacie HEVC HDR MP4.';
+	@override String get gifFailed => 'Nie udało się zakodować tego źródła jako pliku GIF.';
 	@override String get originalFailed => 'Nie można skopiować tego źródła z pamięci podręcznej mpv.';
 	@override String get previewUnavailable => 'W tej kompilacji nie jest dostępne odtwarzanie podglądu klipu.';
 	@override String get previewFailed => 'Odtwarzanie podglądu klipu nie powiodło się.';
@@ -2729,6 +2730,7 @@ extension on TranslationsPl {
 			'videoControls.clip.h264Failed' => 'Tego źródła nie można zakodować w formacie H.264 SDR MP4.',
 			'videoControls.clip.hevcSdrFailed' => 'Tego źródła nie można zakodować w formacie HEVC SDR MP4.',
 			'videoControls.clip.hevcHdrFailed' => 'Tego źródła nie można zakodować w formacie HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Nie udało się zakodować tego źródła jako pliku GIF.',
 			'videoControls.clip.originalFailed' => 'Nie można skopiować tego źródła z pamięci podręcznej mpv.',
 			'videoControls.clip.previewUnavailable' => 'W tej kompilacji nie jest dostępne odtwarzanie podglądu klipu.',
 			'videoControls.clip.previewFailed' => 'Odtwarzanie podglądu klipu nie powiodło się.',
@@ -3210,9 +3212,9 @@ extension on TranslationsPl {
 			'watchTogether.inSession' => 'W sesji',
 			'watchTogether.sessionCode' => 'Kod sesji',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			'watchTogether.copySessionCode' => 'Copy session code',
 			_ => null,
 		} ?? switch (path) {
+			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'Host kontroluje odtwarzanie',
 			'watchTogether.anyoneCanControl' => 'Każdy może kontrolować odtwarzanie',
 			'watchTogether.hostControls' => 'Kontrola hosta',

@@ -1883,6 +1883,7 @@ class _TranslationsVideoControlsClipJa extends TranslationsVideoControlsClipEn {
 	@override String get h264Failed => 'このソースは H.264 SDR MP4 としてエンコードできませんでした。';
 	@override String get hevcSdrFailed => 'このソースは HEVC SDR MP4 としてエンコードできませんでした。';
 	@override String get hevcHdrFailed => 'このソースは HEVC HDR MP4 としてエンコードできませんでした。';
+	@override String get gifFailed => 'このソースをGIFとしてエンコードできませんでした。';
 	@override String get originalFailed => 'このソースは mpv キャッシュからコピーできませんでした。';
 	@override String get previewUnavailable => 'このビルドではクリップ プレビュー再生は利用できません。';
 	@override String get previewFailed => 'クリップのプレビュー再生に失敗しました。';
@@ -2725,6 +2726,7 @@ extension on TranslationsJa {
 			'videoControls.clip.h264Failed' => 'このソースは H.264 SDR MP4 としてエンコードできませんでした。',
 			'videoControls.clip.hevcSdrFailed' => 'このソースは HEVC SDR MP4 としてエンコードできませんでした。',
 			'videoControls.clip.hevcHdrFailed' => 'このソースは HEVC HDR MP4 としてエンコードできませんでした。',
+			'videoControls.clip.gifFailed' => 'このソースをGIFとしてエンコードできませんでした。',
 			'videoControls.clip.originalFailed' => 'このソースは mpv キャッシュからコピーできませんでした。',
 			'videoControls.clip.previewUnavailable' => 'このビルドではクリップ プレビュー再生は利用できません。',
 			'videoControls.clip.previewFailed' => 'クリップのプレビュー再生に失敗しました。',
@@ -3206,9 +3208,9 @@ extension on TranslationsJa {
 			'watchTogether.inSession' => 'セッション中',
 			'watchTogether.sessionCode' => 'セッションコード',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			'watchTogether.copySessionCode' => 'Copy session code',
 			_ => null,
 		} ?? switch (path) {
+			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'ホストが再生を制御',
 			'watchTogether.anyoneCanControl' => '全員が再生を制御可能',
 			'watchTogether.hostControls' => 'ホストが制御',
