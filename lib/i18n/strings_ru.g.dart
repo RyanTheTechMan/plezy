@@ -1887,6 +1887,7 @@ class _TranslationsVideoControlsClipRu extends TranslationsVideoControlsClipEn {
 	@override String get h264Failed => 'Этот источник не удалось закодировать как H.264 SDR MP4.';
 	@override String get hevcSdrFailed => 'Этот источник не удалось закодировать как HEVC SDR MP4.';
 	@override String get hevcHdrFailed => 'Этот источник не удалось закодировать как HEVC HDR MP4.';
+	@override String get gifFailed => 'Не удалось закодировать этот источник в GIF.';
 	@override String get originalFailed => 'Этот источник не удалось скопировать из кэша mpv.';
 	@override String get previewUnavailable => 'Предварительный просмотр клипа недоступен в этой сборке.';
 	@override String get previewFailed => 'Не удалось воспроизвести предварительный просмотр клипа.';
@@ -2729,6 +2730,7 @@ extension on TranslationsRu {
 			'videoControls.clip.h264Failed' => 'Этот источник не удалось закодировать как H.264 SDR MP4.',
 			'videoControls.clip.hevcSdrFailed' => 'Этот источник не удалось закодировать как HEVC SDR MP4.',
 			'videoControls.clip.hevcHdrFailed' => 'Этот источник не удалось закодировать как HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Не удалось закодировать этот источник в GIF.',
 			'videoControls.clip.originalFailed' => 'Этот источник не удалось скопировать из кэша mpv.',
 			'videoControls.clip.previewUnavailable' => 'Предварительный просмотр клипа недоступен в этой сборке.',
 			'videoControls.clip.previewFailed' => 'Не удалось воспроизвести предварительный просмотр клипа.',
@@ -3210,9 +3212,9 @@ extension on TranslationsRu {
 			'watchTogether.inSession' => 'В сессии',
 			'watchTogether.sessionCode' => 'Код сессии',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			'watchTogether.copySessionCode' => 'Copy session code',
 			_ => null,
 		} ?? switch (path) {
+			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'Хост управляет воспроизведением',
 			'watchTogether.anyoneCanControl' => 'Любой может управлять воспроизведением',
 			'watchTogether.hostControls' => 'Управление хоста',

@@ -1883,6 +1883,7 @@ class _TranslationsVideoControlsClipEs extends TranslationsVideoControlsClipEn {
 	@override String get h264Failed => 'Esta fuente no se pudo codificar como H.264 SDR MP4.';
 	@override String get hevcSdrFailed => 'Esta fuente no se pudo codificar como HEVC SDR MP4.';
 	@override String get hevcHdrFailed => 'Esta fuente no se pudo codificar como HEVC HDR MP4.';
+	@override String get gifFailed => 'Esta fuente no se pudo codificar como GIF.';
 	@override String get originalFailed => 'Esta fuente no se pudo copiar del caché mpv.';
 	@override String get previewUnavailable => 'La reproducción de vista previa del clip no está disponible en esta compilación.';
 	@override String get previewFailed => 'Error en la reproducción de vista previa del clip.';
@@ -2725,6 +2726,7 @@ extension on TranslationsEs {
 			'videoControls.clip.h264Failed' => 'Esta fuente no se pudo codificar como H.264 SDR MP4.',
 			'videoControls.clip.hevcSdrFailed' => 'Esta fuente no se pudo codificar como HEVC SDR MP4.',
 			'videoControls.clip.hevcHdrFailed' => 'Esta fuente no se pudo codificar como HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Esta fuente no se pudo codificar como GIF.',
 			'videoControls.clip.originalFailed' => 'Esta fuente no se pudo copiar del caché mpv.',
 			'videoControls.clip.previewUnavailable' => 'La reproducción de vista previa del clip no está disponible en esta compilación.',
 			'videoControls.clip.previewFailed' => 'Error en la reproducción de vista previa del clip.',
@@ -3206,9 +3208,9 @@ extension on TranslationsEs {
 			'watchTogether.inSession' => 'En Sesión',
 			'watchTogether.sessionCode' => 'Código de Sesión',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			'watchTogether.copySessionCode' => 'Copy session code',
 			_ => null,
 		} ?? switch (path) {
+			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'El anfitrión controla la reproducción',
 			'watchTogether.anyoneCanControl' => 'Cualquiera puede controlar la reproducción',
 			'watchTogether.hostControls' => 'Control del anfitrión',

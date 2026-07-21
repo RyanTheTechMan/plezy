@@ -1883,6 +1883,7 @@ class _TranslationsVideoControlsClipNb extends TranslationsVideoControlsClipEn {
 	@override String get h264Failed => 'Denne kilden kunne ikke kodes som en H.264 SDR MP4.';
 	@override String get hevcSdrFailed => 'Denne kilden kunne ikke kodes som en HEVC SDR MP4.';
 	@override String get hevcHdrFailed => 'Denne kilden kunne ikke kodes som en HEVC HDR MP4.';
+	@override String get gifFailed => 'Denne kilden kunne ikke kodes som en GIF.';
 	@override String get originalFailed => 'Denne kilden kunne ikke kopieres fra mpv-bufferen.';
 	@override String get previewUnavailable => 'Forhåndsvisning av klipp er ikke tilgjengelig i denne versjonen.';
 	@override String get previewFailed => 'Forhåndsvisning av klipp mislyktes.';
@@ -2725,6 +2726,7 @@ extension on TranslationsNb {
 			'videoControls.clip.h264Failed' => 'Denne kilden kunne ikke kodes som en H.264 SDR MP4.',
 			'videoControls.clip.hevcSdrFailed' => 'Denne kilden kunne ikke kodes som en HEVC SDR MP4.',
 			'videoControls.clip.hevcHdrFailed' => 'Denne kilden kunne ikke kodes som en HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Denne kilden kunne ikke kodes som en GIF.',
 			'videoControls.clip.originalFailed' => 'Denne kilden kunne ikke kopieres fra mpv-bufferen.',
 			'videoControls.clip.previewUnavailable' => 'Forhåndsvisning av klipp er ikke tilgjengelig i denne versjonen.',
 			'videoControls.clip.previewFailed' => 'Forhåndsvisning av klipp mislyktes.',
@@ -3206,9 +3208,9 @@ extension on TranslationsNb {
 			'watchTogether.inSession' => 'I økt',
 			'watchTogether.sessionCode' => 'Øktkode',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			'watchTogether.copySessionCode' => 'Copy session code',
 			_ => null,
 		} ?? switch (path) {
+			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'Verten kontrollerer avspilling',
 			'watchTogether.anyoneCanControl' => 'Alle kan kontrollere avspilling',
 			'watchTogether.hostControls' => 'Vertskontroll',

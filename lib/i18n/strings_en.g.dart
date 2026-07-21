@@ -4520,6 +4520,9 @@ class TranslationsVideoControlsClipEn {
 	/// en: 'This source could not be encoded as an HEVC HDR MP4.'
 	String get hevcHdrFailed => 'This source could not be encoded as an HEVC HDR MP4.';
 
+	/// en: 'This source could not be encoded as a GIF.'
+	String get gifFailed => 'This source could not be encoded as a GIF.';
+
 	/// en: 'This source could not be copied from the mpv cache.'
 	String get originalFailed => 'This source could not be copied from the mpv cache.';
 
@@ -5685,6 +5688,7 @@ extension on Translations {
 			'videoControls.clip.h264Failed' => 'This source could not be encoded as an H.264 SDR MP4.',
 			'videoControls.clip.hevcSdrFailed' => 'This source could not be encoded as an HEVC SDR MP4.',
 			'videoControls.clip.hevcHdrFailed' => 'This source could not be encoded as an HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'This source could not be encoded as a GIF.',
 			'videoControls.clip.originalFailed' => 'This source could not be copied from the mpv cache.',
 			'videoControls.clip.previewUnavailable' => 'Clip preview playback is not available in this build.',
 			'videoControls.clip.previewFailed' => 'Clip preview playback failed.',
@@ -6166,9 +6170,9 @@ extension on Translations {
 			'watchTogether.inSession' => 'In Session',
 			'watchTogether.sessionCode' => 'Session Code',
 			'watchTogether.openSessionControls' => 'Open Watch Together session controls',
-			'watchTogether.copySessionCode' => 'Copy session code',
 			_ => null,
 		} ?? switch (path) {
+			'watchTogether.copySessionCode' => 'Copy session code',
 			'watchTogether.hostControlsPlayback' => 'Host controls playback',
 			'watchTogether.anyoneCanControl' => 'Anyone can control playback',
 			'watchTogether.hostControls' => 'Host controls',
