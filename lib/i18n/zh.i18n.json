@@ -387,7 +387,9 @@
       "subSeekPrev": "跳转到上一字幕",
       "shaderToggle": "切换着色器",
       "skipMarker": "跳过片头/片尾",
-      "screenshot": "截图"
+      "screenshot": "截图",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -530,6 +532,10 @@
     "pipActive": "正在画中画模式中播放",
     "pipFailed": "画中画启动失败",
     "screenshotSaved": "截图已保存",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "zoomPercent": "缩放 ${percent}%",
     "pipErrors": {
       "androidVersion": "需要 Android 8.0 或更高版本",

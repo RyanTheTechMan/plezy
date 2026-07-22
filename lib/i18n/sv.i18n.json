@@ -387,7 +387,9 @@
       "subSeekPrev": "Hoppa till föregående undertext",
       "shaderToggle": "Växla shaders",
       "skipMarker": "Hoppa över intro/eftertexter",
-      "screenshot": "Ta skärmbild"
+      "screenshot": "Ta skärmbild",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -530,6 +532,10 @@
     "pipActive": "Spelar i bild-i-bild",
     "pipFailed": "Bild-i-bild kunde inte starta",
     "screenshotSaved": "Skärmbild sparad",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "zoomPercent": "Zoom ${percent}%",
     "pipErrors": {
       "androidVersion": "Kräver Android 8.0 eller nyare",
