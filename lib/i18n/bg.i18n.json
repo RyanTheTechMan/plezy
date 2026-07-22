@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Вход с Plex",
@@ -79,7 +79,15 @@
     "skipVersion": "Пропусни тази версия",
     "viewRelease": "Виж версията",
     "latestVersion": "Използвате най-новата версия",
-    "checkFailed": "Неуспешна проверка за актуализации"
+    "checkFailed": "Неуспешна проверка за актуализации",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Настройки",
@@ -207,6 +215,12 @@
     "updates": "Актуализации",
     "updateAvailable": "Налична е актуализация",
     "checkForUpdates": "Провери за актуализации",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "autoCheckUpdatesOnStartup": "Автоматично проверявай за актуализации при стартиране",
     "autoCheckUpdatesOnStartupDescription": "Уведомявай, когато има актуализация при стартиране",
     "validationErrorEnterNumber": "Моля, въведете валидно число",
@@ -336,6 +350,8 @@
     "clearShortcut": "Изчисти клавишната комбинация",
     "noShortcutSet": "Няма зададена клавишна комбинация",
     "currentShortcut": "Текуща комбинация:",
+    "pressToRecord": "Select to record a shortcut",
+    "recordingShortcut": "Press the shortcut now",
     "actions": {
       "playPause": "Пускане/пауза",
       "volumeUp": "Увеличи звука",
@@ -434,7 +450,9 @@
     "hue": "Нюанс",
     "saturation": "Наситеност",
     "brightness": "Яркост",
-    "hexColor": "Шестнадесетичен цвят"
+    "hexColor": "Шестнадесетичен цвят",
+    "expandText": "Expand text",
+    "collapseText": "Collapse text"
   },
   "tooltips": {
     "shufflePlay": "Разбъркано възпроизвеждане",
@@ -814,8 +832,10 @@
     "title": "Относно",
     "openSourceLicenses": "Лицензи с отворен код",
     "versionLabel": "Версия ${version}",
-    "appDescription": "Красив Plex и Jellyfin клиент за Flutter",
-    "viewLicensesDescription": "Виж лицензите на библиотеки на трети страни"
+    "viewLicensesDescription": "Виж лицензите на библиотеки на трети страни",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Не са намерени сървъри за ${username} (${email})",
@@ -1048,6 +1068,8 @@
     "hostingSession": "Сесия с домакин",
     "inSession": "В сесия",
     "sessionCode": "Код на сесията",
+    "openSessionControls": "Open Watch Together session controls",
+    "copySessionCode": "Copy session code",
     "hostControlsPlayback": "Домакинът управлява възпроизвеждането",
     "anyoneCanControl": "Всеки може да управлява възпроизвеждането",
     "hostControls": "Контроли на домакина",
@@ -1358,6 +1380,8 @@
     "artworkUpdated": "Обложката е обновена",
     "artworkUpdateFailed": "Неуспешно обновяване на обложката",
     "noArtworkAvailable": "Няма налична обложка",
+    "artworkOption": "Artwork option ${index}",
+    "selectedArtworkOption": "Artwork option ${index}, selected",
     "notSet": "Не е зададено",
     "libraryDefault": "По подразбиране за библиотеката",
     "accountDefault": "По подразбиране за акаунта",
@@ -1485,6 +1509,7 @@
       "title": "Активиране на Plezy в ${service}",
       "body": "Посетете ${url} и въведете този код:",
       "openToActivate": "Отворете ${service}, за да активирате",
+      "copyCode": "Copy activation code",
       "waitingForAuthorization": "Изчакване на оторизация…",
       "codeCopied": "Кодът е копиран"
     },
@@ -1492,6 +1517,7 @@
       "title": "Вход в ${service}",
       "body": "Сканирайте този QR код или отворете URL-а на което и да е устройство.",
       "openToSignIn": "Отворете ${service}, за да влезете",
+      "copyUrl": "Copy sign-in URL",
       "urlCopied": "URL адресът е копиран"
     },
     "libraryFilter": {

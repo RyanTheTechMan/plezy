@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Войти через Plex",
@@ -79,7 +79,15 @@
     "skipVersion": "Пропустить эту версию",
     "viewRelease": "Посмотреть релиз",
     "latestVersion": "У вас последняя версия",
-    "checkFailed": "Не удалось проверить обновления"
+    "checkFailed": "Не удалось проверить обновления",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Настройки",
@@ -207,6 +215,12 @@
     "updates": "Обновления",
     "updateAvailable": "Доступно обновление",
     "checkForUpdates": "Проверить обновления",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "autoCheckUpdatesOnStartup": "Автоматически проверять обновления при запуске",
     "autoCheckUpdatesOnStartupDescription": "Уведомлять о доступном обновлении при запуске",
     "validationErrorEnterNumber": "Введите корректное число",
@@ -336,6 +350,8 @@
     "clearShortcut": "Очистить клавишу",
     "noShortcutSet": "Сочетание не задано",
     "currentShortcut": "Текущее сочетание:",
+    "pressToRecord": "Select to record a shortcut",
+    "recordingShortcut": "Press the shortcut now",
     "actions": {
       "playPause": "Воспроизведение/Пауза",
       "volumeUp": "Громкость выше",
@@ -434,7 +450,9 @@
     "hue": "Цветовой тон",
     "saturation": "Насыщенность",
     "brightness": "Яркость",
-    "hexColor": "Шестнадцатеричный цвет"
+    "hexColor": "Шестнадцатеричный цвет",
+    "expandText": "Expand text",
+    "collapseText": "Collapse text"
   },
   "tooltips": {
     "shufflePlay": "Случайное воспроизведение",
@@ -814,8 +832,10 @@
     "title": "О приложении",
     "openSourceLicenses": "Лицензии открытого ПО",
     "versionLabel": "Версия ${version}",
-    "appDescription": "Красивый клиент Plex и Jellyfin на Flutter",
-    "viewLicensesDescription": "Просмотр лицензий сторонних библиотек"
+    "viewLicensesDescription": "Просмотр лицензий сторонних библиотек",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Серверы не найдены для ${username} (${email})",
@@ -1052,6 +1072,8 @@
     "hostingSession": "Хостинг сессии",
     "inSession": "В сессии",
     "sessionCode": "Код сессии",
+    "openSessionControls": "Open Watch Together session controls",
+    "copySessionCode": "Copy session code",
     "hostControlsPlayback": "Хост управляет воспроизведением",
     "anyoneCanControl": "Любой может управлять воспроизведением",
     "hostControls": "Управление хоста",
@@ -1362,6 +1384,8 @@
     "artworkUpdated": "Обложка обновлена",
     "artworkUpdateFailed": "Не удалось обновить обложку",
     "noArtworkAvailable": "Обложки недоступны",
+    "artworkOption": "Artwork option ${index}",
+    "selectedArtworkOption": "Artwork option ${index}, selected",
     "notSet": "Не задано",
     "libraryDefault": "По умолчанию библиотеки",
     "accountDefault": "По умолчанию аккаунта",
@@ -1489,6 +1513,7 @@
       "title": "Активируйте Plezy в ${service}",
       "body": "Перейдите на ${url} и введите этот код:",
       "openToActivate": "Открыть ${service} для активации",
+      "copyCode": "Copy activation code",
       "waitingForAuthorization": "Ожидание авторизации…",
       "codeCopied": "Код скопирован"
     },
@@ -1496,6 +1521,7 @@
       "title": "Войти в ${service}",
       "body": "Отсканируйте этот QR-код или откройте URL на любом устройстве.",
       "openToSignIn": "Открыть ${service} для входа",
+      "copyUrl": "Copy sign-in URL",
       "urlCopied": "URL скопирован"
     },
     "libraryFilter": {

@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "使用 Plex 登录",
@@ -79,7 +79,15 @@
     "skipVersion": "跳过此版本",
     "viewRelease": "查看发布详情",
     "latestVersion": "已安装的版本是可用的最新版本",
-    "checkFailed": "无法检查更新"
+    "checkFailed": "无法检查更新",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "设置",
@@ -207,6 +215,12 @@
     "updates": "更新",
     "updateAvailable": "有可用更新",
     "checkForUpdates": "检查更新",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "autoCheckUpdatesOnStartup": "启动时自动检查更新",
     "autoCheckUpdatesOnStartupDescription": "启动时有可用更新则通知",
     "validationErrorEnterNumber": "请输入一个有效的数字",
@@ -336,6 +350,8 @@
     "clearShortcut": "清除快捷键",
     "noShortcutSet": "未设置快捷键",
     "currentShortcut": "当前快捷键:",
+    "pressToRecord": "Select to record a shortcut",
+    "recordingShortcut": "Press the shortcut now",
     "actions": {
       "playPause": "播放/暂停",
       "volumeUp": "增大音量",
@@ -434,7 +450,9 @@
     "hue": "色相",
     "saturation": "饱和度",
     "brightness": "亮度",
-    "hexColor": "十六进制颜色"
+    "hexColor": "十六进制颜色",
+    "expandText": "Expand text",
+    "collapseText": "Collapse text"
   },
   "tooltips": {
     "shufflePlay": "随机播放",
@@ -814,8 +832,10 @@
     "title": "关于",
     "openSourceLicenses": "开源许可证",
     "versionLabel": "版本 ${version}",
-    "appDescription": "一款精美的 Flutter Plex 和 Jellyfin 客户端",
-    "viewLicensesDescription": "查看第三方库的许可证"
+    "viewLicensesDescription": "查看第三方库的许可证",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "未找到 ${username} (${email}) 的服务器",
@@ -870,6 +890,7 @@
       "upcoming": "即将上线"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n} 集"
     },
     "cast": "演员表",
@@ -1014,6 +1035,7 @@
     "addToQueue": "添加到队列",
     "discNumber": "碟片 ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n} 首"
     },
     "nowPlaying": "正在播放",
@@ -1046,6 +1068,8 @@
     "hostingSession": "主持会话",
     "inSession": "在会话中",
     "sessionCode": "会话代码",
+    "openSessionControls": "Open Watch Together session controls",
+    "copySessionCode": "Copy session code",
     "hostControlsPlayback": "主持人控制播放",
     "anyoneCanControl": "任何人都可以控制播放",
     "hostControls": "主持人控制",
@@ -1356,6 +1380,8 @@
     "artworkUpdated": "封面图片已更新",
     "artworkUpdateFailed": "封面图片更新失败",
     "noArtworkAvailable": "没有可用的封面图片",
+    "artworkOption": "Artwork option ${index}",
+    "selectedArtworkOption": "Artwork option ${index}, selected",
     "notSet": "未设置",
     "libraryDefault": "媒体库默认",
     "accountDefault": "账户默认",
@@ -1483,6 +1509,7 @@
       "title": "在 ${service} 上激活 Plezy",
       "body": "访问 ${url} 并输入此代码：",
       "openToActivate": "打开 ${service} 以激活",
+      "copyCode": "Copy activation code",
       "waitingForAuthorization": "等待授权…",
       "codeCopied": "代码已复制"
     },
@@ -1490,6 +1517,7 @@
       "title": "登录 ${service}",
       "body": "扫描此二维码，或在任意设备上打开 URL。",
       "openToSignIn": "打开 ${service} 以登录",
+      "copyUrl": "Copy sign-in URL",
       "urlCopied": "URL 已复制"
     },
     "libraryFilter": {

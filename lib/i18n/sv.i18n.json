@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Logga in med Plex",
@@ -79,7 +79,15 @@
     "skipVersion": "Hoppa över denna version",
     "viewRelease": "Visa release",
     "latestVersion": "Du har den senaste versionen",
-    "checkFailed": "Misslyckades att kontrollera uppdateringar"
+    "checkFailed": "Misslyckades att kontrollera uppdateringar",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Inställningar",
@@ -207,6 +215,12 @@
     "updates": "Uppdateringar",
     "updateAvailable": "Uppdatering tillgänglig",
     "checkForUpdates": "Kontrollera uppdateringar",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "autoCheckUpdatesOnStartup": "Kontrollera uppdateringar automatiskt vid start",
     "autoCheckUpdatesOnStartupDescription": "Meddela när en uppdatering finns vid start",
     "validationErrorEnterNumber": "Vänligen ange ett giltigt nummer",
@@ -336,6 +350,8 @@
     "clearShortcut": "Rensa genväg",
     "noShortcutSet": "Ingen genväg angiven",
     "currentShortcut": "Aktuell genväg:",
+    "pressToRecord": "Select to record a shortcut",
+    "recordingShortcut": "Press the shortcut now",
     "actions": {
       "playPause": "Spela/Pausa",
       "volumeUp": "Höj volym",
@@ -434,7 +450,9 @@
     "hue": "Nyans",
     "saturation": "Mättnad",
     "brightness": "Ljusstyrka",
-    "hexColor": "Hexfärg"
+    "hexColor": "Hexfärg",
+    "expandText": "Expand text",
+    "collapseText": "Collapse text"
   },
   "tooltips": {
     "shufflePlay": "Blanda uppspelning",
@@ -814,8 +832,10 @@
     "title": "Om",
     "openSourceLicenses": "Öppen källkod-licenser",
     "versionLabel": "Version ${version}",
-    "appDescription": "En vacker Plex- och Jellyfin-klient för Flutter",
-    "viewLicensesDescription": "Visa licenser för tredjepartsbibliotek"
+    "viewLicensesDescription": "Visa licenser för tredjepartsbibliotek",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Inga servrar hittades för ${username} (${email})",
@@ -1048,6 +1068,8 @@
     "hostingSession": "Värd för Session",
     "inSession": "I Session",
     "sessionCode": "Sessionskod",
+    "openSessionControls": "Open Watch Together session controls",
+    "copySessionCode": "Copy session code",
     "hostControlsPlayback": "Värden styr uppspelningen",
     "anyoneCanControl": "Alla kan styra uppspelningen",
     "hostControls": "Värd styr",
@@ -1358,6 +1380,8 @@
     "artworkUpdated": "Artwork uppdaterad",
     "artworkUpdateFailed": "Kunde inte uppdatera artwork",
     "noArtworkAvailable": "Ingen artwork tillgänglig",
+    "artworkOption": "Artwork option ${index}",
+    "selectedArtworkOption": "Artwork option ${index}, selected",
     "notSet": "Inte angiven",
     "libraryDefault": "Biblioteksstandard",
     "accountDefault": "Kontostandard",
@@ -1485,6 +1509,7 @@
       "title": "Aktivera Plezy på ${service}",
       "body": "Besök ${url} och ange den här koden:",
       "openToActivate": "Öppna ${service} för att aktivera",
+      "copyCode": "Copy activation code",
       "waitingForAuthorization": "Väntar på auktorisering…",
       "codeCopied": "Kod kopierad"
     },
@@ -1492,6 +1517,7 @@
       "title": "Logga in på ${service}",
       "body": "Skanna den här QR-koden eller öppna URL:en på valfri enhet.",
       "openToSignIn": "Öppna ${service} för att logga in",
+      "copyUrl": "Copy sign-in URL",
       "urlCopied": "URL kopierad"
     },
     "libraryFilter": {
