@@ -67,9 +67,8 @@ class MpvClipExportRunner implements ClipExportRunner {
     required Duration end,
     required ValueChanged<double> onProgress,
   }) async {
-    final timelineOffset = player is PlayerBase ? (player as PlayerBase).timelineOffset : Duration.zero;
-    final timelineStart = start + timelineOffset;
-    final timelineEnd = end + timelineOffset;
+    final timelineStart = start;
+    final timelineEnd = end;
     final totalMicros = (timelineEnd - timelineStart).inMicroseconds;
     if (totalMicros <= 0) return;
 

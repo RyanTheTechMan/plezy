@@ -84,7 +84,9 @@ extension _VideoPlayerClipMethods on VideoPlayerScreenState {
       uri: uri,
       headers: session.streamHeaders ?? const <String, String>{},
       isTranscoding: session.isTranscoding,
-      timelineOffset: currentPlayer is PlayerBase ? currentPlayer.timelineOffset : Duration.zero,
+      // Plezy 2.10 keeps VOD transcodes on the media timeline, so clip and
+      // player timestamps already share the same origin.
+      timelineOffset: Duration.zero,
       duration: _clipSourceDuration(),
       title: labels.title,
       subtitle: labels.subtitle,
