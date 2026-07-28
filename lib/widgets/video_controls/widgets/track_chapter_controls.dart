@@ -235,7 +235,7 @@ class TrackChapterControls extends StatelessWidget {
         }
 
         // Clip button (VOD only, hidden by state for TV/live playback)
-        if (onClipRequested != null) {
+        if (state.onClipRequested != null) {
           final currentIndex = buttonIndex;
           buttons.add(
             _buildTrackButton(
@@ -246,8 +246,8 @@ class TrackChapterControls extends StatelessWidget {
               isMobile: isMobile,
               isDesktop: isDesktop,
               onPressed: () {
-                onCancelAutoHide?.call();
-                unawaited(onClipRequested!().whenComplete(() => onStartAutoHide?.call()));
+                state.onCancelAutoHide?.call();
+                unawaited(state.onClipRequested!().whenComplete(() => state.onStartAutoHide?.call()));
               },
             ),
           );

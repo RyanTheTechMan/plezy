@@ -36,8 +36,6 @@ abstract class PlayerBase with PlayerStreamControllersMixin implements Player {
   @override
   Duration get currentPosition => Duration(milliseconds: _positionMs);
 
-  Duration get timelineOffset => _timelineOffset;
-
   @override
   bool get audioPassthroughActive => false;
 
