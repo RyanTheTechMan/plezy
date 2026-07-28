@@ -72,6 +72,7 @@ class PlayerClipPreviewPlayerBackend implements ClipPreviewPlayerBackend {
   final List<StreamSubscription<dynamic>> _subscriptions = [];
 
   Player? _player;
+  Duration _timelineOffset = Duration.zero;
 
   PlayerClipPreviewPlayerBackend({Player Function()? playerFactory})
     : _playerFactory = playerFactory ?? Player.preview {
@@ -98,7 +99,7 @@ class PlayerClipPreviewPlayerBackend implements ClipPreviewPlayerBackend {
 
     final player = _playerFactory();
     _player = player;
-    _subscriptions.add(player.streams.position.listen(_positions.add));
+    _subscriptions.add(player.streams.position.listen((position) => _positions.add(position + _timelineOffset)));
     _subscriptions.add(player.streams.playing.listen(_playing.add));
     // A paused load can produce a drawable frame without emitting
     // playback-restart. Treat file-loaded as the readiness fallback so the
@@ -111,6 +112,7 @@ class PlayerClipPreviewPlayerBackend implements ClipPreviewPlayerBackend {
   @override
   Future<void> open({required ClipSource source, required Duration sourceStart, required double maxVolume}) async {
     final player = _ensurePlayer();
+    _timelineOffset = source.isTranscoding ? source.timelineOffset : Duration.zero;
     await player.setProperty('cache', 'yes');
     await player.setProperty('cache-on-disk', 'yes');
     await player.setProperty('cache-secs', '300');
@@ -124,7 +126,6 @@ class PlayerClipPreviewPlayerBackend implements ClipPreviewPlayerBackend {
       Media(source.uri, headers: source.headers, start: sourceStart),
       play: false,
       externalSubtitles: subtitle?.uri == null ? null : [subtitle!],
-      timelineOffset: source.isTranscoding ? source.timelineOffset : Duration.zero,
       timelineDuration: source.duration,
     );
     if (source.audioTrack != null) await player.selectAudioTrack(source.audioTrack!);
@@ -144,7 +145,8 @@ class PlayerClipPreviewPlayerBackend implements ClipPreviewPlayerBackend {
 
   @override
   Future<void> seek(Duration videoPosition) async {
-    await _player?.seek(videoPosition);
+    final sourcePosition = videoPosition - _timelineOffset;
+    await _player?.seek(sourcePosition.isNegative ? Duration.zero : sourcePosition);
   }
 
   @override
