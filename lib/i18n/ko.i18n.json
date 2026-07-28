@@ -80,7 +80,15 @@
     "skipVersion": "이 버전 건너뛰기",
     "viewRelease": "릴리스 정보 보기",
     "latestVersion": "최신 버전을 사용 중입니다",
-    "checkFailed": "업데이트 확인 실패"
+    "checkFailed": "업데이트 확인 실패",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "설정",
@@ -187,9 +195,9 @@
     "debugLoggingDescription": "문제 해결을 위해 상세 로깅 활성화",
     "viewLogs": "로그 보기",
     "viewLogsDescription": "애플리케이션 로그 확인",
-    "clearImageCache": "",
-    "clearImageCacheDescription": "",
-    "clearImageCacheSuccess": "",
+    "clearImageCache": "Clear Image Cache",
+    "clearImageCacheDescription": "Clear cached artwork and thumbnails. Images may load slower until downloaded again.",
+    "clearImageCacheSuccess": "Image cache cleared successfully",
     "resetSettings": "설정 재설정",
     "resetSettingsDescription": "기본 설정으로 복원합니다. 되돌릴 수 없습니다.",
     "resetSettingsSuccess": "설정 재설정 성공",
@@ -209,6 +217,12 @@
     "updates": "업데이트",
     "updateAvailable": "사용 가능한 업데이트 있음",
     "checkForUpdates": "업데이트 확인",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "autoCheckUpdatesOnStartup": "시작 시 자동으로 업데이트 확인",
     "autoCheckUpdatesOnStartupDescription": "실행 시 업데이트가 있으면 알림",
     "validationErrorEnterNumber": "유효한 숫자를 입력하세요",
@@ -559,11 +573,12 @@
     "markedAsUnwatchedOffline": "미시청으로 표시됨 (연결 시 동기화됨)",
     "autoRemovedWatchedDownload": "자동 삭제됨: ${title}",
     "autoRemovedWatchedDownloads": {
+      "one": "Auto-removed ${n} watched download",
       "other": "시청한 다운로드 ${n}개를 자동 삭제했습니다"
     },
     "removedFromContinueWatching": "계속 시청 목록에서 제거됨",
     "errorLoading": "오류: ${error}",
-    "searchPartialResults": "",
+    "searchPartialResults": "Some media servers could not be searched. Showing available results.",
     "streamInterrupted": "스트림이 중단되었습니다. 재생을 누르거나 탐색하여 다시 시도하세요.",
     "liveStreamInterrupted": "라이브 스트림이 중단되었습니다. 재생을 눌러 다시 시도하세요.",
     "fileInfoNotAvailable": "파일 정보가 없습니다",
@@ -749,7 +764,7 @@
   },
   "errors": {
     "searchFailed": "검색 실패: ${error}",
-    "searchUnavailable": "",
+    "searchUnavailable": "Search could not reach any media server.",
     "connectionTimeout": "${context} 로드 중 연결 시간 초과",
     "connectionFailed": "미디어 서버에 연결할 수 없습니다",
     "unableToLoad": "${context}을(를) 불러올 수 없습니다. 다시 시도하세요.",
@@ -857,8 +872,10 @@
     "title": "소개",
     "openSourceLicenses": "오픈소스 라이선스",
     "versionLabel": "버전 ${version}",
-    "appDescription": "Flutter로 만든 아름다운 Plex 및 Jellyfin 클라이언트",
-    "viewLicensesDescription": "타사 라이브러리 라이선스 보기"
+    "viewLicensesDescription": "타사 라이브러리 라이선스 보기",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email})의 서버를 찾을 수 없습니다.",
@@ -914,6 +931,7 @@
       "upcoming": "방영 예정"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n}화"
     },
     "cast": "출연진",
@@ -1058,6 +1076,7 @@
     "addToQueue": "대기열에 추가",
     "discNumber": "디스크 ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n}곡"
     },
     "nowPlaying": "재생 중",
@@ -1194,15 +1213,15 @@
     "editSyncRule": "동기화 규칙 편집",
     "removeSyncRule": "동기화 규칙 제거",
     "removeSyncRuleConfirm": "\"${title}\" 동기화를 중단하시겠습니까? 다운로드된 에피소드는 유지됩니다.",
-    "removeListSyncRuleConfirm": "",
-    "deleteSyncRuleDownloads": "",
-    "deleteSyncRuleDownloadsDescription": "",
+    "removeListSyncRuleConfirm": "Stop syncing \"${title}\"?",
+    "deleteSyncRuleDownloads": "Also delete associated downloads",
+    "deleteSyncRuleDownloadsDescription": "Downloads used by another sync rule or profile will be kept.",
     "syncRuleCreated": "동기화 규칙 생성됨 — 미시청 에피소드 ${count}개 유지",
     "syncRuleUpdated": "동기화 규칙 업데이트됨",
     "syncRuleRemoved": "동기화 규칙 제거됨",
-    "syncRuleAndDownloadsRemoved": "",
-    "syncRuleCleanupBusy": "",
-    "syncRuleCleanupUnavailable": "",
+    "syncRuleAndDownloadsRemoved": "Sync rule and associated downloads removed",
+    "syncRuleCleanupBusy": "Sync rules are currently updating. Try again in a moment.",
+    "syncRuleCleanupUnavailable": "Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.",
     "syncedNewEpisodes": "${title}의 새 에피소드 ${count}개 동기화됨",
     "activeSyncRules": "동기화 규칙",
     "noSyncRules": "동기화 규칙 없음",

@@ -206,6 +206,14 @@ class _Translations$update$ja extends Translations$update$en {
 	@override String get viewRelease => 'リリースを表示';
 	@override String get latestVersion => '最新バージョンです';
 	@override String get checkFailed => 'アップデートの確認に失敗しました';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -319,6 +327,9 @@ class _Translations$settings$ja extends Translations$settings$en {
 	@override String get debugLoggingDescription => 'トラブルシューティング用の詳細なログを有効化';
 	@override String get viewLogs => 'ログを表示';
 	@override String get viewLogsDescription => 'アプリケーションログを表示';
+	@override String get clearImageCache => 'Clear Image Cache';
+	@override String get clearImageCacheDescription => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.';
+	@override String get clearImageCacheSuccess => 'Image cache cleared successfully';
 	@override String get resetSettings => '設定をリセット';
 	@override String get resetSettingsDescription => '設定を既定に戻します。元に戻せません。';
 	@override String get resetSettingsSuccess => '設定を正常にリセットしました';
@@ -338,6 +349,12 @@ class _Translations$settings$ja extends Translations$settings$en {
 	@override String get updates => 'アップデート';
 	@override String get updateAvailable => 'アップデート利用可能';
 	@override String get checkForUpdates => 'アップデートを確認';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => '起動時にアップデートを自動的に確認';
 	@override String get autoCheckUpdatesOnStartupDescription => '起動時にアップデートがある場合は通知します';
 	@override String get validationErrorEnterNumber => '有効な数値を入力してください';
@@ -723,10 +740,12 @@ class _Translations$messages$ja extends Translations$messages$en {
 	@override String get markedAsUnwatchedOffline => '未視聴にしました（オンライン時に同期）';
 	@override String autoRemovedWatchedDownload({required Object title}) => '自動削除: ${title}';
 	@override String autoRemovedWatchedDownloads({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: 'Auto-removed ${n} watched download',
 		other: '視聴済みダウンロードを${n}件自動削除しました',
 	);
 	@override String get removedFromContinueWatching => '視聴中から削除しました';
 	@override String errorLoading({required Object error}) => 'エラー: ${error}';
+	@override String get searchPartialResults => 'Some media servers could not be searched. Showing available results.';
 	@override String get streamInterrupted => 'ストリームが中断されました。再生を押すかシークして再試行してください。';
 	@override String get liveStreamInterrupted => 'ライブストリームが中断されました。再生を押して再試行してください。';
 	@override String get fileInfoNotAvailable => 'ファイル情報が利用できません';
@@ -961,6 +980,7 @@ class _Translations$errors$ja extends Translations$errors$en {
 
 	// Translations
 	@override String searchFailed({required Object error}) => '検索に失敗しました: ${error}';
+	@override String get searchUnavailable => 'Search could not reach any media server.';
 	@override String connectionTimeout({required Object context}) => '${context}の読み込み中に接続がタイムアウトしました';
 	@override String get connectionFailed => 'メディアサーバーに接続できません';
 	@override String unableToLoad({required Object context}) => '${context}を読み込めませんでした。もう一度お試しください。';
@@ -1037,8 +1057,10 @@ class _Translations$about$ja extends Translations$about$en {
 	@override String get title => 'アプリについて';
 	@override String get openSourceLicenses => 'オープンソースライセンス';
 	@override String versionLabel({required Object version}) => 'バージョン ${version}';
-	@override String get appDescription => 'Flutter製の美しいPlex・Jellyfinクライアント';
 	@override String get viewLicensesDescription => 'サードパーティライブラリのライセンスを表示';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1116,6 +1138,7 @@ class _Translations$explore$ja extends Translations$explore$en {
 	@override late final _Translations$explore$rows$ja rows = _Translations$explore$rows$ja._(_root);
 	@override late final _Translations$explore$status$ja status = _Translations$explore$status$ja._(_root);
 	@override String episodeCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: '${n} episode',
 		other: '${n}話',
 	);
 	@override String get cast => 'キャスト';
@@ -1288,6 +1311,7 @@ class _Translations$music$ja extends Translations$music$en {
 	@override String get addToQueue => 'キューに追加';
 	@override String discNumber({required Object n}) => 'ディスク ${n}';
 	@override String trackCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: '${n} track',
 		other: '${n}曲',
 	);
 	@override String get nowPlaying => '再生中';
@@ -1438,9 +1462,15 @@ class _Translations$downloads$ja extends Translations$downloads$en {
 	@override String get editSyncRule => '同期ルールを編集';
 	@override String get removeSyncRule => '同期ルールを削除';
 	@override String removeSyncRuleConfirm({required Object title}) => '「${title}」の同期を停止しますか？ダウンロード済みのエピソードは保持されます。';
+	@override String removeListSyncRuleConfirm({required Object title}) => 'Stop syncing "${title}"?';
+	@override String get deleteSyncRuleDownloads => 'Also delete associated downloads';
+	@override String get deleteSyncRuleDownloadsDescription => 'Downloads used by another sync rule or profile will be kept.';
 	@override String syncRuleCreated({required Object count}) => '同期ルールを作成しました — 未視聴のエピソードを${count}件保持';
 	@override String get syncRuleUpdated => '同期ルールを更新しました';
 	@override String get syncRuleRemoved => '同期ルールを削除しました';
+	@override String get syncRuleAndDownloadsRemoved => 'Sync rule and associated downloads removed';
+	@override String get syncRuleCleanupBusy => 'Sync rules are currently updating. Try again in a moment.';
+	@override String get syncRuleCleanupUnavailable => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.';
 	@override String syncedNewEpisodes({required Object title, required Object count}) => '${title}の新しいエピソードを${count}件同期しました';
 	@override String get activeSyncRules => '同期ルール';
 	@override String get noSyncRules => '同期ルールなし';
@@ -2268,6 +2298,14 @@ extension on TranslationsJa {
 			'update.viewRelease' => 'リリースを表示',
 			'update.latestVersion' => '最新バージョンです',
 			'update.checkFailed' => 'アップデートの確認に失敗しました',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => '設定',
 			'settings.supportDeveloper' => 'Plezyを支援',
 			'settings.supportDeveloperDescription' => 'Liberapayで寄付して開発を支援',
@@ -2372,6 +2410,9 @@ extension on TranslationsJa {
 			'settings.debugLoggingDescription' => 'トラブルシューティング用の詳細なログを有効化',
 			'settings.viewLogs' => 'ログを表示',
 			'settings.viewLogsDescription' => 'アプリケーションログを表示',
+			'settings.clearImageCache' => 'Clear Image Cache',
+			'settings.clearImageCacheDescription' => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.',
+			'settings.clearImageCacheSuccess' => 'Image cache cleared successfully',
 			'settings.resetSettings' => '設定をリセット',
 			'settings.resetSettingsDescription' => '設定を既定に戻します。元に戻せません。',
 			'settings.resetSettingsSuccess' => '設定を正常にリセットしました',
@@ -2391,6 +2432,12 @@ extension on TranslationsJa {
 			'settings.updates' => 'アップデート',
 			'settings.updateAvailable' => 'アップデート利用可能',
 			'settings.checkForUpdates' => 'アップデートを確認',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => '起動時にアップデートを自動的に確認',
 			'settings.autoCheckUpdatesOnStartupDescription' => '起動時にアップデートがある場合は通知します',
 			'settings.validationErrorEnterNumber' => '有効な数値を入力してください',
@@ -2690,6 +2737,8 @@ extension on TranslationsJa {
 			'videoControls.endsAt' => ({required Object time}) => '${time}に終了',
 			'videoControls.pipActive' => 'ピクチャーインピクチャーで再生中',
 			'videoControls.pipFailed' => 'ピクチャーインピクチャーの開始に失敗しました',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.screenshotSaved' => 'スクリーンショットを保存しました',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'ズーム ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0以降が必要です',
@@ -2707,8 +2756,6 @@ extension on TranslationsJa {
 			'videoControls.language' => '言語',
 			'videoControls.noSubtitlesFound' => '字幕が見つかりません',
 			'videoControls.subtitleDownloaded' => '字幕をダウンロードしました',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.subtitleDownloadedNotApplied' => '字幕はダウンロードされましたが、選択できませんでした',
 			'videoControls.subtitleDownloadFailed' => '字幕のダウンロードに失敗しました',
 			'videoControls.searchLanguages' => '言語を検索…',
@@ -2717,9 +2764,10 @@ extension on TranslationsJa {
 			'messages.markedAsWatchedOffline' => '視聴済みにしました（オンライン時に同期）',
 			'messages.markedAsUnwatchedOffline' => '未視聴にしました（オンライン時に同期）',
 			'messages.autoRemovedWatchedDownload' => ({required Object title}) => '自動削除: ${title}',
-			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: '視聴済みダウンロードを${n}件自動削除しました', ), 
+			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: 'Auto-removed ${n} watched download', other: '視聴済みダウンロードを${n}件自動削除しました', ), 
 			'messages.removedFromContinueWatching' => '視聴中から削除しました',
 			'messages.errorLoading' => ({required Object error}) => 'エラー: ${error}',
+			'messages.searchPartialResults' => 'Some media servers could not be searched. Showing available results.',
 			'messages.streamInterrupted' => 'ストリームが中断されました。再生を押すかシークして再試行してください。',
 			'messages.liveStreamInterrupted' => 'ライブストリームが中断されました。再生を押して再試行してください。',
 			'messages.fileInfoNotAvailable' => 'ファイル情報が利用できません',
@@ -2891,6 +2939,7 @@ extension on TranslationsJa {
 			'discover.minutesLeft' => ({required Object minutes}) => '残り${minutes}分',
 			'discover.moreLikeThis' => '似ている作品',
 			'errors.searchFailed' => ({required Object error}) => '検索に失敗しました: ${error}',
+			'errors.searchUnavailable' => 'Search could not reach any media server.',
 			'errors.connectionTimeout' => ({required Object context}) => '${context}の読み込み中に接続がタイムアウトしました',
 			'errors.connectionFailed' => 'メディアサーバーに接続できません',
 			'errors.unableToLoad' => ({required Object context}) => '${context}を読み込めませんでした。もう一度お試しください。',
@@ -2986,8 +3035,10 @@ extension on TranslationsJa {
 			'about.title' => 'アプリについて',
 			'about.openSourceLicenses' => 'オープンソースライセンス',
 			'about.versionLabel' => ({required Object version}) => 'バージョン ${version}',
-			'about.appDescription' => 'Flutter製の美しいPlex・Jellyfinクライアント',
 			'about.viewLicensesDescription' => 'サードパーティライブラリのライセンスを表示',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email})のサーバーが見つかりません',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'サーバーの読み込みに失敗しました: ${error}',
 			'hubDetail.title' => 'タイトル',
@@ -3026,7 +3077,7 @@ extension on TranslationsJa {
 			'explore.status.ended' => '放送終了',
 			'explore.status.canceled' => '打ち切り',
 			'explore.status.upcoming' => '放送予定',
-			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: '${n}話', ), 
+			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: '${n} episode', other: '${n}話', ), 
 			'explore.cast' => 'キャスト',
 			'explore.characters' => 'キャラクター',
 			'explore.addToWatchlist' => 'ウォッチリストに追加',
@@ -3160,7 +3211,7 @@ extension on TranslationsJa {
 			'music.playNext' => '次に再生',
 			'music.addToQueue' => 'キューに追加',
 			'music.discNumber' => ({required Object n}) => 'ディスク ${n}',
-			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: '${n}曲', ), 
+			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: '${n} track', other: '${n}曲', ), 
 			'music.nowPlaying' => '再生中',
 			'music.playingFrom' => ({required Object title}) => '${title}から再生',
 			'music.queue' => '再生キュー',
@@ -3200,6 +3251,8 @@ extension on TranslationsJa {
 			'watchTogether.hostBadge' => 'ホスト',
 			'watchTogether.youAreHost' => 'あなたはホストです',
 			'watchTogether.watchingWithOthers' => '他の人と視聴中',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.endSession' => 'セッションを終了',
 			'watchTogether.leaveSession' => 'セッションを退出',
 			'watchTogether.endSessionQuestion' => 'セッションを終了しますか？',
@@ -3221,8 +3274,6 @@ extension on TranslationsJa {
 			'watchTogether.failedToJoin' => 'セッションへの参加に失敗しました',
 			'watchTogether.sessionCodeCopied' => 'セッションコードをクリップボードにコピーしました',
 			'watchTogether.relayUnreachable' => 'リレーサーバーに接続できません。ISPによるブロックのため「一緒に見る」を利用できない可能性があります。',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.reconnectingToHost' => 'ホストに再接続中…',
 			'watchTogether.currentPlayback' => '現在の再生',
 			'watchTogether.joinCurrentPlayback' => '現在の再生に参加',
@@ -3293,9 +3344,15 @@ extension on TranslationsJa {
 			'downloads.editSyncRule' => '同期ルールを編集',
 			'downloads.removeSyncRule' => '同期ルールを削除',
 			'downloads.removeSyncRuleConfirm' => ({required Object title}) => '「${title}」の同期を停止しますか？ダウンロード済みのエピソードは保持されます。',
+			'downloads.removeListSyncRuleConfirm' => ({required Object title}) => 'Stop syncing "${title}"?',
+			'downloads.deleteSyncRuleDownloads' => 'Also delete associated downloads',
+			'downloads.deleteSyncRuleDownloadsDescription' => 'Downloads used by another sync rule or profile will be kept.',
 			'downloads.syncRuleCreated' => ({required Object count}) => '同期ルールを作成しました — 未視聴のエピソードを${count}件保持',
 			'downloads.syncRuleUpdated' => '同期ルールを更新しました',
 			'downloads.syncRuleRemoved' => '同期ルールを削除しました',
+			'downloads.syncRuleAndDownloadsRemoved' => 'Sync rule and associated downloads removed',
+			'downloads.syncRuleCleanupBusy' => 'Sync rules are currently updating. Try again in a moment.',
+			'downloads.syncRuleCleanupUnavailable' => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.',
 			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '${title}の新しいエピソードを${count}件同期しました',
 			'downloads.activeSyncRules' => '同期ルール',
 			'downloads.noSyncRules' => '同期ルールなし',

@@ -207,6 +207,14 @@ class _Translations$update$zh_Hant extends Translations$update$zh {
 	@override String get viewRelease => '查看版本詳情';
 	@override String get latestVersion => '已安裝的版本為最新版本';
 	@override String get checkFailed => '無法檢查更新';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -320,6 +328,9 @@ class _Translations$settings$zh_Hant extends Translations$settings$zh {
 	@override String get debugLoggingDescription => '啟用詳細日誌記錄以便進行疑難排解';
 	@override String get viewLogs => '查看日誌';
 	@override String get viewLogsDescription => '查看應用程式日誌記錄';
+	@override String get clearImageCache => 'Clear Image Cache';
+	@override String get clearImageCacheDescription => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.';
+	@override String get clearImageCacheSuccess => 'Image cache cleared successfully';
 	@override String get resetSettings => '重設設定';
 	@override String get resetSettingsDescription => '恢復預設設定。此操作無法復原。';
 	@override String get resetSettingsSuccess => '設定重設成功';
@@ -339,6 +350,12 @@ class _Translations$settings$zh_Hant extends Translations$settings$zh {
 	@override String get updates => '更新';
 	@override String get updateAvailable => '有可用更新';
 	@override String get checkForUpdates => '檢查更新';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => '啟動時自動檢查更新';
 	@override String get autoCheckUpdatesOnStartupDescription => '啟動時若有可用更新便顯示通知';
 	@override String get validationErrorEnterNumber => '請輸入有效的數字';
@@ -724,10 +741,12 @@ class _Translations$messages$zh_Hant extends Translations$messages$zh {
 	@override String get markedAsUnwatchedOffline => '已標記為未觀看（將在連線時同步）';
 	@override String autoRemovedWatchedDownload({required Object title}) => '已自動移除：${title}';
 	@override String autoRemovedWatchedDownloads({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: 'Auto-removed ${n} watched download',
 		other: '已自動移除 ${n} 個已觀看的下載內容',
 	);
 	@override String get removedFromContinueWatching => '已從「繼續觀看」中移除';
 	@override String errorLoading({required Object error}) => '錯誤：${error}';
+	@override String get searchPartialResults => 'Some media servers could not be searched. Showing available results.';
 	@override String get streamInterrupted => '影片串流中斷。請按播放鍵或拖動進度條重試。';
 	@override String get liveStreamInterrupted => '直播串流中斷。請按播放鍵重試。';
 	@override String get fileInfoNotAvailable => '無法取得檔案資訊';
@@ -962,6 +981,7 @@ class _Translations$errors$zh_Hant extends Translations$errors$zh {
 
 	// Translations
 	@override String searchFailed({required Object error}) => '搜尋失敗：${error}';
+	@override String get searchUnavailable => 'Search could not reach any media server.';
 	@override String connectionTimeout({required Object context}) => '載入 ${context} 時連線逾時';
 	@override String get connectionFailed => '無法連線至媒體伺服器';
 	@override String unableToLoad({required Object context}) => '無法載入 ${context}。請重試。';
@@ -1038,8 +1058,10 @@ class _Translations$about$zh_Hant extends Translations$about$zh {
 	@override String get title => '關於';
 	@override String get openSourceLicenses => '開源授權條款';
 	@override String versionLabel({required Object version}) => '版本 ${version}';
-	@override String get appDescription => '一款精美的 Plex 與 Jellyfin Flutter 用戶端';
 	@override String get viewLicensesDescription => '查看第三方套件的授權條款';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1117,6 +1139,7 @@ class _Translations$explore$zh_Hant extends Translations$explore$zh {
 	@override late final _Translations$explore$rows$zh_Hant rows = _Translations$explore$rows$zh_Hant._(_root);
 	@override late final _Translations$explore$status$zh_Hant status = _Translations$explore$status$zh_Hant._(_root);
 	@override String episodeCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} episode',
 		other: '${n} 集',
 	);
 	@override String get cast => '演員陣容';
@@ -1289,6 +1312,7 @@ class _Translations$music$zh_Hant extends Translations$music$zh {
 	@override String get addToQueue => '新增至佇列';
 	@override String discNumber({required Object n}) => 'CD ${n}';
 	@override String trackCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} track',
 		other: '${n} 首',
 	);
 	@override String get nowPlaying => '正在播放';
@@ -1439,9 +1463,15 @@ class _Translations$downloads$zh_Hant extends Translations$downloads$zh {
 	@override String get editSyncRule => '編輯同步規則';
 	@override String get removeSyncRule => '刪除同步規則';
 	@override String removeSyncRuleConfirm({required Object title}) => '停止同步「${title}」？已下載的單集將會保留。';
+	@override String removeListSyncRuleConfirm({required Object title}) => 'Stop syncing "${title}"?';
+	@override String get deleteSyncRuleDownloads => 'Also delete associated downloads';
+	@override String get deleteSyncRuleDownloadsDescription => 'Downloads used by another sync rule or profile will be kept.';
 	@override String syncRuleCreated({required Object count}) => '同步規則已建立 — 將保留 ${count} 個未觀看單集';
 	@override String get syncRuleUpdated => '同步規則已更新';
 	@override String get syncRuleRemoved => '同步規則已刪除';
+	@override String get syncRuleAndDownloadsRemoved => 'Sync rule and associated downloads removed';
+	@override String get syncRuleCleanupBusy => 'Sync rules are currently updating. Try again in a moment.';
+	@override String get syncRuleCleanupUnavailable => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.';
 	@override String syncedNewEpisodes({required Object title, required Object count}) => '已為 ${title} 同步 ${count} 個新單集';
 	@override String get activeSyncRules => '同步規則';
 	@override String get noSyncRules => '沒有同步規則';
@@ -2269,6 +2299,14 @@ extension on TranslationsZhHant {
 			'update.viewRelease' => '查看版本詳情',
 			'update.latestVersion' => '已安裝的版本為最新版本',
 			'update.checkFailed' => '無法檢查更新',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => '設定',
 			'settings.supportDeveloper' => '贊助 Plezy',
 			'settings.supportDeveloperDescription' => '透過 Liberapay 捐款支持開發者',
@@ -2373,6 +2411,9 @@ extension on TranslationsZhHant {
 			'settings.debugLoggingDescription' => '啟用詳細日誌記錄以便進行疑難排解',
 			'settings.viewLogs' => '查看日誌',
 			'settings.viewLogsDescription' => '查看應用程式日誌記錄',
+			'settings.clearImageCache' => 'Clear Image Cache',
+			'settings.clearImageCacheDescription' => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.',
+			'settings.clearImageCacheSuccess' => 'Image cache cleared successfully',
 			'settings.resetSettings' => '重設設定',
 			'settings.resetSettingsDescription' => '恢復預設設定。此操作無法復原。',
 			'settings.resetSettingsSuccess' => '設定重設成功',
@@ -2392,6 +2433,12 @@ extension on TranslationsZhHant {
 			'settings.updates' => '更新',
 			'settings.updateAvailable' => '有可用更新',
 			'settings.checkForUpdates' => '檢查更新',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => '啟動時自動檢查更新',
 			'settings.autoCheckUpdatesOnStartupDescription' => '啟動時若有可用更新便顯示通知',
 			'settings.validationErrorEnterNumber' => '請輸入有效的數字',
@@ -2691,6 +2738,8 @@ extension on TranslationsZhHant {
 			'videoControls.endsAt' => ({required Object time}) => '預計 ${time} 結束',
 			'videoControls.pipActive' => '正在以子母畫面模式播放',
 			'videoControls.pipFailed' => '啟動子母畫面失敗',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.screenshotSaved' => '螢幕截圖已儲存',
 			'videoControls.zoomPercent' => ({required Object percent}) => '縮放 ${percent}%',
 			'videoControls.pipErrors.androidVersion' => '需要 Android 8.0 或更高版本',
@@ -2708,8 +2757,6 @@ extension on TranslationsZhHant {
 			'videoControls.language' => '語言',
 			'videoControls.noSubtitlesFound' => '找不到字幕',
 			'videoControls.subtitleDownloaded' => '字幕下載成功',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.subtitleDownloadedNotApplied' => '字幕已下載，但無法套用',
 			'videoControls.subtitleDownloadFailed' => '字幕下載失敗',
 			'videoControls.searchLanguages' => '搜尋語言…',
@@ -2718,9 +2765,10 @@ extension on TranslationsZhHant {
 			'messages.markedAsWatchedOffline' => '已標記為已觀看（將在連線時同步）',
 			'messages.markedAsUnwatchedOffline' => '已標記為未觀看（將在連線時同步）',
 			'messages.autoRemovedWatchedDownload' => ({required Object title}) => '已自動移除：${title}',
-			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '已自動移除 ${n} 個已觀看的下載內容', ), 
+			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: 'Auto-removed ${n} watched download', other: '已自動移除 ${n} 個已觀看的下載內容', ), 
 			'messages.removedFromContinueWatching' => '已從「繼續觀看」中移除',
 			'messages.errorLoading' => ({required Object error}) => '錯誤：${error}',
+			'messages.searchPartialResults' => 'Some media servers could not be searched. Showing available results.',
 			'messages.streamInterrupted' => '影片串流中斷。請按播放鍵或拖動進度條重試。',
 			'messages.liveStreamInterrupted' => '直播串流中斷。請按播放鍵重試。',
 			'messages.fileInfoNotAvailable' => '無法取得檔案資訊',
@@ -2892,6 +2940,7 @@ extension on TranslationsZhHant {
 			'discover.minutesLeft' => ({required Object minutes}) => '剩餘 ${minutes} 分鐘',
 			'discover.moreLikeThis' => '更多類似內容',
 			'errors.searchFailed' => ({required Object error}) => '搜尋失敗：${error}',
+			'errors.searchUnavailable' => 'Search could not reach any media server.',
 			'errors.connectionTimeout' => ({required Object context}) => '載入 ${context} 時連線逾時',
 			'errors.connectionFailed' => '無法連線至媒體伺服器',
 			'errors.unableToLoad' => ({required Object context}) => '無法載入 ${context}。請重試。',
@@ -2987,8 +3036,10 @@ extension on TranslationsZhHant {
 			'about.title' => '關於',
 			'about.openSourceLicenses' => '開源授權條款',
 			'about.versionLabel' => ({required Object version}) => '版本 ${version}',
-			'about.appDescription' => '一款精美的 Plex 與 Jellyfin Flutter 用戶端',
 			'about.viewLicensesDescription' => '查看第三方套件的授權條款',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '找不到 ${username}（${email}） 的伺服器',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => '無法載入伺服器：${error}',
 			'hubDetail.title' => '標題',
@@ -3027,7 +3078,7 @@ extension on TranslationsZhHant {
 			'explore.status.ended' => '已完結',
 			'explore.status.canceled' => '已取消',
 			'explore.status.upcoming' => '即將上線',
-			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 集', ), 
+			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} episode', other: '${n} 集', ), 
 			'explore.cast' => '演員陣容',
 			'explore.characters' => '角色',
 			'explore.addToWatchlist' => '新增至待看清單',
@@ -3161,7 +3212,7 @@ extension on TranslationsZhHant {
 			'music.playNext' => '下一首播放',
 			'music.addToQueue' => '新增至佇列',
 			'music.discNumber' => ({required Object n}) => 'CD ${n}',
-			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 首', ), 
+			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} track', other: '${n} 首', ), 
 			'music.nowPlaying' => '正在播放',
 			'music.playingFrom' => ({required Object title}) => '來自 ${title}',
 			'music.queue' => '播放佇列',
@@ -3201,6 +3252,8 @@ extension on TranslationsZhHant {
 			'watchTogether.hostBadge' => '主持人',
 			'watchTogether.youAreHost' => '您是主持人',
 			'watchTogether.watchingWithOthers' => '與他人一起觀看',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.endSession' => '結束工作階段',
 			'watchTogether.leaveSession' => '離開工作階段',
 			'watchTogether.endSessionQuestion' => '結束工作階段？',
@@ -3222,8 +3275,6 @@ extension on TranslationsZhHant {
 			'watchTogether.failedToJoin' => '加入工作階段失敗',
 			'watchTogether.sessionCodeCopied' => '工作階段代碼已複製到剪貼簿',
 			'watchTogether.relayUnreachable' => '無法連線至中繼伺服器。ISP 封鎖可能會導致「一起看」無法使用。',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.reconnectingToHost' => '正在重新連線至主持人…',
 			'watchTogether.currentPlayback' => '目前播放內容',
 			'watchTogether.joinCurrentPlayback' => '加入目前播放點',
@@ -3294,9 +3345,15 @@ extension on TranslationsZhHant {
 			'downloads.editSyncRule' => '編輯同步規則',
 			'downloads.removeSyncRule' => '刪除同步規則',
 			'downloads.removeSyncRuleConfirm' => ({required Object title}) => '停止同步「${title}」？已下載的單集將會保留。',
+			'downloads.removeListSyncRuleConfirm' => ({required Object title}) => 'Stop syncing "${title}"?',
+			'downloads.deleteSyncRuleDownloads' => 'Also delete associated downloads',
+			'downloads.deleteSyncRuleDownloadsDescription' => 'Downloads used by another sync rule or profile will be kept.',
 			'downloads.syncRuleCreated' => ({required Object count}) => '同步規則已建立 — 將保留 ${count} 個未觀看單集',
 			'downloads.syncRuleUpdated' => '同步規則已更新',
 			'downloads.syncRuleRemoved' => '同步規則已刪除',
+			'downloads.syncRuleAndDownloadsRemoved' => 'Sync rule and associated downloads removed',
+			'downloads.syncRuleCleanupBusy' => 'Sync rules are currently updating. Try again in a moment.',
+			'downloads.syncRuleCleanupUnavailable' => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.',
 			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '已為 ${title} 同步 ${count} 個新單集',
 			'downloads.activeSyncRules' => '同步規則',
 			'downloads.noSyncRules' => '沒有同步規則',

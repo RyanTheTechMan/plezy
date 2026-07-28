@@ -80,7 +80,15 @@
     "skipVersion": "跳过此版本",
     "viewRelease": "查看发布详情",
     "latestVersion": "当前已是最新版本",
-    "checkFailed": "无法检查更新"
+    "checkFailed": "无法检查更新",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "设置",
@@ -187,9 +195,9 @@
     "debugLoggingDescription": "启用详细日志记录以便故障排除",
     "viewLogs": "查看日志",
     "viewLogsDescription": "查看应用日志",
-    "clearImageCache": "",
-    "clearImageCacheDescription": "",
-    "clearImageCacheSuccess": "",
+    "clearImageCache": "Clear Image Cache",
+    "clearImageCacheDescription": "Clear cached artwork and thumbnails. Images may load slower until downloaded again.",
+    "clearImageCacheSuccess": "Image cache cleared successfully",
     "resetSettings": "重置设置",
     "resetSettingsDescription": "恢复默认设置。此操作无法撤销。",
     "resetSettingsSuccess": "设置重置成功",
@@ -209,6 +217,12 @@
     "updates": "更新",
     "updateAvailable": "有可用更新",
     "checkForUpdates": "检查更新",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "autoCheckUpdatesOnStartup": "启动时自动检查更新",
     "autoCheckUpdatesOnStartupDescription": "启动时有可用更新则通知",
     "validationErrorEnterNumber": "请输入有效数字",
@@ -559,11 +573,12 @@
     "markedAsUnwatchedOffline": "已标记为未观看（将在联网时同步）",
     "autoRemovedWatchedDownload": "已自动移除：${title}",
     "autoRemovedWatchedDownloads": {
+      "one": "Auto-removed ${n} watched download",
       "other": "已自动移除 ${n} 个看过的下载"
     },
     "removedFromContinueWatching": "已从继续观看中移除",
     "errorLoading": "出错：${error}",
-    "searchPartialResults": "",
+    "searchPartialResults": "Some media servers could not be searched. Showing available results.",
     "streamInterrupted": "视频流已中断。按播放键或拖动进度条重试。",
     "liveStreamInterrupted": "直播流已中断。按播放键重试。",
     "fileInfoNotAvailable": "文件信息不可用",
@@ -749,7 +764,7 @@
   },
   "errors": {
     "searchFailed": "搜索失败：${error}",
-    "searchUnavailable": "",
+    "searchUnavailable": "Search could not reach any media server.",
     "connectionTimeout": "加载 ${context} 时连接超时",
     "connectionFailed": "无法连接到媒体服务器",
     "unableToLoad": "无法加载${context}。请重试。",
@@ -857,8 +872,10 @@
     "title": "关于",
     "openSourceLicenses": "开源许可证",
     "versionLabel": "版本 ${version}",
-    "appDescription": "一款精美的 Flutter Plex 和 Jellyfin 客户端",
-    "viewLicensesDescription": "查看第三方库的许可证"
+    "viewLicensesDescription": "查看第三方库的许可证",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "未找到 ${username}（${email}）的服务器",
@@ -914,6 +931,7 @@
       "upcoming": "即将上线"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n} 集"
     },
     "cast": "演员表",
@@ -1058,6 +1076,7 @@
     "addToQueue": "添加到队列",
     "discNumber": "碟片 ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n} 首"
     },
     "nowPlaying": "正在播放",
@@ -1194,15 +1213,15 @@
     "editSyncRule": "编辑同步规则",
     "removeSyncRule": "删除同步规则",
     "removeSyncRuleConfirm": "停止同步“${title}”？已下载的剧集将被保留。",
-    "removeListSyncRuleConfirm": "",
-    "deleteSyncRuleDownloads": "",
-    "deleteSyncRuleDownloadsDescription": "",
+    "removeListSyncRuleConfirm": "Stop syncing \"${title}\"?",
+    "deleteSyncRuleDownloads": "Also delete associated downloads",
+    "deleteSyncRuleDownloadsDescription": "Downloads used by another sync rule or profile will be kept.",
     "syncRuleCreated": "同步规则已创建 — 保留 ${count} 集未观看内容",
     "syncRuleUpdated": "同步规则已更新",
     "syncRuleRemoved": "同步规则已删除",
-    "syncRuleAndDownloadsRemoved": "",
-    "syncRuleCleanupBusy": "",
-    "syncRuleCleanupUnavailable": "",
+    "syncRuleAndDownloadsRemoved": "Sync rule and associated downloads removed",
+    "syncRuleCleanupBusy": "Sync rules are currently updating. Try again in a moment.",
+    "syncRuleCleanupUnavailable": "Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.",
     "syncedNewEpisodes": "已为 ${title} 同步 ${count} 个新剧集",
     "activeSyncRules": "同步规则",
     "noSyncRules": "没有同步规则",

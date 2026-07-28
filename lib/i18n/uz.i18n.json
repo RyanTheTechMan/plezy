@@ -80,7 +80,15 @@
     "skipVersion": "Ushbu versiyani oʻtkazib yuborish",
     "viewRelease": "Tafsilotlarni koʻrish",
     "latestVersion": "Sizda eng soʻnggi versiya oʻrnatilgan",
-    "checkFailed": "Yangilanishlarni tekshirish imkoni boʻlmadi"
+    "checkFailed": "Yangilanishlarni tekshirish imkoni boʻlmadi",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Sozlamalar",
@@ -209,6 +217,12 @@
     "updates": "Yangilanishlar",
     "updateAvailable": "Yangilanish mavjud",
     "checkForUpdates": "Yangilanishlarni tekshirish",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "autoCheckUpdatesOnStartup": "Ishga tushganda avtomatik tekshirish",
     "autoCheckUpdatesOnStartupDescription": "Ishga tushganda yangilanish boʻlsa xabar berish",
     "validationErrorEnterNumber": "Toʻgʻri raqam kiriting",
@@ -858,8 +872,10 @@
     "title": "Dastur haqida",
     "openSourceLicenses": "Ochiq kodli litsenziyalar",
     "versionLabel": "Versiya ${version}",
-    "appDescription": "Flutter asosidagi qulay Plex va Jellyfin mijozi",
-    "viewLicensesDescription": "Uchinchi tomon kutubxonalarining litsenziyalarini koʻrish"
+    "viewLicensesDescription": "Uchinchi tomon kutubxonalarining litsenziyalarini koʻrish",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email}) uchun serverlar topilmadi",

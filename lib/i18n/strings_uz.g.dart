@@ -206,6 +206,14 @@ class _Translations$update$uz extends Translations$update$en {
 	@override String get viewRelease => 'Tafsilotlarni koʻrish';
 	@override String get latestVersion => 'Sizda eng soʻnggi versiya oʻrnatilgan';
 	@override String get checkFailed => 'Yangilanishlarni tekshirish imkoni boʻlmadi';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -341,6 +349,12 @@ class _Translations$settings$uz extends Translations$settings$en {
 	@override String get updates => 'Yangilanishlar';
 	@override String get updateAvailable => 'Yangilanish mavjud';
 	@override String get checkForUpdates => 'Yangilanishlarni tekshirish';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => 'Ishga tushganda avtomatik tekshirish';
 	@override String get autoCheckUpdatesOnStartupDescription => 'Ishga tushganda yangilanish boʻlsa xabar berish';
 	@override String get validationErrorEnterNumber => 'Toʻgʻri raqam kiriting';
@@ -1043,8 +1057,10 @@ class _Translations$about$uz extends Translations$about$en {
 	@override String get title => 'Dastur haqida';
 	@override String get openSourceLicenses => 'Ochiq kodli litsenziyalar';
 	@override String versionLabel({required Object version}) => 'Versiya ${version}';
-	@override String get appDescription => 'Flutter asosidagi qulay Plex va Jellyfin mijozi';
 	@override String get viewLicensesDescription => 'Uchinchi tomon kutubxonalarining litsenziyalarini koʻrish';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -2282,6 +2298,14 @@ extension on TranslationsUz {
 			'update.viewRelease' => 'Tafsilotlarni koʻrish',
 			'update.latestVersion' => 'Sizda eng soʻnggi versiya oʻrnatilgan',
 			'update.checkFailed' => 'Yangilanishlarni tekshirish imkoni boʻlmadi',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Sozlamalar',
 			'settings.supportDeveloper' => 'Plezy-ni qoʻllab-quvvatlash',
 			'settings.supportDeveloperDescription' => 'Dasturchini Liberapay orqali qoʻllab-quvvatlang',
@@ -2408,6 +2432,12 @@ extension on TranslationsUz {
 			'settings.updates' => 'Yangilanishlar',
 			'settings.updateAvailable' => 'Yangilanish mavjud',
 			'settings.checkForUpdates' => 'Yangilanishlarni tekshirish',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => 'Ishga tushganda avtomatik tekshirish',
 			'settings.autoCheckUpdatesOnStartupDescription' => 'Ishga tushganda yangilanish boʻlsa xabar berish',
 			'settings.validationErrorEnterNumber' => 'Toʻgʻri raqam kiriting',
@@ -2707,6 +2737,8 @@ extension on TranslationsUz {
 			'videoControls.endsAt' => ({required Object time}) => 'Tugash vaqti: ${time}',
 			'videoControls.pipActive' => 'Rasm ichida rasm rejimida ijro etilmoqda',
 			'videoControls.pipFailed' => 'PiP rejimini ishga tushirishda xatolik',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.screenshotSaved' => 'Ekran tasviri saqlandi',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Masshtab %${percent}',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0 yoki undan yangisi talab qilinadi',
@@ -2721,8 +2753,6 @@ extension on TranslationsUz {
 			'videoControls.queue' => 'Navbat',
 			'videoControls.noQueueItems' => 'Navbatda elementlar yoʻq',
 			'videoControls.searchSubtitles' => 'Subtitr qidirish',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.language' => 'Til',
 			'videoControls.noSubtitlesFound' => 'Subtitr topilmadi',
 			'videoControls.subtitleDownloaded' => 'Subtitr yuklab olindi',
@@ -3005,8 +3035,10 @@ extension on TranslationsUz {
 			'about.title' => 'Dastur haqida',
 			'about.openSourceLicenses' => 'Ochiq kodli litsenziyalar',
 			'about.versionLabel' => ({required Object version}) => 'Versiya ${version}',
-			'about.appDescription' => 'Flutter asosidagi qulay Plex va Jellyfin mijozi',
 			'about.viewLicensesDescription' => 'Uchinchi tomon kutubxonalarining litsenziyalarini koʻrish',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email}) uchun serverlar topilmadi',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Serverlarni yuklashda xatolik: ${error}',
 			'hubDetail.title' => 'Nomi',
@@ -3219,6 +3251,8 @@ extension on TranslationsUz {
 			'watchTogether.hostBadge' => 'TASHKILOTCHI',
 			'watchTogether.youAreHost' => 'Siz tashkilotchisiz',
 			'watchTogether.watchingWithOthers' => 'Boshqalar bilan tomosha qilinmoqda',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.endSession' => 'Seansni yakunlash',
 			'watchTogether.leaveSession' => 'Seansdan chiqish',
 			'watchTogether.endSessionQuestion' => 'Seans yakunlansinmi?',
@@ -3235,8 +3269,6 @@ extension on TranslationsUz {
 			'watchTogether.pasteFromClipboard' => 'Xotiradan joylash',
 			'watchTogether.pleaseEnterCode' => 'Seans kodini kiriting',
 			'watchTogether.codeMustBe5Chars' => 'Seans kodi 5 ta belgidan iborat boʻlishi kerak',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.joinInstructions' => 'Tashkilotchining seans kodini kiriting.',
 			'watchTogether.failedToCreate' => 'Seansni yaratib boʻlmadi',
 			'watchTogether.failedToJoin' => 'Seansga qoʻshilib boʻlmadi',

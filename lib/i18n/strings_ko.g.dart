@@ -206,6 +206,14 @@ class _Translations$update$ko extends Translations$update$en {
 	@override String get viewRelease => '릴리스 정보 보기';
 	@override String get latestVersion => '최신 버전을 사용 중입니다';
 	@override String get checkFailed => '업데이트 확인 실패';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -319,6 +327,9 @@ class _Translations$settings$ko extends Translations$settings$en {
 	@override String get debugLoggingDescription => '문제 해결을 위해 상세 로깅 활성화';
 	@override String get viewLogs => '로그 보기';
 	@override String get viewLogsDescription => '애플리케이션 로그 확인';
+	@override String get clearImageCache => 'Clear Image Cache';
+	@override String get clearImageCacheDescription => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.';
+	@override String get clearImageCacheSuccess => 'Image cache cleared successfully';
 	@override String get resetSettings => '설정 재설정';
 	@override String get resetSettingsDescription => '기본 설정으로 복원합니다. 되돌릴 수 없습니다.';
 	@override String get resetSettingsSuccess => '설정 재설정 성공';
@@ -338,6 +349,12 @@ class _Translations$settings$ko extends Translations$settings$en {
 	@override String get updates => '업데이트';
 	@override String get updateAvailable => '사용 가능한 업데이트 있음';
 	@override String get checkForUpdates => '업데이트 확인';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => '시작 시 자동으로 업데이트 확인';
 	@override String get autoCheckUpdatesOnStartupDescription => '실행 시 업데이트가 있으면 알림';
 	@override String get validationErrorEnterNumber => '유효한 숫자를 입력하세요';
@@ -723,10 +740,12 @@ class _Translations$messages$ko extends Translations$messages$en {
 	@override String get markedAsUnwatchedOffline => '미시청으로 표시됨 (연결 시 동기화됨)';
 	@override String autoRemovedWatchedDownload({required Object title}) => '자동 삭제됨: ${title}';
 	@override String autoRemovedWatchedDownloads({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: 'Auto-removed ${n} watched download',
 		other: '시청한 다운로드 ${n}개를 자동 삭제했습니다',
 	);
 	@override String get removedFromContinueWatching => '계속 시청 목록에서 제거됨';
 	@override String errorLoading({required Object error}) => '오류: ${error}';
+	@override String get searchPartialResults => 'Some media servers could not be searched. Showing available results.';
 	@override String get streamInterrupted => '스트림이 중단되었습니다. 재생을 누르거나 탐색하여 다시 시도하세요.';
 	@override String get liveStreamInterrupted => '라이브 스트림이 중단되었습니다. 재생을 눌러 다시 시도하세요.';
 	@override String get fileInfoNotAvailable => '파일 정보가 없습니다';
@@ -961,6 +980,7 @@ class _Translations$errors$ko extends Translations$errors$en {
 
 	// Translations
 	@override String searchFailed({required Object error}) => '검색 실패: ${error}';
+	@override String get searchUnavailable => 'Search could not reach any media server.';
 	@override String connectionTimeout({required Object context}) => '${context} 로드 중 연결 시간 초과';
 	@override String get connectionFailed => '미디어 서버에 연결할 수 없습니다';
 	@override String unableToLoad({required Object context}) => '${context}을(를) 불러올 수 없습니다. 다시 시도하세요.';
@@ -1037,8 +1057,10 @@ class _Translations$about$ko extends Translations$about$en {
 	@override String get title => '소개';
 	@override String get openSourceLicenses => '오픈소스 라이선스';
 	@override String versionLabel({required Object version}) => '버전 ${version}';
-	@override String get appDescription => 'Flutter로 만든 아름다운 Plex 및 Jellyfin 클라이언트';
 	@override String get viewLicensesDescription => '타사 라이브러리 라이선스 보기';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1116,6 +1138,7 @@ class _Translations$explore$ko extends Translations$explore$en {
 	@override late final _Translations$explore$rows$ko rows = _Translations$explore$rows$ko._(_root);
 	@override late final _Translations$explore$status$ko status = _Translations$explore$status$ko._(_root);
 	@override String episodeCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} episode',
 		other: '${n}화',
 	);
 	@override String get cast => '출연진';
@@ -1288,6 +1311,7 @@ class _Translations$music$ko extends Translations$music$en {
 	@override String get addToQueue => '대기열에 추가';
 	@override String discNumber({required Object n}) => '디스크 ${n}';
 	@override String trackCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} track',
 		other: '${n}곡',
 	);
 	@override String get nowPlaying => '재생 중';
@@ -1438,9 +1462,15 @@ class _Translations$downloads$ko extends Translations$downloads$en {
 	@override String get editSyncRule => '동기화 규칙 편집';
 	@override String get removeSyncRule => '동기화 규칙 제거';
 	@override String removeSyncRuleConfirm({required Object title}) => '"${title}" 동기화를 중단하시겠습니까? 다운로드된 에피소드는 유지됩니다.';
+	@override String removeListSyncRuleConfirm({required Object title}) => 'Stop syncing "${title}"?';
+	@override String get deleteSyncRuleDownloads => 'Also delete associated downloads';
+	@override String get deleteSyncRuleDownloadsDescription => 'Downloads used by another sync rule or profile will be kept.';
 	@override String syncRuleCreated({required Object count}) => '동기화 규칙 생성됨 — 미시청 에피소드 ${count}개 유지';
 	@override String get syncRuleUpdated => '동기화 규칙 업데이트됨';
 	@override String get syncRuleRemoved => '동기화 규칙 제거됨';
+	@override String get syncRuleAndDownloadsRemoved => 'Sync rule and associated downloads removed';
+	@override String get syncRuleCleanupBusy => 'Sync rules are currently updating. Try again in a moment.';
+	@override String get syncRuleCleanupUnavailable => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.';
 	@override String syncedNewEpisodes({required Object title, required Object count}) => '${title}의 새 에피소드 ${count}개 동기화됨';
 	@override String get activeSyncRules => '동기화 규칙';
 	@override String get noSyncRules => '동기화 규칙 없음';
@@ -2268,6 +2298,14 @@ extension on TranslationsKo {
 			'update.viewRelease' => '릴리스 정보 보기',
 			'update.latestVersion' => '최신 버전을 사용 중입니다',
 			'update.checkFailed' => '업데이트 확인 실패',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => '설정',
 			'settings.supportDeveloper' => 'Plezy 후원하기',
 			'settings.supportDeveloperDescription' => 'Liberapay로 후원하여 개발 지원',
@@ -2372,6 +2410,9 @@ extension on TranslationsKo {
 			'settings.debugLoggingDescription' => '문제 해결을 위해 상세 로깅 활성화',
 			'settings.viewLogs' => '로그 보기',
 			'settings.viewLogsDescription' => '애플리케이션 로그 확인',
+			'settings.clearImageCache' => 'Clear Image Cache',
+			'settings.clearImageCacheDescription' => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.',
+			'settings.clearImageCacheSuccess' => 'Image cache cleared successfully',
 			'settings.resetSettings' => '설정 재설정',
 			'settings.resetSettingsDescription' => '기본 설정으로 복원합니다. 되돌릴 수 없습니다.',
 			'settings.resetSettingsSuccess' => '설정 재설정 성공',
@@ -2391,6 +2432,12 @@ extension on TranslationsKo {
 			'settings.updates' => '업데이트',
 			'settings.updateAvailable' => '사용 가능한 업데이트 있음',
 			'settings.checkForUpdates' => '업데이트 확인',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => '시작 시 자동으로 업데이트 확인',
 			'settings.autoCheckUpdatesOnStartupDescription' => '실행 시 업데이트가 있으면 알림',
 			'settings.validationErrorEnterNumber' => '유효한 숫자를 입력하세요',
@@ -2690,6 +2737,8 @@ extension on TranslationsKo {
 			'videoControls.endsAt' => ({required Object time}) => '${time}에 종료',
 			'videoControls.pipActive' => '화면 속 화면으로 재생 중',
 			'videoControls.pipFailed' => '화면 속 화면 모드를 시작할 수 없습니다',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.screenshotSaved' => '스크린샷 저장됨',
 			'videoControls.zoomPercent' => ({required Object percent}) => '확대/축소 ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0 이상이 필요합니다',
@@ -2707,8 +2756,6 @@ extension on TranslationsKo {
 			'videoControls.language' => '언어',
 			'videoControls.noSubtitlesFound' => '자막을 찾을 수 없습니다',
 			'videoControls.subtitleDownloaded' => '자막이 다운로드되었습니다',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.subtitleDownloadedNotApplied' => '자막을 다운로드했지만 선택할 수 없습니다',
 			'videoControls.subtitleDownloadFailed' => '자막 다운로드에 실패했습니다',
 			'videoControls.searchLanguages' => '언어 검색...',
@@ -2717,9 +2764,10 @@ extension on TranslationsKo {
 			'messages.markedAsWatchedOffline' => '시청 완료로 표시됨 (연결 시 동기화됨)',
 			'messages.markedAsUnwatchedOffline' => '미시청으로 표시됨 (연결 시 동기화됨)',
 			'messages.autoRemovedWatchedDownload' => ({required Object title}) => '자동 삭제됨: ${title}',
-			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '시청한 다운로드 ${n}개를 자동 삭제했습니다', ), 
+			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: 'Auto-removed ${n} watched download', other: '시청한 다운로드 ${n}개를 자동 삭제했습니다', ), 
 			'messages.removedFromContinueWatching' => '계속 시청 목록에서 제거됨',
 			'messages.errorLoading' => ({required Object error}) => '오류: ${error}',
+			'messages.searchPartialResults' => 'Some media servers could not be searched. Showing available results.',
 			'messages.streamInterrupted' => '스트림이 중단되었습니다. 재생을 누르거나 탐색하여 다시 시도하세요.',
 			'messages.liveStreamInterrupted' => '라이브 스트림이 중단되었습니다. 재생을 눌러 다시 시도하세요.',
 			'messages.fileInfoNotAvailable' => '파일 정보가 없습니다',
@@ -2891,6 +2939,7 @@ extension on TranslationsKo {
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes}분 남음',
 			'discover.moreLikeThis' => '비슷한 콘텐츠',
 			'errors.searchFailed' => ({required Object error}) => '검색 실패: ${error}',
+			'errors.searchUnavailable' => 'Search could not reach any media server.',
 			'errors.connectionTimeout' => ({required Object context}) => '${context} 로드 중 연결 시간 초과',
 			'errors.connectionFailed' => '미디어 서버에 연결할 수 없습니다',
 			'errors.unableToLoad' => ({required Object context}) => '${context}을(를) 불러올 수 없습니다. 다시 시도하세요.',
@@ -2986,8 +3035,10 @@ extension on TranslationsKo {
 			'about.title' => '소개',
 			'about.openSourceLicenses' => '오픈소스 라이선스',
 			'about.versionLabel' => ({required Object version}) => '버전 ${version}',
-			'about.appDescription' => 'Flutter로 만든 아름다운 Plex 및 Jellyfin 클라이언트',
 			'about.viewLicensesDescription' => '타사 라이브러리 라이선스 보기',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email})의 서버를 찾을 수 없습니다.',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => '서버를 로드할 수 없습니다: ${error}',
 			'hubDetail.title' => '제목',
@@ -3026,7 +3077,7 @@ extension on TranslationsKo {
 			'explore.status.ended' => '종영',
 			'explore.status.canceled' => '취소됨',
 			'explore.status.upcoming' => '방영 예정',
-			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '${n}화', ), 
+			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} episode', other: '${n}화', ), 
 			'explore.cast' => '출연진',
 			'explore.characters' => '캐릭터',
 			'explore.addToWatchlist' => '관심 목록에 추가',
@@ -3160,7 +3211,7 @@ extension on TranslationsKo {
 			'music.playNext' => '다음에 재생',
 			'music.addToQueue' => '대기열에 추가',
 			'music.discNumber' => ({required Object n}) => '디스크 ${n}',
-			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '${n}곡', ), 
+			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} track', other: '${n}곡', ), 
 			'music.nowPlaying' => '재생 중',
 			'music.playingFrom' => ({required Object title}) => '${title}에서 재생 중',
 			'music.queue' => '재생 대기열',
@@ -3200,6 +3251,8 @@ extension on TranslationsKo {
 			'watchTogether.hostBadge' => '호스트',
 			'watchTogether.youAreHost' => '호스트입니다',
 			'watchTogether.watchingWithOthers' => '다른 사람과 함께 시청 중',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.endSession' => '세션 종료',
 			'watchTogether.leaveSession' => '세션 나가기',
 			'watchTogether.endSessionQuestion' => '세션을 종료하시겠습니까?',
@@ -3221,8 +3274,6 @@ extension on TranslationsKo {
 			'watchTogether.failedToJoin' => '세션 참여 실패',
 			'watchTogether.sessionCodeCopied' => '세션 코드가 클립보드에 복사되었습니다',
 			'watchTogether.relayUnreachable' => '릴레이 서버에 연결할 수 없습니다. ISP 차단으로 함께 보기를 사용하지 못할 수 있습니다.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.reconnectingToHost' => '호스트에 재연결 중...',
 			'watchTogether.currentPlayback' => '현재 재생',
 			'watchTogether.joinCurrentPlayback' => '현재 재생 참여',
@@ -3293,9 +3344,15 @@ extension on TranslationsKo {
 			'downloads.editSyncRule' => '동기화 규칙 편집',
 			'downloads.removeSyncRule' => '동기화 규칙 제거',
 			'downloads.removeSyncRuleConfirm' => ({required Object title}) => '"${title}" 동기화를 중단하시겠습니까? 다운로드된 에피소드는 유지됩니다.',
+			'downloads.removeListSyncRuleConfirm' => ({required Object title}) => 'Stop syncing "${title}"?',
+			'downloads.deleteSyncRuleDownloads' => 'Also delete associated downloads',
+			'downloads.deleteSyncRuleDownloadsDescription' => 'Downloads used by another sync rule or profile will be kept.',
 			'downloads.syncRuleCreated' => ({required Object count}) => '동기화 규칙 생성됨 — 미시청 에피소드 ${count}개 유지',
 			'downloads.syncRuleUpdated' => '동기화 규칙 업데이트됨',
 			'downloads.syncRuleRemoved' => '동기화 규칙 제거됨',
+			'downloads.syncRuleAndDownloadsRemoved' => 'Sync rule and associated downloads removed',
+			'downloads.syncRuleCleanupBusy' => 'Sync rules are currently updating. Try again in a moment.',
+			'downloads.syncRuleCleanupUnavailable' => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.',
 			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '${title}의 새 에피소드 ${count}개 동기화됨',
 			'downloads.activeSyncRules' => '동기화 규칙',
 			'downloads.noSyncRules' => '동기화 규칙 없음',
