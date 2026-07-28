@@ -463,11 +463,13 @@ class PlayerNative extends PlayerBase {
     bool visible, {
     bool restoreOnWindowVisible = false,
   }) async {
+    if (_nativeCoreUnavailable) return false;
     if (initialOptions.containsKey('o')) return true;
-    return super.setVisible(
+    final changed = await super.setVisible(
       visible,
       restoreOnWindowVisible: restoreOnWindowVisible,
     );
+    return changed && !_nativeCoreUnavailable;
   }
 
   @override
@@ -908,19 +910,6 @@ class PlayerNative extends PlayerBase {
     if (_nativeCoreUnavailable) return;
     await _ensureInitialized();
     await invoke('setLogLevel', {'level': level});
-  }
-
-  @override
-  Future<bool> setVisible(
-    bool visible, {
-    bool restoreOnWindowVisible = false,
-  }) async {
-    if (_nativeCoreUnavailable) return false;
-    final changed = await super.setVisible(
-      visible,
-      restoreOnWindowVisible: restoreOnWindowVisible,
-    );
-    return changed && !_nativeCoreUnavailable;
   }
 
   static const int _passthroughAudioField = 1 << 0;
