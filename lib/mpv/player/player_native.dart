@@ -65,6 +65,7 @@ class PlayerNative extends PlayerBase {
   // AVFoundation queues software-volume changes, but applies `ao-volume`
   // immediately. Keep the logical value separate from mpv's software stage.
   double? _macOSLogicalVolume;
+  bool _macOSOutputVolumeReady = false;
   bool? _macOSPlayAfterVolumeRestore;
   Object? _macOSVolumeRestoreToken;
 
@@ -374,6 +375,7 @@ class PlayerNative extends PlayerBase {
   }) async {
     if (_nativeCoreUnavailable || disposed) return;
     _macOSVolumeRestoreToken = Object();
+    _macOSOutputVolumeReady = false;
     await _ensureInitialized();
     if (_nativeCoreUnavailable) return;
     // `loadfile replace` (below) clears the native playlist, dropping any
@@ -462,8 +464,10 @@ class PlayerNative extends PlayerBase {
       return;
     }
     final logicalVolume = _macOSLogicalVolume;
-    if (_usesMacOSOutputVolume && logicalVolume != null) {
-      await _applyMacOSVolume(logicalVolume);
+    if (_usesMacOSOutputVolume &&
+        logicalVolume != null &&
+        _macOSOutputVolumeReady) {
+      await _applyMacOSVolumeOrFallback(logicalVolume);
     }
     await setProperty('pause', 'no');
   }
@@ -482,6 +486,7 @@ class PlayerNative extends PlayerBase {
     if (_nativeCoreUnavailable) return;
     _macOSPlayAfterVolumeRestore = null;
     _macOSVolumeRestoreToken = null;
+    _macOSOutputVolumeReady = false;
     // `stop` tears down the playlist without mpv opening the armed entry —
     // settle its content-fd claim first. No transition: playback is ending.
     await _clearArmedNext(adoptIfRolledIn: false);
@@ -636,20 +641,39 @@ class PlayerNative extends PlayerBase {
     bool resetSoftwareVolume = false,
   }) async {
     if (logicalVolume <= 100.0) {
-      if (resetSoftwareVolume) {
-        await setProperty('volume', '100.0');
-        if (disposed || logicalVolume != _macOSLogicalVolume) return;
-      }
-
       final normalized = logicalVolume / 100.0;
       final outputVolume = normalized * normalized * normalized * 100.0;
       await setProperty('ao-volume', outputVolume.toString());
+      if (resetSoftwareVolume &&
+          !disposed &&
+          logicalVolume == _macOSLogicalVolume) {
+        await setProperty('volume', '100.0');
+      }
       return;
     }
 
     await setProperty('ao-volume', '100.0');
     if (disposed || logicalVolume != _macOSLogicalVolume) return;
     await setProperty('volume', logicalVolume.toString());
+  }
+
+  Future<void> _applyMacOSVolumeOrFallback(
+    double logicalVolume, {
+    bool resetSoftwareVolume = false,
+  }) async {
+    try {
+      await _applyMacOSVolume(
+        logicalVolume,
+        resetSoftwareVolume: resetSoftwareVolume,
+      );
+    } on PlatformException catch (error) {
+      if (error.code != 'SET_PROPERTY_FAILED') rethrow;
+      // ao-volume only exists while mpv has an active audio output. Keep the
+      // software-volume fallback until audio-out-params reports that the
+      // AVFoundation renderer is ready, then retry the output-volume route.
+      _macOSOutputVolumeReady = false;
+      await setProperty('volume', logicalVolume.toString());
+    }
   }
 
   @override
@@ -664,7 +688,10 @@ class PlayerNative extends PlayerBase {
         return;
       }
       if (name == 'audio-out-params') {
-        unawaited(_applyMacOSVolume(_macOSLogicalVolume!));
+        _macOSOutputVolumeReady = value != null;
+        if (_macOSOutputVolumeReady) {
+          unawaited(_refreshMacOSOutputVolume());
+        }
         return;
       }
     }
@@ -687,9 +714,31 @@ class PlayerNative extends PlayerBase {
   Future<void> _restoreMacOSVolume(bool play, Object? token) async {
     final logicalVolume = _macOSLogicalVolume;
     if (logicalVolume == null) return;
-    await _applyMacOSVolume(logicalVolume);
+    if (_macOSOutputVolumeReady) {
+      await _applyMacOSVolumeOrFallback(
+        logicalVolume,
+        resetSoftwareVolume: true,
+      );
+    }
     if (token == null || !identical(token, _macOSVolumeRestoreToken)) return;
     if (play && !disposed) await setProperty('pause', 'no');
+  }
+
+  Future<void> _refreshMacOSOutputVolume() async {
+    final logicalVolume = _macOSLogicalVolume;
+    if (logicalVolume == null || disposed || !_macOSOutputVolumeReady) return;
+    try {
+      await _applyMacOSVolumeOrFallback(
+        logicalVolume,
+        resetSoftwareVolume: true,
+      );
+    } catch (error, stackTrace) {
+      appLogger.w(
+        '$logPrefix: failed to restore macOS output volume',
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
   }
 
   /// Gapless auto-advance detection: a `file-loaded` that open() didn't
@@ -787,8 +836,18 @@ class PlayerNative extends PlayerBase {
       final resetSoftwareVolume =
           _macOSLogicalVolume == null || _macOSLogicalVolume! > 100.0;
       _macOSLogicalVolume = volume;
-      setVolumeState(volume);
-      await _applyMacOSVolume(volume, resetSoftwareVolume: resetSoftwareVolume);
+      if (_macOSOutputVolumeReady) {
+        await _applyMacOSVolumeOrFallback(
+          volume,
+          resetSoftwareVolume: resetSoftwareVolume,
+        );
+      } else {
+        // ao-volume is unavailable before the media's audio output exists.
+        // Software volume is an accepted pre-load fallback and prevents an
+        // audible jump while the AVFoundation renderer is being created.
+        await setProperty('volume', volume.toString());
+      }
+      if (!disposed && volume == _macOSLogicalVolume) setVolumeState(volume);
       return;
     }
     await setProperty('volume', volume.toString());
