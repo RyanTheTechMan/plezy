@@ -206,6 +206,14 @@ class _Translations$update$hu extends Translations$update$en {
 	@override String get viewRelease => 'Kiadási megjegyzések';
 	@override String get latestVersion => 'A legújabb verziót használod';
 	@override String get checkFailed => 'Nem sikerült az újabb frissítések ellenőrzése';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -319,6 +327,9 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get debugLoggingDescription => 'Részletes naplózás engedélyezése a hibaelhárításhoz';
 	@override String get viewLogs => 'Naplók megtekintése';
 	@override String get viewLogsDescription => 'Alkalmazásnaplók megtekintése';
+	@override String get clearImageCache => 'Clear Image Cache';
+	@override String get clearImageCacheDescription => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.';
+	@override String get clearImageCacheSuccess => 'Image cache cleared successfully';
 	@override String get resetSettings => 'Beállítások visszaállítása';
 	@override String get resetSettingsDescription => 'Az alapértelmezett beállítások visszaállítása. Ez a művelet nem vonható vissza.';
 	@override String get resetSettingsSuccess => 'A beállítások sikeresen visszaállítva';
@@ -338,6 +349,12 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get updates => 'Frissítések';
 	@override String get updateAvailable => 'Frissítés érhető el';
 	@override String get checkForUpdates => 'Frissítések keresése';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => 'Frissítések automatikus keresése indításkor';
 	@override String get autoCheckUpdatesOnStartupDescription => 'Értesítés küldése indításkor, ha új frissítés érhető el';
 	@override String get validationErrorEnterNumber => 'Adj meg egy érvényes számot';
@@ -728,6 +745,7 @@ class _Translations$messages$hu extends Translations$messages$en {
 	);
 	@override String get removedFromContinueWatching => 'Eltávolítva a folytatásból';
 	@override String errorLoading({required Object error}) => 'Hiba: ${error}';
+	@override String get searchPartialResults => 'Some media servers could not be searched. Showing available results.';
 	@override String get streamInterrupted => 'Az adatfolyam megszakadt. Az újrapróbálkozáshoz indítsd el a lejátszást, vagy tekerj másik pozícióra.';
 	@override String get liveStreamInterrupted => 'Az élő adás megszakadt. Nyomd meg a lejátszást az újrapróbálkozáshoz.';
 	@override String get fileInfoNotAvailable => 'A fájlinformáció nem érhető el';
@@ -962,6 +980,7 @@ class _Translations$errors$hu extends Translations$errors$en {
 
 	// Translations
 	@override String searchFailed({required Object error}) => 'Keresés sikertelen: ${error}';
+	@override String get searchUnavailable => 'Search could not reach any media server.';
 	@override String connectionTimeout({required Object context}) => 'Hálózati időtúllépés a következő betöltésekor: ${context}';
 	@override String get connectionFailed => 'Nem sikerült csatlakozni a médiaszerverhez';
 	@override String unableToLoad({required Object context}) => 'Nem sikerült betölteni a következőt: ${context}. Próbáld újra.';
@@ -1038,8 +1057,10 @@ class _Translations$about$hu extends Translations$about$en {
 	@override String get title => 'Névjegy';
 	@override String get openSourceLicenses => 'Nyílt forráskódú licencek';
 	@override String versionLabel({required Object version}) => 'Verzió: ${version}';
-	@override String get appDescription => 'Gyönyörű Flutter-kliens a Plexhez és a Jellyfinhez';
 	@override String get viewLicensesDescription => 'Külső fejlesztésű programkönyvtárak licenceinek megtekintése';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1441,9 +1462,15 @@ class _Translations$downloads$hu extends Translations$downloads$en {
 	@override String get editSyncRule => 'Szinkronizálási szabály szerkesztése';
 	@override String get removeSyncRule => 'Szinkronizálási szabály eltávolítása';
 	@override String removeSyncRuleConfirm({required Object title}) => 'Leállítod a(z) "${title}" szinkronizálását? A letöltött epizódok megmaradnak.';
+	@override String removeListSyncRuleConfirm({required Object title}) => 'Stop syncing "${title}"?';
+	@override String get deleteSyncRuleDownloads => 'Also delete associated downloads';
+	@override String get deleteSyncRuleDownloadsDescription => 'Downloads used by another sync rule or profile will be kept.';
 	@override String syncRuleCreated({required Object count}) => 'Szinkronizálási szabály létrehozva — ${count} nem látott epizód megtartása';
 	@override String get syncRuleUpdated => 'Szinkronizálási szabály frissítve';
 	@override String get syncRuleRemoved => 'Szinkronizálási szabály eltávolítva';
+	@override String get syncRuleAndDownloadsRemoved => 'Sync rule and associated downloads removed';
+	@override String get syncRuleCleanupBusy => 'Sync rules are currently updating. Try again in a moment.';
+	@override String get syncRuleCleanupUnavailable => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.';
 	@override String syncedNewEpisodes({required Object count, required Object title}) => '${count} új epizód szinkronizálva a következőhöz: ${title}';
 	@override String get activeSyncRules => 'Szinkronizálási szabályok';
 	@override String get noSyncRules => 'Nincsenek szinkronizálási szabályok';
@@ -2271,6 +2298,14 @@ extension on TranslationsHu {
 			'update.viewRelease' => 'Kiadási megjegyzések',
 			'update.latestVersion' => 'A legújabb verziót használod',
 			'update.checkFailed' => 'Nem sikerült az újabb frissítések ellenőrzése',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Beállítások',
 			'settings.supportDeveloper' => 'Plezy támogatása',
 			'settings.supportDeveloperDescription' => 'A fejlesztés támogatása Liberapay-en keresztül',
@@ -2375,6 +2410,9 @@ extension on TranslationsHu {
 			'settings.debugLoggingDescription' => 'Részletes naplózás engedélyezése a hibaelhárításhoz',
 			'settings.viewLogs' => 'Naplók megtekintése',
 			'settings.viewLogsDescription' => 'Alkalmazásnaplók megtekintése',
+			'settings.clearImageCache' => 'Clear Image Cache',
+			'settings.clearImageCacheDescription' => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.',
+			'settings.clearImageCacheSuccess' => 'Image cache cleared successfully',
 			'settings.resetSettings' => 'Beállítások visszaállítása',
 			'settings.resetSettingsDescription' => 'Az alapértelmezett beállítások visszaállítása. Ez a művelet nem vonható vissza.',
 			'settings.resetSettingsSuccess' => 'A beállítások sikeresen visszaállítva',
@@ -2394,6 +2432,12 @@ extension on TranslationsHu {
 			'settings.updates' => 'Frissítések',
 			'settings.updateAvailable' => 'Frissítés érhető el',
 			'settings.checkForUpdates' => 'Frissítések keresése',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => 'Frissítések automatikus keresése indításkor',
 			'settings.autoCheckUpdatesOnStartupDescription' => 'Értesítés küldése indításkor, ha új frissítés érhető el',
 			'settings.validationErrorEnterNumber' => 'Adj meg egy érvényes számot',
@@ -2693,6 +2737,8 @@ extension on TranslationsHu {
 			'videoControls.endsAt' => ({required Object time}) => 'Vége: ${time}',
 			'videoControls.pipActive' => 'Lejátszás kép a képben módban',
 			'videoControls.pipFailed' => 'Nem sikerült elindítani a kép a képben módot',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.screenshotSaved' => 'Képernyőkép elmentve',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Nagyítás ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0 vagy újabb szükséges',
@@ -2710,8 +2756,6 @@ extension on TranslationsHu {
 			'videoControls.language' => 'Nyelv',
 			'videoControls.noSubtitlesFound' => 'Nem találhatók feliratok',
 			'videoControls.subtitleDownloaded' => 'Felirat letöltve',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.subtitleDownloadedNotApplied' => 'Felirat letöltve, de nem sikerült kiválasztani',
 			'videoControls.subtitleDownloadFailed' => 'Nem sikerült a felirat letöltése',
 			'videoControls.searchLanguages' => 'Nyelvek keresése...',
@@ -2723,6 +2767,7 @@ extension on TranslationsHu {
 			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n, one: '${n} megtekintett letöltés automatikusan eltávolítva', other: '${n} megtekintett letöltés automatikusan eltávolítva', ), 
 			'messages.removedFromContinueWatching' => 'Eltávolítva a folytatásból',
 			'messages.errorLoading' => ({required Object error}) => 'Hiba: ${error}',
+			'messages.searchPartialResults' => 'Some media servers could not be searched. Showing available results.',
 			'messages.streamInterrupted' => 'Az adatfolyam megszakadt. Az újrapróbálkozáshoz indítsd el a lejátszást, vagy tekerj másik pozícióra.',
 			'messages.liveStreamInterrupted' => 'Az élő adás megszakadt. Nyomd meg a lejátszást az újrapróbálkozáshoz.',
 			'messages.fileInfoNotAvailable' => 'A fájlinformáció nem érhető el',
@@ -2894,6 +2939,7 @@ extension on TranslationsHu {
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} perc van hátra',
 			'discover.moreLikeThis' => 'Hasonló tartalmak',
 			'errors.searchFailed' => ({required Object error}) => 'Keresés sikertelen: ${error}',
+			'errors.searchUnavailable' => 'Search could not reach any media server.',
 			'errors.connectionTimeout' => ({required Object context}) => 'Hálózati időtúllépés a következő betöltésekor: ${context}',
 			'errors.connectionFailed' => 'Nem sikerült csatlakozni a médiaszerverhez',
 			'errors.unableToLoad' => ({required Object context}) => 'Nem sikerült betölteni a következőt: ${context}. Próbáld újra.',
@@ -2989,8 +3035,10 @@ extension on TranslationsHu {
 			'about.title' => 'Névjegy',
 			'about.openSourceLicenses' => 'Nyílt forráskódú licencek',
 			'about.versionLabel' => ({required Object version}) => 'Verzió: ${version}',
-			'about.appDescription' => 'Gyönyörű Flutter-kliens a Plexhez és a Jellyfinhez',
 			'about.viewLicensesDescription' => 'Külső fejlesztésű programkönyvtárak licenceinek megtekintése',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Nem találhatók szerverek ehhez a fiókhoz: ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Nem sikerült a szerverek betöltése: ${error}',
 			'hubDetail.title' => 'Cím',
@@ -3203,6 +3251,8 @@ extension on TranslationsHu {
 			'watchTogether.hostBadge' => 'HÁZIGAZDA',
 			'watchTogether.youAreHost' => 'Te vagy a házigazda',
 			'watchTogether.watchingWithOthers' => 'Nézés másokkal',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.endSession' => 'Munkamenet befejezése',
 			'watchTogether.leaveSession' => 'Munkamenet elhagyása',
 			'watchTogether.endSessionQuestion' => 'Befejezed a munkamenetet?',
@@ -3224,8 +3274,6 @@ extension on TranslationsHu {
 			'watchTogether.failedToJoin' => 'Nem sikerült csatlakozni a munkamenethez',
 			'watchTogether.sessionCodeCopied' => 'A munkamenetkód a vágólapra másolva',
 			'watchTogether.relayUnreachable' => 'A relészerver nem érhető el. Az internetszolgáltató blokkolása megakadályozhatja a közös nézést.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.reconnectingToHost' => 'Újracsatlakozás a házigazdához...',
 			'watchTogether.currentPlayback' => 'Jelenlegi lejátszás',
 			'watchTogether.joinCurrentPlayback' => 'Csatlakozás a jelenlegi lejátszáshoz',
@@ -3296,9 +3344,15 @@ extension on TranslationsHu {
 			'downloads.editSyncRule' => 'Szinkronizálási szabály szerkesztése',
 			'downloads.removeSyncRule' => 'Szinkronizálási szabály eltávolítása',
 			'downloads.removeSyncRuleConfirm' => ({required Object title}) => 'Leállítod a(z) "${title}" szinkronizálását? A letöltött epizódok megmaradnak.',
+			'downloads.removeListSyncRuleConfirm' => ({required Object title}) => 'Stop syncing "${title}"?',
+			'downloads.deleteSyncRuleDownloads' => 'Also delete associated downloads',
+			'downloads.deleteSyncRuleDownloadsDescription' => 'Downloads used by another sync rule or profile will be kept.',
 			'downloads.syncRuleCreated' => ({required Object count}) => 'Szinkronizálási szabály létrehozva — ${count} nem látott epizód megtartása',
 			'downloads.syncRuleUpdated' => 'Szinkronizálási szabály frissítve',
 			'downloads.syncRuleRemoved' => 'Szinkronizálási szabály eltávolítva',
+			'downloads.syncRuleAndDownloadsRemoved' => 'Sync rule and associated downloads removed',
+			'downloads.syncRuleCleanupBusy' => 'Sync rules are currently updating. Try again in a moment.',
+			'downloads.syncRuleCleanupUnavailable' => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.',
 			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => '${count} új epizód szinkronizálva a következőhöz: ${title}',
 			'downloads.activeSyncRules' => 'Szinkronizálási szabályok',
 			'downloads.noSyncRules' => 'Nincsenek szinkronizálási szabályok',

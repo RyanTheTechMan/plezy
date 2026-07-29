@@ -206,6 +206,14 @@ class _Translations$update$az extends Translations$update$en {
 	@override String get viewRelease => 'Buraxılışa bax';
 	@override String get latestVersion => 'Siz ən son versiyadasınız';
 	@override String get checkFailed => 'Yenilənmələr yoxlanıla bilmədi';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -341,6 +349,12 @@ class _Translations$settings$az extends Translations$settings$en {
 	@override String get updates => 'Yenilənmələr';
 	@override String get updateAvailable => 'Yenilənmə var';
 	@override String get checkForUpdates => 'Yenilənmələri yoxla';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => 'Açılışda yenilənmələri avtomatik yoxla';
 	@override String get autoCheckUpdatesOnStartupDescription => 'Açılışda yenilənmə olduqda xəbərdar et';
 	@override String get validationErrorEnterNumber => 'Lütfən düzgün rəqəm daxil edin';
@@ -1043,8 +1057,10 @@ class _Translations$about$az extends Translations$about$en {
 	@override String get title => 'Haqqında';
 	@override String get openSourceLicenses => 'Açıq mənbə lisenziyaları';
 	@override String versionLabel({required Object version}) => 'Versiya ${version}';
-	@override String get appDescription => 'Flutter üçün gözəl bir Plex və Jellyfin klienti';
 	@override String get viewLicensesDescription => 'Üçüncü tərəf kitabxanalarının lisenziyalarına baxın';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -2282,6 +2298,14 @@ extension on TranslationsAz {
 			'update.viewRelease' => 'Buraxılışa bax',
 			'update.latestVersion' => 'Siz ən son versiyadasınız',
 			'update.checkFailed' => 'Yenilənmələr yoxlanıla bilmədi',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Tənzimləmələr',
 			'settings.supportDeveloper' => 'Plezy-yə dəstək ol',
 			'settings.supportDeveloperDescription' => 'İnkişafı maliyyələşdirmək üçün Liberapay vasitəsilə iyanə edin',
@@ -2408,6 +2432,12 @@ extension on TranslationsAz {
 			'settings.updates' => 'Yenilənmələr',
 			'settings.updateAvailable' => 'Yenilənmə var',
 			'settings.checkForUpdates' => 'Yenilənmələri yoxla',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => 'Açılışda yenilənmələri avtomatik yoxla',
 			'settings.autoCheckUpdatesOnStartupDescription' => 'Açılışda yenilənmə olduqda xəbərdar et',
 			'settings.validationErrorEnterNumber' => 'Lütfən düzgün rəqəm daxil edin',
@@ -2707,6 +2737,8 @@ extension on TranslationsAz {
 			'videoControls.endsAt' => ({required Object time}) => 'Bitiş vaxtı: ${time}',
 			'videoControls.pipActive' => 'Pəncərə daxilində pəncərə rejimində oynadılır',
 			'videoControls.pipFailed' => 'PiP rejimi başladılarkən xəta',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.screenshotSaved' => 'Ekran şəkli yadda saxlanıldı',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Miqyas %${percent}',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0 və ya daha yenisini tələb edir',
@@ -2721,8 +2753,6 @@ extension on TranslationsAz {
 			'videoControls.queue' => 'Növbə',
 			'videoControls.noQueueItems' => 'Növbədə element yoxdur',
 			'videoControls.searchSubtitles' => 'Altyazı axtar',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.language' => 'Dil',
 			'videoControls.noSubtitlesFound' => 'Altyazı tapılmadı',
 			'videoControls.subtitleDownloaded' => 'Altyazı yükləndi',
@@ -3005,8 +3035,10 @@ extension on TranslationsAz {
 			'about.title' => 'Haqqında',
 			'about.openSourceLicenses' => 'Açıq mənbə lisenziyaları',
 			'about.versionLabel' => ({required Object version}) => 'Versiya ${version}',
-			'about.appDescription' => 'Flutter üçün gözəl bir Plex və Jellyfin klienti',
 			'about.viewLicensesDescription' => 'Üçüncü tərəf kitabxanalarının lisenziyalarına baxın',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email}) üçün server tapılmadı',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Serverlər yüklənə bilmədi: ${error}',
 			'hubDetail.title' => 'Başlıq',
@@ -3219,6 +3251,8 @@ extension on TranslationsAz {
 			'watchTogether.hostBadge' => 'TƏŞKİLATÇI',
 			'watchTogether.youAreHost' => 'Təşkilatçı sizsiniz',
 			'watchTogether.watchingWithOthers' => 'Başqaları ilə izlənilir',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.endSession' => 'Seansı bitir',
 			'watchTogether.leaveSession' => 'Seansdan çıx',
 			'watchTogether.endSessionQuestion' => 'Seans bitirilsin?',
@@ -3235,8 +3269,6 @@ extension on TranslationsAz {
 			'watchTogether.pasteFromClipboard' => 'Buferdən yapışdır',
 			'watchTogether.pleaseEnterCode' => 'Lütfən seans kodunu daxil edin',
 			'watchTogether.codeMustBe5Chars' => 'Seans kodu 5 simvol olmalıdır',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.joinInstructions' => 'Qoşulmaq üçün təşkilatçının seans kodunu daxil edin.',
 			'watchTogether.failedToCreate' => 'Seans yaradıla bilmədi',
 			'watchTogether.failedToJoin' => 'Seansa qoşuluna bilmədi',

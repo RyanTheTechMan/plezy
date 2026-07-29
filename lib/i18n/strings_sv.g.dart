@@ -206,6 +206,14 @@ class _Translations$update$sv extends Translations$update$en {
 	@override String get viewRelease => 'Visa versionsinformation';
 	@override String get latestVersion => 'Du har den senaste versionen';
 	@override String get checkFailed => 'Det gick inte att söka efter uppdateringar';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -319,6 +327,9 @@ class _Translations$settings$sv extends Translations$settings$en {
 	@override String get debugLoggingDescription => 'Aktivera detaljerad loggning för felsökning';
 	@override String get viewLogs => 'Visa loggar';
 	@override String get viewLogsDescription => 'Visa appens loggar';
+	@override String get clearImageCache => 'Clear Image Cache';
+	@override String get clearImageCacheDescription => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.';
+	@override String get clearImageCacheSuccess => 'Image cache cleared successfully';
 	@override String get resetSettings => 'Återställ inställningarna';
 	@override String get resetSettingsDescription => 'Återställ standardinställningarna. Det går inte att ångra.';
 	@override String get resetSettingsSuccess => 'Inställningarna har återställts';
@@ -338,6 +349,12 @@ class _Translations$settings$sv extends Translations$settings$en {
 	@override String get updates => 'Uppdateringar';
 	@override String get updateAvailable => 'Uppdatering tillgänglig';
 	@override String get checkForUpdates => 'Kontrollera uppdateringar';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => 'Kontrollera uppdateringar automatiskt vid start';
 	@override String get autoCheckUpdatesOnStartupDescription => 'Meddela när en uppdatering finns vid start';
 	@override String get validationErrorEnterNumber => 'Ange ett giltigt tal';
@@ -728,6 +745,7 @@ class _Translations$messages$sv extends Translations$messages$en {
 	);
 	@override String get removedFromContinueWatching => 'Borttagen från Fortsätt titta';
 	@override String errorLoading({required Object error}) => 'Fel: ${error}';
+	@override String get searchPartialResults => 'Some media servers could not be searched. Showing available results.';
 	@override String get streamInterrupted => 'Strömmen avbröts. Tryck på uppspelning eller spola för att försöka igen.';
 	@override String get liveStreamInterrupted => 'Liveströmmen avbröts. Tryck på uppspelning för att försöka igen.';
 	@override String get fileInfoNotAvailable => 'Filinformation är inte tillgänglig';
@@ -962,6 +980,7 @@ class _Translations$errors$sv extends Translations$errors$en {
 
 	// Translations
 	@override String searchFailed({required Object error}) => 'Sökningen misslyckades: ${error}';
+	@override String get searchUnavailable => 'Search could not reach any media server.';
 	@override String connectionTimeout({required Object context}) => 'Anslutningen tog för lång tid när ${context} lästes in';
 	@override String get connectionFailed => 'Det gick inte att ansluta till medieservern';
 	@override String unableToLoad({required Object context}) => 'Det gick inte att läsa in ${context}. Försök igen.';
@@ -1038,8 +1057,10 @@ class _Translations$about$sv extends Translations$about$en {
 	@override String get title => 'Om';
 	@override String get openSourceLicenses => 'Licenser för öppen källkod';
 	@override String versionLabel({required Object version}) => 'Version ${version}';
-	@override String get appDescription => 'En vacker Plex- och Jellyfin-klient för Flutter';
 	@override String get viewLicensesDescription => 'Visa licenser för tredjepartsbibliotek';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1441,9 +1462,15 @@ class _Translations$downloads$sv extends Translations$downloads$en {
 	@override String get editSyncRule => 'Redigera synkregel';
 	@override String get removeSyncRule => 'Ta bort synkregel';
 	@override String removeSyncRuleConfirm({required Object title}) => 'Sluta synkronisera "${title}"? Nedladdade avsnitt behålls.';
+	@override String removeListSyncRuleConfirm({required Object title}) => 'Stop syncing "${title}"?';
+	@override String get deleteSyncRuleDownloads => 'Also delete associated downloads';
+	@override String get deleteSyncRuleDownloadsDescription => 'Downloads used by another sync rule or profile will be kept.';
 	@override String syncRuleCreated({required Object count}) => 'Synkregel skapad — behåller ${count} osedda avsnitt';
 	@override String get syncRuleUpdated => 'Synkregel uppdaterad';
 	@override String get syncRuleRemoved => 'Synkregel borttagen';
+	@override String get syncRuleAndDownloadsRemoved => 'Sync rule and associated downloads removed';
+	@override String get syncRuleCleanupBusy => 'Sync rules are currently updating. Try again in a moment.';
+	@override String get syncRuleCleanupUnavailable => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.';
 	@override String syncedNewEpisodes({required Object count, required Object title}) => 'Synkroniserade ${count} nya avsnitt för ${title}';
 	@override String get activeSyncRules => 'Synkregler';
 	@override String get noSyncRules => 'Inga synkregler';
@@ -2271,6 +2298,14 @@ extension on TranslationsSv {
 			'update.viewRelease' => 'Visa versionsinformation',
 			'update.latestVersion' => 'Du har den senaste versionen',
 			'update.checkFailed' => 'Det gick inte att söka efter uppdateringar',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Inställningar',
 			'settings.supportDeveloper' => 'Stöd Plezy',
 			'settings.supportDeveloperDescription' => 'Donera via Liberapay för att finansiera utvecklingen',
@@ -2375,6 +2410,9 @@ extension on TranslationsSv {
 			'settings.debugLoggingDescription' => 'Aktivera detaljerad loggning för felsökning',
 			'settings.viewLogs' => 'Visa loggar',
 			'settings.viewLogsDescription' => 'Visa appens loggar',
+			'settings.clearImageCache' => 'Clear Image Cache',
+			'settings.clearImageCacheDescription' => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.',
+			'settings.clearImageCacheSuccess' => 'Image cache cleared successfully',
 			'settings.resetSettings' => 'Återställ inställningarna',
 			'settings.resetSettingsDescription' => 'Återställ standardinställningarna. Det går inte att ångra.',
 			'settings.resetSettingsSuccess' => 'Inställningarna har återställts',
@@ -2394,6 +2432,12 @@ extension on TranslationsSv {
 			'settings.updates' => 'Uppdateringar',
 			'settings.updateAvailable' => 'Uppdatering tillgänglig',
 			'settings.checkForUpdates' => 'Kontrollera uppdateringar',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => 'Kontrollera uppdateringar automatiskt vid start',
 			'settings.autoCheckUpdatesOnStartupDescription' => 'Meddela när en uppdatering finns vid start',
 			'settings.validationErrorEnterNumber' => 'Ange ett giltigt tal',
@@ -2693,6 +2737,8 @@ extension on TranslationsSv {
 			'videoControls.endsAt' => ({required Object time}) => 'Slutar kl. ${time}',
 			'videoControls.pipActive' => 'Spelas upp i bild-i-bild',
 			'videoControls.pipFailed' => 'Bild-i-bild kunde inte starta',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.screenshotSaved' => 'Skärmbild sparad',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Zoom ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Kräver Android 8.0 eller nyare',
@@ -2710,8 +2756,6 @@ extension on TranslationsSv {
 			'videoControls.language' => 'Språk',
 			'videoControls.noSubtitlesFound' => 'Inga undertexter hittades',
 			'videoControls.subtitleDownloaded' => 'Undertexten har laddats ned',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.subtitleDownloadedNotApplied' => 'Undertexten laddades ned men kunde inte väljas',
 			'videoControls.subtitleDownloadFailed' => 'Det gick inte att ladda ned undertexten',
 			'videoControls.searchLanguages' => 'Sök språk...',
@@ -2723,6 +2767,7 @@ extension on TranslationsSv {
 			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('sv'))(n, one: 'Tog automatiskt bort ${n} sedd nedladdning', other: 'Tog automatiskt bort ${n} sedda nedladdningar', ), 
 			'messages.removedFromContinueWatching' => 'Borttagen från Fortsätt titta',
 			'messages.errorLoading' => ({required Object error}) => 'Fel: ${error}',
+			'messages.searchPartialResults' => 'Some media servers could not be searched. Showing available results.',
 			'messages.streamInterrupted' => 'Strömmen avbröts. Tryck på uppspelning eller spola för att försöka igen.',
 			'messages.liveStreamInterrupted' => 'Liveströmmen avbröts. Tryck på uppspelning för att försöka igen.',
 			'messages.fileInfoNotAvailable' => 'Filinformation är inte tillgänglig',
@@ -2894,6 +2939,7 @@ extension on TranslationsSv {
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} min kvar',
 			'discover.moreLikeThis' => 'Mer liknande innehåll',
 			'errors.searchFailed' => ({required Object error}) => 'Sökningen misslyckades: ${error}',
+			'errors.searchUnavailable' => 'Search could not reach any media server.',
 			'errors.connectionTimeout' => ({required Object context}) => 'Anslutningen tog för lång tid när ${context} lästes in',
 			'errors.connectionFailed' => 'Det gick inte att ansluta till medieservern',
 			'errors.unableToLoad' => ({required Object context}) => 'Det gick inte att läsa in ${context}. Försök igen.',
@@ -2989,8 +3035,10 @@ extension on TranslationsSv {
 			'about.title' => 'Om',
 			'about.openSourceLicenses' => 'Licenser för öppen källkod',
 			'about.versionLabel' => ({required Object version}) => 'Version ${version}',
-			'about.appDescription' => 'En vacker Plex- och Jellyfin-klient för Flutter',
 			'about.viewLicensesDescription' => 'Visa licenser för tredjepartsbibliotek',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Inga servrar hittades för ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Det gick inte att läsa in servrar: ${error}',
 			'hubDetail.title' => 'Titel',
@@ -3203,6 +3251,8 @@ extension on TranslationsSv {
 			'watchTogether.hostBadge' => 'VÄRD',
 			'watchTogether.youAreHost' => 'Du är värden',
 			'watchTogether.watchingWithOthers' => 'Tittar med andra',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.endSession' => 'Avsluta session',
 			'watchTogether.leaveSession' => 'Lämna session',
 			'watchTogether.endSessionQuestion' => 'Avsluta sessionen?',
@@ -3224,8 +3274,6 @@ extension on TranslationsSv {
 			'watchTogether.failedToJoin' => 'Det gick inte att gå med i sessionen',
 			'watchTogether.sessionCodeCopied' => 'Sessionskoden har kopierats till urklipp',
 			'watchTogether.relayUnreachable' => 'Reläservern kan inte nås. Din internetleverantör kan blockera Titta tillsammans.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.reconnectingToHost' => 'Återansluter till värden...',
 			'watchTogether.currentPlayback' => 'Aktuell uppspelning',
 			'watchTogether.joinCurrentPlayback' => 'Gå med i aktuell uppspelning',
@@ -3296,9 +3344,15 @@ extension on TranslationsSv {
 			'downloads.editSyncRule' => 'Redigera synkregel',
 			'downloads.removeSyncRule' => 'Ta bort synkregel',
 			'downloads.removeSyncRuleConfirm' => ({required Object title}) => 'Sluta synkronisera "${title}"? Nedladdade avsnitt behålls.',
+			'downloads.removeListSyncRuleConfirm' => ({required Object title}) => 'Stop syncing "${title}"?',
+			'downloads.deleteSyncRuleDownloads' => 'Also delete associated downloads',
+			'downloads.deleteSyncRuleDownloadsDescription' => 'Downloads used by another sync rule or profile will be kept.',
 			'downloads.syncRuleCreated' => ({required Object count}) => 'Synkregel skapad — behåller ${count} osedda avsnitt',
 			'downloads.syncRuleUpdated' => 'Synkregel uppdaterad',
 			'downloads.syncRuleRemoved' => 'Synkregel borttagen',
+			'downloads.syncRuleAndDownloadsRemoved' => 'Sync rule and associated downloads removed',
+			'downloads.syncRuleCleanupBusy' => 'Sync rules are currently updating. Try again in a moment.',
+			'downloads.syncRuleCleanupUnavailable' => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.',
 			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => 'Synkroniserade ${count} nya avsnitt för ${title}',
 			'downloads.activeSyncRules' => 'Synkregler',
 			'downloads.noSyncRules' => 'Inga synkregler',

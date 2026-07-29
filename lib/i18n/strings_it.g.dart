@@ -206,6 +206,14 @@ class _Translations$update$it extends Translations$update$en {
 	@override String get viewRelease => 'Visualizza note di rilascio';
 	@override String get latestVersion => 'La versione installata è l\'ultima disponibile';
 	@override String get checkFailed => 'Impossibile controllare gli aggiornamenti';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -319,6 +327,9 @@ class _Translations$settings$it extends Translations$settings$en {
 	@override String get debugLoggingDescription => 'Abilita una registrazione dettagliata per la risoluzione dei problemi';
 	@override String get viewLogs => 'Visualizza i log';
 	@override String get viewLogsDescription => 'Visualizza i log dell\'applicazione';
+	@override String get clearImageCache => 'Clear Image Cache';
+	@override String get clearImageCacheDescription => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.';
+	@override String get clearImageCacheSuccess => 'Image cache cleared successfully';
 	@override String get resetSettings => 'Ripristina impostazioni';
 	@override String get resetSettingsDescription => 'Ripristina le impostazioni predefinite. Questa operazione non può essere annullata.';
 	@override String get resetSettingsSuccess => 'Impostazioni ripristinate correttamente';
@@ -338,6 +349,12 @@ class _Translations$settings$it extends Translations$settings$en {
 	@override String get updates => 'Aggiornamenti';
 	@override String get updateAvailable => 'Aggiornamento disponibile';
 	@override String get checkForUpdates => 'Controlla aggiornamenti';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => 'Controlla automaticamente gli aggiornamenti all\'avvio';
 	@override String get autoCheckUpdatesOnStartupDescription => 'Avvisa all\'avvio quando è disponibile un aggiornamento';
 	@override String get validationErrorEnterNumber => 'Inserisci un numero valido';
@@ -728,6 +745,7 @@ class _Translations$messages$it extends Translations$messages$en {
 	);
 	@override String get removedFromContinueWatching => 'Rimosso da Continua a guardare';
 	@override String errorLoading({required Object error}) => 'Errore: ${error}';
+	@override String get searchPartialResults => 'Some media servers could not be searched. Showing available results.';
 	@override String get streamInterrupted => 'La riproduzione si è interrotta. Premi Riproduci o vai a un altro punto per riprovare.';
 	@override String get liveStreamInterrupted => 'La diretta si è interrotta. Premi Riproduci per riprovare.';
 	@override String get fileInfoNotAvailable => 'Informazioni sul file non disponibili';
@@ -962,6 +980,7 @@ class _Translations$errors$it extends Translations$errors$en {
 
 	// Translations
 	@override String searchFailed({required Object error}) => 'Ricerca non riuscita: ${error}';
+	@override String get searchUnavailable => 'Search could not reach any media server.';
 	@override String connectionTimeout({required Object context}) => 'Tempo scaduto per la connessione durante il caricamento di ${context}';
 	@override String get connectionFailed => 'Impossibile connettersi al server multimediale';
 	@override String unableToLoad({required Object context}) => 'Impossibile caricare ${context}. Riprova.';
@@ -1038,8 +1057,10 @@ class _Translations$about$it extends Translations$about$en {
 	@override String get title => 'Informazioni';
 	@override String get openSourceLicenses => 'Licenze open source';
 	@override String versionLabel({required Object version}) => 'Versione ${version}';
-	@override String get appDescription => 'Un elegante client Plex e Jellyfin per Flutter';
 	@override String get viewLicensesDescription => 'Visualizza le licenze delle librerie di terze parti';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1441,9 +1462,15 @@ class _Translations$downloads$it extends Translations$downloads$en {
 	@override String get editSyncRule => 'Modifica regola di sincronizzazione';
 	@override String get removeSyncRule => 'Rimuovi regola di sincronizzazione';
 	@override String removeSyncRuleConfirm({required Object title}) => 'Interrompere la sincronizzazione di "${title}"? Gli episodi scaricati verranno mantenuti.';
+	@override String removeListSyncRuleConfirm({required Object title}) => 'Stop syncing "${title}"?';
+	@override String get deleteSyncRuleDownloads => 'Also delete associated downloads';
+	@override String get deleteSyncRuleDownloadsDescription => 'Downloads used by another sync rule or profile will be kept.';
 	@override String syncRuleCreated({required Object count}) => 'Regola di sincronizzazione creata — ${count} episodi non visti mantenuti';
 	@override String get syncRuleUpdated => 'Regola di sincronizzazione aggiornata';
 	@override String get syncRuleRemoved => 'Regola di sincronizzazione rimossa';
+	@override String get syncRuleAndDownloadsRemoved => 'Sync rule and associated downloads removed';
+	@override String get syncRuleCleanupBusy => 'Sync rules are currently updating. Try again in a moment.';
+	@override String get syncRuleCleanupUnavailable => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.';
 	@override String syncedNewEpisodes({required Object count, required Object title}) => '${count} nuovi episodi sincronizzati per ${title}';
 	@override String get activeSyncRules => 'Regole di sincronizzazione';
 	@override String get noSyncRules => 'Nessuna regola di sincronizzazione';
@@ -2271,6 +2298,14 @@ extension on TranslationsIt {
 			'update.viewRelease' => 'Visualizza note di rilascio',
 			'update.latestVersion' => 'La versione installata è l\'ultima disponibile',
 			'update.checkFailed' => 'Impossibile controllare gli aggiornamenti',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Impostazioni',
 			'settings.supportDeveloper' => 'Supporta Plezy',
 			'settings.supportDeveloperDescription' => 'Dona tramite Liberapay per finanziare lo sviluppo',
@@ -2375,6 +2410,9 @@ extension on TranslationsIt {
 			'settings.debugLoggingDescription' => 'Abilita una registrazione dettagliata per la risoluzione dei problemi',
 			'settings.viewLogs' => 'Visualizza i log',
 			'settings.viewLogsDescription' => 'Visualizza i log dell\'applicazione',
+			'settings.clearImageCache' => 'Clear Image Cache',
+			'settings.clearImageCacheDescription' => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.',
+			'settings.clearImageCacheSuccess' => 'Image cache cleared successfully',
 			'settings.resetSettings' => 'Ripristina impostazioni',
 			'settings.resetSettingsDescription' => 'Ripristina le impostazioni predefinite. Questa operazione non può essere annullata.',
 			'settings.resetSettingsSuccess' => 'Impostazioni ripristinate correttamente',
@@ -2394,6 +2432,12 @@ extension on TranslationsIt {
 			'settings.updates' => 'Aggiornamenti',
 			'settings.updateAvailable' => 'Aggiornamento disponibile',
 			'settings.checkForUpdates' => 'Controlla aggiornamenti',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => 'Controlla automaticamente gli aggiornamenti all\'avvio',
 			'settings.autoCheckUpdatesOnStartupDescription' => 'Avvisa all\'avvio quando è disponibile un aggiornamento',
 			'settings.validationErrorEnterNumber' => 'Inserisci un numero valido',
@@ -2693,6 +2737,8 @@ extension on TranslationsIt {
 			'videoControls.endsAt' => ({required Object time}) => 'Termina alle ${time}',
 			'videoControls.pipActive' => 'Riproduzione in Picture-in-Picture',
 			'videoControls.pipFailed' => 'Impossibile avviare la modalità Picture-in-Picture',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.screenshotSaved' => 'Schermata salvata',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Zoom ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Richiede Android 8.0 o versioni successive',
@@ -2710,8 +2756,6 @@ extension on TranslationsIt {
 			'videoControls.language' => 'Lingua',
 			'videoControls.noSubtitlesFound' => 'Nessun sottotitolo trovato',
 			'videoControls.subtitleDownloaded' => 'Sottotitolo scaricato',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.subtitleDownloadedNotApplied' => 'Il sottotitolo è stato scaricato, ma non è stato possibile selezionarlo',
 			'videoControls.subtitleDownloadFailed' => 'Impossibile scaricare il sottotitolo',
 			'videoControls.searchLanguages' => 'Cerca lingue...',
@@ -2723,6 +2767,7 @@ extension on TranslationsIt {
 			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('it'))(n, one: 'Rimosso automaticamente ${n} download già visto', other: 'Rimossi automaticamente ${n} download già visti', ), 
 			'messages.removedFromContinueWatching' => 'Rimosso da Continua a guardare',
 			'messages.errorLoading' => ({required Object error}) => 'Errore: ${error}',
+			'messages.searchPartialResults' => 'Some media servers could not be searched. Showing available results.',
 			'messages.streamInterrupted' => 'La riproduzione si è interrotta. Premi Riproduci o vai a un altro punto per riprovare.',
 			'messages.liveStreamInterrupted' => 'La diretta si è interrotta. Premi Riproduci per riprovare.',
 			'messages.fileInfoNotAvailable' => 'Informazioni sul file non disponibili',
@@ -2894,6 +2939,7 @@ extension on TranslationsIt {
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} minuti rimanenti',
 			'discover.moreLikeThis' => 'Altri contenuti simili',
 			'errors.searchFailed' => ({required Object error}) => 'Ricerca non riuscita: ${error}',
+			'errors.searchUnavailable' => 'Search could not reach any media server.',
 			'errors.connectionTimeout' => ({required Object context}) => 'Tempo scaduto per la connessione durante il caricamento di ${context}',
 			'errors.connectionFailed' => 'Impossibile connettersi al server multimediale',
 			'errors.unableToLoad' => ({required Object context}) => 'Impossibile caricare ${context}. Riprova.',
@@ -2989,8 +3035,10 @@ extension on TranslationsIt {
 			'about.title' => 'Informazioni',
 			'about.openSourceLicenses' => 'Licenze open source',
 			'about.versionLabel' => ({required Object version}) => 'Versione ${version}',
-			'about.appDescription' => 'Un elegante client Plex e Jellyfin per Flutter',
 			'about.viewLicensesDescription' => 'Visualizza le licenze delle librerie di terze parti',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Nessun server trovato per ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Impossibile caricare i server: ${error}',
 			'hubDetail.title' => 'Titolo',
@@ -3203,6 +3251,8 @@ extension on TranslationsIt {
 			'watchTogether.hostBadge' => 'HOST',
 			'watchTogether.youAreHost' => 'Sei l\'host',
 			'watchTogether.watchingWithOthers' => 'In visione con altri partecipanti',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.endSession' => 'Termina la sessione',
 			'watchTogether.leaveSession' => 'Abbandona la sessione',
 			'watchTogether.endSessionQuestion' => 'Terminare la sessione?',
@@ -3224,8 +3274,6 @@ extension on TranslationsIt {
 			'watchTogether.failedToJoin' => 'Impossibile unirsi alla sessione',
 			'watchTogether.sessionCodeCopied' => 'Codice della sessione copiato negli appunti',
 			'watchTogether.relayUnreachable' => 'Il server relay non è raggiungibile. Eventuali blocchi dell\'ISP potrebbero impedire l\'uso di Guarda insieme.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.reconnectingToHost' => 'Riconnessione all\'host...',
 			'watchTogether.currentPlayback' => 'Riproduzione corrente',
 			'watchTogether.joinCurrentPlayback' => 'Unisciti alla riproduzione corrente',
@@ -3296,9 +3344,15 @@ extension on TranslationsIt {
 			'downloads.editSyncRule' => 'Modifica regola di sincronizzazione',
 			'downloads.removeSyncRule' => 'Rimuovi regola di sincronizzazione',
 			'downloads.removeSyncRuleConfirm' => ({required Object title}) => 'Interrompere la sincronizzazione di "${title}"? Gli episodi scaricati verranno mantenuti.',
+			'downloads.removeListSyncRuleConfirm' => ({required Object title}) => 'Stop syncing "${title}"?',
+			'downloads.deleteSyncRuleDownloads' => 'Also delete associated downloads',
+			'downloads.deleteSyncRuleDownloadsDescription' => 'Downloads used by another sync rule or profile will be kept.',
 			'downloads.syncRuleCreated' => ({required Object count}) => 'Regola di sincronizzazione creata — ${count} episodi non visti mantenuti',
 			'downloads.syncRuleUpdated' => 'Regola di sincronizzazione aggiornata',
 			'downloads.syncRuleRemoved' => 'Regola di sincronizzazione rimossa',
+			'downloads.syncRuleAndDownloadsRemoved' => 'Sync rule and associated downloads removed',
+			'downloads.syncRuleCleanupBusy' => 'Sync rules are currently updating. Try again in a moment.',
+			'downloads.syncRuleCleanupUnavailable' => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.',
 			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => '${count} nuovi episodi sincronizzati per ${title}',
 			'downloads.activeSyncRules' => 'Regole di sincronizzazione',
 			'downloads.noSyncRules' => 'Nessuna regola di sincronizzazione',

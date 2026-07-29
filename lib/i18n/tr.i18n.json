@@ -80,7 +80,15 @@
     "skipVersion": "Bu Sürümü Atla",
     "viewRelease": "Sürümü Görüntüle",
     "latestVersion": "En son sürümü kullanıyorsunuz",
-    "checkFailed": "Güncellemeler kontrol edilemedi"
+    "checkFailed": "Güncellemeler kontrol edilemedi",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Ayarlar",
@@ -209,6 +217,12 @@
     "updates": "Güncellemeler",
     "updateAvailable": "Güncelleme Mevcut",
     "checkForUpdates": "Güncellemeleri Kontrol Et",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "autoCheckUpdatesOnStartup": "Açılışta güncellemeleri otomatik kontrol et",
     "autoCheckUpdatesOnStartupDescription": "Açılışta bir güncelleme olduğunda bildir",
     "validationErrorEnterNumber": "Lütfen geçerli bir sayı girin",
@@ -858,8 +872,10 @@
     "title": "Hakkında",
     "openSourceLicenses": "Açık Kaynak Lisansları",
     "versionLabel": "Sürüm ${version}",
-    "appDescription": "Flutter için şık bir Plex ve Jellyfin istemcisi",
-    "viewLicensesDescription": "Üçüncü taraf kütüphanelerin lisanslarını görüntüleyin"
+    "viewLicensesDescription": "Üçüncü taraf kütüphanelerin lisanslarını görüntüleyin",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email}) için sunucu bulunamadı",

@@ -206,6 +206,14 @@ class _Translations$update$nb extends Translations$update$en {
 	@override String get viewRelease => 'Vis utgivelse';
 	@override String get latestVersion => 'Du har den nyeste versjonen';
 	@override String get checkFailed => 'Kunne ikke se etter oppdateringer';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -319,6 +327,9 @@ class _Translations$settings$nb extends Translations$settings$en {
 	@override String get debugLoggingDescription => 'Aktiver detaljert logging for feilsøking';
 	@override String get viewLogs => 'Vis logger';
 	@override String get viewLogsDescription => 'Vis applikasjonslogger';
+	@override String get clearImageCache => 'Clear Image Cache';
+	@override String get clearImageCacheDescription => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.';
+	@override String get clearImageCacheSuccess => 'Image cache cleared successfully';
 	@override String get resetSettings => 'Tilbakestill innstillinger';
 	@override String get resetSettingsDescription => 'Gjenopprett standardinnstillinger. Dette kan ikke angres.';
 	@override String get resetSettingsSuccess => 'Innstillinger tilbakestilt';
@@ -338,6 +349,12 @@ class _Translations$settings$nb extends Translations$settings$en {
 	@override String get updates => 'Oppdateringer';
 	@override String get updateAvailable => 'Oppdatering tilgjengelig';
 	@override String get checkForUpdates => 'Se etter oppdateringer';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => 'Se automatisk etter oppdateringer ved oppstart';
 	@override String get autoCheckUpdatesOnStartupDescription => 'Varsle når en oppdatering er tilgjengelig ved oppstart';
 	@override String get validationErrorEnterNumber => 'Vennligst skriv inn et gyldig tall';
@@ -728,6 +745,7 @@ class _Translations$messages$nb extends Translations$messages$en {
 	);
 	@override String get removedFromContinueWatching => 'Fjernet fra Fortsett å se';
 	@override String errorLoading({required Object error}) => 'Feil: ${error}';
+	@override String get searchPartialResults => 'Some media servers could not be searched. Showing available results.';
 	@override String get streamInterrupted => 'Avspillingen ble avbrutt. Trykk på Spill av eller spol for å prøve på nytt.';
 	@override String get liveStreamInterrupted => 'Direktesendingen ble avbrutt. Trykk på Spill av for å prøve på nytt.';
 	@override String get fileInfoNotAvailable => 'Filinformasjon ikke tilgjengelig';
@@ -962,6 +980,7 @@ class _Translations$errors$nb extends Translations$errors$en {
 
 	// Translations
 	@override String searchFailed({required Object error}) => 'Søk mislyktes: ${error}';
+	@override String get searchUnavailable => 'Search could not reach any media server.';
 	@override String connectionTimeout({required Object context}) => 'Tidsavbrudd ved lasting av ${context}';
 	@override String get connectionFailed => 'Kan ikke koble til medieserver';
 	@override String unableToLoad({required Object context}) => 'Kunne ikke laste ${context}. Prøv igjen.';
@@ -1038,8 +1057,10 @@ class _Translations$about$nb extends Translations$about$en {
 	@override String get title => 'Om';
 	@override String get openSourceLicenses => 'Lisenser for åpen kildekode';
 	@override String versionLabel({required Object version}) => 'Versjon ${version}';
-	@override String get appDescription => 'En vakker Plex- og Jellyfin-klient for Flutter';
 	@override String get viewLicensesDescription => 'Vis lisenser for tredjepartsbiblioteker';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1441,9 +1462,15 @@ class _Translations$downloads$nb extends Translations$downloads$en {
 	@override String get editSyncRule => 'Rediger synkroniseringsregel';
 	@override String get removeSyncRule => 'Fjern synkroniseringsregel';
 	@override String removeSyncRuleConfirm({required Object title}) => 'Slutte å synkronisere "${title}"? Nedlastede episoder beholdes.';
+	@override String removeListSyncRuleConfirm({required Object title}) => 'Stop syncing "${title}"?';
+	@override String get deleteSyncRuleDownloads => 'Also delete associated downloads';
+	@override String get deleteSyncRuleDownloadsDescription => 'Downloads used by another sync rule or profile will be kept.';
 	@override String syncRuleCreated({required Object count}) => 'Synkroniseringsregel opprettet — beholder ${count} usette episoder';
 	@override String get syncRuleUpdated => 'Synkroniseringsregel oppdatert';
 	@override String get syncRuleRemoved => 'Synkroniseringsregel fjernet';
+	@override String get syncRuleAndDownloadsRemoved => 'Sync rule and associated downloads removed';
+	@override String get syncRuleCleanupBusy => 'Sync rules are currently updating. Try again in a moment.';
+	@override String get syncRuleCleanupUnavailable => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.';
 	@override String syncedNewEpisodes({required Object count, required Object title}) => 'Synkroniserte ${count} nye episoder for ${title}';
 	@override String get activeSyncRules => 'Synkroniseringsregler';
 	@override String get noSyncRules => 'Ingen synkroniseringsregler';
@@ -2271,6 +2298,14 @@ extension on TranslationsNb {
 			'update.viewRelease' => 'Vis utgivelse',
 			'update.latestVersion' => 'Du har den nyeste versjonen',
 			'update.checkFailed' => 'Kunne ikke se etter oppdateringer',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Innstillinger',
 			'settings.supportDeveloper' => 'Støtt Plezy',
 			'settings.supportDeveloperDescription' => 'Doner via Liberapay for å finansiere utviklingen',
@@ -2375,6 +2410,9 @@ extension on TranslationsNb {
 			'settings.debugLoggingDescription' => 'Aktiver detaljert logging for feilsøking',
 			'settings.viewLogs' => 'Vis logger',
 			'settings.viewLogsDescription' => 'Vis applikasjonslogger',
+			'settings.clearImageCache' => 'Clear Image Cache',
+			'settings.clearImageCacheDescription' => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.',
+			'settings.clearImageCacheSuccess' => 'Image cache cleared successfully',
 			'settings.resetSettings' => 'Tilbakestill innstillinger',
 			'settings.resetSettingsDescription' => 'Gjenopprett standardinnstillinger. Dette kan ikke angres.',
 			'settings.resetSettingsSuccess' => 'Innstillinger tilbakestilt',
@@ -2394,6 +2432,12 @@ extension on TranslationsNb {
 			'settings.updates' => 'Oppdateringer',
 			'settings.updateAvailable' => 'Oppdatering tilgjengelig',
 			'settings.checkForUpdates' => 'Se etter oppdateringer',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => 'Se automatisk etter oppdateringer ved oppstart',
 			'settings.autoCheckUpdatesOnStartupDescription' => 'Varsle når en oppdatering er tilgjengelig ved oppstart',
 			'settings.validationErrorEnterNumber' => 'Vennligst skriv inn et gyldig tall',
@@ -2693,6 +2737,8 @@ extension on TranslationsNb {
 			'videoControls.endsAt' => ({required Object time}) => 'Slutter kl. ${time}',
 			'videoControls.pipActive' => 'Spiller i bilde-i-bilde',
 			'videoControls.pipFailed' => 'Bilde-i-bilde kunne ikke starte',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.screenshotSaved' => 'Skjermbilde lagret',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Zoom ${percent} %',
 			'videoControls.pipErrors.androidVersion' => 'Krever Android 8.0 eller nyere',
@@ -2710,8 +2756,6 @@ extension on TranslationsNb {
 			'videoControls.language' => 'Språk',
 			'videoControls.noSubtitlesFound' => 'Ingen undertekster funnet',
 			'videoControls.subtitleDownloaded' => 'Undertekst lastet ned',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.subtitleDownloadedNotApplied' => 'Underteksten ble lastet ned, men kunne ikke velges',
 			'videoControls.subtitleDownloadFailed' => 'Kunne ikke laste ned undertekst',
 			'videoControls.searchLanguages' => 'Søk etter språk...',
@@ -2723,6 +2767,7 @@ extension on TranslationsNb {
 			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('nb'))(n, one: 'Fjernet automatisk ${n} avspilt nedlasting', other: 'Fjernet automatisk ${n} avspilte nedlastinger', ), 
 			'messages.removedFromContinueWatching' => 'Fjernet fra Fortsett å se',
 			'messages.errorLoading' => ({required Object error}) => 'Feil: ${error}',
+			'messages.searchPartialResults' => 'Some media servers could not be searched. Showing available results.',
 			'messages.streamInterrupted' => 'Avspillingen ble avbrutt. Trykk på Spill av eller spol for å prøve på nytt.',
 			'messages.liveStreamInterrupted' => 'Direktesendingen ble avbrutt. Trykk på Spill av for å prøve på nytt.',
 			'messages.fileInfoNotAvailable' => 'Filinformasjon ikke tilgjengelig',
@@ -2894,6 +2939,7 @@ extension on TranslationsNb {
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} min igjen',
 			'discover.moreLikeThis' => 'Mer som dette',
 			'errors.searchFailed' => ({required Object error}) => 'Søk mislyktes: ${error}',
+			'errors.searchUnavailable' => 'Search could not reach any media server.',
 			'errors.connectionTimeout' => ({required Object context}) => 'Tidsavbrudd ved lasting av ${context}',
 			'errors.connectionFailed' => 'Kan ikke koble til medieserver',
 			'errors.unableToLoad' => ({required Object context}) => 'Kunne ikke laste ${context}. Prøv igjen.',
@@ -2989,8 +3035,10 @@ extension on TranslationsNb {
 			'about.title' => 'Om',
 			'about.openSourceLicenses' => 'Lisenser for åpen kildekode',
 			'about.versionLabel' => ({required Object version}) => 'Versjon ${version}',
-			'about.appDescription' => 'En vakker Plex- og Jellyfin-klient for Flutter',
 			'about.viewLicensesDescription' => 'Vis lisenser for tredjepartsbiblioteker',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Ingen servere funnet for ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Kunne ikke laste servere: ${error}',
 			'hubDetail.title' => 'Tittel',
@@ -3203,6 +3251,8 @@ extension on TranslationsNb {
 			'watchTogether.hostBadge' => 'VERT',
 			'watchTogether.youAreHost' => 'Du er verten',
 			'watchTogether.watchingWithOthers' => 'Ser med andre',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.endSession' => 'Avslutt økt',
 			'watchTogether.leaveSession' => 'Forlat økt',
 			'watchTogether.endSessionQuestion' => 'Avslutte økt?',
@@ -3224,8 +3274,6 @@ extension on TranslationsNb {
 			'watchTogether.failedToJoin' => 'Kunne ikke bli med i økt',
 			'watchTogether.sessionCodeCopied' => 'Øktkode kopiert til utklippstavle',
 			'watchTogether.relayUnreachable' => 'Reléserveren kan ikke nås. Blokkering hos internettleverandøren kan hindre Se sammen.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.reconnectingToHost' => 'Kobler til verten på nytt...',
 			'watchTogether.currentPlayback' => 'Gjeldende avspilling',
 			'watchTogether.joinCurrentPlayback' => 'Bli med i gjeldende avspilling',
@@ -3296,9 +3344,15 @@ extension on TranslationsNb {
 			'downloads.editSyncRule' => 'Rediger synkroniseringsregel',
 			'downloads.removeSyncRule' => 'Fjern synkroniseringsregel',
 			'downloads.removeSyncRuleConfirm' => ({required Object title}) => 'Slutte å synkronisere "${title}"? Nedlastede episoder beholdes.',
+			'downloads.removeListSyncRuleConfirm' => ({required Object title}) => 'Stop syncing "${title}"?',
+			'downloads.deleteSyncRuleDownloads' => 'Also delete associated downloads',
+			'downloads.deleteSyncRuleDownloadsDescription' => 'Downloads used by another sync rule or profile will be kept.',
 			'downloads.syncRuleCreated' => ({required Object count}) => 'Synkroniseringsregel opprettet — beholder ${count} usette episoder',
 			'downloads.syncRuleUpdated' => 'Synkroniseringsregel oppdatert',
 			'downloads.syncRuleRemoved' => 'Synkroniseringsregel fjernet',
+			'downloads.syncRuleAndDownloadsRemoved' => 'Sync rule and associated downloads removed',
+			'downloads.syncRuleCleanupBusy' => 'Sync rules are currently updating. Try again in a moment.',
+			'downloads.syncRuleCleanupUnavailable' => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.',
 			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => 'Synkroniserte ${count} nye episoder for ${title}',
 			'downloads.activeSyncRules' => 'Synkroniseringsregler',
 			'downloads.noSyncRules' => 'Ingen synkroniseringsregler',
