@@ -597,9 +597,7 @@ void main() {
           eventChannelName: 'com.plezy/mpv_player/events',
           methodHandler: (call) async {
             calls.add(call);
-            if (call.method == 'setProperty' &&
-                _setPropertyName(call) == 'ao-volume' &&
-                rejectNextOutputVolume) {
+            if (call.method == 'setProperty' && _setPropertyName(call) == 'ao-volume' && rejectNextOutputVolume) {
               rejectNextOutputVolume = false;
               throw PlatformException(code: 'SET_PROPERTY_FAILED');
             }
@@ -609,10 +607,7 @@ void main() {
             final player = PlayerNative();
             try {
               await player.setVolume(50);
-              expect(
-                _setPropertyValueIndex(calls, 'volume', '50.0'),
-                greaterThanOrEqualTo(0),
-              );
+              expect(_setPropertyValueIndex(calls, 'volume', '50.0'), greaterThanOrEqualTo(0));
               expect(_setPropertyCallIndex(calls, 'ao-volume'), -1);
 
               calls.clear();
@@ -624,22 +619,13 @@ void main() {
               player.handlePlayerEvent('file-loaded', null);
               await pumpEventQueue();
               expect(_setPropertyCallIndex(calls, 'ao-volume'), -1);
-              expect(
-                _setPropertyValueIndex(calls, 'pause', 'no'),
-                greaterThan(loadIndex),
-              );
+              expect(_setPropertyValueIndex(calls, 'pause', 'no'), greaterThan(loadIndex));
 
               calls.clear();
               player.handlePropertyChange('audio-out-params', const {'channels': 'stereo'});
               await pumpEventQueue();
-              expect(
-                _setPropertyValueIndex(calls, 'ao-volume', '12.5'),
-                greaterThanOrEqualTo(0),
-              );
-              expect(
-                _setPropertyValueIndex(calls, 'volume', '50.0'),
-                greaterThanOrEqualTo(0),
-              );
+              expect(_setPropertyValueIndex(calls, 'ao-volume', '12.5'), greaterThanOrEqualTo(0));
+              expect(_setPropertyValueIndex(calls, 'volume', '50.0'), greaterThanOrEqualTo(0));
 
               calls.clear();
               player.handlePropertyChange('audio-out-params', const {'channels': 'stereo'});
