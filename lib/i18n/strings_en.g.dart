@@ -99,8 +99,8 @@ class Translations$app$en {
 
 	// Translations
 
-	/// en: 'Plezy'
-	String get title => 'Plezy';
+	/// en: 'Plezy Labs'
+	String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -353,6 +353,30 @@ class Translations$update$en {
 
 	/// en: 'Failed to check for updates'
 	String get checkFailed => 'Failed to check for updates';
+
+	/// en: 'Choose your update channel'
+	String get chooseChannelTitle => 'Choose your update channel';
+
+	/// en: 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.'
+	String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+
+	/// en: 'Use Plezy Labs'
+	String get useLabs => 'Use Plezy Labs';
+
+	/// en: 'Return to Official Plezy'
+	String get returnToOfficial => 'Return to Official Plezy';
+
+	/// en: 'Leave Plezy Labs?'
+	String get returnToOfficialTitle => 'Leave Plezy Labs?';
+
+	/// en: 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.'
+	String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+
+	/// en: 'Open Official Release'
+	String get openOfficialRelease => 'Open Official Release';
+
+	/// en: 'Release notes'
+	String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -746,6 +770,24 @@ class Translations$settings$en {
 
 	/// en: 'Check for Updates'
 	String get checkForUpdates => 'Check for Updates';
+
+	/// en: 'Official Plezy'
+	String get officialPlezy => 'Official Plezy';
+
+	/// en: 'Plezy Labs'
+	String get plezyLabs => 'Plezy Labs';
+
+	/// en: 'Plezy Labs for Plezy ${version} is not available yet'
+	String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+
+	/// en: 'Latest Labs release: ${version}'
+	String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+
+	/// en: 'Latest official release: ${version}'
+	String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+
+	/// en: 'Release status unavailable'
+	String get releaseStatusUnavailable => 'Release status unavailable';
 
 	/// en: 'Automatically check for updates on startup'
 	String get autoCheckUpdatesOnStartup => 'Automatically check for updates on startup';
@@ -2766,11 +2808,17 @@ class Translations$about$en {
 	/// en: 'Version ${version}'
 	String versionLabel({required Object version}) => 'Version ${version}';
 
-	/// en: 'A beautiful Plex and Jellyfin client for Flutter'
-	String get appDescription => 'A beautiful Plex and Jellyfin client for Flutter';
-
 	/// en: 'View licenses of third-party libraries'
 	String get viewLicensesDescription => 'View licenses of third-party libraries';
+
+	/// en: 'An experimental Plezy edition built only on published official releases'
+	String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+
+	/// en: 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.'
+	String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+
+	/// en: 'Plezy Labs source code'
+	String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -5925,7 +5973,7 @@ class Translations$services$libraryFilter$en {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Sign in with Plex',
 			'auth.showQRCode' => 'Show QR Code',
 			'auth.authenticate' => 'Authenticate',
@@ -5998,6 +6046,14 @@ extension on Translations {
 			'update.viewRelease' => 'View Release',
 			'update.latestVersion' => 'You are on the latest version',
 			'update.checkFailed' => 'Failed to check for updates',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Settings',
 			'settings.supportDeveloper' => 'Support Plezy',
 			'settings.supportDeveloperDescription' => 'Donate via Liberapay to fund development',
@@ -6126,6 +6182,12 @@ extension on Translations {
 			'settings.updates' => 'Updates',
 			'settings.updateAvailable' => 'Update Available',
 			'settings.checkForUpdates' => 'Check for Updates',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => 'Automatically check for updates on startup',
 			'settings.autoCheckUpdatesOnStartupDescription' => 'Notify when an update is available at launch',
 			'settings.validationErrorEnterNumber' => 'Please enter a valid number',
@@ -6517,6 +6579,8 @@ extension on Translations {
 			'videoControls.endsAt' => ({required Object time}) => 'Ends at ${time}',
 			'videoControls.pipActive' => 'Playing in Picture-in-Picture',
 			'videoControls.pipFailed' => 'Picture-in-picture failed to start',
+			_ => null,
+		} ?? switch (path) {
 			'videoControls.screenshotSaved' => 'Screenshot saved',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Zoom ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Requires Android 8.0 or newer',
@@ -6813,8 +6877,10 @@ extension on Translations {
 			'about.title' => 'About',
 			'about.openSourceLicenses' => 'Open Source Licenses',
 			'about.versionLabel' => ({required Object version}) => 'Version ${version}',
-			'about.appDescription' => 'A beautiful Plex and Jellyfin client for Flutter',
 			'about.viewLicensesDescription' => 'View licenses of third-party libraries',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'No servers found for ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Failed to load servers: ${error}',
 			'hubDetail.title' => 'Title',
@@ -7145,6 +7211,8 @@ extension on Translations {
 			'watchTogether.hostBadge' => 'HOST',
 			'watchTogether.youAreHost' => 'You are the host',
 			'watchTogether.watchingWithOthers' => 'Watching with others',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.endSession' => 'End Session',
 			'watchTogether.leaveSession' => 'Leave Session',
 			'watchTogether.endSessionQuestion' => 'End Session?',
