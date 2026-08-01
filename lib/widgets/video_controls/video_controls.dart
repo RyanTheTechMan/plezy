@@ -1219,11 +1219,7 @@ class _PlexVideoControlsState extends State<PlexVideoControls>
                             ),
                             PlayerToastKind.notice => AnimatedSwitcher(
                               duration: const Duration(milliseconds: 150),
-                              child: PlayerToastIndicator(
-                                key: ValueKey(toast.key),
-                                icon: toast.icon,
-                                text: toast.text,
-                              ),
+                              child: PlayerToastIndicator(key: ValueKey(toast.key), icon: toast.icon, text: toast.text),
                             ),
                           };
                         },

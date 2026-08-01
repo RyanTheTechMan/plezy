@@ -1922,7 +1922,7 @@ void main() {
                   id: 'video',
                   backend: MediaBackend.plex,
                   kind: MediaKind.movie,
-                title: 'Test video',
+                  title: 'Test video',
                 ),
                 chapters: List.generate(
                   12,
