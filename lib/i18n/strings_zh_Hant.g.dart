@@ -207,6 +207,14 @@ class _Translations$update$zh_Hant extends Translations$update$zh {
 	@override String get viewRelease => '查看版本詳情';
 	@override String get latestVersion => '已安裝的版本為最新版本';
 	@override String get checkFailed => '無法檢查更新';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -322,6 +330,9 @@ class _Translations$settings$zh_Hant extends Translations$settings$zh {
 	@override String get debugLoggingDescription => '啟用詳細日誌記錄以便進行疑難排解';
 	@override String get viewLogs => '查看日誌';
 	@override String get viewLogsDescription => '查看應用程式日誌記錄';
+	@override String get clearImageCache => 'Clear Image Cache';
+	@override String get clearImageCacheDescription => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.';
+	@override String get clearImageCacheSuccess => 'Image cache cleared successfully';
 	@override String get resetSettings => '重設設定';
 	@override String get resetSettingsDescription => '恢復預設設定。此操作無法復原。';
 	@override String get resetSettingsSuccess => '設定重設成功';
@@ -341,6 +352,12 @@ class _Translations$settings$zh_Hant extends Translations$settings$zh {
 	@override String get updates => '更新';
 	@override String get updateAvailable => '有可用更新';
 	@override String get checkForUpdates => '檢查更新';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => '啟動時自動檢查更新';
 	@override String get autoCheckUpdatesOnStartupDescription => '啟動時若有可用更新便顯示通知';
 	@override String get validationErrorEnterNumber => '請輸入有效的數字';
@@ -374,6 +391,17 @@ class _Translations$settings$zh_Hant extends Translations$settings$zh {
 	@override String get downloadLocationReset => '下載位置已重設為預設值';
 	@override String get downloadLocationInvalid => '所選資料夾不具寫入權限';
 	@override String get downloadLocationPickerUnavailable => '此裝置無法選擇資料夾';
+	@override String get downloadLocationSelectError => 'Failed to select folder';
+	@override String get mediaCapture => 'Media Capture';
+	@override String get clips => 'Clips';
+	@override String get screenshots => 'Screenshots';
+	@override String captureLocationTitle({required Object title}) => '${title} Location';
+	@override String get clipLocationDescription => 'Choose where clips are saved.';
+	@override String get screenshotLocationDescription => 'Choose where screenshots are saved.';
+	@override String get clipLocationChanged => 'Clip location changed';
+	@override String get screenshotLocationChanged => 'Screenshot location changed';
+	@override String get clipLocationReset => 'Clip location reset to Desktop';
+	@override String get screenshotLocationReset => 'Screenshot location reset to Desktop';
 	@override String get downloadOnWifiOnly => '僅在 Wi-Fi 連線時下載';
 	@override String get downloadOnWifiOnlyDescription => '使用行動網路時不會下載';
 	@override String get autoRemoveWatchedDownloads => '自動移除已觀看的下載內容';
@@ -508,29 +536,118 @@ class _Translations$fileInfo$zh_Hant extends Translations$fileInfo$zh {
 
 	// Translations
 	@override String get title => '檔案資訊';
+	@override String get overview => 'Overview';
 	@override String get video => '影片';
 	@override String get audio => '音訊';
 	@override String get subtitles => '字幕';
+	@override String get images => 'Embedded Images';
+	@override String get dataStreams => 'Data Streams';
+	@override String get lyrics => 'Lyrics';
 	@override String get file => '檔案';
+	@override String get attachments => 'Attachments';
+	@override String get delivery => 'Delivery';
+	@override String versionCounter({required Object index, required Object count}) => 'Version ${index} of ${count}';
+	@override String fileCounter({required Object index, required Object count}) => 'File ${index} of ${count}';
+	@override String get noStreams => 'The server reported no streams for this file.';
+	@override String get copyPath => 'Copy path';
+	@override String get pathCopied => 'File path copied';
 	@override String get codec => '編解碼器';
+	@override String get codecTag => 'Codec Tag';
 	@override String get resolution => '解析度';
+	@override String get codedResolution => 'Coded Resolution';
 	@override String get bitrate => '位元率';
 	@override String get frameRate => '影格率';
+	@override String get rotation => 'Rotation';
+	@override String get comment => 'Comment';
+	@override String get audioDescription => 'Audio Description';
+	@override String get headerCompression => 'Header Compression';
+	@override String get sidecarFile => 'Sidecar File';
+	@override String get transportTimestamp => 'Transport Timestamp';
+	@override String get displayOffset => 'Display Offset';
+	@override String get previewFailureCode => 'Preview Failure Code';
+	@override String get previewRetries => 'Preview Retries';
 	@override String get aspectRatio => '寬高比';
+	@override String get pixelAspectRatio => 'Pixel Aspect Ratio';
 	@override String get profile => '規格檔（Profile）';
+	@override String get level => 'Level';
 	@override String get bitDepth => '位元深度';
+	@override String get pixelFormat => 'Pixel Format';
 	@override String get colorSpace => '色彩空間';
 	@override String get colorRange => '色彩範圍';
 	@override String get colorPrimaries => '色彩基色';
+	@override String get colorTransfer => 'Color Transfer';
 	@override String get chromaSubsampling => '色度抽樣';
+	@override String get chromaLocation => 'Chroma Location';
+	@override String get scanType => 'Scan Type';
+	@override String get interlaced => 'Interlaced';
+	@override String get anamorphic => 'Anamorphic';
+	@override String get referenceFrames => 'Reference Frames';
+	@override String get dynamicRange => 'Dynamic Range';
+	@override String get dolbyVision => 'Dolby Vision';
+	@override String get dolbyVisionLevel => 'Dolby Vision Level';
+	@override String get dolbyVisionVersion => 'Dolby Vision Version';
+	@override String get dolbyVisionLayers => 'Dolby Vision Layers';
+	@override String get baseLayerCompatibility => 'Base Layer Compatibility';
+	@override String get avcBitstream => 'AVC Bitstream';
+	@override String get nalLengthSize => 'NAL Length Size';
+	@override String get scalingMatrix => 'Custom Scaling Matrix';
+	@override String get streamIdentifier => 'Stream Identifier';
+	@override String get streamIndex => 'Stream Index';
+	@override String get streamId => 'Stream ID';
+	@override String get language => 'Language';
+	@override String get languageCode => 'Language Code';
+	@override String get streamTitle => 'Track Title';
 	@override String get channels => '聲道數';
+	@override String get sampleRate => 'Sample Rate';
+	@override String get spatialAudio => 'Spatial Audio';
+	@override String get textBased => 'Text Based';
+	@override String get subtitleFormat => 'Sidecar Format';
+	@override String get provider => 'Provider';
+	@override String get matchScore => 'Match Score';
+	@override String get externalDelivery => 'Can Be Served Separately';
+	@override String get sidecarPath => 'Sidecar Path';
+	@override String get sourceStream => 'Copied From';
+	@override String get temporary => 'Temporary';
+	@override String get timeBase => 'Time Base';
 	@override String get overallBitrate => '總位元率';
 	@override String get path => '路徑';
+	@override String get fileName => 'File Name';
 	@override String get size => '大小';
+	@override String get totalSize => 'Total Size';
 	@override String get container => '封裝格式';
 	@override String get duration => '長度';
+	@override String get previewThumbnails => 'Preview Thumbnails';
+	@override String get previewIndex => 'Preview Index';
+	@override String get packetLength => 'Packet Length';
+	@override String get filePresent => 'File Present';
+	@override String get fileReadable => 'Readable by Server';
+	@override String get streamPath => 'Stream Path';
 	@override String get optimizedForStreaming => '已最佳化串流播放';
 	@override String get has64bitOffsets => '具 64 位元偏移量';
+	@override String get protocol => 'Protocol';
+	@override String get mediaType => 'Media Type';
+	@override String get sourceKind => 'Source Kind';
+	@override String get optimizedVersion => 'Optimized Version';
+	@override String get optimizationTarget => 'Optimization Target';
+	@override String get deletedAt => 'Deleted';
+	@override String get remoteSource => 'Remote Source';
+	@override String get infiniteStream => 'Infinite Stream';
+	@override String get directPlay => 'Direct Play';
+	@override String get directStream => 'Direct Stream';
+	@override String get transcoding => 'Transcoding';
+	@override String get etag => 'ETag';
+	@override String get versionId => 'Version ID';
+	@override String get fileId => 'File ID';
+	@override String get defaultAudioTrack => 'Default Audio Track';
+	@override String get defaultSubtitleTrack => 'Default Subtitle Track';
+	@override String get subtitlesOff => 'Off';
+	@override String get flagDefault => 'Default';
+	@override String get flagForced => 'Forced';
+	@override String get flagSelected => 'Selected';
+	@override String get flagExternal => 'External';
+	@override String get flagHearingImpaired => 'Hearing impaired';
+	@override String get flagDub => 'Dub';
+	@override String get flagOriginal => 'Original';
 }
 
 // Path: mediaMenu
@@ -661,6 +778,8 @@ class _Translations$videoControls$zh_Hant extends Translations$videoControls$zh 
 	@override String get playNext => '播放下一集';
 	@override String get playButton => '播放';
 	@override String get pauseButton => '暫停';
+	@override String get playbackPaused => 'Paused';
+	@override String get playbackResumed => 'Playing';
 	@override String get showPlaybackControls => '顯示播放控制項';
 	@override String get hidePlaybackControls => '隱藏播放控制項';
 	@override String seekBackwardButton({required Object seconds}) => '後退 ${seconds} 秒';
@@ -710,6 +829,11 @@ class _Translations$videoControls$zh_Hant extends Translations$videoControls$zh 
 	@override String get subtitleDownloadedNotApplied => '字幕已下載，但無法套用';
 	@override String get subtitleDownloadFailed => '字幕下載失敗';
 	@override String get searchLanguages => '搜尋語言…';
+	@override late final _Translations$videoControls$clip$zh_Hant clip = _Translations$videoControls$clip$zh_Hant._(_root);
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 }
 
 // Path: messages
@@ -725,10 +849,12 @@ class _Translations$messages$zh_Hant extends Translations$messages$zh {
 	@override String get markedAsUnwatchedOffline => '已標記為未觀看（將在連線時同步）';
 	@override String autoRemovedWatchedDownload({required Object title}) => '已自動移除：${title}';
 	@override String autoRemovedWatchedDownloads({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: 'Auto-removed ${n} watched download',
 		other: '已自動移除 ${n} 個已觀看的下載內容',
 	);
 	@override String get removedFromContinueWatching => '已從「繼續觀看」中移除';
 	@override String errorLoading({required Object error}) => '錯誤：${error}';
+	@override String get searchPartialResults => 'Some media servers could not be searched. Showing available results.';
 	@override String get streamInterrupted => '影片串流中斷。請按播放鍵或拖動進度條重試。';
 	@override String get liveStreamInterrupted => '直播串流中斷。請按播放鍵重試。';
 	@override String get fileInfoNotAvailable => '無法取得檔案資訊';
@@ -963,6 +1089,7 @@ class _Translations$errors$zh_Hant extends Translations$errors$zh {
 
 	// Translations
 	@override String searchFailed({required Object error}) => '搜尋失敗：${error}';
+	@override String get searchUnavailable => 'Search could not reach any media server.';
 	@override String connectionTimeout({required Object context}) => '載入 ${context} 時連線逾時';
 	@override String get connectionFailed => '無法連線至媒體伺服器';
 	@override String unableToLoad({required Object context}) => '無法載入 ${context}。請重試。';
@@ -1039,8 +1166,10 @@ class _Translations$about$zh_Hant extends Translations$about$zh {
 	@override String get title => '關於';
 	@override String get openSourceLicenses => '開源授權條款';
 	@override String versionLabel({required Object version}) => '版本 ${version}';
-	@override String get appDescription => '一款精美的 Plex 與 Jellyfin Flutter 用戶端';
 	@override String get viewLicensesDescription => '查看第三方套件的授權條款';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1118,6 +1247,7 @@ class _Translations$explore$zh_Hant extends Translations$explore$zh {
 	@override late final _Translations$explore$rows$zh_Hant rows = _Translations$explore$rows$zh_Hant._(_root);
 	@override late final _Translations$explore$status$zh_Hant status = _Translations$explore$status$zh_Hant._(_root);
 	@override String episodeCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} episode',
 		other: '${n} 集',
 	);
 	@override String get cast => '演員陣容';
@@ -1134,6 +1264,21 @@ class _Translations$explore$zh_Hant extends Translations$explore$zh {
 	@override String searchEmpty({required Object query}) => '沒有「${query}」的結果';
 	@override String searchPrompt({required Object source}) => '在 ${source} 搜尋電影與影集。';
 	@override String get searchFailed => '搜尋失敗。請檢查網路連線後重試。';
+	@override late final _Translations$explore$badge$zh_Hant badge = _Translations$explore$badge$zh_Hant._(_root);
+	@override late final _Translations$explore$stats$zh_Hant stats = _Translations$explore$stats$zh_Hant._(_root);
+	@override late final _Translations$explore$season$zh_Hant season = _Translations$explore$season$zh_Hant._(_root);
+	@override late final _Translations$explore$format$zh_Hant format = _Translations$explore$format$zh_Hant._(_root);
+	@override late final _Translations$explore$sourceMaterial$zh_Hant sourceMaterial = _Translations$explore$sourceMaterial$zh_Hant._(_root);
+	@override late final _Translations$explore$creditRole$zh_Hant creditRole = _Translations$explore$creditRole$zh_Hant._(_root);
+	@override late final _Translations$explore$ratingSource$zh_Hant ratingSource = _Translations$explore$ratingSource$zh_Hant._(_root);
+	@override String broadcast({required Object day, required Object time}) => 'Airs ${day} at ${time}';
+	@override String broadcastWithZone({required Object day, required Object time, required Object timezone}) => 'Airs ${day} at ${time} ${timezone}';
+	@override late final _Translations$explore$detail$zh_Hant detail = _Translations$explore$detail$zh_Hant._(_root);
+	@override String totalResults({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} result',
+		other: '${n} results',
+	);
+	@override late final _Translations$explore$relation$zh_Hant relation = _Translations$explore$relation$zh_Hant._(_root);
 }
 
 // Path: liveTv
@@ -1290,6 +1435,7 @@ class _Translations$music$zh_Hant extends Translations$music$zh {
 	@override String get addToQueue => '新增至佇列';
 	@override String discNumber({required Object n}) => 'CD ${n}';
 	@override String trackCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} track',
 		other: '${n} 首',
 	);
 	@override String get nowPlaying => '正在播放';
@@ -1440,9 +1586,15 @@ class _Translations$downloads$zh_Hant extends Translations$downloads$zh {
 	@override String get editSyncRule => '編輯同步規則';
 	@override String get removeSyncRule => '刪除同步規則';
 	@override String removeSyncRuleConfirm({required Object title}) => '停止同步「${title}」？已下載的單集將會保留。';
+	@override String removeListSyncRuleConfirm({required Object title}) => 'Stop syncing "${title}"?';
+	@override String get deleteSyncRuleDownloads => 'Also delete associated downloads';
+	@override String get deleteSyncRuleDownloadsDescription => 'Downloads used by another sync rule or profile will be kept.';
 	@override String syncRuleCreated({required Object count}) => '同步規則已建立 — 將保留 ${count} 個未觀看單集';
 	@override String get syncRuleUpdated => '同步規則已更新';
 	@override String get syncRuleRemoved => '同步規則已刪除';
+	@override String get syncRuleAndDownloadsRemoved => 'Sync rule and associated downloads removed';
+	@override String get syncRuleCleanupBusy => 'Sync rules are currently updating. Try again in a moment.';
+	@override String get syncRuleCleanupUnavailable => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.';
 	@override String syncedNewEpisodes({required Object title, required Object count}) => '已為 ${title} 同步 ${count} 個新單集';
 	@override String get activeSyncRules => '同步規則';
 	@override String get noSyncRules => '沒有同步規則';
@@ -1863,6 +2015,8 @@ class _Translations$hotkeys$actions$zh_Hant extends Translations$hotkeys$actions
 	@override String get shaderToggle => '切換著色器';
 	@override String get skipMarker => '跳過片頭/片尾';
 	@override String get screenshot => '螢幕截圖';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -1879,6 +2033,51 @@ class _Translations$videoControls$pipErrors$zh_Hant extends Translations$videoCo
 	@override String get voSwitchFailed => '無法切換子母畫面的影片輸出';
 	@override String get failed => '啟動子母畫面失敗';
 	@override String unknown({required Object error}) => '發生錯誤：${error}';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$zh_Hant extends Translations$videoControls$clip$zh {
+	_Translations$videoControls$clip$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Clip';
+	@override String get vodOnly => 'Clips are available for on-demand video playback.';
+	@override String get sourceUnavailable => 'Clip source is not available for this playback session.';
+	@override String get playAtLeastOneSecond => 'Play at least 1 second before clipping.';
+	@override String get startBeforeBeginning => 'Clip start cannot be before the beginning of the video.';
+	@override String get endAfterStart => 'Clip end must be after the start.';
+	@override String get minimumDuration => 'Clips must be at least 1 second long.';
+	@override String get endPastVideo => 'Clip end is past the end of the video.';
+	@override String get exportCanceled => 'Clip export canceled.';
+	@override String get cacheUnavailable => 'The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.';
+	@override String get sourceCopyNoEncoder => 'Source-copy export does not use an encoder.';
+	@override String get encodingDesktopOnly => 'H.264 and HEVC clip encoding is currently available on macOS and Windows.';
+	@override String get hdrRequiresSource => 'HDR export requires a direct-play HDR10 or HLG-compatible source.';
+	@override String get transcodeStartUnavailable => 'This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.';
+	@override String get previewRequired => 'Clip preview must finish loading before it can be saved.';
+	@override String get h264Failed => 'This source could not be encoded as an H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'This source could not be encoded as an HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'This source could not be encoded as an HEVC HDR MP4.';
+	@override String get gifFailed => 'This source could not be encoded as a GIF.';
+	@override String get originalFailed => 'This source could not be copied from the mpv cache.';
+	@override String get previewUnavailable => 'Clip preview playback is not available in this build.';
+	@override String get previewFailed => 'Clip preview playback failed.';
+	@override String get previewLoadingScreenshot => 'The clip preview must finish loading before taking a screenshot.';
+	@override String get screenshotInProgress => 'A screenshot is already being saved.';
+	@override String get saveAsDialog => 'Save Clip As';
+	@override String savedTo({required Object fileName}) => 'Saved to ${fileName}';
+	@override String get openFolder => 'Open Folder';
+	@override String get saveAs => 'Save As';
+	@override String get cancelExport => 'Cancel Export';
+	@override String get saving => 'Saving...';
+	@override String savingProgress({required Object percent}) => 'Saving ${percent}%';
+	@override String get mutePreview => 'Mute preview';
+	@override String get unmutePreview => 'Unmute preview';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: libraries.tabs
@@ -1992,6 +2191,206 @@ class _Translations$explore$status$zh_Hant extends Translations$explore$status$z
 	@override String get ended => '已完結';
 	@override String get canceled => '已取消';
 	@override String get upcoming => '即將上線';
+}
+
+// Path: explore.badge
+class _Translations$explore$badge$zh_Hant extends Translations$explore$badge$zh {
+	_Translations$explore$badge$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String rankPopular({required Object n}) => '#${n} popular';
+	@override String rankAiring({required Object n}) => '#${n} airing';
+	@override String rankRated({required Object n}) => '#${n} rated';
+	@override String rankFavorited({required Object n}) => '#${n} favorited';
+	@override String rankTrending({required Object n}) => '#${n} trending';
+	@override String rankSeasonal({required Object n, required Object season}) => '#${n} in ${season}';
+	@override String watchingNow({required Object n}) => '${n} watching';
+	@override String get available => 'Available';
+	@override String get partiallyAvailable => 'Partly available';
+	@override String get availableIn4k => '4K available';
+	@override String get requested => 'Requested';
+	@override String get pendingApproval => 'Pending approval';
+	@override String get processing => 'Processing';
+	@override String get declined => 'Declined';
+	@override String get requestFailed => 'Request failed';
+	@override String get requested4k => '4K requested';
+	@override String seasonsAvailable({required Object available, required Object total}) => '${available}/${total} seasons';
+	@override String nextEpisodeIn({required Object episode, required Object duration}) => 'Ep ${episode} in ${duration}';
+	@override String nextAiringIn({required Object duration}) => 'Next in ${duration}';
+	@override String episodesShort({required Object n}) => '${n} eps';
+	@override String minutesPerEpisode({required Object n}) => '${n} min/ep';
+	@override String get adult => '18+';
+}
+
+// Path: explore.stats
+class _Translations$explore$stats$zh_Hant extends Translations$explore$stats$zh {
+	_Translations$explore$stats$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String listed({required Object n}) => '${n} listed';
+	@override String viewersDay({required Object n}) => '${n} watched today';
+	@override String viewersWeek({required Object n}) => '${n} watched this week';
+	@override String viewersMonth({required Object n}) => '${n} watched this month';
+	@override String viewersYear({required Object n}) => '${n} watched this year';
+	@override String viewersAllTime({required Object n}) => '${n} viewers';
+	@override String planning({required Object n}) => '${n} planning to watch';
+	@override String favorited({required Object n}) => '${n} favorites';
+	@override String dropRate({required Object percent}) => '${percent} dropped it';
+	@override String comments({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} comment',
+		other: '${n} comments',
+	);
+	@override String votes({required Object n}) => '${n} votes';
+	@override String watching({required Object n}) => '${n} watching it';
+	@override String completed({required Object n}) => '${n} completed';
+	@override String onHold({required Object n}) => '${n} on hold';
+	@override String dropped({required Object n}) => '${n} dropped';
+}
+
+// Path: explore.season
+class _Translations$explore$season$zh_Hant extends Translations$explore$season$zh {
+	_Translations$explore$season$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get winter => 'Winter';
+	@override String get spring => 'Spring';
+	@override String get summer => 'Summer';
+	@override String get fall => 'Fall';
+	@override String withYear({required Object season, required Object year}) => '${season} ${year}';
+}
+
+// Path: explore.format
+class _Translations$explore$format$zh_Hant extends Translations$explore$format$zh {
+	_Translations$explore$format$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get tv => 'TV';
+	@override String get tvShort => 'TV Short';
+	@override String get movie => 'Movie';
+	@override String get special => 'Special';
+	@override String get ova => 'OVA';
+	@override String get ona => 'ONA';
+	@override String get music => 'Music';
+	@override String get other => 'Other';
+}
+
+// Path: explore.sourceMaterial
+class _Translations$explore$sourceMaterial$zh_Hant extends Translations$explore$sourceMaterial$zh {
+	_Translations$explore$sourceMaterial$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get original => 'Original';
+	@override String get manga => 'Manga';
+	@override String get lightNovel => 'Light novel';
+	@override String get novel => 'Novel';
+	@override String get visualNovel => 'Visual novel';
+	@override String get game => 'Game';
+	@override String get webComic => 'Web comic';
+	@override String get musicRelease => 'Music';
+	@override String get otherMedia => 'Other';
+}
+
+// Path: explore.creditRole
+class _Translations$explore$creditRole$zh_Hant extends Translations$explore$creditRole$zh {
+	_Translations$explore$creditRole$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get director => 'Director';
+	@override String get writer => 'Writer';
+	@override String get producer => 'Producer';
+	@override String get creator => 'Creator';
+	@override String get composer => 'Composer';
+}
+
+// Path: explore.ratingSource
+class _Translations$explore$ratingSource$zh_Hant extends Translations$explore$ratingSource$zh {
+	_Translations$explore$ratingSource$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get critic => 'Critics';
+	@override String get audience => 'Audience';
+	@override String get imdb => 'IMDb';
+	@override String get tmdb => 'TMDB';
+	@override String get rottenTomatoes => 'Rotten Tomatoes';
+	@override String get simkl => 'Simkl';
+	@override String get mal => 'MyAnimeList';
+	@override String get anilist => 'AniList';
+	@override String get trakt => 'Trakt';
+	@override String get rottenTomatoesCritic => 'Rotten Tomatoes critics';
+	@override String get rottenTomatoesAudience => 'Rotten Tomatoes audience';
+}
+
+// Path: explore.detail
+class _Translations$explore$detail$zh_Hant extends Translations$explore$detail$zh {
+	_Translations$explore$detail$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get originalTitle => 'Original title';
+	@override String get alsoKnownAs => 'Also known as';
+	@override String get studios => 'Studios';
+	@override String get country => 'Country';
+	@override String get language => 'Language';
+	@override String get released => 'Released';
+	@override String get physicalRelease => 'On disc';
+	@override String get ended => 'Ended';
+	@override String addedOn({required Object date}) => 'Added ${date}';
+	@override String get yourRating => 'Your rating';
+	@override String get budget => 'Budget';
+	@override String get revenue => 'Box office';
+	@override String get contentAdvisory => 'Age guidance';
+	@override String get tags => 'Tags';
+	@override String get revealSpoilerTags => 'Show spoiler tags';
+	@override String get links => 'Links';
+	@override String get watchOn => 'Watch on';
+	@override String get watchTrailer => 'Watch trailer';
+	@override String openOn({required Object site}) => 'Open on ${site}';
+	@override String get crew => 'Crew';
+	@override String get ratings => 'Ratings';
+	@override String get schedule => 'Schedule';
+	@override String recommendedByUsers({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: 'Recommended by ${n} user',
+		other: 'Recommended by ${n} users',
+	);
+	@override String recommendedBy({required Object who}) => 'Recommended by ${who}';
+	@override String favoritedBy({required Object who}) => 'Favorited by ${who}';
+	@override String unairedEpisodes({required Object n}) => '${n} not aired yet';
+	@override String recommendedByPercent({required Object percent}) => 'Recommended by ${percent} of viewers';
+	@override String get relatedTitles => 'Related titles';
+	@override String get background => 'Background';
+}
+
+// Path: explore.relation
+class _Translations$explore$relation$zh_Hant extends Translations$explore$relation$zh {
+	_Translations$explore$relation$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get prequel => 'Prequel';
+	@override String get sequel => 'Sequel';
+	@override String get sideStory => 'Side story';
+	@override String get spinOff => 'Spin-off';
+	@override String get alternativeVersion => 'Alternative version';
+	@override String get summary => 'Summary';
+	@override String get parentStory => 'Parent story';
+	@override String get adaptation => 'Adaptation';
+	@override String get other => 'Related';
 }
 
 // Path: downloads.backgroundWarning
@@ -2270,6 +2669,14 @@ extension on TranslationsZhHant {
 			'update.viewRelease' => '查看版本詳情',
 			'update.latestVersion' => '已安裝的版本為最新版本',
 			'update.checkFailed' => '無法檢查更新',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => '設定',
 			'settings.supportDeveloper' => '贊助 Plezy',
 			'settings.supportDeveloperDescription' => '透過 Liberapay 捐款支持開發者',
@@ -2376,6 +2783,9 @@ extension on TranslationsZhHant {
 			'settings.debugLoggingDescription' => '啟用詳細日誌記錄以便進行疑難排解',
 			'settings.viewLogs' => '查看日誌',
 			'settings.viewLogsDescription' => '查看應用程式日誌記錄',
+			'settings.clearImageCache' => 'Clear Image Cache',
+			'settings.clearImageCacheDescription' => 'Clear cached artwork and thumbnails. Images may load slower until downloaded again.',
+			'settings.clearImageCacheSuccess' => 'Image cache cleared successfully',
 			'settings.resetSettings' => '重設設定',
 			'settings.resetSettingsDescription' => '恢復預設設定。此操作無法復原。',
 			'settings.resetSettingsSuccess' => '設定重設成功',
@@ -2395,6 +2805,12 @@ extension on TranslationsZhHant {
 			'settings.updates' => '更新',
 			'settings.updateAvailable' => '有可用更新',
 			'settings.checkForUpdates' => '檢查更新',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => '啟動時自動檢查更新',
 			'settings.autoCheckUpdatesOnStartupDescription' => '啟動時若有可用更新便顯示通知',
 			'settings.validationErrorEnterNumber' => '請輸入有效的數字',
@@ -2428,6 +2844,17 @@ extension on TranslationsZhHant {
 			'settings.downloadLocationReset' => '下載位置已重設為預設值',
 			'settings.downloadLocationInvalid' => '所選資料夾不具寫入權限',
 			'settings.downloadLocationPickerUnavailable' => '此裝置無法選擇資料夾',
+			'settings.downloadLocationSelectError' => 'Failed to select folder',
+			'settings.mediaCapture' => 'Media Capture',
+			'settings.clips' => 'Clips',
+			'settings.screenshots' => 'Screenshots',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Location',
+			'settings.clipLocationDescription' => 'Choose where clips are saved.',
+			'settings.screenshotLocationDescription' => 'Choose where screenshots are saved.',
+			'settings.clipLocationChanged' => 'Clip location changed',
+			'settings.screenshotLocationChanged' => 'Screenshot location changed',
+			'settings.clipLocationReset' => 'Clip location reset to Desktop',
+			'settings.screenshotLocationReset' => 'Screenshot location reset to Desktop',
 			'settings.downloadOnWifiOnly' => '僅在 Wi-Fi 連線時下載',
 			'settings.downloadOnWifiOnlyDescription' => '使用行動網路時不會下載',
 			'settings.autoRemoveWatchedDownloads' => '自動移除已觀看的下載內容',
@@ -2558,30 +2985,121 @@ extension on TranslationsZhHant {
 			'hotkeys.actions.shaderToggle' => '切換著色器',
 			'hotkeys.actions.skipMarker' => '跳過片頭/片尾',
 			'hotkeys.actions.screenshot' => '螢幕截圖',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => '檔案資訊',
+			'fileInfo.overview' => 'Overview',
 			'fileInfo.video' => '影片',
 			'fileInfo.audio' => '音訊',
 			'fileInfo.subtitles' => '字幕',
+			'fileInfo.images' => 'Embedded Images',
+			'fileInfo.dataStreams' => 'Data Streams',
+			'fileInfo.lyrics' => 'Lyrics',
 			'fileInfo.file' => '檔案',
+			'fileInfo.attachments' => 'Attachments',
+			'fileInfo.delivery' => 'Delivery',
+			'fileInfo.versionCounter' => ({required Object index, required Object count}) => 'Version ${index} of ${count}',
+			'fileInfo.fileCounter' => ({required Object index, required Object count}) => 'File ${index} of ${count}',
+			'fileInfo.noStreams' => 'The server reported no streams for this file.',
+			'fileInfo.copyPath' => 'Copy path',
+			'fileInfo.pathCopied' => 'File path copied',
 			'fileInfo.codec' => '編解碼器',
+			'fileInfo.codecTag' => 'Codec Tag',
 			'fileInfo.resolution' => '解析度',
+			'fileInfo.codedResolution' => 'Coded Resolution',
 			'fileInfo.bitrate' => '位元率',
 			'fileInfo.frameRate' => '影格率',
+			'fileInfo.rotation' => 'Rotation',
+			'fileInfo.comment' => 'Comment',
+			'fileInfo.audioDescription' => 'Audio Description',
+			'fileInfo.headerCompression' => 'Header Compression',
+			'fileInfo.sidecarFile' => 'Sidecar File',
+			'fileInfo.transportTimestamp' => 'Transport Timestamp',
+			'fileInfo.displayOffset' => 'Display Offset',
+			'fileInfo.previewFailureCode' => 'Preview Failure Code',
+			'fileInfo.previewRetries' => 'Preview Retries',
 			'fileInfo.aspectRatio' => '寬高比',
+			'fileInfo.pixelAspectRatio' => 'Pixel Aspect Ratio',
 			'fileInfo.profile' => '規格檔（Profile）',
+			'fileInfo.level' => 'Level',
 			'fileInfo.bitDepth' => '位元深度',
+			'fileInfo.pixelFormat' => 'Pixel Format',
 			'fileInfo.colorSpace' => '色彩空間',
 			'fileInfo.colorRange' => '色彩範圍',
 			'fileInfo.colorPrimaries' => '色彩基色',
+			'fileInfo.colorTransfer' => 'Color Transfer',
 			'fileInfo.chromaSubsampling' => '色度抽樣',
+			'fileInfo.chromaLocation' => 'Chroma Location',
+			'fileInfo.scanType' => 'Scan Type',
+			'fileInfo.interlaced' => 'Interlaced',
+			'fileInfo.anamorphic' => 'Anamorphic',
+			'fileInfo.referenceFrames' => 'Reference Frames',
+			'fileInfo.dynamicRange' => 'Dynamic Range',
+			'fileInfo.dolbyVision' => 'Dolby Vision',
+			'fileInfo.dolbyVisionLevel' => 'Dolby Vision Level',
+			'fileInfo.dolbyVisionVersion' => 'Dolby Vision Version',
+			'fileInfo.dolbyVisionLayers' => 'Dolby Vision Layers',
+			'fileInfo.baseLayerCompatibility' => 'Base Layer Compatibility',
+			'fileInfo.avcBitstream' => 'AVC Bitstream',
+			'fileInfo.nalLengthSize' => 'NAL Length Size',
+			'fileInfo.scalingMatrix' => 'Custom Scaling Matrix',
+			'fileInfo.streamIdentifier' => 'Stream Identifier',
+			'fileInfo.streamIndex' => 'Stream Index',
+			'fileInfo.streamId' => 'Stream ID',
+			'fileInfo.language' => 'Language',
+			'fileInfo.languageCode' => 'Language Code',
+			'fileInfo.streamTitle' => 'Track Title',
 			'fileInfo.channels' => '聲道數',
+			'fileInfo.sampleRate' => 'Sample Rate',
+			'fileInfo.spatialAudio' => 'Spatial Audio',
+			'fileInfo.textBased' => 'Text Based',
+			'fileInfo.subtitleFormat' => 'Sidecar Format',
+			'fileInfo.provider' => 'Provider',
+			'fileInfo.matchScore' => 'Match Score',
+			'fileInfo.externalDelivery' => 'Can Be Served Separately',
+			'fileInfo.sidecarPath' => 'Sidecar Path',
+			'fileInfo.sourceStream' => 'Copied From',
+			'fileInfo.temporary' => 'Temporary',
+			'fileInfo.timeBase' => 'Time Base',
 			'fileInfo.overallBitrate' => '總位元率',
 			'fileInfo.path' => '路徑',
+			'fileInfo.fileName' => 'File Name',
 			'fileInfo.size' => '大小',
+			'fileInfo.totalSize' => 'Total Size',
 			'fileInfo.container' => '封裝格式',
 			'fileInfo.duration' => '長度',
+			'fileInfo.previewThumbnails' => 'Preview Thumbnails',
+			'fileInfo.previewIndex' => 'Preview Index',
+			'fileInfo.packetLength' => 'Packet Length',
+			'fileInfo.filePresent' => 'File Present',
+			'fileInfo.fileReadable' => 'Readable by Server',
+			'fileInfo.streamPath' => 'Stream Path',
 			'fileInfo.optimizedForStreaming' => '已最佳化串流播放',
 			'fileInfo.has64bitOffsets' => '具 64 位元偏移量',
+			'fileInfo.protocol' => 'Protocol',
+			'fileInfo.mediaType' => 'Media Type',
+			'fileInfo.sourceKind' => 'Source Kind',
+			'fileInfo.optimizedVersion' => 'Optimized Version',
+			'fileInfo.optimizationTarget' => 'Optimization Target',
+			'fileInfo.deletedAt' => 'Deleted',
+			'fileInfo.remoteSource' => 'Remote Source',
+			'fileInfo.infiniteStream' => 'Infinite Stream',
+			'fileInfo.directPlay' => 'Direct Play',
+			'fileInfo.directStream' => 'Direct Stream',
+			'fileInfo.transcoding' => 'Transcoding',
+			'fileInfo.etag' => 'ETag',
+			'fileInfo.versionId' => 'Version ID',
+			'fileInfo.fileId' => 'File ID',
+			'fileInfo.defaultAudioTrack' => 'Default Audio Track',
+			'fileInfo.defaultSubtitleTrack' => 'Default Subtitle Track',
+			'fileInfo.subtitlesOff' => 'Off',
+			'fileInfo.flagDefault' => 'Default',
+			'fileInfo.flagForced' => 'Forced',
+			'fileInfo.flagSelected' => 'Selected',
+			'fileInfo.flagExternal' => 'External',
+			'fileInfo.flagHearingImpaired' => 'Hearing impaired',
+			'fileInfo.flagDub' => 'Dub',
+			'fileInfo.flagOriginal' => 'Original',
 			'mediaMenu.markAsWatched' => '標記為已觀看',
 			'mediaMenu.markAsUnwatched' => '標記為未觀看',
 			'mediaMenu.removeFromContinueWatching' => '從「繼續觀看」中移除',
@@ -2590,6 +3108,8 @@ extension on TranslationsZhHant {
 			'mediaMenu.shufflePlay' => '隨機播放',
 			'mediaMenu.shuffleNotAvailableOffline' => '離線時無法隨機播放',
 			'mediaMenu.fileInfo' => '檔案資訊',
+			_ => null,
+		} ?? switch (path) {
 			'mediaMenu.deleteFromServer' => '從伺服器刪除',
 			'mediaMenu.confirmDelete' => '確定要從伺服器刪除此媒體及其檔案嗎？',
 			'mediaMenu.deleteMultipleWarning' => '這將會刪除所有單集及其檔案。',
@@ -2658,6 +3178,8 @@ extension on TranslationsZhHant {
 			'videoControls.playNext' => '播放下一集',
 			'videoControls.playButton' => '播放',
 			'videoControls.pauseButton' => '暫停',
+			'videoControls.playbackPaused' => 'Paused',
+			'videoControls.playbackResumed' => 'Playing',
 			'videoControls.showPlaybackControls' => '顯示播放控制項',
 			'videoControls.hidePlaybackControls' => '隱藏播放控制項',
 			'videoControls.seekBackwardButton' => ({required Object seconds}) => '後退 ${seconds} 秒',
@@ -2709,20 +3231,56 @@ extension on TranslationsZhHant {
 			'videoControls.searchSubtitles' => '搜尋字幕',
 			'videoControls.language' => '語言',
 			'videoControls.noSubtitlesFound' => '找不到字幕',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.subtitleDownloaded' => '字幕下載成功',
 			'videoControls.subtitleDownloadedNotApplied' => '字幕已下載，但無法套用',
 			'videoControls.subtitleDownloadFailed' => '字幕下載失敗',
 			'videoControls.searchLanguages' => '搜尋語言…',
+			'videoControls.clip.title' => 'Clip',
+			'videoControls.clip.vodOnly' => 'Clips are available for on-demand video playback.',
+			'videoControls.clip.sourceUnavailable' => 'Clip source is not available for this playback session.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Play at least 1 second before clipping.',
+			'videoControls.clip.startBeforeBeginning' => 'Clip start cannot be before the beginning of the video.',
+			'videoControls.clip.endAfterStart' => 'Clip end must be after the start.',
+			'videoControls.clip.minimumDuration' => 'Clips must be at least 1 second long.',
+			'videoControls.clip.endPastVideo' => 'Clip end is past the end of the video.',
+			'videoControls.clip.exportCanceled' => 'Clip export canceled.',
+			'videoControls.clip.cacheUnavailable' => 'The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Source-copy export does not use an encoder.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 and HEVC clip encoding is currently available on macOS and Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR export requires a direct-play HDR10 or HLG-compatible source.',
+			'videoControls.clip.transcodeStartUnavailable' => 'This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.',
+			'videoControls.clip.previewRequired' => 'Clip preview must finish loading before it can be saved.',
+			'videoControls.clip.h264Failed' => 'This source could not be encoded as an H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'This source could not be encoded as an HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'This source could not be encoded as an HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'This source could not be encoded as a GIF.',
+			'videoControls.clip.originalFailed' => 'This source could not be copied from the mpv cache.',
+			'videoControls.clip.previewUnavailable' => 'Clip preview playback is not available in this build.',
+			'videoControls.clip.previewFailed' => 'Clip preview playback failed.',
+			'videoControls.clip.previewLoadingScreenshot' => 'The clip preview must finish loading before taking a screenshot.',
+			'videoControls.clip.screenshotInProgress' => 'A screenshot is already being saved.',
+			'videoControls.clip.saveAsDialog' => 'Save Clip As',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Saved to ${fileName}',
+			'videoControls.clip.openFolder' => 'Open Folder',
+			'videoControls.clip.saveAs' => 'Save As',
+			'videoControls.clip.cancelExport' => 'Cancel Export',
+			'videoControls.clip.saving' => 'Saving...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Saving ${percent}%',
+			'videoControls.clip.mutePreview' => 'Mute preview',
+			'videoControls.clip.unmutePreview' => 'Unmute preview',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'messages.markedAsWatched' => '已標記為已觀看',
 			'messages.markedAsUnwatched' => '已標記為未觀看',
 			'messages.markedAsWatchedOffline' => '已標記為已觀看（將在連線時同步）',
 			'messages.markedAsUnwatchedOffline' => '已標記為未觀看（將在連線時同步）',
 			'messages.autoRemovedWatchedDownload' => ({required Object title}) => '已自動移除：${title}',
-			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '已自動移除 ${n} 個已觀看的下載內容', ), 
+			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: 'Auto-removed ${n} watched download', other: '已自動移除 ${n} 個已觀看的下載內容', ), 
 			'messages.removedFromContinueWatching' => '已從「繼續觀看」中移除',
 			'messages.errorLoading' => ({required Object error}) => '錯誤：${error}',
+			'messages.searchPartialResults' => 'Some media servers could not be searched. Showing available results.',
 			'messages.streamInterrupted' => '影片串流中斷。請按播放鍵或拖動進度條重試。',
 			'messages.liveStreamInterrupted' => '直播串流中斷。請按播放鍵重試。',
 			'messages.fileInfoNotAvailable' => '無法取得檔案資訊',
@@ -2894,6 +3452,7 @@ extension on TranslationsZhHant {
 			'discover.minutesLeft' => ({required Object minutes}) => '剩餘 ${minutes} 分鐘',
 			'discover.moreLikeThis' => '更多類似內容',
 			'errors.searchFailed' => ({required Object error}) => '搜尋失敗：${error}',
+			'errors.searchUnavailable' => 'Search could not reach any media server.',
 			'errors.connectionTimeout' => ({required Object context}) => '載入 ${context} 時連線逾時',
 			'errors.connectionFailed' => '無法連線至媒體伺服器',
 			'errors.unableToLoad' => ({required Object context}) => '無法載入 ${context}。請重試。',
@@ -2989,8 +3548,10 @@ extension on TranslationsZhHant {
 			'about.title' => '關於',
 			'about.openSourceLicenses' => '開源授權條款',
 			'about.versionLabel' => ({required Object version}) => '版本 ${version}',
-			'about.appDescription' => '一款精美的 Plex 與 Jellyfin Flutter 用戶端',
 			'about.viewLicensesDescription' => '查看第三方套件的授權條款',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '找不到 ${username}（${email}） 的伺服器',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => '無法載入伺服器：${error}',
 			'hubDetail.title' => '標題',
@@ -3029,7 +3590,7 @@ extension on TranslationsZhHant {
 			'explore.status.ended' => '已完結',
 			'explore.status.canceled' => '已取消',
 			'explore.status.upcoming' => '即將上線',
-			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 集', ), 
+			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} episode', other: '${n} 集', ), 
 			'explore.cast' => '演員陣容',
 			'explore.characters' => '角色',
 			'explore.addToWatchlist' => '新增至待看清單',
@@ -3044,6 +3605,124 @@ extension on TranslationsZhHant {
 			'explore.searchEmpty' => ({required Object query}) => '沒有「${query}」的結果',
 			'explore.searchPrompt' => ({required Object source}) => '在 ${source} 搜尋電影與影集。',
 			'explore.searchFailed' => '搜尋失敗。請檢查網路連線後重試。',
+			'explore.badge.rankPopular' => ({required Object n}) => '#${n} popular',
+			'explore.badge.rankAiring' => ({required Object n}) => '#${n} airing',
+			'explore.badge.rankRated' => ({required Object n}) => '#${n} rated',
+			'explore.badge.rankFavorited' => ({required Object n}) => '#${n} favorited',
+			'explore.badge.rankTrending' => ({required Object n}) => '#${n} trending',
+			'explore.badge.rankSeasonal' => ({required Object n, required Object season}) => '#${n} in ${season}',
+			'explore.badge.watchingNow' => ({required Object n}) => '${n} watching',
+			'explore.badge.available' => 'Available',
+			'explore.badge.partiallyAvailable' => 'Partly available',
+			'explore.badge.availableIn4k' => '4K available',
+			'explore.badge.requested' => 'Requested',
+			'explore.badge.pendingApproval' => 'Pending approval',
+			'explore.badge.processing' => 'Processing',
+			'explore.badge.declined' => 'Declined',
+			'explore.badge.requestFailed' => 'Request failed',
+			'explore.badge.requested4k' => '4K requested',
+			'explore.badge.seasonsAvailable' => ({required Object available, required Object total}) => '${available}/${total} seasons',
+			_ => null,
+		} ?? switch (path) {
+			'explore.badge.nextEpisodeIn' => ({required Object episode, required Object duration}) => 'Ep ${episode} in ${duration}',
+			'explore.badge.nextAiringIn' => ({required Object duration}) => 'Next in ${duration}',
+			'explore.badge.episodesShort' => ({required Object n}) => '${n} eps',
+			'explore.badge.minutesPerEpisode' => ({required Object n}) => '${n} min/ep',
+			'explore.badge.adult' => '18+',
+			'explore.stats.listed' => ({required Object n}) => '${n} listed',
+			'explore.stats.viewersDay' => ({required Object n}) => '${n} watched today',
+			'explore.stats.viewersWeek' => ({required Object n}) => '${n} watched this week',
+			'explore.stats.viewersMonth' => ({required Object n}) => '${n} watched this month',
+			'explore.stats.viewersYear' => ({required Object n}) => '${n} watched this year',
+			'explore.stats.viewersAllTime' => ({required Object n}) => '${n} viewers',
+			'explore.stats.planning' => ({required Object n}) => '${n} planning to watch',
+			'explore.stats.favorited' => ({required Object n}) => '${n} favorites',
+			'explore.stats.dropRate' => ({required Object percent}) => '${percent} dropped it',
+			'explore.stats.comments' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} comment', other: '${n} comments', ), 
+			'explore.stats.votes' => ({required Object n}) => '${n} votes',
+			'explore.stats.watching' => ({required Object n}) => '${n} watching it',
+			'explore.stats.completed' => ({required Object n}) => '${n} completed',
+			'explore.stats.onHold' => ({required Object n}) => '${n} on hold',
+			'explore.stats.dropped' => ({required Object n}) => '${n} dropped',
+			'explore.season.winter' => 'Winter',
+			'explore.season.spring' => 'Spring',
+			'explore.season.summer' => 'Summer',
+			'explore.season.fall' => 'Fall',
+			'explore.season.withYear' => ({required Object season, required Object year}) => '${season} ${year}',
+			'explore.format.tv' => 'TV',
+			'explore.format.tvShort' => 'TV Short',
+			'explore.format.movie' => 'Movie',
+			'explore.format.special' => 'Special',
+			'explore.format.ova' => 'OVA',
+			'explore.format.ona' => 'ONA',
+			'explore.format.music' => 'Music',
+			'explore.format.other' => 'Other',
+			'explore.sourceMaterial.original' => 'Original',
+			'explore.sourceMaterial.manga' => 'Manga',
+			'explore.sourceMaterial.lightNovel' => 'Light novel',
+			'explore.sourceMaterial.novel' => 'Novel',
+			'explore.sourceMaterial.visualNovel' => 'Visual novel',
+			'explore.sourceMaterial.game' => 'Game',
+			'explore.sourceMaterial.webComic' => 'Web comic',
+			'explore.sourceMaterial.musicRelease' => 'Music',
+			'explore.sourceMaterial.otherMedia' => 'Other',
+			'explore.creditRole.director' => 'Director',
+			'explore.creditRole.writer' => 'Writer',
+			'explore.creditRole.producer' => 'Producer',
+			'explore.creditRole.creator' => 'Creator',
+			'explore.creditRole.composer' => 'Composer',
+			'explore.ratingSource.critic' => 'Critics',
+			'explore.ratingSource.audience' => 'Audience',
+			'explore.ratingSource.imdb' => 'IMDb',
+			'explore.ratingSource.tmdb' => 'TMDB',
+			'explore.ratingSource.rottenTomatoes' => 'Rotten Tomatoes',
+			'explore.ratingSource.simkl' => 'Simkl',
+			'explore.ratingSource.mal' => 'MyAnimeList',
+			'explore.ratingSource.anilist' => 'AniList',
+			'explore.ratingSource.trakt' => 'Trakt',
+			'explore.ratingSource.rottenTomatoesCritic' => 'Rotten Tomatoes critics',
+			'explore.ratingSource.rottenTomatoesAudience' => 'Rotten Tomatoes audience',
+			'explore.broadcast' => ({required Object day, required Object time}) => 'Airs ${day} at ${time}',
+			'explore.broadcastWithZone' => ({required Object day, required Object time, required Object timezone}) => 'Airs ${day} at ${time} ${timezone}',
+			'explore.detail.originalTitle' => 'Original title',
+			'explore.detail.alsoKnownAs' => 'Also known as',
+			'explore.detail.studios' => 'Studios',
+			'explore.detail.country' => 'Country',
+			'explore.detail.language' => 'Language',
+			'explore.detail.released' => 'Released',
+			'explore.detail.physicalRelease' => 'On disc',
+			'explore.detail.ended' => 'Ended',
+			'explore.detail.addedOn' => ({required Object date}) => 'Added ${date}',
+			'explore.detail.yourRating' => 'Your rating',
+			'explore.detail.budget' => 'Budget',
+			'explore.detail.revenue' => 'Box office',
+			'explore.detail.contentAdvisory' => 'Age guidance',
+			'explore.detail.tags' => 'Tags',
+			'explore.detail.revealSpoilerTags' => 'Show spoiler tags',
+			'explore.detail.links' => 'Links',
+			'explore.detail.watchOn' => 'Watch on',
+			'explore.detail.watchTrailer' => 'Watch trailer',
+			'explore.detail.openOn' => ({required Object site}) => 'Open on ${site}',
+			'explore.detail.crew' => 'Crew',
+			'explore.detail.ratings' => 'Ratings',
+			'explore.detail.schedule' => 'Schedule',
+			'explore.detail.recommendedByUsers' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: 'Recommended by ${n} user', other: 'Recommended by ${n} users', ), 
+			'explore.detail.recommendedBy' => ({required Object who}) => 'Recommended by ${who}',
+			'explore.detail.favoritedBy' => ({required Object who}) => 'Favorited by ${who}',
+			'explore.detail.unairedEpisodes' => ({required Object n}) => '${n} not aired yet',
+			'explore.detail.recommendedByPercent' => ({required Object percent}) => 'Recommended by ${percent} of viewers',
+			'explore.detail.relatedTitles' => 'Related titles',
+			'explore.detail.background' => 'Background',
+			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} result', other: '${n} results', ), 
+			'explore.relation.prequel' => 'Prequel',
+			'explore.relation.sequel' => 'Sequel',
+			'explore.relation.sideStory' => 'Side story',
+			'explore.relation.spinOff' => 'Spin-off',
+			'explore.relation.alternativeVersion' => 'Alternative version',
+			'explore.relation.summary' => 'Summary',
+			'explore.relation.parentStory' => 'Parent story',
+			'explore.relation.adaptation' => 'Adaptation',
+			'explore.relation.other' => 'Related',
 			'liveTv.title' => '直播電視',
 			'liveTv.guide' => '節目表指南',
 			'liveTv.noChannels' => '沒有可用的頻道',
@@ -3163,7 +3842,7 @@ extension on TranslationsZhHant {
 			'music.playNext' => '下一首播放',
 			'music.addToQueue' => '新增至佇列',
 			'music.discNumber' => ({required Object n}) => 'CD ${n}',
-			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 首', ), 
+			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} track', other: '${n} 首', ), 
 			'music.nowPlaying' => '正在播放',
 			'music.playingFrom' => ({required Object title}) => '來自 ${title}',
 			'music.queue' => '播放佇列',
@@ -3223,8 +3902,6 @@ extension on TranslationsZhHant {
 			'watchTogether.failedToCreate' => '建立工作階段失敗',
 			'watchTogether.failedToJoin' => '加入工作階段失敗',
 			'watchTogether.sessionCodeCopied' => '工作階段代碼已複製到剪貼簿',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.relayUnreachable' => '無法連線至中繼伺服器。ISP 封鎖可能會導致「一起看」無法使用。',
 			'watchTogether.reconnectingToHost' => '正在重新連線至主持人…',
 			'watchTogether.currentPlayback' => '目前播放內容',
@@ -3296,9 +3973,15 @@ extension on TranslationsZhHant {
 			'downloads.editSyncRule' => '編輯同步規則',
 			'downloads.removeSyncRule' => '刪除同步規則',
 			'downloads.removeSyncRuleConfirm' => ({required Object title}) => '停止同步「${title}」？已下載的單集將會保留。',
+			'downloads.removeListSyncRuleConfirm' => ({required Object title}) => 'Stop syncing "${title}"?',
+			'downloads.deleteSyncRuleDownloads' => 'Also delete associated downloads',
+			'downloads.deleteSyncRuleDownloadsDescription' => 'Downloads used by another sync rule or profile will be kept.',
 			'downloads.syncRuleCreated' => ({required Object count}) => '同步規則已建立 — 將保留 ${count} 個未觀看單集',
 			'downloads.syncRuleUpdated' => '同步規則已更新',
 			'downloads.syncRuleRemoved' => '同步規則已刪除',
+			'downloads.syncRuleAndDownloadsRemoved' => 'Sync rule and associated downloads removed',
+			'downloads.syncRuleCleanupBusy' => 'Sync rules are currently updating. Try again in a moment.',
+			'downloads.syncRuleCleanupUnavailable' => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.',
 			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '已為 ${title} 同步 ${count} 個新單集',
 			'downloads.activeSyncRules' => '同步規則',
 			'downloads.noSyncRules' => '沒有同步規則',
@@ -3453,6 +4136,8 @@ extension on TranslationsZhHant {
 			'performanceOverlay.pixelFormat' => '像素格式',
 			'performanceOverlay.hwFormat' => '硬體格式',
 			'performanceOverlay.matrix' => '矩陣',
+			_ => null,
+		} ?? switch (path) {
 			'performanceOverlay.primaries' => '基色',
 			'performanceOverlay.transfer' => '傳輸特性',
 			'performanceOverlay.renderFps' => '渲染 FPS',
