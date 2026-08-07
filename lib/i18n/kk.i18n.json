@@ -93,7 +93,15 @@
     "skipVersion": "Бұл нұсқаны өткізіп жіберу",
     "viewRelease": "Релизді көру",
     "latestVersion": "Сізде ең соңғы нұсқа орнатылған",
-    "checkFailed": "Жаңартуларды тексеру мүмкін болмады"
+    "checkFailed": "Жаңартуларды тексеру мүмкін болмады",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Баптаулар",
@@ -224,6 +232,12 @@
     "updates": "Жаңартулар",
     "updateAvailable": "Жаңарту бар",
     "checkForUpdates": "Жаңартуларды тексеру",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "autoCheckUpdatesOnStartup": "Іске қосылғанда жаңартуларды автоматты тексеру",
     "autoCheckUpdatesOnStartupDescription": "Іске қосылғанда жаңарту бар болса хабарлау",
     "validationErrorEnterNumber": "Дұрыс сан енгізіңіз",
@@ -966,8 +980,10 @@
     "title": "Қолданба туралы",
     "openSourceLicenses": "Ашық бастапқы код лицензиялары",
     "versionLabel": "Нұсқа ${version}",
-    "appDescription": "Flutter негізіндегі ыңғайлы Plex және Jellyfin клиенті",
-    "viewLicensesDescription": "Үшінші тарап кітапханаларының лицензияларын көру"
+    "viewLicensesDescription": "Үшінші тарап кітапханаларының лицензияларын көру",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email}) үшін серверлер табылмады",

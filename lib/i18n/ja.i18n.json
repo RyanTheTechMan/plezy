@@ -93,7 +93,15 @@
     "skipVersion": "このバージョンをスキップ",
     "viewRelease": "リリースを表示",
     "latestVersion": "最新バージョンです",
-    "checkFailed": "アップデートの確認に失敗しました"
+    "checkFailed": "アップデートの確認に失敗しました",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "設定",
@@ -202,9 +210,9 @@
     "debugLoggingDescription": "トラブルシューティング用の詳細なログを有効化",
     "viewLogs": "ログを表示",
     "viewLogsDescription": "アプリケーションログを表示",
-    "clearImageCache": "",
-    "clearImageCacheDescription": "",
-    "clearImageCacheSuccess": "",
+    "clearImageCache": "Clear Image Cache",
+    "clearImageCacheDescription": "Clear cached artwork and thumbnails. Images may load slower until downloaded again.",
+    "clearImageCacheSuccess": "Image cache cleared successfully",
     "resetSettings": "設定をリセット",
     "resetSettingsDescription": "設定を既定に戻します。元に戻せません。",
     "resetSettingsSuccess": "設定を正常にリセットしました",
@@ -224,6 +232,12 @@
     "updates": "アップデート",
     "updateAvailable": "アップデート利用可能",
     "checkForUpdates": "アップデートを確認",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "autoCheckUpdatesOnStartup": "起動時にアップデートを自動的に確認",
     "autoCheckUpdatesOnStartupDescription": "起動時にアップデートがある場合は通知します",
     "validationErrorEnterNumber": "有効な数値を入力してください",
@@ -665,11 +679,12 @@
     "markedAsUnwatchedOffline": "未視聴にしました（オンライン時に同期）",
     "autoRemovedWatchedDownload": "自動削除: ${title}",
     "autoRemovedWatchedDownloads": {
+      "one": "Auto-removed ${n} watched download",
       "other": "視聴済みダウンロードを${n}件自動削除しました"
     },
     "removedFromContinueWatching": "視聴中から削除しました",
     "errorLoading": "エラー: ${error}",
-    "searchPartialResults": "",
+    "searchPartialResults": "Some media servers could not be searched. Showing available results.",
     "streamInterrupted": "ストリームが中断されました。再生を押すかシークして再試行してください。",
     "liveStreamInterrupted": "ライブストリームが中断されました。再生を押して再試行してください。",
     "fileInfoNotAvailable": "ファイル情報が利用できません",
@@ -857,7 +872,7 @@
   },
   "errors": {
     "searchFailed": "検索に失敗しました: ${error}",
-    "searchUnavailable": "",
+    "searchUnavailable": "Search could not reach any media server.",
     "connectionTimeout": "${context}の読み込み中に接続がタイムアウトしました",
     "connectionFailed": "メディアサーバーに接続できません",
     "unableToLoad": "${context}を読み込めませんでした。もう一度お試しください。",
@@ -965,8 +980,10 @@
     "title": "アプリについて",
     "openSourceLicenses": "オープンソースライセンス",
     "versionLabel": "バージョン ${version}",
-    "appDescription": "Flutter製の美しいPlex・Jellyfinクライアント",
-    "viewLicensesDescription": "サードパーティライブラリのライセンスを表示"
+    "viewLicensesDescription": "サードパーティライブラリのライセンスを表示",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email})のサーバーが見つかりません",
@@ -1054,6 +1071,7 @@
       "upcoming": "放送予定"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n}話"
     },
     "cast": "キャスト",
@@ -1325,6 +1343,7 @@
     "addToQueue": "キューに追加",
     "discNumber": "ディスク ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n}曲"
     },
     "nowPlaying": "再生中",
@@ -1461,15 +1480,15 @@
     "editSyncRule": "同期ルールを編集",
     "removeSyncRule": "同期ルールを削除",
     "removeSyncRuleConfirm": "「${title}」の同期を停止しますか？ダウンロード済みのエピソードは保持されます。",
-    "removeListSyncRuleConfirm": "",
-    "deleteSyncRuleDownloads": "",
-    "deleteSyncRuleDownloadsDescription": "",
+    "removeListSyncRuleConfirm": "Stop syncing \"${title}\"?",
+    "deleteSyncRuleDownloads": "Also delete associated downloads",
+    "deleteSyncRuleDownloadsDescription": "Downloads used by another sync rule or profile will be kept.",
     "syncRuleCreated": "同期ルールを作成しました — 未視聴のエピソードを${count}件保持",
     "syncRuleUpdated": "同期ルールを更新しました",
     "syncRuleRemoved": "同期ルールを削除しました",
-    "syncRuleAndDownloadsRemoved": "",
-    "syncRuleCleanupBusy": "",
-    "syncRuleCleanupUnavailable": "",
+    "syncRuleAndDownloadsRemoved": "Sync rule and associated downloads removed",
+    "syncRuleCleanupBusy": "Sync rules are currently updating. Try again in a moment.",
+    "syncRuleCleanupUnavailable": "Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.",
     "syncedNewEpisodes": "${title}の新しいエピソードを${count}件同期しました",
     "activeSyncRules": "同期ルール",
     "noSyncRules": "同期ルールなし",
