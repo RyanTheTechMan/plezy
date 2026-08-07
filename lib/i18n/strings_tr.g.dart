@@ -88,6 +88,7 @@ class TranslationsTr extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$seerr$tr seerr = _Translations$seerr$tr._(_root);
 	@override late final _Translations$services$tr services = _Translations$services$tr._(_root);
 	@override late final _Translations$addServer$tr addServer = _Translations$addServer$tr._(_root);
+	@override late final _Translations$startup$tr startup = _Translations$startup$tr._(_root);
 }
 
 // Path: app
@@ -176,6 +177,7 @@ class _Translations$common$tr extends Translations$common$en {
 	@override String get fullscreen => 'Tam Ekran';
 	@override String get exitFullscreen => 'Tam Ekrandan Çık';
 	@override String get pressBackAgainToExit => 'Çıkmak için tekrar geri tuşuna basın';
+	@override late final _Translations$common$ratingSource$tr ratingSource = _Translations$common$ratingSource$tr._(_root);
 }
 
 // Path: screens
@@ -206,6 +208,14 @@ class _Translations$update$tr extends Translations$update$en {
 	@override String get viewRelease => 'Sürümü Görüntüle';
 	@override String get latestVersion => 'En son sürümü kullanıyorsunuz';
 	@override String get checkFailed => 'Güncellemeler kontrol edilemedi';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -343,6 +353,12 @@ class _Translations$settings$tr extends Translations$settings$en {
 	@override String get updates => 'Güncellemeler';
 	@override String get updateAvailable => 'Güncelleme Mevcut';
 	@override String get checkForUpdates => 'Güncellemeleri Kontrol Et';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 	@override String get autoCheckUpdatesOnStartup => 'Açılışta güncellemeleri otomatik kontrol et';
 	@override String get autoCheckUpdatesOnStartupDescription => 'Açılışta bir güncelleme olduğunda bildir';
 	@override String get validationErrorEnterNumber => 'Lütfen geçerli bir sayı girin';
@@ -376,6 +392,17 @@ class _Translations$settings$tr extends Translations$settings$en {
 	@override String get downloadLocationReset => 'İndirme konumu varsayılana sıfırlandı';
 	@override String get downloadLocationInvalid => 'Seçilen klasöre yazılamıyor';
 	@override String get downloadLocationPickerUnavailable => 'Klasör seçimi bu cihazda kullanılamıyor';
+	@override String get downloadLocationSelectError => 'Failed to select folder';
+	@override String get mediaCapture => 'Media Capture';
+	@override String get clips => 'Clips';
+	@override String get screenshots => 'Screenshots';
+	@override String captureLocationTitle({required Object title}) => '${title} Location';
+	@override String get clipLocationDescription => 'Choose where clips are saved.';
+	@override String get screenshotLocationDescription => 'Choose where screenshots are saved.';
+	@override String get clipLocationChanged => 'Clip location changed';
+	@override String get screenshotLocationChanged => 'Screenshot location changed';
+	@override String get clipLocationReset => 'Clip location reset to Desktop';
+	@override String get screenshotLocationReset => 'Screenshot location reset to Desktop';
 	@override String get downloadOnWifiOnly => 'Yalnızca Wi-Fi üzerinden indir';
 	@override String get downloadOnWifiOnlyDescription => 'Hücresel verideyken indirmeleri engelle';
 	@override String get autoRemoveWatchedDownloads => 'İzlenen indirmeleri otomatik kaldır';
@@ -510,29 +537,118 @@ class _Translations$fileInfo$tr extends Translations$fileInfo$en {
 
 	// Translations
 	@override String get title => 'Dosya Bilgisi';
+	@override String get overview => 'Overview';
 	@override String get video => 'Video';
 	@override String get audio => 'Ses';
 	@override String get subtitles => 'Altyazılar';
+	@override String get images => 'Embedded Images';
+	@override String get dataStreams => 'Data Streams';
+	@override String get lyrics => 'Lyrics';
 	@override String get file => 'Dosya';
+	@override String get attachments => 'Attachments';
+	@override String get delivery => 'Delivery';
+	@override String versionCounter({required Object index, required Object count}) => 'Version ${index} of ${count}';
+	@override String fileCounter({required Object index, required Object count}) => 'File ${index} of ${count}';
+	@override String get noStreams => 'The server reported no streams for this file.';
+	@override String get copyPath => 'Copy path';
+	@override String get pathCopied => 'File path copied';
 	@override String get codec => 'Kodek';
+	@override String get codecTag => 'Codec Tag';
 	@override String get resolution => 'Çözünürlük';
+	@override String get codedResolution => 'Coded Resolution';
 	@override String get bitrate => 'Bit Hızı (Bitrate)';
 	@override String get frameRate => 'Kare Hızı';
+	@override String get rotation => 'Rotation';
+	@override String get comment => 'Comment';
+	@override String get audioDescription => 'Audio Description';
+	@override String get headerCompression => 'Header Compression';
+	@override String get sidecarFile => 'Sidecar File';
+	@override String get transportTimestamp => 'Transport Timestamp';
+	@override String get displayOffset => 'Display Offset';
+	@override String get previewFailureCode => 'Preview Failure Code';
+	@override String get previewRetries => 'Preview Retries';
 	@override String get aspectRatio => 'En Boy Oranı';
+	@override String get pixelAspectRatio => 'Pixel Aspect Ratio';
 	@override String get profile => 'Profil';
+	@override String get level => 'Level';
 	@override String get bitDepth => 'Bit Derinliği';
+	@override String get pixelFormat => 'Pixel Format';
 	@override String get colorSpace => 'Renk Alanı';
 	@override String get colorRange => 'Renk Aralığı';
 	@override String get colorPrimaries => 'Ana Renkler';
+	@override String get colorTransfer => 'Color Transfer';
 	@override String get chromaSubsampling => 'Renk Alt Örneklemesi';
+	@override String get chromaLocation => 'Chroma Location';
+	@override String get scanType => 'Scan Type';
+	@override String get interlaced => 'Interlaced';
+	@override String get anamorphic => 'Anamorphic';
+	@override String get referenceFrames => 'Reference Frames';
+	@override String get dynamicRange => 'Dynamic Range';
+	@override String get dolbyVision => 'Dolby Vision';
+	@override String get dolbyVisionLevel => 'Dolby Vision Level';
+	@override String get dolbyVisionVersion => 'Dolby Vision Version';
+	@override String get dolbyVisionLayers => 'Dolby Vision Layers';
+	@override String get baseLayerCompatibility => 'Base Layer Compatibility';
+	@override String get avcBitstream => 'AVC Bitstream';
+	@override String get nalLengthSize => 'NAL Length Size';
+	@override String get scalingMatrix => 'Custom Scaling Matrix';
+	@override String get streamIdentifier => 'Stream Identifier';
+	@override String get streamIndex => 'Stream Index';
+	@override String get streamId => 'Stream ID';
+	@override String get language => 'Language';
+	@override String get languageCode => 'Language Code';
+	@override String get streamTitle => 'Track Title';
 	@override String get channels => 'Kanallar';
+	@override String get sampleRate => 'Sample Rate';
+	@override String get spatialAudio => 'Spatial Audio';
+	@override String get textBased => 'Text Based';
+	@override String get subtitleFormat => 'Sidecar Format';
+	@override String get provider => 'Provider';
+	@override String get matchScore => 'Match Score';
+	@override String get externalDelivery => 'Can Be Served Separately';
+	@override String get sidecarPath => 'Sidecar Path';
+	@override String get sourceStream => 'Copied From';
+	@override String get temporary => 'Temporary';
+	@override String get timeBase => 'Time Base';
 	@override String get overallBitrate => 'Genel Bit Hızı';
 	@override String get path => 'Yol';
+	@override String get fileName => 'File Name';
 	@override String get size => 'Boyut';
+	@override String get totalSize => 'Total Size';
 	@override String get container => 'Kapsayıcı';
 	@override String get duration => 'Süre';
+	@override String get previewThumbnails => 'Preview Thumbnails';
+	@override String get previewIndex => 'Preview Index';
+	@override String get packetLength => 'Packet Length';
+	@override String get filePresent => 'File Present';
+	@override String get fileReadable => 'Readable by Server';
+	@override String get streamPath => 'Stream Path';
 	@override String get optimizedForStreaming => 'Akış İçin Optimize Edilmiş';
 	@override String get has64bitOffsets => '64-bit Ofsetler';
+	@override String get protocol => 'Protocol';
+	@override String get mediaType => 'Media Type';
+	@override String get sourceKind => 'Source Kind';
+	@override String get optimizedVersion => 'Optimized Version';
+	@override String get optimizationTarget => 'Optimization Target';
+	@override String get deletedAt => 'Deleted';
+	@override String get remoteSource => 'Remote Source';
+	@override String get infiniteStream => 'Infinite Stream';
+	@override String get directPlay => 'Direct Play';
+	@override String get directStream => 'Direct Stream';
+	@override String get transcoding => 'Transcoding';
+	@override String get etag => 'ETag';
+	@override String get versionId => 'Version ID';
+	@override String get fileId => 'File ID';
+	@override String get defaultAudioTrack => 'Default Audio Track';
+	@override String get defaultSubtitleTrack => 'Default Subtitle Track';
+	@override String get subtitlesOff => 'Off';
+	@override String get flagDefault => 'Default';
+	@override String get flagForced => 'Forced';
+	@override String get flagSelected => 'Selected';
+	@override String get flagExternal => 'External';
+	@override String get flagHearingImpaired => 'Hearing impaired';
+	@override String get flagDub => 'Dub';
+	@override String get flagOriginal => 'Original';
 }
 
 // Path: mediaMenu
@@ -663,6 +779,8 @@ class _Translations$videoControls$tr extends Translations$videoControls$en {
 	@override String get playNext => 'Sonrakini Oynat';
 	@override String get playButton => 'Oynat';
 	@override String get pauseButton => 'Duraklat';
+	@override String get playbackPaused => 'Paused';
+	@override String get playbackResumed => 'Playing';
 	@override String get showPlaybackControls => 'Oynatma kontrollerini göster';
 	@override String get hidePlaybackControls => 'Oynatma kontrollerini gizle';
 	@override String seekBackwardButton({required Object seconds}) => '${seconds} saniye geri sar';
@@ -712,6 +830,12 @@ class _Translations$videoControls$tr extends Translations$videoControls$en {
 	@override String get subtitleDownloadedNotApplied => 'Altyazı indirildi ancak seçilemedi';
 	@override String get subtitleDownloadFailed => 'Altyazı indirilemedi';
 	@override String get searchLanguages => 'Dillerde ara...';
+	@override String get loadingVideo => 'Loading video';
+	@override late final _Translations$videoControls$clip$tr clip = _Translations$videoControls$clip$tr._(_root);
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 }
 
 // Path: messages
@@ -771,6 +895,8 @@ class _Translations$messages$tr extends Translations$messages$en {
 	@override String get switchingToCompatiblePlayer => 'Uyumlu oynatıcıya geçiliyor...';
 	@override String get serverLimitTitle => 'Oynatma başarısız oldu';
 	@override String get serverLimitBody => 'Sunucu hatası (HTTP 500). Muhtemelen bir bant genişliği/kod dönüştürme sınırı bu oturumu reddetti. Sunucu sahibinden bunu ayarlamasını isteyin.';
+	@override String get mediaUnreadableTitle => 'File unavailable';
+	@override String get mediaUnreadableBody => 'The server found this item but could not read its file (HTTP 404). The file was probably moved, deleted, or its storage is offline. Ask the server owner to check the file and rescan the library.';
 	@override String get logsUploaded => 'Günlükler yüklendi';
 	@override String get logsUploadFailed => 'Günlükler yüklenemedi';
 	@override String get logId => 'Günlük Kimliği (ID)';
@@ -1044,8 +1170,10 @@ class _Translations$about$tr extends Translations$about$en {
 	@override String get title => 'Hakkında';
 	@override String get openSourceLicenses => 'Açık Kaynak Lisansları';
 	@override String versionLabel({required Object version}) => 'Sürüm ${version}';
-	@override String get appDescription => 'Flutter için şık bir Plex ve Jellyfin istemcisi';
 	@override String get viewLicensesDescription => 'Üçüncü taraf kütüphanelerin lisanslarını görüntüleyin';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1140,6 +1268,20 @@ class _Translations$explore$tr extends Translations$explore$en {
 	@override String searchEmpty({required Object query}) => '"${query}" için sonuç bulunamadı';
 	@override String searchPrompt({required Object source}) => '${source} üzerinde film ve dizileri arayın.';
 	@override String get searchFailed => 'Arama başarısız. Bağlantınızı kontrol edip tekrar deneyin.';
+	@override late final _Translations$explore$badge$tr badge = _Translations$explore$badge$tr._(_root);
+	@override late final _Translations$explore$stats$tr stats = _Translations$explore$stats$tr._(_root);
+	@override late final _Translations$explore$season$tr season = _Translations$explore$season$tr._(_root);
+	@override late final _Translations$explore$format$tr format = _Translations$explore$format$tr._(_root);
+	@override late final _Translations$explore$sourceMaterial$tr sourceMaterial = _Translations$explore$sourceMaterial$tr._(_root);
+	@override late final _Translations$explore$creditRole$tr creditRole = _Translations$explore$creditRole$tr._(_root);
+	@override late final _Translations$explore$relation$tr relation = _Translations$explore$relation$tr._(_root);
+	@override String broadcast({required Object day, required Object time}) => 'Airs ${day} at ${time}';
+	@override String broadcastWithZone({required Object day, required Object time, required Object timezone}) => 'Airs ${day} at ${time} ${timezone}';
+	@override late final _Translations$explore$detail$tr detail = _Translations$explore$detail$tr._(_root);
+	@override String totalResults({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n,
+		one: '${n} result',
+		other: '${n} results',
+	);
 }
 
 // Path: liveTv
@@ -1844,6 +1986,65 @@ class _Translations$addServer$tr extends Translations$addServer$en {
 	@override String get borrowFromAnotherProfileSubtitle => 'Başka bir profilin bağlantısını yeniden kullanın. PIN korumalı profiller bir PIN gerektirir.';
 }
 
+// Path: startup
+class _Translations$startup$tr extends Translations$startup$en {
+	_Translations$startup$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedTitle => 'Plezy could not start';
+	@override String get failedBody => 'Something went wrong during startup. The details below identify what failed.';
+	@override String get failedBodyRepairable => 'Plezy\'s saved settings file is damaged and has to be rebuilt before Plezy can start. Retrying will not help — choose Repair storage.';
+	@override String get phaseLabel => 'Step';
+	@override String get showDetails => 'Show details';
+	@override String get hideDetails => 'Hide details';
+	@override String get copyDetails => 'Copy details';
+	@override String get detailsCopied => 'Details copied to clipboard';
+	@override String get uploadDetails => 'Upload details';
+	@override String get repairStorage => 'Repair storage';
+	@override String get repairTitle => 'Repair stored data?';
+	@override String get repairBodyCommon => 'Plezy\'s settings file is damaged and cannot be read. Repairing resets every setting to its default.';
+	@override String get repairBodyOneCredential => 'One saved sign-in is damaged and cannot be read. Repairing removes just that one; your other settings are left alone.';
+	@override String get repairBodySignInsKept => 'Your servers and profiles should stay signed in.';
+	@override String get repairBodySignInsLost => 'The key protecting your saved sign-ins cannot be recovered from this file, so you will have to sign in to every server and profile again. Nothing on your media server is affected.';
+	@override String get repairBodySessionsUncertain => 'Trackers (MAL, AniList, Simkl, Trakt) and Seerr are stored separately and may or may not survive. Plezy will tell you exactly what it kept.';
+	@override String get repairConfirm => 'Repair';
+	@override String get repairSucceeded => 'Storage repaired';
+	@override String get repairNeedsRestart => 'Storage repaired — restart required';
+	@override String get restartRequiredBody => 'Your data was repaired, but Plezy has to start fresh before it can use it. Close Plezy and open it again.';
+	@override String get quitPlezy => 'Quit Plezy';
+	@override String get repairFailed => 'Repair failed';
+	@override String get repairKeptSignIns => 'Your servers and profiles are still signed in.';
+	@override String get repairLostSignIns => 'The key protecting your saved sign-ins could not be recovered. You will have to sign in to every server and profile again.';
+	@override String get repairLostSessions => 'At least one tracker or Seerr connection was lost and has to be reconnected.';
+	@override String get backupTitle => 'A copy of the damaged file was kept';
+	@override String get backupWarning => 'It contains your sign-in credentials. Do not upload or share it.';
+	@override String get deleteBackup => 'Delete copy';
+	@override String get backupDeleted => 'Copy deleted.';
+	@override String get previousFailureTitle => 'Plezy failed to start last time';
+}
+
+// Path: common.ratingSource
+class _Translations$common$ratingSource$tr extends Translations$common$ratingSource$en {
+	_Translations$common$ratingSource$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get critic => 'Critics';
+	@override String get audience => 'Audience';
+	@override String get imdb => 'IMDb';
+	@override String get tmdb => 'TMDB';
+	@override String get rottenTomatoes => 'Rotten Tomatoes';
+	@override String get simkl => 'Simkl';
+	@override String get mal => 'MyAnimeList';
+	@override String get anilist => 'AniList';
+	@override String get trakt => 'Trakt';
+	@override String get rottenTomatoesCritic => 'Rotten Tomatoes critics';
+	@override String get rottenTomatoesAudience => 'Rotten Tomatoes audience';
+}
+
 // Path: hotkeys.actions
 class _Translations$hotkeys$actions$tr extends Translations$hotkeys$actions$en {
 	_Translations$hotkeys$actions$tr._(TranslationsTr root) : this._root = root, super.internal(root);
@@ -1876,6 +2077,8 @@ class _Translations$hotkeys$actions$tr extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Gölgelendiricileri Aç/Kapat';
 	@override String get skipMarker => 'Jenerik/Emeği Geçenleri Atla';
 	@override String get screenshot => 'Ekran Görüntüsü Al';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -1892,6 +2095,51 @@ class _Translations$videoControls$pipErrors$tr extends Translations$videoControl
 	@override String get voSwitchFailed => 'Pencere içinde pencere için video çıkışı değiştirilemedi';
 	@override String get failed => 'Pencere içinde pencere başlatılamadı';
 	@override String unknown({required Object error}) => 'Bir hata oluştu: ${error}';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$tr extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Clip';
+	@override String get vodOnly => 'Clips are available for on-demand video playback.';
+	@override String get sourceUnavailable => 'Clip source is not available for this playback session.';
+	@override String get playAtLeastOneSecond => 'Play at least 1 second before clipping.';
+	@override String get startBeforeBeginning => 'Clip start cannot be before the beginning of the video.';
+	@override String get endAfterStart => 'Clip end must be after the start.';
+	@override String get minimumDuration => 'Clips must be at least 1 second long.';
+	@override String get endPastVideo => 'Clip end is past the end of the video.';
+	@override String get exportCanceled => 'Clip export canceled.';
+	@override String get cacheUnavailable => 'The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.';
+	@override String get sourceCopyNoEncoder => 'Source-copy export does not use an encoder.';
+	@override String get encodingDesktopOnly => 'H.264 and HEVC clip encoding is currently available on macOS and Windows.';
+	@override String get hdrRequiresSource => 'HDR export requires a direct-play HDR10 or HLG-compatible source.';
+	@override String get transcodeStartUnavailable => 'This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.';
+	@override String get previewRequired => 'Clip preview must finish loading before it can be saved.';
+	@override String get h264Failed => 'This source could not be encoded as an H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'This source could not be encoded as an HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'This source could not be encoded as an HEVC HDR MP4.';
+	@override String get gifFailed => 'This source could not be encoded as a GIF.';
+	@override String get originalFailed => 'This source could not be copied from the mpv cache.';
+	@override String get previewUnavailable => 'Clip preview playback is not available in this build.';
+	@override String get previewFailed => 'Clip preview playback failed.';
+	@override String get previewLoadingScreenshot => 'The clip preview must finish loading before taking a screenshot.';
+	@override String get screenshotInProgress => 'A screenshot is already being saved.';
+	@override String get saveAsDialog => 'Save Clip As';
+	@override String savedTo({required Object fileName}) => 'Saved to ${fileName}';
+	@override String get openFolder => 'Open Folder';
+	@override String get saveAs => 'Save As';
+	@override String get cancelExport => 'Cancel Export';
+	@override String get saving => 'Saving...';
+	@override String savingProgress({required Object percent}) => 'Saving ${percent}%';
+	@override String get mutePreview => 'Mute preview';
+	@override String get unmutePreview => 'Unmute preview';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: libraries.tabs
@@ -2005,6 +2253,186 @@ class _Translations$explore$status$tr extends Translations$explore$status$en {
 	@override String get ended => 'Bitti';
 	@override String get canceled => 'İptal Edildi';
 	@override String get upcoming => 'Gelecek';
+}
+
+// Path: explore.badge
+class _Translations$explore$badge$tr extends Translations$explore$badge$en {
+	_Translations$explore$badge$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String rankPopular({required Object n}) => '#${n} popular';
+	@override String rankAiring({required Object n}) => '#${n} airing';
+	@override String rankRated({required Object n}) => '#${n} rated';
+	@override String rankFavorited({required Object n}) => '#${n} favorited';
+	@override String rankTrending({required Object n}) => '#${n} trending';
+	@override String rankSeasonal({required Object n, required Object season}) => '#${n} in ${season}';
+	@override String watchingNow({required Object n}) => '${n} watching';
+	@override String get available => 'Available';
+	@override String get partiallyAvailable => 'Partly available';
+	@override String get availableIn4k => '4K available';
+	@override String get requested => 'Requested';
+	@override String get pendingApproval => 'Pending approval';
+	@override String get processing => 'Processing';
+	@override String get declined => 'Declined';
+	@override String get requestFailed => 'Request failed';
+	@override String get requested4k => '4K requested';
+	@override String seasonsAvailable({required Object available, required Object total}) => '${available}/${total} seasons';
+	@override String nextEpisodeIn({required Object episode, required Object duration}) => 'Ep ${episode} in ${duration}';
+	@override String nextAiringIn({required Object duration}) => 'Next in ${duration}';
+	@override String episodesShort({required Object n}) => '${n} eps';
+	@override String minutesPerEpisode({required Object n}) => '${n} min/ep';
+	@override String get adult => '18+';
+}
+
+// Path: explore.stats
+class _Translations$explore$stats$tr extends Translations$explore$stats$en {
+	_Translations$explore$stats$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String listed({required Object n}) => '${n} listed';
+	@override String viewersDay({required Object n}) => '${n} watched today';
+	@override String viewersWeek({required Object n}) => '${n} watched this week';
+	@override String viewersMonth({required Object n}) => '${n} watched this month';
+	@override String viewersYear({required Object n}) => '${n} watched this year';
+	@override String viewersAllTime({required Object n}) => '${n} viewers';
+	@override String planning({required Object n}) => '${n} planning to watch';
+	@override String favorited({required Object n}) => '${n} favorites';
+	@override String dropRate({required Object percent}) => '${percent} dropped it';
+	@override String comments({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n,
+		one: '${n} comment',
+		other: '${n} comments',
+	);
+	@override String votes({required Object n}) => '${n} votes';
+	@override String watching({required Object n}) => '${n} watching it';
+	@override String completed({required Object n}) => '${n} completed';
+	@override String onHold({required Object n}) => '${n} on hold';
+	@override String dropped({required Object n}) => '${n} dropped';
+}
+
+// Path: explore.season
+class _Translations$explore$season$tr extends Translations$explore$season$en {
+	_Translations$explore$season$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get winter => 'Winter';
+	@override String get spring => 'Spring';
+	@override String get summer => 'Summer';
+	@override String get fall => 'Fall';
+	@override String withYear({required Object season, required Object year}) => '${season} ${year}';
+}
+
+// Path: explore.format
+class _Translations$explore$format$tr extends Translations$explore$format$en {
+	_Translations$explore$format$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get tv => 'TV';
+	@override String get tvShort => 'TV Short';
+	@override String get movie => 'Movie';
+	@override String get special => 'Special';
+	@override String get ova => 'OVA';
+	@override String get ona => 'ONA';
+	@override String get music => 'Music';
+	@override String get other => 'Other';
+}
+
+// Path: explore.sourceMaterial
+class _Translations$explore$sourceMaterial$tr extends Translations$explore$sourceMaterial$en {
+	_Translations$explore$sourceMaterial$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get original => 'Original';
+	@override String get manga => 'Manga';
+	@override String get lightNovel => 'Light novel';
+	@override String get novel => 'Novel';
+	@override String get visualNovel => 'Visual novel';
+	@override String get game => 'Game';
+	@override String get webComic => 'Web comic';
+	@override String get musicRelease => 'Music';
+	@override String get otherMedia => 'Other';
+}
+
+// Path: explore.creditRole
+class _Translations$explore$creditRole$tr extends Translations$explore$creditRole$en {
+	_Translations$explore$creditRole$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get director => 'Director';
+	@override String get writer => 'Writer';
+	@override String get producer => 'Producer';
+	@override String get creator => 'Creator';
+	@override String get composer => 'Composer';
+}
+
+// Path: explore.relation
+class _Translations$explore$relation$tr extends Translations$explore$relation$en {
+	_Translations$explore$relation$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get prequel => 'Prequel';
+	@override String get sequel => 'Sequel';
+	@override String get sideStory => 'Side story';
+	@override String get spinOff => 'Spin-off';
+	@override String get alternativeVersion => 'Alternative version';
+	@override String get summary => 'Summary';
+	@override String get parentStory => 'Parent story';
+	@override String get adaptation => 'Adaptation';
+	@override String get other => 'Related';
+}
+
+// Path: explore.detail
+class _Translations$explore$detail$tr extends Translations$explore$detail$en {
+	_Translations$explore$detail$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get originalTitle => 'Original title';
+	@override String get alsoKnownAs => 'Also known as';
+	@override String get studios => 'Studios';
+	@override String get country => 'Country';
+	@override String get language => 'Language';
+	@override String get released => 'Released';
+	@override String get physicalRelease => 'On disc';
+	@override String get ended => 'Ended';
+	@override String addedOn({required Object date}) => 'Added ${date}';
+	@override String get yourRating => 'Your rating';
+	@override String get budget => 'Budget';
+	@override String get revenue => 'Box office';
+	@override String get contentAdvisory => 'Age guidance';
+	@override String get tags => 'Tags';
+	@override String get revealSpoilerTags => 'Show spoiler tags';
+	@override String get links => 'Links';
+	@override String get watchOn => 'Watch on';
+	@override String get watchTrailer => 'Watch trailer';
+	@override String openOn({required Object site}) => 'Open on ${site}';
+	@override String get crew => 'Crew';
+	@override String get ratings => 'Ratings';
+	@override String get schedule => 'Schedule';
+	@override String recommendedByUsers({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n,
+		one: 'Recommended by ${n} user',
+		other: 'Recommended by ${n} users',
+	);
+	@override String recommendedBy({required Object who}) => 'Recommended by ${who}';
+	@override String favoritedBy({required Object who}) => 'Favorited by ${who}';
+	@override String unairedEpisodes({required Object n}) => '${n} not aired yet';
+	@override String recommendedByPercent({required Object percent}) => 'Recommended by ${percent} of viewers';
+	@override String get relatedTitles => 'Related titles';
+	@override String get background => 'Background';
 }
 
 // Path: downloads.backgroundWarning
@@ -2271,6 +2699,17 @@ extension on TranslationsTr {
 			'common.fullscreen' => 'Tam Ekran',
 			'common.exitFullscreen' => 'Tam Ekrandan Çık',
 			'common.pressBackAgainToExit' => 'Çıkmak için tekrar geri tuşuna basın',
+			'common.ratingSource.critic' => 'Critics',
+			'common.ratingSource.audience' => 'Audience',
+			'common.ratingSource.imdb' => 'IMDb',
+			'common.ratingSource.tmdb' => 'TMDB',
+			'common.ratingSource.rottenTomatoes' => 'Rotten Tomatoes',
+			'common.ratingSource.simkl' => 'Simkl',
+			'common.ratingSource.mal' => 'MyAnimeList',
+			'common.ratingSource.anilist' => 'AniList',
+			'common.ratingSource.trakt' => 'Trakt',
+			'common.ratingSource.rottenTomatoesCritic' => 'Rotten Tomatoes critics',
+			'common.ratingSource.rottenTomatoesAudience' => 'Rotten Tomatoes audience',
 			'screens.licenses' => 'Lisanslar',
 			'screens.switchProfile' => 'Profil Değiştir',
 			'screens.subtitleStyling' => 'Altyazı Biçimlendirmesi',
@@ -2283,6 +2722,14 @@ extension on TranslationsTr {
 			'update.viewRelease' => 'Sürümü Görüntüle',
 			'update.latestVersion' => 'En son sürümü kullanıyorsunuz',
 			'update.checkFailed' => 'Güncellemeler kontrol edilemedi',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Ayarlar',
 			'settings.supportDeveloper' => 'Plezy\'yi Destekleyin',
 			'settings.supportDeveloperDescription' => 'Geliştirmeyi fonlamak için Liberapay üzerinden bağış yapın',
@@ -2411,6 +2858,12 @@ extension on TranslationsTr {
 			'settings.updates' => 'Güncellemeler',
 			'settings.updateAvailable' => 'Güncelleme Mevcut',
 			'settings.checkForUpdates' => 'Güncellemeleri Kontrol Et',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'settings.autoCheckUpdatesOnStartup' => 'Açılışta güncellemeleri otomatik kontrol et',
 			'settings.autoCheckUpdatesOnStartupDescription' => 'Açılışta bir güncelleme olduğunda bildir',
 			'settings.validationErrorEnterNumber' => 'Lütfen geçerli bir sayı girin',
@@ -2444,6 +2897,17 @@ extension on TranslationsTr {
 			'settings.downloadLocationReset' => 'İndirme konumu varsayılana sıfırlandı',
 			'settings.downloadLocationInvalid' => 'Seçilen klasöre yazılamıyor',
 			'settings.downloadLocationPickerUnavailable' => 'Klasör seçimi bu cihazda kullanılamıyor',
+			'settings.downloadLocationSelectError' => 'Failed to select folder',
+			'settings.mediaCapture' => 'Media Capture',
+			'settings.clips' => 'Clips',
+			'settings.screenshots' => 'Screenshots',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Location',
+			'settings.clipLocationDescription' => 'Choose where clips are saved.',
+			'settings.screenshotLocationDescription' => 'Choose where screenshots are saved.',
+			'settings.clipLocationChanged' => 'Clip location changed',
+			'settings.screenshotLocationChanged' => 'Screenshot location changed',
+			'settings.clipLocationReset' => 'Clip location reset to Desktop',
+			'settings.screenshotLocationReset' => 'Screenshot location reset to Desktop',
 			'settings.downloadOnWifiOnly' => 'Yalnızca Wi-Fi üzerinden indir',
 			'settings.downloadOnWifiOnlyDescription' => 'Hücresel verideyken indirmeleri engelle',
 			'settings.autoRemoveWatchedDownloads' => 'İzlenen indirmeleri otomatik kaldır',
@@ -2574,30 +3038,123 @@ extension on TranslationsTr {
 			'hotkeys.actions.shaderToggle' => 'Gölgelendiricileri Aç/Kapat',
 			'hotkeys.actions.skipMarker' => 'Jenerik/Emeği Geçenleri Atla',
 			'hotkeys.actions.screenshot' => 'Ekran Görüntüsü Al',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Dosya Bilgisi',
+			'fileInfo.overview' => 'Overview',
 			'fileInfo.video' => 'Video',
 			'fileInfo.audio' => 'Ses',
 			'fileInfo.subtitles' => 'Altyazılar',
+			'fileInfo.images' => 'Embedded Images',
+			'fileInfo.dataStreams' => 'Data Streams',
+			'fileInfo.lyrics' => 'Lyrics',
 			'fileInfo.file' => 'Dosya',
+			'fileInfo.attachments' => 'Attachments',
+			'fileInfo.delivery' => 'Delivery',
+			'fileInfo.versionCounter' => ({required Object index, required Object count}) => 'Version ${index} of ${count}',
+			'fileInfo.fileCounter' => ({required Object index, required Object count}) => 'File ${index} of ${count}',
+			'fileInfo.noStreams' => 'The server reported no streams for this file.',
+			'fileInfo.copyPath' => 'Copy path',
+			'fileInfo.pathCopied' => 'File path copied',
 			'fileInfo.codec' => 'Kodek',
+			'fileInfo.codecTag' => 'Codec Tag',
 			'fileInfo.resolution' => 'Çözünürlük',
+			'fileInfo.codedResolution' => 'Coded Resolution',
 			'fileInfo.bitrate' => 'Bit Hızı (Bitrate)',
 			'fileInfo.frameRate' => 'Kare Hızı',
+			'fileInfo.rotation' => 'Rotation',
+			'fileInfo.comment' => 'Comment',
+			'fileInfo.audioDescription' => 'Audio Description',
+			'fileInfo.headerCompression' => 'Header Compression',
+			'fileInfo.sidecarFile' => 'Sidecar File',
+			'fileInfo.transportTimestamp' => 'Transport Timestamp',
+			'fileInfo.displayOffset' => 'Display Offset',
+			'fileInfo.previewFailureCode' => 'Preview Failure Code',
+			'fileInfo.previewRetries' => 'Preview Retries',
 			'fileInfo.aspectRatio' => 'En Boy Oranı',
+			'fileInfo.pixelAspectRatio' => 'Pixel Aspect Ratio',
 			'fileInfo.profile' => 'Profil',
+			'fileInfo.level' => 'Level',
 			'fileInfo.bitDepth' => 'Bit Derinliği',
+			'fileInfo.pixelFormat' => 'Pixel Format',
 			'fileInfo.colorSpace' => 'Renk Alanı',
 			'fileInfo.colorRange' => 'Renk Aralığı',
 			'fileInfo.colorPrimaries' => 'Ana Renkler',
+			'fileInfo.colorTransfer' => 'Color Transfer',
 			'fileInfo.chromaSubsampling' => 'Renk Alt Örneklemesi',
+			'fileInfo.chromaLocation' => 'Chroma Location',
+			'fileInfo.scanType' => 'Scan Type',
+			'fileInfo.interlaced' => 'Interlaced',
+			'fileInfo.anamorphic' => 'Anamorphic',
+			'fileInfo.referenceFrames' => 'Reference Frames',
+			'fileInfo.dynamicRange' => 'Dynamic Range',
+			'fileInfo.dolbyVision' => 'Dolby Vision',
+			'fileInfo.dolbyVisionLevel' => 'Dolby Vision Level',
+			'fileInfo.dolbyVisionVersion' => 'Dolby Vision Version',
+			'fileInfo.dolbyVisionLayers' => 'Dolby Vision Layers',
+			'fileInfo.baseLayerCompatibility' => 'Base Layer Compatibility',
+			'fileInfo.avcBitstream' => 'AVC Bitstream',
+			'fileInfo.nalLengthSize' => 'NAL Length Size',
+			'fileInfo.scalingMatrix' => 'Custom Scaling Matrix',
+			'fileInfo.streamIdentifier' => 'Stream Identifier',
+			'fileInfo.streamIndex' => 'Stream Index',
+			'fileInfo.streamId' => 'Stream ID',
+			'fileInfo.language' => 'Language',
+			'fileInfo.languageCode' => 'Language Code',
+			'fileInfo.streamTitle' => 'Track Title',
 			'fileInfo.channels' => 'Kanallar',
+			'fileInfo.sampleRate' => 'Sample Rate',
+			'fileInfo.spatialAudio' => 'Spatial Audio',
+			'fileInfo.textBased' => 'Text Based',
+			'fileInfo.subtitleFormat' => 'Sidecar Format',
+			'fileInfo.provider' => 'Provider',
+			'fileInfo.matchScore' => 'Match Score',
+			'fileInfo.externalDelivery' => 'Can Be Served Separately',
+			'fileInfo.sidecarPath' => 'Sidecar Path',
+			'fileInfo.sourceStream' => 'Copied From',
+			'fileInfo.temporary' => 'Temporary',
+			'fileInfo.timeBase' => 'Time Base',
 			'fileInfo.overallBitrate' => 'Genel Bit Hızı',
 			'fileInfo.path' => 'Yol',
+			'fileInfo.fileName' => 'File Name',
 			'fileInfo.size' => 'Boyut',
+			'fileInfo.totalSize' => 'Total Size',
 			'fileInfo.container' => 'Kapsayıcı',
 			'fileInfo.duration' => 'Süre',
+			'fileInfo.previewThumbnails' => 'Preview Thumbnails',
+			'fileInfo.previewIndex' => 'Preview Index',
+			'fileInfo.packetLength' => 'Packet Length',
+			'fileInfo.filePresent' => 'File Present',
+			'fileInfo.fileReadable' => 'Readable by Server',
+			'fileInfo.streamPath' => 'Stream Path',
 			'fileInfo.optimizedForStreaming' => 'Akış İçin Optimize Edilmiş',
 			'fileInfo.has64bitOffsets' => '64-bit Ofsetler',
+			'fileInfo.protocol' => 'Protocol',
+			'fileInfo.mediaType' => 'Media Type',
+			'fileInfo.sourceKind' => 'Source Kind',
+			'fileInfo.optimizedVersion' => 'Optimized Version',
+			'fileInfo.optimizationTarget' => 'Optimization Target',
+			'fileInfo.deletedAt' => 'Deleted',
+			'fileInfo.remoteSource' => 'Remote Source',
+			'fileInfo.infiniteStream' => 'Infinite Stream',
+			'fileInfo.directPlay' => 'Direct Play',
+			'fileInfo.directStream' => 'Direct Stream',
+			'fileInfo.transcoding' => 'Transcoding',
+			'fileInfo.etag' => 'ETag',
+			'fileInfo.versionId' => 'Version ID',
+			'fileInfo.fileId' => 'File ID',
+			'fileInfo.defaultAudioTrack' => 'Default Audio Track',
+			'fileInfo.defaultSubtitleTrack' => 'Default Subtitle Track',
+			'fileInfo.subtitlesOff' => 'Off',
+			'fileInfo.flagDefault' => 'Default',
+			'fileInfo.flagForced' => 'Forced',
+			'fileInfo.flagSelected' => 'Selected',
+			'fileInfo.flagExternal' => 'External',
+			_ => null,
+		} ?? switch (path) {
+			'fileInfo.flagHearingImpaired' => 'Hearing impaired',
+			'fileInfo.flagDub' => 'Dub',
+			'fileInfo.flagOriginal' => 'Original',
 			'mediaMenu.markAsWatched' => 'İzlendi Olarak İşaretle',
 			'mediaMenu.markAsUnwatched' => 'İzlenmedi Olarak İşaretle',
 			'mediaMenu.removeFromContinueWatching' => 'İzlemeye Devam Et\'ten Kaldır',
@@ -2674,6 +3231,8 @@ extension on TranslationsTr {
 			'videoControls.playNext' => 'Sonrakini Oynat',
 			'videoControls.playButton' => 'Oynat',
 			'videoControls.pauseButton' => 'Duraklat',
+			'videoControls.playbackPaused' => 'Paused',
+			'videoControls.playbackResumed' => 'Playing',
 			'videoControls.showPlaybackControls' => 'Oynatma kontrollerini göster',
 			'videoControls.hidePlaybackControls' => 'Oynatma kontrollerini gizle',
 			'videoControls.seekBackwardButton' => ({required Object seconds}) => '${seconds} saniye geri sar',
@@ -2722,8 +3281,6 @@ extension on TranslationsTr {
 			'videoControls.noChaptersAvailable' => 'Kısım bulunmuyor',
 			'videoControls.queue' => 'Kuyruk',
 			'videoControls.noQueueItems' => 'Kuyrukta öge yok',
-			_ => null,
-		} ?? switch (path) {
 			'videoControls.searchSubtitles' => 'Altyazı Ara',
 			'videoControls.language' => 'Dil',
 			'videoControls.noSubtitlesFound' => 'Altyazı bulunamadı',
@@ -2731,6 +3288,44 @@ extension on TranslationsTr {
 			'videoControls.subtitleDownloadedNotApplied' => 'Altyazı indirildi ancak seçilemedi',
 			'videoControls.subtitleDownloadFailed' => 'Altyazı indirilemedi',
 			'videoControls.searchLanguages' => 'Dillerde ara...',
+			'videoControls.loadingVideo' => 'Loading video',
+			'videoControls.clip.title' => 'Clip',
+			'videoControls.clip.vodOnly' => 'Clips are available for on-demand video playback.',
+			'videoControls.clip.sourceUnavailable' => 'Clip source is not available for this playback session.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Play at least 1 second before clipping.',
+			'videoControls.clip.startBeforeBeginning' => 'Clip start cannot be before the beginning of the video.',
+			'videoControls.clip.endAfterStart' => 'Clip end must be after the start.',
+			'videoControls.clip.minimumDuration' => 'Clips must be at least 1 second long.',
+			'videoControls.clip.endPastVideo' => 'Clip end is past the end of the video.',
+			'videoControls.clip.exportCanceled' => 'Clip export canceled.',
+			'videoControls.clip.cacheUnavailable' => 'The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Source-copy export does not use an encoder.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 and HEVC clip encoding is currently available on macOS and Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR export requires a direct-play HDR10 or HLG-compatible source.',
+			'videoControls.clip.transcodeStartUnavailable' => 'This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.',
+			'videoControls.clip.previewRequired' => 'Clip preview must finish loading before it can be saved.',
+			'videoControls.clip.h264Failed' => 'This source could not be encoded as an H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'This source could not be encoded as an HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'This source could not be encoded as an HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'This source could not be encoded as a GIF.',
+			'videoControls.clip.originalFailed' => 'This source could not be copied from the mpv cache.',
+			'videoControls.clip.previewUnavailable' => 'Clip preview playback is not available in this build.',
+			'videoControls.clip.previewFailed' => 'Clip preview playback failed.',
+			'videoControls.clip.previewLoadingScreenshot' => 'The clip preview must finish loading before taking a screenshot.',
+			'videoControls.clip.screenshotInProgress' => 'A screenshot is already being saved.',
+			'videoControls.clip.saveAsDialog' => 'Save Clip As',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Saved to ${fileName}',
+			'videoControls.clip.openFolder' => 'Open Folder',
+			'videoControls.clip.saveAs' => 'Save As',
+			'videoControls.clip.cancelExport' => 'Cancel Export',
+			'videoControls.clip.saving' => 'Saving...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Saving ${percent}%',
+			'videoControls.clip.mutePreview' => 'Mute preview',
+			'videoControls.clip.unmutePreview' => 'Unmute preview',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'messages.markedAsWatched' => 'İzlendi olarak işaretlendi',
 			'messages.markedAsUnwatched' => 'İzlenmedi olarak işaretlendi',
 			'messages.markedAsWatchedOffline' => 'İzlendi olarak işaretlendi (çevrimiçi olunca senkronize edilecek)',
@@ -2778,6 +3373,8 @@ extension on TranslationsTr {
 			'messages.switchingToCompatiblePlayer' => 'Uyumlu oynatıcıya geçiliyor...',
 			'messages.serverLimitTitle' => 'Oynatma başarısız oldu',
 			'messages.serverLimitBody' => 'Sunucu hatası (HTTP 500). Muhtemelen bir bant genişliği/kod dönüştürme sınırı bu oturumu reddetti. Sunucu sahibinden bunu ayarlamasını isteyin.',
+			'messages.mediaUnreadableTitle' => 'File unavailable',
+			'messages.mediaUnreadableBody' => 'The server found this item but could not read its file (HTTP 404). The file was probably moved, deleted, or its storage is offline. Ask the server owner to check the file and rescan the library.',
 			'messages.logsUploaded' => 'Günlükler yüklendi',
 			'messages.logsUploadFailed' => 'Günlükler yüklenemedi',
 			'messages.logId' => 'Günlük Kimliği (ID)',
@@ -3007,8 +3604,10 @@ extension on TranslationsTr {
 			'about.title' => 'Hakkında',
 			'about.openSourceLicenses' => 'Açık Kaynak Lisansları',
 			'about.versionLabel' => ({required Object version}) => 'Sürüm ${version}',
-			'about.appDescription' => 'Flutter için şık bir Plex ve Jellyfin istemcisi',
 			'about.viewLicensesDescription' => 'Üçüncü taraf kütüphanelerin lisanslarını görüntüleyin',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email}) için sunucu bulunamadı',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Sunucular yüklenemedi: ${error}',
 			'hubDetail.title' => 'Başlık',
@@ -3062,6 +3661,113 @@ extension on TranslationsTr {
 			'explore.searchEmpty' => ({required Object query}) => '"${query}" için sonuç bulunamadı',
 			'explore.searchPrompt' => ({required Object source}) => '${source} üzerinde film ve dizileri arayın.',
 			'explore.searchFailed' => 'Arama başarısız. Bağlantınızı kontrol edip tekrar deneyin.',
+			'explore.badge.rankPopular' => ({required Object n}) => '#${n} popular',
+			'explore.badge.rankAiring' => ({required Object n}) => '#${n} airing',
+			'explore.badge.rankRated' => ({required Object n}) => '#${n} rated',
+			_ => null,
+		} ?? switch (path) {
+			'explore.badge.rankFavorited' => ({required Object n}) => '#${n} favorited',
+			'explore.badge.rankTrending' => ({required Object n}) => '#${n} trending',
+			'explore.badge.rankSeasonal' => ({required Object n, required Object season}) => '#${n} in ${season}',
+			'explore.badge.watchingNow' => ({required Object n}) => '${n} watching',
+			'explore.badge.available' => 'Available',
+			'explore.badge.partiallyAvailable' => 'Partly available',
+			'explore.badge.availableIn4k' => '4K available',
+			'explore.badge.requested' => 'Requested',
+			'explore.badge.pendingApproval' => 'Pending approval',
+			'explore.badge.processing' => 'Processing',
+			'explore.badge.declined' => 'Declined',
+			'explore.badge.requestFailed' => 'Request failed',
+			'explore.badge.requested4k' => '4K requested',
+			'explore.badge.seasonsAvailable' => ({required Object available, required Object total}) => '${available}/${total} seasons',
+			'explore.badge.nextEpisodeIn' => ({required Object episode, required Object duration}) => 'Ep ${episode} in ${duration}',
+			'explore.badge.nextAiringIn' => ({required Object duration}) => 'Next in ${duration}',
+			'explore.badge.episodesShort' => ({required Object n}) => '${n} eps',
+			'explore.badge.minutesPerEpisode' => ({required Object n}) => '${n} min/ep',
+			'explore.badge.adult' => '18+',
+			'explore.stats.listed' => ({required Object n}) => '${n} listed',
+			'explore.stats.viewersDay' => ({required Object n}) => '${n} watched today',
+			'explore.stats.viewersWeek' => ({required Object n}) => '${n} watched this week',
+			'explore.stats.viewersMonth' => ({required Object n}) => '${n} watched this month',
+			'explore.stats.viewersYear' => ({required Object n}) => '${n} watched this year',
+			'explore.stats.viewersAllTime' => ({required Object n}) => '${n} viewers',
+			'explore.stats.planning' => ({required Object n}) => '${n} planning to watch',
+			'explore.stats.favorited' => ({required Object n}) => '${n} favorites',
+			'explore.stats.dropRate' => ({required Object percent}) => '${percent} dropped it',
+			'explore.stats.comments' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n, one: '${n} comment', other: '${n} comments', ), 
+			'explore.stats.votes' => ({required Object n}) => '${n} votes',
+			'explore.stats.watching' => ({required Object n}) => '${n} watching it',
+			'explore.stats.completed' => ({required Object n}) => '${n} completed',
+			'explore.stats.onHold' => ({required Object n}) => '${n} on hold',
+			'explore.stats.dropped' => ({required Object n}) => '${n} dropped',
+			'explore.season.winter' => 'Winter',
+			'explore.season.spring' => 'Spring',
+			'explore.season.summer' => 'Summer',
+			'explore.season.fall' => 'Fall',
+			'explore.season.withYear' => ({required Object season, required Object year}) => '${season} ${year}',
+			'explore.format.tv' => 'TV',
+			'explore.format.tvShort' => 'TV Short',
+			'explore.format.movie' => 'Movie',
+			'explore.format.special' => 'Special',
+			'explore.format.ova' => 'OVA',
+			'explore.format.ona' => 'ONA',
+			'explore.format.music' => 'Music',
+			'explore.format.other' => 'Other',
+			'explore.sourceMaterial.original' => 'Original',
+			'explore.sourceMaterial.manga' => 'Manga',
+			'explore.sourceMaterial.lightNovel' => 'Light novel',
+			'explore.sourceMaterial.novel' => 'Novel',
+			'explore.sourceMaterial.visualNovel' => 'Visual novel',
+			'explore.sourceMaterial.game' => 'Game',
+			'explore.sourceMaterial.webComic' => 'Web comic',
+			'explore.sourceMaterial.musicRelease' => 'Music',
+			'explore.sourceMaterial.otherMedia' => 'Other',
+			'explore.creditRole.director' => 'Director',
+			'explore.creditRole.writer' => 'Writer',
+			'explore.creditRole.producer' => 'Producer',
+			'explore.creditRole.creator' => 'Creator',
+			'explore.creditRole.composer' => 'Composer',
+			'explore.relation.prequel' => 'Prequel',
+			'explore.relation.sequel' => 'Sequel',
+			'explore.relation.sideStory' => 'Side story',
+			'explore.relation.spinOff' => 'Spin-off',
+			'explore.relation.alternativeVersion' => 'Alternative version',
+			'explore.relation.summary' => 'Summary',
+			'explore.relation.parentStory' => 'Parent story',
+			'explore.relation.adaptation' => 'Adaptation',
+			'explore.relation.other' => 'Related',
+			'explore.broadcast' => ({required Object day, required Object time}) => 'Airs ${day} at ${time}',
+			'explore.broadcastWithZone' => ({required Object day, required Object time, required Object timezone}) => 'Airs ${day} at ${time} ${timezone}',
+			'explore.detail.originalTitle' => 'Original title',
+			'explore.detail.alsoKnownAs' => 'Also known as',
+			'explore.detail.studios' => 'Studios',
+			'explore.detail.country' => 'Country',
+			'explore.detail.language' => 'Language',
+			'explore.detail.released' => 'Released',
+			'explore.detail.physicalRelease' => 'On disc',
+			'explore.detail.ended' => 'Ended',
+			'explore.detail.addedOn' => ({required Object date}) => 'Added ${date}',
+			'explore.detail.yourRating' => 'Your rating',
+			'explore.detail.budget' => 'Budget',
+			'explore.detail.revenue' => 'Box office',
+			'explore.detail.contentAdvisory' => 'Age guidance',
+			'explore.detail.tags' => 'Tags',
+			'explore.detail.revealSpoilerTags' => 'Show spoiler tags',
+			'explore.detail.links' => 'Links',
+			'explore.detail.watchOn' => 'Watch on',
+			'explore.detail.watchTrailer' => 'Watch trailer',
+			'explore.detail.openOn' => ({required Object site}) => 'Open on ${site}',
+			'explore.detail.crew' => 'Crew',
+			'explore.detail.ratings' => 'Ratings',
+			'explore.detail.schedule' => 'Schedule',
+			'explore.detail.recommendedByUsers' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n, one: 'Recommended by ${n} user', other: 'Recommended by ${n} users', ), 
+			'explore.detail.recommendedBy' => ({required Object who}) => 'Recommended by ${who}',
+			'explore.detail.favoritedBy' => ({required Object who}) => 'Favorited by ${who}',
+			'explore.detail.unairedEpisodes' => ({required Object n}) => '${n} not aired yet',
+			'explore.detail.recommendedByPercent' => ({required Object percent}) => 'Recommended by ${percent} of viewers',
+			'explore.detail.relatedTitles' => 'Related titles',
+			'explore.detail.background' => 'Background',
+			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n, one: '${n} result', other: '${n} results', ), 
 			'liveTv.title' => 'Canlı TV',
 			'liveTv.guide' => 'Rehber',
 			'liveTv.noChannels' => 'Kullanılabilir kanal yok',
@@ -3236,8 +3942,6 @@ extension on TranslationsTr {
 			'watchTogether.enterCodeHint' => '5 karakterlik kodu girin',
 			'watchTogether.pasteFromClipboard' => 'Panodan yapıştır',
 			'watchTogether.pleaseEnterCode' => 'Lütfen bir oturum kodu girin',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.codeMustBe5Chars' => 'Oturum kodu 5 karakter olmalıdır',
 			'watchTogether.joinInstructions' => 'Katılmak için kurucunun oturum kodunu girin.',
 			'watchTogether.failedToCreate' => 'Oturum oluşturulamadı',
@@ -3474,6 +4178,8 @@ extension on TranslationsTr {
 			'performanceOverlay.dvPath' => 'DV Yolu',
 			'performanceOverlay.p7Conversion' => 'P7 Dönüştürme',
 			'performanceOverlay.sampleRate' => 'Örnekleme Hızı',
+			_ => null,
+		} ?? switch (path) {
 			'performanceOverlay.pixelFormat' => 'Piksel Biçimi',
 			'performanceOverlay.hwFormat' => 'HW Biçimi',
 			'performanceOverlay.matrix' => 'Matris',
@@ -3706,6 +4412,36 @@ extension on TranslationsTr {
 			'addServer.connectToJellyfinCardSubtitleScoped' => ({required Object name}) => 'Bir Jellyfin sunucusuna giriş yapın. ${name} profiline bağlanır.',
 			'addServer.borrowFromAnotherProfile' => 'Başka bir profilden ödünç al',
 			'addServer.borrowFromAnotherProfileSubtitle' => 'Başka bir profilin bağlantısını yeniden kullanın. PIN korumalı profiller bir PIN gerektirir.',
+			'startup.failedTitle' => 'Plezy could not start',
+			'startup.failedBody' => 'Something went wrong during startup. The details below identify what failed.',
+			'startup.failedBodyRepairable' => 'Plezy\'s saved settings file is damaged and has to be rebuilt before Plezy can start. Retrying will not help — choose Repair storage.',
+			'startup.phaseLabel' => 'Step',
+			'startup.showDetails' => 'Show details',
+			'startup.hideDetails' => 'Hide details',
+			'startup.copyDetails' => 'Copy details',
+			'startup.detailsCopied' => 'Details copied to clipboard',
+			'startup.uploadDetails' => 'Upload details',
+			'startup.repairStorage' => 'Repair storage',
+			'startup.repairTitle' => 'Repair stored data?',
+			'startup.repairBodyCommon' => 'Plezy\'s settings file is damaged and cannot be read. Repairing resets every setting to its default.',
+			'startup.repairBodyOneCredential' => 'One saved sign-in is damaged and cannot be read. Repairing removes just that one; your other settings are left alone.',
+			'startup.repairBodySignInsKept' => 'Your servers and profiles should stay signed in.',
+			'startup.repairBodySignInsLost' => 'The key protecting your saved sign-ins cannot be recovered from this file, so you will have to sign in to every server and profile again. Nothing on your media server is affected.',
+			'startup.repairBodySessionsUncertain' => 'Trackers (MAL, AniList, Simkl, Trakt) and Seerr are stored separately and may or may not survive. Plezy will tell you exactly what it kept.',
+			'startup.repairConfirm' => 'Repair',
+			'startup.repairSucceeded' => 'Storage repaired',
+			'startup.repairNeedsRestart' => 'Storage repaired — restart required',
+			'startup.restartRequiredBody' => 'Your data was repaired, but Plezy has to start fresh before it can use it. Close Plezy and open it again.',
+			'startup.quitPlezy' => 'Quit Plezy',
+			'startup.repairFailed' => 'Repair failed',
+			'startup.repairKeptSignIns' => 'Your servers and profiles are still signed in.',
+			'startup.repairLostSignIns' => 'The key protecting your saved sign-ins could not be recovered. You will have to sign in to every server and profile again.',
+			'startup.repairLostSessions' => 'At least one tracker or Seerr connection was lost and has to be reconnected.',
+			'startup.backupTitle' => 'A copy of the damaged file was kept',
+			'startup.backupWarning' => 'It contains your sign-in credentials. Do not upload or share it.',
+			'startup.deleteBackup' => 'Delete copy',
+			'startup.backupDeleted' => 'Copy deleted.',
+			'startup.previousFailureTitle' => 'Plezy failed to start last time',
 			_ => null,
 		};
 	}
