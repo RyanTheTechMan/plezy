@@ -153,12 +153,7 @@ abstract class Player {
   /// [title] - Optional display title.
   /// [language] - Optional language code.
   /// [select] - Whether to select this track immediately.
-  Future<void> addSubtitleTrack({
-    required String uri,
-    String? title,
-    String? language,
-    bool select = false,
-  });
+  Future<void> addSubtitleTrack({required String uri, String? title, String? language, bool select = false});
 
   /// Set the playback volume.
   ///
@@ -212,10 +207,7 @@ abstract class Player {
   ///
   /// [extraDelayMs] is added after a native display-switch completion event,
   /// for TVs or AVRs that need extra HDMI settle time.
-  Future<void> setDisplayCriteria(
-    MediaDisplayCriteria? criteria, {
-    int extraDelayMs = 0,
-  });
+  Future<void> setDisplayCriteria(MediaDisplayCriteria? criteria, {int extraDelayMs = 0});
 
   /// Configure subtitle fonts for libass rendering.
   ///
@@ -249,11 +241,7 @@ abstract class Player {
   /// chain via `audio-channels`; Android ExoPlayer routes a
   /// ChannelMixingAudioProcessor in the audio sink and force-decodes
   /// encoded audio while enabled.
-  Future<void> setAudioDownmix({
-    required bool enabled,
-    required int centerBoostDb,
-    required bool normalize,
-  });
+  Future<void> setAudioDownmix({required bool enabled, required int centerBoostDb, required bool normalize});
 
   /// Show or hide the video rendering layer.
   ///
@@ -428,11 +416,7 @@ abstract class Player {
   /// `PlaybackCoordinator`), and the video core only exists while the video
   /// player screen is open.
   factory Player.audio() {
-    if (Platform.isAndroid ||
-        Platform.isMacOS ||
-        Platform.isIOS ||
-        Platform.isWindows ||
-        Platform.isLinux) {
+    if (Platform.isAndroid || Platform.isMacOS || Platform.isIOS || Platform.isWindows || Platform.isLinux) {
       return PlayerNative.audio();
     }
     throw UnsupportedError('Player is not supported on this platform');
@@ -460,8 +444,6 @@ abstract class Player {
     if (Platform.isMacOS || Platform.isWindows) {
       return PlayerNative.clipEncoder(initialOptions);
     }
-    throw UnsupportedError(
-      'Clip encoding is only supported on macOS and Windows',
-    );
+    throw UnsupportedError('Clip encoding is only supported on macOS and Windows');
   }
 }

@@ -17,31 +17,20 @@ class _OverlaySheetEntry {
   final FocusNode? initialFocusNode;
   final VoidCallback? onCloseStart;
 
-  _OverlaySheetEntry({
-    required this.builder,
-    required this.completer,
-    this.initialFocusNode,
-    this.onCloseStart,
-  });
+  _OverlaySheetEntry({required this.builder, required this.completer, this.initialFocusNode, this.onCloseStart});
 }
 
 class _OverlaySheetCloseStartScope extends InheritedWidget {
   final VoidCallback onCloseStart;
 
-  const _OverlaySheetCloseStartScope({
-    required this.onCloseStart,
-    required super.child,
-  });
+  const _OverlaySheetCloseStartScope({required this.onCloseStart, required super.child});
 
   static VoidCallback? maybeOf(BuildContext context) {
-    return context
-        .dependOnInheritedWidgetOfExactType<_OverlaySheetCloseStartScope>()
-        ?.onCloseStart;
+    return context.dependOnInheritedWidgetOfExactType<_OverlaySheetCloseStartScope>()?.onCloseStart;
   }
 
   @override
-  bool updateShouldNotify(_OverlaySheetCloseStartScope oldWidget) =>
-      onCloseStart != oldWidget.onCloseStart;
+  bool updateShouldNotify(_OverlaySheetCloseStartScope oldWidget) => onCloseStart != oldWidget.onCloseStart;
 }
 
 /// Provides [OverlaySheetController] to descendants via [of] / [maybeOf].
@@ -51,8 +40,7 @@ class _OverlaySheetScope extends InheritedWidget {
   const _OverlaySheetScope({required this.controller, required super.child});
 
   @override
-  bool updateShouldNotify(_OverlaySheetScope oldWidget) =>
-      controller != oldWidget.controller;
+  bool updateShouldNotify(_OverlaySheetScope oldWidget) => controller != oldWidget.controller;
 }
 
 /// Controller for the overlay-based bottom sheet system.
@@ -64,16 +52,13 @@ class OverlaySheetController {
   OverlaySheetController._(this._state);
 
   static OverlaySheetController of(BuildContext context) {
-    final scope = context
-        .dependOnInheritedWidgetOfExactType<_OverlaySheetScope>();
+    final scope = context.dependOnInheritedWidgetOfExactType<_OverlaySheetScope>();
     assert(scope != null, 'No OverlaySheetHost found in context');
     return scope!.controller;
   }
 
   static OverlaySheetController? maybeOf(BuildContext context) {
-    return context
-        .dependOnInheritedWidgetOfExactType<_OverlaySheetScope>()
-        ?.controller;
+    return context.dependOnInheritedWidgetOfExactType<_OverlaySheetScope>()?.controller;
   }
 
   /// Number of sheets currently open across all hosts (and [showAdaptive]
@@ -118,14 +103,8 @@ class OverlaySheetController {
 
   /// Push a sub-page within the open sheet. Returns a Future that completes
   /// when the pushed page is popped (with an optional result).
-  Future<T?> push<T>({
-    required WidgetBuilder builder,
-    FocusNode? initialFocusNode,
-  }) {
-    return _state._push<T>(
-      builder: builder,
-      initialFocusNode: initialFocusNode,
-    );
+  Future<T?> push<T>({required WidgetBuilder builder, FocusNode? initialFocusNode}) {
+    return _state._push<T>(builder: builder, initialFocusNode: initialFocusNode);
   }
 
   /// Pop the top sub-page, or close the sheet if on the last page.
@@ -161,16 +140,11 @@ class OverlaySheetController {
   static BoxConstraints _defaultSheetConstraints(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     final isWideViewport = size.width > 600;
-    final isDesktopWindow =
-        isWideViewport &&
-        PlatformDetector.isDesktopOS() &&
-        !PlatformDetector.isTV();
+    final isDesktopWindow = isWideViewport && PlatformDetector.isDesktopOS() && !PlatformDetector.isTV();
     final maxHeight = size.height * 0.75;
     return BoxConstraints(
       maxWidth: isWideViewport ? 700 : double.infinity,
-      maxHeight: isDesktopWindow
-          ? math.min(maxHeight, _windowedMaxHeight)
-          : maxHeight,
+      maxHeight: isDesktopWindow ? math.min(maxHeight, _windowedMaxHeight) : maxHeight,
     );
   }
 
@@ -210,8 +184,7 @@ class OverlaySheetController {
     }
     // Apply the same default constraints the overlay system uses so sheets
     // shown without an OverlaySheetHost still have sensible sizing on desktop.
-    final effectiveConstraints =
-        constraints ?? _defaultSheetConstraints(context);
+    final effectiveConstraints = constraints ?? _defaultSheetConstraints(context);
     openSheetCount.value++;
     try {
       return await showModalBottomSheet<T>(
@@ -223,8 +196,7 @@ class OverlaySheetController {
           child: SafeArea(top: false, child: builder(context)),
         ),
         constraints: effectiveConstraints,
-        backgroundColor:
-            backgroundColor ?? Theme.of(context).colorScheme.surface,
+        backgroundColor: backgroundColor ?? Theme.of(context).colorScheme.surface,
         barrierColor: Colors.black54,
         isDismissible: barrierDismissible,
         isScrollControlled: isScrollControlled,
@@ -259,10 +231,7 @@ class OverlaySheetController {
     final controller = maybeOf(context);
     if (controller != null) {
       if (controller.isOpen) {
-        return controller.push<T>(
-          builder: builder,
-          initialFocusNode: initialFocusNode,
-        );
+        return controller.push<T>(builder: builder, initialFocusNode: initialFocusNode);
       }
       return controller.show<T>(
         builder: builder,
@@ -347,20 +316,13 @@ class OverlaySheetHost extends StatefulWidget {
   /// so the system path dedups against the key path.
   final VoidCallback? onSystemBack;
 
-  const OverlaySheetHost({
-    super.key,
-    required this.child,
-    this.onOpenChanged,
-    this.canPop,
-    this.onSystemBack,
-  });
+  const OverlaySheetHost({super.key, required this.child, this.onOpenChanged, this.canPop, this.onSystemBack});
 
   @override
   State<OverlaySheetHost> createState() => _OverlaySheetHostState();
 }
 
-class _OverlaySheetHostState extends State<OverlaySheetHost>
-    with SingleTickerProviderStateMixin {
+class _OverlaySheetHostState extends State<OverlaySheetHost> with SingleTickerProviderStateMixin {
   late final AnimationController _animationController;
   late final CurvedAnimation _slideCurve;
   late final Animation<double> _barrierAnimation;
@@ -400,10 +362,7 @@ class _OverlaySheetHostState extends State<OverlaySheetHost>
     super.initState();
     _controller = OverlaySheetController._(this);
 
-    _animationController = AnimationController(
-      duration: const Duration(milliseconds: 250),
-      vsync: this,
-    );
+    _animationController = AnimationController(duration: const Duration(milliseconds: 250), vsync: this);
 
     _slideCurve = CurvedAnimation(
       parent: _animationController,
@@ -412,9 +371,10 @@ class _OverlaySheetHostState extends State<OverlaySheetHost>
     );
     _geometryChanges = Listenable.merge([_slideCurve, _dragOffset]);
 
-    _barrierAnimation = Tween<double>(begin: 0, end: 0.5).animate(
-      CurvedAnimation(parent: _animationController, curve: Curves.easeOutCubic),
-    );
+    _barrierAnimation = Tween<double>(
+      begin: 0,
+      end: 0.5,
+    ).animate(CurvedAnimation(parent: _animationController, curve: Curves.easeOutCubic));
   }
 
   @override
@@ -495,20 +455,13 @@ class _OverlaySheetHostState extends State<OverlaySheetHost>
     return completer.future;
   }
 
-  Future<T?> _push<T>({
-    required WidgetBuilder builder,
-    FocusNode? initialFocusNode,
-  }) {
+  Future<T?> _push<T>({required WidgetBuilder builder, FocusNode? initialFocusNode}) {
     if (!_isOpen || _isClosing) {
       return Future.value(null);
     }
 
     final completer = Completer<T?>();
-    final entry = _OverlaySheetEntry(
-      builder: builder,
-      completer: completer,
-      initialFocusNode: initialFocusNode,
-    );
+    final entry = _OverlaySheetEntry(builder: builder, completer: completer, initialFocusNode: initialFocusNode);
 
     setState(() {
       _pageStack.add(entry);
@@ -582,10 +535,7 @@ class _OverlaySheetHostState extends State<OverlaySheetHost>
   }
 
   void _autoFocus({bool clearSelectSuppression = true}) {
-    final focusDescendant = InputModeTracker.isKeyboardMode(
-      context,
-      listen: false,
-    );
+    final focusDescendant = InputModeTracker.isKeyboardMode(context, listen: false);
 
     // First post-frame: the FocusScope is now built and the node is attached.
     // Always grab scope focus so key events (especially back) are trapped, even
@@ -613,10 +563,7 @@ class _OverlaySheetHostState extends State<OverlaySheetHost>
         //   select inside the sheet from being eaten).
         // - Long press: key still held → keep flag so KeyRepeat/KeyUp events
         //   from the long press are correctly suppressed.
-        if (clearSelectSuppression &&
-            !HardwareKeyboard.instance.logicalKeysPressed.any(
-              (k) => k.isSelectKey,
-            )) {
+        if (clearSelectSuppression && !HardwareKeyboard.instance.logicalKeysPressed.any((k) => k.isSelectKey)) {
           SelectKeyUpSuppressor.clearSuppression();
         }
       });
@@ -691,11 +638,7 @@ class _OverlaySheetHostState extends State<OverlaySheetHost>
                   builder: (context, child) {
                     return GestureDetector(
                       onTap: _barrierDismissible ? () => _close() : null,
-                      child: ColoredBox(
-                        color: Colors.black.withValues(
-                          alpha: _barrierAnimation.value,
-                        ),
-                      ),
+                      child: ColoredBox(color: Colors.black.withValues(alpha: _barrierAnimation.value)),
                     );
                   },
                 ),
@@ -727,9 +670,7 @@ class _OverlaySheetHostState extends State<OverlaySheetHost>
             // widget's mark and swallow the one signal that closes the sheet.
             // The marker is global and one-shot, so anything left set by
             // another handler would strand the sheet open with no way out.
-            if (PlatformDetector.isTV() &&
-                BackKeyCoordinator.consumeIfHandled())
-              return;
+            if (PlatformDetector.isTV() && BackKeyCoordinator.consumeIfHandled()) return;
             _handleBack();
             return;
           }
@@ -743,8 +684,7 @@ class _OverlaySheetHostState extends State<OverlaySheetHost>
   }
 
   double _getSheetHeight() {
-    final renderBox =
-        _sheetKey.currentContext?.findRenderObject() as RenderBox?;
+    final renderBox = _sheetKey.currentContext?.findRenderObject() as RenderBox?;
     return renderBox?.size.height ?? 300;
   }
 
@@ -762,10 +702,7 @@ class _OverlaySheetHostState extends State<OverlaySheetHost>
 
   void _checkDismiss(double velocity) {
     final sheetHeight = _getSheetHeight();
-    final threshold = math.min(
-      math.max(sheetHeight * 0.25, _minDismissDrag),
-      sheetHeight * _maxDismissDragFraction,
-    );
+    final threshold = math.min(math.max(sheetHeight * 0.25, _minDismissDrag), sheetHeight * _maxDismissDragFraction);
     if (_dragOffset.value > threshold || velocity > 500) {
       _close();
     } else {
@@ -782,9 +719,7 @@ class _OverlaySheetHostState extends State<OverlaySheetHost>
     final isTV = PlatformDetector.isTV();
     final showHandle = _showDragHandle && !isTV && !isTop;
 
-    final effectiveConstraints =
-        _constraints ??
-        OverlaySheetController._defaultSheetConstraints(context);
+    final effectiveConstraints = _constraints ?? OverlaySheetController._defaultSheetConstraints(context);
 
     // Slide direction depends on alignment: bottom sheets slide up, top sheets slide down.
     // Use a pixel transform instead of FractionalTranslation so mouse-tracker
@@ -797,9 +732,7 @@ class _OverlaySheetHostState extends State<OverlaySheetHost>
 
     final colorScheme = Theme.of(context).colorScheme;
 
-    Widget content = _pageStack.isNotEmpty
-        ? Builder(builder: _pageStack.last.builder)
-        : const SizedBox.shrink();
+    Widget content = _pageStack.isNotEmpty ? Builder(builder: _pageStack.last.builder) : const SizedBox.shrink();
     // Keep sheet scrollables from attaching to the route's primary controller.
     content = PrimaryScrollController.none(child: content);
 
@@ -875,15 +808,12 @@ class _OverlaySheetHostState extends State<OverlaySheetHost>
           delegate: _OverlaySheetLayoutDelegate(
             alignment: _alignment,
             horizontalAnchor: _sheetHorizontalAnchor,
-            edgePadding: isDesktop
-                ? _OverlaySheetLayoutDelegate.desktopEdgePadding
-                : 0,
+            edgePadding: isDesktop ? _OverlaySheetLayoutDelegate.desktopEdgePadding : 0,
           ),
           child: AnimatedBuilder(
             animation: _slideCurve,
             builder: (context, child) {
-              final dy =
-                  slideDirection * slideDistance * (1 - _slideCurve.value);
+              final dy = slideDirection * slideDistance * (1 - _slideCurve.value);
               return Transform.translate(offset: Offset(0, dy), child: child);
             },
             child: Transform.translate(
@@ -913,13 +843,8 @@ class _OverlaySheetHostState extends State<OverlaySheetHost>
                       key: ValueKey(_sheetSession),
                       duration: const Duration(milliseconds: 180),
                       curve: Curves.easeOutCubic,
-                      alignment: isTop
-                          ? Alignment.topCenter
-                          : Alignment.bottomCenter,
-                      child: ConstrainedBox(
-                        constraints: effectiveConstraints,
-                        child: sheetContent,
-                      ),
+                      alignment: isTop ? Alignment.topCenter : Alignment.bottomCenter,
+                      child: ConstrainedBox(constraints: effectiveConstraints, child: sheetContent),
                     ),
                   ),
                 ),
@@ -934,32 +859,27 @@ class _OverlaySheetHostState extends State<OverlaySheetHost>
     if (showHandle) {
       sheet = RawGestureDetector(
         gestures: <Type, GestureRecognizerFactory>{
-          VerticalDragGestureRecognizer:
-              GestureRecognizerFactoryWithHandlers<
-                VerticalDragGestureRecognizer
-              >(
-                () =>
-                    VerticalDragGestureRecognizer()
-                      ..onlyAcceptDragOnThreshold = true,
-                (instance) {
-                  instance
-                    ..onStart = (_) {
-                      _isDragging = true;
-                      _dragOffset.value = 0;
-                    }
-                    ..onUpdate = (details) {
-                      if (!_isDragging) return;
-                      setState(() {
-                        _dragOffset.value += details.delta.dy;
-                      });
-                    }
-                    ..onEnd = (details) {
-                      if (!_isDragging) return;
-                      _isDragging = false;
-                      _checkDismiss(details.primaryVelocity ?? 0);
-                    };
-                },
-              ),
+          VerticalDragGestureRecognizer: GestureRecognizerFactoryWithHandlers<VerticalDragGestureRecognizer>(
+            () => VerticalDragGestureRecognizer()..onlyAcceptDragOnThreshold = true,
+            (instance) {
+              instance
+                ..onStart = (_) {
+                  _isDragging = true;
+                  _dragOffset.value = 0;
+                }
+                ..onUpdate = (details) {
+                  if (!_isDragging) return;
+                  setState(() {
+                    _dragOffset.value += details.delta.dy;
+                  });
+                }
+                ..onEnd = (details) {
+                  if (!_isDragging) return;
+                  _isDragging = false;
+                  _checkDismiss(details.primaryVelocity ?? 0);
+                };
+            },
+          ),
         },
         child: sheet,
       );
@@ -985,29 +905,20 @@ class _OverlaySheetLayoutDelegate extends SingleChildLayoutDelegate {
   @override
   BoxConstraints getConstraintsForChild(BoxConstraints constraints) {
     final size = constraints.biggest;
-    final maxWidth = size.width > edgePadding * 2
-        ? size.width - edgePadding * 2
-        : size.width;
+    final maxWidth = size.width > edgePadding * 2 ? size.width - edgePadding * 2 : size.width;
     return BoxConstraints.loose(Size(maxWidth, size.height));
   }
 
   @override
   Offset getPositionForChild(Size size, Size childSize) {
-    final hasHorizontalPadding =
-        edgePadding > 0 && size.width > childSize.width + edgePadding * 2;
+    final hasHorizontalPadding = edgePadding > 0 && size.width > childSize.width + edgePadding * 2;
     final minLeft = hasHorizontalPadding ? edgePadding : 0.0;
-    final maxLeft = hasHorizontalPadding
-        ? size.width - childSize.width - edgePadding
-        : minLeft;
+    final maxLeft = hasHorizontalPadding ? size.width - childSize.width - edgePadding : minLeft;
     final left = horizontalAnchor == null
         ? minLeft + (maxLeft - minLeft) * (alignment.x + 1) / 2
-        : (horizontalAnchor! - childSize.width / 2)
-              .clamp(minLeft, maxLeft)
-              .toDouble();
+        : (horizontalAnchor! - childSize.width / 2).clamp(minLeft, maxLeft).toDouble();
 
-    final maxTop = size.height > childSize.height
-        ? size.height - childSize.height
-        : 0.0;
+    final maxTop = size.height > childSize.height ? size.height - childSize.height : 0.0;
     final top = maxTop * (alignment.y + 1) / 2;
 
     return Offset(left, top);

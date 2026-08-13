@@ -20,41 +20,21 @@ typedef _AudioStateRequest = ({
   double rate,
 });
 
-typedef _AudioStateGenerations = ({
-  int passthrough,
-  int normalization,
-  int downmix,
-  int rate,
-});
+typedef _AudioStateGenerations = ({int passthrough, int normalization, int downmix, int rate});
 
 /// MPV-backed player for platforms where AetherEngine is not the native route.
 class PlayerNative extends PlayerBase {
   /// Video player on the default mpv channels/core.
-  PlayerNative()
-    : this._(
-        channelBase: 'com.plezy/mpv_player',
-        audioOnly: false,
-        logName: 'MPV',
-      );
+  PlayerNative() : this._(channelBase: 'com.plezy/mpv_player', audioOnly: false, logName: 'MPV');
 
   /// Audio-only player on the dedicated music channels/core (see
   /// [Player.audio]). Skips every video concern: no render layer
   /// ([setVisible] no-ops via [audioOnly]), no subtitle plumbing, no
   /// display-mode handling.
-  PlayerNative.audio()
-    : this._(
-        channelBase: 'com.plezy/mpv_audio_player',
-        audioOnly: true,
-        logName: 'MPV-audio',
-      );
+  PlayerNative.audio() : this._(channelBase: 'com.plezy/mpv_audio_player', audioOnly: true, logName: 'MPV-audio');
 
   /// Dedicated clip-preview player on its own native core/channel pair.
-  PlayerNative.preview()
-    : this._(
-        channelBase: 'com.plezy/clip_preview_player',
-        audioOnly: false,
-        logName: 'MPV-clip',
-      );
+  PlayerNative.preview() : this._(channelBase: 'com.plezy/clip_preview_player', audioOnly: false, logName: 'MPV-clip');
 
   /// Headless clip encoder on its own native core/channel pair.
   PlayerNative.clipEncoder(Map<String, String> initialOptions)
@@ -107,16 +87,14 @@ class PlayerNative extends PlayerBase {
   ///
   /// The one place the test override is resolved, so production code and host
   /// tests agree on which path is live without reading a test-only field.
-  static bool get usesLinuxVideoPlane =>
-      debugUseLinuxVideoPlane ?? Platform.isLinux;
+  static bool get usesLinuxVideoPlane => debugUseLinuxVideoPlane ?? Platform.isLinux;
 
   /// Overrides macOS output-volume routing in host tests. Null uses the real
   /// platform; audio-only players never use the video renderer path.
   @visibleForTesting
   static bool? debugMacOSOutputVolumeOverride;
 
-  bool get _usesMacOSOutputVolume =>
-      !audioOnly && (debugMacOSOutputVolumeOverride ?? Platform.isMacOS);
+  bool get _usesMacOSOutputVolume => !audioOnly && (debugMacOSOutputVolumeOverride ?? Platform.isMacOS);
 
   // Set by open() and consumed by that load's file-loaded event, so it is
   // not mistaken for a gapless advance (see _handleAudioFileLoaded).
@@ -182,9 +160,7 @@ class PlayerNative extends PlayerBase {
     return value.replaceAll(r'\', r'\\').replaceAll(separator, '\\$separator');
   }
 
-  static String? _externalSubtitlesLoadfileOption(
-    List<SubtitleTrack>? externalSubtitles,
-  ) {
+  static String? _externalSubtitlesLoadfileOption(List<SubtitleTrack>? externalSubtitles) {
     final separator = Platform.isWindows ? ';' : ':';
     final escapedUris = externalSubtitles
         ?.map((subtitle) => subtitle.uri)
@@ -211,21 +187,15 @@ class PlayerNative extends PlayerBase {
   static String? _httpHeaderFieldsLoadfileOption(Map<String, String>? headers) {
     if (headers == null || headers.isEmpty) return null;
     final appends = headers.entries
-        .map(
-          (e) =>
-              'http-header-fields-append=${_fixedLengthQuote('${e.key}: ${e.value}')}',
-        )
+        .map((e) => 'http-header-fields-append=${_fixedLengthQuote('${e.key}: ${e.value}')}')
         .join(',');
     return 'http-header-fields-clr=,$appends';
   }
 
-  MediaDisplayCriteria? _effectiveDisplayCriteria(
-    MediaDisplayCriteria? criteria,
-  ) {
+  MediaDisplayCriteria? _effectiveDisplayCriteria(MediaDisplayCriteria? criteria) {
     if (criteria == null || (criteria.doviProfile ?? 0) != 7) return criteria;
 
-    final convertToDv81 =
-        _dvConversionMode == 'auto' || _dvConversionMode == 'dv81';
+    final convertToDv81 = _dvConversionMode == 'auto' || _dvConversionMode == 'dv81';
     if (convertToDv81) {
       return MediaDisplayCriteria(
         fps: criteria.fps,
@@ -285,8 +255,7 @@ class PlayerNative extends PlayerBase {
       if (result != true) {
         throw Exception('Failed to initialize player');
       }
-      if (_nativeCoreUnavailable)
-        throw StateError('Player was disposed during initialization');
+      if (_nativeCoreUnavailable) throw StateError('Player was disposed during initialization');
 
       // Subscribe to MPV properties before flipping `initialized` so partial
       // failures don't leave us in a half-initialized state that the memoized
@@ -312,8 +281,7 @@ class PlayerNative extends PlayerBase {
         await invoke('setProperty', {'name': 'gapless-audio', 'value': 'weak'});
       }
 
-      if (_nativeCoreUnavailable)
-        throw StateError('Player was disposed during initialization');
+      if (_nativeCoreUnavailable) throw StateError('Player was disposed during initialization');
       initialized = true;
     } catch (e) {
       _initFuture = null;
@@ -353,13 +321,8 @@ class PlayerNative extends PlayerBase {
   /// open content:// itself, so arming one would stall playback at the track
   /// boundary — setNext must fail loudly so the music service falls back to
   /// an explicit open.
-  Future<(String, int?)> _toPlayableUri(
-    String uri, {
-    bool strict = false,
-  }) async {
-    final convert =
-        (Platform.isAndroid || debugForceContentFdConversion) &&
-        uri.startsWith('content://');
+  Future<(String, int?)> _toPlayableUri(String uri, {bool strict = false}) async {
+    final convert = (Platform.isAndroid || debugForceContentFdConversion) && uri.startsWith('content://');
     if (!convert) return (uri, null);
     final fd = await _openContentFd(uri);
     if (fd == null) {
@@ -404,21 +367,13 @@ class PlayerNative extends PlayerBase {
     await command(['change-list', 'http-header-fields', 'clr', '']);
     if (media.headers != null && media.headers!.isNotEmpty) {
       for (final entry in media.headers!.entries) {
-        await command([
-          'change-list',
-          'http-header-fields',
-          'append',
-          '${entry.key}: ${entry.value}',
-        ]);
+        await command(['change-list', 'http-header-fields', 'append', '${entry.key}: ${entry.value}']);
       }
     }
 
     // 'start' must be set before loadfile.
     if (startPosition.inSeconds > 0) {
-      await setProperty(
-        'start',
-        (startPosition.inMilliseconds / 1000.0).toString(),
-      );
+      await setProperty('start', (startPosition.inMilliseconds / 1000.0).toString());
     } else {
       await setProperty('start', 'none');
     }
@@ -426,8 +381,7 @@ class PlayerNative extends PlayerBase {
     // Prevents a race that can freeze the Android decoder (issue #226). The
     // macOS AVFoundation path also opens paused so its per-renderer volume can
     // be restored before any queued audio becomes audible.
-    final gateMacOSOutputVolume =
-        _usesMacOSOutputVolume && _macOSLogicalVolume != null;
+    final gateMacOSOutputVolume = _usesMacOSOutputVolume && _macOSLogicalVolume != null;
     if (gateMacOSOutputVolume) _macOSPlayAfterVolumeRestore = play;
     if (!play || gateMacOSOutputVolume) {
       await setProperty('pause', 'yes');
@@ -468,9 +422,7 @@ class PlayerNative extends PlayerBase {
       return;
     }
     final logicalVolume = _macOSLogicalVolume;
-    if (_usesMacOSOutputVolume &&
-        logicalVolume != null &&
-        _macOSOutputVolumeReady) {
+    if (_usesMacOSOutputVolume && logicalVolume != null && _macOSOutputVolumeReady) {
       await _applyMacOSVolumeOrFallback(logicalVolume);
     }
     await setProperty('pause', 'no');
@@ -500,30 +452,17 @@ class PlayerNative extends PlayerBase {
   }
 
   @override
-  Future<bool> setVisible(
-    bool visible, {
-    bool restoreOnWindowVisible = false,
-  }) async {
+  Future<bool> setVisible(bool visible, {bool restoreOnWindowVisible = false}) async {
     if (_nativeCoreUnavailable) return false;
     if (initialOptions.containsKey('o')) return true;
-    final changed = await super.setVisible(
-      visible,
-      restoreOnWindowVisible: restoreOnWindowVisible,
-    );
+    final changed = await super.setVisible(visible, restoreOnWindowVisible: restoreOnWindowVisible);
     return changed && !_nativeCoreUnavailable;
   }
 
   @override
   Future<void> seek(Duration position) async {
     if (_nativeCoreUnavailable) return;
-    await runSeek(
-      position,
-      () => command([
-        'seek',
-        (position.inMilliseconds / 1000.0).toString(),
-        'absolute',
-      ]),
-    );
+    await runSeek(position, () => command(['seek', (position.inMilliseconds / 1000.0).toString(), 'absolute']));
   }
 
   @override
@@ -574,10 +513,7 @@ class PlayerNative extends PlayerBase {
   /// exactly at the gapless boundary desyncs the music service from the
   /// audio for the whole next track. Callers that replace or stop playback
   /// pass false: no one is listening for that entry anymore.
-  Future<void> _clearArmedNext({
-    bool adoptIfRolledIn = true,
-    bool duringDispose = false,
-  }) async {
+  Future<void> _clearArmedNext({bool adoptIfRolledIn = true, bool duringDispose = false}) async {
     if (!_hasArmedNext) return;
     final uri = _armedNextUri;
     final fd = _armedNextFd;
@@ -641,9 +577,7 @@ class PlayerNative extends PlayerBase {
     _hasArmedNext = false;
     _armedNextUri = null;
     _armedNextFd = null;
-    appLogger.d(
-      'MPV-audio: armed entry advanced → playlist-remove 0, ${_uriTail(uri ?? '')}',
-    );
+    appLogger.d('MPV-audio: armed entry advanced → playlist-remove 0, ${_uriTail(uri ?? '')}');
     unawaited(_removeSpentPlaylistEntry());
     if (uri != null) trackTransitionController.add(uri);
   }
@@ -652,25 +586,16 @@ class PlayerNative extends PlayerBase {
     try {
       await command(['playlist-remove', '0']);
     } catch (error, stackTrace) {
-      appLogger.w(
-        'MPV-audio: failed to remove spent playlist entry',
-        error: error,
-        stackTrace: stackTrace,
-      );
+      appLogger.w('MPV-audio: failed to remove spent playlist entry', error: error, stackTrace: stackTrace);
     }
   }
 
-  Future<void> _applyMacOSVolume(
-    double logicalVolume, {
-    bool resetSoftwareVolume = false,
-  }) async {
+  Future<void> _applyMacOSVolume(double logicalVolume, {bool resetSoftwareVolume = false}) async {
     if (logicalVolume <= 100.0) {
       final normalized = logicalVolume / 100.0;
       final outputVolume = normalized * normalized * normalized * 100.0;
       await setProperty('ao-volume', outputVolume.toString());
-      if (resetSoftwareVolume &&
-          !disposed &&
-          logicalVolume == _macOSLogicalVolume) {
+      if (resetSoftwareVolume && !disposed && logicalVolume == _macOSLogicalVolume) {
         await setProperty('volume', '100.0');
       }
       return;
@@ -681,15 +606,9 @@ class PlayerNative extends PlayerBase {
     await setProperty('volume', logicalVolume.toString());
   }
 
-  Future<void> _applyMacOSVolumeOrFallback(
-    double logicalVolume, {
-    bool resetSoftwareVolume = false,
-  }) async {
+  Future<void> _applyMacOSVolumeOrFallback(double logicalVolume, {bool resetSoftwareVolume = false}) async {
     try {
-      await _applyMacOSVolume(
-        logicalVolume,
-        resetSoftwareVolume: resetSoftwareVolume,
-      );
+      await _applyMacOSVolume(logicalVolume, resetSoftwareVolume: resetSoftwareVolume);
     } on PlatformException catch (error) {
       if (error.code != 'SET_PROPERTY_FAILED') rethrow;
       // ao-volume only exists while mpv has an active audio output. Keep the
@@ -732,9 +651,7 @@ class PlayerNative extends PlayerBase {
     final playAfterRestore = _macOSPlayAfterVolumeRestore;
     if (name == 'file-loaded' && playAfterRestore != null) {
       _macOSPlayAfterVolumeRestore = null;
-      unawaited(
-        _restoreMacOSVolume(playAfterRestore, _macOSVolumeRestoreToken),
-      );
+      unawaited(_restoreMacOSVolume(playAfterRestore, _macOSVolumeRestoreToken));
     }
     super.handlePlayerEvent(name, data);
   }
@@ -743,10 +660,7 @@ class PlayerNative extends PlayerBase {
     final logicalVolume = _macOSLogicalVolume;
     if (logicalVolume == null) return;
     if (_macOSOutputVolumeReady) {
-      await _applyMacOSVolumeOrFallback(
-        logicalVolume,
-        resetSoftwareVolume: true,
-      );
+      await _applyMacOSVolumeOrFallback(logicalVolume, resetSoftwareVolume: true);
     }
     if (token == null || !identical(token, _macOSVolumeRestoreToken)) return;
     if (play && !disposed) await setProperty('pause', 'no');
@@ -756,16 +670,9 @@ class PlayerNative extends PlayerBase {
     final logicalVolume = _macOSLogicalVolume;
     if (logicalVolume == null || disposed || !_macOSOutputVolumeReady) return;
     try {
-      await _applyMacOSVolumeOrFallback(
-        logicalVolume,
-        resetSoftwareVolume: true,
-      );
+      await _applyMacOSVolumeOrFallback(logicalVolume, resetSoftwareVolume: true);
     } catch (error, stackTrace) {
-      appLogger.w(
-        '$logPrefix: failed to restore macOS output volume',
-        error: error,
-        stackTrace: stackTrace,
-      );
+      appLogger.w('$logPrefix: failed to restore macOS output volume', error: error, stackTrace: stackTrace);
     }
   }
 
@@ -844,12 +751,7 @@ class PlayerNative extends PlayerBase {
   }
 
   @override
-  Future<void> addSubtitleTrack({
-    required String uri,
-    String? title,
-    String? language,
-    bool select = false,
-  }) async {
+  Future<void> addSubtitleTrack({required String uri, String? title, String? language, bool select = false}) async {
     if (_nativeCoreUnavailable) return;
     final args = ['sub-add', uri, select ? 'select' : 'auto'];
     if (title != null) args.add('title=$title');
@@ -861,14 +763,10 @@ class PlayerNative extends PlayerBase {
   Future<void> setVolume(double volume) async {
     if (_nativeCoreUnavailable || disposed) return;
     if (_usesMacOSOutputVolume) {
-      final resetSoftwareVolume =
-          _macOSLogicalVolume == null || _macOSLogicalVolume! > 100.0;
+      final resetSoftwareVolume = _macOSLogicalVolume == null || _macOSLogicalVolume! > 100.0;
       _macOSLogicalVolume = volume;
       if (_macOSOutputVolumeReady) {
-        await _applyMacOSVolumeOrFallback(
-          volume,
-          resetSoftwareVolume: resetSoftwareVolume,
-        );
+        await _applyMacOSVolumeOrFallback(volume, resetSoftwareVolume: resetSoftwareVolume);
       } else {
         // ao-volume is unavailable before the media's audio output exists.
         // Software volume is an accepted pre-load fallback and prevents an
@@ -904,10 +802,7 @@ class PlayerNative extends PlayerBase {
   Future<AudioRenderingMode?> getAudioRenderingMode() async {
     if (!Platform.isIOS || _nativeCoreUnavailable) return null;
     try {
-      final raw = await invoke<Map<Object?, Object?>>(
-        'getAudioRenderingMode',
-        const {},
-      );
+      final raw = await invoke<Map<Object?, Object?>>('getAudioRenderingMode', const {});
       if (raw == null) return null;
       return AudioRenderingMode(
         name: raw['name'] as String? ?? 'unknown',
@@ -924,19 +819,12 @@ class PlayerNative extends PlayerBase {
   }
 
   @override
-  Future<void> setProperty(String name, String value) =>
-      _setProperty(name, value, synchronizeRate: true);
+  Future<void> setProperty(String name, String value) => _setProperty(name, value, synchronizeRate: true);
 
-  Future<void> _setProperty(
-    String name,
-    String value, {
-    required bool synchronizeRate,
-  }) async {
+  Future<void> _setProperty(String name, String value, {required bool synchronizeRate}) async {
     if (_nativeCoreUnavailable) return;
-    final updatesDvMode =
-        (Platform.isIOS || Platform.isMacOS) && name == 'dv-conversion-mode';
-    final updatesDvLog =
-        (Platform.isIOS || Platform.isMacOS) && name == 'dv-conversion-log';
+    final updatesDvMode = (Platform.isIOS || Platform.isMacOS) && name == 'dv-conversion-mode';
+    final updatesDvLog = (Platform.isIOS || Platform.isMacOS) && name == 'dv-conversion-log';
     if (updatesDvMode) value = _normalizeDvConversionMode(value);
     if (updatesDvLog) value = _normalizeBoolProperty(value);
 
@@ -1026,14 +914,9 @@ class PlayerNative extends PlayerBase {
     // fabricated position to consumers as authoritative. The null announced
     // before dispatch already told consumers to drop what they were holding,
     // and the backend's next tick supplies the real position.
-    final seconds = double.tryParse(
-      await invoke<String>('getProperty', {'name': 'time-pos'}) ?? '',
-    );
+    final seconds = double.tryParse(await invoke<String>('getProperty', {'name': 'time-pos'}) ?? '');
     if (seconds != null && seconds.isFinite && !seconds.isNegative) {
-      publishPlayheadRelocation(
-        Duration(milliseconds: (seconds * 1000).round()),
-        token: token,
-      );
+      publishPlayheadRelocation(Duration(milliseconds: (seconds * 1000).round()), token: token);
     }
   }
 
@@ -1041,10 +924,7 @@ class PlayerNative extends PlayerBase {
   bool get needsDecoderRefreshAfterDisplaySwitch => Platform.isAndroid;
 
   @override
-  Future<void> setDisplayCriteria(
-    MediaDisplayCriteria? criteria, {
-    int extraDelayMs = 0,
-  }) async {
+  Future<void> setDisplayCriteria(MediaDisplayCriteria? criteria, {int extraDelayMs = 0}) async {
     if (_nativeCoreUnavailable || audioOnly || !Platform.isIOS) return;
     await _ensureInitialized();
     await invoke('setDisplayCriteria', {
@@ -1095,9 +975,7 @@ class PlayerNative extends PlayerBase {
   /// Codecs the platform can take as a bitstream. On iOS/tvOS compressed
   /// audio goes through the system renderer, which only handles Dolby
   /// Digital (Plus); desktop does real device passthrough for the full list.
-  static final String _passthroughCodecs = Platform.isIOS
-      ? 'ac3,eac3'
-      : 'ac3,eac3,dts,dts-hd,truehd';
+  static final String _passthroughCodecs = Platform.isIOS ? 'ac3,eac3' : 'ac3,eac3,dts,dts-hd,truehd';
 
   _AudioStateRequest get _requestedAudioState => (
     passthrough: _passthroughRequested,
@@ -1108,44 +986,25 @@ class PlayerNative extends PlayerBase {
     rate: _requestedRate,
   );
 
-  _AudioStateRequest _rebaseAudioState(
-    _AudioStateRequest accepted,
-    _AudioStateRequest requested,
-    int fields,
-  ) => (
-    passthrough: fields & _passthroughAudioField != 0
-        ? requested.passthrough
-        : accepted.passthrough,
-    normalization: fields & _normalizationAudioField != 0
-        ? requested.normalization
-        : accepted.normalization,
-    downmix: fields & _downmixAudioField != 0
-        ? requested.downmix
-        : accepted.downmix,
+  _AudioStateRequest _rebaseAudioState(_AudioStateRequest accepted, _AudioStateRequest requested, int fields) => (
+    passthrough: fields & _passthroughAudioField != 0 ? requested.passthrough : accepted.passthrough,
+    normalization: fields & _normalizationAudioField != 0 ? requested.normalization : accepted.normalization,
+    downmix: fields & _downmixAudioField != 0 ? requested.downmix : accepted.downmix,
     downmixCenterBoostDb: fields & _downmixAudioField != 0
         ? requested.downmixCenterBoostDb
         : accepted.downmixCenterBoostDb,
-    downmixNormalize: fields & _downmixAudioField != 0
-        ? requested.downmixNormalize
-        : accepted.downmixNormalize,
+    downmixNormalize: fields & _downmixAudioField != 0 ? requested.downmixNormalize : accepted.downmixNormalize,
     rate: fields & _rateAudioField != 0 ? requested.rate : accepted.rate,
   );
 
-  void _restoreFailedRequestedFields(
-    _AudioStateRequest previous,
-    int fields,
-    _AudioStateGenerations generations,
-  ) {
-    if (fields & _passthroughAudioField != 0 &&
-        generations.passthrough == _passthroughGeneration) {
+  void _restoreFailedRequestedFields(_AudioStateRequest previous, int fields, _AudioStateGenerations generations) {
+    if (fields & _passthroughAudioField != 0 && generations.passthrough == _passthroughGeneration) {
       _passthroughRequested = previous.passthrough;
     }
-    if (fields & _normalizationAudioField != 0 &&
-        generations.normalization == _normalizationGeneration) {
+    if (fields & _normalizationAudioField != 0 && generations.normalization == _normalizationGeneration) {
       _normalizationRequested = previous.normalization;
     }
-    if (fields & _downmixAudioField != 0 &&
-        generations.downmix == _downmixGeneration) {
+    if (fields & _downmixAudioField != 0 && generations.downmix == _downmixGeneration) {
       _downmixRequested = previous.downmix;
       _downmixCenterBoostDb = previous.downmixCenterBoostDb;
       _downmixNormalize = previous.downmixNormalize;
@@ -1167,9 +1026,7 @@ class PlayerNative extends PlayerBase {
       downmix: _downmixGeneration,
       rate: _rateGeneration,
     );
-    final operation = _audioStateTail.then(
-      (_) => _reconcileAudioState(requested, fields, generations),
-    );
+    final operation = _audioStateTail.then((_) => _reconcileAudioState(requested, fields, generations));
     _audioStateTail = operation.catchError((Object _, StackTrace _) {});
     return operation;
   }
@@ -1211,8 +1068,7 @@ class PlayerNative extends PlayerBase {
     bool forceNormalization = false,
   }) async {
     if (_nativeCoreUnavailable) return;
-    final passthroughShouldBeActive =
-        target.passthrough && target.rate == 1.0 && !target.downmix;
+    final passthroughShouldBeActive = target.passthrough && target.rate == 1.0 && !target.downmix;
 
     // mpv cannot scaletempo compressed audio and filters cannot process a
     // bitstream. Always leave passthrough before applying either state.
@@ -1220,11 +1076,7 @@ class PlayerNative extends PlayerBase {
       await _applyPassthrough(false);
     }
     if (_currentRate != target.rate) {
-      await _setProperty(
-        'speed',
-        target.rate.toString(),
-        synchronizeRate: false,
-      );
+      await _setProperty('speed', target.rate.toString(), synchronizeRate: false);
       _currentRate = target.rate;
     }
     if (forceDownmix ||
@@ -1241,10 +1093,8 @@ class PlayerNative extends PlayerBase {
       _activeDownmixCenterBoostDb = target.downmixCenterBoostDb;
       _activeDownmixNormalize = target.downmixNormalize;
     }
-    final normalizationShouldBeActive =
-        target.normalization && !passthroughShouldBeActive;
-    if (forceNormalization ||
-        _normalizationActive != normalizationShouldBeActive) {
+    final normalizationShouldBeActive = target.normalization && !passthroughShouldBeActive;
+    if (forceNormalization || _normalizationActive != normalizationShouldBeActive) {
       await super.setAudioNormalization(normalizationShouldBeActive);
       _normalizationActive = normalizationShouldBeActive;
     }
@@ -1274,11 +1124,7 @@ class PlayerNative extends PlayerBase {
       try {
         await setProperty('audio-exclusive', enabled ? 'yes' : 'no');
       } catch (error, stackTrace) {
-        appLogger.w(
-          'MPV: failed to update exclusive-audio hint',
-          error: error,
-          stackTrace: stackTrace,
-        );
+        appLogger.w('MPV: failed to update exclusive-audio hint', error: error, stackTrace: stackTrace);
       }
     }
   }
@@ -1291,11 +1137,7 @@ class PlayerNative extends PlayerBase {
   }
 
   @override
-  Future<void> setAudioDownmix({
-    required bool enabled,
-    required int centerBoostDb,
-    required bool normalize,
-  }) {
+  Future<void> setAudioDownmix({required bool enabled, required int centerBoostDb, required bool normalize}) {
     if (_nativeCoreUnavailable) return Future<void>.value();
     _downmixRequested = enabled;
     _downmixCenterBoostDb = centerBoostDb;
@@ -1306,10 +1148,7 @@ class PlayerNative extends PlayerBase {
   @override
   Future<void> updateFrame() async {
     if (_nativeCoreUnavailable || !initialized) return;
-    if (Platform.isAndroid ||
-        Platform.isIOS ||
-        Platform.isMacOS ||
-        Platform.isLinux) {
+    if (Platform.isAndroid || Platform.isIOS || Platform.isMacOS || Platform.isLinux) {
       await invoke('updateFrame');
     }
   }
@@ -1322,8 +1161,7 @@ class PlayerNative extends PlayerBase {
     int videoWidth = 0,
     int videoHeight = 0,
   }) async {
-    if (_nativeCoreUnavailable || !Platform.isAndroid || !initialized)
-      return false;
+    if (_nativeCoreUnavailable || !Platform.isAndroid || !initialized) return false;
     final result = await invoke<bool>('setVideoFrameRate', {
       'fps': fps,
       'duration': durationMs,
@@ -1370,8 +1208,7 @@ class PlayerNative extends PlayerBase {
     // Asked through usesLinuxVideoPlane, not Platform.isLinux, so this and the
     // settings sheet's _probesHdrSupport resolve the same way under the test
     // override; on a real Linux host the two are the same answer.
-    if (usesLinuxVideoPlane)
-      return await invoke<bool>('isHDRSupported') ?? false;
+    if (usesLinuxVideoPlane) return await invoke<bool>('isHDRSupported') ?? false;
     return Platform.isIOS || Platform.isMacOS || Platform.isWindows;
   }
 }

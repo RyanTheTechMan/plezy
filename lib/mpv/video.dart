@@ -101,11 +101,9 @@ class _VideoState extends State<Video> {
   }
 
   void _listenForPlaybackRestart() {
-    _playbackRestartSubscription = widget.player.streams.playbackRestart.listen(
-      (_) {
-        _setHasFirstFrame(true);
-      },
-    );
+    _playbackRestartSubscription = widget.player.streams.playbackRestart.listen((_) {
+      _setHasFirstFrame(true);
+    });
   }
 
   void _syncExternalFirstFrame() {
@@ -212,37 +210,29 @@ class _VideoState extends State<Video> {
     _sentDevicePixelRatio = dpr;
 
     final player = widget.player as VideoRectSupport;
-    player
-        .setVideoRect(
-          left: left,
-          top: top,
-          right: right,
-          bottom: bottom,
-          devicePixelRatio: dpr,
-        )
-        .catchError((Object e) {
-          // Geometry is the only thing that makes the native surface visible,
-          // so a rejected rect is a black video area, not a cosmetic glitch.
-          // Post-frame callbacks have nobody to rethrow to, so route it to the
-          // player's error stream rather than leaving an unhandled async error.
-          //
-          // Drop the sent-rect cache too: it was recorded before the call
-          // resolved, and keeping it would short-circuit every later identical
-          // layout pass, freezing the failure in place. Cleared, the next layout
-          // or resize retries for free.
-          if (mounted &&
-              _sentLeft == left &&
-              _sentTop == top &&
-              _sentRight == right &&
-              _sentBottom == bottom &&
-              _sentDevicePixelRatio == dpr) {
-            _hasSentRect = false;
-          }
-          if (!player.errorController.isClosed) {
-            player.errorController.add(
-              PlayerError('Failed to set video rect: $e'),
-            );
-          }
-        });
+    player.setVideoRect(left: left, top: top, right: right, bottom: bottom, devicePixelRatio: dpr).catchError((
+      Object e,
+    ) {
+      // Geometry is the only thing that makes the native surface visible,
+      // so a rejected rect is a black video area, not a cosmetic glitch.
+      // Post-frame callbacks have nobody to rethrow to, so route it to the
+      // player's error stream rather than leaving an unhandled async error.
+      //
+      // Drop the sent-rect cache too: it was recorded before the call
+      // resolved, and keeping it would short-circuit every later identical
+      // layout pass, freezing the failure in place. Cleared, the next layout
+      // or resize retries for free.
+      if (mounted &&
+          _sentLeft == left &&
+          _sentTop == top &&
+          _sentRight == right &&
+          _sentBottom == bottom &&
+          _sentDevicePixelRatio == dpr) {
+        _hasSentRect = false;
+      }
+      if (!player.errorController.isClosed) {
+        player.errorController.add(PlayerError('Failed to set video rect: $e'));
+      }
+    });
   }
 }

@@ -73,8 +73,7 @@ class BottomSheetPageScaffold extends StatelessWidget {
           closeFocusNode: closeFocusNode,
           compact: compactHeader,
         ),
-        if (showHeaderDivider)
-          Divider(color: Theme.of(context).dividerColor, height: 1),
+        if (showHeaderDivider) Divider(color: Theme.of(context).dividerColor, height: 1),
         if (shrinkWrap) child else Flexible(child: child),
       ],
     );
