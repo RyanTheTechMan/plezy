@@ -160,7 +160,7 @@ class _ClipPreviewPlayerSurfaceState extends State<_ClipPreviewPlayerSurface> {
   @override
   Widget build(BuildContext context) {
     final player = widget.controller.player;
-    final hasEmbeddedSurface = player != null && (player.textureId != null || player is VideoRectSupport);
+    final hasEmbeddedSurface = player is VideoRectSupport;
     final rectUpdateListenable =
         OverlaySheetController.maybeOf(context)?.geometryChanges ?? ModalRoute.of(context)?.animation;
 

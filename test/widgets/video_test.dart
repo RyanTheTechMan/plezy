@@ -33,13 +33,10 @@ class _FakePlayer implements Player {
   PlayerState get state => const PlayerState();
 
   @override
-  int? get textureId => null;
-
-  @override
   dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
-class _FakeRectPlayer extends _FakePlayer with VideoRectSupport {
+class _FakeRectPlayer extends _FakePlayer implements VideoRectSupport {
   final List<({int left, int top, int right, int bottom})> rects = [];
 
   @override

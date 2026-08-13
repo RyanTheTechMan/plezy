@@ -80,7 +80,6 @@ class _VideoState extends State<Video> {
       _scheduleVideoRectUpdate();
     }
     if (oldWidget.player != widget.player) {
-      _lastRect = null;
       _videoSurfaceContext = null;
       _playbackRestartSubscription?.cancel();
       _listenForPlaybackRestart();
