@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "使用 Plex 登录",
@@ -93,7 +93,15 @@
     "skipVersion": "跳过此版本",
     "viewRelease": "查看发布详情",
     "latestVersion": "当前已是最新版本",
-    "checkFailed": "无法检查更新"
+    "checkFailed": "无法检查更新",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "设置",
@@ -120,7 +128,6 @@
     "darkTheme": "深色",
     "oledTheme": "OLED",
     "libraryDensity": "媒体库密度",
-    "displayScale": "界面缩放",
     "compact": "紧凑",
     "comfortable": "舒适",
     "tvCornerSpotlightBackdrop": "右上角聚焦背景图",
@@ -170,11 +177,6 @@
     "bufferSizeMB": "${size}MB",
     "bufferSizeAuto": "自动（推荐）",
     "bufferSizeWarning": "可用内存 ${heap}MB。${size}MB 缓冲可能影响播放。",
-    "playbackBuffer": "播放缓冲",
-    "playbackBufferAuto": "自动（推荐）",
-    "playbackBufferLarge": "大",
-    "playbackBufferExtraLarge": "特大",
-    "playbackBufferDescription": "针对不稳定的连接缓冲更多内容。也受缓冲大小限制。",
     "defaultQualityTitle": "默认画质",
     "musicQualityTitle": "音乐音质",
     "subtitleStyling": "字幕样式",
@@ -263,6 +265,17 @@
     "downloadLocationReset": "下载位置已重置为默认",
     "downloadLocationInvalid": "所选文件夹不可写入",
     "downloadLocationPickerUnavailable": "此设备不支持选择文件夹",
+    "downloadLocationSelectError": "Failed to select folder",
+    "mediaCapture": "Media Capture",
+    "clips": "Clips",
+    "screenshots": "Screenshots",
+    "captureLocationTitle": "${title} Location",
+    "clipLocationDescription": "Choose where clips are saved.",
+    "screenshotLocationDescription": "Choose where screenshots are saved.",
+    "clipLocationChanged": "Clip location changed",
+    "screenshotLocationChanged": "Screenshot location changed",
+    "clipLocationReset": "Clip location reset to Desktop",
+    "screenshotLocationReset": "Screenshot location reset to Desktop",
     "downloadOnWifiOnly": "仅通过 Wi-Fi 下载",
     "downloadOnWifiOnlyDescription": "使用移动数据时不允许下载",
     "autoRemoveWatchedDownloads": "自动移除已观看的下载",
@@ -323,8 +336,6 @@
     "showNavBarLabels": "显示导航栏标签",
     "showNavBarLabelsDescription": "在导航栏图标下方显示文字标签",
     "startupSection": "启动页面",
-    "showExploreTab": "",
-    "showExploreTabDescription": "",
     "liveTvDefaultFavorites": "默认显示收藏频道",
     "liveTvDefaultFavoritesDescription": "打开直播电视时仅显示收藏频道",
     "display": "显示",
@@ -335,7 +346,21 @@
     "player": "播放器",
     "subtitlesAndConfig": "字幕与配置",
     "seekAndTiming": "跳转与计时",
-    "behavior": "行为"
+    "behavior": "行为",
+    "displayScale": "界面缩放",
+    "playbackBuffer": "播放缓冲",
+    "playbackBufferAuto": "自动（推荐）",
+    "playbackBufferLarge": "大",
+    "playbackBufferExtraLarge": "特大",
+    "playbackBufferDescription": "针对不稳定的连接缓冲更多内容。也受缓冲大小限制。",
+    "showExploreTab": "Show Explore Tab",
+    "showExploreTabDescription": "Display the Explore tab with content from Plex Discover and connected trackers",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "搜索电影、剧集、音乐…",
@@ -375,7 +400,9 @@
       "subSeekPrev": "跳转到上一条字幕",
       "shaderToggle": "切换着色器",
       "skipMarker": "跳过片头/片尾",
-      "screenshot": "截图"
+      "screenshot": "截图",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -518,12 +545,15 @@
     "confirmDeleteTarget": "从你的服务器永久删除 ${title}？",
     "deleteMultipleWarning": "这包括所有剧集及其文件。",
     "deleteEpisodeCountWarning": {
+      "one": "This deletes all ${n} episode in it, and its file.",
       "other": "这将删除其中全部 ${n} 集以及它们的文件。"
     },
     "deleteMultiPartWarning": {
+      "one": "This item is stored as ${n} file, which will be deleted.",
       "other": "此项目存储在 ${n} 个文件中，所有这些文件都会被删除。"
     },
     "deleteSharedFileHeading": {
+      "one": "${n} other episode is stored in the same file and will be deleted too:",
       "other": "另外 ${n} 集存储在同一个文件中，也会一并删除："
     },
     "deleteScopeUnverifiedProbeFailed": "Plezy 无法确认此操作会删除哪些文件，因此删除范围可能超出上面提到的项目。请取消后重试，或仍然删除。",
@@ -577,6 +607,10 @@
     "track": "音轨 ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "音频",
     "subtitlesLabel": "字幕",
     "resetToZero": "重置为 0ms",
@@ -642,6 +676,44 @@
     "pipActive": "正在以画中画模式播放",
     "pipFailed": "画中画启动失败",
     "screenshotSaved": "截图已保存",
+    "clip": {
+      "title": "Clip",
+      "vodOnly": "Clips are available for on-demand video playback.",
+      "sourceUnavailable": "Clip source is not available for this playback session.",
+      "playAtLeastOneSecond": "Play at least 1 second before clipping.",
+      "startBeforeBeginning": "Clip start cannot be before the beginning of the video.",
+      "endAfterStart": "Clip end must be after the start.",
+      "minimumDuration": "Clips must be at least 1 second long.",
+      "endPastVideo": "Clip end is past the end of the video.",
+      "exportCanceled": "Clip export canceled.",
+      "cacheUnavailable": "The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.",
+      "sourceCopyNoEncoder": "Source-copy export does not use an encoder.",
+      "encodingDesktopOnly": "H.264 and HEVC clip encoding is currently available on macOS and Windows.",
+      "hdrRequiresSource": "HDR export requires a direct-play HDR10 or HLG-compatible source.",
+      "transcodeStartUnavailable": "This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.",
+      "previewRequired": "Clip preview must finish loading before it can be saved.",
+      "h264Failed": "This source could not be encoded as an H.264 SDR MP4.",
+      "hevcSdrFailed": "This source could not be encoded as an HEVC SDR MP4.",
+      "hevcHdrFailed": "This source could not be encoded as an HEVC HDR MP4.",
+      "gifFailed": "This source could not be encoded as a GIF.",
+      "originalFailed": "This source could not be copied from the mpv cache.",
+      "previewUnavailable": "Clip preview playback is not available in this build.",
+      "previewFailed": "Clip preview playback failed.",
+      "previewLoadingScreenshot": "The clip preview must finish loading before taking a screenshot.",
+      "screenshotInProgress": "A screenshot is already being saved.",
+      "saveAsDialog": "Save Clip As",
+      "savedTo": "Saved to ${fileName}",
+      "openFolder": "Open Folder",
+      "saveAs": "Save As",
+      "cancelExport": "Cancel Export",
+      "saving": "Saving...",
+      "savingProgress": "Saving ${percent}%",
+      "mutePreview": "Mute preview",
+      "unmutePreview": "Unmute preview",
+      "formatHevcSdr": "HEVC SDR",
+      "formatH264Sdr": "H.264 SDR",
+      "formatHevcHdr": "HEVC HDR"
+    },
     "zoomPercent": "缩放 ${percent}%",
     "pipErrors": {
       "androidVersion": "需要 Android 8.0 或更高版本",
@@ -673,6 +745,7 @@
     "markedAsUnwatchedOffline": "已标记为未观看（将在联网时同步）",
     "autoRemovedWatchedDownload": "已自动移除：${title}",
     "autoRemovedWatchedDownloads": {
+      "one": "Auto-removed ${n} watched download",
       "other": "已自动移除 ${n} 个看过的下载"
     },
     "removedFromContinueWatching": "已从继续观看中移除",
@@ -718,12 +791,12 @@
     "serverLimitBody": "服务器错误（HTTP 500）。此次会话可能因带宽或转码限制而被拒绝。请联系服务器所有者调整限制。",
     "mediaUnreadableTitle": "文件不可用",
     "mediaUnreadableBody": "服务器找到了此项目，但无法读取其文件（HTTP 404）。文件可能已被移动、删除，或其存储已离线。请联系服务器管理员检查文件并重新扫描媒体库。",
-    "serverBusyTitle": "",
-    "serverBusyBody": "",
+    "serverBusyTitle": "Stream unavailable",
+    "serverBusyBody": "The server kept refusing to stream this file (HTTP 503). It may be restarting, busy, or the file's storage may be offline. Try again in a moment — if it keeps happening, ask the server owner to check the server and the file's storage.",
     "logsUploaded": "日志已上传",
     "logsUploadFailed": "上传日志失败",
     "logId": "日志 ID",
-    "burnedSubtitlesUseMenu": ""
+    "burnedSubtitlesUseMenu": "Subtitles are burned into this stream. Change them from the subtitle menu."
   },
   "subtitlingStyling": {
     "text": "文本",
@@ -742,8 +815,8 @@
     "overrideStrip": "移除样式",
     "positionTop": "顶部",
     "positionBottom": "底部",
-    "anchorToScreen": "",
-    "anchorToScreenDescription": "",
+    "anchorToScreen": "Anchor to Screen",
+    "anchorToScreenDescription": "Show text subtitles in the black bars below widescreen video",
     "bold": "粗体",
     "italic": "斜体",
     "renderResolution": "渲染分辨率",
@@ -981,7 +1054,10 @@
     "openSourceLicenses": "开源许可证",
     "versionLabel": "版本 ${version}",
     "appDescription": "一款精美的 Flutter Plex 和 Jellyfin 客户端",
-    "viewLicensesDescription": "查看第三方库的许可证"
+    "viewLicensesDescription": "查看第三方库的许可证",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "未找到 ${username}（${email}）的服务器",
@@ -1069,16 +1145,17 @@
       "upcoming": "即将上线"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n} 集"
     },
     "cast": "演员表",
     "characters": "角色",
     "addToWatchlist": "添加到想看列表",
     "removeFromWatchlist": "从想看列表移除",
-    "addedToWatchlist": "",
-    "removedFromWatchlist": "",
+    "addedToWatchlist": "Added to watchlist",
+    "removedFromWatchlist": "Removed from watchlist",
     "watchlistUpdateFailed": "无法更新想看列表",
-    "watchlistNoMatch": "",
+    "watchlistNoMatch": "Couldn't match this item to a watchlist",
     "notInLibrary": "不在你的媒体库中",
     "inTheseLibraries": "在这些媒体库中",
     "checkingLibrary": "正在检查你的媒体库…",
@@ -1123,6 +1200,7 @@
       "favorited": "${n} 人收藏",
       "dropRate": "${percent} 弃番",
       "comments": {
+        "one": "${n} comment",
         "other": "${n} 条评论"
       },
       "votes": "${n} 票",
@@ -1203,6 +1281,7 @@
       "ratings": "评分",
       "schedule": "播出时间",
       "recommendedByUsers": {
+        "one": "Recommended by ${n} user",
         "other": "由 ${n} 位用户推荐"
       },
       "recommendedBy": "由 ${who} 推荐",
@@ -1213,6 +1292,7 @@
       "background": "背景"
     },
     "totalResults": {
+      "one": "${n} result",
       "other": "${n} 条结果"
     }
   },
@@ -1245,9 +1325,9 @@
     "watchChannel": "观看频道",
     "favorites": "收藏",
     "reorderFavorites": "重新排序收藏",
-    "noFavoriteChannels": "",
-    "noFavoriteChannelsHint": "",
-    "showAllChannels": "",
+    "noFavoriteChannels": "No favorite channels",
+    "noFavoriteChannelsHint": "Show all channels, then long-press a channel to add it to your favorites.",
+    "showAllChannels": "Show All Channels",
     "favoritesLoadFailed": "无法加载收藏。请检查网络连接后重试。",
     "favoritesUpdateFailed": "无法更新收藏。请检查网络连接后重试。",
     "joinSession": "加入正在进行的会话",
@@ -1346,6 +1426,7 @@
     "addToQueue": "添加到队列",
     "discNumber": "碟片 ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n} 首"
     },
     "nowPlaying": "正在播放",
@@ -1635,13 +1716,13 @@
     "audioSync": "音频同步",
     "subtitleSync": "字幕同步",
     "hdr": "HDR",
-    "hdrUnsupported": "",
-    "hdrToneMapping": "",
-    "hdrToneMappingCompositor": "",
-    "hdrToneMappingCompositorDescription": "",
-    "hdrToneMappingPlayer": "",
-    "hdrToneMappingPlayerDescription": "",
-    "hdrToneMappingFailed": "",
+    "hdrUnsupported": "HDR isn't available here — this desktop compositor or video output can't carry it.",
+    "hdrToneMapping": "HDR Tone Mapping",
+    "hdrToneMappingCompositor": "Compositor",
+    "hdrToneMappingCompositorDescription": "Pass the source's HDR metadata through and let the desktop compositor map it.",
+    "hdrToneMappingPlayer": "Player",
+    "hdrToneMappingPlayerDescription": "Map to the display's peak brightness in the player, then tell the compositor the result.",
+    "hdrToneMappingFailed": "Couldn't change HDR tone mapping — the previous mode is still active.",
     "audioOutput": "音频输出",
     "performanceOverlay": "性能监控",
     "audioOutputDolbyAtmos": "Dolby Atmos",
@@ -1866,7 +1947,7 @@
     },
     "deviceCode": {
       "title": "在 ${service} 上激活 Plezy",
-      "instructions": "",
+      "instructions": "Scan the QR code, or visit the address below and enter this code:",
       "openToActivate": "打开 ${service} 以激活",
       "copyCode": "复制激活代码",
       "waitingForAuthorization": "等待授权…",
