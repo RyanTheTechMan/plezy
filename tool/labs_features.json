@@ -1,0 +1,147 @@
+{
+  "schema_version": 2,
+  "features": [
+    {
+      "id": "clips",
+      "enabled": true,
+      "source_ref": "feature/clips",
+      "commits": [
+        "56b396f85f87974ae7caee0e74af34071f3b232a",
+        "b29971e3f497d20b0f134340d1d84c7573946646",
+        "1170f54d9d16c9f89282586560940e94d5879f05",
+        "f4df21c85ef2eb068b450247fca82b0f0b331050",
+        "be39c69be58e04bcfa7b0375b548a48743508425",
+        "b4cbd3249db1f6b0ae1269d68ef4cb1fe4076033",
+        "cab6cca2557b275a0658c359a94215033285219d",
+        "f5838559549a674c90ddcdcda07e07341ab40372",
+        "98ea3a58ef26817ca9c39cca1ff896a67fdb7a1d",
+        "1e1051ca35a24e8eab3518d3139baa3547fb7471",
+        "89ecbd47d6e451447bc22dbf53bcbea860d9bcd6"
+      ],
+      "description": "Add local video clip export with GIFs on macOS and Windows, subtitles, preview, screenshots, and configurable capture locations",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1586",
+      "backport": {
+        "source_ref": "labs-backports/clips",
+        "commits": [
+          "a157130c9fb3c5916419273dac106275f76c9b4f",
+          "6ca9f8415500a2c2696a9cac27954ea5afb47bcf",
+          "b92c52db0591a1e5bdbf214d2f7dfffc02017902",
+          "abe5b61181b5247e8af4722b142f02e25d01970c",
+          "ea7c6abc65aff35af6f3d1654c58c2c4e79deac7",
+          "004fca1014cdcc8724ba1fdf70610c672766398b",
+          "2fbaaa724423479048741b932a47b0729b20579d",
+          "0ebf3ac136acdad2057301a8e86b52544523244a",
+          "151774c2a9ea3024751adb893b07692d907d7f94",
+          "07b11d225458833e9375e934b509e99253cf521d",
+          "a336c503d6fa2e039b806e050aa621542bb6637e",
+          "011a4400fabd6b24d4359818c1f94b180a762ea1",
+          "41cc96edf4363c0d05a54972878918a63189c2f4"
+        ],
+        "use_native_after": "89ecbd47d6e451447bc22dbf53bcbea860d9bcd6"
+      }
+    },
+    {
+      "id": "macos-volume",
+      "enabled": true,
+      "source_ref": "fix/macos-volume",
+      "commits": [
+        "95ca09d983a439c7748cb47b75d9326bfc48e540",
+        "cf7c2f6a9b63c5482f1d0ce654dbc3643c37bdb6",
+        "b7dac0de97642c3bc2899a72649b707497567490"
+      ],
+      "description": "Fix macOS volume control and stale restore behavior",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1515",
+      "backport": {
+        "source_ref": "labs-backports/macos-volume",
+        "commits": [
+          "6259cbab4d07938a07b2a4a1b916af08832832f0",
+          "6809302d1f598242a35e07c02259314e955f8d21",
+          "094e7230a320e4231b5457477503abeb7217228b"
+        ],
+        "use_native_after": "b7dac0de97642c3bc2899a72649b707497567490"
+      }
+    },
+    {
+      "id": "media-count",
+      "enabled": true,
+      "source_ref": "feature/media-count",
+      "commits": [
+        "910dc1d040de68c272658e6ab371a91d0ee5c684"
+      ],
+      "description": "Show item count in the library browse toolbar",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1516"
+    },
+    {
+      "id": "show-original-bitrate",
+      "enabled": true,
+      "source_ref": "feature/show-original-bitrate",
+      "commits": [
+        "6a0b8985bbea74df43be334e8914eb4c40426342",
+        "00394495b28857d43bc2e9d10acb48c76b34252a"
+      ],
+      "description": "Show the original bitrate in video quality controls",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1534",
+      "backport": {
+        "source_ref": "labs-backports/show-original-bitrate",
+        "commits": [
+          "3ea755c2aae13c0727f3d860ea806aa8a593d050",
+          "fb9ca63dd077a6ac4048aa0a97969f76f216b72f"
+        ],
+        "use_native_after": "00394495b28857d43bc2e9d10acb48c76b34252a"
+      }
+    },
+    {
+      "id": "chapter-select",
+      "enabled": true,
+      "source_ref": "fix/chapter-select",
+      "commits": [
+        "a40744babde77eb89dedc4d225076ba1fe6ed55e"
+      ],
+      "description": "Make the desktop chapter selector interactive",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1574",
+      "backport": {
+        "source_ref": "labs-backports/chapter-select",
+        "commits": [
+          "61aaf6783ddd80f129510b3f9b803f419f3f9e58"
+        ],
+        "use_native_after": "a40744babde77eb89dedc4d225076ba1fe6ed55e"
+      }
+    },
+    {
+      "id": "pull-to-refresh",
+      "enabled": true,
+      "source_ref": "feature/pull-to-refresh",
+      "commits": [
+        "90c25397810a6beaca2aaa9dc8f58872aaeb0bbb",
+        "6d48eca0b314b56a8455016049ce46d27b508365"
+      ],
+      "description": "Add pull-to-refresh to Discover and Library Browse",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1528",
+      "backport": {
+        "source_ref": "labs-backports/pull-to-refresh",
+        "commits": [
+          "1823f3da045614aebbc89e1f37155beb9d121447",
+          "74c2287de842289ceb546962bec5a96fdec6f5f7"
+        ],
+        "use_native_after": "6d48eca0b314b56a8455016049ce46d27b508365"
+      }
+    },
+    {
+      "id": "frame-by-frame-navigation",
+      "enabled": true,
+      "source_ref": "feature/frame-by-frame-navigation",
+      "commits": [
+        "b11264cb09d553c014cae8dbf872b97f53d23b68"
+      ],
+      "description": "Add customizable frame-by-frame navigation while paused",
+      "backport": {
+        "source_ref": "labs-backports/frame-by-frame-navigation",
+        "commits": [
+          "6003a9bd3f6296d6ca54ef05f5b21b0171122fb6"
+        ],
+        "use_native_after": "b11264cb09d553c014cae8dbf872b97f53d23b68"
+      },
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1584"
+    }
+  ]
+}
