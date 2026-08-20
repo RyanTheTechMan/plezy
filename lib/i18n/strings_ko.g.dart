@@ -98,7 +98,7 @@ class _Translations$app$ko extends Translations$app$en {
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -212,6 +212,14 @@ class _Translations$update$ko extends Translations$update$en {
 	@override String get viewRelease => '릴리스 정보 보기';
 	@override String get latestVersion => '최신 버전을 사용 중입니다';
 	@override String get checkFailed => '업데이트 확인 실패';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -245,7 +253,6 @@ class _Translations$settings$ko extends Translations$settings$en {
 	@override String get darkTheme => '다크';
 	@override String get oledTheme => 'OLED';
 	@override String get libraryDensity => '라이브러리 표시 밀도';
-	@override String get displayScale => '표시 배율';
 	@override String get compact => '조밀하게';
 	@override String get comfortable => '여유롭게';
 	@override String get tvCornerSpotlightBackdrop => '모서리 스포트라이트 배경';
@@ -295,11 +302,6 @@ class _Translations$settings$ko extends Translations$settings$en {
 	@override String bufferSizeMB({required Object size}) => '${size}MB';
 	@override String get bufferSizeAuto => '자동 (권장)';
 	@override String bufferSizeWarning({required Object heap, required Object size}) => '${heap}MB 메모리를 사용할 수 있습니다. ${size}MB 버퍼는 재생에 영향을 줄 수 있습니다.';
-	@override String get playbackBuffer => '재생 버퍼';
-	@override String get playbackBufferAuto => '자동 (권장)';
-	@override String get playbackBufferLarge => '대형';
-	@override String get playbackBufferExtraLarge => '초대형';
-	@override String get playbackBufferDescription => '불안정한 연결에 대비해 더 많은 버퍼를 사용합니다. 버퍼 크기에 의해서도 제한됩니다.';
 	@override String get defaultQualityTitle => '기본 화질';
 	@override String get musicQualityTitle => '음악 음질';
 	@override String get subtitleStyling => '자막 스타일';
@@ -393,6 +395,17 @@ class _Translations$settings$ko extends Translations$settings$en {
 	@override String get downloadLocationReset => '다운로드 위치가 기본값으로 재설정되었습니다';
 	@override String get downloadLocationInvalid => '선택한 폴더에 쓰기 권한이 없습니다';
 	@override String get downloadLocationPickerUnavailable => '이 기기에서는 폴더를 선택할 수 없습니다';
+	@override String get downloadLocationSelectError => 'Failed to select folder';
+	@override String get mediaCapture => 'Media Capture';
+	@override String get clips => 'Clips';
+	@override String get screenshots => 'Screenshots';
+	@override String captureLocationTitle({required Object title}) => '${title} Location';
+	@override String get clipLocationDescription => 'Choose where clips are saved.';
+	@override String get screenshotLocationDescription => 'Choose where screenshots are saved.';
+	@override String get clipLocationChanged => 'Clip location changed';
+	@override String get screenshotLocationChanged => 'Screenshot location changed';
+	@override String get clipLocationReset => 'Clip location reset to Desktop';
+	@override String get screenshotLocationReset => 'Screenshot location reset to Desktop';
 	@override String get downloadOnWifiOnly => 'Wi-Fi 연결 시에만 다운로드';
 	@override String get downloadOnWifiOnlyDescription => '셀룰러 데이터 사용 중에는 다운로드하지 않습니다';
 	@override String get autoRemoveWatchedDownloads => '시청한 다운로드 항목 자동 삭제';
@@ -453,8 +466,6 @@ class _Translations$settings$ko extends Translations$settings$en {
 	@override String get showNavBarLabels => '내비게이션 바 라벨 표시';
 	@override String get showNavBarLabelsDescription => '내비게이션 바 아이콘 아래에 텍스트 라벨을 표시합니다';
 	@override String get startupSection => '시작 섹션';
-	@override String get showExploreTab => '둘러보기 탭 표시';
-	@override String get showExploreTabDescription => 'Plex Discover와 연결된 트래커의 콘텐츠가 포함된 둘러보기 탭을 표시합니다';
 	@override String get liveTvDefaultFavorites => '즐겨찾기 채널 기본 설정';
 	@override String get liveTvDefaultFavoritesDescription => '라이브 TV를 열 때 즐겨찾기 채널만 표시';
 	@override String get display => '디스플레이';
@@ -477,6 +488,20 @@ class _Translations$settings$ko extends Translations$settings$en {
 	@override String get playerScopeLibrary => '라이브러리별';
 	@override String get playerScopeTitle => '시리즈 또는 영화별';
 	@override String get exportDialogTitle => 'Plezy 설정 내보내기';
+	@override String get displayScale => '표시 배율';
+	@override String get playbackBuffer => '재생 버퍼';
+	@override String get playbackBufferAuto => '자동 (권장)';
+	@override String get playbackBufferLarge => '대형';
+	@override String get playbackBufferExtraLarge => '초대형';
+	@override String get playbackBufferDescription => '불안정한 연결에 대비해 더 많은 버퍼를 사용합니다. 버퍼 크기에 의해서도 제한됩니다.';
+	@override String get showExploreTab => '둘러보기 탭 표시';
+	@override String get showExploreTabDescription => 'Plex Discover와 연결된 트래커의 콘텐츠가 포함된 둘러보기 탭을 표시합니다';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -663,12 +688,15 @@ class _Translations$mediaMenu$ko extends Translations$mediaMenu$en {
 	@override String confirmDeleteTarget({required Object title}) => '서버에서 ${title}을(를) 영구 삭제할까요?';
 	@override String get deleteMultipleWarning => '모든 에피소드와 파일이 포함됩니다.';
 	@override String deleteEpisodeCountWarning({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: 'This deletes all ${n} episode in it, and its file.',
 		other: '포함된 에피소드 ${n}개와 해당 파일이 모두 삭제됩니다.',
 	);
 	@override String deleteMultiPartWarning({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: 'This item is stored as ${n} file, which will be deleted.',
 		other: '이 항목은 파일 ${n}개에 걸쳐 저장되어 있으며, 모든 파일이 삭제됩니다.',
 	);
 	@override String deleteSharedFileHeading({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} other episode is stored in the same file and will be deleted too:',
 		other: '같은 파일에 저장된 다른 에피소드 ${n}개도 함께 삭제됩니다:',
 	);
 	@override String get deleteScopeUnverifiedProbeFailed => 'Plezy가 어떤 파일이 삭제될지 확인하지 못해 위 항목보다 더 많은 파일이 삭제될 수 있습니다. 취소하고 다시 시도하거나 그래도 삭제하세요.';
@@ -762,6 +790,10 @@ class _Translations$videoControls$ko extends Translations$videoControls$en {
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => '오디오';
 	@override String get subtitlesLabel => '자막';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -822,6 +854,7 @@ class _Translations$videoControls$ko extends Translations$videoControls$en {
 	@override String get pipActive => '화면 속 화면으로 재생 중';
 	@override String get pipFailed => '화면 속 화면 모드를 시작할 수 없습니다';
 	@override String get screenshotSaved => '스크린샷 저장됨';
+	@override late final _Translations$videoControls$clip$ko clip = _Translations$videoControls$clip$ko._(_root);
 	@override String zoomPercent({required Object percent}) => '확대/축소 ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$ko pipErrors = _Translations$videoControls$pipErrors$ko._(_root);
 	@override String get chapters => '챕터';
@@ -860,6 +893,7 @@ class _Translations$messages$ko extends Translations$messages$en {
 	@override String get markedAsUnwatchedOffline => '미시청으로 표시됨 (연결 시 동기화됨)';
 	@override String autoRemovedWatchedDownload({required Object title}) => '자동 삭제됨: ${title}';
 	@override String autoRemovedWatchedDownloads({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: 'Auto-removed ${n} watched download',
 		other: '시청한 다운로드 ${n}개를 자동 삭제했습니다',
 	);
 	@override String get removedFromContinueWatching => '계속 시청 목록에서 제거됨';
@@ -1107,6 +1141,7 @@ class _Translations$discover$ko extends Translations$discover$en {
 	@override String minutesLeft({required Object minutes}) => '${minutes}분 남음';
 	@override String get moreLikeThis => '비슷한 콘텐츠';
 	@override String titleCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} title',
 		other: '${n}개 타이틀',
 	);
 }
@@ -1198,6 +1233,9 @@ class _Translations$about$ko extends Translations$about$en {
 	@override String versionLabel({required Object version}) => '버전 ${version}';
 	@override String get appDescription => 'Flutter로 만든 아름다운 Plex 및 Jellyfin 클라이언트';
 	@override String get viewLicensesDescription => '타사 라이브러리 라이선스 보기';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1314,6 +1352,7 @@ class _Translations$explore$ko extends Translations$explore$en {
 	@override late final _Translations$explore$rows$ko rows = _Translations$explore$rows$ko._(_root);
 	@override late final _Translations$explore$status$ko status = _Translations$explore$status$ko._(_root);
 	@override String episodeCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} episode',
 		other: '${n}화',
 	);
 	@override String get cast => '출연진';
@@ -1344,6 +1383,7 @@ class _Translations$explore$ko extends Translations$explore$en {
 	@override String broadcastWithZone({required Object day, required Object time, required Object timezone}) => '${day} ${time} ${timezone} 방영';
 	@override late final _Translations$explore$detail$ko detail = _Translations$explore$detail$ko._(_root);
 	@override String totalResults({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} result',
 		other: '결과 ${n}개',
 	);
 }
@@ -1510,6 +1550,7 @@ class _Translations$music$ko extends Translations$music$en {
 	@override String get addToQueue => '대기열에 추가';
 	@override String discNumber({required Object n}) => '디스크 ${n}';
 	@override String trackCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} track',
 		other: '${n}곡',
 	);
 	@override String get nowPlaying => '재생 중';
@@ -2168,6 +2209,53 @@ class _Translations$hotkeys$actions$ko extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => '셰이더 전환';
 	@override String get skipMarker => '인트로/크레딧 건너뛰기';
 	@override String get screenshot => '스크린샷 찍기';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$ko extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$ko._(TranslationsKo root) : this._root = root, super.internal(root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Clip';
+	@override String get vodOnly => 'Clips are available for on-demand video playback.';
+	@override String get sourceUnavailable => 'Clip source is not available for this playback session.';
+	@override String get playAtLeastOneSecond => 'Play at least 1 second before clipping.';
+	@override String get startBeforeBeginning => 'Clip start cannot be before the beginning of the video.';
+	@override String get endAfterStart => 'Clip end must be after the start.';
+	@override String get minimumDuration => 'Clips must be at least 1 second long.';
+	@override String get endPastVideo => 'Clip end is past the end of the video.';
+	@override String get exportCanceled => 'Clip export canceled.';
+	@override String get cacheUnavailable => 'The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.';
+	@override String get sourceCopyNoEncoder => 'Source-copy export does not use an encoder.';
+	@override String get encodingDesktopOnly => 'H.264 and HEVC clip encoding is currently available on macOS and Windows.';
+	@override String get hdrRequiresSource => 'HDR export requires a direct-play HDR10 or HLG-compatible source.';
+	@override String get transcodeStartUnavailable => 'This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.';
+	@override String get previewRequired => 'Clip preview must finish loading before it can be saved.';
+	@override String get h264Failed => 'This source could not be encoded as an H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'This source could not be encoded as an HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'This source could not be encoded as an HEVC HDR MP4.';
+	@override String get gifFailed => 'This source could not be encoded as a GIF.';
+	@override String get originalFailed => 'This source could not be copied from the mpv cache.';
+	@override String get previewUnavailable => 'Clip preview playback is not available in this build.';
+	@override String get previewFailed => 'Clip preview playback failed.';
+	@override String get previewLoadingScreenshot => 'The clip preview must finish loading before taking a screenshot.';
+	@override String get screenshotInProgress => 'A screenshot is already being saved.';
+	@override String get saveAsDialog => 'Save Clip As';
+	@override String savedTo({required Object fileName}) => 'Saved to ${fileName}';
+	@override String get openFolder => 'Open Folder';
+	@override String get saveAs => 'Save As';
+	@override String get cancelExport => 'Cancel Export';
+	@override String get saving => 'Saving...';
+	@override String savingProgress({required Object percent}) => 'Saving ${percent}%';
+	@override String get mutePreview => 'Mute preview';
+	@override String get unmutePreview => 'Unmute preview';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: videoControls.pipErrors
@@ -2346,6 +2434,7 @@ class _Translations$explore$stats$ko extends Translations$explore$stats$en {
 	@override String favorited({required Object n}) => '즐겨찾기 ${n}명';
 	@override String dropRate({required Object percent}) => '${percent} 하차';
 	@override String comments({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} comment',
 		other: '댓글 ${n}개',
 	);
 	@override String votes({required Object n}) => '투표 ${n}개';
@@ -2466,6 +2555,7 @@ class _Translations$explore$detail$ko extends Translations$explore$detail$en {
 	@override String get ratings => '평점';
 	@override String get schedule => '방영 일정';
 	@override String recommendedByUsers({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: 'Recommended by ${n} user',
 		other: '사용자 ${n}명이 추천',
 	);
 	@override String recommendedBy({required Object who}) => '${who} 추천';
@@ -2701,7 +2791,7 @@ class _Translations$services$libraryFilter$ko extends Translations$services$libr
 extension on TranslationsKo {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Plex 계정으로 로그인',
 			'auth.showQRCode' => 'QR 코드 표시',
 			'auth.authenticate' => '인증',
@@ -2789,6 +2879,14 @@ extension on TranslationsKo {
 			'update.viewRelease' => '릴리스 정보 보기',
 			'update.latestVersion' => '최신 버전을 사용 중입니다',
 			'update.checkFailed' => '업데이트 확인 실패',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => '설정',
 			'settings.supportDeveloper' => 'Plezy 후원하기',
 			'settings.supportDeveloperDescription' => 'Liberapay로 후원하여 개발 지원',
@@ -2813,7 +2911,6 @@ extension on TranslationsKo {
 			'settings.darkTheme' => '다크',
 			'settings.oledTheme' => 'OLED',
 			'settings.libraryDensity' => '라이브러리 표시 밀도',
-			'settings.displayScale' => '표시 배율',
 			'settings.compact' => '조밀하게',
 			'settings.comfortable' => '여유롭게',
 			'settings.tvCornerSpotlightBackdrop' => '모서리 스포트라이트 배경',
@@ -2863,11 +2960,6 @@ extension on TranslationsKo {
 			'settings.bufferSizeMB' => ({required Object size}) => '${size}MB',
 			'settings.bufferSizeAuto' => '자동 (권장)',
 			'settings.bufferSizeWarning' => ({required Object heap, required Object size}) => '${heap}MB 메모리를 사용할 수 있습니다. ${size}MB 버퍼는 재생에 영향을 줄 수 있습니다.',
-			'settings.playbackBuffer' => '재생 버퍼',
-			'settings.playbackBufferAuto' => '자동 (권장)',
-			'settings.playbackBufferLarge' => '대형',
-			'settings.playbackBufferExtraLarge' => '초대형',
-			'settings.playbackBufferDescription' => '불안정한 연결에 대비해 더 많은 버퍼를 사용합니다. 버퍼 크기에 의해서도 제한됩니다.',
 			'settings.defaultQualityTitle' => '기본 화질',
 			'settings.musicQualityTitle' => '음악 음질',
 			'settings.subtitleStyling' => '자막 스타일',
@@ -2961,6 +3053,17 @@ extension on TranslationsKo {
 			'settings.downloadLocationReset' => '다운로드 위치가 기본값으로 재설정되었습니다',
 			'settings.downloadLocationInvalid' => '선택한 폴더에 쓰기 권한이 없습니다',
 			'settings.downloadLocationPickerUnavailable' => '이 기기에서는 폴더를 선택할 수 없습니다',
+			'settings.downloadLocationSelectError' => 'Failed to select folder',
+			'settings.mediaCapture' => 'Media Capture',
+			'settings.clips' => 'Clips',
+			'settings.screenshots' => 'Screenshots',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Location',
+			'settings.clipLocationDescription' => 'Choose where clips are saved.',
+			'settings.screenshotLocationDescription' => 'Choose where screenshots are saved.',
+			'settings.clipLocationChanged' => 'Clip location changed',
+			'settings.screenshotLocationChanged' => 'Screenshot location changed',
+			'settings.clipLocationReset' => 'Clip location reset to Desktop',
+			'settings.screenshotLocationReset' => 'Screenshot location reset to Desktop',
 			'settings.downloadOnWifiOnly' => 'Wi-Fi 연결 시에만 다운로드',
 			'settings.downloadOnWifiOnlyDescription' => '셀룰러 데이터 사용 중에는 다운로드하지 않습니다',
 			'settings.autoRemoveWatchedDownloads' => '시청한 다운로드 항목 자동 삭제',
@@ -3021,8 +3124,6 @@ extension on TranslationsKo {
 			'settings.showNavBarLabels' => '내비게이션 바 라벨 표시',
 			'settings.showNavBarLabelsDescription' => '내비게이션 바 아이콘 아래에 텍스트 라벨을 표시합니다',
 			'settings.startupSection' => '시작 섹션',
-			'settings.showExploreTab' => '둘러보기 탭 표시',
-			'settings.showExploreTabDescription' => 'Plex Discover와 연결된 트래커의 콘텐츠가 포함된 둘러보기 탭을 표시합니다',
 			'settings.liveTvDefaultFavorites' => '즐겨찾기 채널 기본 설정',
 			'settings.liveTvDefaultFavoritesDescription' => '라이브 TV를 열 때 즐겨찾기 채널만 표시',
 			'settings.display' => '디스플레이',
@@ -3045,6 +3146,20 @@ extension on TranslationsKo {
 			'settings.playerScopeLibrary' => '라이브러리별',
 			'settings.playerScopeTitle' => '시리즈 또는 영화별',
 			'settings.exportDialogTitle' => 'Plezy 설정 내보내기',
+			'settings.displayScale' => '표시 배율',
+			'settings.playbackBuffer' => '재생 버퍼',
+			'settings.playbackBufferAuto' => '자동 (권장)',
+			'settings.playbackBufferLarge' => '대형',
+			'settings.playbackBufferExtraLarge' => '초대형',
+			'settings.playbackBufferDescription' => '불안정한 연결에 대비해 더 많은 버퍼를 사용합니다. 버퍼 크기에 의해서도 제한됩니다.',
+			'settings.showExploreTab' => '둘러보기 탭 표시',
+			'settings.showExploreTabDescription' => 'Plex Discover와 연결된 트래커의 콘텐츠가 포함된 둘러보기 탭을 표시합니다',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => '영화, 시리즈, 음악 등을 검색하세요...',
 			'search.tryDifferentTerm' => '다른 검색어를 시도해 보세요',
 			'search.searchYourMedia' => '미디어 검색',
@@ -3080,6 +3195,8 @@ extension on TranslationsKo {
 			'hotkeys.actions.shaderToggle' => '셰이더 전환',
 			'hotkeys.actions.skipMarker' => '인트로/크레딧 건너뛰기',
 			'hotkeys.actions.screenshot' => '스크린샷 찍기',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => '파일 정보',
 			'fileInfo.overview' => '개요',
 			'fileInfo.video' => '비디오',
@@ -3186,6 +3303,8 @@ extension on TranslationsKo {
 			'fileInfo.defaultAudioTrack' => '기본 오디오 트랙',
 			'fileInfo.defaultSubtitleTrack' => '기본 자막 트랙',
 			'fileInfo.subtitlesOff' => '꺼짐',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.flagDefault' => '기본',
 			'fileInfo.flagForced' => '강제',
 			'fileInfo.flagSelected' => '선택됨',
@@ -3213,16 +3332,14 @@ extension on TranslationsKo {
 			'mediaMenu.deleteMovieTitle' => '이 영화를 삭제할까요?',
 			'mediaMenu.deleteEpisodeConfirm' => '에피소드 삭제',
 			'mediaMenu.deleteSeasonConfirm' => '시즌 삭제',
-			_ => null,
-		} ?? switch (path) {
 			'mediaMenu.deleteShowConfirm' => '프로그램 삭제',
 			'mediaMenu.deleteMovieConfirm' => '영화 삭제',
 			'mediaMenu.deleteAnyway' => '그래도 삭제',
 			'mediaMenu.confirmDeleteTarget' => ({required Object title}) => '서버에서 ${title}을(를) 영구 삭제할까요?',
 			'mediaMenu.deleteMultipleWarning' => '모든 에피소드와 파일이 포함됩니다.',
-			'mediaMenu.deleteEpisodeCountWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '포함된 에피소드 ${n}개와 해당 파일이 모두 삭제됩니다.', ), 
-			'mediaMenu.deleteMultiPartWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '이 항목은 파일 ${n}개에 걸쳐 저장되어 있으며, 모든 파일이 삭제됩니다.', ), 
-			'mediaMenu.deleteSharedFileHeading' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '같은 파일에 저장된 다른 에피소드 ${n}개도 함께 삭제됩니다:', ), 
+			'mediaMenu.deleteEpisodeCountWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: 'This deletes all ${n} episode in it, and its file.', other: '포함된 에피소드 ${n}개와 해당 파일이 모두 삭제됩니다.', ), 
+			'mediaMenu.deleteMultiPartWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: 'This item is stored as ${n} file, which will be deleted.', other: '이 항목은 파일 ${n}개에 걸쳐 저장되어 있으며, 모든 파일이 삭제됩니다.', ), 
+			'mediaMenu.deleteSharedFileHeading' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} other episode is stored in the same file and will be deleted too:', other: '같은 파일에 저장된 다른 에피소드 ${n}개도 함께 삭제됩니다:', ), 
 			'mediaMenu.deleteScopeUnverifiedProbeFailed' => 'Plezy가 어떤 파일이 삭제될지 확인하지 못해 위 항목보다 더 많은 파일이 삭제될 수 있습니다. 취소하고 다시 시도하거나 그래도 삭제하세요.',
 			'mediaMenu.deleteScopeUnverifiedNoFileInfo' => '서버가 이 항목의 파일 정보를 제공하지 않아 Plezy가 어떤 파일이 삭제될지 확인할 수 없습니다. 위 항목보다 더 많은 파일이 삭제될 수 있습니다.',
 			'mediaMenu.mediaDeletedSuccessfully' => '미디어 항목이 성공적으로 삭제되었습니다',
@@ -3269,6 +3386,7 @@ extension on TranslationsKo {
 			'tooltips.markAsWatched' => '시청 완료로 표시',
 			'tooltips.markAsUnwatched' => '미시청으로 표시',
 			'audioTracks.track' => ({required Object n}) => '오디오 트랙 ${n}',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => '오디오',
 			'videoControls.subtitlesLabel' => '자막',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3329,6 +3447,42 @@ extension on TranslationsKo {
 			'videoControls.pipActive' => '화면 속 화면으로 재생 중',
 			'videoControls.pipFailed' => '화면 속 화면 모드를 시작할 수 없습니다',
 			'videoControls.screenshotSaved' => '스크린샷 저장됨',
+			'videoControls.clip.title' => 'Clip',
+			'videoControls.clip.vodOnly' => 'Clips are available for on-demand video playback.',
+			'videoControls.clip.sourceUnavailable' => 'Clip source is not available for this playback session.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Play at least 1 second before clipping.',
+			'videoControls.clip.startBeforeBeginning' => 'Clip start cannot be before the beginning of the video.',
+			'videoControls.clip.endAfterStart' => 'Clip end must be after the start.',
+			'videoControls.clip.minimumDuration' => 'Clips must be at least 1 second long.',
+			'videoControls.clip.endPastVideo' => 'Clip end is past the end of the video.',
+			'videoControls.clip.exportCanceled' => 'Clip export canceled.',
+			'videoControls.clip.cacheUnavailable' => 'The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Source-copy export does not use an encoder.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 and HEVC clip encoding is currently available on macOS and Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR export requires a direct-play HDR10 or HLG-compatible source.',
+			'videoControls.clip.transcodeStartUnavailable' => 'This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.',
+			'videoControls.clip.previewRequired' => 'Clip preview must finish loading before it can be saved.',
+			'videoControls.clip.h264Failed' => 'This source could not be encoded as an H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'This source could not be encoded as an HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'This source could not be encoded as an HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'This source could not be encoded as a GIF.',
+			'videoControls.clip.originalFailed' => 'This source could not be copied from the mpv cache.',
+			'videoControls.clip.previewUnavailable' => 'Clip preview playback is not available in this build.',
+			'videoControls.clip.previewFailed' => 'Clip preview playback failed.',
+			'videoControls.clip.previewLoadingScreenshot' => 'The clip preview must finish loading before taking a screenshot.',
+			'videoControls.clip.screenshotInProgress' => 'A screenshot is already being saved.',
+			'videoControls.clip.saveAsDialog' => 'Save Clip As',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Saved to ${fileName}',
+			'videoControls.clip.openFolder' => 'Open Folder',
+			'videoControls.clip.saveAs' => 'Save As',
+			'videoControls.clip.cancelExport' => 'Cancel Export',
+			'videoControls.clip.saving' => 'Saving...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Saving ${percent}%',
+			'videoControls.clip.mutePreview' => 'Mute preview',
+			'videoControls.clip.unmutePreview' => 'Unmute preview',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'videoControls.zoomPercent' => ({required Object percent}) => '확대/축소 ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0 이상이 필요합니다',
 			'videoControls.pipErrors.iosVersion' => 'iOS 15.0 이상이 필요합니다',
@@ -3363,7 +3517,7 @@ extension on TranslationsKo {
 			'messages.markedAsWatchedOffline' => '시청 완료로 표시됨 (연결 시 동기화됨)',
 			'messages.markedAsUnwatchedOffline' => '미시청으로 표시됨 (연결 시 동기화됨)',
 			'messages.autoRemovedWatchedDownload' => ({required Object title}) => '자동 삭제됨: ${title}',
-			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '시청한 다운로드 ${n}개를 자동 삭제했습니다', ), 
+			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: 'Auto-removed ${n} watched download', other: '시청한 다운로드 ${n}개를 자동 삭제했습니다', ), 
 			'messages.removedFromContinueWatching' => '계속 시청 목록에서 제거됨',
 			'messages.errorLoading' => ({required Object error}) => '오류: ${error}',
 			'messages.searchPartialResults' => '일부 미디어 서버를 검색하지 못했습니다. 사용 가능한 결과만 표시합니다.',
@@ -3554,7 +3708,7 @@ extension on TranslationsKo {
 			'discover.tvShow' => 'TV 시리즈',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes}분 남음',
 			'discover.moreLikeThis' => '비슷한 콘텐츠',
-			'discover.titleCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '${n}개 타이틀', ), 
+			'discover.titleCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} title', other: '${n}개 타이틀', ), 
 			'errors.searchFailed' => ({required Object error}) => '검색 실패: ${error}',
 			'errors.searchUnavailable' => '검색이 어떤 미디어 서버에도 연결할 수 없습니다.',
 			'errors.connectionTimeout' => ({required Object context}) => '${context} 로드 중 연결 시간 초과',
@@ -3654,12 +3808,17 @@ extension on TranslationsKo {
 			'about.versionLabel' => ({required Object version}) => '버전 ${version}',
 			'about.appDescription' => 'Flutter로 만든 아름다운 Plex 및 Jellyfin 클라이언트',
 			'about.viewLicensesDescription' => '타사 라이브러리 라이선스 보기',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email})의 서버를 찾을 수 없습니다.',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => '서버를 로드할 수 없습니다: ${error}',
 			'hubDetail.title' => '제목',
 			'hubDetail.releaseYear' => '출시 연도',
 			'hubDetail.dateAdded' => '추가 날짜',
 			'hubDetail.rating' => '평점',
+			_ => null,
+		} ?? switch (path) {
 			'hubDetail.noItemsFound' => '항목이 없습니다',
 			'logs.clearLogs' => '로그 지우기',
 			'logs.copyLogs' => '로그 복사',
@@ -3722,13 +3881,11 @@ extension on TranslationsKo {
 			'explore.status.ended' => '종영',
 			'explore.status.canceled' => '취소됨',
 			'explore.status.upcoming' => '방영 예정',
-			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '${n}화', ), 
+			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} episode', other: '${n}화', ), 
 			'explore.cast' => '출연진',
 			'explore.characters' => '캐릭터',
 			'explore.addToWatchlist' => '관심 목록에 추가',
 			'explore.removeFromWatchlist' => '관심 목록에서 제거',
-			_ => null,
-		} ?? switch (path) {
 			'explore.addedToWatchlist' => '관심 목록에 추가했습니다',
 			'explore.removedFromWatchlist' => '관심 목록에서 삭제했습니다',
 			'explore.watchlistUpdateFailed' => '관심 목록을 업데이트하지 못했습니다',
@@ -3772,7 +3929,7 @@ extension on TranslationsKo {
 			'explore.stats.planning' => ({required Object n}) => '${n}명 볼 예정',
 			'explore.stats.favorited' => ({required Object n}) => '즐겨찾기 ${n}명',
 			'explore.stats.dropRate' => ({required Object percent}) => '${percent} 하차',
-			'explore.stats.comments' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '댓글 ${n}개', ), 
+			'explore.stats.comments' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} comment', other: '댓글 ${n}개', ), 
 			'explore.stats.votes' => ({required Object n}) => '투표 ${n}개',
 			'explore.stats.watching' => ({required Object n}) => '시청 중 ${n}명',
 			'explore.stats.completed' => ({required Object n}) => '완료 ${n}명',
@@ -3838,14 +3995,14 @@ extension on TranslationsKo {
 			'explore.detail.crew' => '제작진',
 			'explore.detail.ratings' => '평점',
 			'explore.detail.schedule' => '방영 일정',
-			'explore.detail.recommendedByUsers' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '사용자 ${n}명이 추천', ), 
+			'explore.detail.recommendedByUsers' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: 'Recommended by ${n} user', other: '사용자 ${n}명이 추천', ), 
 			'explore.detail.recommendedBy' => ({required Object who}) => '${who} 추천',
 			'explore.detail.favoritedBy' => ({required Object who}) => '${who} 즐겨찾기',
 			'explore.detail.unairedEpisodes' => ({required Object n}) => '미방영 ${n}개',
 			'explore.detail.recommendedByPercent' => ({required Object percent}) => '시청자의 ${percent} 추천',
 			'explore.detail.relatedTitles' => '관련 작품',
 			'explore.detail.background' => '배경',
-			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '결과 ${n}개', ), 
+			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} result', other: '결과 ${n}개', ), 
 			'liveTv.title' => '실시간 TV',
 			'liveTv.guide' => '편성표',
 			'liveTv.noChannels' => '사용 가능한 채널이 없습니다',
@@ -3973,7 +4130,7 @@ extension on TranslationsKo {
 			'music.playNext' => '다음에 재생',
 			'music.addToQueue' => '대기열에 추가',
 			'music.discNumber' => ({required Object n}) => '디스크 ${n}',
-			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '${n}곡', ), 
+			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} track', other: '${n}곡', ), 
 			'music.nowPlaying' => '재생 중',
 			'music.playingFrom' => ({required Object title}) => '${title}에서 재생 중',
 			'music.queue' => '재생 대기열',
@@ -4174,6 +4331,8 @@ extension on TranslationsKo {
 			'shaders.noShaderDescription' => '비디오 향상 없음',
 			'shaders.nvscalerDescription' => '더 선명한 비디오를 위한 NVIDIA 이미지 스케일링',
 			'shaders.artcnnVariantNeutral' => '중립',
+			_ => null,
+		} ?? switch (path) {
 			'shaders.artcnnVariantDenoise' => '노이즈 제거',
 			'shaders.artcnnVariantDenoiseSharpen' => '노이즈 제거 + 선명화',
 			'shaders.qualityFast' => '빠름',
@@ -4241,8 +4400,6 @@ extension on TranslationsKo {
 			'companionRemote.remote.subtitles' => '자막',
 			'companionRemote.remote.audio' => '오디오',
 			'companionRemote.remote.searchHint' => '데스크톱에서 검색...',
-			_ => null,
-		} ?? switch (path) {
 			'companionRemote.errors.noNetworkInterface' => '네트워크 인터페이스를 찾을 수 없습니다',
 			'companionRemote.errors.authenticationFailed' => '인증 실패',
 			'companionRemote.errors.serverStartFailed' => ({required Object error}) => '원격 서버를 시작하지 못했습니다: ${error}',

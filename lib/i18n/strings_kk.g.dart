@@ -98,7 +98,7 @@ class _Translations$app$kk extends Translations$app$en {
 	final TranslationsKk _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -212,6 +212,14 @@ class _Translations$update$kk extends Translations$update$en {
 	@override String get viewRelease => 'Релизді көру';
 	@override String get latestVersion => 'Сізде ең соңғы нұсқа орнатылған';
 	@override String get checkFailed => 'Жаңартуларды тексеру мүмкін болмады';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -245,7 +253,6 @@ class _Translations$settings$kk extends Translations$settings$en {
 	@override String get darkTheme => 'Қараңғы';
 	@override String get oledTheme => 'OLED';
 	@override String get libraryDensity => 'Кітапхана тығыздығы';
-	@override String get displayScale => 'Дисплей масштабы';
 	@override String get compact => 'Тығыз';
 	@override String get comfortable => 'Ыңғайлы';
 	@override String get tvCornerSpotlightBackdrop => 'Бұрыштық жарық фоны';
@@ -295,11 +302,6 @@ class _Translations$settings$kk extends Translations$settings$en {
 	@override String bufferSizeMB({required Object size}) => '${size} МБ';
 	@override String get bufferSizeAuto => 'Автоматты (Ұсынылатын)';
 	@override String bufferSizeWarning({required Object heap, required Object size}) => '${heap} МБ ЖҰД қолжетімді. ${size} МБ буфер ойнатуға әсер етуі мүмкін.';
-	@override String get playbackBuffer => 'Ойнату буфері';
-	@override String get playbackBufferAuto => 'Авто (ұсынылады)';
-	@override String get playbackBufferLarge => 'Үлкен';
-	@override String get playbackBufferExtraLarge => 'Өте үлкен';
-	@override String get playbackBufferDescription => 'Тұрақсыз қосылыстарға қарсы көбірек буферлейді. Буфер өлшемімен де шектеледі.';
 	@override String get defaultQualityTitle => 'Әдепкі сапа';
 	@override String get musicQualityTitle => 'Музыка сапасы';
 	@override String get subtitleStyling => 'Субтитр баптаулары';
@@ -393,6 +395,17 @@ class _Translations$settings$kk extends Translations$settings$en {
 	@override String get downloadLocationReset => 'Жүктеу орны әдепкі күйге қайтарылды';
 	@override String get downloadLocationInvalid => 'Таңдалған қапшыққа жазу мүмкін емес';
 	@override String get downloadLocationPickerUnavailable => 'Бұл құрылғыда қапшықты таңдау мүмкіндігі жоқ';
+	@override String get downloadLocationSelectError => 'Failed to select folder';
+	@override String get mediaCapture => 'Media Capture';
+	@override String get clips => 'Clips';
+	@override String get screenshots => 'Screenshots';
+	@override String captureLocationTitle({required Object title}) => '${title} Location';
+	@override String get clipLocationDescription => 'Choose where clips are saved.';
+	@override String get screenshotLocationDescription => 'Choose where screenshots are saved.';
+	@override String get clipLocationChanged => 'Clip location changed';
+	@override String get screenshotLocationChanged => 'Screenshot location changed';
+	@override String get clipLocationReset => 'Clip location reset to Desktop';
+	@override String get screenshotLocationReset => 'Screenshot location reset to Desktop';
 	@override String get downloadOnWifiOnly => 'Тек Wi-Fi арқылы жүктеу';
 	@override String get downloadOnWifiOnlyDescription => 'Мобильді деректер пайдаланылғанда жүктеулерді кідірту';
 	@override String get autoRemoveWatchedDownloads => 'Көрілген жүктеулерді автоматты өшіру';
@@ -453,8 +466,6 @@ class _Translations$settings$kk extends Translations$settings$en {
 	@override String get showNavBarLabels => 'Навигация панелінің мәтіндерін көрсету';
 	@override String get showNavBarLabelsDescription => 'Навигация белгішелерінің астында мәтінді көрсету';
 	@override String get startupSection => 'Бастапқы бөлім';
-	@override String get showExploreTab => '«Шолу» қойындысын көрсету';
-	@override String get showExploreTabDescription => 'Plex шолуынан және қосылған трекерлерден алынған контенті бар «Шолу» қойындысын көрсету';
 	@override String get liveTvDefaultFavorites => 'Тікелей TV-де таңдаулы арналарды әдепкі ету';
 	@override String get liveTvDefaultFavoritesDescription => 'Тікелей TV ашылғанда тек таңдаулы арналарды көрсету';
 	@override String get display => 'Дисплей';
@@ -477,6 +488,20 @@ class _Translations$settings$kk extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Кітапхана бойынша';
 	@override String get playerScopeTitle => 'Сериал немесе фильм бойынша';
 	@override String get exportDialogTitle => 'Plezy параметрлерін экспорттау';
+	@override String get displayScale => 'Дисплей масштабы';
+	@override String get playbackBuffer => 'Ойнату буфері';
+	@override String get playbackBufferAuto => 'Авто (ұсынылады)';
+	@override String get playbackBufferLarge => 'Үлкен';
+	@override String get playbackBufferExtraLarge => 'Өте үлкен';
+	@override String get playbackBufferDescription => 'Тұрақсыз қосылыстарға қарсы көбірек буферлейді. Буфер өлшемімен де шектеледі.';
+	@override String get showExploreTab => '«Шолу» қойындысын көрсету';
+	@override String get showExploreTabDescription => 'Plex шолуынан және қосылған трекерлерден алынған контенті бар «Шолу» қойындысын көрсету';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -765,6 +790,10 @@ class _Translations$videoControls$kk extends Translations$videoControls$en {
 	final TranslationsKk _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('kk'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => 'Дыбыс';
 	@override String get subtitlesLabel => 'Субтитр';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -825,6 +854,7 @@ class _Translations$videoControls$kk extends Translations$videoControls$en {
 	@override String get pipActive => 'Суреттегі сурет режимінде ойнатылуда';
 	@override String get pipFailed => 'PiP режимін іске қосу қатесі';
 	@override String get screenshotSaved => 'Экран суреті сақталды';
+	@override late final _Translations$videoControls$clip$kk clip = _Translations$videoControls$clip$kk._(_root);
 	@override String zoomPercent({required Object percent}) => 'Масштаб %${percent}';
 	@override late final _Translations$videoControls$pipErrors$kk pipErrors = _Translations$videoControls$pipErrors$kk._(_root);
 	@override String get chapters => 'Бөлімдер';
@@ -1203,6 +1233,9 @@ class _Translations$about$kk extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Нұсқа ${version}';
 	@override String get appDescription => 'Flutter негізіндегі ыңғайлы Plex және Jellyfin клиенті';
 	@override String get viewLicensesDescription => 'Үшінші тарап кітапханаларының лицензияларын көру';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -2176,6 +2209,53 @@ class _Translations$hotkeys$actions$kk extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Шейдерлерді қосу/өшіру';
 	@override String get skipMarker => 'Интро/Титрді өткізу';
 	@override String get screenshot => 'Экран суретін түсіру';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$kk extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$kk._(TranslationsKk root) : this._root = root, super.internal(root);
+
+	final TranslationsKk _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Clip';
+	@override String get vodOnly => 'Clips are available for on-demand video playback.';
+	@override String get sourceUnavailable => 'Clip source is not available for this playback session.';
+	@override String get playAtLeastOneSecond => 'Play at least 1 second before clipping.';
+	@override String get startBeforeBeginning => 'Clip start cannot be before the beginning of the video.';
+	@override String get endAfterStart => 'Clip end must be after the start.';
+	@override String get minimumDuration => 'Clips must be at least 1 second long.';
+	@override String get endPastVideo => 'Clip end is past the end of the video.';
+	@override String get exportCanceled => 'Clip export canceled.';
+	@override String get cacheUnavailable => 'The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.';
+	@override String get sourceCopyNoEncoder => 'Source-copy export does not use an encoder.';
+	@override String get encodingDesktopOnly => 'H.264 and HEVC clip encoding is currently available on macOS and Windows.';
+	@override String get hdrRequiresSource => 'HDR export requires a direct-play HDR10 or HLG-compatible source.';
+	@override String get transcodeStartUnavailable => 'This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.';
+	@override String get previewRequired => 'Clip preview must finish loading before it can be saved.';
+	@override String get h264Failed => 'This source could not be encoded as an H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'This source could not be encoded as an HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'This source could not be encoded as an HEVC HDR MP4.';
+	@override String get gifFailed => 'This source could not be encoded as a GIF.';
+	@override String get originalFailed => 'This source could not be copied from the mpv cache.';
+	@override String get previewUnavailable => 'Clip preview playback is not available in this build.';
+	@override String get previewFailed => 'Clip preview playback failed.';
+	@override String get previewLoadingScreenshot => 'The clip preview must finish loading before taking a screenshot.';
+	@override String get screenshotInProgress => 'A screenshot is already being saved.';
+	@override String get saveAsDialog => 'Save Clip As';
+	@override String savedTo({required Object fileName}) => 'Saved to ${fileName}';
+	@override String get openFolder => 'Open Folder';
+	@override String get saveAs => 'Save As';
+	@override String get cancelExport => 'Cancel Export';
+	@override String get saving => 'Saving...';
+	@override String savingProgress({required Object percent}) => 'Saving ${percent}%';
+	@override String get mutePreview => 'Mute preview';
+	@override String get unmutePreview => 'Unmute preview';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: videoControls.pipErrors
@@ -2711,7 +2791,7 @@ class _Translations$services$libraryFilter$kk extends Translations$services$libr
 extension on TranslationsKk {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Plex арқылы кіру',
 			'auth.showQRCode' => 'QR кодты көрсету',
 			'auth.authenticate' => 'Растау',
@@ -2799,6 +2879,14 @@ extension on TranslationsKk {
 			'update.viewRelease' => 'Релизді көру',
 			'update.latestVersion' => 'Сізде ең соңғы нұсқа орнатылған',
 			'update.checkFailed' => 'Жаңартуларды тексеру мүмкін болмады',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Баптаулар',
 			'settings.supportDeveloper' => 'Plezy жобасын қолдау',
 			'settings.supportDeveloperDescription' => 'Дамытуды қаржыландыру үшін Liberapay арқылы демеушілік жасаңыз',
@@ -2823,7 +2911,6 @@ extension on TranslationsKk {
 			'settings.darkTheme' => 'Қараңғы',
 			'settings.oledTheme' => 'OLED',
 			'settings.libraryDensity' => 'Кітапхана тығыздығы',
-			'settings.displayScale' => 'Дисплей масштабы',
 			'settings.compact' => 'Тығыз',
 			'settings.comfortable' => 'Ыңғайлы',
 			'settings.tvCornerSpotlightBackdrop' => 'Бұрыштық жарық фоны',
@@ -2873,11 +2960,6 @@ extension on TranslationsKk {
 			'settings.bufferSizeMB' => ({required Object size}) => '${size} МБ',
 			'settings.bufferSizeAuto' => 'Автоматты (Ұсынылатын)',
 			'settings.bufferSizeWarning' => ({required Object heap, required Object size}) => '${heap} МБ ЖҰД қолжетімді. ${size} МБ буфер ойнатуға әсер етуі мүмкін.',
-			'settings.playbackBuffer' => 'Ойнату буфері',
-			'settings.playbackBufferAuto' => 'Авто (ұсынылады)',
-			'settings.playbackBufferLarge' => 'Үлкен',
-			'settings.playbackBufferExtraLarge' => 'Өте үлкен',
-			'settings.playbackBufferDescription' => 'Тұрақсыз қосылыстарға қарсы көбірек буферлейді. Буфер өлшемімен де шектеледі.',
 			'settings.defaultQualityTitle' => 'Әдепкі сапа',
 			'settings.musicQualityTitle' => 'Музыка сапасы',
 			'settings.subtitleStyling' => 'Субтитр баптаулары',
@@ -2971,6 +3053,17 @@ extension on TranslationsKk {
 			'settings.downloadLocationReset' => 'Жүктеу орны әдепкі күйге қайтарылды',
 			'settings.downloadLocationInvalid' => 'Таңдалған қапшыққа жазу мүмкін емес',
 			'settings.downloadLocationPickerUnavailable' => 'Бұл құрылғыда қапшықты таңдау мүмкіндігі жоқ',
+			'settings.downloadLocationSelectError' => 'Failed to select folder',
+			'settings.mediaCapture' => 'Media Capture',
+			'settings.clips' => 'Clips',
+			'settings.screenshots' => 'Screenshots',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Location',
+			'settings.clipLocationDescription' => 'Choose where clips are saved.',
+			'settings.screenshotLocationDescription' => 'Choose where screenshots are saved.',
+			'settings.clipLocationChanged' => 'Clip location changed',
+			'settings.screenshotLocationChanged' => 'Screenshot location changed',
+			'settings.clipLocationReset' => 'Clip location reset to Desktop',
+			'settings.screenshotLocationReset' => 'Screenshot location reset to Desktop',
 			'settings.downloadOnWifiOnly' => 'Тек Wi-Fi арқылы жүктеу',
 			'settings.downloadOnWifiOnlyDescription' => 'Мобильді деректер пайдаланылғанда жүктеулерді кідірту',
 			'settings.autoRemoveWatchedDownloads' => 'Көрілген жүктеулерді автоматты өшіру',
@@ -3031,8 +3124,6 @@ extension on TranslationsKk {
 			'settings.showNavBarLabels' => 'Навигация панелінің мәтіндерін көрсету',
 			'settings.showNavBarLabelsDescription' => 'Навигация белгішелерінің астында мәтінді көрсету',
 			'settings.startupSection' => 'Бастапқы бөлім',
-			'settings.showExploreTab' => '«Шолу» қойындысын көрсету',
-			'settings.showExploreTabDescription' => 'Plex шолуынан және қосылған трекерлерден алынған контенті бар «Шолу» қойындысын көрсету',
 			'settings.liveTvDefaultFavorites' => 'Тікелей TV-де таңдаулы арналарды әдепкі ету',
 			'settings.liveTvDefaultFavoritesDescription' => 'Тікелей TV ашылғанда тек таңдаулы арналарды көрсету',
 			'settings.display' => 'Дисплей',
@@ -3055,6 +3146,20 @@ extension on TranslationsKk {
 			'settings.playerScopeLibrary' => 'Кітапхана бойынша',
 			'settings.playerScopeTitle' => 'Сериал немесе фильм бойынша',
 			'settings.exportDialogTitle' => 'Plezy параметрлерін экспорттау',
+			'settings.displayScale' => 'Дисплей масштабы',
+			'settings.playbackBuffer' => 'Ойнату буфері',
+			'settings.playbackBufferAuto' => 'Авто (ұсынылады)',
+			'settings.playbackBufferLarge' => 'Үлкен',
+			'settings.playbackBufferExtraLarge' => 'Өте үлкен',
+			'settings.playbackBufferDescription' => 'Тұрақсыз қосылыстарға қарсы көбірек буферлейді. Буфер өлшемімен де шектеледі.',
+			'settings.showExploreTab' => '«Шолу» қойындысын көрсету',
+			'settings.showExploreTabDescription' => 'Plex шолуынан және қосылған трекерлерден алынған контенті бар «Шолу» қойындысын көрсету',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => 'Фильмдер, сериалдар, музыка іздеу...',
 			'search.tryDifferentTerm' => 'Басқа іздеу сөзін байқап көріңіз',
 			'search.searchYourMedia' => 'Медиафайлдардан іздеу',
@@ -3090,6 +3195,8 @@ extension on TranslationsKk {
 			'hotkeys.actions.shaderToggle' => 'Шейдерлерді қосу/өшіру',
 			'hotkeys.actions.skipMarker' => 'Интро/Титрді өткізу',
 			'hotkeys.actions.screenshot' => 'Экран суретін түсіру',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Файл туралы ақпарат',
 			'fileInfo.overview' => 'Шолу',
 			'fileInfo.video' => 'Видео',
@@ -3196,6 +3303,8 @@ extension on TranslationsKk {
 			'fileInfo.defaultAudioTrack' => 'Әдепкі аудио трек',
 			'fileInfo.defaultSubtitleTrack' => 'Әдепкі субтитр трегі',
 			'fileInfo.subtitlesOff' => 'Өшірулі',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.flagDefault' => 'Әдепкі',
 			'fileInfo.flagForced' => 'Мәжбүрлі',
 			'fileInfo.flagSelected' => 'Таңдалған',
@@ -3223,8 +3332,6 @@ extension on TranslationsKk {
 			'mediaMenu.deleteMovieTitle' => 'Осы фильм өшірілсін бе?',
 			'mediaMenu.deleteEpisodeConfirm' => 'Бөлімді өшіру',
 			'mediaMenu.deleteSeasonConfirm' => 'Маусымды өшіру',
-			_ => null,
-		} ?? switch (path) {
 			'mediaMenu.deleteShowConfirm' => 'Сериалды өшіру',
 			'mediaMenu.deleteMovieConfirm' => 'Фильмді өшіру',
 			'mediaMenu.deleteAnyway' => 'Бәрібір өшіру',
@@ -3279,6 +3386,7 @@ extension on TranslationsKk {
 			'tooltips.markAsWatched' => 'Көрілді деп белгілеу',
 			'tooltips.markAsUnwatched' => 'Көрілмеді деп белгілеу',
 			'audioTracks.track' => ({required Object n}) => 'Аудиожол ${n}',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('kk'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => 'Дыбыс',
 			'videoControls.subtitlesLabel' => 'Субтитр',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3339,6 +3447,42 @@ extension on TranslationsKk {
 			'videoControls.pipActive' => 'Суреттегі сурет режимінде ойнатылуда',
 			'videoControls.pipFailed' => 'PiP режимін іске қосу қатесі',
 			'videoControls.screenshotSaved' => 'Экран суреті сақталды',
+			'videoControls.clip.title' => 'Clip',
+			'videoControls.clip.vodOnly' => 'Clips are available for on-demand video playback.',
+			'videoControls.clip.sourceUnavailable' => 'Clip source is not available for this playback session.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Play at least 1 second before clipping.',
+			'videoControls.clip.startBeforeBeginning' => 'Clip start cannot be before the beginning of the video.',
+			'videoControls.clip.endAfterStart' => 'Clip end must be after the start.',
+			'videoControls.clip.minimumDuration' => 'Clips must be at least 1 second long.',
+			'videoControls.clip.endPastVideo' => 'Clip end is past the end of the video.',
+			'videoControls.clip.exportCanceled' => 'Clip export canceled.',
+			'videoControls.clip.cacheUnavailable' => 'The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Source-copy export does not use an encoder.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 and HEVC clip encoding is currently available on macOS and Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR export requires a direct-play HDR10 or HLG-compatible source.',
+			'videoControls.clip.transcodeStartUnavailable' => 'This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.',
+			'videoControls.clip.previewRequired' => 'Clip preview must finish loading before it can be saved.',
+			'videoControls.clip.h264Failed' => 'This source could not be encoded as an H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'This source could not be encoded as an HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'This source could not be encoded as an HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'This source could not be encoded as a GIF.',
+			'videoControls.clip.originalFailed' => 'This source could not be copied from the mpv cache.',
+			'videoControls.clip.previewUnavailable' => 'Clip preview playback is not available in this build.',
+			'videoControls.clip.previewFailed' => 'Clip preview playback failed.',
+			'videoControls.clip.previewLoadingScreenshot' => 'The clip preview must finish loading before taking a screenshot.',
+			'videoControls.clip.screenshotInProgress' => 'A screenshot is already being saved.',
+			'videoControls.clip.saveAsDialog' => 'Save Clip As',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Saved to ${fileName}',
+			'videoControls.clip.openFolder' => 'Open Folder',
+			'videoControls.clip.saveAs' => 'Save As',
+			'videoControls.clip.cancelExport' => 'Cancel Export',
+			'videoControls.clip.saving' => 'Saving...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Saving ${percent}%',
+			'videoControls.clip.mutePreview' => 'Mute preview',
+			'videoControls.clip.unmutePreview' => 'Unmute preview',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Масштаб %${percent}',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0 немесе жаңалауы қажет',
 			'videoControls.pipErrors.iosVersion' => 'iOS 15.0 немесе жаңалауы қажет',
@@ -3664,12 +3808,17 @@ extension on TranslationsKk {
 			'about.versionLabel' => ({required Object version}) => 'Нұсқа ${version}',
 			'about.appDescription' => 'Flutter негізіндегі ыңғайлы Plex және Jellyfin клиенті',
 			'about.viewLicensesDescription' => 'Үшінші тарап кітапханаларының лицензияларын көру',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email}) үшін серверлер табылмады',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Серверлерді жүктеу қатесі: ${error}',
 			'hubDetail.title' => 'Атауы',
 			'hubDetail.releaseYear' => 'Шыққан жылы',
 			'hubDetail.dateAdded' => 'Қосылған күні',
 			'hubDetail.rating' => 'Рейтинг',
+			_ => null,
+		} ?? switch (path) {
 			'hubDetail.noItemsFound' => 'Элементтер табылмады',
 			'logs.clearLogs' => 'Журналдарды тазалау',
 			'logs.copyLogs' => 'Журналдарды көшіру',
@@ -3737,8 +3886,6 @@ extension on TranslationsKk {
 			'explore.characters' => 'Кейіпкерлер',
 			'explore.addToWatchlist' => 'Көру тізіміне қосу',
 			'explore.removeFromWatchlist' => 'Көру тізімінен өшіру',
-			_ => null,
-		} ?? switch (path) {
 			'explore.addedToWatchlist' => 'Көру тізіміне қосылды',
 			'explore.removedFromWatchlist' => 'Көру тізімінен алынды',
 			'explore.watchlistUpdateFailed' => 'Көру тізімін жаңарту мүмкін болмады',
@@ -4184,6 +4331,8 @@ extension on TranslationsKk {
 			'shaders.noShaderDescription' => 'Видеоны жақсарту өшірілген',
 			'shaders.nvscalerDescription' => 'Анығырақ видео үшін NVIDIA масштабы',
 			'shaders.artcnnVariantNeutral' => 'Нейтралды',
+			_ => null,
+		} ?? switch (path) {
 			'shaders.artcnnVariantDenoise' => 'Шуды азайту',
 			'shaders.artcnnVariantDenoiseSharpen' => 'Шуды азайту + Анықтық',
 			'shaders.qualityFast' => 'Жылдам',
@@ -4251,8 +4400,6 @@ extension on TranslationsKk {
 			'companionRemote.remote.subtitles' => 'Субтитрлер',
 			'companionRemote.remote.audio' => 'Дыбыс',
 			'companionRemote.remote.searchHint' => 'ПК-де іздеу...',
-			_ => null,
-		} ?? switch (path) {
 			'companionRemote.errors.noNetworkInterface' => 'Желілік интерфейс табылмады',
 			'companionRemote.errors.authenticationFailed' => 'Аутентификация қатесі',
 			'companionRemote.errors.serverStartFailed' => ({required Object error}) => 'Серверді іске қосу қатесі: ${error}',

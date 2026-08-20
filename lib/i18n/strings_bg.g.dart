@@ -98,7 +98,7 @@ class _Translations$app$bg extends Translations$app$en {
 	final TranslationsBg _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -212,6 +212,14 @@ class _Translations$update$bg extends Translations$update$en {
 	@override String get viewRelease => 'Виж версията';
 	@override String get latestVersion => 'Използвате най-новата версия';
 	@override String get checkFailed => 'Неуспешна проверка за актуализации';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -245,7 +253,6 @@ class _Translations$settings$bg extends Translations$settings$en {
 	@override String get darkTheme => 'Тъмна';
 	@override String get oledTheme => 'OLED';
 	@override String get libraryDensity => 'Плътност на библиотеката';
-	@override String get displayScale => 'Мащаб на дисплея';
 	@override String get compact => 'Компактна';
 	@override String get comfortable => 'Удобна';
 	@override String get tvCornerSpotlightBackdrop => 'Фон с акцент в ъгъла';
@@ -295,11 +302,6 @@ class _Translations$settings$bg extends Translations$settings$en {
 	@override String bufferSizeMB({required Object size}) => '${size} MB';
 	@override String get bufferSizeAuto => 'Автоматично (препоръчително)';
 	@override String bufferSizeWarning({required Object heap, required Object size}) => 'Налична памет: ${heap} MB. Буфер от ${size} MB може да повлияе на възпроизвеждането.';
-	@override String get playbackBuffer => 'Буфер за възпроизвеждане';
-	@override String get playbackBufferAuto => 'Автоматично (препоръчително)';
-	@override String get playbackBufferLarge => 'Голям';
-	@override String get playbackBufferExtraLarge => 'Изключително голям';
-	@override String get playbackBufferDescription => 'Буферира повече при нестабилни връзки. Също ограничен от размера на буфера.';
 	@override String get defaultQualityTitle => 'Качество по подразбиране';
 	@override String get musicQualityTitle => 'Качество на музиката';
 	@override String get subtitleStyling => 'Стил на субтитрите';
@@ -393,6 +395,17 @@ class _Translations$settings$bg extends Translations$settings$en {
 	@override String get downloadLocationReset => 'Местоположението за изтегляния е върнато по подразбиране';
 	@override String get downloadLocationInvalid => 'Избраната папка не е записваема';
 	@override String get downloadLocationPickerUnavailable => 'Изборът на папка не е наличен на това устройство';
+	@override String get downloadLocationSelectError => 'Failed to select folder';
+	@override String get mediaCapture => 'Media Capture';
+	@override String get clips => 'Clips';
+	@override String get screenshots => 'Screenshots';
+	@override String captureLocationTitle({required Object title}) => '${title} Location';
+	@override String get clipLocationDescription => 'Choose where clips are saved.';
+	@override String get screenshotLocationDescription => 'Choose where screenshots are saved.';
+	@override String get clipLocationChanged => 'Clip location changed';
+	@override String get screenshotLocationChanged => 'Screenshot location changed';
+	@override String get clipLocationReset => 'Clip location reset to Desktop';
+	@override String get screenshotLocationReset => 'Screenshot location reset to Desktop';
 	@override String get downloadOnWifiOnly => 'Изтегляне само през Wi-Fi';
 	@override String get downloadOnWifiOnlyDescription => 'Предотвратявай изтегляния през мобилни данни';
 	@override String get autoRemoveWatchedDownloads => 'Автоматично премахвай изгледаните изтегляния';
@@ -453,8 +466,6 @@ class _Translations$settings$bg extends Translations$settings$en {
 	@override String get showNavBarLabels => 'Показвай етикети в навигационната лента';
 	@override String get showNavBarLabelsDescription => 'Показвай текстови етикети под иконите в навигационната лента';
 	@override String get startupSection => 'Начален раздел';
-	@override String get showExploreTab => 'Показване на раздела „Открий“';
-	@override String get showExploreTabDescription => 'Показва раздела „Открий“ със съдържание от Plex Discover и свързаните тракери';
 	@override String get liveTvDefaultFavorites => 'По подразбиране към любими канали';
 	@override String get liveTvDefaultFavoritesDescription => 'Показвай само любими канали при отваряне на телевизия на живо';
 	@override String get display => 'Дисплей';
@@ -477,6 +488,20 @@ class _Translations$settings$bg extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'По библиотека';
 	@override String get playerScopeTitle => 'По сериал или филм';
 	@override String get exportDialogTitle => 'Експортиране на настройките на Plezy';
+	@override String get displayScale => 'Мащаб на дисплея';
+	@override String get playbackBuffer => 'Буфер за възпроизвеждане';
+	@override String get playbackBufferAuto => 'Автоматично (препоръчително)';
+	@override String get playbackBufferLarge => 'Голям';
+	@override String get playbackBufferExtraLarge => 'Изключително голям';
+	@override String get playbackBufferDescription => 'Буферира повече при нестабилни връзки. Също ограничен от размера на буфера.';
+	@override String get showExploreTab => 'Показване на раздела „Открий“';
+	@override String get showExploreTabDescription => 'Показва раздела „Открий“ със съдържание от Plex Discover и свързаните тракери';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -765,6 +790,10 @@ class _Translations$videoControls$bg extends Translations$videoControls$en {
 	final TranslationsBg _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('bg'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => 'Аудио';
 	@override String get subtitlesLabel => 'Субтитри';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -825,6 +854,7 @@ class _Translations$videoControls$bg extends Translations$videoControls$en {
 	@override String get pipActive => 'Възпроизвеждане в режим картина в картината';
 	@override String get pipFailed => 'Режимът картина в картината не успя да стартира';
 	@override String get screenshotSaved => 'Екранната снимка е запазена';
+	@override late final _Translations$videoControls$clip$bg clip = _Translations$videoControls$clip$bg._(_root);
 	@override String zoomPercent({required Object percent}) => 'Мащаб ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$bg pipErrors = _Translations$videoControls$pipErrors$bg._(_root);
 	@override String get chapters => 'Глави';
@@ -1203,6 +1233,9 @@ class _Translations$about$bg extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Версия ${version}';
 	@override String get appDescription => 'Красив клиент за Plex и Jellyfin, създаден с Flutter';
 	@override String get viewLicensesDescription => 'Виж лицензите на библиотеки на трети страни';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -2176,6 +2209,53 @@ class _Translations$hotkeys$actions$bg extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Превключи шейдъри';
 	@override String get skipMarker => 'Прескочи интро/финални надписи';
 	@override String get screenshot => 'Направи екранна снимка';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$bg extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$bg._(TranslationsBg root) : this._root = root, super.internal(root);
+
+	final TranslationsBg _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Clip';
+	@override String get vodOnly => 'Clips are available for on-demand video playback.';
+	@override String get sourceUnavailable => 'Clip source is not available for this playback session.';
+	@override String get playAtLeastOneSecond => 'Play at least 1 second before clipping.';
+	@override String get startBeforeBeginning => 'Clip start cannot be before the beginning of the video.';
+	@override String get endAfterStart => 'Clip end must be after the start.';
+	@override String get minimumDuration => 'Clips must be at least 1 second long.';
+	@override String get endPastVideo => 'Clip end is past the end of the video.';
+	@override String get exportCanceled => 'Clip export canceled.';
+	@override String get cacheUnavailable => 'The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.';
+	@override String get sourceCopyNoEncoder => 'Source-copy export does not use an encoder.';
+	@override String get encodingDesktopOnly => 'H.264 and HEVC clip encoding is currently available on macOS and Windows.';
+	@override String get hdrRequiresSource => 'HDR export requires a direct-play HDR10 or HLG-compatible source.';
+	@override String get transcodeStartUnavailable => 'This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.';
+	@override String get previewRequired => 'Clip preview must finish loading before it can be saved.';
+	@override String get h264Failed => 'This source could not be encoded as an H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'This source could not be encoded as an HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'This source could not be encoded as an HEVC HDR MP4.';
+	@override String get gifFailed => 'This source could not be encoded as a GIF.';
+	@override String get originalFailed => 'This source could not be copied from the mpv cache.';
+	@override String get previewUnavailable => 'Clip preview playback is not available in this build.';
+	@override String get previewFailed => 'Clip preview playback failed.';
+	@override String get previewLoadingScreenshot => 'The clip preview must finish loading before taking a screenshot.';
+	@override String get screenshotInProgress => 'A screenshot is already being saved.';
+	@override String get saveAsDialog => 'Save Clip As';
+	@override String savedTo({required Object fileName}) => 'Saved to ${fileName}';
+	@override String get openFolder => 'Open Folder';
+	@override String get saveAs => 'Save As';
+	@override String get cancelExport => 'Cancel Export';
+	@override String get saving => 'Saving...';
+	@override String savingProgress({required Object percent}) => 'Saving ${percent}%';
+	@override String get mutePreview => 'Mute preview';
+	@override String get unmutePreview => 'Unmute preview';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: videoControls.pipErrors
@@ -2711,7 +2791,7 @@ class _Translations$services$libraryFilter$bg extends Translations$services$libr
 extension on TranslationsBg {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Вход с Plex',
 			'auth.showQRCode' => 'Покажи QR код',
 			'auth.authenticate' => 'Удостовери се',
@@ -2799,6 +2879,14 @@ extension on TranslationsBg {
 			'update.viewRelease' => 'Виж версията',
 			'update.latestVersion' => 'Използвате най-новата версия',
 			'update.checkFailed' => 'Неуспешна проверка за актуализации',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Настройки',
 			'settings.supportDeveloper' => 'Подкрепи Plezy',
 			'settings.supportDeveloperDescription' => 'Дарение чрез Liberapay за финансиране на разработката',
@@ -2823,7 +2911,6 @@ extension on TranslationsBg {
 			'settings.darkTheme' => 'Тъмна',
 			'settings.oledTheme' => 'OLED',
 			'settings.libraryDensity' => 'Плътност на библиотеката',
-			'settings.displayScale' => 'Мащаб на дисплея',
 			'settings.compact' => 'Компактна',
 			'settings.comfortable' => 'Удобна',
 			'settings.tvCornerSpotlightBackdrop' => 'Фон с акцент в ъгъла',
@@ -2873,11 +2960,6 @@ extension on TranslationsBg {
 			'settings.bufferSizeMB' => ({required Object size}) => '${size} MB',
 			'settings.bufferSizeAuto' => 'Автоматично (препоръчително)',
 			'settings.bufferSizeWarning' => ({required Object heap, required Object size}) => 'Налична памет: ${heap} MB. Буфер от ${size} MB може да повлияе на възпроизвеждането.',
-			'settings.playbackBuffer' => 'Буфер за възпроизвеждане',
-			'settings.playbackBufferAuto' => 'Автоматично (препоръчително)',
-			'settings.playbackBufferLarge' => 'Голям',
-			'settings.playbackBufferExtraLarge' => 'Изключително голям',
-			'settings.playbackBufferDescription' => 'Буферира повече при нестабилни връзки. Също ограничен от размера на буфера.',
 			'settings.defaultQualityTitle' => 'Качество по подразбиране',
 			'settings.musicQualityTitle' => 'Качество на музиката',
 			'settings.subtitleStyling' => 'Стил на субтитрите',
@@ -2971,6 +3053,17 @@ extension on TranslationsBg {
 			'settings.downloadLocationReset' => 'Местоположението за изтегляния е върнато по подразбиране',
 			'settings.downloadLocationInvalid' => 'Избраната папка не е записваема',
 			'settings.downloadLocationPickerUnavailable' => 'Изборът на папка не е наличен на това устройство',
+			'settings.downloadLocationSelectError' => 'Failed to select folder',
+			'settings.mediaCapture' => 'Media Capture',
+			'settings.clips' => 'Clips',
+			'settings.screenshots' => 'Screenshots',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Location',
+			'settings.clipLocationDescription' => 'Choose where clips are saved.',
+			'settings.screenshotLocationDescription' => 'Choose where screenshots are saved.',
+			'settings.clipLocationChanged' => 'Clip location changed',
+			'settings.screenshotLocationChanged' => 'Screenshot location changed',
+			'settings.clipLocationReset' => 'Clip location reset to Desktop',
+			'settings.screenshotLocationReset' => 'Screenshot location reset to Desktop',
 			'settings.downloadOnWifiOnly' => 'Изтегляне само през Wi-Fi',
 			'settings.downloadOnWifiOnlyDescription' => 'Предотвратявай изтегляния през мобилни данни',
 			'settings.autoRemoveWatchedDownloads' => 'Автоматично премахвай изгледаните изтегляния',
@@ -3031,8 +3124,6 @@ extension on TranslationsBg {
 			'settings.showNavBarLabels' => 'Показвай етикети в навигационната лента',
 			'settings.showNavBarLabelsDescription' => 'Показвай текстови етикети под иконите в навигационната лента',
 			'settings.startupSection' => 'Начален раздел',
-			'settings.showExploreTab' => 'Показване на раздела „Открий“',
-			'settings.showExploreTabDescription' => 'Показва раздела „Открий“ със съдържание от Plex Discover и свързаните тракери',
 			'settings.liveTvDefaultFavorites' => 'По подразбиране към любими канали',
 			'settings.liveTvDefaultFavoritesDescription' => 'Показвай само любими канали при отваряне на телевизия на живо',
 			'settings.display' => 'Дисплей',
@@ -3055,6 +3146,20 @@ extension on TranslationsBg {
 			'settings.playerScopeLibrary' => 'По библиотека',
 			'settings.playerScopeTitle' => 'По сериал или филм',
 			'settings.exportDialogTitle' => 'Експортиране на настройките на Plezy',
+			'settings.displayScale' => 'Мащаб на дисплея',
+			'settings.playbackBuffer' => 'Буфер за възпроизвеждане',
+			'settings.playbackBufferAuto' => 'Автоматично (препоръчително)',
+			'settings.playbackBufferLarge' => 'Голям',
+			'settings.playbackBufferExtraLarge' => 'Изключително голям',
+			'settings.playbackBufferDescription' => 'Буферира повече при нестабилни връзки. Също ограничен от размера на буфера.',
+			'settings.showExploreTab' => 'Показване на раздела „Открий“',
+			'settings.showExploreTabDescription' => 'Показва раздела „Открий“ със съдържание от Plex Discover и свързаните тракери',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => 'Търсене на филми, сериали, музика...',
 			'search.tryDifferentTerm' => 'Опитайте с различна дума за търсене',
 			'search.searchYourMedia' => 'Търсете в медийното си съдържание',
@@ -3090,6 +3195,8 @@ extension on TranslationsBg {
 			'hotkeys.actions.shaderToggle' => 'Превключи шейдъри',
 			'hotkeys.actions.skipMarker' => 'Прескочи интро/финални надписи',
 			'hotkeys.actions.screenshot' => 'Направи екранна снимка',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Информация за файла',
 			'fileInfo.overview' => 'Общ преглед',
 			'fileInfo.video' => 'Видео',
@@ -3196,6 +3303,8 @@ extension on TranslationsBg {
 			'fileInfo.defaultAudioTrack' => 'Звукова пътека по подразбиране',
 			'fileInfo.defaultSubtitleTrack' => 'Субтитри по подразбиране',
 			'fileInfo.subtitlesOff' => 'Изкл.',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.flagDefault' => 'По подразбиране',
 			'fileInfo.flagForced' => 'Принудителни',
 			'fileInfo.flagSelected' => 'Избран',
@@ -3223,8 +3332,6 @@ extension on TranslationsBg {
 			'mediaMenu.deleteMovieTitle' => 'Да изтрия ли този филм?',
 			'mediaMenu.deleteEpisodeConfirm' => 'Изтрий епизода',
 			'mediaMenu.deleteSeasonConfirm' => 'Изтрий сезона',
-			_ => null,
-		} ?? switch (path) {
 			'mediaMenu.deleteShowConfirm' => 'Изтрий сериала',
 			'mediaMenu.deleteMovieConfirm' => 'Изтрий филма',
 			'mediaMenu.deleteAnyway' => 'Изтрий въпреки това',
@@ -3279,6 +3386,7 @@ extension on TranslationsBg {
 			'tooltips.markAsWatched' => 'Маркирай като гледано',
 			'tooltips.markAsUnwatched' => 'Маркирай като негледано',
 			'audioTracks.track' => ({required Object n}) => 'Аудиопътечка ${n}',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('bg'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => 'Аудио',
 			'videoControls.subtitlesLabel' => 'Субтитри',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3339,6 +3447,42 @@ extension on TranslationsBg {
 			'videoControls.pipActive' => 'Възпроизвеждане в режим картина в картината',
 			'videoControls.pipFailed' => 'Режимът картина в картината не успя да стартира',
 			'videoControls.screenshotSaved' => 'Екранната снимка е запазена',
+			'videoControls.clip.title' => 'Clip',
+			'videoControls.clip.vodOnly' => 'Clips are available for on-demand video playback.',
+			'videoControls.clip.sourceUnavailable' => 'Clip source is not available for this playback session.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Play at least 1 second before clipping.',
+			'videoControls.clip.startBeforeBeginning' => 'Clip start cannot be before the beginning of the video.',
+			'videoControls.clip.endAfterStart' => 'Clip end must be after the start.',
+			'videoControls.clip.minimumDuration' => 'Clips must be at least 1 second long.',
+			'videoControls.clip.endPastVideo' => 'Clip end is past the end of the video.',
+			'videoControls.clip.exportCanceled' => 'Clip export canceled.',
+			'videoControls.clip.cacheUnavailable' => 'The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Source-copy export does not use an encoder.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 and HEVC clip encoding is currently available on macOS and Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR export requires a direct-play HDR10 or HLG-compatible source.',
+			'videoControls.clip.transcodeStartUnavailable' => 'This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.',
+			'videoControls.clip.previewRequired' => 'Clip preview must finish loading before it can be saved.',
+			'videoControls.clip.h264Failed' => 'This source could not be encoded as an H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'This source could not be encoded as an HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'This source could not be encoded as an HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'This source could not be encoded as a GIF.',
+			'videoControls.clip.originalFailed' => 'This source could not be copied from the mpv cache.',
+			'videoControls.clip.previewUnavailable' => 'Clip preview playback is not available in this build.',
+			'videoControls.clip.previewFailed' => 'Clip preview playback failed.',
+			'videoControls.clip.previewLoadingScreenshot' => 'The clip preview must finish loading before taking a screenshot.',
+			'videoControls.clip.screenshotInProgress' => 'A screenshot is already being saved.',
+			'videoControls.clip.saveAsDialog' => 'Save Clip As',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Saved to ${fileName}',
+			'videoControls.clip.openFolder' => 'Open Folder',
+			'videoControls.clip.saveAs' => 'Save As',
+			'videoControls.clip.cancelExport' => 'Cancel Export',
+			'videoControls.clip.saving' => 'Saving...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Saving ${percent}%',
+			'videoControls.clip.mutePreview' => 'Mute preview',
+			'videoControls.clip.unmutePreview' => 'Unmute preview',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Мащаб ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Изисква Android 8.0 или по-нова версия',
 			'videoControls.pipErrors.iosVersion' => 'Изисква iOS 15.0 или по-нова версия',
@@ -3664,12 +3808,17 @@ extension on TranslationsBg {
 			'about.versionLabel' => ({required Object version}) => 'Версия ${version}',
 			'about.appDescription' => 'Красив клиент за Plex и Jellyfin, създаден с Flutter',
 			'about.viewLicensesDescription' => 'Виж лицензите на библиотеки на трети страни',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Не са намерени сървъри за ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Неуспешно зареждане на сървъри: ${error}',
 			'hubDetail.title' => 'Заглавие',
 			'hubDetail.releaseYear' => 'Година на излизане',
 			'hubDetail.dateAdded' => 'Дата на добавяне',
 			'hubDetail.rating' => 'Рейтинг',
+			_ => null,
+		} ?? switch (path) {
 			'hubDetail.noItemsFound' => 'Няма намерени елементи',
 			'logs.clearLogs' => 'Изчисти логовете',
 			'logs.copyLogs' => 'Копирай логовете',
@@ -3737,8 +3886,6 @@ extension on TranslationsBg {
 			'explore.characters' => 'Герои',
 			'explore.addToWatchlist' => 'Добави в списъка за гледане',
 			'explore.removeFromWatchlist' => 'Премахни от списъка за гледане',
-			_ => null,
-		} ?? switch (path) {
 			'explore.addedToWatchlist' => 'Добавено към списъка за гледане',
 			'explore.removedFromWatchlist' => 'Премахнато от списъка за гледане',
 			'explore.watchlistUpdateFailed' => 'Неуспешно обновяване на списъка за гледане',
@@ -4184,6 +4331,8 @@ extension on TranslationsBg {
 			'shaders.noShaderDescription' => 'Без видео подобрение',
 			'shaders.nvscalerDescription' => 'Мащабиране на изображението чрез NVIDIA за по-рязко видео',
 			'shaders.artcnnVariantNeutral' => 'Неутрален',
+			_ => null,
+		} ?? switch (path) {
 			'shaders.artcnnVariantDenoise' => 'Премахване на шум',
 			'shaders.artcnnVariantDenoiseSharpen' => 'Премахване на шум + изостряне',
 			'shaders.qualityFast' => 'Бързо',
@@ -4251,8 +4400,6 @@ extension on TranslationsBg {
 			'companionRemote.remote.subtitles' => 'Субтитри',
 			'companionRemote.remote.audio' => 'Аудио',
 			'companionRemote.remote.searchHint' => 'Търсене на настолен компютър...',
-			_ => null,
-		} ?? switch (path) {
 			'companionRemote.errors.noNetworkInterface' => 'Не е намерен мрежов интерфейс',
 			'companionRemote.errors.authenticationFailed' => 'Неуспешно удостоверяване',
 			'companionRemote.errors.serverStartFailed' => ({required Object error}) => 'Неуспешно стартиране на сървъра за дистанционно управление: ${error}',

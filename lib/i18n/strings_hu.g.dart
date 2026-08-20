@@ -98,7 +98,7 @@ class _Translations$app$hu extends Translations$app$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -212,6 +212,14 @@ class _Translations$update$hu extends Translations$update$en {
 	@override String get viewRelease => 'Kiadási megjegyzések';
 	@override String get latestVersion => 'A legújabb verziót használod';
 	@override String get checkFailed => 'Nem sikerült az újabb frissítések ellenőrzése';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -245,7 +253,6 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get darkTheme => 'Sötét';
 	@override String get oledTheme => 'OLED';
 	@override String get libraryDensity => 'Könyvtársűrűség';
-	@override String get displayScale => 'Kijelző méretezése';
 	@override String get compact => 'Kompakt';
 	@override String get comfortable => 'Kényelmes';
 	@override String get tvCornerSpotlightBackdrop => 'Sarokban megjelenő kiemelt háttérkép';
@@ -295,11 +302,6 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String bufferSizeMB({required Object size}) => '${size} MB';
 	@override String get bufferSizeAuto => 'Automatikus (ajánlott)';
 	@override String bufferSizeWarning({required Object heap, required Object size}) => '${heap} MB memória érhető el. A(z) ${size} MB méretű puffer befolyásolhatja a lejátszást.';
-	@override String get playbackBuffer => 'Lejátszási puffer';
-	@override String get playbackBufferAuto => 'Automatikus (ajánlott)';
-	@override String get playbackBufferLarge => 'Nagy';
-	@override String get playbackBufferExtraLarge => 'Extra nagy';
-	@override String get playbackBufferDescription => 'Több puffert használ instabil kapcsolatok ellen. A pufferméret is korlátozza.';
 	@override String get defaultQualityTitle => 'Alapértelmezett minőség';
 	@override String get musicQualityTitle => 'Zene minősége';
 	@override String get subtitleStyling => 'Feliratok stílusa';
@@ -393,6 +395,17 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get downloadLocationReset => 'A letöltési hely visszaállt az alapértelmezettre';
 	@override String get downloadLocationInvalid => 'A kiválasztott mappa nem írható';
 	@override String get downloadLocationPickerUnavailable => 'A mappaválasztás ezen az eszközön nem érhető el';
+	@override String get downloadLocationSelectError => 'Failed to select folder';
+	@override String get mediaCapture => 'Media Capture';
+	@override String get clips => 'Clips';
+	@override String get screenshots => 'Screenshots';
+	@override String captureLocationTitle({required Object title}) => '${title} Location';
+	@override String get clipLocationDescription => 'Choose where clips are saved.';
+	@override String get screenshotLocationDescription => 'Choose where screenshots are saved.';
+	@override String get clipLocationChanged => 'Clip location changed';
+	@override String get screenshotLocationChanged => 'Screenshot location changed';
+	@override String get clipLocationReset => 'Clip location reset to Desktop';
+	@override String get screenshotLocationReset => 'Screenshot location reset to Desktop';
 	@override String get downloadOnWifiOnly => 'Letöltés csak Wi-Fi-n';
 	@override String get downloadOnWifiOnlyDescription => 'Letöltések megakadályozása mobiladat-használat esetén';
 	@override String get autoRemoveWatchedDownloads => 'Megnézett letöltések automatikus eltávolítása';
@@ -453,8 +466,6 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get showNavBarLabels => 'Navigációs sáv címkéinek megjelenítése';
 	@override String get showNavBarLabelsDescription => 'Szöveges címkék megjelenítése a navigációs sáv ikonjai alatt';
 	@override String get startupSection => 'Indítási oldal';
-	@override String get showExploreTab => 'Felfedezés lap megjelenítése';
-	@override String get showExploreTabDescription => 'A Plex Discover és a csatlakoztatott követők tartalmait megjelenítő Felfedezés lap megjelenítése';
 	@override String get liveTvDefaultFavorites => 'Kedvenc csatornák alapértelmezés szerint';
 	@override String get liveTvDefaultFavoritesDescription => 'Csak a kedvenc csatornák megjelenítése az Élő TV megnyitásakor';
 	@override String get display => 'Kijelző';
@@ -477,6 +488,20 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Könyvtáronként';
 	@override String get playerScopeTitle => 'Sorozatonként vagy filmenként';
 	@override String get exportDialogTitle => 'Plezy-beállítások exportálása';
+	@override String get displayScale => 'Kijelző méretezése';
+	@override String get playbackBuffer => 'Lejátszási puffer';
+	@override String get playbackBufferAuto => 'Automatikus (ajánlott)';
+	@override String get playbackBufferLarge => 'Nagy';
+	@override String get playbackBufferExtraLarge => 'Extra nagy';
+	@override String get playbackBufferDescription => 'Több puffert használ instabil kapcsolatok ellen. A pufferméret is korlátozza.';
+	@override String get showExploreTab => 'Felfedezés lap megjelenítése';
+	@override String get showExploreTabDescription => 'A Plex Discover és a csatlakoztatott követők tartalmait megjelenítő Felfedezés lap megjelenítése';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -765,6 +790,10 @@ class _Translations$videoControls$hu extends Translations$videoControls$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => 'Hang';
 	@override String get subtitlesLabel => 'Feliratok';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -825,6 +854,7 @@ class _Translations$videoControls$hu extends Translations$videoControls$en {
 	@override String get pipActive => 'Lejátszás kép a képben módban';
 	@override String get pipFailed => 'Nem sikerült elindítani a kép a képben módot';
 	@override String get screenshotSaved => 'Képernyőkép elmentve';
+	@override late final _Translations$videoControls$clip$hu clip = _Translations$videoControls$clip$hu._(_root);
 	@override String zoomPercent({required Object percent}) => 'Nagyítás ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$hu pipErrors = _Translations$videoControls$pipErrors$hu._(_root);
 	@override String get chapters => 'Fejezetek';
@@ -1203,6 +1233,9 @@ class _Translations$about$hu extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Verzió: ${version}';
 	@override String get appDescription => 'Gyönyörű Flutter-kliens a Plexhez és a Jellyfinhez';
 	@override String get viewLicensesDescription => 'Külső fejlesztésű programkönyvtárak licenceinek megtekintése';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -2176,6 +2209,53 @@ class _Translations$hotkeys$actions$hu extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Shaderek be- és kikapcsolása';
 	@override String get skipMarker => 'Intró/stáblista átugrása';
 	@override String get screenshot => 'Képernyőkép készítése';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$hu extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Clip';
+	@override String get vodOnly => 'Clips are available for on-demand video playback.';
+	@override String get sourceUnavailable => 'Clip source is not available for this playback session.';
+	@override String get playAtLeastOneSecond => 'Play at least 1 second before clipping.';
+	@override String get startBeforeBeginning => 'Clip start cannot be before the beginning of the video.';
+	@override String get endAfterStart => 'Clip end must be after the start.';
+	@override String get minimumDuration => 'Clips must be at least 1 second long.';
+	@override String get endPastVideo => 'Clip end is past the end of the video.';
+	@override String get exportCanceled => 'Clip export canceled.';
+	@override String get cacheUnavailable => 'The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.';
+	@override String get sourceCopyNoEncoder => 'Source-copy export does not use an encoder.';
+	@override String get encodingDesktopOnly => 'H.264 and HEVC clip encoding is currently available on macOS and Windows.';
+	@override String get hdrRequiresSource => 'HDR export requires a direct-play HDR10 or HLG-compatible source.';
+	@override String get transcodeStartUnavailable => 'This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.';
+	@override String get previewRequired => 'Clip preview must finish loading before it can be saved.';
+	@override String get h264Failed => 'This source could not be encoded as an H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'This source could not be encoded as an HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'This source could not be encoded as an HEVC HDR MP4.';
+	@override String get gifFailed => 'This source could not be encoded as a GIF.';
+	@override String get originalFailed => 'This source could not be copied from the mpv cache.';
+	@override String get previewUnavailable => 'Clip preview playback is not available in this build.';
+	@override String get previewFailed => 'Clip preview playback failed.';
+	@override String get previewLoadingScreenshot => 'The clip preview must finish loading before taking a screenshot.';
+	@override String get screenshotInProgress => 'A screenshot is already being saved.';
+	@override String get saveAsDialog => 'Save Clip As';
+	@override String savedTo({required Object fileName}) => 'Saved to ${fileName}';
+	@override String get openFolder => 'Open Folder';
+	@override String get saveAs => 'Save As';
+	@override String get cancelExport => 'Cancel Export';
+	@override String get saving => 'Saving...';
+	@override String savingProgress({required Object percent}) => 'Saving ${percent}%';
+	@override String get mutePreview => 'Mute preview';
+	@override String get unmutePreview => 'Unmute preview';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: videoControls.pipErrors
@@ -2711,7 +2791,7 @@ class _Translations$services$libraryFilter$hu extends Translations$services$libr
 extension on TranslationsHu {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Bejelentkezés Plexszel',
 			'auth.showQRCode' => 'QR-kód megjelenítése',
 			'auth.authenticate' => 'Hitelesítés',
@@ -2799,6 +2879,14 @@ extension on TranslationsHu {
 			'update.viewRelease' => 'Kiadási megjegyzések',
 			'update.latestVersion' => 'A legújabb verziót használod',
 			'update.checkFailed' => 'Nem sikerült az újabb frissítések ellenőrzése',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Beállítások',
 			'settings.supportDeveloper' => 'Plezy támogatása',
 			'settings.supportDeveloperDescription' => 'A fejlesztés támogatása Liberapay-en keresztül',
@@ -2823,7 +2911,6 @@ extension on TranslationsHu {
 			'settings.darkTheme' => 'Sötét',
 			'settings.oledTheme' => 'OLED',
 			'settings.libraryDensity' => 'Könyvtársűrűség',
-			'settings.displayScale' => 'Kijelző méretezése',
 			'settings.compact' => 'Kompakt',
 			'settings.comfortable' => 'Kényelmes',
 			'settings.tvCornerSpotlightBackdrop' => 'Sarokban megjelenő kiemelt háttérkép',
@@ -2873,11 +2960,6 @@ extension on TranslationsHu {
 			'settings.bufferSizeMB' => ({required Object size}) => '${size} MB',
 			'settings.bufferSizeAuto' => 'Automatikus (ajánlott)',
 			'settings.bufferSizeWarning' => ({required Object heap, required Object size}) => '${heap} MB memória érhető el. A(z) ${size} MB méretű puffer befolyásolhatja a lejátszást.',
-			'settings.playbackBuffer' => 'Lejátszási puffer',
-			'settings.playbackBufferAuto' => 'Automatikus (ajánlott)',
-			'settings.playbackBufferLarge' => 'Nagy',
-			'settings.playbackBufferExtraLarge' => 'Extra nagy',
-			'settings.playbackBufferDescription' => 'Több puffert használ instabil kapcsolatok ellen. A pufferméret is korlátozza.',
 			'settings.defaultQualityTitle' => 'Alapértelmezett minőség',
 			'settings.musicQualityTitle' => 'Zene minősége',
 			'settings.subtitleStyling' => 'Feliratok stílusa',
@@ -2971,6 +3053,17 @@ extension on TranslationsHu {
 			'settings.downloadLocationReset' => 'A letöltési hely visszaállt az alapértelmezettre',
 			'settings.downloadLocationInvalid' => 'A kiválasztott mappa nem írható',
 			'settings.downloadLocationPickerUnavailable' => 'A mappaválasztás ezen az eszközön nem érhető el',
+			'settings.downloadLocationSelectError' => 'Failed to select folder',
+			'settings.mediaCapture' => 'Media Capture',
+			'settings.clips' => 'Clips',
+			'settings.screenshots' => 'Screenshots',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Location',
+			'settings.clipLocationDescription' => 'Choose where clips are saved.',
+			'settings.screenshotLocationDescription' => 'Choose where screenshots are saved.',
+			'settings.clipLocationChanged' => 'Clip location changed',
+			'settings.screenshotLocationChanged' => 'Screenshot location changed',
+			'settings.clipLocationReset' => 'Clip location reset to Desktop',
+			'settings.screenshotLocationReset' => 'Screenshot location reset to Desktop',
 			'settings.downloadOnWifiOnly' => 'Letöltés csak Wi-Fi-n',
 			'settings.downloadOnWifiOnlyDescription' => 'Letöltések megakadályozása mobiladat-használat esetén',
 			'settings.autoRemoveWatchedDownloads' => 'Megnézett letöltések automatikus eltávolítása',
@@ -3031,8 +3124,6 @@ extension on TranslationsHu {
 			'settings.showNavBarLabels' => 'Navigációs sáv címkéinek megjelenítése',
 			'settings.showNavBarLabelsDescription' => 'Szöveges címkék megjelenítése a navigációs sáv ikonjai alatt',
 			'settings.startupSection' => 'Indítási oldal',
-			'settings.showExploreTab' => 'Felfedezés lap megjelenítése',
-			'settings.showExploreTabDescription' => 'A Plex Discover és a csatlakoztatott követők tartalmait megjelenítő Felfedezés lap megjelenítése',
 			'settings.liveTvDefaultFavorites' => 'Kedvenc csatornák alapértelmezés szerint',
 			'settings.liveTvDefaultFavoritesDescription' => 'Csak a kedvenc csatornák megjelenítése az Élő TV megnyitásakor',
 			'settings.display' => 'Kijelző',
@@ -3055,6 +3146,20 @@ extension on TranslationsHu {
 			'settings.playerScopeLibrary' => 'Könyvtáronként',
 			'settings.playerScopeTitle' => 'Sorozatonként vagy filmenként',
 			'settings.exportDialogTitle' => 'Plezy-beállítások exportálása',
+			'settings.displayScale' => 'Kijelző méretezése',
+			'settings.playbackBuffer' => 'Lejátszási puffer',
+			'settings.playbackBufferAuto' => 'Automatikus (ajánlott)',
+			'settings.playbackBufferLarge' => 'Nagy',
+			'settings.playbackBufferExtraLarge' => 'Extra nagy',
+			'settings.playbackBufferDescription' => 'Több puffert használ instabil kapcsolatok ellen. A pufferméret is korlátozza.',
+			'settings.showExploreTab' => 'Felfedezés lap megjelenítése',
+			'settings.showExploreTabDescription' => 'A Plex Discover és a csatlakoztatott követők tartalmait megjelenítő Felfedezés lap megjelenítése',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => 'Keresés filmek, sorozatok és zenék között...',
 			'search.tryDifferentTerm' => 'Próbálj másik keresési kifejezést',
 			'search.searchYourMedia' => 'Keresés a saját médiatartalmak között',
@@ -3090,6 +3195,8 @@ extension on TranslationsHu {
 			'hotkeys.actions.shaderToggle' => 'Shaderek be- és kikapcsolása',
 			'hotkeys.actions.skipMarker' => 'Intró/stáblista átugrása',
 			'hotkeys.actions.screenshot' => 'Képernyőkép készítése',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Fájlinformáció',
 			'fileInfo.overview' => 'Áttekintés',
 			'fileInfo.video' => 'Videó',
@@ -3196,6 +3303,8 @@ extension on TranslationsHu {
 			'fileInfo.defaultAudioTrack' => 'Alapértelmezett hangsáv',
 			'fileInfo.defaultSubtitleTrack' => 'Alapértelmezett feliratsáv',
 			'fileInfo.subtitlesOff' => 'Ki',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.flagDefault' => 'Alapértelmezett',
 			'fileInfo.flagForced' => 'Kényszerített',
 			'fileInfo.flagSelected' => 'Kiválasztva',
@@ -3223,8 +3332,6 @@ extension on TranslationsHu {
 			'mediaMenu.deleteMovieTitle' => 'Töröljük ezt a filmet?',
 			'mediaMenu.deleteEpisodeConfirm' => 'Epizód törlése',
 			'mediaMenu.deleteSeasonConfirm' => 'Évad törlése',
-			_ => null,
-		} ?? switch (path) {
 			'mediaMenu.deleteShowConfirm' => 'Sorozat törlése',
 			'mediaMenu.deleteMovieConfirm' => 'Film törlése',
 			'mediaMenu.deleteAnyway' => 'Törlés mindenképp',
@@ -3279,6 +3386,7 @@ extension on TranslationsHu {
 			'tooltips.markAsWatched' => 'Megjelölés megtekintettként',
 			'tooltips.markAsUnwatched' => 'Megjelölés nem megtekintettként',
 			'audioTracks.track' => ({required Object n}) => '${n}. hangsáv',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => 'Hang',
 			'videoControls.subtitlesLabel' => 'Feliratok',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3339,6 +3447,42 @@ extension on TranslationsHu {
 			'videoControls.pipActive' => 'Lejátszás kép a képben módban',
 			'videoControls.pipFailed' => 'Nem sikerült elindítani a kép a képben módot',
 			'videoControls.screenshotSaved' => 'Képernyőkép elmentve',
+			'videoControls.clip.title' => 'Clip',
+			'videoControls.clip.vodOnly' => 'Clips are available for on-demand video playback.',
+			'videoControls.clip.sourceUnavailable' => 'Clip source is not available for this playback session.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Play at least 1 second before clipping.',
+			'videoControls.clip.startBeforeBeginning' => 'Clip start cannot be before the beginning of the video.',
+			'videoControls.clip.endAfterStart' => 'Clip end must be after the start.',
+			'videoControls.clip.minimumDuration' => 'Clips must be at least 1 second long.',
+			'videoControls.clip.endPastVideo' => 'Clip end is past the end of the video.',
+			'videoControls.clip.exportCanceled' => 'Clip export canceled.',
+			'videoControls.clip.cacheUnavailable' => 'The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Source-copy export does not use an encoder.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 and HEVC clip encoding is currently available on macOS and Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR export requires a direct-play HDR10 or HLG-compatible source.',
+			'videoControls.clip.transcodeStartUnavailable' => 'This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.',
+			'videoControls.clip.previewRequired' => 'Clip preview must finish loading before it can be saved.',
+			'videoControls.clip.h264Failed' => 'This source could not be encoded as an H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'This source could not be encoded as an HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'This source could not be encoded as an HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'This source could not be encoded as a GIF.',
+			'videoControls.clip.originalFailed' => 'This source could not be copied from the mpv cache.',
+			'videoControls.clip.previewUnavailable' => 'Clip preview playback is not available in this build.',
+			'videoControls.clip.previewFailed' => 'Clip preview playback failed.',
+			'videoControls.clip.previewLoadingScreenshot' => 'The clip preview must finish loading before taking a screenshot.',
+			'videoControls.clip.screenshotInProgress' => 'A screenshot is already being saved.',
+			'videoControls.clip.saveAsDialog' => 'Save Clip As',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Saved to ${fileName}',
+			'videoControls.clip.openFolder' => 'Open Folder',
+			'videoControls.clip.saveAs' => 'Save As',
+			'videoControls.clip.cancelExport' => 'Cancel Export',
+			'videoControls.clip.saving' => 'Saving...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Saving ${percent}%',
+			'videoControls.clip.mutePreview' => 'Mute preview',
+			'videoControls.clip.unmutePreview' => 'Unmute preview',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Nagyítás ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0 vagy újabb szükséges',
 			'videoControls.pipErrors.iosVersion' => 'iOS 15.0 vagy újabb szükséges',
@@ -3664,12 +3808,17 @@ extension on TranslationsHu {
 			'about.versionLabel' => ({required Object version}) => 'Verzió: ${version}',
 			'about.appDescription' => 'Gyönyörű Flutter-kliens a Plexhez és a Jellyfinhez',
 			'about.viewLicensesDescription' => 'Külső fejlesztésű programkönyvtárak licenceinek megtekintése',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Nem találhatók szerverek ehhez a fiókhoz: ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Nem sikerült a szerverek betöltése: ${error}',
 			'hubDetail.title' => 'Cím',
 			'hubDetail.releaseYear' => 'Kiadási év',
 			'hubDetail.dateAdded' => 'Hozzáadás dátuma',
 			'hubDetail.rating' => 'Értékelés',
+			_ => null,
+		} ?? switch (path) {
 			'hubDetail.noItemsFound' => 'Nem találhatók elemek',
 			'logs.clearLogs' => 'Naplók törlése',
 			'logs.copyLogs' => 'Naplók másolása',
@@ -3737,8 +3886,6 @@ extension on TranslationsHu {
 			'explore.characters' => 'Karakterek',
 			'explore.addToWatchlist' => 'Hozzáadás a Néznivalókhoz',
 			'explore.removeFromWatchlist' => 'Eltávolítás a Néznivalókból',
-			_ => null,
-		} ?? switch (path) {
 			'explore.addedToWatchlist' => 'Hozzáadva a figyelőlistához',
 			'explore.removedFromWatchlist' => 'Eltávolítva a figyelőlistáról',
 			'explore.watchlistUpdateFailed' => 'Nem sikerült a Néznivalók frissítése',
@@ -4184,6 +4331,8 @@ extension on TranslationsHu {
 			'shaders.noShaderDescription' => 'Nincs videójavítás',
 			'shaders.nvscalerDescription' => 'NVIDIA képskálázás az élesebb videóért',
 			'shaders.artcnnVariantNeutral' => 'Semleges',
+			_ => null,
+		} ?? switch (path) {
 			'shaders.artcnnVariantDenoise' => 'Zajcsökkentés',
 			'shaders.artcnnVariantDenoiseSharpen' => 'Zajcsökkentés + Élesítés',
 			'shaders.qualityFast' => 'Gyors',
@@ -4251,8 +4400,6 @@ extension on TranslationsHu {
 			'companionRemote.remote.subtitles' => 'Feliratok',
 			'companionRemote.remote.audio' => 'Hang',
 			'companionRemote.remote.searchHint' => 'Keresés az asztali gépen...',
-			_ => null,
-		} ?? switch (path) {
 			'companionRemote.errors.noNetworkInterface' => 'Nem található hálózati csatoló',
 			'companionRemote.errors.authenticationFailed' => 'A hitelesítés nem sikerült',
 			'companionRemote.errors.serverStartFailed' => ({required Object error}) => 'Nem sikerült elindítani a távirányító-szervert: ${error}',
