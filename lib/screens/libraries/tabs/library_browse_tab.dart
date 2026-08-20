@@ -1,9 +1,11 @@
 import 'dart:async';
+
 import '../../../media/ids.dart';
 
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:provider/provider.dart';
+
 import '../../../media/library_first_character.dart';
 import '../../../media/library_query.dart';
 import '../../../media/media_item.dart';
@@ -58,6 +60,7 @@ import '../../../mixins/standard_paginated_view.dart';
 import '../../../widgets/card_inflation_budget.dart';
 import '../../../widgets/skeleton_media_card.dart';
 import '../../../widgets/sliver_child_memo.dart';
+import '../../../widgets/app_refresh_indicator.dart';
 import '../../../utils/deletion_notifier.dart';
 import '../../../utils/global_key_utils.dart';
 import '../../../utils/watch_state_notifier.dart';
@@ -1813,6 +1816,7 @@ class _LibraryBrowseTabState extends BaseLibraryTabState<MediaItem, LibraryBrows
           // through to the outer floating header.
           // Allow focus decoration to render outside scroll bounds.
           clipBehavior: Clip.none,
+          physics: const AlwaysScrollableScrollPhysics(),
           slivers: [
             // Capture-only sliver: an invisible Builder whose context lives
             // inside this CustomScrollView, used to grab the per-tab
@@ -1847,13 +1851,19 @@ class _LibraryBrowseTabState extends BaseLibraryTabState<MediaItem, LibraryBrows
 
     scrollView = SafeArea(top: false, bottom: false, child: scrollView);
 
-    // Folders mode previously had its own RefreshIndicator inside FolderTreeView;
-    // it now lives at this level since FolderTreeView is a sliver.
-    if (isFolders) {
-      scrollView = RefreshIndicator(onRefresh: _refreshFolderTree, child: scrollView);
-    }
-
-    return scrollView;
+    // Keep a single indicator around the shared scroll view. Folders own a
+    // separate loading path; every other grouping uses the existing browse
+    // loader so pagination/filter state is reset consistently.
+    return AppRefreshIndicator(
+      onRefresh: () async {
+        if (isFolders) {
+          await _refreshFolderTree();
+        } else {
+          await loadItems();
+        }
+      },
+      child: scrollView,
+    );
   }
 
   /// Self-healing: when a skeleton is rendered after scrolling stops,
