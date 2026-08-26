@@ -525,7 +525,8 @@
     "clipLocationChanged": "クリップの位置が変更されました",
     "screenshotLocationChanged": "スクリーンショットの場所が変更されました",
     "clipLocationReset": "クリップの場所をデスクトップにリセット",
-    "screenshotLocationReset": "スクリーンショットの場所がデスクトップにリセットされました"
+    "screenshotLocationReset": "スクリーンショットの場所がデスクトップにリセットされました",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "標準",
@@ -951,7 +952,8 @@
       "formatHevcSdr": "HEVC SDR",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    }
+    },
+    "packedStereoSizingLocked": "Can not change while playing 3D source"
   },
   "userStatus": {},
   "messages": {

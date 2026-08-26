@@ -525,7 +525,8 @@
     "clipLocationChanged": "Klip konumu değiştirildi",
     "screenshotLocationChanged": "Ekran görüntüsü konumu değiştirildi",
     "clipLocationReset": "Klip konumu Masaüstü olarak sıfırlandı",
-    "screenshotLocationReset": "Ekran görüntüsü konumu Masaüstü olarak sıfırlandı"
+    "screenshotLocationReset": "Ekran görüntüsü konumu Masaüstü olarak sıfırlandı",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "Yerleşik",
@@ -954,7 +955,8 @@
       "formatHevcSdr": "HEVC SDR",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    }
+    },
+    "packedStereoSizingLocked": "Can not change while playing 3D source"
   },
   "userStatus": {},
   "messages": {

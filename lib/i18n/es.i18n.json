@@ -525,7 +525,8 @@
     "clipLocationChanged": "Se cambió la ubicación del clip",
     "screenshotLocationChanged": "La ubicación de la captura de pantalla cambió",
     "clipLocationReset": "Restablecer la ubicación del clip al escritorio",
-    "screenshotLocationReset": "Restablecer la ubicación de la captura de pantalla en el escritorio"
+    "screenshotLocationReset": "Restablecer la ubicación de la captura de pantalla en el escritorio",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "Integrados",
@@ -954,7 +955,8 @@
       "formatHevcSdr": "DEG HEVC",
       "formatH264Sdr": "H.264 DEG",
       "formatHevcHdr": "HDR HEVC"
-    }
+    },
+    "packedStereoSizingLocked": "Can not change while playing 3D source"
   },
   "userStatus": {},
   "messages": {

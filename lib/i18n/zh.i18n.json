@@ -525,7 +525,8 @@
     "clipLocationChanged": "剪辑位置已更改",
     "screenshotLocationChanged": "截图位置已更改",
     "clipLocationReset": "剪辑位置重置为桌面",
-    "screenshotLocationReset": "屏幕截图位置重置为桌面"
+    "screenshotLocationReset": "屏幕截图位置重置为桌面",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "内置",
@@ -951,7 +952,8 @@
       "formatHevcSdr": "HEVC特别提款权",
       "formatH264Sdr": "H.264特别提款权",
       "formatHevcHdr": "HEVC HDR"
-    }
+    },
+    "packedStereoSizingLocked": "Can not change while playing 3D source"
   },
   "userStatus": {},
   "messages": {
