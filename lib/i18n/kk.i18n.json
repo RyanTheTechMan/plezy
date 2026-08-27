@@ -764,7 +764,6 @@
     "pipFailed": "PiP режимін іске қосу қатесі",
     "screenshotSaved": "Экран суреті сақталды",
     "zoomPercent": "Масштаб %${percent}",
-    "volumePercent": "Дыбыс ${percent}%",
     "pipErrors": {
       "androidVersion": "Android 8.0 немесе жаңалауы қажет",
       "iosVersion": "iOS 15.0 немесе жаңалауы қажет",
@@ -796,6 +795,8 @@
     "osdSubtitlesOff": "Субтитр: өшірулі",
     "osdSubtitles": "Субтитр: ${track}",
     "osdAudio": "Дыбыс: ${track}",
+    "volumePercent": "Дыбыс ${percent}%",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "clip": {
       "fineAdjust": "Дәл реттеу",
       "title": "Клип",
@@ -834,8 +835,7 @@
       "formatHevcSdr": "HEVC SDR",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    },
-    "packedStereoSizingLocked": "Can not change while playing 3D source"
+    }
   },
   "userStatus": {},
   "messages": {
@@ -1039,77 +1039,6 @@
     "signInAgain": "Қайтадан кіру",
     "editMediaBrowserTitle": "${product} қосылымын өңдеу",
     "editMediaBrowserIntro": "${serverName} үшін URL мекенжайларды қосыңыз немесе өшіріңіз. Plezy ең төмен кідірісі бар қолжетімді URL мекенжайды пайдаланады."
-  },
-  "accountPreferences": {
-    "sectionTitle": "Тіркелгі баптаулары",
-    "hubSubtitleSingle": "${account} тіркелгісінде сақталған аудио, субтитр және кітапхана баптаулары",
-    "hubSubtitleMultiple": "${count} тіркелгіде сақталған аудио, субтитр және кітапхана баптаулары",
-    "pickAccount": "Әр тіркелгі өз баптауларын сақтайды. Өңдеу үшін біреуін таңдаңыз.",
-    "storedOnAccount": "Бұл баптаулар тіркелгінің өзінде сақталады, сондықтан оған кірген әрбір қолданба оларды пайдаланады — басқа құрылғыларыңыздағы Plezy қоса.",
-    "noAccounts": "Баптауға тіркелгілер жоқ",
-    "noAccountsHint": "Plex-ке кіріңіз немесе Jellyfin не Emby серверін қосыңыз, сонда сол тіркелгіде сақталған баптаулар осында көрсетіледі.",
-    "unavailable": "Бұл тіркелгіге қол жеткізу мүмкін емес",
-    "loadFailed": "Бұл баптауларды жүктеу мүмкін болмады",
-    "noPreference": "Таңдау жоқ",
-    "notSet": "Орнатылмаған",
-    "groups": {
-      "audioAndSubtitles": "Аудио және субтитрлер",
-      "libraryDisplay": "Кітапхана",
-      "personalMedia": "Жеке медиа"
-    },
-    "preferredAudioLanguage": "Қалаулы аудио тілі",
-    "autoSelectAudio": "Аудионы тілі бойынша таңдау",
-    "autoSelectAudioDescription": "Өшірулі күйде файл әдепкі деп белгілеген аудио трек қолданылады.",
-    "preferredSubtitleLanguage": "Қалаулы субтитр тілі",
-    "subtitleMode": "Субтитрлерді қосу",
-    "subtitleModes": {
-      "none": "Қолмен таңдалған",
-      "noneDescription": "Субтитрлерді өзінен-өзі ешқашан қоспау.",
-      "defaultMode": "Трек белгілерін қолдану",
-      "defaultModeDescription": "Әр субтитр трегінде сақталған әдепкі және мәжбүрлі белгілерді пайдалану.",
-      "always": "Әрдайым қосылған",
-      "alwaysDescription": "Қалаулы тілдегі субтитр трегі бар болса, оны қосу.",
-      "onlyForced": "Тек мәжбүрлі субтитрлер",
-      "onlyForcedDescription": "Тек мәжбүрлі деп белгіленген тректерді жүктеу.",
-      "smart": "Шет тіліндегі аудио кезінде көрсету",
-      "smartDescription": "Субтитрлерді тек аудио басқа тілде болғанда қосу."
-    },
-    "subtitleAccessibility": "SDH субтитрлері",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "SDH емес субтитрлерді артық көру",
-      "preferSdh": "SDH субтитрлерін артық көру",
-      "onlySdh": "Тек SDH субтитрлері",
-      "onlyNonSdh": "Тек SDH емес субтитрлер"
-    },
-    "forcedSubtitles": "Мәжбүрлі субтитрлер",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "Мәжбүрлі емес субтитрлерді артық көру",
-      "preferForced": "Мәжбүрлі субтитрлерді артық көру",
-      "onlyForced": "Тек мәжбүрлі субтитрлер",
-      "onlyNonForced": "Тек мәжбүрлі емес субтитрлер"
-    },
-    "displayMissingEpisodes": "Жоқ бөлімдерді көрсету",
-    "displayMissingEpisodesDescription": "Сервер білетін, бірақ файлы жоқ бөлімдерді тізімдеу.",
-    "hidePlayedInLatest": "«Latest» айдарында көрілген элементтерді жасыру",
-    "hidePlayedInLatestDescription": "Сервердің «Latest» қатарларында сіз көрген элементтерді көрсетпеу.",
-    "displayCollectionsView": "Топтамалар көрінісін көрсету",
-    "displayCollectionsViewDescription": "Кітапханаларыңызбен қатар сервердің Топтамалар көрінісін ұсыну.",
-    "rewatchingInNextUp": "Қайта көрілген сериалдарды «Next Up» айдарында қалдыру",
-    "rewatchingInNextUpDescription": "Сериалды аяқтаған соң оны қайта бастасаңыз, «Next Up» сериалды тастамай, қайта көруді жалғастырады.",
-    "watchedIndicator": "Көрілген белгілері",
-    "watchedIndicatorOptions": {
-      "none": "Ешқашан",
-      "moviesAndShows": "Фильмдер және сериалдар",
-      "movies": "Тек фильмдер",
-      "shows": "Тек сериалдар"
-    },
-    "mediaReviewsVisibility": "Бағалар мен пікірлер",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "Пайдаланушылар және сыншылар",
-      "usersOnly": "Тек пайдаланушылар",
-      "criticsOnly": "Тек сыншылар",
-      "nobody": "Жасырылған"
-    }
   },
   "discover": {
     "title": "Шолу",
@@ -2387,5 +2316,76 @@
     "redirectDifferentHost": "Сервер басқа хостқа қайта бағыттады. Соңғы ${product} URL-ін тікелей енгізіңіз.",
     "redirectInsecure": "Сервер HTTPS мекенжайынан қауіпсіз емес URL-ге қайта бағыттады",
     "redirectUnsupportedEnterFinal": "Сервер қолдау көрсетілмейтін URL-ге қайта бағыттады. Соңғы ${product} URL-ін тікелей енгізіңіз."
+  },
+  "accountPreferences": {
+    "sectionTitle": "Тіркелгі баптаулары",
+    "hubSubtitleSingle": "${account} тіркелгісінде сақталған аудио, субтитр және кітапхана баптаулары",
+    "hubSubtitleMultiple": "${count} тіркелгіде сақталған аудио, субтитр және кітапхана баптаулары",
+    "pickAccount": "Әр тіркелгі өз баптауларын сақтайды. Өңдеу үшін біреуін таңдаңыз.",
+    "storedOnAccount": "Бұл баптаулар тіркелгінің өзінде сақталады, сондықтан оған кірген әрбір қолданба оларды пайдаланады — басқа құрылғыларыңыздағы Plezy қоса.",
+    "noAccounts": "Баптауға тіркелгілер жоқ",
+    "noAccountsHint": "Plex-ке кіріңіз немесе Jellyfin не Emby серверін қосыңыз, сонда сол тіркелгіде сақталған баптаулар осында көрсетіледі.",
+    "unavailable": "Бұл тіркелгіге қол жеткізу мүмкін емес",
+    "loadFailed": "Бұл баптауларды жүктеу мүмкін болмады",
+    "noPreference": "Таңдау жоқ",
+    "notSet": "Орнатылмаған",
+    "groups": {
+      "audioAndSubtitles": "Аудио және субтитрлер",
+      "libraryDisplay": "Кітапхана",
+      "personalMedia": "Жеке медиа"
+    },
+    "preferredAudioLanguage": "Қалаулы аудио тілі",
+    "autoSelectAudio": "Аудионы тілі бойынша таңдау",
+    "autoSelectAudioDescription": "Өшірулі күйде файл әдепкі деп белгілеген аудио трек қолданылады.",
+    "preferredSubtitleLanguage": "Қалаулы субтитр тілі",
+    "subtitleMode": "Субтитрлерді қосу",
+    "subtitleModes": {
+      "none": "Қолмен таңдалған",
+      "noneDescription": "Субтитрлерді өзінен-өзі ешқашан қоспау.",
+      "defaultMode": "Трек белгілерін қолдану",
+      "defaultModeDescription": "Әр субтитр трегінде сақталған әдепкі және мәжбүрлі белгілерді пайдалану.",
+      "always": "Әрдайым қосылған",
+      "alwaysDescription": "Қалаулы тілдегі субтитр трегі бар болса, оны қосу.",
+      "onlyForced": "Тек мәжбүрлі субтитрлер",
+      "onlyForcedDescription": "Тек мәжбүрлі деп белгіленген тректерді жүктеу.",
+      "smart": "Шет тіліндегі аудио кезінде көрсету",
+      "smartDescription": "Субтитрлерді тек аудио басқа тілде болғанда қосу."
+    },
+    "subtitleAccessibility": "SDH субтитрлері",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "SDH емес субтитрлерді артық көру",
+      "preferSdh": "SDH субтитрлерін артық көру",
+      "onlySdh": "Тек SDH субтитрлері",
+      "onlyNonSdh": "Тек SDH емес субтитрлер"
+    },
+    "forcedSubtitles": "Мәжбүрлі субтитрлер",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "Мәжбүрлі емес субтитрлерді артық көру",
+      "preferForced": "Мәжбүрлі субтитрлерді артық көру",
+      "onlyForced": "Тек мәжбүрлі субтитрлер",
+      "onlyNonForced": "Тек мәжбүрлі емес субтитрлер"
+    },
+    "displayMissingEpisodes": "Жоқ бөлімдерді көрсету",
+    "displayMissingEpisodesDescription": "Сервер білетін, бірақ файлы жоқ бөлімдерді тізімдеу.",
+    "hidePlayedInLatest": "«Latest» айдарында көрілген элементтерді жасыру",
+    "hidePlayedInLatestDescription": "Сервердің «Latest» қатарларында сіз көрген элементтерді көрсетпеу.",
+    "displayCollectionsView": "Топтамалар көрінісін көрсету",
+    "displayCollectionsViewDescription": "Кітапханаларыңызбен қатар сервердің Топтамалар көрінісін ұсыну.",
+    "rewatchingInNextUp": "Қайта көрілген сериалдарды «Next Up» айдарында қалдыру",
+    "rewatchingInNextUpDescription": "Сериалды аяқтаған соң оны қайта бастасаңыз, «Next Up» сериалды тастамай, қайта көруді жалғастырады.",
+    "watchedIndicator": "Көрілген белгілері",
+    "watchedIndicatorOptions": {
+      "none": "Ешқашан",
+      "moviesAndShows": "Фильмдер және сериалдар",
+      "movies": "Тек фильмдер",
+      "shows": "Тек сериалдар"
+    },
+    "mediaReviewsVisibility": "Бағалар мен пікірлер",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "Пайдаланушылар және сыншылар",
+      "usersOnly": "Тек пайдаланушылар",
+      "criticsOnly": "Тек сыншылар",
+      "nobody": "Жасырылған"
+    }
   }
 }

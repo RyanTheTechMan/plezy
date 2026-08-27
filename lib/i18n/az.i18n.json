@@ -764,7 +764,6 @@
     "pipFailed": "PiP rejimi başladılarkən xəta",
     "screenshotSaved": "Ekran şəkli yadda saxlanıldı",
     "zoomPercent": "Miqyas %${percent}",
-    "volumePercent": "Səs ${percent}%",
     "pipErrors": {
       "androidVersion": "Android 8.0 və ya daha yenisini tələb edir",
       "iosVersion": "iOS 15.0 və ya daha yenisini tələb edir",
@@ -796,6 +795,8 @@
     "osdSubtitlesOff": "Altyazı: Söndürülüb",
     "osdSubtitles": "Altyazı: ${track}",
     "osdAudio": "Səs: ${track}",
+    "volumePercent": "Səs ${percent}%",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "clip": {
       "fineAdjust": "Dəqiq tənzimləmə",
       "title": "Klip",
@@ -834,8 +835,7 @@
       "formatHevcSdr": "HEVC SDR",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    },
-    "packedStereoSizingLocked": "Can not change while playing 3D source"
+    }
   },
   "userStatus": {},
   "messages": {
@@ -1039,77 +1039,6 @@
     "signInAgain": "Yenidən daxil ol",
     "editMediaBrowserTitle": "${product} qoşulmasını düzəliş et",
     "editMediaBrowserIntro": "${serverName} üçün URL-lər əlavə edin və ya silin. Plezy əlçatan olan ən aşağı gecikməli URL-i istifadə edəcək."
-  },
-  "accountPreferences": {
-    "sectionTitle": "Hesab tərcihləri",
-    "hubSubtitleSingle": "${account} hesabında saxlanılan səs, altyazı və kitabxana seçimləri",
-    "hubSubtitleMultiple": "${count} hesabda saxlanılan səs, altyazı və kitabxana seçimləri",
-    "pickAccount": "Hər hesab öz tərcihlərini saxlayır. Düzəliş etmək üçün birini seçin.",
-    "storedOnAccount": "Bu seçimlər hesabın özündə saxlanılır, ona görə də ona daxil olan hər tətbiq onlardan istifadə edir — digər cihazlarınızdakı Plezy də daxil olmaqla.",
-    "noAccounts": "Konfiqurasiya ediləcək hesab yoxdur",
-    "noAccountsHint": "Plex-ə daxil olun və ya Jellyfin və ya Emby serverinə qoşulun; o hesabda saxlanılan tərcihlər burada görünəcək.",
-    "unavailable": "Bu hesaba çatmaq olmur",
-    "loadFailed": "Bu tərcihlər yüklənə bilmədi",
-    "noPreference": "Tərcih yoxdur",
-    "notSet": "Təyin edilməyib",
-    "groups": {
-      "audioAndSubtitles": "Səs və altyazılar",
-      "libraryDisplay": "Kitabxana",
-      "personalMedia": "Şəxsi media"
-    },
-    "preferredAudioLanguage": "Üstünlük verilən səs dili",
-    "autoSelectAudio": "Səsi dilə görə seç",
-    "autoSelectAudioDescription": "Söndürüldükdə faylın defolt olaraq işarələdiyi səs treki istifadə olunur.",
-    "preferredSubtitleLanguage": "Üstünlük verilən altyazı dili",
-    "subtitleMode": "Altyazıları aç",
-    "subtitleModes": {
-      "none": "Əl ilə seçilmiş",
-      "noneDescription": "Altyazıları heç vaxt özbaşına açma.",
-      "defaultMode": "Trek bayraqlarına əməl et",
-      "defaultModeDescription": "Hər altyazı trekində saxlanılan defolt və məcburi bayraqları istifadə et.",
-      "always": "Həmişə aktivdir",
-      "alwaysDescription": "Üstünlük verilən dildə altyazı treki mövcuddursa, onu aç.",
-      "onlyForced": "Yalnız məcburi altyazılar",
-      "onlyForcedDescription": "Yalnız məcburi işarələnmiş trekləri yüklə.",
-      "smart": "Xarici səs olduqda göstərilən",
-      "smartDescription": "Altyazıları yalnız səs başqa dildə olduqda aç."
-    },
-    "subtitleAccessibility": "SDH altyazıları",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "SDH olmayan altyazılara üstünlük ver",
-      "preferSdh": "SDH altyazılarına üstünlük ver",
-      "onlySdh": "Yalnız SDH altyazıları",
-      "onlyNonSdh": "Yalnız SDH olmayan altyazılar"
-    },
-    "forcedSubtitles": "Məcburi altyazılar",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "Məcburi olmayan altyazılara üstünlük ver",
-      "preferForced": "Məcburi altyazılara üstünlük ver",
-      "onlyForced": "Yalnız məcburi altyazılar",
-      "onlyNonForced": "Yalnız məcburi olmayan altyazılar"
-    },
-    "displayMissingEpisodes": "Çatışmayan seriyaları göstər",
-    "displayMissingEpisodesDescription": "Serverin bildiyi, lakin faylı olmayan seriyaları siyahıya al.",
-    "hidePlayedInLatest": "Baxılmış elementləri Son əlavə olunanlarda gizlət",
-    "hidePlayedInLatestDescription": "Artıq baxdığınız elementləri serverin Son əlavə olunanlar sətirlərində göstərmə.",
-    "displayCollectionsView": "Kolleksiyalar görünüşünü göstər",
-    "displayCollectionsViewDescription": "Kitabxanalarınızla yanaşı serverin Kolleksiyalar görünüşünü də təklif et.",
-    "rewatchingInNextUp": "Təkrar baxılan serialları Sırada saxla",
-    "rewatchingInNextUpDescription": "Bir serialı bitirdikdən sonra yenidən başlasanız, Sırada serialı atmaq əvəzinə təkrar baxışı izləyir.",
-    "watchedIndicator": "Baxıldı göstəriciləri",
-    "watchedIndicatorOptions": {
-      "none": "Heç vaxt",
-      "moviesAndShows": "Kinolar və TV şoular",
-      "movies": "Yalnız kinolar",
-      "shows": "Yalnız TV şoular"
-    },
-    "mediaReviewsVisibility": "Reytinq və rəylər",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "İstifadəçilər və tənqidçilər",
-      "usersOnly": "Yalnız istifadəçilər",
-      "criticsOnly": "Yalnız tənqidçilər",
-      "nobody": "Gizlədilib"
-    }
   },
   "discover": {
     "title": "Kəşf et",
@@ -2387,5 +2316,76 @@
     "redirectDifferentHost": "Server başqa hosta yönləndirdi. Son ${product} URL-ni birbaşa daxil edin.",
     "redirectInsecure": "Server HTTPS-dən təhlükəsiz olmayan URL-ə yönləndirdi",
     "redirectUnsupportedEnterFinal": "Server dəstəklənməyən URL-ə yönləndirdi. Son ${product} URL-ni birbaşa daxil edin."
+  },
+  "accountPreferences": {
+    "sectionTitle": "Hesab tərcihləri",
+    "hubSubtitleSingle": "${account} hesabında saxlanılan səs, altyazı və kitabxana seçimləri",
+    "hubSubtitleMultiple": "${count} hesabda saxlanılan səs, altyazı və kitabxana seçimləri",
+    "pickAccount": "Hər hesab öz tərcihlərini saxlayır. Düzəliş etmək üçün birini seçin.",
+    "storedOnAccount": "Bu seçimlər hesabın özündə saxlanılır, ona görə də ona daxil olan hər tətbiq onlardan istifadə edir — digər cihazlarınızdakı Plezy də daxil olmaqla.",
+    "noAccounts": "Konfiqurasiya ediləcək hesab yoxdur",
+    "noAccountsHint": "Plex-ə daxil olun və ya Jellyfin və ya Emby serverinə qoşulun; o hesabda saxlanılan tərcihlər burada görünəcək.",
+    "unavailable": "Bu hesaba çatmaq olmur",
+    "loadFailed": "Bu tərcihlər yüklənə bilmədi",
+    "noPreference": "Tərcih yoxdur",
+    "notSet": "Təyin edilməyib",
+    "groups": {
+      "audioAndSubtitles": "Səs və altyazılar",
+      "libraryDisplay": "Kitabxana",
+      "personalMedia": "Şəxsi media"
+    },
+    "preferredAudioLanguage": "Üstünlük verilən səs dili",
+    "autoSelectAudio": "Səsi dilə görə seç",
+    "autoSelectAudioDescription": "Söndürüldükdə faylın defolt olaraq işarələdiyi səs treki istifadə olunur.",
+    "preferredSubtitleLanguage": "Üstünlük verilən altyazı dili",
+    "subtitleMode": "Altyazıları aç",
+    "subtitleModes": {
+      "none": "Əl ilə seçilmiş",
+      "noneDescription": "Altyazıları heç vaxt özbaşına açma.",
+      "defaultMode": "Trek bayraqlarına əməl et",
+      "defaultModeDescription": "Hər altyazı trekində saxlanılan defolt və məcburi bayraqları istifadə et.",
+      "always": "Həmişə aktivdir",
+      "alwaysDescription": "Üstünlük verilən dildə altyazı treki mövcuddursa, onu aç.",
+      "onlyForced": "Yalnız məcburi altyazılar",
+      "onlyForcedDescription": "Yalnız məcburi işarələnmiş trekləri yüklə.",
+      "smart": "Xarici səs olduqda göstərilən",
+      "smartDescription": "Altyazıları yalnız səs başqa dildə olduqda aç."
+    },
+    "subtitleAccessibility": "SDH altyazıları",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "SDH olmayan altyazılara üstünlük ver",
+      "preferSdh": "SDH altyazılarına üstünlük ver",
+      "onlySdh": "Yalnız SDH altyazıları",
+      "onlyNonSdh": "Yalnız SDH olmayan altyazılar"
+    },
+    "forcedSubtitles": "Məcburi altyazılar",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "Məcburi olmayan altyazılara üstünlük ver",
+      "preferForced": "Məcburi altyazılara üstünlük ver",
+      "onlyForced": "Yalnız məcburi altyazılar",
+      "onlyNonForced": "Yalnız məcburi olmayan altyazılar"
+    },
+    "displayMissingEpisodes": "Çatışmayan seriyaları göstər",
+    "displayMissingEpisodesDescription": "Serverin bildiyi, lakin faylı olmayan seriyaları siyahıya al.",
+    "hidePlayedInLatest": "Baxılmış elementləri Son əlavə olunanlarda gizlət",
+    "hidePlayedInLatestDescription": "Artıq baxdığınız elementləri serverin Son əlavə olunanlar sətirlərində göstərmə.",
+    "displayCollectionsView": "Kolleksiyalar görünüşünü göstər",
+    "displayCollectionsViewDescription": "Kitabxanalarınızla yanaşı serverin Kolleksiyalar görünüşünü də təklif et.",
+    "rewatchingInNextUp": "Təkrar baxılan serialları Sırada saxla",
+    "rewatchingInNextUpDescription": "Bir serialı bitirdikdən sonra yenidən başlasanız, Sırada serialı atmaq əvəzinə təkrar baxışı izləyir.",
+    "watchedIndicator": "Baxıldı göstəriciləri",
+    "watchedIndicatorOptions": {
+      "none": "Heç vaxt",
+      "moviesAndShows": "Kinolar və TV şoular",
+      "movies": "Yalnız kinolar",
+      "shows": "Yalnız TV şoular"
+    },
+    "mediaReviewsVisibility": "Reytinq və rəylər",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "İstifadəçilər və tənqidçilər",
+      "usersOnly": "Yalnız istifadəçilər",
+      "criticsOnly": "Yalnız tənqidçilər",
+      "nobody": "Gizlədilib"
+    }
   }
 }

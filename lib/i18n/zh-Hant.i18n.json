@@ -761,7 +761,6 @@
     "pipFailed": "啟動子母畫面失敗",
     "screenshotSaved": "螢幕截圖已儲存",
     "zoomPercent": "縮放 ${percent}%",
-    "volumePercent": "音量 ${percent}%",
     "pipErrors": {
       "androidVersion": "需要 Android 8.0 或更高版本",
       "iosVersion": "需要 iOS 15.0 或更高版本",
@@ -793,6 +792,8 @@
     "osdSubtitlesOff": "字幕：關閉",
     "osdSubtitles": "字幕：${track}",
     "osdAudio": "音訊：${track}",
+    "volumePercent": "音量 ${percent}%",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "clip": {
       "fineAdjust": "微調",
       "title": "短片",
@@ -831,8 +832,7 @@
       "formatHevcSdr": "HEVC SDR",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    },
-    "packedStereoSizingLocked": "Can not change while playing 3D source"
+    }
   },
   "userStatus": {},
   "messages": {
@@ -1035,77 +1035,6 @@
     "signInAgain": "重新登入",
     "editMediaBrowserTitle": "編輯 ${product} 連線",
     "editMediaBrowserIntro": "為 ${serverName} 新增或移除 URL。Plezy 將使用延遲最低且可連線的 URL。"
-  },
-  "accountPreferences": {
-    "sectionTitle": "帳戶偏好設定",
-    "hubSubtitleSingle": "已在 ${account} 上儲存音訊、字幕與媒體庫選項",
-    "hubSubtitleMultiple": "已在 ${count} 個帳戶上儲存音訊、字幕與媒體庫選項",
-    "pickAccount": "每個帳戶都會儲存各自的偏好設定。請選擇要編輯的帳戶。",
-    "storedOnAccount": "這些選項會儲存在帳戶本身，因此登入該帳戶的所有應用程式都會使用它們，包括您其他裝置上的 Plezy。",
-    "noAccounts": "沒有可設定的帳戶",
-    "noAccountsHint": "登入 Plex，或連線至 Jellyfin 或 Emby 伺服器，儲存在該帳戶上的偏好設定便會顯示在此處。",
-    "unavailable": "無法連線至此帳戶",
-    "loadFailed": "無法載入這些偏好設定",
-    "noPreference": "無偏好",
-    "notSet": "未設定",
-    "groups": {
-      "audioAndSubtitles": "音訊與字幕",
-      "libraryDisplay": "媒體庫",
-      "personalMedia": "個人媒體"
-    },
-    "preferredAudioLanguage": "偏好音訊語言",
-    "autoSelectAudio": "依語言選擇音訊",
-    "autoSelectAudioDescription": "關閉時會使用檔案標記為預設的音訊軌。",
-    "preferredSubtitleLanguage": "偏好字幕語言",
-    "subtitleMode": "自動開啟字幕",
-    "subtitleModes": {
-      "none": "手動選擇",
-      "noneDescription": "絕不自行開啟字幕。",
-      "defaultMode": "遵循軌道旗標",
-      "defaultModeDescription": "使用每個字幕軌上儲存的預設與強制旗標。",
-      "always": "一律啟用",
-      "alwaysDescription": "只要有偏好語言的字幕軌就自動開啟。",
-      "onlyForced": "僅強制字幕",
-      "onlyForcedDescription": "僅載入標記為強制的軌道。",
-      "smart": "外語配音時顯示",
-      "smartDescription": "僅在音訊為其他語言時開啟字幕。"
-    },
-    "subtitleAccessibility": "SDH 字幕",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "偏好非 SDH 字幕",
-      "preferSdh": "偏好 SDH 字幕",
-      "onlySdh": "僅 SDH 字幕",
-      "onlyNonSdh": "僅非 SDH 字幕"
-    },
-    "forcedSubtitles": "強制字幕",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "偏好非強制字幕",
-      "preferForced": "偏好強制字幕",
-      "onlyForced": "僅強制字幕",
-      "onlyNonForced": "僅非強制字幕"
-    },
-    "displayMissingEpisodes": "顯示缺少的單集",
-    "displayMissingEpisodesDescription": "列出伺服器已知但沒有檔案的單集。",
-    "hidePlayedInLatest": "在「最新」中隱藏已觀看項目",
-    "hidePlayedInLatestDescription": "將您已觀看的項目從伺服器的「最新」列中移除。",
-    "displayCollectionsView": "顯示收藏集檢視",
-    "displayCollectionsViewDescription": "在您的媒體庫旁提供伺服器的收藏集檢視。",
-    "rewatchingInNextUp": "在「接下來播放」中保留重看的影集",
-    "rewatchingInNextUpDescription": "看完一部影集後再次開始觀看時，「接下來播放」會追蹤重看的進度，而不是將該影集移除。",
-    "watchedIndicator": "已觀看指示",
-    "watchedIndicatorOptions": {
-      "none": "從不",
-      "moviesAndShows": "電影與影集",
-      "movies": "僅電影",
-      "shows": "僅影集"
-    },
-    "mediaReviewsVisibility": "評分與評論",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "使用者與影評人",
-      "usersOnly": "僅使用者",
-      "criticsOnly": "僅影評人",
-      "nobody": "隱藏"
-    }
   },
   "discover": {
     "title": "發現",
@@ -2376,5 +2305,76 @@
     "redirectDifferentHost": "伺服器重新導向至不同的主機。請直接輸入最終的 ${product} URL。",
     "redirectInsecure": "伺服器從 HTTPS 重新導向至不安全的 URL",
     "redirectUnsupportedEnterFinal": "伺服器重新導向至不支援的 URL。請直接輸入最終的 ${product} URL。"
+  },
+  "accountPreferences": {
+    "sectionTitle": "帳戶偏好設定",
+    "hubSubtitleSingle": "已在 ${account} 上儲存音訊、字幕與媒體庫選項",
+    "hubSubtitleMultiple": "已在 ${count} 個帳戶上儲存音訊、字幕與媒體庫選項",
+    "pickAccount": "每個帳戶都會儲存各自的偏好設定。請選擇要編輯的帳戶。",
+    "storedOnAccount": "這些選項會儲存在帳戶本身，因此登入該帳戶的所有應用程式都會使用它們，包括您其他裝置上的 Plezy。",
+    "noAccounts": "沒有可設定的帳戶",
+    "noAccountsHint": "登入 Plex，或連線至 Jellyfin 或 Emby 伺服器，儲存在該帳戶上的偏好設定便會顯示在此處。",
+    "unavailable": "無法連線至此帳戶",
+    "loadFailed": "無法載入這些偏好設定",
+    "noPreference": "無偏好",
+    "notSet": "未設定",
+    "groups": {
+      "audioAndSubtitles": "音訊與字幕",
+      "libraryDisplay": "媒體庫",
+      "personalMedia": "個人媒體"
+    },
+    "preferredAudioLanguage": "偏好音訊語言",
+    "autoSelectAudio": "依語言選擇音訊",
+    "autoSelectAudioDescription": "關閉時會使用檔案標記為預設的音訊軌。",
+    "preferredSubtitleLanguage": "偏好字幕語言",
+    "subtitleMode": "自動開啟字幕",
+    "subtitleModes": {
+      "none": "手動選擇",
+      "noneDescription": "絕不自行開啟字幕。",
+      "defaultMode": "遵循軌道旗標",
+      "defaultModeDescription": "使用每個字幕軌上儲存的預設與強制旗標。",
+      "always": "一律啟用",
+      "alwaysDescription": "只要有偏好語言的字幕軌就自動開啟。",
+      "onlyForced": "僅強制字幕",
+      "onlyForcedDescription": "僅載入標記為強制的軌道。",
+      "smart": "外語配音時顯示",
+      "smartDescription": "僅在音訊為其他語言時開啟字幕。"
+    },
+    "subtitleAccessibility": "SDH 字幕",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "偏好非 SDH 字幕",
+      "preferSdh": "偏好 SDH 字幕",
+      "onlySdh": "僅 SDH 字幕",
+      "onlyNonSdh": "僅非 SDH 字幕"
+    },
+    "forcedSubtitles": "強制字幕",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "偏好非強制字幕",
+      "preferForced": "偏好強制字幕",
+      "onlyForced": "僅強制字幕",
+      "onlyNonForced": "僅非強制字幕"
+    },
+    "displayMissingEpisodes": "顯示缺少的單集",
+    "displayMissingEpisodesDescription": "列出伺服器已知但沒有檔案的單集。",
+    "hidePlayedInLatest": "在「最新」中隱藏已觀看項目",
+    "hidePlayedInLatestDescription": "將您已觀看的項目從伺服器的「最新」列中移除。",
+    "displayCollectionsView": "顯示收藏集檢視",
+    "displayCollectionsViewDescription": "在您的媒體庫旁提供伺服器的收藏集檢視。",
+    "rewatchingInNextUp": "在「接下來播放」中保留重看的影集",
+    "rewatchingInNextUpDescription": "看完一部影集後再次開始觀看時，「接下來播放」會追蹤重看的進度，而不是將該影集移除。",
+    "watchedIndicator": "已觀看指示",
+    "watchedIndicatorOptions": {
+      "none": "從不",
+      "moviesAndShows": "電影與影集",
+      "movies": "僅電影",
+      "shows": "僅影集"
+    },
+    "mediaReviewsVisibility": "評分與評論",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "使用者與影評人",
+      "usersOnly": "僅使用者",
+      "criticsOnly": "僅影評人",
+      "nobody": "隱藏"
+    }
   }
 }

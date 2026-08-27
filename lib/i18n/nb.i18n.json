@@ -764,7 +764,6 @@
     "pipFailed": "Bilde-i-bilde kunne ikke starte",
     "screenshotSaved": "Skjermbilde lagret",
     "zoomPercent": "Zoom ${percent} %",
-    "volumePercent": "Volum ${percent} %",
     "pipErrors": {
       "androidVersion": "Krever Android 8.0 eller nyere",
       "iosVersion": "Krever iOS 15.0 eller nyere",
@@ -796,6 +795,8 @@
     "osdSubtitlesOff": "Undertekster: Av",
     "osdSubtitles": "Undertekster: ${track}",
     "osdAudio": "Lyd: ${track}",
+    "volumePercent": "Volum ${percent} %",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "clip": {
       "fineAdjust": "Finjustering",
       "title": "Klipp",
@@ -834,8 +835,7 @@
       "formatHevcSdr": "HEVC SDR",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    },
-    "packedStereoSizingLocked": "Can not change while playing 3D source"
+    }
   },
   "userStatus": {},
   "messages": {
@@ -1039,77 +1039,6 @@
     "signInAgain": "Logg inn igjen",
     "editMediaBrowserTitle": "Rediger ${product}-tilkobling",
     "editMediaBrowserIntro": "Legg til eller fjern URL-er for ${serverName}. Plezy vil bruke den nåbare URL-en med lavest ventetid."
-  },
-  "accountPreferences": {
-    "sectionTitle": "Kontoinnstillinger",
-    "hubSubtitleSingle": "Lyd-, undertekst- og bibliotekalternativer lagret på ${account}",
-    "hubSubtitleMultiple": "Lyd-, undertekst- og bibliotekalternativer lagret på ${count} kontoer",
-    "pickAccount": "Hver konto lagrer sine egne innstillinger. Velg hvilken du vil redigere.",
-    "storedOnAccount": "Disse alternativene lagres på selve kontoen, så alle apper som er logget på den, bruker dem — inkludert Plezy på de andre enhetene dine.",
-    "noAccounts": "Ingen kontoer å konfigurere",
-    "noAccountsHint": "Logg inn på Plex, eller koble til en Jellyfin- eller Emby-server, så vises innstillingene som er lagret på den kontoen, her.",
-    "unavailable": "Kan ikke nå denne kontoen",
-    "loadFailed": "Kunne ikke laste inn disse innstillingene",
-    "noPreference": "Ingen preferanse",
-    "notSet": "Ikke angitt",
-    "groups": {
-      "audioAndSubtitles": "Lyd og undertekster",
-      "libraryDisplay": "Bibliotek",
-      "personalMedia": "Personlige medier"
-    },
-    "preferredAudioLanguage": "Foretrukket lydspråk",
-    "autoSelectAudio": "Velg lyd etter språk",
-    "autoSelectAudioDescription": "Av beholder det lydsporet filen markerer som standard.",
-    "preferredSubtitleLanguage": "Foretrukket undertekstspråk",
-    "subtitleMode": "Slå på undertekster",
-    "subtitleModes": {
-      "none": "Manuelt valgt",
-      "noneDescription": "Slå aldri på undertekster av seg selv.",
-      "defaultMode": "Følg sporflaggene",
-      "defaultModeDescription": "Bruk standard- og tvunget-flaggene som er lagret på hvert undertekstspor.",
-      "always": "Alltid aktivert",
-      "alwaysDescription": "Slå på et undertekstspor på foretrukket språk når det finnes et.",
-      "onlyForced": "Kun tvungne undertekster",
-      "onlyForcedDescription": "Last inn bare sporene som er merket som tvungne.",
-      "smart": "Vist med fremmedspråklig lyd",
-      "smartDescription": "Slå på undertekster bare når lyden er på et annet språk."
-    },
-    "subtitleAccessibility": "SDH-undertekster",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "Foretrekk ikke-SDH-undertekster",
-      "preferSdh": "Foretrekk SDH-undertekster",
-      "onlySdh": "Kun SDH-undertekster",
-      "onlyNonSdh": "Kun ikke-SDH-undertekster"
-    },
-    "forcedSubtitles": "Tvungne undertekster",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "Foretrekk ikke-tvungne undertekster",
-      "preferForced": "Foretrekk tvungne undertekster",
-      "onlyForced": "Kun tvungne undertekster",
-      "onlyNonForced": "Kun ikke-tvungne undertekster"
-    },
-    "displayMissingEpisodes": "Vis manglende episoder",
-    "displayMissingEpisodesDescription": "Vis episoder serveren kjenner til, men som ikke har noen fil.",
-    "hidePlayedInLatest": "Skjul sette elementer i Siste",
-    "hidePlayedInLatestDescription": "Hold elementer du allerede har sett utenfor serverens Siste-rader.",
-    "displayCollectionsView": "Vis samlingsvisningen",
-    "displayCollectionsViewDescription": "Vis serverens samlingsvisning sammen med bibliotekene dine.",
-    "rewatchingInNextUp": "Behold serier du ser på nytt i Neste opp",
-    "rewatchingInNextUpDescription": "Når du er ferdig med en serie og starter den på nytt, følger Neste opp den nye avspillingen i stedet for å fjerne serien.",
-    "watchedIndicator": "Sett-indikatorer",
-    "watchedIndicatorOptions": {
-      "none": "Aldri",
-      "moviesAndShows": "Filmer og TV-serier",
-      "movies": "Kun filmer",
-      "shows": "Kun TV-serier"
-    },
-    "mediaReviewsVisibility": "Vurderinger og anmeldelser",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "Brukere og kritikere",
-      "usersOnly": "Kun brukere",
-      "criticsOnly": "Kun kritikere",
-      "nobody": "Skjult"
-    }
   },
   "discover": {
     "title": "Oppdag",
@@ -2387,5 +2316,76 @@
     "redirectDifferentHost": "Serveren omdirigerte til en annen vert. Angi den endelige ${product}-URL-en direkte.",
     "redirectInsecure": "Serveren omdirigerte fra HTTPS til en usikker URL",
     "redirectUnsupportedEnterFinal": "Serveren omdirigerte til en URL som ikke støttes. Angi den endelige ${product}-URL-en direkte."
+  },
+  "accountPreferences": {
+    "sectionTitle": "Kontoinnstillinger",
+    "hubSubtitleSingle": "Lyd-, undertekst- og bibliotekalternativer lagret på ${account}",
+    "hubSubtitleMultiple": "Lyd-, undertekst- og bibliotekalternativer lagret på ${count} kontoer",
+    "pickAccount": "Hver konto lagrer sine egne innstillinger. Velg hvilken du vil redigere.",
+    "storedOnAccount": "Disse alternativene lagres på selve kontoen, så alle apper som er logget på den, bruker dem — inkludert Plezy på de andre enhetene dine.",
+    "noAccounts": "Ingen kontoer å konfigurere",
+    "noAccountsHint": "Logg inn på Plex, eller koble til en Jellyfin- eller Emby-server, så vises innstillingene som er lagret på den kontoen, her.",
+    "unavailable": "Kan ikke nå denne kontoen",
+    "loadFailed": "Kunne ikke laste inn disse innstillingene",
+    "noPreference": "Ingen preferanse",
+    "notSet": "Ikke angitt",
+    "groups": {
+      "audioAndSubtitles": "Lyd og undertekster",
+      "libraryDisplay": "Bibliotek",
+      "personalMedia": "Personlige medier"
+    },
+    "preferredAudioLanguage": "Foretrukket lydspråk",
+    "autoSelectAudio": "Velg lyd etter språk",
+    "autoSelectAudioDescription": "Av beholder det lydsporet filen markerer som standard.",
+    "preferredSubtitleLanguage": "Foretrukket undertekstspråk",
+    "subtitleMode": "Slå på undertekster",
+    "subtitleModes": {
+      "none": "Manuelt valgt",
+      "noneDescription": "Slå aldri på undertekster av seg selv.",
+      "defaultMode": "Følg sporflaggene",
+      "defaultModeDescription": "Bruk standard- og tvunget-flaggene som er lagret på hvert undertekstspor.",
+      "always": "Alltid aktivert",
+      "alwaysDescription": "Slå på et undertekstspor på foretrukket språk når det finnes et.",
+      "onlyForced": "Kun tvungne undertekster",
+      "onlyForcedDescription": "Last inn bare sporene som er merket som tvungne.",
+      "smart": "Vist med fremmedspråklig lyd",
+      "smartDescription": "Slå på undertekster bare når lyden er på et annet språk."
+    },
+    "subtitleAccessibility": "SDH-undertekster",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "Foretrekk ikke-SDH-undertekster",
+      "preferSdh": "Foretrekk SDH-undertekster",
+      "onlySdh": "Kun SDH-undertekster",
+      "onlyNonSdh": "Kun ikke-SDH-undertekster"
+    },
+    "forcedSubtitles": "Tvungne undertekster",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "Foretrekk ikke-tvungne undertekster",
+      "preferForced": "Foretrekk tvungne undertekster",
+      "onlyForced": "Kun tvungne undertekster",
+      "onlyNonForced": "Kun ikke-tvungne undertekster"
+    },
+    "displayMissingEpisodes": "Vis manglende episoder",
+    "displayMissingEpisodesDescription": "Vis episoder serveren kjenner til, men som ikke har noen fil.",
+    "hidePlayedInLatest": "Skjul sette elementer i Siste",
+    "hidePlayedInLatestDescription": "Hold elementer du allerede har sett utenfor serverens Siste-rader.",
+    "displayCollectionsView": "Vis samlingsvisningen",
+    "displayCollectionsViewDescription": "Vis serverens samlingsvisning sammen med bibliotekene dine.",
+    "rewatchingInNextUp": "Behold serier du ser på nytt i Neste opp",
+    "rewatchingInNextUpDescription": "Når du er ferdig med en serie og starter den på nytt, følger Neste opp den nye avspillingen i stedet for å fjerne serien.",
+    "watchedIndicator": "Sett-indikatorer",
+    "watchedIndicatorOptions": {
+      "none": "Aldri",
+      "moviesAndShows": "Filmer og TV-serier",
+      "movies": "Kun filmer",
+      "shows": "Kun TV-serier"
+    },
+    "mediaReviewsVisibility": "Vurderinger og anmeldelser",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "Brukere og kritikere",
+      "usersOnly": "Kun brukere",
+      "criticsOnly": "Kun kritikere",
+      "nobody": "Skjult"
+    }
   }
 }

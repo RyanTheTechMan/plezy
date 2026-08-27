@@ -764,7 +764,6 @@
     "pipFailed": "Bild-i-bild kunde inte starta",
     "screenshotSaved": "Skärmbild sparad",
     "zoomPercent": "Zoom ${percent}%",
-    "volumePercent": "Volym ${percent}%",
     "pipErrors": {
       "androidVersion": "Kräver Android 8.0 eller nyare",
       "iosVersion": "Kräver iOS 15.0 eller nyare",
@@ -796,6 +795,8 @@
     "osdSubtitlesOff": "Undertexter: Av",
     "osdSubtitles": "Undertexter: ${track}",
     "osdAudio": "Ljud: ${track}",
+    "volumePercent": "Volym ${percent}%",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "clip": {
       "fineAdjust": "Finjustering",
       "title": "Klämma",
@@ -834,8 +835,7 @@
       "formatHevcSdr": "HEVC SDR",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    },
-    "packedStereoSizingLocked": "Can not change while playing 3D source"
+    }
   },
   "userStatus": {},
   "messages": {
@@ -1039,77 +1039,6 @@
     "signInAgain": "Logga in igen",
     "editMediaBrowserTitle": "Redigera ${product}-anslutning",
     "editMediaBrowserIntro": "Lägg till eller ta bort URL:er för ${serverName}. Plezy använder den nåbara URL:en med lägst latens."
-  },
-  "accountPreferences": {
-    "sectionTitle": "Kontoinställningar",
-    "hubSubtitleSingle": "Ljud-, undertext- och biblioteksalternativ sparade på ${account}",
-    "hubSubtitleMultiple": "Ljud-, undertext- och biblioteksalternativ sparade på ${count} konton",
-    "pickAccount": "Varje konto lagrar sina egna inställningar. Välj det du vill redigera.",
-    "storedOnAccount": "Dessa alternativ sparas på själva kontot, så alla appar som är inloggade på det använder dem — inklusive Plezy på dina andra enheter.",
-    "noAccounts": "Inga konton att konfigurera",
-    "noAccountsHint": "Logga in på Plex, eller anslut en Jellyfin- eller Emby-server, så visas de inställningar som lagras på det kontot här.",
-    "unavailable": "Det går inte att nå detta konto",
-    "loadFailed": "Det gick inte att läsa in dessa inställningar",
-    "noPreference": "Ingen preferens",
-    "notSet": "Inte angiven",
-    "groups": {
-      "audioAndSubtitles": "Ljud och undertexter",
-      "libraryDisplay": "Bibliotek",
-      "personalMedia": "Personliga media"
-    },
-    "preferredAudioLanguage": "Föredraget ljudspråk",
-    "autoSelectAudio": "Välj ljud efter språk",
-    "autoSelectAudioDescription": "Av behåller det ljudspår som filen markerar som standard.",
-    "preferredSubtitleLanguage": "Föredraget undertextspråk",
-    "subtitleMode": "Aktivera undertexter",
-    "subtitleModes": {
-      "none": "Manuellt vald",
-      "noneDescription": "Slår aldrig på undertexter av sig själv.",
-      "defaultMode": "Följ spårens flaggor",
-      "defaultModeDescription": "Använd de standard- och forcerade flaggor som lagras på varje undertextspår.",
-      "always": "Alltid aktiverad",
-      "alwaysDescription": "Slå på ett undertextspår på det föredragna språket när ett sådant finns.",
-      "onlyForced": "Endast forcerade undertexter",
-      "onlyForcedDescription": "Ladda endast spår som är markerade som forcerade.",
-      "smart": "Visas med ljud på främmande språk",
-      "smartDescription": "Slå på undertexter endast när ljudet är på ett annat språk."
-    },
-    "subtitleAccessibility": "SDH-undertexter",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "Föredra icke-SDH-undertexter",
-      "preferSdh": "Föredra SDH-undertexter",
-      "onlySdh": "Endast SDH-undertexter",
-      "onlyNonSdh": "Endast icke-SDH-undertexter"
-    },
-    "forcedSubtitles": "Forcerade undertexter",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "Föredra icke-forcerade undertexter",
-      "preferForced": "Föredra forcerade undertexter",
-      "onlyForced": "Endast forcerade undertexter",
-      "onlyNonForced": "Endast icke-forcerade undertexter"
-    },
-    "displayMissingEpisodes": "Visa saknade avsnitt",
-    "displayMissingEpisodesDescription": "Lista avsnitt som servern känner till men som saknar fil.",
-    "hidePlayedInLatest": "Dölj sedda objekt i Senaste",
-    "hidePlayedInLatestDescription": "Lämna objekt du redan har sett utanför serverns Senaste-rader.",
-    "displayCollectionsView": "Visa vyn Samlingar",
-    "displayCollectionsViewDescription": "Visa serverns Samlingar-vy tillsammans med dina bibliotek.",
-    "rewatchingInNextUp": "Behåll omtittade serier i Nästa",
-    "rewatchingInNextUpDescription": "När du har sett klart en serie och börjar om följer Nästa med i omtittningen i stället för att släppa serien.",
-    "watchedIndicator": "Seddmarkeringar",
-    "watchedIndicatorOptions": {
-      "none": "Aldrig",
-      "moviesAndShows": "Filmer och TV-serier",
-      "movies": "Endast filmer",
-      "shows": "Endast TV-serier"
-    },
-    "mediaReviewsVisibility": "Betyg och recensioner",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "Användare och kritiker",
-      "usersOnly": "Endast användare",
-      "criticsOnly": "Endast kritiker",
-      "nobody": "Dolda"
-    }
   },
   "discover": {
     "title": "Upptäck",
@@ -2387,5 +2316,76 @@
     "redirectDifferentHost": "Servern omdirigerade till en annan värd. Ange den slutliga URL:en för ${product} direkt.",
     "redirectInsecure": "Servern omdirigerade från HTTPS till en osäker URL",
     "redirectUnsupportedEnterFinal": "Servern omdirigerade till en URL som inte stöds. Ange den slutliga URL:en för ${product} direkt."
+  },
+  "accountPreferences": {
+    "sectionTitle": "Kontoinställningar",
+    "hubSubtitleSingle": "Ljud-, undertext- och biblioteksalternativ sparade på ${account}",
+    "hubSubtitleMultiple": "Ljud-, undertext- och biblioteksalternativ sparade på ${count} konton",
+    "pickAccount": "Varje konto lagrar sina egna inställningar. Välj det du vill redigera.",
+    "storedOnAccount": "Dessa alternativ sparas på själva kontot, så alla appar som är inloggade på det använder dem — inklusive Plezy på dina andra enheter.",
+    "noAccounts": "Inga konton att konfigurera",
+    "noAccountsHint": "Logga in på Plex, eller anslut en Jellyfin- eller Emby-server, så visas de inställningar som lagras på det kontot här.",
+    "unavailable": "Det går inte att nå detta konto",
+    "loadFailed": "Det gick inte att läsa in dessa inställningar",
+    "noPreference": "Ingen preferens",
+    "notSet": "Inte angiven",
+    "groups": {
+      "audioAndSubtitles": "Ljud och undertexter",
+      "libraryDisplay": "Bibliotek",
+      "personalMedia": "Personliga media"
+    },
+    "preferredAudioLanguage": "Föredraget ljudspråk",
+    "autoSelectAudio": "Välj ljud efter språk",
+    "autoSelectAudioDescription": "Av behåller det ljudspår som filen markerar som standard.",
+    "preferredSubtitleLanguage": "Föredraget undertextspråk",
+    "subtitleMode": "Aktivera undertexter",
+    "subtitleModes": {
+      "none": "Manuellt vald",
+      "noneDescription": "Slår aldrig på undertexter av sig själv.",
+      "defaultMode": "Följ spårens flaggor",
+      "defaultModeDescription": "Använd de standard- och forcerade flaggor som lagras på varje undertextspår.",
+      "always": "Alltid aktiverad",
+      "alwaysDescription": "Slå på ett undertextspår på det föredragna språket när ett sådant finns.",
+      "onlyForced": "Endast forcerade undertexter",
+      "onlyForcedDescription": "Ladda endast spår som är markerade som forcerade.",
+      "smart": "Visas med ljud på främmande språk",
+      "smartDescription": "Slå på undertexter endast när ljudet är på ett annat språk."
+    },
+    "subtitleAccessibility": "SDH-undertexter",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "Föredra icke-SDH-undertexter",
+      "preferSdh": "Föredra SDH-undertexter",
+      "onlySdh": "Endast SDH-undertexter",
+      "onlyNonSdh": "Endast icke-SDH-undertexter"
+    },
+    "forcedSubtitles": "Forcerade undertexter",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "Föredra icke-forcerade undertexter",
+      "preferForced": "Föredra forcerade undertexter",
+      "onlyForced": "Endast forcerade undertexter",
+      "onlyNonForced": "Endast icke-forcerade undertexter"
+    },
+    "displayMissingEpisodes": "Visa saknade avsnitt",
+    "displayMissingEpisodesDescription": "Lista avsnitt som servern känner till men som saknar fil.",
+    "hidePlayedInLatest": "Dölj sedda objekt i Senaste",
+    "hidePlayedInLatestDescription": "Lämna objekt du redan har sett utanför serverns Senaste-rader.",
+    "displayCollectionsView": "Visa vyn Samlingar",
+    "displayCollectionsViewDescription": "Visa serverns Samlingar-vy tillsammans med dina bibliotek.",
+    "rewatchingInNextUp": "Behåll omtittade serier i Nästa",
+    "rewatchingInNextUpDescription": "När du har sett klart en serie och börjar om följer Nästa med i omtittningen i stället för att släppa serien.",
+    "watchedIndicator": "Seddmarkeringar",
+    "watchedIndicatorOptions": {
+      "none": "Aldrig",
+      "moviesAndShows": "Filmer och TV-serier",
+      "movies": "Endast filmer",
+      "shows": "Endast TV-serier"
+    },
+    "mediaReviewsVisibility": "Betyg och recensioner",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "Användare och kritiker",
+      "usersOnly": "Endast användare",
+      "criticsOnly": "Endast kritiker",
+      "nobody": "Dolda"
+    }
   }
 }

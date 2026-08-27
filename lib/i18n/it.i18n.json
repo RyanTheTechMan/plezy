@@ -764,7 +764,6 @@
     "pipFailed": "Impossibile avviare la modalità Picture-in-Picture",
     "screenshotSaved": "Schermata salvata",
     "zoomPercent": "Zoom ${percent}%",
-    "volumePercent": "Volume ${percent}%",
     "pipErrors": {
       "androidVersion": "Richiede Android 8.0 o versioni successive",
       "iosVersion": "Richiede iOS 15.0 o versioni successive",
@@ -796,6 +795,8 @@
     "osdSubtitlesOff": "Sottotitoli: Disattivati",
     "osdSubtitles": "Sottotitoli: ${track}",
     "osdAudio": "Audio: ${track}",
+    "volumePercent": "Volume ${percent}%",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "clip": {
       "fineAdjust": "Regolazione fine",
       "title": "Clip",
@@ -834,8 +835,7 @@
       "formatHevcSdr": "HEVC DSP",
       "formatH264Sdr": "H.264 DSP",
       "formatHevcHdr": "HEVCHDR"
-    },
-    "packedStereoSizingLocked": "Can not change while playing 3D source"
+    }
   },
   "userStatus": {},
   "messages": {
@@ -1039,77 +1039,6 @@
     "signInAgain": "Accedi di nuovo",
     "editMediaBrowserTitle": "Modifica connessione ${product}",
     "editMediaBrowserIntro": "Aggiungi o rimuovi gli URL per ${serverName}. Plezy userà l'URL raggiungibile con la latenza più bassa."
-  },
-  "accountPreferences": {
-    "sectionTitle": "Preferenze dell'account",
-    "hubSubtitleSingle": "Opzioni di audio, sottotitoli e libreria salvate su ${account}",
-    "hubSubtitleMultiple": "Opzioni di audio, sottotitoli e libreria salvate su ${count} account",
-    "pickAccount": "Ogni account conserva le proprie preferenze. Scegli quale modificare.",
-    "storedOnAccount": "Queste opzioni vengono salvate sull'account stesso, quindi ogni app che vi accede le usa — inclusa Plezy sugli altri tuoi dispositivi.",
-    "noAccounts": "Nessun account da configurare",
-    "noAccountsHint": "Accedi a Plex oppure connetti un server Jellyfin o Emby: le preferenze salvate su quell'account appariranno qui.",
-    "unavailable": "Impossibile raggiungere questo account",
-    "loadFailed": "Impossibile caricare queste preferenze",
-    "noPreference": "Nessuna preferenza",
-    "notSet": "Non impostato",
-    "groups": {
-      "audioAndSubtitles": "Audio e sottotitoli",
-      "libraryDisplay": "Libreria",
-      "personalMedia": "Media personali"
-    },
-    "preferredAudioLanguage": "Lingua audio preferita",
-    "autoSelectAudio": "Scegli l'audio in base alla lingua",
-    "autoSelectAudioDescription": "Se disattivata, viene mantenuta la traccia audio che il file indica come predefinita.",
-    "preferredSubtitleLanguage": "Lingua dei sottotitoli preferita",
-    "subtitleMode": "Attiva i sottotitoli",
-    "subtitleModes": {
-      "none": "Selezionati manualmente",
-      "noneDescription": "Non attivare mai i sottotitoli automaticamente.",
-      "defaultMode": "Segui le flag della traccia",
-      "defaultModeDescription": "Usa le flag predefinite e forzate salvate su ogni traccia di sottotitoli.",
-      "always": "Sempre attivi",
-      "alwaysDescription": "Attiva una traccia di sottotitoli nella lingua preferita quando disponibile.",
-      "onlyForced": "Solo sottotitoli forzati",
-      "onlyForcedDescription": "Carica solo le tracce contrassegnate come forzate.",
-      "smart": "Mostrati con audio straniero",
-      "smartDescription": "Attiva i sottotitoli solo quando l'audio è in un'altra lingua."
-    },
-    "subtitleAccessibility": "Sottotitoli SDH",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "Preferisci i sottotitoli non SDH",
-      "preferSdh": "Preferisci i sottotitoli SDH",
-      "onlySdh": "Solo sottotitoli SDH",
-      "onlyNonSdh": "Solo sottotitoli non SDH"
-    },
-    "forcedSubtitles": "Sottotitoli forzati",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "Preferisci i sottotitoli non forzati",
-      "preferForced": "Preferisci i sottotitoli forzati",
-      "onlyForced": "Solo sottotitoli forzati",
-      "onlyNonForced": "Solo sottotitoli non forzati"
-    },
-    "displayMissingEpisodes": "Mostra gli episodi mancanti",
-    "displayMissingEpisodesDescription": "Elenca gli episodi noti al server ma senza un file associato.",
-    "hidePlayedInLatest": "Nascondi gli elementi visti da Aggiunti di recente",
-    "hidePlayedInLatestDescription": "Esclude dagli Aggiunti di recente del server gli elementi che hai già visto.",
-    "displayCollectionsView": "Mostra la vista Raccolte",
-    "displayCollectionsViewDescription": "Mostra la vista Raccolte del server insieme alle tue librerie.",
-    "rewatchingInNextUp": "Mantieni le serie riviste in Prossimi episodi",
-    "rewatchingInNextUpDescription": "Quando finisci una serie e la ricominci, Prossimi episodi segue la nuova visione invece di rimuovere la serie.",
-    "watchedIndicator": "Indicatori di visione",
-    "watchedIndicatorOptions": {
-      "none": "Mai",
-      "moviesAndShows": "Film e serie TV",
-      "movies": "Solo film",
-      "shows": "Solo serie TV"
-    },
-    "mediaReviewsVisibility": "Valutazioni e recensioni",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "Utenti e critici",
-      "usersOnly": "Solo utenti",
-      "criticsOnly": "Solo critici",
-      "nobody": "Nascoste"
-    }
   },
   "discover": {
     "title": "Esplora",
@@ -2387,5 +2316,76 @@
     "redirectDifferentHost": "Il server ha reindirizzato a un host diverso. Inserisci direttamente l'URL finale del server ${product}.",
     "redirectInsecure": "Il server ha reindirizzato da HTTPS a un URL non sicuro",
     "redirectUnsupportedEnterFinal": "Il server ha reindirizzato a un URL non supportato. Inserisci direttamente l'URL finale del server ${product}."
+  },
+  "accountPreferences": {
+    "sectionTitle": "Preferenze dell'account",
+    "hubSubtitleSingle": "Opzioni di audio, sottotitoli e libreria salvate su ${account}",
+    "hubSubtitleMultiple": "Opzioni di audio, sottotitoli e libreria salvate su ${count} account",
+    "pickAccount": "Ogni account conserva le proprie preferenze. Scegli quale modificare.",
+    "storedOnAccount": "Queste opzioni vengono salvate sull'account stesso, quindi ogni app che vi accede le usa — inclusa Plezy sugli altri tuoi dispositivi.",
+    "noAccounts": "Nessun account da configurare",
+    "noAccountsHint": "Accedi a Plex oppure connetti un server Jellyfin o Emby: le preferenze salvate su quell'account appariranno qui.",
+    "unavailable": "Impossibile raggiungere questo account",
+    "loadFailed": "Impossibile caricare queste preferenze",
+    "noPreference": "Nessuna preferenza",
+    "notSet": "Non impostato",
+    "groups": {
+      "audioAndSubtitles": "Audio e sottotitoli",
+      "libraryDisplay": "Libreria",
+      "personalMedia": "Media personali"
+    },
+    "preferredAudioLanguage": "Lingua audio preferita",
+    "autoSelectAudio": "Scegli l'audio in base alla lingua",
+    "autoSelectAudioDescription": "Se disattivata, viene mantenuta la traccia audio che il file indica come predefinita.",
+    "preferredSubtitleLanguage": "Lingua dei sottotitoli preferita",
+    "subtitleMode": "Attiva i sottotitoli",
+    "subtitleModes": {
+      "none": "Selezionati manualmente",
+      "noneDescription": "Non attivare mai i sottotitoli automaticamente.",
+      "defaultMode": "Segui le flag della traccia",
+      "defaultModeDescription": "Usa le flag predefinite e forzate salvate su ogni traccia di sottotitoli.",
+      "always": "Sempre attivi",
+      "alwaysDescription": "Attiva una traccia di sottotitoli nella lingua preferita quando disponibile.",
+      "onlyForced": "Solo sottotitoli forzati",
+      "onlyForcedDescription": "Carica solo le tracce contrassegnate come forzate.",
+      "smart": "Mostrati con audio straniero",
+      "smartDescription": "Attiva i sottotitoli solo quando l'audio è in un'altra lingua."
+    },
+    "subtitleAccessibility": "Sottotitoli SDH",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "Preferisci i sottotitoli non SDH",
+      "preferSdh": "Preferisci i sottotitoli SDH",
+      "onlySdh": "Solo sottotitoli SDH",
+      "onlyNonSdh": "Solo sottotitoli non SDH"
+    },
+    "forcedSubtitles": "Sottotitoli forzati",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "Preferisci i sottotitoli non forzati",
+      "preferForced": "Preferisci i sottotitoli forzati",
+      "onlyForced": "Solo sottotitoli forzati",
+      "onlyNonForced": "Solo sottotitoli non forzati"
+    },
+    "displayMissingEpisodes": "Mostra gli episodi mancanti",
+    "displayMissingEpisodesDescription": "Elenca gli episodi noti al server ma senza un file associato.",
+    "hidePlayedInLatest": "Nascondi gli elementi visti da Aggiunti di recente",
+    "hidePlayedInLatestDescription": "Esclude dagli Aggiunti di recente del server gli elementi che hai già visto.",
+    "displayCollectionsView": "Mostra la vista Raccolte",
+    "displayCollectionsViewDescription": "Mostra la vista Raccolte del server insieme alle tue librerie.",
+    "rewatchingInNextUp": "Mantieni le serie riviste in Prossimi episodi",
+    "rewatchingInNextUpDescription": "Quando finisci una serie e la ricominci, Prossimi episodi segue la nuova visione invece di rimuovere la serie.",
+    "watchedIndicator": "Indicatori di visione",
+    "watchedIndicatorOptions": {
+      "none": "Mai",
+      "moviesAndShows": "Film e serie TV",
+      "movies": "Solo film",
+      "shows": "Solo serie TV"
+    },
+    "mediaReviewsVisibility": "Valutazioni e recensioni",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "Utenti e critici",
+      "usersOnly": "Solo utenti",
+      "criticsOnly": "Solo critici",
+      "nobody": "Nascoste"
+    }
   }
 }
