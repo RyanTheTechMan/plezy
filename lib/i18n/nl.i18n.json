@@ -747,6 +747,7 @@
     "subtitleUnavailableFallback": "De geselecteerde ondertitels konden niet worden geladen — afspelen gaat door zonder ondertitels",
     "pipButton": "Beeld-in-beeldmodus",
     "aspectRatioButton": "Beeldverhouding",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "ambientLighting": "Omgevingsverlichting",
     "fullscreenButton": "Volledig scherm activeren",
     "exitFullscreenButton": "Volledig scherm verlaten",
@@ -832,8 +833,7 @@
     "osdSubtitlesOff": "Ondertitels: uit",
     "osdSubtitles": "Ondertitels: ${track}",
     "osdAudio": "Audio: ${track}",
-    "volumePercent": "Volume ${percent}%",
-    "packedStereoSizingLocked": "Can not change while playing 3D source"
+    "volumePercent": "Volume ${percent}%"
   },
   "userStatus": {},
   "messages": {
