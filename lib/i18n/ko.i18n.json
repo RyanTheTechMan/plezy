@@ -764,7 +764,6 @@
     "pipFailed": "화면 속 화면 모드를 시작할 수 없습니다",
     "screenshotSaved": "스크린샷 저장됨",
     "zoomPercent": "확대/축소 ${percent}%",
-    "volumePercent": "볼륨 ${percent}%",
     "pipErrors": {
       "androidVersion": "Android 8.0 이상이 필요합니다",
       "iosVersion": "iOS 15.0 이상이 필요합니다",
@@ -796,8 +795,9 @@
     "osdSubtitlesOff": "자막: 꺼짐",
     "osdSubtitles": "자막: ${track}",
     "osdAudio": "오디오: ${track}",
-    "screenshotFailed": "",
-    "packedStereoSizingLocked": "Can not change while playing 3D source"
+    "volumePercent": "볼륨 ${percent}%",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "screenshotFailed": ""
   },
   "userStatus": {},
   "messages": {
@@ -1000,77 +1000,6 @@
     "signInAgain": "다시 로그인",
     "editMediaBrowserTitle": "${product} 연결 편집",
     "editMediaBrowserIntro": "${serverName}의 URL을 추가하거나 제거하세요. Plezy는 연결 가능한 URL 중 지연 시간이 가장 낮은 URL을 사용합니다."
-  },
-  "accountPreferences": {
-    "sectionTitle": "계정 기본 설정",
-    "hubSubtitleSingle": "${account}에 저장된 오디오, 자막 및 라이브러리 옵션",
-    "hubSubtitleMultiple": "${count}개 계정에 저장된 오디오, 자막 및 라이브러리 옵션",
-    "pickAccount": "각 계정은 고유한 기본 설정을 저장합니다. 편집할 계정을 선택하세요.",
-    "storedOnAccount": "이 옵션은 계정 자체에 저장되므로 해당 계정으로 로그인한 모든 앱에서 사용됩니다 — 다른 기기의 Plezy를 포함합니다.",
-    "noAccounts": "구성할 계정이 없습니다",
-    "noAccountsHint": "Plex에 로그인하거나 Jellyfin 또는 Emby 서버에 연결하면 해당 계정에 저장된 기본 설정이 여기에 표시됩니다.",
-    "unavailable": "이 계정에 연결할 수 없습니다",
-    "loadFailed": "이 기본 설정을 불러올 수 없습니다",
-    "noPreference": "기본 설정 없음",
-    "notSet": "설정되지 않음",
-    "groups": {
-      "audioAndSubtitles": "오디오 및 자막",
-      "libraryDisplay": "라이브러리",
-      "personalMedia": "개인 미디어"
-    },
-    "preferredAudioLanguage": "선호 오디오 언어",
-    "autoSelectAudio": "언어별로 오디오 선택",
-    "autoSelectAudioDescription": "끄면 파일이 기본으로 표시한 오디오 트랙을 유지합니다.",
-    "preferredSubtitleLanguage": "선호 자막 언어",
-    "subtitleMode": "자막 자동 켜기",
-    "subtitleModes": {
-      "none": "수동 선택",
-      "noneDescription": "자동으로 자막을 켜지 않습니다.",
-      "defaultMode": "트랙 플래그 따르기",
-      "defaultModeDescription": "각 자막 트랙에 저장된 기본 및 강제 플래그를 사용합니다.",
-      "always": "항상 활성화",
-      "alwaysDescription": "선호 언어의 자막 트랙이 있으면 항상 켭니다.",
-      "onlyForced": "강제 자막만",
-      "onlyForcedDescription": "강제로 표시된 트랙만 로드합니다.",
-      "smart": "외국어 오디오 시 표시",
-      "smartDescription": "오디오가 다른 언어일 때만 자막을 켭니다."
-    },
-    "subtitleAccessibility": "SDH 자막",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "SDH가 아닌 자막 선호",
-      "preferSdh": "SDH 자막 선호",
-      "onlySdh": "SDH 자막만",
-      "onlyNonSdh": "SDH가 아닌 자막만"
-    },
-    "forcedSubtitles": "강제 자막",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "강제가 아닌 자막 선호",
-      "preferForced": "강제 자막 선호",
-      "onlyForced": "강제 자막만",
-      "onlyNonForced": "강제가 아닌 자막만"
-    },
-    "displayMissingEpisodes": "누락된 에피소드 표시",
-    "displayMissingEpisodesDescription": "서버가 알고 있지만 파일이 없는 에피소드를 나열합니다.",
-    "hidePlayedInLatest": "최신 항목에서 시청한 항목 숨기기",
-    "hidePlayedInLatestDescription": "이미 시청한 항목은 서버의 최신 행에서 제외합니다.",
-    "displayCollectionsView": "컬렉션 보기 표시",
-    "displayCollectionsViewDescription": "라이브러리와 함께 서버의 컬렉션 보기를 제공합니다.",
-    "rewatchingInNextUp": "재시청한 프로그램을 다음 에피소드에 유지",
-    "rewatchingInNextUpDescription": "프로그램을 끝까지 본 뒤 다시 시작하면, 목록에서 제거하는 대신 다음 에피소드가 재시청을 따라갑니다.",
-    "watchedIndicator": "시청 표시",
-    "watchedIndicatorOptions": {
-      "none": "안 함",
-      "moviesAndShows": "영화 및 TV 프로그램",
-      "movies": "영화만",
-      "shows": "TV 프로그램만"
-    },
-    "mediaReviewsVisibility": "평점 및 리뷰",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "사용자 및 평론가",
-      "usersOnly": "사용자만",
-      "criticsOnly": "평론가만",
-      "nobody": "숨김"
-    }
   },
   "discover": {
     "title": "둘러보기",
@@ -2421,6 +2350,77 @@
     "redirectDifferentHost": "서버가 다른 호스트로 리디렉션했습니다. 최종 ${product} URL을 직접 입력하세요.",
     "redirectInsecure": "서버가 HTTPS에서 안전하지 않은 URL로 리디렉션했습니다",
     "redirectUnsupportedEnterFinal": "서버가 지원되지 않는 URL로 리디렉션했습니다. 최종 ${product} URL을 직접 입력하세요."
+  },
+  "accountPreferences": {
+    "sectionTitle": "계정 기본 설정",
+    "hubSubtitleSingle": "${account}에 저장된 오디오, 자막 및 라이브러리 옵션",
+    "hubSubtitleMultiple": "${count}개 계정에 저장된 오디오, 자막 및 라이브러리 옵션",
+    "pickAccount": "각 계정은 고유한 기본 설정을 저장합니다. 편집할 계정을 선택하세요.",
+    "storedOnAccount": "이 옵션은 계정 자체에 저장되므로 해당 계정으로 로그인한 모든 앱에서 사용됩니다 — 다른 기기의 Plezy를 포함합니다.",
+    "noAccounts": "구성할 계정이 없습니다",
+    "noAccountsHint": "Plex에 로그인하거나 Jellyfin 또는 Emby 서버에 연결하면 해당 계정에 저장된 기본 설정이 여기에 표시됩니다.",
+    "unavailable": "이 계정에 연결할 수 없습니다",
+    "loadFailed": "이 기본 설정을 불러올 수 없습니다",
+    "noPreference": "기본 설정 없음",
+    "notSet": "설정되지 않음",
+    "groups": {
+      "audioAndSubtitles": "오디오 및 자막",
+      "libraryDisplay": "라이브러리",
+      "personalMedia": "개인 미디어"
+    },
+    "preferredAudioLanguage": "선호 오디오 언어",
+    "autoSelectAudio": "언어별로 오디오 선택",
+    "autoSelectAudioDescription": "끄면 파일이 기본으로 표시한 오디오 트랙을 유지합니다.",
+    "preferredSubtitleLanguage": "선호 자막 언어",
+    "subtitleMode": "자막 자동 켜기",
+    "subtitleModes": {
+      "none": "수동 선택",
+      "noneDescription": "자동으로 자막을 켜지 않습니다.",
+      "defaultMode": "트랙 플래그 따르기",
+      "defaultModeDescription": "각 자막 트랙에 저장된 기본 및 강제 플래그를 사용합니다.",
+      "always": "항상 활성화",
+      "alwaysDescription": "선호 언어의 자막 트랙이 있으면 항상 켭니다.",
+      "onlyForced": "강제 자막만",
+      "onlyForcedDescription": "강제로 표시된 트랙만 로드합니다.",
+      "smart": "외국어 오디오 시 표시",
+      "smartDescription": "오디오가 다른 언어일 때만 자막을 켭니다."
+    },
+    "subtitleAccessibility": "SDH 자막",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "SDH가 아닌 자막 선호",
+      "preferSdh": "SDH 자막 선호",
+      "onlySdh": "SDH 자막만",
+      "onlyNonSdh": "SDH가 아닌 자막만"
+    },
+    "forcedSubtitles": "강제 자막",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "강제가 아닌 자막 선호",
+      "preferForced": "강제 자막 선호",
+      "onlyForced": "강제 자막만",
+      "onlyNonForced": "강제가 아닌 자막만"
+    },
+    "displayMissingEpisodes": "누락된 에피소드 표시",
+    "displayMissingEpisodesDescription": "서버가 알고 있지만 파일이 없는 에피소드를 나열합니다.",
+    "hidePlayedInLatest": "최신 항목에서 시청한 항목 숨기기",
+    "hidePlayedInLatestDescription": "이미 시청한 항목은 서버의 최신 행에서 제외합니다.",
+    "displayCollectionsView": "컬렉션 보기 표시",
+    "displayCollectionsViewDescription": "라이브러리와 함께 서버의 컬렉션 보기를 제공합니다.",
+    "rewatchingInNextUp": "재시청한 프로그램을 다음 에피소드에 유지",
+    "rewatchingInNextUpDescription": "프로그램을 끝까지 본 뒤 다시 시작하면, 목록에서 제거하는 대신 다음 에피소드가 재시청을 따라갑니다.",
+    "watchedIndicator": "시청 표시",
+    "watchedIndicatorOptions": {
+      "none": "안 함",
+      "moviesAndShows": "영화 및 TV 프로그램",
+      "movies": "영화만",
+      "shows": "TV 프로그램만"
+    },
+    "mediaReviewsVisibility": "평점 및 리뷰",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "사용자 및 평론가",
+      "usersOnly": "사용자만",
+      "criticsOnly": "평론가만",
+      "nobody": "숨김"
+    }
   },
   "appIcon": {
     "title": "",

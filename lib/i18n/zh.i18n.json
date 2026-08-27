@@ -764,7 +764,6 @@
     "pipFailed": "画中画启动失败",
     "screenshotSaved": "截图已保存",
     "zoomPercent": "缩放 ${percent}%",
-    "volumePercent": "音量 ${percent}%",
     "pipErrors": {
       "androidVersion": "需要 Android 8.0 或更高版本",
       "iosVersion": "需要 iOS 15.0 或更高版本",
@@ -796,8 +795,9 @@
     "osdSubtitlesOff": "字幕：关闭",
     "osdSubtitles": "字幕：${track}",
     "osdAudio": "音频：${track}",
-    "screenshotFailed": "",
-    "packedStereoSizingLocked": "Can not change while playing 3D source"
+    "volumePercent": "音量 ${percent}%",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "screenshotFailed": ""
   },
   "userStatus": {},
   "messages": {
@@ -1000,77 +1000,6 @@
     "signInAgain": "重新登录",
     "editMediaBrowserTitle": "编辑 ${product} 连接",
     "editMediaBrowserIntro": "为 ${serverName} 添加或移除 URL。Plezy 会使用延迟最低且可访问的 URL。"
-  },
-  "accountPreferences": {
-    "sectionTitle": "账户偏好",
-    "hubSubtitleSingle": "音频、字幕和媒体库选项已保存在 ${account} 上",
-    "hubSubtitleMultiple": "音频、字幕和媒体库选项已保存在 ${count} 个账户上",
-    "pickAccount": "每个账户都保存自己的偏好设置。选择要编辑的账户。",
-    "storedOnAccount": "这些选项保存在账户本身，因此所有登录该账户的应用都会使用它们——包括你其他设备上的 Plezy。",
-    "noAccounts": "没有可配置的账户",
-    "noAccountsHint": "登录 Plex，或连接 Jellyfin 或 Emby 服务器，该账户上保存的偏好设置就会显示在这里。",
-    "unavailable": "无法访问此账户",
-    "loadFailed": "无法加载这些偏好设置",
-    "noPreference": "无偏好",
-    "notSet": "未设置",
-    "groups": {
-      "audioAndSubtitles": "音频与字幕",
-      "libraryDisplay": "媒体库",
-      "personalMedia": "个人媒体"
-    },
-    "preferredAudioLanguage": "首选音频语言",
-    "autoSelectAudio": "按语言选择音频",
-    "autoSelectAudioDescription": "关闭后保留文件标记为默认的音轨。",
-    "preferredSubtitleLanguage": "首选字幕语言",
-    "subtitleMode": "开启字幕",
-    "subtitleModes": {
-      "none": "手动选择",
-      "noneDescription": "从不自动打开字幕。",
-      "defaultMode": "遵循轨道标记",
-      "defaultModeDescription": "使用存储在各字幕轨道上的默认和强制标记。",
-      "always": "始终启用",
-      "alwaysDescription": "只要有首选语言的字幕轨道就将其打开。",
-      "onlyForced": "仅强制字幕",
-      "onlyForcedDescription": "只加载标记为强制的轨道。",
-      "smart": "外语音频时显示",
-      "smartDescription": "仅在音频为其他语言时打开字幕。"
-    },
-    "subtitleAccessibility": "SDH 字幕",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "优先非 SDH 字幕",
-      "preferSdh": "优先 SDH 字幕",
-      "onlySdh": "仅 SDH 字幕",
-      "onlyNonSdh": "仅非 SDH 字幕"
-    },
-    "forcedSubtitles": "强制字幕",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "优先非强制字幕",
-      "preferForced": "优先强制字幕",
-      "onlyForced": "仅强制字幕",
-      "onlyNonForced": "仅非强制字幕"
-    },
-    "displayMissingEpisodes": "显示缺失剧集",
-    "displayMissingEpisodesDescription": "列出服务器知道但没有对应文件的剧集。",
-    "hidePlayedInLatest": "在“最新”中隐藏已观看项目",
-    "hidePlayedInLatestDescription": "将你已经看过的项目从服务器的“最新”列表中移除。",
-    "displayCollectionsView": "显示合集视图",
-    "displayCollectionsViewDescription": "在媒体库之外提供服务器的合集视图。",
-    "rewatchingInNextUp": "在“接下来”中保留重看的剧集",
-    "rewatchingInNextUpDescription": "看完一部剧集后再次开始观看时，“接下来”会跟随重看进度，而不是将剧集移除。",
-    "watchedIndicator": "已观看标记",
-    "watchedIndicatorOptions": {
-      "none": "从不",
-      "moviesAndShows": "电影和电视剧",
-      "movies": "仅电影",
-      "shows": "仅电视剧"
-    },
-    "mediaReviewsVisibility": "评分与评论",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "用户和影评人",
-      "usersOnly": "仅用户",
-      "criticsOnly": "仅影评人",
-      "nobody": "隐藏"
-    }
   },
   "discover": {
     "title": "发现",
@@ -2421,6 +2350,77 @@
     "redirectDifferentHost": "服务器重定向到了其他主机。请直接输入最终的 ${product} URL。",
     "redirectInsecure": "服务器从 HTTPS 重定向到了不安全的 URL",
     "redirectUnsupportedEnterFinal": "服务器重定向到了不受支持的 URL。请直接输入最终的 ${product} URL。"
+  },
+  "accountPreferences": {
+    "sectionTitle": "账户偏好",
+    "hubSubtitleSingle": "音频、字幕和媒体库选项已保存在 ${account} 上",
+    "hubSubtitleMultiple": "音频、字幕和媒体库选项已保存在 ${count} 个账户上",
+    "pickAccount": "每个账户都保存自己的偏好设置。选择要编辑的账户。",
+    "storedOnAccount": "这些选项保存在账户本身，因此所有登录该账户的应用都会使用它们——包括你其他设备上的 Plezy。",
+    "noAccounts": "没有可配置的账户",
+    "noAccountsHint": "登录 Plex，或连接 Jellyfin 或 Emby 服务器，该账户上保存的偏好设置就会显示在这里。",
+    "unavailable": "无法访问此账户",
+    "loadFailed": "无法加载这些偏好设置",
+    "noPreference": "无偏好",
+    "notSet": "未设置",
+    "groups": {
+      "audioAndSubtitles": "音频与字幕",
+      "libraryDisplay": "媒体库",
+      "personalMedia": "个人媒体"
+    },
+    "preferredAudioLanguage": "首选音频语言",
+    "autoSelectAudio": "按语言选择音频",
+    "autoSelectAudioDescription": "关闭后保留文件标记为默认的音轨。",
+    "preferredSubtitleLanguage": "首选字幕语言",
+    "subtitleMode": "开启字幕",
+    "subtitleModes": {
+      "none": "手动选择",
+      "noneDescription": "从不自动打开字幕。",
+      "defaultMode": "遵循轨道标记",
+      "defaultModeDescription": "使用存储在各字幕轨道上的默认和强制标记。",
+      "always": "始终启用",
+      "alwaysDescription": "只要有首选语言的字幕轨道就将其打开。",
+      "onlyForced": "仅强制字幕",
+      "onlyForcedDescription": "只加载标记为强制的轨道。",
+      "smart": "外语音频时显示",
+      "smartDescription": "仅在音频为其他语言时打开字幕。"
+    },
+    "subtitleAccessibility": "SDH 字幕",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "优先非 SDH 字幕",
+      "preferSdh": "优先 SDH 字幕",
+      "onlySdh": "仅 SDH 字幕",
+      "onlyNonSdh": "仅非 SDH 字幕"
+    },
+    "forcedSubtitles": "强制字幕",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "优先非强制字幕",
+      "preferForced": "优先强制字幕",
+      "onlyForced": "仅强制字幕",
+      "onlyNonForced": "仅非强制字幕"
+    },
+    "displayMissingEpisodes": "显示缺失剧集",
+    "displayMissingEpisodesDescription": "列出服务器知道但没有对应文件的剧集。",
+    "hidePlayedInLatest": "在“最新”中隐藏已观看项目",
+    "hidePlayedInLatestDescription": "将你已经看过的项目从服务器的“最新”列表中移除。",
+    "displayCollectionsView": "显示合集视图",
+    "displayCollectionsViewDescription": "在媒体库之外提供服务器的合集视图。",
+    "rewatchingInNextUp": "在“接下来”中保留重看的剧集",
+    "rewatchingInNextUpDescription": "看完一部剧集后再次开始观看时，“接下来”会跟随重看进度，而不是将剧集移除。",
+    "watchedIndicator": "已观看标记",
+    "watchedIndicatorOptions": {
+      "none": "从不",
+      "moviesAndShows": "电影和电视剧",
+      "movies": "仅电影",
+      "shows": "仅电视剧"
+    },
+    "mediaReviewsVisibility": "评分与评论",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "用户和影评人",
+      "usersOnly": "仅用户",
+      "criticsOnly": "仅影评人",
+      "nobody": "隐藏"
+    }
   },
   "appIcon": {
     "title": "",

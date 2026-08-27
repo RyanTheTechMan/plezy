@@ -773,7 +773,6 @@
     "pipFailed": "Не удалось запустить режим «картинка в картинке»",
     "screenshotSaved": "Снимок экрана сохранён",
     "zoomPercent": "Масштаб ${percent}%",
-    "volumePercent": "Громкость ${percent}%",
     "pipErrors": {
       "androidVersion": "Требуется Android 8.0 или новее",
       "iosVersion": "Требуется iOS 15.0 или новее",
@@ -805,8 +804,9 @@
     "osdSubtitlesOff": "Субтитры: выкл.",
     "osdSubtitles": "Субтитры: ${track}",
     "osdAudio": "Аудио: ${track}",
-    "screenshotFailed": "",
-    "packedStereoSizingLocked": "Can not change while playing 3D source"
+    "volumePercent": "Громкость ${percent}%",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "screenshotFailed": ""
   },
   "userStatus": {},
   "messages": {
@@ -1012,77 +1012,6 @@
     "signInAgain": "Войти снова",
     "editMediaBrowserTitle": "Изменить подключение ${product}",
     "editMediaBrowserIntro": "Добавьте или удалите URL-адреса для ${serverName}. Plezy будет использовать доступный URL с наименьшей задержкой."
-  },
-  "accountPreferences": {
-    "sectionTitle": "Настройки аккаунта",
-    "hubSubtitleSingle": "Параметры аудио, субтитров и библиотеки сохранены на аккаунте ${account}",
-    "hubSubtitleMultiple": "Параметры аудио, субтитров и библиотеки сохранены на ${count} аккаунтах",
-    "pickAccount": "Каждый аккаунт хранит собственные настройки. Выберите, какой редактировать.",
-    "storedOnAccount": "Эти параметры сохраняются на самом аккаунте, поэтому их используют все приложения, вошедшие в него, — включая Plezy на ваших других устройствах.",
-    "noAccounts": "Нет аккаунтов для настройки",
-    "noAccountsHint": "Войдите в Plex или подключите сервер Jellyfin или Emby — и настройки, сохранённые на этом аккаунте, появятся здесь.",
-    "unavailable": "Не удаётся получить доступ к этому аккаунту",
-    "loadFailed": "Не удалось загрузить эти настройки",
-    "noPreference": "Без предпочтений",
-    "notSet": "Не задано",
-    "groups": {
-      "audioAndSubtitles": "Аудио и субтитры",
-      "libraryDisplay": "Библиотека",
-      "personalMedia": "Личные медиа"
-    },
-    "preferredAudioLanguage": "Предпочитаемый язык аудио",
-    "autoSelectAudio": "Выбирать аудиодорожку по языку",
-    "autoSelectAudioDescription": "В выключенном состоянии используется аудиодорожка, помеченная в файле как дорожка по умолчанию.",
-    "preferredSubtitleLanguage": "Предпочитаемый язык субтитров",
-    "subtitleMode": "Включать субтитры",
-    "subtitleModes": {
-      "none": "Выбор вручную",
-      "noneDescription": "Никогда не включать субтитры автоматически.",
-      "defaultMode": "Следовать флагам дорожки",
-      "defaultModeDescription": "Использовать флаги «по умолчанию» и «принудительная», сохранённые на каждой дорожке субтитров.",
-      "always": "Всегда включены",
-      "alwaysDescription": "Включать дорожку субтитров на предпочитаемом языке, когда такая существует.",
-      "onlyForced": "Только принудительные субтитры",
-      "onlyForcedDescription": "Загружать только дорожки, помеченные как принудительные.",
-      "smart": "Показывать при иноязычном аудио",
-      "smartDescription": "Включать субтитры только когда аудио на другом языке."
-    },
-    "subtitleAccessibility": "Субтитры SDH",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "Предпочитать субтитры без SDH",
-      "preferSdh": "Предпочитать субтитры SDH",
-      "onlySdh": "Только субтитры SDH",
-      "onlyNonSdh": "Только субтитры без SDH"
-    },
-    "forcedSubtitles": "Принудительные субтитры",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "Предпочитать непринудительные субтитры",
-      "preferForced": "Предпочитать принудительные субтитры",
-      "onlyForced": "Только принудительные субтитры",
-      "onlyNonForced": "Только непринудительные субтитры"
-    },
-    "displayMissingEpisodes": "Показывать отсутствующие эпизоды",
-    "displayMissingEpisodesDescription": "Перечислять эпизоды, которые знает сервер, но для которых нет файлов.",
-    "hidePlayedInLatest": "Скрывать просмотренное в «Недавно добавленном»",
-    "hidePlayedInLatestDescription": "Исключать уже просмотренные материалы из рядов «Недавно добавленное» сервера.",
-    "displayCollectionsView": "Показывать раздел «Коллекции»",
-    "displayCollectionsViewDescription": "Показывать раздел коллекций сервера рядом с вашими библиотеками.",
-    "rewatchingInNextUp": "Сохранять пересматриваемые сериалы в «Далее»",
-    "rewatchingInNextUpDescription": "Когда вы досматриваете сериал и начинаете его заново, «Далее» продолжает отслеживать повторный просмотр, а не убирает сериал.",
-    "watchedIndicator": "Индикаторы просмотра",
-    "watchedIndicatorOptions": {
-      "none": "Никогда",
-      "moviesAndShows": "Фильмы и сериалы",
-      "movies": "Только фильмы",
-      "shows": "Только сериалы"
-    },
-    "mediaReviewsVisibility": "Оценки и отзывы",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "Пользователи и критики",
-      "usersOnly": "Только пользователи",
-      "criticsOnly": "Только критики",
-      "nobody": "Скрыто"
-    }
   },
   "discover": {
     "title": "Обзор",
@@ -2457,6 +2386,77 @@
     "redirectDifferentHost": "Сервер перенаправил на другой хост. Введите конечный URL ${product} напрямую.",
     "redirectInsecure": "Сервер перенаправил с HTTPS на небезопасный URL",
     "redirectUnsupportedEnterFinal": "Сервер перенаправил на неподдерживаемый URL. Введите конечный URL ${product} напрямую."
+  },
+  "accountPreferences": {
+    "sectionTitle": "Настройки аккаунта",
+    "hubSubtitleSingle": "Параметры аудио, субтитров и библиотеки сохранены на аккаунте ${account}",
+    "hubSubtitleMultiple": "Параметры аудио, субтитров и библиотеки сохранены на ${count} аккаунтах",
+    "pickAccount": "Каждый аккаунт хранит собственные настройки. Выберите, какой редактировать.",
+    "storedOnAccount": "Эти параметры сохраняются на самом аккаунте, поэтому их используют все приложения, вошедшие в него, — включая Plezy на ваших других устройствах.",
+    "noAccounts": "Нет аккаунтов для настройки",
+    "noAccountsHint": "Войдите в Plex или подключите сервер Jellyfin или Emby — и настройки, сохранённые на этом аккаунте, появятся здесь.",
+    "unavailable": "Не удаётся получить доступ к этому аккаунту",
+    "loadFailed": "Не удалось загрузить эти настройки",
+    "noPreference": "Без предпочтений",
+    "notSet": "Не задано",
+    "groups": {
+      "audioAndSubtitles": "Аудио и субтитры",
+      "libraryDisplay": "Библиотека",
+      "personalMedia": "Личные медиа"
+    },
+    "preferredAudioLanguage": "Предпочитаемый язык аудио",
+    "autoSelectAudio": "Выбирать аудиодорожку по языку",
+    "autoSelectAudioDescription": "В выключенном состоянии используется аудиодорожка, помеченная в файле как дорожка по умолчанию.",
+    "preferredSubtitleLanguage": "Предпочитаемый язык субтитров",
+    "subtitleMode": "Включать субтитры",
+    "subtitleModes": {
+      "none": "Выбор вручную",
+      "noneDescription": "Никогда не включать субтитры автоматически.",
+      "defaultMode": "Следовать флагам дорожки",
+      "defaultModeDescription": "Использовать флаги «по умолчанию» и «принудительная», сохранённые на каждой дорожке субтитров.",
+      "always": "Всегда включены",
+      "alwaysDescription": "Включать дорожку субтитров на предпочитаемом языке, когда такая существует.",
+      "onlyForced": "Только принудительные субтитры",
+      "onlyForcedDescription": "Загружать только дорожки, помеченные как принудительные.",
+      "smart": "Показывать при иноязычном аудио",
+      "smartDescription": "Включать субтитры только когда аудио на другом языке."
+    },
+    "subtitleAccessibility": "Субтитры SDH",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "Предпочитать субтитры без SDH",
+      "preferSdh": "Предпочитать субтитры SDH",
+      "onlySdh": "Только субтитры SDH",
+      "onlyNonSdh": "Только субтитры без SDH"
+    },
+    "forcedSubtitles": "Принудительные субтитры",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "Предпочитать непринудительные субтитры",
+      "preferForced": "Предпочитать принудительные субтитры",
+      "onlyForced": "Только принудительные субтитры",
+      "onlyNonForced": "Только непринудительные субтитры"
+    },
+    "displayMissingEpisodes": "Показывать отсутствующие эпизоды",
+    "displayMissingEpisodesDescription": "Перечислять эпизоды, которые знает сервер, но для которых нет файлов.",
+    "hidePlayedInLatest": "Скрывать просмотренное в «Недавно добавленном»",
+    "hidePlayedInLatestDescription": "Исключать уже просмотренные материалы из рядов «Недавно добавленное» сервера.",
+    "displayCollectionsView": "Показывать раздел «Коллекции»",
+    "displayCollectionsViewDescription": "Показывать раздел коллекций сервера рядом с вашими библиотеками.",
+    "rewatchingInNextUp": "Сохранять пересматриваемые сериалы в «Далее»",
+    "rewatchingInNextUpDescription": "Когда вы досматриваете сериал и начинаете его заново, «Далее» продолжает отслеживать повторный просмотр, а не убирает сериал.",
+    "watchedIndicator": "Индикаторы просмотра",
+    "watchedIndicatorOptions": {
+      "none": "Никогда",
+      "moviesAndShows": "Фильмы и сериалы",
+      "movies": "Только фильмы",
+      "shows": "Только сериалы"
+    },
+    "mediaReviewsVisibility": "Оценки и отзывы",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "Пользователи и критики",
+      "usersOnly": "Только пользователи",
+      "criticsOnly": "Только критики",
+      "nobody": "Скрыто"
+    }
   },
   "appIcon": {
     "title": "",

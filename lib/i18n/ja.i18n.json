@@ -764,7 +764,6 @@
     "pipFailed": "ピクチャーインピクチャーの開始に失敗しました",
     "screenshotSaved": "スクリーンショットを保存しました",
     "zoomPercent": "ズーム ${percent}%",
-    "volumePercent": "音量 ${percent}%",
     "pipErrors": {
       "androidVersion": "Android 8.0以降が必要です",
       "iosVersion": "iOS 15.0以降が必要です",
@@ -796,8 +795,9 @@
     "osdSubtitlesOff": "字幕: オフ",
     "osdSubtitles": "字幕: ${track}",
     "osdAudio": "音声: ${track}",
-    "screenshotFailed": "",
-    "packedStereoSizingLocked": "Can not change while playing 3D source"
+    "volumePercent": "音量 ${percent}%",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "screenshotFailed": ""
   },
   "userStatus": {},
   "messages": {
@@ -1000,77 +1000,6 @@
     "signInAgain": "再度サインイン",
     "editMediaBrowserTitle": "${product}接続を編集",
     "editMediaBrowserIntro": "${serverName}のURLを追加または削除します。Plezyは到達可能なURLのうち、レイテンシーが最も低いものを使用します。"
-  },
-  "accountPreferences": {
-    "sectionTitle": "アカウント設定",
-    "hubSubtitleSingle": "音声・字幕・ライブラリのオプションは${account}に保存されています",
-    "hubSubtitleMultiple": "音声・字幕・ライブラリのオプションは${count}個のアカウントに保存されています",
-    "pickAccount": "各アカウントに独自の設定が保存されています。編集するアカウントを選択してください。",
-    "storedOnAccount": "これらのオプションはアカウント自体に保存されるため、サインインしているすべてのアプリ（他のデバイスのPlezyを含む）で使用されます。",
-    "noAccounts": "設定できるアカウントがありません",
-    "noAccountsHint": "Plexにサインインするか、JellyfinまたはEmbyサーバーに接続すると、そのアカウントに保存された設定がここに表示されます。",
-    "unavailable": "このアカウントにアクセスできません",
-    "loadFailed": "この設定を読み込めませんでした",
-    "noPreference": "指定なし",
-    "notSet": "未設定",
-    "groups": {
-      "audioAndSubtitles": "音声と字幕",
-      "libraryDisplay": "ライブラリ",
-      "personalMedia": "個人メディア"
-    },
-    "preferredAudioLanguage": "優先音声言語",
-    "autoSelectAudio": "言語で音声を選択",
-    "autoSelectAudioDescription": "オフにすると、ファイルでデフォルトとマークされた音声トラックがそのまま使われます。",
-    "preferredSubtitleLanguage": "優先字幕言語",
-    "subtitleMode": "字幕の自動表示",
-    "subtitleModes": {
-      "none": "手動選択",
-      "noneDescription": "自動では字幕をオンにしません。",
-      "defaultMode": "トラックのフラグに従う",
-      "defaultModeDescription": "各字幕トラックに保存されたデフォルトと強制のフラグを使用します。",
-      "always": "常に有効",
-      "alwaysDescription": "優先言語の字幕トラックがあれば、常にオンにします。",
-      "onlyForced": "強制字幕のみ",
-      "onlyForcedDescription": "強制とマークされたトラックのみ読み込みます。",
-      "smart": "外国語音声時に表示",
-      "smartDescription": "音声が別の言語の場合にのみ字幕をオンにします。"
-    },
-    "subtitleAccessibility": "SDH字幕",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "非SDH字幕を優先",
-      "preferSdh": "SDH字幕を優先",
-      "onlySdh": "SDH字幕のみ",
-      "onlyNonSdh": "非SDH字幕のみ"
-    },
-    "forcedSubtitles": "強制字幕",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "非強制字幕を優先",
-      "preferForced": "強制字幕を優先",
-      "onlyForced": "強制字幕のみ",
-      "onlyNonForced": "非強制字幕のみ"
-    },
-    "displayMissingEpisodes": "欠落エピソードを表示",
-    "displayMissingEpisodesDescription": "サーバーが把握しているがファイルがないエピソードを一覧表示します。",
-    "hidePlayedInLatest": "「最新」の視聴済みアイテムを非表示",
-    "hidePlayedInLatestDescription": "すでに視聴したアイテムは、サーバーの「最新」に表示されません。",
-    "displayCollectionsView": "コレクションビューを表示",
-    "displayCollectionsViewDescription": "ライブラリに加えて、サーバーのコレクションビューを表示します。",
-    "rewatchingInNextUp": "再視聴した番組を「次のエピソード」に残す",
-    "rewatchingInNextUpDescription": "番組を見終えた後に再び見始めると、「次のエピソード」は番組を外さずに再視聴に追従します。",
-    "watchedIndicator": "視聴済みマーク",
-    "watchedIndicatorOptions": {
-      "none": "しない",
-      "moviesAndShows": "映画とテレビ番組",
-      "movies": "映画のみ",
-      "shows": "テレビ番組のみ"
-    },
-    "mediaReviewsVisibility": "評価とレビュー",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "ユーザーと批評家",
-      "usersOnly": "ユーザーのみ",
-      "criticsOnly": "批評家のみ",
-      "nobody": "非表示"
-    }
   },
   "discover": {
     "title": "探す",
@@ -2421,6 +2350,77 @@
     "redirectDifferentHost": "サーバーから別のホストにリダイレクトされました。最終的な${product}のURLを直接入力してください。",
     "redirectInsecure": "サーバーからHTTPSではない安全でないURLにリダイレクトされました",
     "redirectUnsupportedEnterFinal": "サーバーからサポートされていないURLにリダイレクトされました。最終的な${product}のURLを直接入力してください。"
+  },
+  "accountPreferences": {
+    "sectionTitle": "アカウント設定",
+    "hubSubtitleSingle": "音声・字幕・ライブラリのオプションは${account}に保存されています",
+    "hubSubtitleMultiple": "音声・字幕・ライブラリのオプションは${count}個のアカウントに保存されています",
+    "pickAccount": "各アカウントに独自の設定が保存されています。編集するアカウントを選択してください。",
+    "storedOnAccount": "これらのオプションはアカウント自体に保存されるため、サインインしているすべてのアプリ（他のデバイスのPlezyを含む）で使用されます。",
+    "noAccounts": "設定できるアカウントがありません",
+    "noAccountsHint": "Plexにサインインするか、JellyfinまたはEmbyサーバーに接続すると、そのアカウントに保存された設定がここに表示されます。",
+    "unavailable": "このアカウントにアクセスできません",
+    "loadFailed": "この設定を読み込めませんでした",
+    "noPreference": "指定なし",
+    "notSet": "未設定",
+    "groups": {
+      "audioAndSubtitles": "音声と字幕",
+      "libraryDisplay": "ライブラリ",
+      "personalMedia": "個人メディア"
+    },
+    "preferredAudioLanguage": "優先音声言語",
+    "autoSelectAudio": "言語で音声を選択",
+    "autoSelectAudioDescription": "オフにすると、ファイルでデフォルトとマークされた音声トラックがそのまま使われます。",
+    "preferredSubtitleLanguage": "優先字幕言語",
+    "subtitleMode": "字幕の自動表示",
+    "subtitleModes": {
+      "none": "手動選択",
+      "noneDescription": "自動では字幕をオンにしません。",
+      "defaultMode": "トラックのフラグに従う",
+      "defaultModeDescription": "各字幕トラックに保存されたデフォルトと強制のフラグを使用します。",
+      "always": "常に有効",
+      "alwaysDescription": "優先言語の字幕トラックがあれば、常にオンにします。",
+      "onlyForced": "強制字幕のみ",
+      "onlyForcedDescription": "強制とマークされたトラックのみ読み込みます。",
+      "smart": "外国語音声時に表示",
+      "smartDescription": "音声が別の言語の場合にのみ字幕をオンにします。"
+    },
+    "subtitleAccessibility": "SDH字幕",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "非SDH字幕を優先",
+      "preferSdh": "SDH字幕を優先",
+      "onlySdh": "SDH字幕のみ",
+      "onlyNonSdh": "非SDH字幕のみ"
+    },
+    "forcedSubtitles": "強制字幕",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "非強制字幕を優先",
+      "preferForced": "強制字幕を優先",
+      "onlyForced": "強制字幕のみ",
+      "onlyNonForced": "非強制字幕のみ"
+    },
+    "displayMissingEpisodes": "欠落エピソードを表示",
+    "displayMissingEpisodesDescription": "サーバーが把握しているがファイルがないエピソードを一覧表示します。",
+    "hidePlayedInLatest": "「最新」の視聴済みアイテムを非表示",
+    "hidePlayedInLatestDescription": "すでに視聴したアイテムは、サーバーの「最新」に表示されません。",
+    "displayCollectionsView": "コレクションビューを表示",
+    "displayCollectionsViewDescription": "ライブラリに加えて、サーバーのコレクションビューを表示します。",
+    "rewatchingInNextUp": "再視聴した番組を「次のエピソード」に残す",
+    "rewatchingInNextUpDescription": "番組を見終えた後に再び見始めると、「次のエピソード」は番組を外さずに再視聴に追従します。",
+    "watchedIndicator": "視聴済みマーク",
+    "watchedIndicatorOptions": {
+      "none": "しない",
+      "moviesAndShows": "映画とテレビ番組",
+      "movies": "映画のみ",
+      "shows": "テレビ番組のみ"
+    },
+    "mediaReviewsVisibility": "評価とレビュー",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "ユーザーと批評家",
+      "usersOnly": "ユーザーのみ",
+      "criticsOnly": "批評家のみ",
+      "nobody": "非表示"
+    }
   },
   "appIcon": {
     "title": "",

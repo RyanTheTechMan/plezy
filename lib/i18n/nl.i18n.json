@@ -767,7 +767,6 @@
     "pipFailed": "Beeld-in-beeld kon niet worden gestart",
     "screenshotSaved": "Schermafbeelding opgeslagen",
     "zoomPercent": "Zoom ${percent}%",
-    "volumePercent": "Volume ${percent}%",
     "pipErrors": {
       "androidVersion": "Vereist Android 8.0 of nieuwer",
       "iosVersion": "Vereist iOS 15.0 of nieuwer",
@@ -799,8 +798,9 @@
     "osdSubtitlesOff": "Ondertitels: uit",
     "osdSubtitles": "Ondertitels: ${track}",
     "osdAudio": "Audio: ${track}",
-    "screenshotFailed": "",
-    "packedStereoSizingLocked": "Can not change while playing 3D source"
+    "volumePercent": "Volume ${percent}%",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "screenshotFailed": ""
   },
   "userStatus": {},
   "messages": {
@@ -1004,77 +1004,6 @@
     "signInAgain": "Opnieuw aanmelden",
     "editMediaBrowserTitle": "${product}-verbinding bewerken",
     "editMediaBrowserIntro": "Voeg URL's toe aan ${serverName} of verwijder ze. Plezy gebruikt de bereikbare URL met de laagste latentie."
-  },
-  "accountPreferences": {
-    "sectionTitle": "Accountvoorkeuren",
-    "hubSubtitleSingle": "Audio-, ondertitel- en bibliotheekopties opgeslagen op ${account}",
-    "hubSubtitleMultiple": "Audio-, ondertitel- en bibliotheekopties opgeslagen op ${count} accounts",
-    "pickAccount": "Elk account slaat zijn eigen voorkeuren op. Kies het account dat je wilt bewerken.",
-    "storedOnAccount": "Deze opties worden op het account zelf opgeslagen, zodat elke app die ermee is aangemeld ze gebruikt — ook Plezy op je andere apparaten.",
-    "noAccounts": "Geen accounts om te configureren",
-    "noAccountsHint": "Log in bij Plex of verbind een Jellyfin- of Emby-server en de voorkeuren die op dat account zijn opgeslagen, verschijnen hier.",
-    "unavailable": "Dit account is niet bereikbaar",
-    "loadFailed": "Deze voorkeuren konden niet worden geladen",
-    "noPreference": "Geen voorkeur",
-    "notSet": "Niet ingesteld",
-    "groups": {
-      "audioAndSubtitles": "Audio en ondertitels",
-      "libraryDisplay": "Bibliotheek",
-      "personalMedia": "Persoonlijke media"
-    },
-    "preferredAudioLanguage": "Voorkeurstaal voor audio",
-    "autoSelectAudio": "Kies audio op taal",
-    "autoSelectAudioDescription": "Bij 'Uit' wordt de audiotrack gebruikt die het bestand als standaard markeert.",
-    "preferredSubtitleLanguage": "Voorkeurstaal voor ondertitels",
-    "subtitleMode": "Ondertitels inschakelen",
-    "subtitleModes": {
-      "none": "Handmatig geselecteerd",
-      "noneDescription": "Schakel ondertitels nooit automatisch in.",
-      "defaultMode": "Trackvlaggen volgen",
-      "defaultModeDescription": "Gebruik de standaard- en geforceerde vlaggen die op elke ondertiteltrack zijn opgeslagen.",
-      "always": "Altijd ingeschakeld",
-      "alwaysDescription": "Schakel een ondertiteltrack in de voorkeurstaal in zodra er een beschikbaar is.",
-      "onlyForced": "Alleen geforceerde ondertitels",
-      "onlyForcedDescription": "Laad alleen de tracks die als geforceerd zijn gemarkeerd.",
-      "smart": "Weergeven bij anderstalig geluid",
-      "smartDescription": "Schakel ondertitels alleen in wanneer de audio in een andere taal is."
-    },
-    "subtitleAccessibility": "SDH-ondertitels",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "Voorkeur voor niet-SDH-ondertitels",
-      "preferSdh": "Voorkeur voor SDH-ondertitels",
-      "onlySdh": "Alleen SDH-ondertitels",
-      "onlyNonSdh": "Alleen niet-SDH-ondertitels"
-    },
-    "forcedSubtitles": "Geforceerde ondertitels",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "Voorkeur voor niet-geforceerde ondertitels",
-      "preferForced": "Voorkeur voor geforceerde ondertitels",
-      "onlyForced": "Alleen geforceerde ondertitels",
-      "onlyNonForced": "Alleen niet-geforceerde ondertitels"
-    },
-    "displayMissingEpisodes": "Ontbrekende afleveringen tonen",
-    "displayMissingEpisodesDescription": "Toon afleveringen die de server kent maar waarvoor geen bestand aanwezig is.",
-    "hidePlayedInLatest": "Bekeken items verbergen in 'Nieuwste'",
-    "hidePlayedInLatestDescription": "Laat items die je al hebt bekeken buiten de 'Nieuwste'-rijen van de server.",
-    "displayCollectionsView": "Collecties-weergave tonen",
-    "displayCollectionsViewDescription": "Bied de collecties-weergave van de server naast je bibliotheken aan.",
-    "rewatchingInNextUp": "Opnieuw bekeken series in 'Volgende' houden",
-    "rewatchingInNextUpDescription": "Als je een serie afrondt en opnieuw start, blijft 'Volgende' de herkijk volgen in plaats van de serie te laten vallen.",
-    "watchedIndicator": "Bekeken-indicatoren",
-    "watchedIndicatorOptions": {
-      "none": "Nooit",
-      "moviesAndShows": "Films en tv-series",
-      "movies": "Alleen films",
-      "shows": "Alleen tv-series"
-    },
-    "mediaReviewsVisibility": "Beoordelingen en recensies",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "Gebruikers en critici",
-      "usersOnly": "Alleen gebruikers",
-      "criticsOnly": "Alleen critici",
-      "nobody": "Verborgen"
-    }
   },
   "discover": {
     "title": "Ontdekken",
@@ -2433,6 +2362,77 @@
     "redirectDifferentHost": "De server heeft doorgestuurd naar een andere host. Voer de uiteindelijke ${product}-URL rechtstreeks in.",
     "redirectInsecure": "De server heeft van HTTPS doorgestuurd naar een onbeveiligde URL",
     "redirectUnsupportedEnterFinal": "De server heeft doorgestuurd naar een niet-ondersteunde URL. Voer de uiteindelijke ${product}-URL rechtstreeks in."
+  },
+  "accountPreferences": {
+    "sectionTitle": "Accountvoorkeuren",
+    "hubSubtitleSingle": "Audio-, ondertitel- en bibliotheekopties opgeslagen op ${account}",
+    "hubSubtitleMultiple": "Audio-, ondertitel- en bibliotheekopties opgeslagen op ${count} accounts",
+    "pickAccount": "Elk account slaat zijn eigen voorkeuren op. Kies het account dat je wilt bewerken.",
+    "storedOnAccount": "Deze opties worden op het account zelf opgeslagen, zodat elke app die ermee is aangemeld ze gebruikt — ook Plezy op je andere apparaten.",
+    "noAccounts": "Geen accounts om te configureren",
+    "noAccountsHint": "Log in bij Plex of verbind een Jellyfin- of Emby-server en de voorkeuren die op dat account zijn opgeslagen, verschijnen hier.",
+    "unavailable": "Dit account is niet bereikbaar",
+    "loadFailed": "Deze voorkeuren konden niet worden geladen",
+    "noPreference": "Geen voorkeur",
+    "notSet": "Niet ingesteld",
+    "groups": {
+      "audioAndSubtitles": "Audio en ondertitels",
+      "libraryDisplay": "Bibliotheek",
+      "personalMedia": "Persoonlijke media"
+    },
+    "preferredAudioLanguage": "Voorkeurstaal voor audio",
+    "autoSelectAudio": "Kies audio op taal",
+    "autoSelectAudioDescription": "Bij 'Uit' wordt de audiotrack gebruikt die het bestand als standaard markeert.",
+    "preferredSubtitleLanguage": "Voorkeurstaal voor ondertitels",
+    "subtitleMode": "Ondertitels inschakelen",
+    "subtitleModes": {
+      "none": "Handmatig geselecteerd",
+      "noneDescription": "Schakel ondertitels nooit automatisch in.",
+      "defaultMode": "Trackvlaggen volgen",
+      "defaultModeDescription": "Gebruik de standaard- en geforceerde vlaggen die op elke ondertiteltrack zijn opgeslagen.",
+      "always": "Altijd ingeschakeld",
+      "alwaysDescription": "Schakel een ondertiteltrack in de voorkeurstaal in zodra er een beschikbaar is.",
+      "onlyForced": "Alleen geforceerde ondertitels",
+      "onlyForcedDescription": "Laad alleen de tracks die als geforceerd zijn gemarkeerd.",
+      "smart": "Weergeven bij anderstalig geluid",
+      "smartDescription": "Schakel ondertitels alleen in wanneer de audio in een andere taal is."
+    },
+    "subtitleAccessibility": "SDH-ondertitels",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "Voorkeur voor niet-SDH-ondertitels",
+      "preferSdh": "Voorkeur voor SDH-ondertitels",
+      "onlySdh": "Alleen SDH-ondertitels",
+      "onlyNonSdh": "Alleen niet-SDH-ondertitels"
+    },
+    "forcedSubtitles": "Geforceerde ondertitels",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "Voorkeur voor niet-geforceerde ondertitels",
+      "preferForced": "Voorkeur voor geforceerde ondertitels",
+      "onlyForced": "Alleen geforceerde ondertitels",
+      "onlyNonForced": "Alleen niet-geforceerde ondertitels"
+    },
+    "displayMissingEpisodes": "Ontbrekende afleveringen tonen",
+    "displayMissingEpisodesDescription": "Toon afleveringen die de server kent maar waarvoor geen bestand aanwezig is.",
+    "hidePlayedInLatest": "Bekeken items verbergen in 'Nieuwste'",
+    "hidePlayedInLatestDescription": "Laat items die je al hebt bekeken buiten de 'Nieuwste'-rijen van de server.",
+    "displayCollectionsView": "Collecties-weergave tonen",
+    "displayCollectionsViewDescription": "Bied de collecties-weergave van de server naast je bibliotheken aan.",
+    "rewatchingInNextUp": "Opnieuw bekeken series in 'Volgende' houden",
+    "rewatchingInNextUpDescription": "Als je een serie afrondt en opnieuw start, blijft 'Volgende' de herkijk volgen in plaats van de serie te laten vallen.",
+    "watchedIndicator": "Bekeken-indicatoren",
+    "watchedIndicatorOptions": {
+      "none": "Nooit",
+      "moviesAndShows": "Films en tv-series",
+      "movies": "Alleen films",
+      "shows": "Alleen tv-series"
+    },
+    "mediaReviewsVisibility": "Beoordelingen en recensies",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "Gebruikers en critici",
+      "usersOnly": "Alleen gebruikers",
+      "criticsOnly": "Alleen critici",
+      "nobody": "Verborgen"
+    }
   },
   "appIcon": {
     "title": "",

@@ -767,7 +767,6 @@
     "pipFailed": "Режимът картина в картината не успя да стартира",
     "screenshotSaved": "Екранната снимка е запазена",
     "zoomPercent": "Мащаб ${percent}%",
-    "volumePercent": "Звук ${percent}%",
     "pipErrors": {
       "androidVersion": "Изисква Android 8.0 или по-нова версия",
       "iosVersion": "Изисква iOS 15.0 или по-нова версия",
@@ -799,8 +798,9 @@
     "osdSubtitlesOff": "Субтитри: изкл.",
     "osdSubtitles": "Субтитри: ${track}",
     "osdAudio": "Аудио: ${track}",
-    "screenshotFailed": "",
-    "packedStereoSizingLocked": "Can not change while playing 3D source"
+    "volumePercent": "Звук ${percent}%",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "screenshotFailed": ""
   },
   "userStatus": {},
   "messages": {
@@ -1004,77 +1004,6 @@
     "signInAgain": "Влез отново",
     "editMediaBrowserTitle": "Редактирай връзката с ${product}",
     "editMediaBrowserIntro": "Добавете или премахнете URL адреси за ${serverName}. Plezy ще използва достъпния URL адрес с най-ниска латентност."
-  },
-  "accountPreferences": {
-    "sectionTitle": "Предпочитания на акаунта",
-    "hubSubtitleSingle": "Опции за аудио, субтитри и библиотека, запазени на ${account}",
-    "hubSubtitleMultiple": "Опции за аудио, субтитри и библиотека, запазени на ${count} акаунта",
-    "pickAccount": "Всеки акаунт съхранява собствени предпочитания. Изберете кой да редактирате.",
-    "storedOnAccount": "Тези опции се запазват на самия акаунт, така че всяко приложение, вписано в него, ги използва — включително Plezy на другите ви устройства.",
-    "noAccounts": "Няма акаунти за настройка",
-    "noAccountsHint": "Влезте в Plex или свържете Jellyfin или Emby сървър и предпочитанията, запазени на този акаунт, ще се появят тук.",
-    "unavailable": "Акаунтът не може да бъде достигнат",
-    "loadFailed": "Предпочитанията не можаха да бъдат заредени",
-    "noPreference": "Без предпочитание",
-    "notSet": "Не е зададено",
-    "groups": {
-      "audioAndSubtitles": "Аудио и субтитри",
-      "libraryDisplay": "Библиотека",
-      "personalMedia": "Лична медия"
-    },
-    "preferredAudioLanguage": "Предпочитан аудио език",
-    "autoSelectAudio": "Избирай аудио по език",
-    "autoSelectAudioDescription": "При изключено се запазва аудиопътечката, която файлът маркира като подразбираща се.",
-    "preferredSubtitleLanguage": "Предпочитан език за субтитри",
-    "subtitleMode": "Включване на субтитри",
-    "subtitleModes": {
-      "none": "Ръчно избрани",
-      "noneDescription": "Никога не включвай субтитри автоматично.",
-      "defaultMode": "Следвай флаговете на пътечката",
-      "defaultModeDescription": "Използвай флаговете по подразбиране и принудителните, съхранени на всяка пътечка със субтитри.",
-      "always": "Винаги включени",
-      "alwaysDescription": "Включвай пътечка със субтитри на предпочитания език, когато има такава.",
-      "onlyForced": "Само принудителни субтитри",
-      "onlyForcedDescription": "Зареждай само пътечките, маркирани като принудителни.",
-      "smart": "Показване при чуждоезично аудио",
-      "smartDescription": "Включвай субтитри само когато аудиото е на друг език."
-    },
-    "subtitleAccessibility": "SDH субтитри",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "Предпочитай субтитри без SDH",
-      "preferSdh": "Предпочитай SDH субтитри",
-      "onlySdh": "Само SDH субтитри",
-      "onlyNonSdh": "Само субтитри без SDH"
-    },
-    "forcedSubtitles": "Принудителни субтитри",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "Предпочитай субтитри без принудителни",
-      "preferForced": "Предпочитай принудителни субтитри",
-      "onlyForced": "Само принудителни субтитри",
-      "onlyNonForced": "Само субтитри без принудителни"
-    },
-    "displayMissingEpisodes": "Показвай липсващи епизоди",
-    "displayMissingEpisodesDescription": "Изброявай епизоди, за които сървърът знае, но няма файл.",
-    "hidePlayedInLatest": "Скривай изгледаните елементи в „Последни“",
-    "hidePlayedInLatestDescription": "Не включвай вече изгледаните елементи в редовете „Последни“ на сървъра.",
-    "displayCollectionsView": "Показвай изгледа „Колекции“",
-    "displayCollectionsViewDescription": "Предлагай изгледа „Колекции“ на сървъра редом с библиотеките ви.",
-    "rewatchingInNextUp": "Запазвай повторно гледаните сериали в „Следва“",
-    "rewatchingInNextUpDescription": "Когато завършите сериал и го пуснете отново, „Следва“ проследява повторното гледане, вместо да премахва сериала.",
-    "watchedIndicator": "Индикатори за изгледано",
-    "watchedIndicatorOptions": {
-      "none": "Никога",
-      "moviesAndShows": "Филми и ТВ сериали",
-      "movies": "Само филми",
-      "shows": "Само ТВ сериали"
-    },
-    "mediaReviewsVisibility": "Оценки и ревюта",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "Потребители и критици",
-      "usersOnly": "Само потребители",
-      "criticsOnly": "Само критици",
-      "nobody": "Скрити"
-    }
   },
   "discover": {
     "title": "Открий",
@@ -2433,6 +2362,77 @@
     "redirectDifferentHost": "Сървърът пренасочи към друг хост. Въведете директно крайния URL на ${product}.",
     "redirectInsecure": "Сървърът пренасочи от HTTPS към незащитен URL",
     "redirectUnsupportedEnterFinal": "Сървърът пренасочи към неподдържан URL. Въведете директно крайния URL на ${product}."
+  },
+  "accountPreferences": {
+    "sectionTitle": "Предпочитания на акаунта",
+    "hubSubtitleSingle": "Опции за аудио, субтитри и библиотека, запазени на ${account}",
+    "hubSubtitleMultiple": "Опции за аудио, субтитри и библиотека, запазени на ${count} акаунта",
+    "pickAccount": "Всеки акаунт съхранява собствени предпочитания. Изберете кой да редактирате.",
+    "storedOnAccount": "Тези опции се запазват на самия акаунт, така че всяко приложение, вписано в него, ги използва — включително Plezy на другите ви устройства.",
+    "noAccounts": "Няма акаунти за настройка",
+    "noAccountsHint": "Влезте в Plex или свържете Jellyfin или Emby сървър и предпочитанията, запазени на този акаунт, ще се появят тук.",
+    "unavailable": "Акаунтът не може да бъде достигнат",
+    "loadFailed": "Предпочитанията не можаха да бъдат заредени",
+    "noPreference": "Без предпочитание",
+    "notSet": "Не е зададено",
+    "groups": {
+      "audioAndSubtitles": "Аудио и субтитри",
+      "libraryDisplay": "Библиотека",
+      "personalMedia": "Лична медия"
+    },
+    "preferredAudioLanguage": "Предпочитан аудио език",
+    "autoSelectAudio": "Избирай аудио по език",
+    "autoSelectAudioDescription": "При изключено се запазва аудиопътечката, която файлът маркира като подразбираща се.",
+    "preferredSubtitleLanguage": "Предпочитан език за субтитри",
+    "subtitleMode": "Включване на субтитри",
+    "subtitleModes": {
+      "none": "Ръчно избрани",
+      "noneDescription": "Никога не включвай субтитри автоматично.",
+      "defaultMode": "Следвай флаговете на пътечката",
+      "defaultModeDescription": "Използвай флаговете по подразбиране и принудителните, съхранени на всяка пътечка със субтитри.",
+      "always": "Винаги включени",
+      "alwaysDescription": "Включвай пътечка със субтитри на предпочитания език, когато има такава.",
+      "onlyForced": "Само принудителни субтитри",
+      "onlyForcedDescription": "Зареждай само пътечките, маркирани като принудителни.",
+      "smart": "Показване при чуждоезично аудио",
+      "smartDescription": "Включвай субтитри само когато аудиото е на друг език."
+    },
+    "subtitleAccessibility": "SDH субтитри",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "Предпочитай субтитри без SDH",
+      "preferSdh": "Предпочитай SDH субтитри",
+      "onlySdh": "Само SDH субтитри",
+      "onlyNonSdh": "Само субтитри без SDH"
+    },
+    "forcedSubtitles": "Принудителни субтитри",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "Предпочитай субтитри без принудителни",
+      "preferForced": "Предпочитай принудителни субтитри",
+      "onlyForced": "Само принудителни субтитри",
+      "onlyNonForced": "Само субтитри без принудителни"
+    },
+    "displayMissingEpisodes": "Показвай липсващи епизоди",
+    "displayMissingEpisodesDescription": "Изброявай епизоди, за които сървърът знае, но няма файл.",
+    "hidePlayedInLatest": "Скривай изгледаните елементи в „Последни“",
+    "hidePlayedInLatestDescription": "Не включвай вече изгледаните елементи в редовете „Последни“ на сървъра.",
+    "displayCollectionsView": "Показвай изгледа „Колекции“",
+    "displayCollectionsViewDescription": "Предлагай изгледа „Колекции“ на сървъра редом с библиотеките ви.",
+    "rewatchingInNextUp": "Запазвай повторно гледаните сериали в „Следва“",
+    "rewatchingInNextUpDescription": "Когато завършите сериал и го пуснете отново, „Следва“ проследява повторното гледане, вместо да премахва сериала.",
+    "watchedIndicator": "Индикатори за изгледано",
+    "watchedIndicatorOptions": {
+      "none": "Никога",
+      "moviesAndShows": "Филми и ТВ сериали",
+      "movies": "Само филми",
+      "shows": "Само ТВ сериали"
+    },
+    "mediaReviewsVisibility": "Оценки и ревюта",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "Потребители и критици",
+      "usersOnly": "Само потребители",
+      "criticsOnly": "Само критици",
+      "nobody": "Скрити"
+    }
   },
   "appIcon": {
     "title": "",

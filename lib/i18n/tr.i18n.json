@@ -767,7 +767,6 @@
     "pipFailed": "Pencere içinde pencere modu başlatılamadı",
     "screenshotSaved": "Ekran görüntüsü kaydedildi",
     "zoomPercent": "Yakınlaştırma %${percent}",
-    "volumePercent": "Ses %${percent}",
     "pipErrors": {
       "androidVersion": "Android 8.0 veya daha yenisini gerektirir",
       "iosVersion": "iOS 15.0 veya daha yenisini gerektirir",
@@ -799,8 +798,9 @@
     "osdSubtitlesOff": "Altyazı: Kapalı",
     "osdSubtitles": "Altyazı: ${track}",
     "osdAudio": "Ses: ${track}",
-    "screenshotFailed": "",
-    "packedStereoSizingLocked": "Can not change while playing 3D source"
+    "volumePercent": "Ses %${percent}",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "screenshotFailed": ""
   },
   "userStatus": {},
   "messages": {
@@ -1004,77 +1004,6 @@
     "signInAgain": "Tekrar giriş yap",
     "editMediaBrowserTitle": "${product} bağlantısını düzenle",
     "editMediaBrowserIntro": "${serverName} için URL ekleyin veya kaldırın. Plezy, erişilebilir olan en düşük gecikmeli URL'yi kullanacak."
-  },
-  "accountPreferences": {
-    "sectionTitle": "Hesap tercihleri",
-    "hubSubtitleSingle": "Ses, altyazı ve kitaplık seçenekleri ${account} hesabına kaydedildi",
-    "hubSubtitleMultiple": "Ses, altyazı ve kitaplık seçenekleri ${count} hesaba kaydedildi",
-    "pickAccount": "Her hesap kendi tercihlerini saklar. Düzenlemek için birini seçin.",
-    "storedOnAccount": "Bu seçenekler hesabın kendisine kaydedilir; böylece hesaba giriş yapan her uygulama bunları kullanır — diğer cihazlarınızdaki Plezy dahil.",
-    "noAccounts": "Yapılandırılacak hesap yok",
-    "noAccountsHint": "Plex'e giriş yapın veya bir Jellyfin ya da Emby sunucusu bağlayın; o hesapta saklanan tercihler burada görünür.",
-    "unavailable": "Bu hesaba ulaşılamıyor",
-    "loadFailed": "Bu tercihler yüklenemedi",
-    "noPreference": "Tercih yok",
-    "notSet": "Ayarlanmadı",
-    "groups": {
-      "audioAndSubtitles": "Ses ve altyazılar",
-      "libraryDisplay": "Kitaplık",
-      "personalMedia": "Kişisel medya"
-    },
-    "preferredAudioLanguage": "Tercih Edilen Ses Dili",
-    "autoSelectAudio": "Sesi dile göre seç",
-    "autoSelectAudioDescription": "Kapalıyken dosyanın varsayılan olarak işaretlediği ses parçası kullanılır.",
-    "preferredSubtitleLanguage": "Tercih Edilen Altyazı Dili",
-    "subtitleMode": "Altyazıları aç",
-    "subtitleModes": {
-      "none": "Elle seçilir",
-      "noneDescription": "Altyazıları kendiliğinden asla açma.",
-      "defaultMode": "Parça bayraklarını izle",
-      "defaultModeDescription": "Her altyazı parçasında saklanan varsayılan ve zorunlu bayrakları kullan.",
-      "always": "Her zaman açık",
-      "alwaysDescription": "Bir altyazı parçası varsa, tercih edilen dilde her zaman aç.",
-      "onlyForced": "Yalnızca zorunlu altyazılar",
-      "onlyForcedDescription": "Yalnızca zorunlu olarak işaretlenen parçaları yükle.",
-      "smart": "Yabancı sesle gösterilen",
-      "smartDescription": "Altyazıları yalnızca ses başka bir dildeyken aç."
-    },
-    "subtitleAccessibility": "SDH altyazılar",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "SDH olmayan altyazıları tercih et",
-      "preferSdh": "SDH altyazıları tercih et",
-      "onlySdh": "Yalnızca SDH altyazılar",
-      "onlyNonSdh": "Yalnızca SDH olmayan altyazılar"
-    },
-    "forcedSubtitles": "Zorunlu altyazılar",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "Zorunlu olmayan altyazıları tercih et",
-      "preferForced": "Zorunlu altyazıları tercih et",
-      "onlyForced": "Yalnızca zorunlu altyazılar",
-      "onlyNonForced": "Yalnızca zorunlu olmayan altyazılar"
-    },
-    "displayMissingEpisodes": "Eksik bölümleri göster",
-    "displayMissingEpisodesDescription": "Sunucunun bildiği ancak dosyası olmayan bölümleri listele.",
-    "hidePlayedInLatest": "Son Eklenenler'de izlenen ögeleri gizle",
-    "hidePlayedInLatestDescription": "Sunucunun Son Eklenenler satırlarında daha önce izlediğiniz ögeleri gösterme.",
-    "displayCollectionsView": "Koleksiyonlar görünümünü göster",
-    "displayCollectionsViewDescription": "Sunucunun Koleksiyonlar görünümünü kitaplıklarınızın yanında sunun.",
-    "rewatchingInNextUp": "Tekrar izlenen dizileri Sıradaki'de tut",
-    "rewatchingInNextUpDescription": "Bir diziyi bitirip tekrar başlattığınızda, Sıradaki diziyi bırakmak yerine tekrar izlemeyi takip eder.",
-    "watchedIndicator": "İzlenme göstergeleri",
-    "watchedIndicatorOptions": {
-      "none": "Asla",
-      "moviesAndShows": "Filmler ve TV dizileri",
-      "movies": "Yalnızca filmler",
-      "shows": "Yalnızca TV dizileri"
-    },
-    "mediaReviewsVisibility": "Puanlar ve yorumlar",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "Kullanıcılar ve eleştirmenler",
-      "usersOnly": "Yalnızca kullanıcılar",
-      "criticsOnly": "Yalnızca eleştirmenler",
-      "nobody": "Gizli"
-    }
   },
   "discover": {
     "title": "Keşfet",
@@ -2433,6 +2362,77 @@
     "redirectDifferentHost": "Sunucu farklı bir ana makineye yönlendirdi. Nihai ${product} URL'sini doğrudan girin.",
     "redirectInsecure": "Sunucu HTTPS'den güvenli olmayan bir URL'ye yönlendirdi",
     "redirectUnsupportedEnterFinal": "Sunucu desteklenmeyen bir URL'ye yönlendirdi. Nihai ${product} URL'sini doğrudan girin."
+  },
+  "accountPreferences": {
+    "sectionTitle": "Hesap tercihleri",
+    "hubSubtitleSingle": "Ses, altyazı ve kitaplık seçenekleri ${account} hesabına kaydedildi",
+    "hubSubtitleMultiple": "Ses, altyazı ve kitaplık seçenekleri ${count} hesaba kaydedildi",
+    "pickAccount": "Her hesap kendi tercihlerini saklar. Düzenlemek için birini seçin.",
+    "storedOnAccount": "Bu seçenekler hesabın kendisine kaydedilir; böylece hesaba giriş yapan her uygulama bunları kullanır — diğer cihazlarınızdaki Plezy dahil.",
+    "noAccounts": "Yapılandırılacak hesap yok",
+    "noAccountsHint": "Plex'e giriş yapın veya bir Jellyfin ya da Emby sunucusu bağlayın; o hesapta saklanan tercihler burada görünür.",
+    "unavailable": "Bu hesaba ulaşılamıyor",
+    "loadFailed": "Bu tercihler yüklenemedi",
+    "noPreference": "Tercih yok",
+    "notSet": "Ayarlanmadı",
+    "groups": {
+      "audioAndSubtitles": "Ses ve altyazılar",
+      "libraryDisplay": "Kitaplık",
+      "personalMedia": "Kişisel medya"
+    },
+    "preferredAudioLanguage": "Tercih Edilen Ses Dili",
+    "autoSelectAudio": "Sesi dile göre seç",
+    "autoSelectAudioDescription": "Kapalıyken dosyanın varsayılan olarak işaretlediği ses parçası kullanılır.",
+    "preferredSubtitleLanguage": "Tercih Edilen Altyazı Dili",
+    "subtitleMode": "Altyazıları aç",
+    "subtitleModes": {
+      "none": "Elle seçilir",
+      "noneDescription": "Altyazıları kendiliğinden asla açma.",
+      "defaultMode": "Parça bayraklarını izle",
+      "defaultModeDescription": "Her altyazı parçasında saklanan varsayılan ve zorunlu bayrakları kullan.",
+      "always": "Her zaman açık",
+      "alwaysDescription": "Bir altyazı parçası varsa, tercih edilen dilde her zaman aç.",
+      "onlyForced": "Yalnızca zorunlu altyazılar",
+      "onlyForcedDescription": "Yalnızca zorunlu olarak işaretlenen parçaları yükle.",
+      "smart": "Yabancı sesle gösterilen",
+      "smartDescription": "Altyazıları yalnızca ses başka bir dildeyken aç."
+    },
+    "subtitleAccessibility": "SDH altyazılar",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "SDH olmayan altyazıları tercih et",
+      "preferSdh": "SDH altyazıları tercih et",
+      "onlySdh": "Yalnızca SDH altyazılar",
+      "onlyNonSdh": "Yalnızca SDH olmayan altyazılar"
+    },
+    "forcedSubtitles": "Zorunlu altyazılar",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "Zorunlu olmayan altyazıları tercih et",
+      "preferForced": "Zorunlu altyazıları tercih et",
+      "onlyForced": "Yalnızca zorunlu altyazılar",
+      "onlyNonForced": "Yalnızca zorunlu olmayan altyazılar"
+    },
+    "displayMissingEpisodes": "Eksik bölümleri göster",
+    "displayMissingEpisodesDescription": "Sunucunun bildiği ancak dosyası olmayan bölümleri listele.",
+    "hidePlayedInLatest": "Son Eklenenler'de izlenen ögeleri gizle",
+    "hidePlayedInLatestDescription": "Sunucunun Son Eklenenler satırlarında daha önce izlediğiniz ögeleri gösterme.",
+    "displayCollectionsView": "Koleksiyonlar görünümünü göster",
+    "displayCollectionsViewDescription": "Sunucunun Koleksiyonlar görünümünü kitaplıklarınızın yanında sunun.",
+    "rewatchingInNextUp": "Tekrar izlenen dizileri Sıradaki'de tut",
+    "rewatchingInNextUpDescription": "Bir diziyi bitirip tekrar başlattığınızda, Sıradaki diziyi bırakmak yerine tekrar izlemeyi takip eder.",
+    "watchedIndicator": "İzlenme göstergeleri",
+    "watchedIndicatorOptions": {
+      "none": "Asla",
+      "moviesAndShows": "Filmler ve TV dizileri",
+      "movies": "Yalnızca filmler",
+      "shows": "Yalnızca TV dizileri"
+    },
+    "mediaReviewsVisibility": "Puanlar ve yorumlar",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "Kullanıcılar ve eleştirmenler",
+      "usersOnly": "Yalnızca kullanıcılar",
+      "criticsOnly": "Yalnızca eleştirmenler",
+      "nobody": "Gizli"
+    }
   },
   "appIcon": {
     "title": "",

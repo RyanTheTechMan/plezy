@@ -767,7 +767,6 @@
     "pipFailed": "PiP rejimini ishga tushirishda xatolik",
     "screenshotSaved": "Ekran tasviri saqlandi",
     "zoomPercent": "Masshtab %${percent}",
-    "volumePercent": "Ovoz ${percent}%",
     "pipErrors": {
       "androidVersion": "Android 8.0 yoki undan yangisi talab qilinadi",
       "iosVersion": "iOS 15.0 yoki undan yangisi talab qilinadi",
@@ -799,8 +798,9 @@
     "osdSubtitlesOff": "Subtitr: Oʻchirilgan",
     "osdSubtitles": "Subtitr: ${track}",
     "osdAudio": "Ovoz: ${track}",
-    "screenshotFailed": "",
-    "packedStereoSizingLocked": "Can not change while playing 3D source"
+    "volumePercent": "Ovoz ${percent}%",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "screenshotFailed": ""
   },
   "userStatus": {},
   "messages": {
@@ -1004,77 +1004,6 @@
     "signInAgain": "Qaytadan kirish",
     "editMediaBrowserTitle": "${product} ulanishini tahrirlash",
     "editMediaBrowserIntro": "${serverName} uchun URL-larni qoʻshing yoki olib tashlang. Plezy eng kam kechikishga ega boʻlgan mavjud URL-dan foydalanadi."
-  },
-  "accountPreferences": {
-    "sectionTitle": "Hisob sozlamalari",
-    "hubSubtitleSingle": "${account} hisobida saqlangan audio, subtitr va kutubxona parametrlari",
-    "hubSubtitleMultiple": "${count} ta hisobda saqlangan audio, subtitr va kutubxona parametrlari",
-    "pickAccount": "Har bir hisob oʻz sozlamalarini saqlaydi. Tahrirlash uchun birini tanlang.",
-    "storedOnAccount": "Bu parametrlar hisobning oʻzida saqlanadi — unga kirilgan har bir ilova ulardan foydalanadi, jumladan boshqa qurilmalaringizdagi Plezy ham.",
-    "noAccounts": "Sozlanadigan hisoblar yoʻq",
-    "noAccountsHint": "Plex-ga kiring yoki Jellyfin yoki Emby serverini ulang — shunda oʻsha hisobda saqlangan sozlamalar shu yerda koʻrinadi.",
-    "unavailable": "Bu hisobga ulanib boʻlmadi",
-    "loadFailed": "Bu sozlamalarni yuklab boʻlmadi",
-    "noPreference": "Afzallik yoʻq",
-    "notSet": "Oʻrnatilmagan",
-    "groups": {
-      "audioAndSubtitles": "Audio va subtitrlar",
-      "libraryDisplay": "Kutubxona",
-      "personalMedia": "Shaxsiy media"
-    },
-    "preferredAudioLanguage": "Afzal koʻrilgan audio tili",
-    "autoSelectAudio": "Audioni til boʻyicha tanlash",
-    "autoSelectAudioDescription": "Oʻchirilgan holatda faylda standart deb belgilangan audio trek ishlatiladi.",
-    "preferredSubtitleLanguage": "Afzal koʻrilgan subtitr tili",
-    "subtitleMode": "Subtitrni yoqish",
-    "subtitleModes": {
-      "none": "Qoʻlda tanlangan",
-      "noneDescription": "Subtitrni hech qachon oʻzi yoqmaydi.",
-      "defaultMode": "Trek bayroqlariga amal qilish",
-      "defaultModeDescription": "Har bir subtitr trekida saqlangan standart va majburiy bayroqlardan foydalanish.",
-      "always": "Har doim yoqilgan",
-      "alwaysDescription": "Mavjud boʻlganda afzal koʻrilgan tildagi subtitr treki yoqiladi.",
-      "onlyForced": "Faqat majburiy subtitrlar",
-      "onlyForcedDescription": "Faqat majburiy deb belgilangan treklar yuklanadi.",
-      "smart": "Chet el audiosi bilan koʻrsatiladi",
-      "smartDescription": "Subtitr faqat audio boshqa tilda boʻlganda yoqiladi."
-    },
-    "subtitleAccessibility": "SDH subtitrlar",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "SDH boʻlmagan subtitrlarga ustunlik berish",
-      "preferSdh": "SDH subtitrlarga ustunlik berish",
-      "onlySdh": "Faqat SDH subtitrlar",
-      "onlyNonSdh": "Faqat SDH boʻlmagan subtitrlar"
-    },
-    "forcedSubtitles": "Majburiy subtitrlar",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "Majburiy boʻlmagan subtitrlarga ustunlik berish",
-      "preferForced": "Majburiy subtitrlarga ustunlik berish",
-      "onlyForced": "Faqat majburiy subtitrlar",
-      "onlyNonForced": "Faqat majburiy boʻlmagan subtitrlar"
-    },
-    "displayMissingEpisodes": "Yoʻqolgan qismlarni koʻrsatish",
-    "displayMissingEpisodesDescription": "Server biladigan, lekin fayli boʻlmagan qismlarni roʻyxatlaydi.",
-    "hidePlayedInLatest": "\"Soʻnggi\" boʻlimida koʻrilganlarni yashirish",
-    "hidePlayedInLatestDescription": "Serverning \"Soʻnggi\" qatorlariga allaqachon koʻrgan narsalaringizni kiritmaslik.",
-    "displayCollectionsView": "Toʻplamlar koʻrinishini koʻrsatish",
-    "displayCollectionsViewDescription": "Kutubxonalaringiz yonida serverning Toʻplamlar koʻrinishini taklif qilish.",
-    "rewatchingInNextUp": "Qayta koʻrilgan seriallarni \"Keyingi\" boʻlimida saqlash",
-    "rewatchingInNextUpDescription": "Serialni tugatib, qayta boshlasangiz, \"Keyingi\" boʻlimi serialni tashlab yuborish oʻrniga qayta tomoshaga ergashadi.",
-    "watchedIndicator": "Koʻrilganlik belgilari",
-    "watchedIndicatorOptions": {
-      "none": "Hech qachon",
-      "moviesAndShows": "Filmlar va seriallar",
-      "movies": "Faqat filmlar",
-      "shows": "Faqat seriallar"
-    },
-    "mediaReviewsVisibility": "Baholar va sharhlar",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "Foydalanuvchilar va tanqidchilar",
-      "usersOnly": "Faqat foydalanuvchilar",
-      "criticsOnly": "Faqat tanqidchilar",
-      "nobody": "Yashirilgan"
-    }
   },
   "discover": {
     "title": "Kashf qilish",
@@ -2433,6 +2362,77 @@
     "redirectDifferentHost": "Server boshqa xostga yoʻnaltirdi. Yakuniy ${product} URL-ini bevosita kiriting.",
     "redirectInsecure": "Server HTTPS manzilidan xavfsiz boʻlmagan URL-ga yoʻnaltirdi",
     "redirectUnsupportedEnterFinal": "Server qoʻllab-quvvatlanmaydigan URL-ga yoʻnaltirdi. Yakuniy ${product} URL-ini bevosita kiriting."
+  },
+  "accountPreferences": {
+    "sectionTitle": "Hisob sozlamalari",
+    "hubSubtitleSingle": "${account} hisobida saqlangan audio, subtitr va kutubxona parametrlari",
+    "hubSubtitleMultiple": "${count} ta hisobda saqlangan audio, subtitr va kutubxona parametrlari",
+    "pickAccount": "Har bir hisob oʻz sozlamalarini saqlaydi. Tahrirlash uchun birini tanlang.",
+    "storedOnAccount": "Bu parametrlar hisobning oʻzida saqlanadi — unga kirilgan har bir ilova ulardan foydalanadi, jumladan boshqa qurilmalaringizdagi Plezy ham.",
+    "noAccounts": "Sozlanadigan hisoblar yoʻq",
+    "noAccountsHint": "Plex-ga kiring yoki Jellyfin yoki Emby serverini ulang — shunda oʻsha hisobda saqlangan sozlamalar shu yerda koʻrinadi.",
+    "unavailable": "Bu hisobga ulanib boʻlmadi",
+    "loadFailed": "Bu sozlamalarni yuklab boʻlmadi",
+    "noPreference": "Afzallik yoʻq",
+    "notSet": "Oʻrnatilmagan",
+    "groups": {
+      "audioAndSubtitles": "Audio va subtitrlar",
+      "libraryDisplay": "Kutubxona",
+      "personalMedia": "Shaxsiy media"
+    },
+    "preferredAudioLanguage": "Afzal koʻrilgan audio tili",
+    "autoSelectAudio": "Audioni til boʻyicha tanlash",
+    "autoSelectAudioDescription": "Oʻchirilgan holatda faylda standart deb belgilangan audio trek ishlatiladi.",
+    "preferredSubtitleLanguage": "Afzal koʻrilgan subtitr tili",
+    "subtitleMode": "Subtitrni yoqish",
+    "subtitleModes": {
+      "none": "Qoʻlda tanlangan",
+      "noneDescription": "Subtitrni hech qachon oʻzi yoqmaydi.",
+      "defaultMode": "Trek bayroqlariga amal qilish",
+      "defaultModeDescription": "Har bir subtitr trekida saqlangan standart va majburiy bayroqlardan foydalanish.",
+      "always": "Har doim yoqilgan",
+      "alwaysDescription": "Mavjud boʻlganda afzal koʻrilgan tildagi subtitr treki yoqiladi.",
+      "onlyForced": "Faqat majburiy subtitrlar",
+      "onlyForcedDescription": "Faqat majburiy deb belgilangan treklar yuklanadi.",
+      "smart": "Chet el audiosi bilan koʻrsatiladi",
+      "smartDescription": "Subtitr faqat audio boshqa tilda boʻlganda yoqiladi."
+    },
+    "subtitleAccessibility": "SDH subtitrlar",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "SDH boʻlmagan subtitrlarga ustunlik berish",
+      "preferSdh": "SDH subtitrlarga ustunlik berish",
+      "onlySdh": "Faqat SDH subtitrlar",
+      "onlyNonSdh": "Faqat SDH boʻlmagan subtitrlar"
+    },
+    "forcedSubtitles": "Majburiy subtitrlar",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "Majburiy boʻlmagan subtitrlarga ustunlik berish",
+      "preferForced": "Majburiy subtitrlarga ustunlik berish",
+      "onlyForced": "Faqat majburiy subtitrlar",
+      "onlyNonForced": "Faqat majburiy boʻlmagan subtitrlar"
+    },
+    "displayMissingEpisodes": "Yoʻqolgan qismlarni koʻrsatish",
+    "displayMissingEpisodesDescription": "Server biladigan, lekin fayli boʻlmagan qismlarni roʻyxatlaydi.",
+    "hidePlayedInLatest": "\"Soʻnggi\" boʻlimida koʻrilganlarni yashirish",
+    "hidePlayedInLatestDescription": "Serverning \"Soʻnggi\" qatorlariga allaqachon koʻrgan narsalaringizni kiritmaslik.",
+    "displayCollectionsView": "Toʻplamlar koʻrinishini koʻrsatish",
+    "displayCollectionsViewDescription": "Kutubxonalaringiz yonida serverning Toʻplamlar koʻrinishini taklif qilish.",
+    "rewatchingInNextUp": "Qayta koʻrilgan seriallarni \"Keyingi\" boʻlimida saqlash",
+    "rewatchingInNextUpDescription": "Serialni tugatib, qayta boshlasangiz, \"Keyingi\" boʻlimi serialni tashlab yuborish oʻrniga qayta tomoshaga ergashadi.",
+    "watchedIndicator": "Koʻrilganlik belgilari",
+    "watchedIndicatorOptions": {
+      "none": "Hech qachon",
+      "moviesAndShows": "Filmlar va seriallar",
+      "movies": "Faqat filmlar",
+      "shows": "Faqat seriallar"
+    },
+    "mediaReviewsVisibility": "Baholar va sharhlar",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "Foydalanuvchilar va tanqidchilar",
+      "usersOnly": "Faqat foydalanuvchilar",
+      "criticsOnly": "Faqat tanqidchilar",
+      "nobody": "Yashirilgan"
+    }
   },
   "appIcon": {
     "title": "",
