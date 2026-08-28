@@ -1396,6 +1396,7 @@ class _Translations$explore$ja extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'ウォッチリストから削除しました';
 	@override String get watchlistUpdateFailed => 'ウォッチリストを更新できませんでした';
 	@override String get watchlistNoMatch => 'このアイテムに一致するウォッチリスト項目が見つかりませんでした';
+	@override String get openInLibrary => 'ライブラリで開く';
 	@override String get notInLibrary => 'ライブラリにありません';
 	@override String get inTheseLibraries => 'これらのライブラリにあります';
 	@override String get checkingLibrary => 'ライブラリを確認中…';
@@ -4052,6 +4053,7 @@ extension on TranslationsJa {
 			'explore.removedFromWatchlist' => 'ウォッチリストから削除しました',
 			'explore.watchlistUpdateFailed' => 'ウォッチリストを更新できませんでした',
 			'explore.watchlistNoMatch' => 'このアイテムに一致するウォッチリスト項目が見つかりませんでした',
+			'explore.openInLibrary' => 'ライブラリで開く',
 			'explore.notInLibrary' => 'ライブラリにありません',
 			'explore.inTheseLibraries' => 'これらのライブラリにあります',
 			'explore.checkingLibrary' => 'ライブラリを確認中…',
@@ -4462,9 +4464,9 @@ extension on TranslationsJa {
 			'downloads.noSyncRules' => '同期ルールなし',
 			'downloads.manageSyncRule' => '同期を管理',
 			'downloads.editEpisodeCount' => 'エピソード数',
-			'downloads.editSyncFilter' => '同期フィルター',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.editSyncFilter' => '同期フィルター',
 			'downloads.syncAllItems' => 'すべてのアイテムを同期中',
 			'downloads.syncUnwatchedItems' => '未視聴のアイテムを同期中',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'サーバー: ${server} • ${status}',

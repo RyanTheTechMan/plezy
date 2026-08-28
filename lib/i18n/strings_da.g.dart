@@ -1402,6 +1402,7 @@ class _Translations$explore$da extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Fjernet fra overvågningslisten';
 	@override String get watchlistUpdateFailed => 'Kunne ikke opdatere ønskelisten';
 	@override String get watchlistNoMatch => 'Kunne ikke knytte dette element til en overvågningsliste';
+	@override String get openInLibrary => 'Åbn i bibliotek';
 	@override String get notInLibrary => 'Ikke i dit bibliotek';
 	@override String get inTheseLibraries => 'I disse biblioteker';
 	@override String get checkingLibrary => 'Tjekker dit bibliotek...';
@@ -4062,6 +4063,7 @@ extension on TranslationsDa {
 			'explore.removedFromWatchlist' => 'Fjernet fra overvågningslisten',
 			'explore.watchlistUpdateFailed' => 'Kunne ikke opdatere ønskelisten',
 			'explore.watchlistNoMatch' => 'Kunne ikke knytte dette element til en overvågningsliste',
+			'explore.openInLibrary' => 'Åbn i bibliotek',
 			'explore.notInLibrary' => 'Ikke i dit bibliotek',
 			'explore.inTheseLibraries' => 'I disse biblioteker',
 			'explore.checkingLibrary' => 'Tjekker dit bibliotek...',
@@ -4472,9 +4474,9 @@ extension on TranslationsDa {
 			'downloads.noSyncRules' => 'Ingen synkroniseringsregler',
 			'downloads.manageSyncRule' => 'Administrer synkronisering',
 			'downloads.editEpisodeCount' => 'Antal episoder',
-			'downloads.editSyncFilter' => 'Synkroniseringsfilter',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.editSyncFilter' => 'Synkroniseringsfilter',
 			'downloads.syncAllItems' => 'Synkroniserer alle elementer',
 			'downloads.syncUnwatchedItems' => 'Synkroniserer usete elementer',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Server: ${server} • ${status}',

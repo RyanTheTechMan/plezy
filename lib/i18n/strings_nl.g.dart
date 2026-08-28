@@ -1402,6 +1402,7 @@ class _Translations$explore$nl extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Uit kijklijst verwijderd';
 	@override String get watchlistUpdateFailed => 'Kon kijklijst niet bijwerken';
 	@override String get watchlistNoMatch => 'Kon dit item niet aan een kijklijst koppelen';
+	@override String get openInLibrary => 'Openen in bibliotheek';
 	@override String get notInLibrary => 'Niet in je bibliotheek';
 	@override String get inTheseLibraries => 'In deze bibliotheken';
 	@override String get checkingLibrary => 'Je bibliotheek controleren...';
@@ -4062,6 +4063,7 @@ extension on TranslationsNl {
 			'explore.removedFromWatchlist' => 'Uit kijklijst verwijderd',
 			'explore.watchlistUpdateFailed' => 'Kon kijklijst niet bijwerken',
 			'explore.watchlistNoMatch' => 'Kon dit item niet aan een kijklijst koppelen',
+			'explore.openInLibrary' => 'Openen in bibliotheek',
 			'explore.notInLibrary' => 'Niet in je bibliotheek',
 			'explore.inTheseLibraries' => 'In deze bibliotheken',
 			'explore.checkingLibrary' => 'Je bibliotheek controleren...',
@@ -4472,9 +4474,9 @@ extension on TranslationsNl {
 			'downloads.noSyncRules' => 'Geen synchronisatieregels',
 			'downloads.manageSyncRule' => 'Synchronisatie beheren',
 			'downloads.editEpisodeCount' => 'Aantal afleveringen',
-			'downloads.editSyncFilter' => 'Synchronisatiefilter',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.editSyncFilter' => 'Synchronisatiefilter',
 			'downloads.syncAllItems' => 'Alle items synchroniseren',
 			'downloads.syncUnwatchedItems' => 'Ongekeken items synchroniseren',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Server: ${server} • ${status}',

@@ -3441,6 +3441,9 @@ class Translations$explore$en {
 	/// en: 'Couldn't match this item to a watchlist'
 	String get watchlistNoMatch => 'Couldn\'t match this item to a watchlist';
 
+	/// en: 'Open in library'
+	String get openInLibrary => 'Open in library';
+
 	/// en: 'Not in your library'
 	String get notInLibrary => 'Not in your library';
 
@@ -8169,6 +8172,7 @@ extension on Translations {
 			'explore.removedFromWatchlist' => 'Removed from watchlist',
 			'explore.watchlistUpdateFailed' => 'Couldn\'t update watchlist',
 			'explore.watchlistNoMatch' => 'Couldn\'t match this item to a watchlist',
+			'explore.openInLibrary' => 'Open in library',
 			'explore.notInLibrary' => 'Not in your library',
 			'explore.inTheseLibraries' => 'In these libraries',
 			'explore.checkingLibrary' => 'Checking your library...',
@@ -8558,9 +8562,9 @@ extension on Translations {
 			'downloads.downloadingTooltip' => 'Downloading...',
 			'downloads.downloadingFilesTooltip' => ({required Object files}) => 'Downloading ${files}',
 			'downloads.noDownloadsTree' => 'No downloads',
-			'downloads.pauseAll' => 'Pause all',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.pauseAll' => 'Pause all',
 			'downloads.resumeAll' => 'Resume all',
 			'downloads.deleteAll' => 'Delete all',
 			'downloads.selectVersion' => 'Select Version',

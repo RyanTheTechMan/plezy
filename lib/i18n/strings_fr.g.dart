@@ -1402,6 +1402,7 @@ class _Translations$explore$fr extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Retiré de la liste de suivi';
 	@override String get watchlistUpdateFailed => 'Impossible de mettre à jour la liste de suivi';
 	@override String get watchlistNoMatch => 'Impossible d’associer cet élément à une liste de suivi';
+	@override String get openInLibrary => 'Ouvrir dans la bibliothèque';
 	@override String get notInLibrary => 'Absent de votre bibliothèque';
 	@override String get inTheseLibraries => 'Dans ces bibliothèques';
 	@override String get checkingLibrary => 'Vérification de votre bibliothèque...';
@@ -4062,6 +4063,7 @@ extension on TranslationsFr {
 			'explore.removedFromWatchlist' => 'Retiré de la liste de suivi',
 			'explore.watchlistUpdateFailed' => 'Impossible de mettre à jour la liste de suivi',
 			'explore.watchlistNoMatch' => 'Impossible d’associer cet élément à une liste de suivi',
+			'explore.openInLibrary' => 'Ouvrir dans la bibliothèque',
 			'explore.notInLibrary' => 'Absent de votre bibliothèque',
 			'explore.inTheseLibraries' => 'Dans ces bibliothèques',
 			'explore.checkingLibrary' => 'Vérification de votre bibliothèque...',
@@ -4472,9 +4474,9 @@ extension on TranslationsFr {
 			'downloads.noSyncRules' => 'Aucune règle de synchronisation',
 			'downloads.manageSyncRule' => 'Gérer la synchronisation',
 			'downloads.editEpisodeCount' => 'Nombre d’épisodes',
-			'downloads.editSyncFilter' => 'Filtre de synchronisation',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.editSyncFilter' => 'Filtre de synchronisation',
 			'downloads.syncAllItems' => 'Synchronisation de tous les éléments',
 			'downloads.syncUnwatchedItems' => 'Synchronisation des éléments non vus',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Serveur : ${server} • ${status}',

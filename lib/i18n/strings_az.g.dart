@@ -1402,6 +1402,7 @@ class _Translations$explore$az extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Baxış siyahısından silindi';
 	@override String get watchlistUpdateFailed => 'İzləmə siyahısı yenilənə bilmədi';
 	@override String get watchlistNoMatch => 'Bu elementi heç bir baxış siyahısı ilə uyğunlaşdırmaq olmadı';
+	@override String get openInLibrary => 'Kitabxanada aç';
 	@override String get notInLibrary => 'Kitabxananızda yoxdur';
 	@override String get inTheseLibraries => 'Bu kitabxanalarda var';
 	@override String get checkingLibrary => 'Kitabxananız yoxlanılır...';
@@ -4062,6 +4063,7 @@ extension on TranslationsAz {
 			'explore.removedFromWatchlist' => 'Baxış siyahısından silindi',
 			'explore.watchlistUpdateFailed' => 'İzləmə siyahısı yenilənə bilmədi',
 			'explore.watchlistNoMatch' => 'Bu elementi heç bir baxış siyahısı ilə uyğunlaşdırmaq olmadı',
+			'explore.openInLibrary' => 'Kitabxanada aç',
 			'explore.notInLibrary' => 'Kitabxananızda yoxdur',
 			'explore.inTheseLibraries' => 'Bu kitabxanalarda var',
 			'explore.checkingLibrary' => 'Kitabxananız yoxlanılır...',
@@ -4472,9 +4474,9 @@ extension on TranslationsAz {
 			'downloads.noSyncRules' => 'Eyniləşdirmə qaydası yoxdur',
 			'downloads.manageSyncRule' => 'Eyniləşdirməni idarə et',
 			'downloads.editEpisodeCount' => 'Seriya sayı',
-			'downloads.editSyncFilter' => 'Eyniləşdirmə filtri',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.editSyncFilter' => 'Eyniləşdirmə filtri',
 			'downloads.syncAllItems' => 'Bütün elementlər eyniləşdirilir',
 			'downloads.syncUnwatchedItems' => 'Baxılmayan elementlər eyniləşdirilir',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Server: ${server} • ${status}',

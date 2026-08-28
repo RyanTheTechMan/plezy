@@ -1402,6 +1402,7 @@ class _Translations$explore$de extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Von der Watchlist entfernt';
 	@override String get watchlistUpdateFailed => 'Merkliste konnte nicht aktualisiert werden';
 	@override String get watchlistNoMatch => 'Dieser Eintrag konnte keiner Watchlist zugeordnet werden';
+	@override String get openInLibrary => 'In Mediathek öffnen';
 	@override String get notInLibrary => 'Nicht in deiner Mediathek';
 	@override String get inTheseLibraries => 'In diesen Mediatheken';
 	@override String get checkingLibrary => 'Deine Mediathek wird überprüft …';
@@ -4062,6 +4063,7 @@ extension on TranslationsDe {
 			'explore.removedFromWatchlist' => 'Von der Watchlist entfernt',
 			'explore.watchlistUpdateFailed' => 'Merkliste konnte nicht aktualisiert werden',
 			'explore.watchlistNoMatch' => 'Dieser Eintrag konnte keiner Watchlist zugeordnet werden',
+			'explore.openInLibrary' => 'In Mediathek öffnen',
 			'explore.notInLibrary' => 'Nicht in deiner Mediathek',
 			'explore.inTheseLibraries' => 'In diesen Mediatheken',
 			'explore.checkingLibrary' => 'Deine Mediathek wird überprüft …',
@@ -4472,9 +4474,9 @@ extension on TranslationsDe {
 			'downloads.noSyncRules' => 'Keine Synchronisierungsregeln',
 			'downloads.manageSyncRule' => 'Synchronisierung verwalten',
 			'downloads.editEpisodeCount' => 'Episodenanzahl',
-			'downloads.editSyncFilter' => 'Synchronisierungsfilter',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.editSyncFilter' => 'Synchronisierungsfilter',
 			'downloads.syncAllItems' => 'Alle Elemente synchronisieren',
 			'downloads.syncUnwatchedItems' => 'Ungesehene Elemente synchronisieren',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Server: ${server} • ${status}',

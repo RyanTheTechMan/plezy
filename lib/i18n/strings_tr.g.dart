@@ -1402,6 +1402,7 @@ class _Translations$explore$tr extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'İzleme listesinden kaldırıldı';
 	@override String get watchlistUpdateFailed => 'İzleme listesi güncellenemedi';
 	@override String get watchlistNoMatch => 'Bu öğe bir izleme listesiyle eşleştirilemedi';
+	@override String get openInLibrary => 'Kitaplıkta aç';
 	@override String get notInLibrary => 'Kitaplığınızda yok';
 	@override String get inTheseLibraries => 'Bu kitaplıklarda var';
 	@override String get checkingLibrary => 'Kitaplığınız kontrol ediliyor...';
@@ -4062,6 +4063,7 @@ extension on TranslationsTr {
 			'explore.removedFromWatchlist' => 'İzleme listesinden kaldırıldı',
 			'explore.watchlistUpdateFailed' => 'İzleme listesi güncellenemedi',
 			'explore.watchlistNoMatch' => 'Bu öğe bir izleme listesiyle eşleştirilemedi',
+			'explore.openInLibrary' => 'Kitaplıkta aç',
 			'explore.notInLibrary' => 'Kitaplığınızda yok',
 			'explore.inTheseLibraries' => 'Bu kitaplıklarda var',
 			'explore.checkingLibrary' => 'Kitaplığınız kontrol ediliyor...',
@@ -4472,9 +4474,9 @@ extension on TranslationsTr {
 			'downloads.noSyncRules' => 'Eşitleme kuralı yok',
 			'downloads.manageSyncRule' => 'Eşitlemeyi yönet',
 			'downloads.editEpisodeCount' => 'Bölüm sayısı',
-			'downloads.editSyncFilter' => 'Eşitleme filtresi',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.editSyncFilter' => 'Eşitleme filtresi',
 			'downloads.syncAllItems' => 'Tüm ögeler eşitleniyor',
 			'downloads.syncUnwatchedItems' => 'İzlenmeyen ögeler eşitleniyor',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Sunucu: ${server} • ${status}',

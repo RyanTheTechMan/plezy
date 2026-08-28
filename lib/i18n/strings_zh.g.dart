@@ -1396,6 +1396,7 @@ class Translations$explore$zh extends Translations$explore$en {
 	@override String get removedFromWatchlist => '已从待看列表中移除';
 	@override String get watchlistUpdateFailed => '无法更新想看列表';
 	@override String get watchlistNoMatch => '无法将此项目与待看列表匹配';
+	@override String get openInLibrary => '在媒体库中打开';
 	@override String get notInLibrary => '不在你的媒体库中';
 	@override String get inTheseLibraries => '在这些媒体库中';
 	@override String get checkingLibrary => '正在检查你的媒体库…';
@@ -4052,6 +4053,7 @@ extension on TranslationsZh {
 			'explore.removedFromWatchlist' => '已从待看列表中移除',
 			'explore.watchlistUpdateFailed' => '无法更新想看列表',
 			'explore.watchlistNoMatch' => '无法将此项目与待看列表匹配',
+			'explore.openInLibrary' => '在媒体库中打开',
 			'explore.notInLibrary' => '不在你的媒体库中',
 			'explore.inTheseLibraries' => '在这些媒体库中',
 			'explore.checkingLibrary' => '正在检查你的媒体库…',
@@ -4462,9 +4464,9 @@ extension on TranslationsZh {
 			'downloads.noSyncRules' => '没有同步规则',
 			'downloads.manageSyncRule' => '管理同步',
 			'downloads.editEpisodeCount' => '剧集数量',
-			'downloads.editSyncFilter' => '同步筛选',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.editSyncFilter' => '同步筛选',
 			'downloads.syncAllItems' => '同步所有项目',
 			'downloads.syncUnwatchedItems' => '同步未观看项目',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => '服务器：${server} • ${status}',

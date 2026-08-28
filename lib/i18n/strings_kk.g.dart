@@ -1402,6 +1402,7 @@ class _Translations$explore$kk extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Көру тізімінен алынды';
 	@override String get watchlistUpdateFailed => 'Көру тізімін жаңарту мүмкін болмады';
 	@override String get watchlistNoMatch => 'Бұл элементті көру тізімімен сәйкестендіру мүмкін болмады';
+	@override String get openInLibrary => 'Кітапханада ашу';
 	@override String get notInLibrary => 'Кітапханаңызда жоқ';
 	@override String get inTheseLibraries => 'Осы кітапханаларда бар';
 	@override String get checkingLibrary => 'Кітапхана тексерілуде...';
@@ -4062,6 +4063,7 @@ extension on TranslationsKk {
 			'explore.removedFromWatchlist' => 'Көру тізімінен алынды',
 			'explore.watchlistUpdateFailed' => 'Көру тізімін жаңарту мүмкін болмады',
 			'explore.watchlistNoMatch' => 'Бұл элементті көру тізімімен сәйкестендіру мүмкін болмады',
+			'explore.openInLibrary' => 'Кітапханада ашу',
 			'explore.notInLibrary' => 'Кітапханаңызда жоқ',
 			'explore.inTheseLibraries' => 'Осы кітапханаларда бар',
 			'explore.checkingLibrary' => 'Кітапхана тексерілуде...',
@@ -4472,9 +4474,9 @@ extension on TranslationsKk {
 			'downloads.noSyncRules' => 'Синхрондау ережелері жоқ',
 			'downloads.manageSyncRule' => 'Синхрондауды басқару',
 			'downloads.editEpisodeCount' => 'Бөлімдер саны',
-			'downloads.editSyncFilter' => 'Синхрондау фильтрі',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.editSyncFilter' => 'Синхрондау фильтрі',
 			'downloads.syncAllItems' => 'Барлық элементтер синхрондалады',
 			'downloads.syncUnwatchedItems' => 'Көрілмеген элементтер синхрондалады',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Сервер: ${server} • ${status}',

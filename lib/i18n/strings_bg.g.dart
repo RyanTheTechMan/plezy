@@ -1402,6 +1402,7 @@ class _Translations$explore$bg extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Премахнато от списъка за гледане';
 	@override String get watchlistUpdateFailed => 'Неуспешно обновяване на списъка за гледане';
 	@override String get watchlistNoMatch => 'Този елемент не можа да бъде съпоставен със списък за гледане';
+	@override String get openInLibrary => 'Отвори в библиотеката';
 	@override String get notInLibrary => 'Не е в твоята библиотека';
 	@override String get inTheseLibraries => 'В тези библиотеки';
 	@override String get checkingLibrary => 'Проверка на твоята библиотека...';
@@ -4062,6 +4063,7 @@ extension on TranslationsBg {
 			'explore.removedFromWatchlist' => 'Премахнато от списъка за гледане',
 			'explore.watchlistUpdateFailed' => 'Неуспешно обновяване на списъка за гледане',
 			'explore.watchlistNoMatch' => 'Този елемент не можа да бъде съпоставен със списък за гледане',
+			'explore.openInLibrary' => 'Отвори в библиотеката',
 			'explore.notInLibrary' => 'Не е в твоята библиотека',
 			'explore.inTheseLibraries' => 'В тези библиотеки',
 			'explore.checkingLibrary' => 'Проверка на твоята библиотека...',
@@ -4472,9 +4474,9 @@ extension on TranslationsBg {
 			'downloads.noSyncRules' => 'Няма правила за синхронизация',
 			'downloads.manageSyncRule' => 'Управление на синхронизацията',
 			'downloads.editEpisodeCount' => 'Брой епизоди',
-			'downloads.editSyncFilter' => 'Филтър за синхронизация',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.editSyncFilter' => 'Филтър за синхронизация',
 			'downloads.syncAllItems' => 'Синхронизират се всички елементи',
 			'downloads.syncUnwatchedItems' => 'Синхронизират се негледаните елементи',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Сървър: ${server} • ${status}',
