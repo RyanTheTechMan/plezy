@@ -299,6 +299,7 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Hardveres dekódolás';
 	@override String get hardwareDecodingDescription => 'Hardveres gyorsítás használata, ha elérhető';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Lejátszási puffer';
 	@override String get playbackBufferAuto => 'Automatikus (ajánlott)';
 	@override String get playbackBufferLarge => 'Nagy';
@@ -843,6 +844,7 @@ class _Translations$videoControls$hu extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'A kiválasztott feliratot nem sikerült betölteni — folytatás felirat nélkül';
 	@override String get pipButton => 'Kép a képben mód';
 	@override String get aspectRatioButton => 'Méretarány';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Környezeti megvilágítás';
 	@override String get fullscreenButton => 'Teljes képernyős mód bekapcsolása';
 	@override String get exitFullscreenButton => 'Teljes képernyős mód kikapcsolása';
@@ -3113,6 +3115,7 @@ extension on TranslationsHu {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Hardveres dekódolás',
 			'settings.hardwareDecodingDescription' => 'Hardveres gyorsítás használata, ha elérhető',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Lejátszási puffer',
 			'settings.playbackBufferAuto' => 'Automatikus (ajánlott)',
 			'settings.playbackBufferLarge' => 'Nagy',
@@ -3448,9 +3451,9 @@ extension on TranslationsHu {
 			'fileInfo.optimizedForStreaming' => 'Adatfolyam-továbbításra optimalizálva',
 			'fileInfo.has64bitOffsets' => '64 bites eltolások',
 			'fileInfo.protocol' => 'Protokoll',
-			'fileInfo.mediaType' => 'Médiatípus',
 			_ => null,
 		} ?? switch (path) {
+			'fileInfo.mediaType' => 'Médiatípus',
 			'fileInfo.sourceKind' => 'Forrás típusa',
 			'fileInfo.optimizedVersion' => 'Optimalizált verzió',
 			'fileInfo.optimizationTarget' => 'Optimalizálási cél',
@@ -3593,6 +3596,7 @@ extension on TranslationsHu {
 			'videoControls.subtitleUnavailableFallback' => 'A kiválasztott feliratot nem sikerült betölteni — folytatás felirat nélkül',
 			'videoControls.pipButton' => 'Kép a képben mód',
 			'videoControls.aspectRatioButton' => 'Méretarány',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Környezeti megvilágítás',
 			'videoControls.fullscreenButton' => 'Teljes képernyős mód bekapcsolása',
 			'videoControls.exitFullscreenButton' => 'Teljes képernyős mód kikapcsolása',
@@ -3961,10 +3965,10 @@ extension on TranslationsHu {
 			'libraries.filterCategories.genre' => 'Műfaj',
 			'libraries.filterCategories.year' => 'Év',
 			'libraries.filterCategories.contentRating' => 'Korhatár-besorolás',
-			'libraries.filterCategories.tag' => 'Címke',
-			'libraries.filterCategories.unwatched' => 'Nem látott',
 			_ => null,
 		} ?? switch (path) {
+			'libraries.filterCategories.tag' => 'Címke',
+			'libraries.filterCategories.unwatched' => 'Nem látott',
 			'libraries.filterCategories.unplayed' => 'Nem lejátszott',
 			'libraries.filterCategories.favorites' => 'Kedvencek',
 			'libraries.sortLabels.title' => 'Cím',
@@ -4475,10 +4479,10 @@ extension on TranslationsHu {
 			'downloads.syncRuleAndDownloadsRemoved' => 'A szinkronszabály és a kapcsolódó letöltések eltávolítva',
 			'downloads.syncRuleCleanupBusy' => 'A szinkronszabályok éppen frissülnek. Próbálja újra egy pillanat múlva.',
 			'downloads.syncRuleCleanupUnavailable' => 'A kapcsolódó letöltések nem azonosíthatók biztonságosan. Csatlakoztassa újra a szervert, és próbálja újra, vagy távolítsa el a szabályt a letöltések törlése nélkül.',
-			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => '${count} új epizód szinkronizálva a következőhöz: ${title}',
-			'downloads.activeSyncRules' => 'Szinkronizálási szabályok',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => '${count} új epizód szinkronizálva a következőhöz: ${title}',
+			'downloads.activeSyncRules' => 'Szinkronizálási szabályok',
 			'downloads.noSyncRules' => 'Nincsenek szinkronizálási szabályok',
 			'downloads.manageSyncRule' => 'Szinkronizálás kezelése',
 			'downloads.editEpisodeCount' => 'Epizódszám',
