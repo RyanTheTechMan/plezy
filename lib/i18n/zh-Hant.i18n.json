@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "使用 Plex 登入",
@@ -113,7 +113,15 @@
     "skipVersion": "跳過此版本",
     "viewRelease": "查看版本詳情",
     "latestVersion": "已安裝的版本為最新版本",
-    "checkFailed": "無法檢查更新"
+    "checkFailed": "無法檢查更新",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "設定",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "側邊欄保持展開狀態，內容區域自動調整",
     "showUnwatchedCount": "顯示未觀看數量",
     "showUnwatchedCountDescription": "在影集和單季上顯示未觀看的集數",
-    "showWatchedIndicators": "顯示已觀看指示",
-    "showWatchedIndicatorsDescription": "在已觀看的電影、影集和單集上顯示勾選標記",
     "showEpisodeNumberOnCards": "在卡片上顯示集數",
     "showEpisodeNumberOnCardsDescription": "在單集卡片上顯示季和集編號",
     "showSeasonPostersOnTabs": "在索引標籤上顯示單季海報",
@@ -192,6 +198,7 @@
     "mpv": "mpv",
     "hardwareDecoding": "硬體解碼",
     "hardwareDecodingDescription": "如果支援，使用硬體加速",
+    "packedStereoUi": "3D Playback UI",
     "playbackBuffer": "播放緩衝",
     "playbackBufferAuto": "自動（建議）",
     "playbackBufferLarge": "大",
@@ -200,8 +207,6 @@
     "defaultQualityTitle": "預設畫質",
     "cellularQualityTitle": "行動網路上的預設畫質",
     "cellularQualitySameAsDefault": "與預設畫質相同",
-    "directPlayCoveredQuality": "以原始畫質播放較小影片",
-    "directPlayCoveredQualityDescription": "已在畫質限制內的影片直接播放，而非轉碼",
     "musicQualityTitle": "音樂品質",
     "subtitleStyling": "字幕樣式",
     "subtitleStylingDescription": "調整字幕外觀",
@@ -278,17 +283,6 @@
     "shuffleStartsFromBeginningDescription": "隨機播放時每集從頭開始播放，而非繼續播放",
     "playNextCountdown": "下一集倒數計時",
     "playNextCountdownImmediate": "立即播放",
-    "skipIntroMode": "跳過片頭",
-    "skipIntroModeOffDescription": "正常播放片頭，不顯示跳過按鈕",
-    "skipIntroModeButtonDescription": "片頭開始時顯示跳過按鈕",
-    "skipIntroModeAutoDescription": "在下方設定的延遲後自動跳過片頭",
-    "skipCreditsMode": "跳過片尾",
-    "skipCreditsModeOffDescription": "正常播放片尾，不顯示跳過按鈕",
-    "skipCreditsModeButtonDescription": "片尾開始時顯示跳過按鈕",
-    "skipCreditsModeAutoDescription": "自動跳過片尾並播放下一集",
-    "skipMarkerModeOff": "關閉",
-    "skipMarkerModeButton": "顯示按鈕",
-    "skipMarkerModeAuto": "自動",
     "forceSkipMarkerFallback": "強制使用備用標記",
     "forceSkipMarkerFallbackDescription": "即使 Plex 有標記，也強制使用章節標題模式",
     "autoSkipDelay": "自動跳過延遲",
@@ -405,8 +399,6 @@
     "gestureVolumeSwipeDescription": "在螢幕右側邊緣上下滑動以調整音量",
     "gesturePinchToZoom": "雙指縮放",
     "gesturePinchToZoomDescription": "在影片上雙指捏合以放大或縮小",
-    "rememberBrightnessLevel": "記住亮度",
-    "rememberBrightnessLevelDescription": "以上次滑動設定的亮度開始播放",
     "controls": "控制",
     "rememberPlayerChanges": "記住播放器變更",
     "rememberPlayerChangesDescription": "播放期間所做的變更要儲存並從何處重新套用",
@@ -418,7 +410,30 @@
     "playerScopeGlobal": "全部",
     "playerScopeLibrary": "依媒體庫",
     "playerScopeTitle": "依影集或電影",
-    "exportDialogTitle": "匯出 Plezy 設定"
+    "exportDialogTitle": "匯出 Plezy 設定",
+    "showWatchedIndicators": "顯示已觀看指示",
+    "showWatchedIndicatorsDescription": "在已觀看的電影、影集和單集上顯示勾選標記",
+    "directPlayCoveredQuality": "以原始畫質播放較小影片",
+    "directPlayCoveredQualityDescription": "已在畫質限制內的影片直接播放，而非轉碼",
+    "skipIntroMode": "跳過片頭",
+    "skipIntroModeOffDescription": "正常播放片頭，不顯示跳過按鈕",
+    "skipIntroModeButtonDescription": "片頭開始時顯示跳過按鈕",
+    "skipIntroModeAutoDescription": "在下方設定的延遲後自動跳過片頭",
+    "skipCreditsMode": "跳過片尾",
+    "skipCreditsModeOffDescription": "正常播放片尾，不顯示跳過按鈕",
+    "skipCreditsModeButtonDescription": "片尾開始時顯示跳過按鈕",
+    "skipCreditsModeAutoDescription": "自動跳過片尾並播放下一集",
+    "skipMarkerModeOff": "關閉",
+    "skipMarkerModeButton": "顯示按鈕",
+    "skipMarkerModeAuto": "自動",
+    "rememberBrightnessLevel": "記住亮度",
+    "rememberBrightnessLevelDescription": "以上次滑動設定的亮度開始播放",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "搜尋電影、影集、音樂…",
@@ -458,7 +473,9 @@
       "subSeekPrev": "跳轉至上一句字幕",
       "shaderToggle": "切換著色器",
       "skipMarker": "跳過片頭/片尾",
-      "screenshot": "螢幕截圖"
+      "screenshot": "螢幕截圖",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -603,12 +620,15 @@
     "confirmDeleteTarget": "確定要從您的伺服器永久刪除「${title}」嗎？",
     "deleteMultipleWarning": "這將會刪除所有單集及其檔案。",
     "deleteEpisodeCountWarning": {
+      "one": "This deletes all ${n} episode in it, and its file.",
       "other": "這會刪除其中全部 ${n} 集及其檔案。"
     },
     "deleteMultiPartWarning": {
+      "one": "This item is stored as ${n} file, which will be deleted.",
       "other": "此項目分散儲存於 ${n} 個檔案中，且全部都會被刪除。"
     },
     "deleteSharedFileHeading": {
+      "one": "${n} other episode is stored in the same file and will be deleted too:",
       "other": "另有 ${n} 集儲存在同一檔案中，也會一併被刪除："
     },
     "deleteScopeUnverifiedProbeFailed": "Plezy 無法確認此操作會刪除哪些檔案，因此刪除範圍可能超出上方所列的項目。請取消後重試，或仍要刪除。",
@@ -667,6 +687,10 @@
     "track": "音軌 ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "音訊",
     "subtitlesLabel": "字幕",
     "addTime": "+${amount} ${unit}",
@@ -713,6 +737,7 @@
     "subtitleUnavailableFallback": "無法載入所選字幕 — 將繼續無字幕播放",
     "pipButton": "子母畫面模式",
     "aspectRatioButton": "寬高比",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "ambientLighting": "氛圍燈光",
     "fullscreenButton": "進入全螢幕",
     "exitFullscreenButton": "退出全螢幕",
@@ -769,6 +794,7 @@
     "markedAsUnwatchedOffline": "已標記為未觀看（將在連線時同步）",
     "autoRemovedWatchedDownload": "已自動移除：${title}",
     "autoRemovedWatchedDownloads": {
+      "one": "Auto-removed ${n} watched download",
       "other": "已自動移除 ${n} 個已觀看的下載內容"
     },
     "removedFromContinueWatching": "已從「繼續觀看」中移除",
@@ -1054,6 +1080,7 @@
     "minutesLeft": "剩餘 ${minutes} 分鐘",
     "moreLikeThis": "更多類似內容",
     "titleCount": {
+      "one": "${n} title",
       "other": "${n} 部作品"
     }
   },
@@ -1146,7 +1173,7 @@
       "unwatched": "未觀看",
       "unplayed": "未播放",
       "favorites": "我的最愛",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "標題",
@@ -1174,32 +1201,32 @@
       "library": "媒體庫"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1207,7 +1234,10 @@
     "openSourceLicenses": "開源授權條款",
     "versionLabel": "版本 ${version}",
     "appDescription": "一款精美的 Plex、Jellyfin 與 Emby Flutter 用戶端",
-    "viewLicensesDescription": "查看第三方套件的授權條款"
+    "viewLicensesDescription": "查看第三方套件的授權條款",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "找不到 ${username}（${email}） 的伺服器",
@@ -1296,6 +1326,7 @@
       "upcoming": "即將上線"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n} 集"
     },
     "cast": "演員陣容",
@@ -1310,6 +1341,7 @@
     "inTheseLibraries": "在這些媒體庫中",
     "checkingLibrary": "正在檢查您的媒體庫…",
     "libraryCheckFailed": {
+      "one": "Couldn't check ${n} server",
       "other": "無法檢查 ${n} 台伺服器"
     },
     "emptyTitle": "這裡還沒有任何內容",
@@ -1352,6 +1384,7 @@
       "favorited": "${n} 人收藏",
       "dropRate": "${percent} 的人棄番",
       "comments": {
+        "one": "${n} comment",
         "other": "${n} 則留言"
       },
       "votes": "${n} 票",
@@ -1432,6 +1465,7 @@
       "ratings": "評分",
       "schedule": "播出時間",
       "recommendedByUsers": {
+        "one": "Recommended by ${n} user",
         "other": "${n} 位使用者推薦"
       },
       "recommendedBy": "由 ${who} 推薦",
@@ -1442,6 +1476,7 @@
       "background": "背景介紹"
     },
     "totalResults": {
+      "one": "${n} result",
       "other": "${n} 筆結果"
     }
   },
@@ -1599,6 +1634,7 @@
     "addToQueue": "新增至佇列",
     "discNumber": "CD ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n} 首"
     },
     "nowPlaying": "正在播放",

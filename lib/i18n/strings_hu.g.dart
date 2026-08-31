@@ -99,7 +99,7 @@ class _Translations$app$hu extends Translations$app$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -216,6 +216,14 @@ class _Translations$update$hu extends Translations$update$en {
 	@override String get viewRelease => 'Kiadási megjegyzések';
 	@override String get latestVersion => 'A legújabb verziót használod';
 	@override String get checkFailed => 'Nem sikerült az újabb frissítések ellenőrzése';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -278,8 +286,6 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get alwaysKeepSidebarOpenDescription => 'Az oldalsáv kibontva marad, a tartalom területe igazodik hozzá';
 	@override String get showUnwatchedCount => 'Nem látott elemek számának megjelenítése';
 	@override String get showUnwatchedCountDescription => 'Megjeleníti a még nem látott epizódok számát a sorozatoknál és évadoknál';
-	@override String get showWatchedIndicators => 'Megtekintésjelölők megjelenítése';
-	@override String get showWatchedIndicatorsDescription => 'Pipa megjelenítése a megtekintett filmeken, sorozatokon és epizódokon';
 	@override String get showEpisodeNumberOnCards => 'Epizódszám megjelenítése a kártyákon';
 	@override String get showEpisodeNumberOnCardsDescription => 'Megjeleníti az évad- és epizódszámot az epizódkártyákon';
 	@override String get showSeasonPostersOnTabs => 'Évadborítók megjelenítése a füleken';
@@ -301,6 +307,7 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Hardveres dekódolás';
 	@override String get hardwareDecodingDescription => 'Hardveres gyorsítás használata, ha elérhető';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Lejátszási puffer';
 	@override String get playbackBufferAuto => 'Automatikus (ajánlott)';
 	@override String get playbackBufferLarge => 'Nagy';
@@ -309,8 +316,6 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get defaultQualityTitle => 'Alapértelmezett minőség';
 	@override String get cellularQualityTitle => 'Alapértelmezett minőség mobilhálózaton';
 	@override String get cellularQualitySameAsDefault => 'Ugyanaz, mint az alapértelmezett minőség';
-	@override String get directPlayCoveredQuality => 'Kisebb videók lejátszása eredeti minőségben';
-	@override String get directPlayCoveredQualityDescription => 'A minőségi korláton belüli videók közvetlen lejátszása átkódolás helyett';
 	@override String get musicQualityTitle => 'Zene minősége';
 	@override String get subtitleStyling => 'Feliratok stílusa';
 	@override String get subtitleStylingDescription => 'Feliratok megjelenésének testreszabása';
@@ -387,17 +392,6 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get shuffleStartsFromBeginningDescription => 'Minden epizód az elejétől indul véletlenszerű lejátszáskor a folytatás helyett';
 	@override String get playNextCountdown => 'Visszaszámlálás a következő epizódig';
 	@override String get playNextCountdownImmediate => 'Azonnali lejátszás';
-	@override String get skipIntroMode => 'Intró átugrása';
-	@override String get skipIntroModeOffDescription => 'Az intrók normálisan lejátszódnak, átugró gomb nélkül';
-	@override String get skipIntroModeButtonDescription => 'Átugró gomb megjelenítése az intró kezdetekor';
-	@override String get skipIntroModeAutoDescription => 'Az intrók automatikus átugrása az alábbi késleltetés után';
-	@override String get skipCreditsMode => 'Stáblista átugrása';
-	@override String get skipCreditsModeOffDescription => 'A stáblista normálisan lejátszódik, átugró gomb nélkül';
-	@override String get skipCreditsModeButtonDescription => 'Átugró gomb megjelenítése a stáblista kezdetekor';
-	@override String get skipCreditsModeAutoDescription => 'A stáblista automatikus átugrása és a következő epizód lejátszása';
-	@override String get skipMarkerModeOff => 'Ki';
-	@override String get skipMarkerModeButton => 'Gomb megjelenítése';
-	@override String get skipMarkerModeAuto => 'Automatikus';
 	@override String get forceSkipMarkerFallback => 'Tartalék jelölők kényszerítése';
 	@override String get forceSkipMarkerFallbackDescription => 'Fejezetcím-minták használata akkor is, ha a Plex rendelkezik jelölőkkel';
 	@override String get autoSkipDelay => 'Automatikus átugrás késleltetése';
@@ -514,8 +508,6 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get gestureVolumeSwipeDescription => 'Húzd felfelé vagy lefelé a jobb szélén a hangerő beállításához';
 	@override String get gesturePinchToZoom => 'Csípés a nagyításhoz';
 	@override String get gesturePinchToZoomDescription => 'Csípj a videóra a nagyításhoz vagy kicsinyítéshez';
-	@override String get rememberBrightnessLevel => 'Fényerőszint megjegyzése';
-	@override String get rememberBrightnessLevelDescription => 'A lejátszás az utolsó húzással beállított fényerővel indul';
 	@override String get controls => 'Vezérlők';
 	@override String get rememberPlayerChanges => 'Lejátszó módosításainak megjegyzése';
 	@override String get rememberPlayerChangesDescription => 'A lejátszás közben végzett módosítások mentési és újbóli alkalmazási helye';
@@ -528,6 +520,29 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Könyvtáronként';
 	@override String get playerScopeTitle => 'Sorozatonként vagy filmenként';
 	@override String get exportDialogTitle => 'Plezy-beállítások exportálása';
+	@override String get showWatchedIndicators => 'Megtekintésjelölők megjelenítése';
+	@override String get showWatchedIndicatorsDescription => 'Pipa megjelenítése a megtekintett filmeken, sorozatokon és epizódokon';
+	@override String get directPlayCoveredQuality => 'Kisebb videók lejátszása eredeti minőségben';
+	@override String get directPlayCoveredQualityDescription => 'A minőségi korláton belüli videók közvetlen lejátszása átkódolás helyett';
+	@override String get skipIntroMode => 'Intró átugrása';
+	@override String get skipIntroModeOffDescription => 'Az intrók normálisan lejátszódnak, átugró gomb nélkül';
+	@override String get skipIntroModeButtonDescription => 'Átugró gomb megjelenítése az intró kezdetekor';
+	@override String get skipIntroModeAutoDescription => 'Az intrók automatikus átugrása az alábbi késleltetés után';
+	@override String get skipCreditsMode => 'Stáblista átugrása';
+	@override String get skipCreditsModeOffDescription => 'A stáblista normálisan lejátszódik, átugró gomb nélkül';
+	@override String get skipCreditsModeButtonDescription => 'Átugró gomb megjelenítése a stáblista kezdetekor';
+	@override String get skipCreditsModeAutoDescription => 'A stáblista automatikus átugrása és a következő epizód lejátszása';
+	@override String get skipMarkerModeOff => 'Ki';
+	@override String get skipMarkerModeButton => 'Gomb megjelenítése';
+	@override String get skipMarkerModeAuto => 'Automatikus';
+	@override String get rememberBrightnessLevel => 'Fényerőszint megjegyzése';
+	@override String get rememberBrightnessLevelDescription => 'A lejátszás az utolsó húzással beállított fényerővel indul';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -816,6 +831,10 @@ class _Translations$videoControls$hu extends Translations$videoControls$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => 'Hang';
 	@override String get subtitlesLabel => 'Feliratok';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -862,6 +881,7 @@ class _Translations$videoControls$hu extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'A kiválasztott feliratot nem sikerült betölteni — folytatás felirat nélkül';
 	@override String get pipButton => 'Kép a képben mód';
 	@override String get aspectRatioButton => 'Méretarány';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Környezeti megvilágítás';
 	@override String get fullscreenButton => 'Teljes képernyős mód bekapcsolása';
 	@override String get exitFullscreenButton => 'Teljes képernyős mód kikapcsolása';
@@ -1300,6 +1320,7 @@ class _Translations$libraries$hu extends Translations$libraries$en {
 	@override late final _Translations$libraries$groupings$hu groupings = _Translations$libraries$groupings$hu._(_root);
 	@override late final _Translations$libraries$filterCategories$hu filterCategories = _Translations$libraries$filterCategories$hu._(_root);
 	@override late final _Translations$libraries$sortLabels$hu sortLabels = _Translations$libraries$sortLabels$hu._(_root);
+	@override late final _Translations$libraries$advancedFilters$hu advancedFilters = _Translations$libraries$advancedFilters$hu._(_root);
 }
 
 // Path: about
@@ -1314,6 +1335,9 @@ class _Translations$about$hu extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Verzió: ${version}';
 	@override String get appDescription => 'Gyönyörű Flutter-kliens a Plexhez, a Jellyfinhez és az Embyhez';
 	@override String get viewLicensesDescription => 'Külső fejlesztésű programkönyvtárak licenceinek megtekintése';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -2353,6 +2377,8 @@ class _Translations$hotkeys$actions$hu extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Shaderek be- és kikapcsolása';
 	@override String get skipMarker => 'Intró/stáblista átugrása';
 	@override String get screenshot => 'Képernyőkép készítése';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2501,6 +2527,7 @@ class _Translations$libraries$filterCategories$hu extends Translations$libraries
 	@override String get unwatched => 'Nem látott';
 	@override String get unplayed => 'Nem lejátszott';
 	@override String get favorites => 'Kedvencek';
+	@override String get filePath => 'File Path';
 }
 
 // Path: libraries.sortLabels
@@ -2533,6 +2560,41 @@ class _Translations$libraries$sortLabels$hu extends Translations$libraries$sortL
 	@override String get dateDownloaded => 'Letöltés dátuma';
 	@override String get size => 'Méret';
 	@override String get library => 'Könyvtár';
+}
+
+// Path: libraries.advancedFilters
+class _Translations$libraries$advancedFilters$hu extends Translations$libraries$advancedFilters$en {
+	_Translations$libraries$advancedFilters$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get include => 'Include';
+	@override String get exclude => 'Exclude';
+	@override String get any => 'Any';
+	@override String get yes => 'Yes';
+	@override String get no => 'No';
+	@override String not({required Object value}) => 'Not ${value}';
+	@override String valueCount({required Object count}) => '${count} selected';
+	@override String valueCountExcluded({required Object count}) => '${count} excluded';
+	@override String get searchValues => 'Search values';
+	@override String get noValues => 'No values';
+	@override String get matchContains => 'Contains';
+	@override String get matchNotContains => 'Does not contain';
+	@override String get matchIs => 'Is';
+	@override String get matchIsNot => 'Is not';
+	@override String get matchBeginsWith => 'Begins with';
+	@override String get matchEndsWith => 'Ends with';
+	@override String get textHint => 'Type to match';
+	@override String get from => 'From';
+	@override String get to => 'To';
+	@override String range({required Object from, required Object to}) => '${from} to ${to}';
+	@override String atLeast({required Object value}) => '${value} and up';
+	@override String atMost({required Object value}) => 'Up to ${value}';
+	@override String dateLastDays({required Object count}) => 'Last ${count} days';
+	@override String get dateLastYear => 'Past year';
+	@override String dateOlderThanDays({required Object count}) => 'Older than ${count} days';
+	@override String get dateOlderThanYear => 'Older than a year';
 }
 
 // Path: explore.rows
@@ -3017,7 +3079,7 @@ class _Translations$services$libraryFilter$hu extends Translations$services$libr
 extension on TranslationsHu {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Bejelentkezés Plexszel',
 			'auth.showQRCode' => 'QR-kód megjelenítése',
 			'auth.authenticate' => 'Hitelesítés',
@@ -3119,6 +3181,14 @@ extension on TranslationsHu {
 			'update.viewRelease' => 'Kiadási megjegyzések',
 			'update.latestVersion' => 'A legújabb verziót használod',
 			'update.checkFailed' => 'Nem sikerült az újabb frissítések ellenőrzése',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Beállítások',
 			'settings.supportDeveloper' => 'Plezy támogatása',
 			'settings.supportDeveloperDescription' => 'A fejlesztés támogatása Liberapay-en keresztül',
@@ -3172,8 +3242,6 @@ extension on TranslationsHu {
 			'settings.alwaysKeepSidebarOpenDescription' => 'Az oldalsáv kibontva marad, a tartalom területe igazodik hozzá',
 			'settings.showUnwatchedCount' => 'Nem látott elemek számának megjelenítése',
 			'settings.showUnwatchedCountDescription' => 'Megjeleníti a még nem látott epizódok számát a sorozatoknál és évadoknál',
-			'settings.showWatchedIndicators' => 'Megtekintésjelölők megjelenítése',
-			'settings.showWatchedIndicatorsDescription' => 'Pipa megjelenítése a megtekintett filmeken, sorozatokon és epizódokon',
 			'settings.showEpisodeNumberOnCards' => 'Epizódszám megjelenítése a kártyákon',
 			'settings.showEpisodeNumberOnCardsDescription' => 'Megjeleníti az évad- és epizódszámot az epizódkártyákon',
 			'settings.showSeasonPostersOnTabs' => 'Évadborítók megjelenítése a füleken',
@@ -3195,6 +3263,7 @@ extension on TranslationsHu {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Hardveres dekódolás',
 			'settings.hardwareDecodingDescription' => 'Hardveres gyorsítás használata, ha elérhető',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Lejátszási puffer',
 			'settings.playbackBufferAuto' => 'Automatikus (ajánlott)',
 			'settings.playbackBufferLarge' => 'Nagy',
@@ -3203,8 +3272,6 @@ extension on TranslationsHu {
 			'settings.defaultQualityTitle' => 'Alapértelmezett minőség',
 			'settings.cellularQualityTitle' => 'Alapértelmezett minőség mobilhálózaton',
 			'settings.cellularQualitySameAsDefault' => 'Ugyanaz, mint az alapértelmezett minőség',
-			'settings.directPlayCoveredQuality' => 'Kisebb videók lejátszása eredeti minőségben',
-			'settings.directPlayCoveredQualityDescription' => 'A minőségi korláton belüli videók közvetlen lejátszása átkódolás helyett',
 			'settings.musicQualityTitle' => 'Zene minősége',
 			'settings.subtitleStyling' => 'Feliratok stílusa',
 			'settings.subtitleStylingDescription' => 'Feliratok megjelenésének testreszabása',
@@ -3281,17 +3348,6 @@ extension on TranslationsHu {
 			'settings.shuffleStartsFromBeginningDescription' => 'Minden epizód az elejétől indul véletlenszerű lejátszáskor a folytatás helyett',
 			'settings.playNextCountdown' => 'Visszaszámlálás a következő epizódig',
 			'settings.playNextCountdownImmediate' => 'Azonnali lejátszás',
-			'settings.skipIntroMode' => 'Intró átugrása',
-			'settings.skipIntroModeOffDescription' => 'Az intrók normálisan lejátszódnak, átugró gomb nélkül',
-			'settings.skipIntroModeButtonDescription' => 'Átugró gomb megjelenítése az intró kezdetekor',
-			'settings.skipIntroModeAutoDescription' => 'Az intrók automatikus átugrása az alábbi késleltetés után',
-			'settings.skipCreditsMode' => 'Stáblista átugrása',
-			'settings.skipCreditsModeOffDescription' => 'A stáblista normálisan lejátszódik, átugró gomb nélkül',
-			'settings.skipCreditsModeButtonDescription' => 'Átugró gomb megjelenítése a stáblista kezdetekor',
-			'settings.skipCreditsModeAutoDescription' => 'A stáblista automatikus átugrása és a következő epizód lejátszása',
-			'settings.skipMarkerModeOff' => 'Ki',
-			'settings.skipMarkerModeButton' => 'Gomb megjelenítése',
-			'settings.skipMarkerModeAuto' => 'Automatikus',
 			'settings.forceSkipMarkerFallback' => 'Tartalék jelölők kényszerítése',
 			'settings.forceSkipMarkerFallbackDescription' => 'Fejezetcím-minták használata akkor is, ha a Plex rendelkezik jelölőkkel',
 			'settings.autoSkipDelay' => 'Automatikus átugrás késleltetése',
@@ -3408,8 +3464,6 @@ extension on TranslationsHu {
 			'settings.gestureVolumeSwipeDescription' => 'Húzd felfelé vagy lefelé a jobb szélén a hangerő beállításához',
 			'settings.gesturePinchToZoom' => 'Csípés a nagyításhoz',
 			'settings.gesturePinchToZoomDescription' => 'Csípj a videóra a nagyításhoz vagy kicsinyítéshez',
-			'settings.rememberBrightnessLevel' => 'Fényerőszint megjegyzése',
-			'settings.rememberBrightnessLevelDescription' => 'A lejátszás az utolsó húzással beállított fényerővel indul',
 			'settings.controls' => 'Vezérlők',
 			'settings.rememberPlayerChanges' => 'Lejátszó módosításainak megjegyzése',
 			'settings.rememberPlayerChangesDescription' => 'A lejátszás közben végzett módosítások mentési és újbóli alkalmazási helye',
@@ -3422,6 +3476,29 @@ extension on TranslationsHu {
 			'settings.playerScopeLibrary' => 'Könyvtáronként',
 			'settings.playerScopeTitle' => 'Sorozatonként vagy filmenként',
 			'settings.exportDialogTitle' => 'Plezy-beállítások exportálása',
+			'settings.showWatchedIndicators' => 'Megtekintésjelölők megjelenítése',
+			'settings.showWatchedIndicatorsDescription' => 'Pipa megjelenítése a megtekintett filmeken, sorozatokon és epizódokon',
+			'settings.directPlayCoveredQuality' => 'Kisebb videók lejátszása eredeti minőségben',
+			'settings.directPlayCoveredQualityDescription' => 'A minőségi korláton belüli videók közvetlen lejátszása átkódolás helyett',
+			'settings.skipIntroMode' => 'Intró átugrása',
+			'settings.skipIntroModeOffDescription' => 'Az intrók normálisan lejátszódnak, átugró gomb nélkül',
+			'settings.skipIntroModeButtonDescription' => 'Átugró gomb megjelenítése az intró kezdetekor',
+			'settings.skipIntroModeAutoDescription' => 'Az intrók automatikus átugrása az alábbi késleltetés után',
+			'settings.skipCreditsMode' => 'Stáblista átugrása',
+			'settings.skipCreditsModeOffDescription' => 'A stáblista normálisan lejátszódik, átugró gomb nélkül',
+			'settings.skipCreditsModeButtonDescription' => 'Átugró gomb megjelenítése a stáblista kezdetekor',
+			'settings.skipCreditsModeAutoDescription' => 'A stáblista automatikus átugrása és a következő epizód lejátszása',
+			'settings.skipMarkerModeOff' => 'Ki',
+			'settings.skipMarkerModeButton' => 'Gomb megjelenítése',
+			'settings.skipMarkerModeAuto' => 'Automatikus',
+			'settings.rememberBrightnessLevel' => 'Fényerőszint megjegyzése',
+			'settings.rememberBrightnessLevelDescription' => 'A lejátszás az utolsó húzással beállított fényerővel indul',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => 'Keresés filmek, sorozatok és zenék között...',
 			'search.tryDifferentTerm' => 'Próbálj másik keresési kifejezést',
 			'search.searchYourMedia' => 'Keresés a saját médiatartalmak között',
@@ -3457,6 +3534,8 @@ extension on TranslationsHu {
 			'hotkeys.actions.shaderToggle' => 'Shaderek be- és kikapcsolása',
 			'hotkeys.actions.skipMarker' => 'Intró/stáblista átugrása',
 			'hotkeys.actions.screenshot' => 'Képernyőkép készítése',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Fájlinformáció',
 			'fileInfo.overview' => 'Áttekintés',
 			'fileInfo.video' => 'Videó',
@@ -3512,6 +3591,8 @@ extension on TranslationsHu {
 			'fileInfo.baseLayerCompatibility' => 'Alapréteg-kompatibilitás',
 			'fileInfo.avcBitstream' => 'AVC bitfolyam',
 			'fileInfo.nalLengthSize' => 'NAL hosszméret',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Egyéni méretezési mátrix',
 			'fileInfo.streamIdentifier' => 'Adatfolyam-azonosító',
 			'fileInfo.streamIndex' => 'Adatfolyam-index',
@@ -3529,8 +3610,6 @@ extension on TranslationsHu {
 			'fileInfo.externalDelivery' => 'Külön is kiszolgálható',
 			'fileInfo.sidecarPath' => 'Kísérő fájl útvonala',
 			'fileInfo.sourceStream' => 'Másolva innen',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.temporary' => 'Ideiglenes',
 			'fileInfo.timeBase' => 'Időalap',
 			'fileInfo.overallBitrate' => 'Összesített bitráta',
@@ -3646,6 +3725,7 @@ extension on TranslationsHu {
 			'tooltips.markAsWatched' => 'Megjelölés megtekintettként',
 			'tooltips.markAsUnwatched' => 'Megjelölés nem megtekintettként',
 			'audioTracks.track' => ({required Object n}) => '${n}. hangsáv',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => 'Hang',
 			'videoControls.subtitlesLabel' => 'Feliratok',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3692,6 +3772,7 @@ extension on TranslationsHu {
 			'videoControls.subtitleUnavailableFallback' => 'A kiválasztott feliratot nem sikerült betölteni — folytatás felirat nélkül',
 			'videoControls.pipButton' => 'Kép a képben mód',
 			'videoControls.aspectRatioButton' => 'Méretarány',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Környezeti megvilágítás',
 			'videoControls.fullscreenButton' => 'Teljes képernyős mód bekapcsolása',
 			'videoControls.exitFullscreenButton' => 'Teljes képernyős mód kikapcsolása',
@@ -4024,6 +4105,8 @@ extension on TranslationsHu {
 			'libraries.scanLibraryFiles' => 'Könyvtárfájlok beolvasása',
 			'libraries.scanLibrary' => 'Könyvtár beolvasása',
 			'libraries.analyze' => 'Elemzés',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Könyvtár elemzése',
 			'libraries.refreshMetadata' => 'Metaadatok frissítése',
 			'libraries.emptyTrash' => 'Lomtár ürítése',
@@ -4043,8 +4126,6 @@ extension on TranslationsHu {
 			'libraries.clearAll' => 'Összes törlése',
 			'libraries.scanLibraryConfirm' => ({required Object title}) => 'Biztosan be szeretnéd olvasni a következőt: "${title}"?',
 			'libraries.analyzeLibraryConfirm' => ({required Object title}) => 'Biztosan elemezni szeretnéd a következőt: "${title}"?',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.refreshMetadataConfirm' => ({required Object title}) => 'Biztosan frissíteni szeretnéd a metaadatokat a következőhöz: "${title}"?',
 			'libraries.emptyTrashConfirm' => ({required Object title}) => 'Biztosan ki szeretnéd üríteni a lomtárat a következőnél: "${title}"?',
 			'libraries.manageLibraries' => 'Könyvtárak kezelése',
@@ -4083,6 +4164,7 @@ extension on TranslationsHu {
 			'libraries.filterCategories.unwatched' => 'Nem látott',
 			'libraries.filterCategories.unplayed' => 'Nem lejátszott',
 			'libraries.filterCategories.favorites' => 'Kedvencek',
+			'libraries.filterCategories.filePath' => 'File Path',
 			'libraries.sortLabels.title' => 'Cím',
 			'libraries.sortLabels.dateAdded' => 'Hozzáadás dátuma',
 			'libraries.sortLabels.releaseDate' => 'Bemutató dátuma',
@@ -4106,11 +4188,40 @@ extension on TranslationsHu {
 			'libraries.sortLabels.dateDownloaded' => 'Letöltés dátuma',
 			'libraries.sortLabels.size' => 'Méret',
 			'libraries.sortLabels.library' => 'Könyvtár',
+			'libraries.advancedFilters.include' => 'Include',
+			'libraries.advancedFilters.exclude' => 'Exclude',
+			'libraries.advancedFilters.any' => 'Any',
+			'libraries.advancedFilters.yes' => 'Yes',
+			'libraries.advancedFilters.no' => 'No',
+			'libraries.advancedFilters.not' => ({required Object value}) => 'Not ${value}',
+			'libraries.advancedFilters.valueCount' => ({required Object count}) => '${count} selected',
+			'libraries.advancedFilters.valueCountExcluded' => ({required Object count}) => '${count} excluded',
+			'libraries.advancedFilters.searchValues' => 'Search values',
+			'libraries.advancedFilters.noValues' => 'No values',
+			'libraries.advancedFilters.matchContains' => 'Contains',
+			'libraries.advancedFilters.matchNotContains' => 'Does not contain',
+			'libraries.advancedFilters.matchIs' => 'Is',
+			'libraries.advancedFilters.matchIsNot' => 'Is not',
+			'libraries.advancedFilters.matchBeginsWith' => 'Begins with',
+			'libraries.advancedFilters.matchEndsWith' => 'Ends with',
+			'libraries.advancedFilters.textHint' => 'Type to match',
+			'libraries.advancedFilters.from' => 'From',
+			'libraries.advancedFilters.to' => 'To',
+			'libraries.advancedFilters.range' => ({required Object from, required Object to}) => '${from} to ${to}',
+			'libraries.advancedFilters.atLeast' => ({required Object value}) => '${value} and up',
+			'libraries.advancedFilters.atMost' => ({required Object value}) => 'Up to ${value}',
+			'libraries.advancedFilters.dateLastDays' => ({required Object count}) => 'Last ${count} days',
+			'libraries.advancedFilters.dateLastYear' => 'Past year',
+			'libraries.advancedFilters.dateOlderThanDays' => ({required Object count}) => 'Older than ${count} days',
+			'libraries.advancedFilters.dateOlderThanYear' => 'Older than a year',
 			'about.title' => 'Névjegy',
 			'about.openSourceLicenses' => 'Nyílt forráskódú licencek',
 			'about.versionLabel' => ({required Object version}) => 'Verzió: ${version}',
 			'about.appDescription' => 'Gyönyörű Flutter-kliens a Plexhez, a Jellyfinhez és az Embyhez',
 			'about.viewLicensesDescription' => 'Külső fejlesztésű programkönyvtárak licenceinek megtekintése',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Nem találhatók szerverek ehhez a fiókhoz: ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Nem sikerült a szerverek betöltése: ${error}',
 			'serverSelection.noValidServers' => 'Nem található használható szerver ehhez a fiókhoz',
@@ -4508,6 +4619,8 @@ extension on TranslationsHu {
 			'watchTogether.endSessionConfirm' => 'Ezzel minden résztvevő számára véget ér a munkamenet.',
 			'watchTogether.leaveSessionConfirm' => 'Eltávolításra kerülsz a munkamenetből.',
 			'watchTogether.endSessionConfirmOverlay' => 'Ezzel minden résztvevő számára véget ér a közös nézés.',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'Kilépsz a közös nézésből.',
 			'watchTogether.end' => 'Befejezés',
 			'watchTogether.leave' => 'Kilépés',
@@ -4557,8 +4670,6 @@ extension on TranslationsHu {
 			'downloads.tracksQueued' => ({required Object count}) => '${count} zeneszám letöltésre sorba állítva',
 			'downloads.noDownloads' => 'Még nincsenek letöltések',
 			'downloads.noDownloadsDescription' => 'A letöltött tartalmak itt jelennek meg az offline megtekintéshez',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.downloadNow' => 'Letöltés',
 			'downloads.deleteDownload' => 'Letöltés törlése',
 			'downloads.retryDownload' => 'Letöltés újrapróbálása',
@@ -5022,6 +5133,8 @@ extension on TranslationsHu {
 			'services.libraryFilter.libraries' => 'Könyvtárak',
 			'services.libraryFilter.noLibraries' => 'Nincsenek elérhető könyvtárak',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product} szerver hozzáadása',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.serverUrls' => 'Szerver URL-címei',
 			'addServer.serverUrlsHelper' => 'Több URL is megadható, vesszővel elválasztva.',
 			'addServer.findServer' => 'Szerver keresése',

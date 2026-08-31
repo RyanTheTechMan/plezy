@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Plex orqali kirish",
@@ -113,7 +113,15 @@
     "skipVersion": "Ushbu versiyani oʻtkazib yuborish",
     "viewRelease": "Tafsilotlarni koʻrish",
     "latestVersion": "Sizda eng soʻnggi versiya oʻrnatilgan",
-    "checkFailed": "Yangilanishlarni tekshirish imkoni boʻlmadi"
+    "checkFailed": "Yangilanishlarni tekshirish imkoni boʻlmadi",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Sozlamalar",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Yon menyu ochiq holatda qoladi, kontent maydoni unga moslashadi",
     "showUnwatchedCount": "Koʻrilmaganlar sonini koʻrsatish",
     "showUnwatchedCountDescription": "Seriallar va mavsumlarda koʻrilmagan qismlar sonini koʻrsatish",
-    "showWatchedIndicators": "Koʻrilgan belgilarni koʻrsatish",
-    "showWatchedIndicatorsDescription": "Koʻrilgan filmlar, seriallar va qismlarda tasdiq belgisi koʻrsatish",
     "showEpisodeNumberOnCards": "Kartochkalarda qism raqamini koʻrsatish",
     "showEpisodeNumberOnCardsDescription": "Qism kartochkalarida mavsum va qism raqamini koʻrsatish",
     "showSeasonPostersOnTabs": "Varaqlarda mavsum posterlarini koʻrsatish",
@@ -192,6 +198,7 @@
     "mpv": "mpv",
     "hardwareDecoding": "Apparatli dekodlash",
     "hardwareDecodingDescription": "Imkon qadar apparatli tezlashtirishdan foydalanish",
+    "packedStereoUi": "3D Playback UI",
     "playbackBuffer": "Ijro buferi",
     "playbackBufferAuto": "Avto (tavsiya etiladi)",
     "playbackBufferLarge": "Katta",
@@ -200,8 +207,6 @@
     "defaultQualityTitle": "Standart sifat",
     "cellularQualityTitle": "Mobil tarmoqda standart sifat",
     "cellularQualitySameAsDefault": "Standart sifat bilan bir xil",
-    "directPlayCoveredQuality": "Kichik videolarni asl sifatda ijro etish",
-    "directPlayCoveredQualityDescription": "Sifat chegarasiga kiruvchi videolarni qayta kodlash oʻrniga toʻgʻridan-toʻgʻri ijro etish",
     "musicQualityTitle": "Musiqa sifati",
     "subtitleStyling": "Subtitr sozlamalari",
     "subtitleStylingDescription": "Subtitrlar koʻrinishini moslashtiring",
@@ -278,17 +283,6 @@
     "shuffleStartsFromBeginningDescription": "Aralashtirganda har bir qismni davom ettirish oʻrniga boshidan boshlash",
     "playNextCountdown": "Keyingi qism sanogʻi",
     "playNextCountdownImmediate": "Darhol ijro etish",
-    "skipIntroMode": "Kirishni oʻtkazish",
-    "skipIntroModeOffDescription": "Kirishlarni oʻtkazish tugmasiz oddiy ijro etish",
-    "skipIntroModeButtonDescription": "Kirish boshlanganda oʻtkazish tugmasini koʻrsatish",
-    "skipIntroModeAutoDescription": "Kirishlarni quyidagi kechikishdan keyin avtomatik oʻtkazish",
-    "skipCreditsMode": "Titrlarni oʻtkazish",
-    "skipCreditsModeOffDescription": "Titrlarni oʻtkazish tugmasiz oddiy ijro etish",
-    "skipCreditsModeButtonDescription": "Titrlar boshlanganda oʻtkazish tugmasini koʻrsatish",
-    "skipCreditsModeAutoDescription": "Titrlarni avtomatik oʻtkazib, keyingi qismni ijro etish",
-    "skipMarkerModeOff": "Oʻchirilgan",
-    "skipMarkerModeButton": "Tugmani koʻrsatish",
-    "skipMarkerModeAuto": "Avtomatik",
     "forceSkipMarkerFallback": "Zahira belgilarini majburlash",
     "forceSkipMarkerFallbackDescription": "Plex belgilari boʻlsa ham boʻlim sarlavhasi shablonlaridan foydalanish",
     "autoSkipDelay": "Avtomatik oʻtkazish kechikishi",
@@ -405,8 +399,6 @@
     "gestureVolumeSwipeDescription": "Ovozni sozlash uchun oʻng chekkada yuqoriga yoki pastga suring",
     "gesturePinchToZoom": "Chimchilab masshtablash",
     "gesturePinchToZoomDescription": "Videoni yaqinlashtirish yoki uzoqlashtirish uchun chimchilang",
-    "rememberBrightnessLevel": "Yorqinlik darajasini eslab qolish",
-    "rememberBrightnessLevelDescription": "Ijroni oxirgi surish bilan oʻrnatilgan yorqinlikda boshlash",
     "controls": "Boshqaruv elementlari",
     "rememberPlayerChanges": "Pleyer oʻzgarishlarini eslab qolish",
     "rememberPlayerChangesDescription": "Ijro vaqtida qilingan oʻzgarish qayerda saqlanishi va qayta qoʻllanishi",
@@ -418,7 +410,30 @@
     "playerScopeGlobal": "Hamma joyda",
     "playerScopeLibrary": "Kutubxona boʻyicha",
     "playerScopeTitle": "Serial yoki film boʻyicha",
-    "exportDialogTitle": "Plezy sozlamalarini eksport qilish"
+    "exportDialogTitle": "Plezy sozlamalarini eksport qilish",
+    "showWatchedIndicators": "Koʻrilgan belgilarni koʻrsatish",
+    "showWatchedIndicatorsDescription": "Koʻrilgan filmlar, seriallar va qismlarda tasdiq belgisi koʻrsatish",
+    "directPlayCoveredQuality": "Kichik videolarni asl sifatda ijro etish",
+    "directPlayCoveredQualityDescription": "Sifat chegarasiga kiruvchi videolarni qayta kodlash oʻrniga toʻgʻridan-toʻgʻri ijro etish",
+    "skipIntroMode": "Kirishni oʻtkazish",
+    "skipIntroModeOffDescription": "Kirishlarni oʻtkazish tugmasiz oddiy ijro etish",
+    "skipIntroModeButtonDescription": "Kirish boshlanganda oʻtkazish tugmasini koʻrsatish",
+    "skipIntroModeAutoDescription": "Kirishlarni quyidagi kechikishdan keyin avtomatik oʻtkazish",
+    "skipCreditsMode": "Titrlarni oʻtkazish",
+    "skipCreditsModeOffDescription": "Titrlarni oʻtkazish tugmasiz oddiy ijro etish",
+    "skipCreditsModeButtonDescription": "Titrlar boshlanganda oʻtkazish tugmasini koʻrsatish",
+    "skipCreditsModeAutoDescription": "Titrlarni avtomatik oʻtkazib, keyingi qismni ijro etish",
+    "skipMarkerModeOff": "Oʻchirilgan",
+    "skipMarkerModeButton": "Tugmani koʻrsatish",
+    "skipMarkerModeAuto": "Avtomatik",
+    "rememberBrightnessLevel": "Yorqinlik darajasini eslab qolish",
+    "rememberBrightnessLevelDescription": "Ijroni oxirgi surish bilan oʻrnatilgan yorqinlikda boshlash",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Filmlar, seriallar, musiqa qidirish...",
@@ -458,7 +473,9 @@
       "subSeekPrev": "Oldingi subtitrga oʻtish",
       "shaderToggle": "Sheyderlarni yoqish/oʻchirish",
       "skipMarker": "Intro/Titrlarni oʻtkazib yuborish",
-      "screenshot": "Ekran tasvirini olish"
+      "screenshot": "Ekran tasvirini olish",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -670,6 +687,10 @@
     "track": "Audio yoʻlak ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Ovoz",
     "subtitlesLabel": "Subtitr",
     "addTime": "+${amount}${unit}",
@@ -716,6 +737,7 @@
     "subtitleUnavailableFallback": "Tanlangan subtitr yuklanmadi",
     "pipButton": "Rasm ichida rasm rejimi",
     "aspectRatioButton": "Tomonlar nisbati",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "ambientLighting": "Atrof-muhit yoritilishi",
     "fullscreenButton": "Toʻliq ekranga oʻtish",
     "exitFullscreenButton": "Toʻliq ekrandan chiqish",
@@ -1151,7 +1173,7 @@
       "unwatched": "Koʻrilmagan",
       "unplayed": "Eshitilmagan",
       "favorites": "Tanlanganlar",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "Nomi",
@@ -1179,32 +1201,32 @@
       "library": "Kutubxona"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1212,7 +1234,10 @@
     "openSourceLicenses": "Ochiq kodli litsenziyalar",
     "versionLabel": "Versiya ${version}",
     "appDescription": "Flutter asosidagi qulay Plex, Jellyfin va Emby mijozi",
-    "viewLicensesDescription": "Uchinchi tomon kutubxonalarining litsenziyalarini koʻrish"
+    "viewLicensesDescription": "Uchinchi tomon kutubxonalarining litsenziyalarini koʻrish",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email}) uchun serverlar topilmadi",

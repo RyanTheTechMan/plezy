@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Inloggen met Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Deze versie overslaan",
     "viewRelease": "Bekijk release",
     "latestVersion": "Je hebt de nieuwste versie",
-    "checkFailed": "Kon niet controleren op updates"
+    "checkFailed": "Kon niet controleren op updates",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Instellingen",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Zijbalk blijft uitgevouwen en inhoudsgebied past zich aan",
     "showUnwatchedCount": "Aantal ongekeken tonen",
     "showUnwatchedCountDescription": "Toon aantal ongekeken afleveringen bij series en seizoenen",
-    "showWatchedIndicators": "Bekeken-markeringen tonen",
-    "showWatchedIndicatorsDescription": "Toon een vinkje op bekeken films, series en afleveringen",
     "showEpisodeNumberOnCards": "Afleveringsnummer op kaarten tonen",
     "showEpisodeNumberOnCardsDescription": "Toon seizoen- en afleveringsnummer op afleveringskaarten",
     "showSeasonPostersOnTabs": "Toon seizoensposters op tabbladen",
@@ -192,6 +198,7 @@
     "mpv": "mpv",
     "hardwareDecoding": "Hardwaredecodering",
     "hardwareDecodingDescription": "Gebruik hardwareversnelling indien beschikbaar",
+    "packedStereoUi": "3D Playback UI",
     "playbackBuffer": "Afspeelbuffer",
     "playbackBufferAuto": "Auto (aanbevolen)",
     "playbackBufferLarge": "Groot",
@@ -200,8 +207,6 @@
     "defaultQualityTitle": "Standaardkwaliteit",
     "cellularQualityTitle": "Standaardkwaliteit bij mobiele data",
     "cellularQualitySameAsDefault": "Zelfde als standaardkwaliteit",
-    "directPlayCoveredQuality": "Kleinere video's op originele kwaliteit afspelen",
-    "directPlayCoveredQualityDescription": "Speel video's die al binnen de kwaliteitslimiet vallen direct af in plaats van ze te transcoderen",
     "musicQualityTitle": "Muziekkwaliteit",
     "subtitleStyling": "Ondertitelopmaak",
     "subtitleStylingDescription": "Pas de weergave van ondertitels aan",
@@ -278,17 +283,6 @@
     "shuffleStartsFromBeginningDescription": "Start elke aflevering bij willekeurig afspelen vanaf het begin in plaats van te hervatten",
     "playNextCountdown": "Aftellen voor volgende aflevering",
     "playNextCountdownImmediate": "Direct afspelen",
-    "skipIntroMode": "Intro overslaan",
-    "skipIntroModeOffDescription": "Speel intro's normaal af zonder overslaan-knop",
-    "skipIntroModeButtonDescription": "Toon een overslaan-knop wanneer een intro begint",
-    "skipIntroModeAutoDescription": "Sla intro's automatisch over na de onderstaande vertraging",
-    "skipCreditsMode": "Aftiteling overslaan",
-    "skipCreditsModeOffDescription": "Speel de aftiteling normaal af zonder overslaan-knop",
-    "skipCreditsModeButtonDescription": "Toon een overslaan-knop wanneer de aftiteling begint",
-    "skipCreditsModeAutoDescription": "Sla de aftiteling automatisch over en speel de volgende aflevering af",
-    "skipMarkerModeOff": "Uit",
-    "skipMarkerModeButton": "Knop tonen",
-    "skipMarkerModeAuto": "Automatisch",
     "forceSkipMarkerFallback": "Reservemarkeringen afdwingen",
     "forceSkipMarkerFallbackDescription": "Gebruik patronen in hoofdstuktitels, zelfs wanneer Plex markeringen heeft",
     "autoSkipDelay": "Vertraging voor automatisch overslaan",
@@ -405,8 +399,6 @@
     "gestureVolumeSwipeDescription": "Veeg op de rechterrand omhoog of omlaag om het volume aan te passen",
     "gesturePinchToZoom": "Knijpen om te zoomen",
     "gesturePinchToZoomDescription": "Knijp op de video om in of uit te zoomen",
-    "rememberBrightnessLevel": "Helderheidsniveau onthouden",
-    "rememberBrightnessLevelDescription": "Start het afspelen met de helderheid die met de laatste veeg is ingesteld",
     "controls": "Bediening",
     "rememberPlayerChanges": "Spelerwijzigingen onthouden",
     "rememberPlayerChangesDescription": "Waar een wijziging tijdens het afspelen wordt opgeslagen en opnieuw toegepast",
@@ -418,7 +410,30 @@
     "playerScopeGlobal": "Overal",
     "playerScopeLibrary": "Per bibliotheek",
     "playerScopeTitle": "Per serie of film",
-    "exportDialogTitle": "Plezy-instellingen exporteren"
+    "exportDialogTitle": "Plezy-instellingen exporteren",
+    "showWatchedIndicators": "Bekeken-markeringen tonen",
+    "showWatchedIndicatorsDescription": "Toon een vinkje op bekeken films, series en afleveringen",
+    "directPlayCoveredQuality": "Kleinere video's op originele kwaliteit afspelen",
+    "directPlayCoveredQualityDescription": "Speel video's die al binnen de kwaliteitslimiet vallen direct af in plaats van ze te transcoderen",
+    "skipIntroMode": "Intro overslaan",
+    "skipIntroModeOffDescription": "Speel intro's normaal af zonder overslaan-knop",
+    "skipIntroModeButtonDescription": "Toon een overslaan-knop wanneer een intro begint",
+    "skipIntroModeAutoDescription": "Sla intro's automatisch over na de onderstaande vertraging",
+    "skipCreditsMode": "Aftiteling overslaan",
+    "skipCreditsModeOffDescription": "Speel de aftiteling normaal af zonder overslaan-knop",
+    "skipCreditsModeButtonDescription": "Toon een overslaan-knop wanneer de aftiteling begint",
+    "skipCreditsModeAutoDescription": "Sla de aftiteling automatisch over en speel de volgende aflevering af",
+    "skipMarkerModeOff": "Uit",
+    "skipMarkerModeButton": "Knop tonen",
+    "skipMarkerModeAuto": "Automatisch",
+    "rememberBrightnessLevel": "Helderheidsniveau onthouden",
+    "rememberBrightnessLevelDescription": "Start het afspelen met de helderheid die met de laatste veeg is ingesteld",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Zoek films, series, muziek...",
@@ -458,7 +473,9 @@
       "subSeekPrev": "Naar vorige ondertitel",
       "shaderToggle": "Shaders aan/uit",
       "skipMarker": "Intro/aftiteling overslaan",
-      "screenshot": "Schermafbeelding maken"
+      "screenshot": "Schermafbeelding maken",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -670,6 +687,10 @@
     "track": "Audiospoor ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Audio",
     "subtitlesLabel": "Ondertitels",
     "addTime": "+${amount}${unit}",
@@ -716,6 +737,7 @@
     "subtitleUnavailableFallback": "De geselecteerde ondertitels konden niet worden geladen — afspelen gaat door zonder ondertitels",
     "pipButton": "Beeld-in-beeldmodus",
     "aspectRatioButton": "Beeldverhouding",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "ambientLighting": "Omgevingsverlichting",
     "fullscreenButton": "Volledig scherm activeren",
     "exitFullscreenButton": "Volledig scherm verlaten",
@@ -1151,7 +1173,7 @@
       "unwatched": "Onbekeken",
       "unplayed": "Niet afgespeeld",
       "favorites": "Favorieten",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "Titel",
@@ -1179,32 +1201,32 @@
       "library": "Bibliotheek"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1212,7 +1234,10 @@
     "openSourceLicenses": "Opensourcelicenties",
     "versionLabel": "Versie ${version}",
     "appDescription": "Een mooie Plex-, Jellyfin- en Emby-client voor Flutter",
-    "viewLicensesDescription": "Licenties van bibliotheken van derden bekijken"
+    "viewLicensesDescription": "Licenties van bibliotheken van derden bekijken",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Geen servers gevonden voor ${username} (${email})",

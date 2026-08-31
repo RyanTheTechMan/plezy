@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "使用 Plex 登录",
@@ -113,7 +113,15 @@
     "skipVersion": "跳过此版本",
     "viewRelease": "查看发布详情",
     "latestVersion": "当前已是最新版本",
-    "checkFailed": "无法检查更新"
+    "checkFailed": "无法检查更新",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "设置",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "侧边栏保持展开状态，内容区域自动调整",
     "showUnwatchedCount": "显示未观看数量",
     "showUnwatchedCountDescription": "在剧集和季上显示未观看集数",
-    "showWatchedIndicators": "显示已观看标记",
-    "showWatchedIndicatorsDescription": "在已观看的电影、剧集和单集上显示对勾标记",
     "showEpisodeNumberOnCards": "在卡片上显示集数",
     "showEpisodeNumberOnCardsDescription": "在剧集卡片上显示季和集编号",
     "showSeasonPostersOnTabs": "在选项卡上显示季海报",
@@ -192,6 +198,7 @@
     "mpv": "mpv",
     "hardwareDecoding": "硬件解码",
     "hardwareDecodingDescription": "如果可用，使用硬件加速",
+    "packedStereoUi": "3D Playback UI",
     "playbackBuffer": "播放缓冲",
     "playbackBufferAuto": "自动（推荐）",
     "playbackBufferLarge": "大",
@@ -200,8 +207,6 @@
     "defaultQualityTitle": "默认画质",
     "cellularQualityTitle": "移动网络默认画质",
     "cellularQualitySameAsDefault": "与默认画质相同",
-    "directPlayCoveredQuality": "以原始画质播放较小视频",
-    "directPlayCoveredQualityDescription": "已在画质限制内的视频直接播放，而非转码",
     "musicQualityTitle": "音乐音质",
     "subtitleStyling": "字幕样式",
     "subtitleStylingDescription": "调整字幕外观",
@@ -278,17 +283,6 @@
     "shuffleStartsFromBeginningDescription": "随机播放时每集从头开始播放，而非续播",
     "playNextCountdown": "播放下一集倒计时",
     "playNextCountdownImmediate": "立即播放",
-    "skipIntroMode": "跳过片头",
-    "skipIntroModeOffDescription": "正常播放片头，不显示跳过按钮",
-    "skipIntroModeButtonDescription": "片头开始时显示跳过按钮",
-    "skipIntroModeAutoDescription": "在下方设定的延迟后自动跳过片头",
-    "skipCreditsMode": "跳过片尾",
-    "skipCreditsModeOffDescription": "正常播放片尾，不显示跳过按钮",
-    "skipCreditsModeButtonDescription": "片尾开始时显示跳过按钮",
-    "skipCreditsModeAutoDescription": "自动跳过片尾并播放下一集",
-    "skipMarkerModeOff": "关闭",
-    "skipMarkerModeButton": "显示按钮",
-    "skipMarkerModeAuto": "自动",
     "forceSkipMarkerFallback": "强制使用备用标记",
     "forceSkipMarkerFallbackDescription": "即使 Plex 有标记，也使用章节标题模式",
     "autoSkipDelay": "自动跳过延迟",
@@ -405,8 +399,6 @@
     "gestureVolumeSwipeDescription": "在屏幕右边缘上下滑动以调节音量",
     "gesturePinchToZoom": "双指缩放",
     "gesturePinchToZoomDescription": "在视频上双指捏合以放大或缩小",
-    "rememberBrightnessLevel": "记住亮度",
-    "rememberBrightnessLevelDescription": "以上次滑动设置的亮度开始播放",
     "controls": "控制",
     "rememberPlayerChanges": "记住播放器更改",
     "rememberPlayerChangesDescription": "播放期间所做的更改保存并重新应用的位置",
@@ -418,7 +410,30 @@
     "playerScopeGlobal": "所有位置",
     "playerScopeLibrary": "按媒体库",
     "playerScopeTitle": "按剧集或电影",
-    "exportDialogTitle": "导出 Plezy 设置"
+    "exportDialogTitle": "导出 Plezy 设置",
+    "showWatchedIndicators": "显示已观看标记",
+    "showWatchedIndicatorsDescription": "在已观看的电影、剧集和单集上显示对勾标记",
+    "directPlayCoveredQuality": "以原始画质播放较小视频",
+    "directPlayCoveredQualityDescription": "已在画质限制内的视频直接播放，而非转码",
+    "skipIntroMode": "跳过片头",
+    "skipIntroModeOffDescription": "正常播放片头，不显示跳过按钮",
+    "skipIntroModeButtonDescription": "片头开始时显示跳过按钮",
+    "skipIntroModeAutoDescription": "在下方设定的延迟后自动跳过片头",
+    "skipCreditsMode": "跳过片尾",
+    "skipCreditsModeOffDescription": "正常播放片尾，不显示跳过按钮",
+    "skipCreditsModeButtonDescription": "片尾开始时显示跳过按钮",
+    "skipCreditsModeAutoDescription": "自动跳过片尾并播放下一集",
+    "skipMarkerModeOff": "关闭",
+    "skipMarkerModeButton": "显示按钮",
+    "skipMarkerModeAuto": "自动",
+    "rememberBrightnessLevel": "记住亮度",
+    "rememberBrightnessLevelDescription": "以上次滑动设置的亮度开始播放",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "搜索电影、剧集、音乐…",
@@ -458,7 +473,9 @@
       "subSeekPrev": "跳转到上一条字幕",
       "shaderToggle": "切换着色器",
       "skipMarker": "跳过片头/片尾",
-      "screenshot": "截图"
+      "screenshot": "截图",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -603,12 +620,15 @@
     "confirmDeleteTarget": "从你的服务器永久删除 ${title}？",
     "deleteMultipleWarning": "这包括所有剧集及其文件。",
     "deleteEpisodeCountWarning": {
+      "one": "This deletes all ${n} episode in it, and its file.",
       "other": "这将删除其中全部 ${n} 集以及它们的文件。"
     },
     "deleteMultiPartWarning": {
+      "one": "This item is stored as ${n} file, which will be deleted.",
       "other": "此项目存储在 ${n} 个文件中，所有这些文件都会被删除。"
     },
     "deleteSharedFileHeading": {
+      "one": "${n} other episode is stored in the same file and will be deleted too:",
       "other": "另外 ${n} 集存储在同一个文件中，也会一并删除："
     },
     "deleteScopeUnverifiedProbeFailed": "Plezy 无法确认此操作会删除哪些文件，因此删除范围可能超出上面提到的项目。请取消后重试，或仍然删除。",
@@ -667,6 +687,10 @@
     "track": "音轨 ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "音频",
     "subtitlesLabel": "字幕",
     "addTime": "+${amount}${unit}",
@@ -713,6 +737,7 @@
     "subtitleUnavailableFallback": "无法加载所选字幕 — 将继续无字幕播放",
     "pipButton": "画中画",
     "aspectRatioButton": "宽高比",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "ambientLighting": "氛围灯光",
     "fullscreenButton": "进入全屏",
     "exitFullscreenButton": "退出全屏",
@@ -769,6 +794,7 @@
     "markedAsUnwatchedOffline": "已标记为未观看（将在联网时同步）",
     "autoRemovedWatchedDownload": "已自动移除：${title}",
     "autoRemovedWatchedDownloads": {
+      "one": "Auto-removed ${n} watched download",
       "other": "已自动移除 ${n} 个看过的下载"
     },
     "removedFromContinueWatching": "已从继续观看中移除",
@@ -1054,6 +1080,7 @@
     "minutesLeft": "剩余 ${minutes} 分钟",
     "moreLikeThis": "更多类似内容",
     "titleCount": {
+      "one": "${n} title",
       "other": "${n} 个标题"
     }
   },
@@ -1146,7 +1173,7 @@
       "unwatched": "未观看",
       "unplayed": "未播放",
       "favorites": "收藏夹",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "标题",
@@ -1174,32 +1201,32 @@
       "library": "媒体库"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1207,7 +1234,10 @@
     "openSourceLicenses": "开源许可证",
     "versionLabel": "版本 ${version}",
     "appDescription": "一款精美的 Flutter Plex、Jellyfin 和 Emby 客户端",
-    "viewLicensesDescription": "查看第三方库的许可证"
+    "viewLicensesDescription": "查看第三方库的许可证",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "未找到 ${username}（${email}）的服务器",
@@ -1296,6 +1326,7 @@
       "upcoming": "即将上线"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n} 集"
     },
     "cast": "演员表",
@@ -1310,6 +1341,7 @@
     "inTheseLibraries": "在这些媒体库中",
     "checkingLibrary": "正在检查你的媒体库…",
     "libraryCheckFailed": {
+      "one": "Couldn't check ${n} server",
       "other": "无法检查 ${n} 台服务器"
     },
     "emptyTitle": "这里还什么都没有",
@@ -1352,6 +1384,7 @@
       "favorited": "${n} 人收藏",
       "dropRate": "${percent} 弃番",
       "comments": {
+        "one": "${n} comment",
         "other": "${n} 条评论"
       },
       "votes": "${n} 票",
@@ -1432,6 +1465,7 @@
       "ratings": "评分",
       "schedule": "播出时间",
       "recommendedByUsers": {
+        "one": "Recommended by ${n} user",
         "other": "由 ${n} 位用户推荐"
       },
       "recommendedBy": "由 ${who} 推荐",
@@ -1442,6 +1476,7 @@
       "background": "背景"
     },
     "totalResults": {
+      "one": "${n} result",
       "other": "${n} 条结果"
     }
   },
@@ -1599,6 +1634,7 @@
     "addToQueue": "添加到队列",
     "discNumber": "碟片 ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n} 首"
     },
     "nowPlaying": "正在播放",

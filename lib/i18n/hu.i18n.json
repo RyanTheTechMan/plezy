@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Bejelentkezés Plexszel",
@@ -113,7 +113,15 @@
     "skipVersion": "Verzió kihagyása",
     "viewRelease": "Kiadási megjegyzések",
     "latestVersion": "A legújabb verziót használod",
-    "checkFailed": "Nem sikerült az újabb frissítések ellenőrzése"
+    "checkFailed": "Nem sikerült az újabb frissítések ellenőrzése",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Beállítások",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Az oldalsáv kibontva marad, a tartalom területe igazodik hozzá",
     "showUnwatchedCount": "Nem látott elemek számának megjelenítése",
     "showUnwatchedCountDescription": "Megjeleníti a még nem látott epizódok számát a sorozatoknál és évadoknál",
-    "showWatchedIndicators": "Megtekintésjelölők megjelenítése",
-    "showWatchedIndicatorsDescription": "Pipa megjelenítése a megtekintett filmeken, sorozatokon és epizódokon",
     "showEpisodeNumberOnCards": "Epizódszám megjelenítése a kártyákon",
     "showEpisodeNumberOnCardsDescription": "Megjeleníti az évad- és epizódszámot az epizódkártyákon",
     "showSeasonPostersOnTabs": "Évadborítók megjelenítése a füleken",
@@ -192,6 +198,7 @@
     "mpv": "mpv",
     "hardwareDecoding": "Hardveres dekódolás",
     "hardwareDecodingDescription": "Hardveres gyorsítás használata, ha elérhető",
+    "packedStereoUi": "3D Playback UI",
     "playbackBuffer": "Lejátszási puffer",
     "playbackBufferAuto": "Automatikus (ajánlott)",
     "playbackBufferLarge": "Nagy",
@@ -200,8 +207,6 @@
     "defaultQualityTitle": "Alapértelmezett minőség",
     "cellularQualityTitle": "Alapértelmezett minőség mobilhálózaton",
     "cellularQualitySameAsDefault": "Ugyanaz, mint az alapértelmezett minőség",
-    "directPlayCoveredQuality": "Kisebb videók lejátszása eredeti minőségben",
-    "directPlayCoveredQualityDescription": "A minőségi korláton belüli videók közvetlen lejátszása átkódolás helyett",
     "musicQualityTitle": "Zene minősége",
     "subtitleStyling": "Feliratok stílusa",
     "subtitleStylingDescription": "Feliratok megjelenésének testreszabása",
@@ -278,17 +283,6 @@
     "shuffleStartsFromBeginningDescription": "Minden epizód az elejétől indul véletlenszerű lejátszáskor a folytatás helyett",
     "playNextCountdown": "Visszaszámlálás a következő epizódig",
     "playNextCountdownImmediate": "Azonnali lejátszás",
-    "skipIntroMode": "Intró átugrása",
-    "skipIntroModeOffDescription": "Az intrók normálisan lejátszódnak, átugró gomb nélkül",
-    "skipIntroModeButtonDescription": "Átugró gomb megjelenítése az intró kezdetekor",
-    "skipIntroModeAutoDescription": "Az intrók automatikus átugrása az alábbi késleltetés után",
-    "skipCreditsMode": "Stáblista átugrása",
-    "skipCreditsModeOffDescription": "A stáblista normálisan lejátszódik, átugró gomb nélkül",
-    "skipCreditsModeButtonDescription": "Átugró gomb megjelenítése a stáblista kezdetekor",
-    "skipCreditsModeAutoDescription": "A stáblista automatikus átugrása és a következő epizód lejátszása",
-    "skipMarkerModeOff": "Ki",
-    "skipMarkerModeButton": "Gomb megjelenítése",
-    "skipMarkerModeAuto": "Automatikus",
     "forceSkipMarkerFallback": "Tartalék jelölők kényszerítése",
     "forceSkipMarkerFallbackDescription": "Fejezetcím-minták használata akkor is, ha a Plex rendelkezik jelölőkkel",
     "autoSkipDelay": "Automatikus átugrás késleltetése",
@@ -405,8 +399,6 @@
     "gestureVolumeSwipeDescription": "Húzd felfelé vagy lefelé a jobb szélén a hangerő beállításához",
     "gesturePinchToZoom": "Csípés a nagyításhoz",
     "gesturePinchToZoomDescription": "Csípj a videóra a nagyításhoz vagy kicsinyítéshez",
-    "rememberBrightnessLevel": "Fényerőszint megjegyzése",
-    "rememberBrightnessLevelDescription": "A lejátszás az utolsó húzással beállított fényerővel indul",
     "controls": "Vezérlők",
     "rememberPlayerChanges": "Lejátszó módosításainak megjegyzése",
     "rememberPlayerChangesDescription": "A lejátszás közben végzett módosítások mentési és újbóli alkalmazási helye",
@@ -418,7 +410,30 @@
     "playerScopeGlobal": "Mindenhol",
     "playerScopeLibrary": "Könyvtáronként",
     "playerScopeTitle": "Sorozatonként vagy filmenként",
-    "exportDialogTitle": "Plezy-beállítások exportálása"
+    "exportDialogTitle": "Plezy-beállítások exportálása",
+    "showWatchedIndicators": "Megtekintésjelölők megjelenítése",
+    "showWatchedIndicatorsDescription": "Pipa megjelenítése a megtekintett filmeken, sorozatokon és epizódokon",
+    "directPlayCoveredQuality": "Kisebb videók lejátszása eredeti minőségben",
+    "directPlayCoveredQualityDescription": "A minőségi korláton belüli videók közvetlen lejátszása átkódolás helyett",
+    "skipIntroMode": "Intró átugrása",
+    "skipIntroModeOffDescription": "Az intrók normálisan lejátszódnak, átugró gomb nélkül",
+    "skipIntroModeButtonDescription": "Átugró gomb megjelenítése az intró kezdetekor",
+    "skipIntroModeAutoDescription": "Az intrók automatikus átugrása az alábbi késleltetés után",
+    "skipCreditsMode": "Stáblista átugrása",
+    "skipCreditsModeOffDescription": "A stáblista normálisan lejátszódik, átugró gomb nélkül",
+    "skipCreditsModeButtonDescription": "Átugró gomb megjelenítése a stáblista kezdetekor",
+    "skipCreditsModeAutoDescription": "A stáblista automatikus átugrása és a következő epizód lejátszása",
+    "skipMarkerModeOff": "Ki",
+    "skipMarkerModeButton": "Gomb megjelenítése",
+    "skipMarkerModeAuto": "Automatikus",
+    "rememberBrightnessLevel": "Fényerőszint megjegyzése",
+    "rememberBrightnessLevelDescription": "A lejátszás az utolsó húzással beállított fényerővel indul",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Keresés filmek, sorozatok és zenék között...",
@@ -458,7 +473,9 @@
       "subSeekPrev": "Ugrás az előző feliratra",
       "shaderToggle": "Shaderek be- és kikapcsolása",
       "skipMarker": "Intró/stáblista átugrása",
-      "screenshot": "Képernyőkép készítése"
+      "screenshot": "Képernyőkép készítése",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -670,6 +687,10 @@
     "track": "${n}. hangsáv"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Hang",
     "subtitlesLabel": "Feliratok",
     "addTime": "+${amount}${unit}",
@@ -716,6 +737,7 @@
     "subtitleUnavailableFallback": "A kiválasztott feliratot nem sikerült betölteni — folytatás felirat nélkül",
     "pipButton": "Kép a képben mód",
     "aspectRatioButton": "Méretarány",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "ambientLighting": "Környezeti megvilágítás",
     "fullscreenButton": "Teljes képernyős mód bekapcsolása",
     "exitFullscreenButton": "Teljes képernyős mód kikapcsolása",
@@ -1151,7 +1173,7 @@
       "unwatched": "Nem látott",
       "unplayed": "Nem lejátszott",
       "favorites": "Kedvencek",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "Cím",
@@ -1179,32 +1201,32 @@
       "library": "Könyvtár"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1212,7 +1234,10 @@
     "openSourceLicenses": "Nyílt forráskódú licencek",
     "versionLabel": "Verzió: ${version}",
     "appDescription": "Gyönyörű Flutter-kliens a Plexhez, a Jellyfinhez és az Embyhez",
-    "viewLicensesDescription": "Külső fejlesztésű programkönyvtárak licenceinek megtekintése"
+    "viewLicensesDescription": "Külső fejlesztésű programkönyvtárak licenceinek megtekintése",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Nem találhatók szerverek ehhez a fiókhoz: ${username} (${email})",

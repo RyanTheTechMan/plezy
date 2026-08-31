@@ -99,7 +99,7 @@ class _Translations$app$bg extends Translations$app$en {
 	final TranslationsBg _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -216,6 +216,14 @@ class _Translations$update$bg extends Translations$update$en {
 	@override String get viewRelease => 'Виж версията';
 	@override String get latestVersion => 'Използвате най-новата версия';
 	@override String get checkFailed => 'Неуспешна проверка за актуализации';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -278,8 +286,6 @@ class _Translations$settings$bg extends Translations$settings$en {
 	@override String get alwaysKeepSidebarOpenDescription => 'Страничната лента остава разгъната и зоната със съдържание се наглася да пасне';
 	@override String get showUnwatchedCount => 'Показвай броя негледани';
 	@override String get showUnwatchedCountDescription => 'Показвай броя негледани епизоди при сериали и сезони';
-	@override String get showWatchedIndicators => 'Показвай индикатори за гледано';
-	@override String get showWatchedIndicatorsDescription => 'Показвай отметка върху гледани филми, сериали и епизоди';
 	@override String get showEpisodeNumberOnCards => 'Показвай номера на епизода върху картите';
 	@override String get showEpisodeNumberOnCardsDescription => 'Показвай сезон и номер на епизод върху картите на епизодите';
 	@override String get showSeasonPostersOnTabs => 'Показвай постери на сезоните в табовете';
@@ -301,6 +307,7 @@ class _Translations$settings$bg extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Хардуерно декодиране';
 	@override String get hardwareDecodingDescription => 'Използвай хардуерно ускорение, когато е налично';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Буфер за възпроизвеждане';
 	@override String get playbackBufferAuto => 'Автоматично (препоръчително)';
 	@override String get playbackBufferLarge => 'Голям';
@@ -309,8 +316,6 @@ class _Translations$settings$bg extends Translations$settings$en {
 	@override String get defaultQualityTitle => 'Качество по подразбиране';
 	@override String get cellularQualityTitle => 'Качество по подразбиране при мобилни данни';
 	@override String get cellularQualitySameAsDefault => 'Същото като качеството по подразбиране';
-	@override String get directPlayCoveredQuality => 'Пускай по-малките видеа в оригинално качество';
-	@override String get directPlayCoveredQualityDescription => 'Възпроизвеждай директно видеата, които вече са в рамките на лимита за качество, вместо да ги транскодираш';
 	@override String get musicQualityTitle => 'Качество на музиката';
 	@override String get subtitleStyling => 'Стил на субтитрите';
 	@override String get subtitleStylingDescription => 'Настройване на вида на субтитрите';
@@ -387,17 +392,6 @@ class _Translations$settings$bg extends Translations$settings$en {
 	@override String get shuffleStartsFromBeginningDescription => 'При разбъркано възпроизвеждане започвай всеки епизод отначало, вместо да продължаваш';
 	@override String get playNextCountdown => 'Отброяване до следващия епизод';
 	@override String get playNextCountdownImmediate => 'Пусни веднага';
-	@override String get skipIntroMode => 'Прескачане на интрото';
-	@override String get skipIntroModeOffDescription => 'Пускай интротата нормално, без бутон за прескачане';
-	@override String get skipIntroModeButtonDescription => 'Показвай бутон за прескачане, когато започне интро';
-	@override String get skipIntroModeAutoDescription => 'Прескачай интротата автоматично след забавянето по-долу';
-	@override String get skipCreditsMode => 'Прескачане на финалните надписи';
-	@override String get skipCreditsModeOffDescription => 'Пускай финалните надписи нормално, без бутон за прескачане';
-	@override String get skipCreditsModeButtonDescription => 'Показвай бутон за прескачане, когато започнат финалните надписи';
-	@override String get skipCreditsModeAutoDescription => 'Прескачай финалните надписи автоматично и пускай следващия епизод';
-	@override String get skipMarkerModeOff => 'Изключено';
-	@override String get skipMarkerModeButton => 'Показвай бутон';
-	@override String get skipMarkerModeAuto => 'Автоматично';
 	@override String get forceSkipMarkerFallback => 'Принуди резервни маркери';
 	@override String get forceSkipMarkerFallbackDescription => 'Използвай шаблони в заглавията на главите дори когато Plex има маркери';
 	@override String get autoSkipDelay => 'Забавяне за автоматично прескачане';
@@ -514,8 +508,6 @@ class _Translations$settings$bg extends Translations$settings$en {
 	@override String get gestureVolumeSwipeDescription => 'Плъзни нагоре или надолу по десния ръб, за да регулираш силата на звука';
 	@override String get gesturePinchToZoom => 'Стискане за мащабиране';
 	@override String get gesturePinchToZoomDescription => 'Стисни видеото, за да увеличиш или намалиш мащаба';
-	@override String get rememberBrightnessLevel => 'Запомняй нивото на яркостта';
-	@override String get rememberBrightnessLevelDescription => 'Започвай възпроизвеждането с яркостта, зададена от последното плъзгане';
 	@override String get controls => 'Контроли';
 	@override String get rememberPlayerChanges => 'Запомняне на промените в плейъра';
 	@override String get rememberPlayerChangesDescription => 'Къде се записва и откъде се прилага отново промяна, направена по време на възпроизвеждане';
@@ -528,6 +520,29 @@ class _Translations$settings$bg extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'По библиотека';
 	@override String get playerScopeTitle => 'По сериал или филм';
 	@override String get exportDialogTitle => 'Експортиране на настройките на Plezy';
+	@override String get showWatchedIndicators => 'Показвай индикатори за гледано';
+	@override String get showWatchedIndicatorsDescription => 'Показвай отметка върху гледани филми, сериали и епизоди';
+	@override String get directPlayCoveredQuality => 'Пускай по-малките видеа в оригинално качество';
+	@override String get directPlayCoveredQualityDescription => 'Възпроизвеждай директно видеата, които вече са в рамките на лимита за качество, вместо да ги транскодираш';
+	@override String get skipIntroMode => 'Прескачане на интрото';
+	@override String get skipIntroModeOffDescription => 'Пускай интротата нормално, без бутон за прескачане';
+	@override String get skipIntroModeButtonDescription => 'Показвай бутон за прескачане, когато започне интро';
+	@override String get skipIntroModeAutoDescription => 'Прескачай интротата автоматично след забавянето по-долу';
+	@override String get skipCreditsMode => 'Прескачане на финалните надписи';
+	@override String get skipCreditsModeOffDescription => 'Пускай финалните надписи нормално, без бутон за прескачане';
+	@override String get skipCreditsModeButtonDescription => 'Показвай бутон за прескачане, когато започнат финалните надписи';
+	@override String get skipCreditsModeAutoDescription => 'Прескачай финалните надписи автоматично и пускай следващия епизод';
+	@override String get skipMarkerModeOff => 'Изключено';
+	@override String get skipMarkerModeButton => 'Показвай бутон';
+	@override String get skipMarkerModeAuto => 'Автоматично';
+	@override String get rememberBrightnessLevel => 'Запомняй нивото на яркостта';
+	@override String get rememberBrightnessLevelDescription => 'Започвай възпроизвеждането с яркостта, зададена от последното плъзгане';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -816,6 +831,10 @@ class _Translations$videoControls$bg extends Translations$videoControls$en {
 	final TranslationsBg _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('bg'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => 'Аудио';
 	@override String get subtitlesLabel => 'Субтитри';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -862,6 +881,7 @@ class _Translations$videoControls$bg extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'Избраните субтитри не можаха да се заредят — възпроизвеждането продължава без субтитри';
 	@override String get pipButton => 'Режим картина в картината';
 	@override String get aspectRatioButton => 'Съотношение на страните';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Амбиентно осветление';
 	@override String get fullscreenButton => 'Влез на цял екран';
 	@override String get exitFullscreenButton => 'Излез от цял екран';
@@ -1300,6 +1320,7 @@ class _Translations$libraries$bg extends Translations$libraries$en {
 	@override late final _Translations$libraries$groupings$bg groupings = _Translations$libraries$groupings$bg._(_root);
 	@override late final _Translations$libraries$filterCategories$bg filterCategories = _Translations$libraries$filterCategories$bg._(_root);
 	@override late final _Translations$libraries$sortLabels$bg sortLabels = _Translations$libraries$sortLabels$bg._(_root);
+	@override late final _Translations$libraries$advancedFilters$bg advancedFilters = _Translations$libraries$advancedFilters$bg._(_root);
 }
 
 // Path: about
@@ -1314,6 +1335,9 @@ class _Translations$about$bg extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Версия ${version}';
 	@override String get appDescription => 'Красив клиент за Plex, Jellyfin и Emby, създаден с Flutter';
 	@override String get viewLicensesDescription => 'Виж лицензите на библиотеки на трети страни';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -2353,6 +2377,8 @@ class _Translations$hotkeys$actions$bg extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Превключи шейдъри';
 	@override String get skipMarker => 'Прескочи интро/финални надписи';
 	@override String get screenshot => 'Направи екранна снимка';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2501,6 +2527,7 @@ class _Translations$libraries$filterCategories$bg extends Translations$libraries
 	@override String get unwatched => 'Негледани';
 	@override String get unplayed => 'Непускани';
 	@override String get favorites => 'Любими';
+	@override String get filePath => 'File Path';
 }
 
 // Path: libraries.sortLabels
@@ -2533,6 +2560,41 @@ class _Translations$libraries$sortLabels$bg extends Translations$libraries$sortL
 	@override String get dateDownloaded => 'Дата на изтегляне';
 	@override String get size => 'Размер';
 	@override String get library => 'Библиотека';
+}
+
+// Path: libraries.advancedFilters
+class _Translations$libraries$advancedFilters$bg extends Translations$libraries$advancedFilters$en {
+	_Translations$libraries$advancedFilters$bg._(TranslationsBg root) : this._root = root, super.internal(root);
+
+	final TranslationsBg _root; // ignore: unused_field
+
+	// Translations
+	@override String get include => 'Include';
+	@override String get exclude => 'Exclude';
+	@override String get any => 'Any';
+	@override String get yes => 'Yes';
+	@override String get no => 'No';
+	@override String not({required Object value}) => 'Not ${value}';
+	@override String valueCount({required Object count}) => '${count} selected';
+	@override String valueCountExcluded({required Object count}) => '${count} excluded';
+	@override String get searchValues => 'Search values';
+	@override String get noValues => 'No values';
+	@override String get matchContains => 'Contains';
+	@override String get matchNotContains => 'Does not contain';
+	@override String get matchIs => 'Is';
+	@override String get matchIsNot => 'Is not';
+	@override String get matchBeginsWith => 'Begins with';
+	@override String get matchEndsWith => 'Ends with';
+	@override String get textHint => 'Type to match';
+	@override String get from => 'From';
+	@override String get to => 'To';
+	@override String range({required Object from, required Object to}) => '${from} to ${to}';
+	@override String atLeast({required Object value}) => '${value} and up';
+	@override String atMost({required Object value}) => 'Up to ${value}';
+	@override String dateLastDays({required Object count}) => 'Last ${count} days';
+	@override String get dateLastYear => 'Past year';
+	@override String dateOlderThanDays({required Object count}) => 'Older than ${count} days';
+	@override String get dateOlderThanYear => 'Older than a year';
 }
 
 // Path: explore.rows
@@ -3017,7 +3079,7 @@ class _Translations$services$libraryFilter$bg extends Translations$services$libr
 extension on TranslationsBg {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Вход с Plex',
 			'auth.showQRCode' => 'Покажи QR код',
 			'auth.authenticate' => 'Удостовери се',
@@ -3119,6 +3181,14 @@ extension on TranslationsBg {
 			'update.viewRelease' => 'Виж версията',
 			'update.latestVersion' => 'Използвате най-новата версия',
 			'update.checkFailed' => 'Неуспешна проверка за актуализации',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Настройки',
 			'settings.supportDeveloper' => 'Подкрепи Plezy',
 			'settings.supportDeveloperDescription' => 'Дарение чрез Liberapay за финансиране на разработката',
@@ -3172,8 +3242,6 @@ extension on TranslationsBg {
 			'settings.alwaysKeepSidebarOpenDescription' => 'Страничната лента остава разгъната и зоната със съдържание се наглася да пасне',
 			'settings.showUnwatchedCount' => 'Показвай броя негледани',
 			'settings.showUnwatchedCountDescription' => 'Показвай броя негледани епизоди при сериали и сезони',
-			'settings.showWatchedIndicators' => 'Показвай индикатори за гледано',
-			'settings.showWatchedIndicatorsDescription' => 'Показвай отметка върху гледани филми, сериали и епизоди',
 			'settings.showEpisodeNumberOnCards' => 'Показвай номера на епизода върху картите',
 			'settings.showEpisodeNumberOnCardsDescription' => 'Показвай сезон и номер на епизод върху картите на епизодите',
 			'settings.showSeasonPostersOnTabs' => 'Показвай постери на сезоните в табовете',
@@ -3195,6 +3263,7 @@ extension on TranslationsBg {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Хардуерно декодиране',
 			'settings.hardwareDecodingDescription' => 'Използвай хардуерно ускорение, когато е налично',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Буфер за възпроизвеждане',
 			'settings.playbackBufferAuto' => 'Автоматично (препоръчително)',
 			'settings.playbackBufferLarge' => 'Голям',
@@ -3203,8 +3272,6 @@ extension on TranslationsBg {
 			'settings.defaultQualityTitle' => 'Качество по подразбиране',
 			'settings.cellularQualityTitle' => 'Качество по подразбиране при мобилни данни',
 			'settings.cellularQualitySameAsDefault' => 'Същото като качеството по подразбиране',
-			'settings.directPlayCoveredQuality' => 'Пускай по-малките видеа в оригинално качество',
-			'settings.directPlayCoveredQualityDescription' => 'Възпроизвеждай директно видеата, които вече са в рамките на лимита за качество, вместо да ги транскодираш',
 			'settings.musicQualityTitle' => 'Качество на музиката',
 			'settings.subtitleStyling' => 'Стил на субтитрите',
 			'settings.subtitleStylingDescription' => 'Настройване на вида на субтитрите',
@@ -3281,17 +3348,6 @@ extension on TranslationsBg {
 			'settings.shuffleStartsFromBeginningDescription' => 'При разбъркано възпроизвеждане започвай всеки епизод отначало, вместо да продължаваш',
 			'settings.playNextCountdown' => 'Отброяване до следващия епизод',
 			'settings.playNextCountdownImmediate' => 'Пусни веднага',
-			'settings.skipIntroMode' => 'Прескачане на интрото',
-			'settings.skipIntroModeOffDescription' => 'Пускай интротата нормално, без бутон за прескачане',
-			'settings.skipIntroModeButtonDescription' => 'Показвай бутон за прескачане, когато започне интро',
-			'settings.skipIntroModeAutoDescription' => 'Прескачай интротата автоматично след забавянето по-долу',
-			'settings.skipCreditsMode' => 'Прескачане на финалните надписи',
-			'settings.skipCreditsModeOffDescription' => 'Пускай финалните надписи нормално, без бутон за прескачане',
-			'settings.skipCreditsModeButtonDescription' => 'Показвай бутон за прескачане, когато започнат финалните надписи',
-			'settings.skipCreditsModeAutoDescription' => 'Прескачай финалните надписи автоматично и пускай следващия епизод',
-			'settings.skipMarkerModeOff' => 'Изключено',
-			'settings.skipMarkerModeButton' => 'Показвай бутон',
-			'settings.skipMarkerModeAuto' => 'Автоматично',
 			'settings.forceSkipMarkerFallback' => 'Принуди резервни маркери',
 			'settings.forceSkipMarkerFallbackDescription' => 'Използвай шаблони в заглавията на главите дори когато Plex има маркери',
 			'settings.autoSkipDelay' => 'Забавяне за автоматично прескачане',
@@ -3408,8 +3464,6 @@ extension on TranslationsBg {
 			'settings.gestureVolumeSwipeDescription' => 'Плъзни нагоре или надолу по десния ръб, за да регулираш силата на звука',
 			'settings.gesturePinchToZoom' => 'Стискане за мащабиране',
 			'settings.gesturePinchToZoomDescription' => 'Стисни видеото, за да увеличиш или намалиш мащаба',
-			'settings.rememberBrightnessLevel' => 'Запомняй нивото на яркостта',
-			'settings.rememberBrightnessLevelDescription' => 'Започвай възпроизвеждането с яркостта, зададена от последното плъзгане',
 			'settings.controls' => 'Контроли',
 			'settings.rememberPlayerChanges' => 'Запомняне на промените в плейъра',
 			'settings.rememberPlayerChangesDescription' => 'Къде се записва и откъде се прилага отново промяна, направена по време на възпроизвеждане',
@@ -3422,6 +3476,29 @@ extension on TranslationsBg {
 			'settings.playerScopeLibrary' => 'По библиотека',
 			'settings.playerScopeTitle' => 'По сериал или филм',
 			'settings.exportDialogTitle' => 'Експортиране на настройките на Plezy',
+			'settings.showWatchedIndicators' => 'Показвай индикатори за гледано',
+			'settings.showWatchedIndicatorsDescription' => 'Показвай отметка върху гледани филми, сериали и епизоди',
+			'settings.directPlayCoveredQuality' => 'Пускай по-малките видеа в оригинално качество',
+			'settings.directPlayCoveredQualityDescription' => 'Възпроизвеждай директно видеата, които вече са в рамките на лимита за качество, вместо да ги транскодираш',
+			'settings.skipIntroMode' => 'Прескачане на интрото',
+			'settings.skipIntroModeOffDescription' => 'Пускай интротата нормално, без бутон за прескачане',
+			'settings.skipIntroModeButtonDescription' => 'Показвай бутон за прескачане, когато започне интро',
+			'settings.skipIntroModeAutoDescription' => 'Прескачай интротата автоматично след забавянето по-долу',
+			'settings.skipCreditsMode' => 'Прескачане на финалните надписи',
+			'settings.skipCreditsModeOffDescription' => 'Пускай финалните надписи нормално, без бутон за прескачане',
+			'settings.skipCreditsModeButtonDescription' => 'Показвай бутон за прескачане, когато започнат финалните надписи',
+			'settings.skipCreditsModeAutoDescription' => 'Прескачай финалните надписи автоматично и пускай следващия епизод',
+			'settings.skipMarkerModeOff' => 'Изключено',
+			'settings.skipMarkerModeButton' => 'Показвай бутон',
+			'settings.skipMarkerModeAuto' => 'Автоматично',
+			'settings.rememberBrightnessLevel' => 'Запомняй нивото на яркостта',
+			'settings.rememberBrightnessLevelDescription' => 'Започвай възпроизвеждането с яркостта, зададена от последното плъзгане',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => 'Търсене на филми, сериали, музика...',
 			'search.tryDifferentTerm' => 'Опитайте с различна дума за търсене',
 			'search.searchYourMedia' => 'Търсете в медийното си съдържание',
@@ -3457,6 +3534,8 @@ extension on TranslationsBg {
 			'hotkeys.actions.shaderToggle' => 'Превключи шейдъри',
 			'hotkeys.actions.skipMarker' => 'Прескочи интро/финални надписи',
 			'hotkeys.actions.screenshot' => 'Направи екранна снимка',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Информация за файла',
 			'fileInfo.overview' => 'Общ преглед',
 			'fileInfo.video' => 'Видео',
@@ -3512,6 +3591,8 @@ extension on TranslationsBg {
 			'fileInfo.baseLayerCompatibility' => 'Съвместимост на базовия слой',
 			'fileInfo.avcBitstream' => 'AVC битов поток',
 			'fileInfo.nalLengthSize' => 'Размер на дължината на NAL',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Персонализирана матрица за мащабиране',
 			'fileInfo.streamIdentifier' => 'Идентификатор на потока',
 			'fileInfo.streamIndex' => 'Индекс на потока',
@@ -3529,8 +3610,6 @@ extension on TranslationsBg {
 			'fileInfo.externalDelivery' => 'Може да се предоставя отделно',
 			'fileInfo.sidecarPath' => 'Път на сайдкар файла',
 			'fileInfo.sourceStream' => 'Копирано от',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.temporary' => 'Временен',
 			'fileInfo.timeBase' => 'Времева база',
 			'fileInfo.overallBitrate' => 'Общ битрейт',
@@ -3646,6 +3725,7 @@ extension on TranslationsBg {
 			'tooltips.markAsWatched' => 'Маркирай като гледано',
 			'tooltips.markAsUnwatched' => 'Маркирай като негледано',
 			'audioTracks.track' => ({required Object n}) => 'Аудиопътечка ${n}',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('bg'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => 'Аудио',
 			'videoControls.subtitlesLabel' => 'Субтитри',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3692,6 +3772,7 @@ extension on TranslationsBg {
 			'videoControls.subtitleUnavailableFallback' => 'Избраните субтитри не можаха да се заредят — възпроизвеждането продължава без субтитри',
 			'videoControls.pipButton' => 'Режим картина в картината',
 			'videoControls.aspectRatioButton' => 'Съотношение на страните',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Амбиентно осветление',
 			'videoControls.fullscreenButton' => 'Влез на цял екран',
 			'videoControls.exitFullscreenButton' => 'Излез от цял екран',
@@ -4024,6 +4105,8 @@ extension on TranslationsBg {
 			'libraries.scanLibraryFiles' => 'Сканирай файловете на библиотеката',
 			'libraries.scanLibrary' => 'Сканирай библиотеката',
 			'libraries.analyze' => 'Анализирай',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Анализирай библиотеката',
 			'libraries.refreshMetadata' => 'Опресни метаданни',
 			'libraries.emptyTrash' => 'Изпразни кошчето',
@@ -4043,8 +4126,6 @@ extension on TranslationsBg {
 			'libraries.clearAll' => 'Изчисти всички',
 			'libraries.scanLibraryConfirm' => ({required Object title}) => 'Сигурни ли сте, че искате да сканирате "${title}"?',
 			'libraries.analyzeLibraryConfirm' => ({required Object title}) => 'Сигурни ли сте, че искате да анализирате "${title}"?',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.refreshMetadataConfirm' => ({required Object title}) => 'Сигурни ли сте, че искате да опресните метаданните за "${title}"?',
 			'libraries.emptyTrashConfirm' => ({required Object title}) => 'Сигурни ли сте, че искате да изпразните кошчето за "${title}"?',
 			'libraries.manageLibraries' => 'Управление на библиотеки',
@@ -4083,6 +4164,7 @@ extension on TranslationsBg {
 			'libraries.filterCategories.unwatched' => 'Негледани',
 			'libraries.filterCategories.unplayed' => 'Непускани',
 			'libraries.filterCategories.favorites' => 'Любими',
+			'libraries.filterCategories.filePath' => 'File Path',
 			'libraries.sortLabels.title' => 'Заглавие',
 			'libraries.sortLabels.dateAdded' => 'Дата на добавяне',
 			'libraries.sortLabels.releaseDate' => 'Дата на излизане',
@@ -4106,11 +4188,40 @@ extension on TranslationsBg {
 			'libraries.sortLabels.dateDownloaded' => 'Дата на изтегляне',
 			'libraries.sortLabels.size' => 'Размер',
 			'libraries.sortLabels.library' => 'Библиотека',
+			'libraries.advancedFilters.include' => 'Include',
+			'libraries.advancedFilters.exclude' => 'Exclude',
+			'libraries.advancedFilters.any' => 'Any',
+			'libraries.advancedFilters.yes' => 'Yes',
+			'libraries.advancedFilters.no' => 'No',
+			'libraries.advancedFilters.not' => ({required Object value}) => 'Not ${value}',
+			'libraries.advancedFilters.valueCount' => ({required Object count}) => '${count} selected',
+			'libraries.advancedFilters.valueCountExcluded' => ({required Object count}) => '${count} excluded',
+			'libraries.advancedFilters.searchValues' => 'Search values',
+			'libraries.advancedFilters.noValues' => 'No values',
+			'libraries.advancedFilters.matchContains' => 'Contains',
+			'libraries.advancedFilters.matchNotContains' => 'Does not contain',
+			'libraries.advancedFilters.matchIs' => 'Is',
+			'libraries.advancedFilters.matchIsNot' => 'Is not',
+			'libraries.advancedFilters.matchBeginsWith' => 'Begins with',
+			'libraries.advancedFilters.matchEndsWith' => 'Ends with',
+			'libraries.advancedFilters.textHint' => 'Type to match',
+			'libraries.advancedFilters.from' => 'From',
+			'libraries.advancedFilters.to' => 'To',
+			'libraries.advancedFilters.range' => ({required Object from, required Object to}) => '${from} to ${to}',
+			'libraries.advancedFilters.atLeast' => ({required Object value}) => '${value} and up',
+			'libraries.advancedFilters.atMost' => ({required Object value}) => 'Up to ${value}',
+			'libraries.advancedFilters.dateLastDays' => ({required Object count}) => 'Last ${count} days',
+			'libraries.advancedFilters.dateLastYear' => 'Past year',
+			'libraries.advancedFilters.dateOlderThanDays' => ({required Object count}) => 'Older than ${count} days',
+			'libraries.advancedFilters.dateOlderThanYear' => 'Older than a year',
 			'about.title' => 'Относно',
 			'about.openSourceLicenses' => 'Лицензи с отворен код',
 			'about.versionLabel' => ({required Object version}) => 'Версия ${version}',
 			'about.appDescription' => 'Красив клиент за Plex, Jellyfin и Emby, създаден с Flutter',
 			'about.viewLicensesDescription' => 'Виж лицензите на библиотеки на трети страни',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Не са намерени сървъри за ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Неуспешно зареждане на сървъри: ${error}',
 			'serverSelection.noValidServers' => 'Не бяха намерени използваеми сървъри в този акаунт',
@@ -4508,6 +4619,8 @@ extension on TranslationsBg {
 			'watchTogether.endSessionConfirm' => 'Това ще прекрати сесията за всички участници.',
 			'watchTogether.leaveSessionConfirm' => 'Ще бъдете премахнати от сесията.',
 			'watchTogether.endSessionConfirmOverlay' => 'Това ще прекрати сесията за гледане за всички участници.',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'Ще бъдете изключени от сесията за гледане.',
 			'watchTogether.end' => 'Край',
 			'watchTogether.leave' => 'Напусни',
@@ -4557,8 +4670,6 @@ extension on TranslationsBg {
 			'downloads.tracksQueued' => ({required Object count}) => '${count} песни в опашката за изтегляне',
 			'downloads.noDownloads' => 'Все още няма изтегляния',
 			'downloads.noDownloadsDescription' => 'Изтегленото съдържание ще се показва тук за офлайн гледане',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.downloadNow' => 'Изтегли',
 			'downloads.deleteDownload' => 'Изтрий изтегляне',
 			'downloads.retryDownload' => 'Опитай изтеглянето отново',
@@ -5022,6 +5133,8 @@ extension on TranslationsBg {
 			'services.libraryFilter.libraries' => 'Библиотеки',
 			'services.libraryFilter.noLibraries' => 'Няма налични библиотеки',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => 'Добави ${product} сървър',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.serverUrls' => 'URL адреси на сървъра',
 			'addServer.serverUrlsHelper' => 'Позволени са няколко URL адреса, разделени със запетаи.',
 			'addServer.findServer' => 'Намери сървър',

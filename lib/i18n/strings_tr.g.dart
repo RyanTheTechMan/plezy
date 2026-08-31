@@ -99,7 +99,7 @@ class _Translations$app$tr extends Translations$app$en {
 	final TranslationsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -216,6 +216,14 @@ class _Translations$update$tr extends Translations$update$en {
 	@override String get viewRelease => 'Sürümü Görüntüle';
 	@override String get latestVersion => 'En son sürümü kullanıyorsunuz';
 	@override String get checkFailed => 'Güncellemeler kontrol edilemedi';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -278,8 +286,6 @@ class _Translations$settings$tr extends Translations$settings$en {
 	@override String get alwaysKeepSidebarOpenDescription => 'Yan menü genişletilmiş kalır ve içerik alanı buna göre ayarlanır';
 	@override String get showUnwatchedCount => 'İzlenmemiş Sayısını Göster';
 	@override String get showUnwatchedCountDescription => 'Dizilerde ve sezonlarda izlenmemiş bölüm sayısını göster';
-	@override String get showWatchedIndicators => 'İzlendi İşaretlerini Göster';
-	@override String get showWatchedIndicatorsDescription => 'İzlenen film, dizi ve bölümlerde onay işareti göster';
 	@override String get showEpisodeNumberOnCards => 'Kartlarda Bölüm Numarasını Göster';
 	@override String get showEpisodeNumberOnCardsDescription => 'Bölüm kartlarında sezon ve bölüm numarasını göster';
 	@override String get showSeasonPostersOnTabs => 'Sekmelerde Sezon Afişlerini Göster';
@@ -301,6 +307,7 @@ class _Translations$settings$tr extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Donanım Çözme';
 	@override String get hardwareDecodingDescription => 'Mümkün olduğunda donanım hızlandırmasını kullan';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Oynatma Tamponu';
 	@override String get playbackBufferAuto => 'Otomatik (Önerilen)';
 	@override String get playbackBufferLarge => 'Büyük';
@@ -309,8 +316,6 @@ class _Translations$settings$tr extends Translations$settings$en {
 	@override String get defaultQualityTitle => 'Varsayılan Kalite';
 	@override String get cellularQualityTitle => 'Hücresel Veride Varsayılan Kalite';
 	@override String get cellularQualitySameAsDefault => 'Varsayılan Kaliteyle Aynı';
-	@override String get directPlayCoveredQuality => 'Küçük Videoları Orijinal Kalitede Oynat';
-	@override String get directPlayCoveredQualityDescription => 'Kalite sınırı içindeki videoları kod dönüştürme yerine doğrudan oynat';
 	@override String get musicQualityTitle => 'Müzik Kalitesi';
 	@override String get subtitleStyling => 'Altyazı Biçimlendirmesi';
 	@override String get subtitleStylingDescription => 'Altyazı görünümünü özelleştirin';
@@ -387,17 +392,6 @@ class _Translations$settings$tr extends Translations$settings$en {
 	@override String get shuffleStartsFromBeginningDescription => 'Karışık oynatmada her bölümü devam ettirmek yerine baştan başlat';
 	@override String get playNextCountdown => 'Sonraki Bölüm Geri Sayımı';
 	@override String get playNextCountdownImmediate => 'Hemen oynat';
-	@override String get skipIntroMode => 'Jeneriği Atla';
-	@override String get skipIntroModeOffDescription => 'Jenerikleri atlama düğmesi olmadan normal şekilde oynat';
-	@override String get skipIntroModeButtonDescription => 'Jenerik başladığında atlama düğmesi göster';
-	@override String get skipIntroModeAutoDescription => 'Jenerikleri aşağıdaki gecikmeden sonra otomatik olarak atla';
-	@override String get skipCreditsMode => 'Emeği Geçenleri Atla';
-	@override String get skipCreditsModeOffDescription => 'Emeği geçenleri atlama düğmesi olmadan normal şekilde oynat';
-	@override String get skipCreditsModeButtonDescription => 'Emeği geçenler başladığında atlama düğmesi göster';
-	@override String get skipCreditsModeAutoDescription => 'Emeği geçenleri otomatik olarak atla ve sonraki bölümü oynat';
-	@override String get skipMarkerModeOff => 'Kapalı';
-	@override String get skipMarkerModeButton => 'Düğme Göster';
-	@override String get skipMarkerModeAuto => 'Otomatik';
 	@override String get forceSkipMarkerFallback => 'Yedek İşaretçileri Zorla';
 	@override String get forceSkipMarkerFallbackDescription => 'Plex işaretçileri olsa bile kısım başlığı kalıplarını kullan';
 	@override String get autoSkipDelay => 'Otomatik Atlama Gecikmesi';
@@ -514,8 +508,6 @@ class _Translations$settings$tr extends Translations$settings$en {
 	@override String get gestureVolumeSwipeDescription => 'Sesi ayarlamak için sağ kenarda yukarı veya aşağı kaydırın';
 	@override String get gesturePinchToZoom => 'Kıstırarak Yakınlaştır';
 	@override String get gesturePinchToZoomDescription => 'Yakınlaştırmak veya uzaklaştırmak için videoyu kıstırın';
-	@override String get rememberBrightnessLevel => 'Parlaklık Seviyesini Hatırla';
-	@override String get rememberBrightnessLevelDescription => 'Oynatmayı son kaydırmayla ayarlanan parlaklıkta başlat';
 	@override String get controls => 'Kontroller';
 	@override String get rememberPlayerChanges => 'Oynatıcı değişikliklerini hatırla';
 	@override String get rememberPlayerChangesDescription => 'Oynatma sırasında yapılan değişikliklerin kaydedilip yeniden uygulanacağı yer';
@@ -528,6 +520,29 @@ class _Translations$settings$tr extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Kitaplık başına';
 	@override String get playerScopeTitle => 'Dizi veya film başına';
 	@override String get exportDialogTitle => 'Plezy ayarlarını dışa aktar';
+	@override String get showWatchedIndicators => 'İzlendi İşaretlerini Göster';
+	@override String get showWatchedIndicatorsDescription => 'İzlenen film, dizi ve bölümlerde onay işareti göster';
+	@override String get directPlayCoveredQuality => 'Küçük Videoları Orijinal Kalitede Oynat';
+	@override String get directPlayCoveredQualityDescription => 'Kalite sınırı içindeki videoları kod dönüştürme yerine doğrudan oynat';
+	@override String get skipIntroMode => 'Jeneriği Atla';
+	@override String get skipIntroModeOffDescription => 'Jenerikleri atlama düğmesi olmadan normal şekilde oynat';
+	@override String get skipIntroModeButtonDescription => 'Jenerik başladığında atlama düğmesi göster';
+	@override String get skipIntroModeAutoDescription => 'Jenerikleri aşağıdaki gecikmeden sonra otomatik olarak atla';
+	@override String get skipCreditsMode => 'Emeği Geçenleri Atla';
+	@override String get skipCreditsModeOffDescription => 'Emeği geçenleri atlama düğmesi olmadan normal şekilde oynat';
+	@override String get skipCreditsModeButtonDescription => 'Emeği geçenler başladığında atlama düğmesi göster';
+	@override String get skipCreditsModeAutoDescription => 'Emeği geçenleri otomatik olarak atla ve sonraki bölümü oynat';
+	@override String get skipMarkerModeOff => 'Kapalı';
+	@override String get skipMarkerModeButton => 'Düğme Göster';
+	@override String get skipMarkerModeAuto => 'Otomatik';
+	@override String get rememberBrightnessLevel => 'Parlaklık Seviyesini Hatırla';
+	@override String get rememberBrightnessLevelDescription => 'Oynatmayı son kaydırmayla ayarlanan parlaklıkta başlat';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -816,6 +831,10 @@ class _Translations$videoControls$tr extends Translations$videoControls$en {
 	final TranslationsTr _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => 'Ses';
 	@override String get subtitlesLabel => 'Altyazı';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -862,6 +881,7 @@ class _Translations$videoControls$tr extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'Seçilen altyazı yüklenemedi — altyazısız devam ediliyor';
 	@override String get pipButton => 'Pencere İçinde Pencere modu';
 	@override String get aspectRatioButton => 'En boy oranı';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Ortam aydınlatması';
 	@override String get fullscreenButton => 'Tam ekrana geç';
 	@override String get exitFullscreenButton => 'Tam ekrandan çık';
@@ -1300,6 +1320,7 @@ class _Translations$libraries$tr extends Translations$libraries$en {
 	@override late final _Translations$libraries$groupings$tr groupings = _Translations$libraries$groupings$tr._(_root);
 	@override late final _Translations$libraries$filterCategories$tr filterCategories = _Translations$libraries$filterCategories$tr._(_root);
 	@override late final _Translations$libraries$sortLabels$tr sortLabels = _Translations$libraries$sortLabels$tr._(_root);
+	@override late final _Translations$libraries$advancedFilters$tr advancedFilters = _Translations$libraries$advancedFilters$tr._(_root);
 }
 
 // Path: about
@@ -1314,6 +1335,9 @@ class _Translations$about$tr extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Sürüm ${version}';
 	@override String get appDescription => 'Flutter için şık bir Plex, Jellyfin ve Emby istemcisi';
 	@override String get viewLicensesDescription => 'Üçüncü taraf kütüphanelerin lisanslarını görüntüleyin';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -2353,6 +2377,8 @@ class _Translations$hotkeys$actions$tr extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Gölgelendiricileri Aç/Kapat';
 	@override String get skipMarker => 'Jenerik/Emeği Geçenleri Atla';
 	@override String get screenshot => 'Ekran Görüntüsü Al';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2501,6 +2527,7 @@ class _Translations$libraries$filterCategories$tr extends Translations$libraries
 	@override String get unwatched => 'İzlenmemiş';
 	@override String get unplayed => 'Oynatılmamış';
 	@override String get favorites => 'Favoriler';
+	@override String get filePath => 'File Path';
 }
 
 // Path: libraries.sortLabels
@@ -2533,6 +2560,41 @@ class _Translations$libraries$sortLabels$tr extends Translations$libraries$sortL
 	@override String get dateDownloaded => 'İndirme Tarihi';
 	@override String get size => 'Boyut';
 	@override String get library => 'Kitaplık';
+}
+
+// Path: libraries.advancedFilters
+class _Translations$libraries$advancedFilters$tr extends Translations$libraries$advancedFilters$en {
+	_Translations$libraries$advancedFilters$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get include => 'Include';
+	@override String get exclude => 'Exclude';
+	@override String get any => 'Any';
+	@override String get yes => 'Yes';
+	@override String get no => 'No';
+	@override String not({required Object value}) => 'Not ${value}';
+	@override String valueCount({required Object count}) => '${count} selected';
+	@override String valueCountExcluded({required Object count}) => '${count} excluded';
+	@override String get searchValues => 'Search values';
+	@override String get noValues => 'No values';
+	@override String get matchContains => 'Contains';
+	@override String get matchNotContains => 'Does not contain';
+	@override String get matchIs => 'Is';
+	@override String get matchIsNot => 'Is not';
+	@override String get matchBeginsWith => 'Begins with';
+	@override String get matchEndsWith => 'Ends with';
+	@override String get textHint => 'Type to match';
+	@override String get from => 'From';
+	@override String get to => 'To';
+	@override String range({required Object from, required Object to}) => '${from} to ${to}';
+	@override String atLeast({required Object value}) => '${value} and up';
+	@override String atMost({required Object value}) => 'Up to ${value}';
+	@override String dateLastDays({required Object count}) => 'Last ${count} days';
+	@override String get dateLastYear => 'Past year';
+	@override String dateOlderThanDays({required Object count}) => 'Older than ${count} days';
+	@override String get dateOlderThanYear => 'Older than a year';
 }
 
 // Path: explore.rows
@@ -3017,7 +3079,7 @@ class _Translations$services$libraryFilter$tr extends Translations$services$libr
 extension on TranslationsTr {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Plex ile Giriş Yap',
 			'auth.showQRCode' => 'QR Kodunu Göster',
 			'auth.authenticate' => 'Doğrula',
@@ -3119,6 +3181,14 @@ extension on TranslationsTr {
 			'update.viewRelease' => 'Sürümü Görüntüle',
 			'update.latestVersion' => 'En son sürümü kullanıyorsunuz',
 			'update.checkFailed' => 'Güncellemeler kontrol edilemedi',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Ayarlar',
 			'settings.supportDeveloper' => 'Plezy\'yi Destekleyin',
 			'settings.supportDeveloperDescription' => 'Geliştirmeyi fonlamak için Liberapay üzerinden bağış yapın',
@@ -3172,8 +3242,6 @@ extension on TranslationsTr {
 			'settings.alwaysKeepSidebarOpenDescription' => 'Yan menü genişletilmiş kalır ve içerik alanı buna göre ayarlanır',
 			'settings.showUnwatchedCount' => 'İzlenmemiş Sayısını Göster',
 			'settings.showUnwatchedCountDescription' => 'Dizilerde ve sezonlarda izlenmemiş bölüm sayısını göster',
-			'settings.showWatchedIndicators' => 'İzlendi İşaretlerini Göster',
-			'settings.showWatchedIndicatorsDescription' => 'İzlenen film, dizi ve bölümlerde onay işareti göster',
 			'settings.showEpisodeNumberOnCards' => 'Kartlarda Bölüm Numarasını Göster',
 			'settings.showEpisodeNumberOnCardsDescription' => 'Bölüm kartlarında sezon ve bölüm numarasını göster',
 			'settings.showSeasonPostersOnTabs' => 'Sekmelerde Sezon Afişlerini Göster',
@@ -3195,6 +3263,7 @@ extension on TranslationsTr {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Donanım Çözme',
 			'settings.hardwareDecodingDescription' => 'Mümkün olduğunda donanım hızlandırmasını kullan',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Oynatma Tamponu',
 			'settings.playbackBufferAuto' => 'Otomatik (Önerilen)',
 			'settings.playbackBufferLarge' => 'Büyük',
@@ -3203,8 +3272,6 @@ extension on TranslationsTr {
 			'settings.defaultQualityTitle' => 'Varsayılan Kalite',
 			'settings.cellularQualityTitle' => 'Hücresel Veride Varsayılan Kalite',
 			'settings.cellularQualitySameAsDefault' => 'Varsayılan Kaliteyle Aynı',
-			'settings.directPlayCoveredQuality' => 'Küçük Videoları Orijinal Kalitede Oynat',
-			'settings.directPlayCoveredQualityDescription' => 'Kalite sınırı içindeki videoları kod dönüştürme yerine doğrudan oynat',
 			'settings.musicQualityTitle' => 'Müzik Kalitesi',
 			'settings.subtitleStyling' => 'Altyazı Biçimlendirmesi',
 			'settings.subtitleStylingDescription' => 'Altyazı görünümünü özelleştirin',
@@ -3281,17 +3348,6 @@ extension on TranslationsTr {
 			'settings.shuffleStartsFromBeginningDescription' => 'Karışık oynatmada her bölümü devam ettirmek yerine baştan başlat',
 			'settings.playNextCountdown' => 'Sonraki Bölüm Geri Sayımı',
 			'settings.playNextCountdownImmediate' => 'Hemen oynat',
-			'settings.skipIntroMode' => 'Jeneriği Atla',
-			'settings.skipIntroModeOffDescription' => 'Jenerikleri atlama düğmesi olmadan normal şekilde oynat',
-			'settings.skipIntroModeButtonDescription' => 'Jenerik başladığında atlama düğmesi göster',
-			'settings.skipIntroModeAutoDescription' => 'Jenerikleri aşağıdaki gecikmeden sonra otomatik olarak atla',
-			'settings.skipCreditsMode' => 'Emeği Geçenleri Atla',
-			'settings.skipCreditsModeOffDescription' => 'Emeği geçenleri atlama düğmesi olmadan normal şekilde oynat',
-			'settings.skipCreditsModeButtonDescription' => 'Emeği geçenler başladığında atlama düğmesi göster',
-			'settings.skipCreditsModeAutoDescription' => 'Emeği geçenleri otomatik olarak atla ve sonraki bölümü oynat',
-			'settings.skipMarkerModeOff' => 'Kapalı',
-			'settings.skipMarkerModeButton' => 'Düğme Göster',
-			'settings.skipMarkerModeAuto' => 'Otomatik',
 			'settings.forceSkipMarkerFallback' => 'Yedek İşaretçileri Zorla',
 			'settings.forceSkipMarkerFallbackDescription' => 'Plex işaretçileri olsa bile kısım başlığı kalıplarını kullan',
 			'settings.autoSkipDelay' => 'Otomatik Atlama Gecikmesi',
@@ -3408,8 +3464,6 @@ extension on TranslationsTr {
 			'settings.gestureVolumeSwipeDescription' => 'Sesi ayarlamak için sağ kenarda yukarı veya aşağı kaydırın',
 			'settings.gesturePinchToZoom' => 'Kıstırarak Yakınlaştır',
 			'settings.gesturePinchToZoomDescription' => 'Yakınlaştırmak veya uzaklaştırmak için videoyu kıstırın',
-			'settings.rememberBrightnessLevel' => 'Parlaklık Seviyesini Hatırla',
-			'settings.rememberBrightnessLevelDescription' => 'Oynatmayı son kaydırmayla ayarlanan parlaklıkta başlat',
 			'settings.controls' => 'Kontroller',
 			'settings.rememberPlayerChanges' => 'Oynatıcı değişikliklerini hatırla',
 			'settings.rememberPlayerChangesDescription' => 'Oynatma sırasında yapılan değişikliklerin kaydedilip yeniden uygulanacağı yer',
@@ -3422,6 +3476,29 @@ extension on TranslationsTr {
 			'settings.playerScopeLibrary' => 'Kitaplık başına',
 			'settings.playerScopeTitle' => 'Dizi veya film başına',
 			'settings.exportDialogTitle' => 'Plezy ayarlarını dışa aktar',
+			'settings.showWatchedIndicators' => 'İzlendi İşaretlerini Göster',
+			'settings.showWatchedIndicatorsDescription' => 'İzlenen film, dizi ve bölümlerde onay işareti göster',
+			'settings.directPlayCoveredQuality' => 'Küçük Videoları Orijinal Kalitede Oynat',
+			'settings.directPlayCoveredQualityDescription' => 'Kalite sınırı içindeki videoları kod dönüştürme yerine doğrudan oynat',
+			'settings.skipIntroMode' => 'Jeneriği Atla',
+			'settings.skipIntroModeOffDescription' => 'Jenerikleri atlama düğmesi olmadan normal şekilde oynat',
+			'settings.skipIntroModeButtonDescription' => 'Jenerik başladığında atlama düğmesi göster',
+			'settings.skipIntroModeAutoDescription' => 'Jenerikleri aşağıdaki gecikmeden sonra otomatik olarak atla',
+			'settings.skipCreditsMode' => 'Emeği Geçenleri Atla',
+			'settings.skipCreditsModeOffDescription' => 'Emeği geçenleri atlama düğmesi olmadan normal şekilde oynat',
+			'settings.skipCreditsModeButtonDescription' => 'Emeği geçenler başladığında atlama düğmesi göster',
+			'settings.skipCreditsModeAutoDescription' => 'Emeği geçenleri otomatik olarak atla ve sonraki bölümü oynat',
+			'settings.skipMarkerModeOff' => 'Kapalı',
+			'settings.skipMarkerModeButton' => 'Düğme Göster',
+			'settings.skipMarkerModeAuto' => 'Otomatik',
+			'settings.rememberBrightnessLevel' => 'Parlaklık Seviyesini Hatırla',
+			'settings.rememberBrightnessLevelDescription' => 'Oynatmayı son kaydırmayla ayarlanan parlaklıkta başlat',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => 'Film, dizi, müzik ara...',
 			'search.tryDifferentTerm' => 'Farklı bir arama terimi deneyin',
 			'search.searchYourMedia' => 'Medyanızda arayın',
@@ -3457,6 +3534,8 @@ extension on TranslationsTr {
 			'hotkeys.actions.shaderToggle' => 'Gölgelendiricileri Aç/Kapat',
 			'hotkeys.actions.skipMarker' => 'Jenerik/Emeği Geçenleri Atla',
 			'hotkeys.actions.screenshot' => 'Ekran Görüntüsü Al',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Dosya Bilgisi',
 			'fileInfo.overview' => 'Genel Bakış',
 			'fileInfo.video' => 'Video',
@@ -3512,6 +3591,8 @@ extension on TranslationsTr {
 			'fileInfo.baseLayerCompatibility' => 'Temel Katman Uyumluluğu',
 			'fileInfo.avcBitstream' => 'AVC Bit Akışı',
 			'fileInfo.nalLengthSize' => 'NAL Uzunluk Boyutu',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Özel Ölçekleme Matrisi',
 			'fileInfo.streamIdentifier' => 'Akış Tanımlayıcısı',
 			'fileInfo.streamIndex' => 'Akış Dizini',
@@ -3529,8 +3610,6 @@ extension on TranslationsTr {
 			'fileInfo.externalDelivery' => 'Ayrı Olarak Sunulabilir',
 			'fileInfo.sidecarPath' => 'Yan Dosya Yolu',
 			'fileInfo.sourceStream' => 'Kopyalandığı Yer',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.temporary' => 'Geçici',
 			'fileInfo.timeBase' => 'Zaman Tabanı',
 			'fileInfo.overallBitrate' => 'Genel Bit Hızı',
@@ -3646,6 +3725,7 @@ extension on TranslationsTr {
 			'tooltips.markAsWatched' => 'İzlendi olarak işaretle',
 			'tooltips.markAsUnwatched' => 'İzlenmedi olarak işaretle',
 			'audioTracks.track' => ({required Object n}) => 'Ses Parçası ${n}',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => 'Ses',
 			'videoControls.subtitlesLabel' => 'Altyazı',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3692,6 +3772,7 @@ extension on TranslationsTr {
 			'videoControls.subtitleUnavailableFallback' => 'Seçilen altyazı yüklenemedi — altyazısız devam ediliyor',
 			'videoControls.pipButton' => 'Pencere İçinde Pencere modu',
 			'videoControls.aspectRatioButton' => 'En boy oranı',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Ortam aydınlatması',
 			'videoControls.fullscreenButton' => 'Tam ekrana geç',
 			'videoControls.exitFullscreenButton' => 'Tam ekrandan çık',
@@ -4024,6 +4105,8 @@ extension on TranslationsTr {
 			'libraries.scanLibraryFiles' => 'Kitaplık Dosyalarını Tarayınız',
 			'libraries.scanLibrary' => 'Kitaplığı Taramak',
 			'libraries.analyze' => 'Analiz Et',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Kitaplığı Analiz Et',
 			'libraries.refreshMetadata' => 'Meta Verileri Yenile',
 			'libraries.emptyTrash' => 'Çöpü Boşalt',
@@ -4043,8 +4126,6 @@ extension on TranslationsTr {
 			'libraries.clearAll' => 'Tümünü Temizle',
 			'libraries.scanLibraryConfirm' => ({required Object title}) => '"${title}" kitaplığını taramak istediğinizden emin misiniz?',
 			'libraries.analyzeLibraryConfirm' => ({required Object title}) => '"${title}" kitaplığını analiz etmek istediğinizden emin misiniz?',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.refreshMetadataConfirm' => ({required Object title}) => '"${title}" kitaplığı için meta verileri yenilemek istediğinizden emin misiniz?',
 			'libraries.emptyTrashConfirm' => ({required Object title}) => '"${title}" için çöpü boşaltmak istediğinizden emin misiniz?',
 			'libraries.manageLibraries' => 'Kitaplıkları Yönet',
@@ -4083,6 +4164,7 @@ extension on TranslationsTr {
 			'libraries.filterCategories.unwatched' => 'İzlenmemiş',
 			'libraries.filterCategories.unplayed' => 'Oynatılmamış',
 			'libraries.filterCategories.favorites' => 'Favoriler',
+			'libraries.filterCategories.filePath' => 'File Path',
 			'libraries.sortLabels.title' => 'Başlık',
 			'libraries.sortLabels.dateAdded' => 'Ekleme Tarihi',
 			'libraries.sortLabels.releaseDate' => 'Yayınlanma Tarihi',
@@ -4106,11 +4188,40 @@ extension on TranslationsTr {
 			'libraries.sortLabels.dateDownloaded' => 'İndirme Tarihi',
 			'libraries.sortLabels.size' => 'Boyut',
 			'libraries.sortLabels.library' => 'Kitaplık',
+			'libraries.advancedFilters.include' => 'Include',
+			'libraries.advancedFilters.exclude' => 'Exclude',
+			'libraries.advancedFilters.any' => 'Any',
+			'libraries.advancedFilters.yes' => 'Yes',
+			'libraries.advancedFilters.no' => 'No',
+			'libraries.advancedFilters.not' => ({required Object value}) => 'Not ${value}',
+			'libraries.advancedFilters.valueCount' => ({required Object count}) => '${count} selected',
+			'libraries.advancedFilters.valueCountExcluded' => ({required Object count}) => '${count} excluded',
+			'libraries.advancedFilters.searchValues' => 'Search values',
+			'libraries.advancedFilters.noValues' => 'No values',
+			'libraries.advancedFilters.matchContains' => 'Contains',
+			'libraries.advancedFilters.matchNotContains' => 'Does not contain',
+			'libraries.advancedFilters.matchIs' => 'Is',
+			'libraries.advancedFilters.matchIsNot' => 'Is not',
+			'libraries.advancedFilters.matchBeginsWith' => 'Begins with',
+			'libraries.advancedFilters.matchEndsWith' => 'Ends with',
+			'libraries.advancedFilters.textHint' => 'Type to match',
+			'libraries.advancedFilters.from' => 'From',
+			'libraries.advancedFilters.to' => 'To',
+			'libraries.advancedFilters.range' => ({required Object from, required Object to}) => '${from} to ${to}',
+			'libraries.advancedFilters.atLeast' => ({required Object value}) => '${value} and up',
+			'libraries.advancedFilters.atMost' => ({required Object value}) => 'Up to ${value}',
+			'libraries.advancedFilters.dateLastDays' => ({required Object count}) => 'Last ${count} days',
+			'libraries.advancedFilters.dateLastYear' => 'Past year',
+			'libraries.advancedFilters.dateOlderThanDays' => ({required Object count}) => 'Older than ${count} days',
+			'libraries.advancedFilters.dateOlderThanYear' => 'Older than a year',
 			'about.title' => 'Hakkında',
 			'about.openSourceLicenses' => 'Açık Kaynak Lisansları',
 			'about.versionLabel' => ({required Object version}) => 'Sürüm ${version}',
 			'about.appDescription' => 'Flutter için şık bir Plex, Jellyfin ve Emby istemcisi',
 			'about.viewLicensesDescription' => 'Üçüncü taraf kütüphanelerin lisanslarını görüntüleyin',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email}) için sunucu bulunamadı',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Sunucular yüklenemedi: ${error}',
 			'serverSelection.noValidServers' => 'Bu hesapta kullanılabilir sunucu bulunamadı',
@@ -4508,6 +4619,8 @@ extension on TranslationsTr {
 			'watchTogether.endSessionConfirm' => 'Bu işlem tüm katılımcılar için oturumu bitirecektir.',
 			'watchTogether.leaveSessionConfirm' => 'Oturumdan çıkarılacaksınız.',
 			'watchTogether.endSessionConfirmOverlay' => 'Bu işlem tüm katılımcılar için izleme oturumunu bitirecektir.',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'İzleme oturumuyla bağlantınız kesilecek.',
 			'watchTogether.end' => 'Bitir',
 			'watchTogether.leave' => 'Ayrıl',
@@ -4557,8 +4670,6 @@ extension on TranslationsTr {
 			'downloads.tracksQueued' => ({required Object count}) => 'İndirmek için ${count} parça kuyruğa alındı',
 			'downloads.noDownloads' => 'Henüz indirme yok',
 			'downloads.noDownloadsDescription' => 'İndirilen içerik çevrimdışı izlemek için burada görünecektir',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.downloadNow' => 'İndir',
 			'downloads.deleteDownload' => 'İndirmeyi sil',
 			'downloads.retryDownload' => 'İndirmeyi tekrar dene',
@@ -5022,6 +5133,8 @@ extension on TranslationsTr {
 			'services.libraryFilter.libraries' => 'Kitaplıklar',
 			'services.libraryFilter.noLibraries' => 'Kitaplık bulunmuyor',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product} sunucusu ekle',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.serverUrls' => 'Sunucu URL\'leri',
 			'addServer.serverUrlsHelper' => 'Virgülle ayrılmış birden fazla URL\'ye izin verilir.',
 			'addServer.findServer' => 'Sunucu bul',
