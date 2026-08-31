@@ -99,7 +99,7 @@ class _Translations$app$nl extends Translations$app$en {
 	final TranslationsNl _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -216,6 +216,14 @@ class _Translations$update$nl extends Translations$update$en {
 	@override String get viewRelease => 'Bekijk release';
 	@override String get latestVersion => 'Je hebt de nieuwste versie';
 	@override String get checkFailed => 'Kon niet controleren op updates';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -278,8 +286,6 @@ class _Translations$settings$nl extends Translations$settings$en {
 	@override String get alwaysKeepSidebarOpenDescription => 'Zijbalk blijft uitgevouwen en inhoudsgebied past zich aan';
 	@override String get showUnwatchedCount => 'Aantal ongekeken tonen';
 	@override String get showUnwatchedCountDescription => 'Toon aantal ongekeken afleveringen bij series en seizoenen';
-	@override String get showWatchedIndicators => 'Bekeken-markeringen tonen';
-	@override String get showWatchedIndicatorsDescription => 'Toon een vinkje op bekeken films, series en afleveringen';
 	@override String get showEpisodeNumberOnCards => 'Afleveringsnummer op kaarten tonen';
 	@override String get showEpisodeNumberOnCardsDescription => 'Toon seizoen- en afleveringsnummer op afleveringskaarten';
 	@override String get showSeasonPostersOnTabs => 'Toon seizoensposters op tabbladen';
@@ -301,6 +307,7 @@ class _Translations$settings$nl extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Hardwaredecodering';
 	@override String get hardwareDecodingDescription => 'Gebruik hardwareversnelling indien beschikbaar';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Afspeelbuffer';
 	@override String get playbackBufferAuto => 'Auto (aanbevolen)';
 	@override String get playbackBufferLarge => 'Groot';
@@ -309,8 +316,6 @@ class _Translations$settings$nl extends Translations$settings$en {
 	@override String get defaultQualityTitle => 'Standaardkwaliteit';
 	@override String get cellularQualityTitle => 'Standaardkwaliteit bij mobiele data';
 	@override String get cellularQualitySameAsDefault => 'Zelfde als standaardkwaliteit';
-	@override String get directPlayCoveredQuality => 'Kleinere video\'s op originele kwaliteit afspelen';
-	@override String get directPlayCoveredQualityDescription => 'Speel video\'s die al binnen de kwaliteitslimiet vallen direct af in plaats van ze te transcoderen';
 	@override String get musicQualityTitle => 'Muziekkwaliteit';
 	@override String get subtitleStyling => 'Ondertitelopmaak';
 	@override String get subtitleStylingDescription => 'Pas de weergave van ondertitels aan';
@@ -387,17 +392,6 @@ class _Translations$settings$nl extends Translations$settings$en {
 	@override String get shuffleStartsFromBeginningDescription => 'Start elke aflevering bij willekeurig afspelen vanaf het begin in plaats van te hervatten';
 	@override String get playNextCountdown => 'Aftellen voor volgende aflevering';
 	@override String get playNextCountdownImmediate => 'Direct afspelen';
-	@override String get skipIntroMode => 'Intro overslaan';
-	@override String get skipIntroModeOffDescription => 'Speel intro\'s normaal af zonder overslaan-knop';
-	@override String get skipIntroModeButtonDescription => 'Toon een overslaan-knop wanneer een intro begint';
-	@override String get skipIntroModeAutoDescription => 'Sla intro\'s automatisch over na de onderstaande vertraging';
-	@override String get skipCreditsMode => 'Aftiteling overslaan';
-	@override String get skipCreditsModeOffDescription => 'Speel de aftiteling normaal af zonder overslaan-knop';
-	@override String get skipCreditsModeButtonDescription => 'Toon een overslaan-knop wanneer de aftiteling begint';
-	@override String get skipCreditsModeAutoDescription => 'Sla de aftiteling automatisch over en speel de volgende aflevering af';
-	@override String get skipMarkerModeOff => 'Uit';
-	@override String get skipMarkerModeButton => 'Knop tonen';
-	@override String get skipMarkerModeAuto => 'Automatisch';
 	@override String get forceSkipMarkerFallback => 'Reservemarkeringen afdwingen';
 	@override String get forceSkipMarkerFallbackDescription => 'Gebruik patronen in hoofdstuktitels, zelfs wanneer Plex markeringen heeft';
 	@override String get autoSkipDelay => 'Vertraging voor automatisch overslaan';
@@ -525,8 +519,6 @@ class _Translations$settings$nl extends Translations$settings$en {
 	@override String get gestureVolumeSwipeDescription => 'Veeg op de rechterrand omhoog of omlaag om het volume aan te passen';
 	@override String get gesturePinchToZoom => 'Knijpen om te zoomen';
 	@override String get gesturePinchToZoomDescription => 'Knijp op de video om in of uit te zoomen';
-	@override String get rememberBrightnessLevel => 'Helderheidsniveau onthouden';
-	@override String get rememberBrightnessLevelDescription => 'Start het afspelen met de helderheid die met de laatste veeg is ingesteld';
 	@override String get controls => 'Bediening';
 	@override String get rememberPlayerChanges => 'Spelerwijzigingen onthouden';
 	@override String get rememberPlayerChangesDescription => 'Waar een wijziging tijdens het afspelen wordt opgeslagen en opnieuw toegepast';
@@ -539,6 +531,29 @@ class _Translations$settings$nl extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Per bibliotheek';
 	@override String get playerScopeTitle => 'Per serie of film';
 	@override String get exportDialogTitle => 'Plezy-instellingen exporteren';
+	@override String get showWatchedIndicators => 'Bekeken-markeringen tonen';
+	@override String get showWatchedIndicatorsDescription => 'Toon een vinkje op bekeken films, series en afleveringen';
+	@override String get directPlayCoveredQuality => 'Kleinere video\'s op originele kwaliteit afspelen';
+	@override String get directPlayCoveredQualityDescription => 'Speel video\'s die al binnen de kwaliteitslimiet vallen direct af in plaats van ze te transcoderen';
+	@override String get skipIntroMode => 'Intro overslaan';
+	@override String get skipIntroModeOffDescription => 'Speel intro\'s normaal af zonder overslaan-knop';
+	@override String get skipIntroModeButtonDescription => 'Toon een overslaan-knop wanneer een intro begint';
+	@override String get skipIntroModeAutoDescription => 'Sla intro\'s automatisch over na de onderstaande vertraging';
+	@override String get skipCreditsMode => 'Aftiteling overslaan';
+	@override String get skipCreditsModeOffDescription => 'Speel de aftiteling normaal af zonder overslaan-knop';
+	@override String get skipCreditsModeButtonDescription => 'Toon een overslaan-knop wanneer de aftiteling begint';
+	@override String get skipCreditsModeAutoDescription => 'Sla de aftiteling automatisch over en speel de volgende aflevering af';
+	@override String get skipMarkerModeOff => 'Uit';
+	@override String get skipMarkerModeButton => 'Knop tonen';
+	@override String get skipMarkerModeAuto => 'Automatisch';
+	@override String get rememberBrightnessLevel => 'Helderheidsniveau onthouden';
+	@override String get rememberBrightnessLevelDescription => 'Start het afspelen met de helderheid die met de laatste veeg is ingesteld';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -827,6 +842,10 @@ class _Translations$videoControls$nl extends Translations$videoControls$en {
 	final TranslationsNl _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('nl'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => 'Audio';
 	@override String get subtitlesLabel => 'Ondertitels';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -873,6 +892,7 @@ class _Translations$videoControls$nl extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'De geselecteerde ondertitels konden niet worden geladen — afspelen gaat door zonder ondertitels';
 	@override String get pipButton => 'Beeld-in-beeldmodus';
 	@override String get aspectRatioButton => 'Beeldverhouding';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Omgevingsverlichting';
 	@override String get fullscreenButton => 'Volledig scherm activeren';
 	@override String get exitFullscreenButton => 'Volledig scherm verlaten';
@@ -1312,6 +1332,7 @@ class _Translations$libraries$nl extends Translations$libraries$en {
 	@override late final _Translations$libraries$groupings$nl groupings = _Translations$libraries$groupings$nl._(_root);
 	@override late final _Translations$libraries$filterCategories$nl filterCategories = _Translations$libraries$filterCategories$nl._(_root);
 	@override late final _Translations$libraries$sortLabels$nl sortLabels = _Translations$libraries$sortLabels$nl._(_root);
+	@override late final _Translations$libraries$advancedFilters$nl advancedFilters = _Translations$libraries$advancedFilters$nl._(_root);
 }
 
 // Path: about
@@ -1326,6 +1347,9 @@ class _Translations$about$nl extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Versie ${version}';
 	@override String get appDescription => 'Een mooie Plex-, Jellyfin- en Emby-client voor Flutter';
 	@override String get viewLicensesDescription => 'Licenties van bibliotheken van derden bekijken';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -2365,6 +2389,8 @@ class _Translations$hotkeys$actions$nl extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Shaders aan/uit';
 	@override String get skipMarker => 'Intro/aftiteling overslaan';
 	@override String get screenshot => 'Schermafbeelding maken';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.clip
@@ -2559,6 +2585,7 @@ class _Translations$libraries$filterCategories$nl extends Translations$libraries
 	@override String get unwatched => 'Onbekeken';
 	@override String get unplayed => 'Niet afgespeeld';
 	@override String get favorites => 'Favorieten';
+	@override String get filePath => 'File Path';
 }
 
 // Path: libraries.sortLabels
@@ -2591,6 +2618,41 @@ class _Translations$libraries$sortLabels$nl extends Translations$libraries$sortL
 	@override String get dateDownloaded => 'Gedownload op';
 	@override String get size => 'Grootte';
 	@override String get library => 'Bibliotheek';
+}
+
+// Path: libraries.advancedFilters
+class _Translations$libraries$advancedFilters$nl extends Translations$libraries$advancedFilters$en {
+	_Translations$libraries$advancedFilters$nl._(TranslationsNl root) : this._root = root, super.internal(root);
+
+	final TranslationsNl _root; // ignore: unused_field
+
+	// Translations
+	@override String get include => 'Include';
+	@override String get exclude => 'Exclude';
+	@override String get any => 'Any';
+	@override String get yes => 'Yes';
+	@override String get no => 'No';
+	@override String not({required Object value}) => 'Not ${value}';
+	@override String valueCount({required Object count}) => '${count} selected';
+	@override String valueCountExcluded({required Object count}) => '${count} excluded';
+	@override String get searchValues => 'Search values';
+	@override String get noValues => 'No values';
+	@override String get matchContains => 'Contains';
+	@override String get matchNotContains => 'Does not contain';
+	@override String get matchIs => 'Is';
+	@override String get matchIsNot => 'Is not';
+	@override String get matchBeginsWith => 'Begins with';
+	@override String get matchEndsWith => 'Ends with';
+	@override String get textHint => 'Type to match';
+	@override String get from => 'From';
+	@override String get to => 'To';
+	@override String range({required Object from, required Object to}) => '${from} to ${to}';
+	@override String atLeast({required Object value}) => '${value} and up';
+	@override String atMost({required Object value}) => 'Up to ${value}';
+	@override String dateLastDays({required Object count}) => 'Last ${count} days';
+	@override String get dateLastYear => 'Past year';
+	@override String dateOlderThanDays({required Object count}) => 'Older than ${count} days';
+	@override String get dateOlderThanYear => 'Older than a year';
 }
 
 // Path: explore.rows
@@ -3075,7 +3137,7 @@ class _Translations$services$libraryFilter$nl extends Translations$services$libr
 extension on TranslationsNl {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Inloggen met Plex',
 			'auth.showQRCode' => 'Toon QR-code',
 			'auth.authenticate' => 'Authenticeren',
@@ -3177,6 +3239,14 @@ extension on TranslationsNl {
 			'update.viewRelease' => 'Bekijk release',
 			'update.latestVersion' => 'Je hebt de nieuwste versie',
 			'update.checkFailed' => 'Kon niet controleren op updates',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Instellingen',
 			'settings.supportDeveloper' => 'Steun Plezy',
 			'settings.supportDeveloperDescription' => 'Doneer via Liberapay om de ontwikkeling te steunen',
@@ -3230,8 +3300,6 @@ extension on TranslationsNl {
 			'settings.alwaysKeepSidebarOpenDescription' => 'Zijbalk blijft uitgevouwen en inhoudsgebied past zich aan',
 			'settings.showUnwatchedCount' => 'Aantal ongekeken tonen',
 			'settings.showUnwatchedCountDescription' => 'Toon aantal ongekeken afleveringen bij series en seizoenen',
-			'settings.showWatchedIndicators' => 'Bekeken-markeringen tonen',
-			'settings.showWatchedIndicatorsDescription' => 'Toon een vinkje op bekeken films, series en afleveringen',
 			'settings.showEpisodeNumberOnCards' => 'Afleveringsnummer op kaarten tonen',
 			'settings.showEpisodeNumberOnCardsDescription' => 'Toon seizoen- en afleveringsnummer op afleveringskaarten',
 			'settings.showSeasonPostersOnTabs' => 'Toon seizoensposters op tabbladen',
@@ -3253,6 +3321,7 @@ extension on TranslationsNl {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Hardwaredecodering',
 			'settings.hardwareDecodingDescription' => 'Gebruik hardwareversnelling indien beschikbaar',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Afspeelbuffer',
 			'settings.playbackBufferAuto' => 'Auto (aanbevolen)',
 			'settings.playbackBufferLarge' => 'Groot',
@@ -3261,8 +3330,6 @@ extension on TranslationsNl {
 			'settings.defaultQualityTitle' => 'Standaardkwaliteit',
 			'settings.cellularQualityTitle' => 'Standaardkwaliteit bij mobiele data',
 			'settings.cellularQualitySameAsDefault' => 'Zelfde als standaardkwaliteit',
-			'settings.directPlayCoveredQuality' => 'Kleinere video\'s op originele kwaliteit afspelen',
-			'settings.directPlayCoveredQualityDescription' => 'Speel video\'s die al binnen de kwaliteitslimiet vallen direct af in plaats van ze te transcoderen',
 			'settings.musicQualityTitle' => 'Muziekkwaliteit',
 			'settings.subtitleStyling' => 'Ondertitelopmaak',
 			'settings.subtitleStylingDescription' => 'Pas de weergave van ondertitels aan',
@@ -3339,17 +3406,6 @@ extension on TranslationsNl {
 			'settings.shuffleStartsFromBeginningDescription' => 'Start elke aflevering bij willekeurig afspelen vanaf het begin in plaats van te hervatten',
 			'settings.playNextCountdown' => 'Aftellen voor volgende aflevering',
 			'settings.playNextCountdownImmediate' => 'Direct afspelen',
-			'settings.skipIntroMode' => 'Intro overslaan',
-			'settings.skipIntroModeOffDescription' => 'Speel intro\'s normaal af zonder overslaan-knop',
-			'settings.skipIntroModeButtonDescription' => 'Toon een overslaan-knop wanneer een intro begint',
-			'settings.skipIntroModeAutoDescription' => 'Sla intro\'s automatisch over na de onderstaande vertraging',
-			'settings.skipCreditsMode' => 'Aftiteling overslaan',
-			'settings.skipCreditsModeOffDescription' => 'Speel de aftiteling normaal af zonder overslaan-knop',
-			'settings.skipCreditsModeButtonDescription' => 'Toon een overslaan-knop wanneer de aftiteling begint',
-			'settings.skipCreditsModeAutoDescription' => 'Sla de aftiteling automatisch over en speel de volgende aflevering af',
-			'settings.skipMarkerModeOff' => 'Uit',
-			'settings.skipMarkerModeButton' => 'Knop tonen',
-			'settings.skipMarkerModeAuto' => 'Automatisch',
 			'settings.forceSkipMarkerFallback' => 'Reservemarkeringen afdwingen',
 			'settings.forceSkipMarkerFallbackDescription' => 'Gebruik patronen in hoofdstuktitels, zelfs wanneer Plex markeringen heeft',
 			'settings.autoSkipDelay' => 'Vertraging voor automatisch overslaan',
@@ -3477,8 +3533,6 @@ extension on TranslationsNl {
 			'settings.gestureVolumeSwipeDescription' => 'Veeg op de rechterrand omhoog of omlaag om het volume aan te passen',
 			'settings.gesturePinchToZoom' => 'Knijpen om te zoomen',
 			'settings.gesturePinchToZoomDescription' => 'Knijp op de video om in of uit te zoomen',
-			'settings.rememberBrightnessLevel' => 'Helderheidsniveau onthouden',
-			'settings.rememberBrightnessLevelDescription' => 'Start het afspelen met de helderheid die met de laatste veeg is ingesteld',
 			'settings.controls' => 'Bediening',
 			'settings.rememberPlayerChanges' => 'Spelerwijzigingen onthouden',
 			'settings.rememberPlayerChangesDescription' => 'Waar een wijziging tijdens het afspelen wordt opgeslagen en opnieuw toegepast',
@@ -3491,6 +3545,29 @@ extension on TranslationsNl {
 			'settings.playerScopeLibrary' => 'Per bibliotheek',
 			'settings.playerScopeTitle' => 'Per serie of film',
 			'settings.exportDialogTitle' => 'Plezy-instellingen exporteren',
+			'settings.showWatchedIndicators' => 'Bekeken-markeringen tonen',
+			'settings.showWatchedIndicatorsDescription' => 'Toon een vinkje op bekeken films, series en afleveringen',
+			'settings.directPlayCoveredQuality' => 'Kleinere video\'s op originele kwaliteit afspelen',
+			'settings.directPlayCoveredQualityDescription' => 'Speel video\'s die al binnen de kwaliteitslimiet vallen direct af in plaats van ze te transcoderen',
+			'settings.skipIntroMode' => 'Intro overslaan',
+			'settings.skipIntroModeOffDescription' => 'Speel intro\'s normaal af zonder overslaan-knop',
+			'settings.skipIntroModeButtonDescription' => 'Toon een overslaan-knop wanneer een intro begint',
+			'settings.skipIntroModeAutoDescription' => 'Sla intro\'s automatisch over na de onderstaande vertraging',
+			'settings.skipCreditsMode' => 'Aftiteling overslaan',
+			'settings.skipCreditsModeOffDescription' => 'Speel de aftiteling normaal af zonder overslaan-knop',
+			'settings.skipCreditsModeButtonDescription' => 'Toon een overslaan-knop wanneer de aftiteling begint',
+			'settings.skipCreditsModeAutoDescription' => 'Sla de aftiteling automatisch over en speel de volgende aflevering af',
+			'settings.skipMarkerModeOff' => 'Uit',
+			'settings.skipMarkerModeButton' => 'Knop tonen',
+			'settings.skipMarkerModeAuto' => 'Automatisch',
+			'settings.rememberBrightnessLevel' => 'Helderheidsniveau onthouden',
+			'settings.rememberBrightnessLevelDescription' => 'Start het afspelen met de helderheid die met de laatste veeg is ingesteld',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => 'Zoek films, series, muziek...',
 			'search.tryDifferentTerm' => 'Probeer een andere zoekterm',
 			'search.searchYourMedia' => 'Zoek in je media',
@@ -3526,6 +3603,8 @@ extension on TranslationsNl {
 			'hotkeys.actions.shaderToggle' => 'Shaders aan/uit',
 			'hotkeys.actions.skipMarker' => 'Intro/aftiteling overslaan',
 			'hotkeys.actions.screenshot' => 'Schermafbeelding maken',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Bestandsinformatie',
 			'fileInfo.overview' => 'Overzicht',
 			'fileInfo.video' => 'Video',
@@ -3581,6 +3660,8 @@ extension on TranslationsNl {
 			'fileInfo.baseLayerCompatibility' => 'Compatibiliteit basislaag',
 			'fileInfo.avcBitstream' => 'AVC-bitstroom',
 			'fileInfo.nalLengthSize' => 'NAL-lengte',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Aangepaste schalingsmatrix',
 			'fileInfo.streamIdentifier' => 'Stream-id',
 			'fileInfo.streamIndex' => 'Streamindex',
@@ -3715,6 +3796,7 @@ extension on TranslationsNl {
 			'tooltips.markAsWatched' => 'Als bekeken markeren',
 			'tooltips.markAsUnwatched' => 'Als ongekeken markeren',
 			'audioTracks.track' => ({required Object n}) => 'Audiospoor ${n}',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('nl'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => 'Audio',
 			'videoControls.subtitlesLabel' => 'Ondertitels',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3761,6 +3843,7 @@ extension on TranslationsNl {
 			'videoControls.subtitleUnavailableFallback' => 'De geselecteerde ondertitels konden niet worden geladen — afspelen gaat door zonder ondertitels',
 			'videoControls.pipButton' => 'Beeld-in-beeldmodus',
 			'videoControls.aspectRatioButton' => 'Beeldverhouding',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Omgevingsverlichting',
 			'videoControls.fullscreenButton' => 'Volledig scherm activeren',
 			'videoControls.exitFullscreenButton' => 'Volledig scherm verlaten',
@@ -4132,6 +4215,8 @@ extension on TranslationsNl {
 			'libraries.scanLibraryFiles' => 'Bibliotheekbestanden scannen',
 			'libraries.scanLibrary' => 'Bibliotheek scannen',
 			'libraries.analyze' => 'Analyseren',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Bibliotheek analyseren',
 			'libraries.refreshMetadata' => 'Metadata vernieuwen',
 			'libraries.emptyTrash' => 'Prullenbak legen',
@@ -4189,6 +4274,7 @@ extension on TranslationsNl {
 			'libraries.filterCategories.unwatched' => 'Onbekeken',
 			'libraries.filterCategories.unplayed' => 'Niet afgespeeld',
 			'libraries.filterCategories.favorites' => 'Favorieten',
+			'libraries.filterCategories.filePath' => 'File Path',
 			'libraries.sortLabels.title' => 'Titel',
 			'libraries.sortLabels.dateAdded' => 'Toegevoegd op',
 			'libraries.sortLabels.releaseDate' => 'Uitgavedatum',
@@ -4212,11 +4298,40 @@ extension on TranslationsNl {
 			'libraries.sortLabels.dateDownloaded' => 'Gedownload op',
 			'libraries.sortLabels.size' => 'Grootte',
 			'libraries.sortLabels.library' => 'Bibliotheek',
+			'libraries.advancedFilters.include' => 'Include',
+			'libraries.advancedFilters.exclude' => 'Exclude',
+			'libraries.advancedFilters.any' => 'Any',
+			'libraries.advancedFilters.yes' => 'Yes',
+			'libraries.advancedFilters.no' => 'No',
+			'libraries.advancedFilters.not' => ({required Object value}) => 'Not ${value}',
+			'libraries.advancedFilters.valueCount' => ({required Object count}) => '${count} selected',
+			'libraries.advancedFilters.valueCountExcluded' => ({required Object count}) => '${count} excluded',
+			'libraries.advancedFilters.searchValues' => 'Search values',
+			'libraries.advancedFilters.noValues' => 'No values',
+			'libraries.advancedFilters.matchContains' => 'Contains',
+			'libraries.advancedFilters.matchNotContains' => 'Does not contain',
+			'libraries.advancedFilters.matchIs' => 'Is',
+			'libraries.advancedFilters.matchIsNot' => 'Is not',
+			'libraries.advancedFilters.matchBeginsWith' => 'Begins with',
+			'libraries.advancedFilters.matchEndsWith' => 'Ends with',
+			'libraries.advancedFilters.textHint' => 'Type to match',
+			'libraries.advancedFilters.from' => 'From',
+			'libraries.advancedFilters.to' => 'To',
+			'libraries.advancedFilters.range' => ({required Object from, required Object to}) => '${from} to ${to}',
+			'libraries.advancedFilters.atLeast' => ({required Object value}) => '${value} and up',
+			'libraries.advancedFilters.atMost' => ({required Object value}) => 'Up to ${value}',
+			'libraries.advancedFilters.dateLastDays' => ({required Object count}) => 'Last ${count} days',
+			'libraries.advancedFilters.dateLastYear' => 'Past year',
+			'libraries.advancedFilters.dateOlderThanDays' => ({required Object count}) => 'Older than ${count} days',
+			'libraries.advancedFilters.dateOlderThanYear' => 'Older than a year',
 			'about.title' => 'Over',
 			'about.openSourceLicenses' => 'Opensourcelicenties',
 			'about.versionLabel' => ({required Object version}) => 'Versie ${version}',
 			'about.appDescription' => 'Een mooie Plex-, Jellyfin- en Emby-client voor Flutter',
 			'about.viewLicensesDescription' => 'Licenties van bibliotheken van derden bekijken',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Geen servers gevonden voor ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Kon servers niet laden: ${error}',
 			'serverSelection.noValidServers' => 'Er zijn geen bruikbare servers gevonden voor dit account',
@@ -4614,6 +4729,8 @@ extension on TranslationsNl {
 			'watchTogether.endSessionConfirm' => 'Dit beëindigt de sessie voor alle deelnemers.',
 			'watchTogether.leaveSessionConfirm' => 'Je wordt uit de sessie verwijderd.',
 			'watchTogether.endSessionConfirmOverlay' => 'Dit beëindigt de kijksessie voor alle deelnemers.',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'Je wordt losgekoppeld van de kijksessie.',
 			_ => null,
 		} ?? switch (path) {
@@ -5128,6 +5245,8 @@ extension on TranslationsNl {
 			'services.libraryFilter.libraries' => 'Bibliotheken',
 			'services.libraryFilter.noLibraries' => 'Geen bibliotheken beschikbaar',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product}-server toevoegen',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.serverUrls' => 'Server-URL\'s',
 			_ => null,
 		} ?? switch (path) {

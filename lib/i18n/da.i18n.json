@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Log ind med Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Spring denne version over",
     "viewRelease": "Vis udgivelse",
     "latestVersion": "Du har den nyeste version",
-    "checkFailed": "Kunne ikke søge efter opdateringer"
+    "checkFailed": "Kunne ikke søge efter opdateringer",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Indstillinger",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Sidepanelet forbliver udvidet, og indholdsområdet tilpasser sig",
     "showUnwatchedCount": "Vis antal usete",
     "showUnwatchedCountDescription": "Vis antal usete episoder på serier og sæsoner",
-    "showWatchedIndicators": "Vis set-markeringer",
-    "showWatchedIndicatorsDescription": "Vis et flueben på sete film, serier og episoder",
     "showEpisodeNumberOnCards": "Vis episodenummer på kort",
     "showEpisodeNumberOnCardsDescription": "Vis sæson- og episodenummer på episodekort",
     "showSeasonPostersOnTabs": "Vis sæsonplakater på faner",
@@ -192,6 +198,7 @@
     "mpv": "mpv",
     "hardwareDecoding": "Hardwaredekodning",
     "hardwareDecodingDescription": "Brug hardwareacceleration, når den er tilgængelig",
+    "packedStereoUi": "3D Playback UI",
     "playbackBuffer": "Afspilningsbuffer",
     "playbackBufferAuto": "Auto (anbefalet)",
     "playbackBufferLarge": "Stor",
@@ -200,8 +207,6 @@
     "defaultQualityTitle": "Standardkvalitet",
     "cellularQualityTitle": "Standardkvalitet på mobildata",
     "cellularQualitySameAsDefault": "Samme som standardkvalitet",
-    "directPlayCoveredQuality": "Afspil mindre videoer i original kvalitet",
-    "directPlayCoveredQualityDescription": "Afspil videoer, der allerede er inden for kvalitetsgrænsen, direkte i stedet for at transkode dem",
     "musicQualityTitle": "Musikkvalitet",
     "subtitleStyling": "Undertekststil",
     "subtitleStylingDescription": "Tilpas underteksters udseende",
@@ -278,17 +283,6 @@
     "shuffleStartsFromBeginningDescription": "Start hvert afsnit forfra ved blandet afspilning i stedet for at genoptage",
     "playNextCountdown": "Nedtælling til næste afsnit",
     "playNextCountdownImmediate": "Afspil med det samme",
-    "skipIntroMode": "Spring intro over",
-    "skipIntroModeOffDescription": "Afspil introer normalt uden en spring-knap",
-    "skipIntroModeButtonDescription": "Vis en spring-knap, når en intro starter",
-    "skipIntroModeAutoDescription": "Spring introer automatisk over efter forsinkelsen nedenfor",
-    "skipCreditsMode": "Spring rulletekster over",
-    "skipCreditsModeOffDescription": "Afspil rulletekster normalt uden en spring-knap",
-    "skipCreditsModeButtonDescription": "Vis en spring-knap, når rulleteksterne starter",
-    "skipCreditsModeAutoDescription": "Spring rulletekster automatisk over, og afspil næste afsnit",
-    "skipMarkerModeOff": "Fra",
-    "skipMarkerModeButton": "Vis knap",
-    "skipMarkerModeAuto": "Automatisk",
     "forceSkipMarkerFallback": "Tving reservemarkører",
     "forceSkipMarkerFallbackDescription": "Brug mønstre i kapiteltitler, selv når Plex har markører",
     "autoSkipDelay": "Forsinkelse ved automatisk spring",
@@ -416,8 +410,6 @@
     "gestureVolumeSwipeDescription": "Stryg op eller ned i højre kant for at justere lydstyrken",
     "gesturePinchToZoom": "Klem for at zoome",
     "gesturePinchToZoomDescription": "Klem på videoen for at zoome ind eller ud",
-    "rememberBrightnessLevel": "Husk lysstyrkeniveau",
-    "rememberBrightnessLevelDescription": "Start afspilning med den lysstyrke, der blev indstillet med den seneste strygning",
     "controls": "Kontroller",
     "rememberPlayerChanges": "Husk afspillerændringer",
     "rememberPlayerChangesDescription": "Hvor en ændring under afspilning gemmes og anvendes igen",
@@ -429,7 +421,30 @@
     "playerScopeGlobal": "Overalt",
     "playerScopeLibrary": "Pr. bibliotek",
     "playerScopeTitle": "Pr. serie eller film",
-    "exportDialogTitle": "Eksportér Plezy-indstillinger"
+    "exportDialogTitle": "Eksportér Plezy-indstillinger",
+    "showWatchedIndicators": "Vis set-markeringer",
+    "showWatchedIndicatorsDescription": "Vis et flueben på sete film, serier og episoder",
+    "directPlayCoveredQuality": "Afspil mindre videoer i original kvalitet",
+    "directPlayCoveredQualityDescription": "Afspil videoer, der allerede er inden for kvalitetsgrænsen, direkte i stedet for at transkode dem",
+    "skipIntroMode": "Spring intro over",
+    "skipIntroModeOffDescription": "Afspil introer normalt uden en spring-knap",
+    "skipIntroModeButtonDescription": "Vis en spring-knap, når en intro starter",
+    "skipIntroModeAutoDescription": "Spring introer automatisk over efter forsinkelsen nedenfor",
+    "skipCreditsMode": "Spring rulletekster over",
+    "skipCreditsModeOffDescription": "Afspil rulletekster normalt uden en spring-knap",
+    "skipCreditsModeButtonDescription": "Vis en spring-knap, når rulleteksterne starter",
+    "skipCreditsModeAutoDescription": "Spring rulletekster automatisk over, og afspil næste afsnit",
+    "skipMarkerModeOff": "Fra",
+    "skipMarkerModeButton": "Vis knap",
+    "skipMarkerModeAuto": "Automatisk",
+    "rememberBrightnessLevel": "Husk lysstyrkeniveau",
+    "rememberBrightnessLevelDescription": "Start afspilning med den lysstyrke, der blev indstillet med den seneste strygning",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Søg film, serier, musik...",
@@ -469,7 +484,9 @@
       "subSeekPrev": "Søg til forrige undertekst",
       "shaderToggle": "Slå shadere til/fra",
       "skipMarker": "Spring intro/rulletekster over",
-      "screenshot": "Tag skærmbillede"
+      "screenshot": "Tag skærmbillede",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -681,6 +698,10 @@
     "track": "Lydspor ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Lyd",
     "subtitlesLabel": "Undertekster",
     "addTime": "+${amount}${unit}",
@@ -727,6 +748,7 @@
     "subtitleUnavailableFallback": "De valgte undertekster kunne ikke indlæses — afspilningen fortsætter uden undertekster",
     "pipButton": "Billede-i-billede-tilstand",
     "aspectRatioButton": "Billedformat",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "ambientLighting": "Omgivelsesbelysning",
     "fullscreenButton": "Fuldskærm",
     "exitFullscreenButton": "Forlad fuldskærm",
@@ -1201,7 +1223,7 @@
       "unwatched": "Usete",
       "unplayed": "Ikke afspillet",
       "favorites": "Favoritter",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "Titel",
@@ -1229,32 +1251,32 @@
       "library": "Bibliotek"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1262,7 +1284,10 @@
     "openSourceLicenses": "Open source-licenser",
     "versionLabel": "Version ${version}",
     "appDescription": "En smuk Plex-, Jellyfin- og Emby-klient bygget med Flutter",
-    "viewLicensesDescription": "Se licenser for tredjepartsbiblioteker"
+    "viewLicensesDescription": "Se licenser for tredjepartsbiblioteker",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Ingen servere fundet for ${username} (${email})",

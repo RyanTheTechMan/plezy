@@ -99,7 +99,7 @@ class _Translations$app$es extends Translations$app$en {
 	final TranslationsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -216,6 +216,14 @@ class _Translations$update$es extends Translations$update$en {
 	@override String get viewRelease => 'Ver versión';
 	@override String get latestVersion => 'Ya estás en la última versión';
 	@override String get checkFailed => 'Error al buscar actualizaciones';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -278,8 +286,6 @@ class _Translations$settings$es extends Translations$settings$en {
 	@override String get alwaysKeepSidebarOpenDescription => 'La barra lateral permanece expandida y el área de contenido se ajusta para adaptarse';
 	@override String get showUnwatchedCount => 'Mostrar el número de elementos no vistos';
 	@override String get showUnwatchedCountDescription => 'Mostrar el número de episodios no vistos en series y temporadas';
-	@override String get showWatchedIndicators => 'Mostrar indicadores de visto';
-	@override String get showWatchedIndicatorsDescription => 'Mostrar una marca de verificación en películas, series y episodios vistos';
 	@override String get showEpisodeNumberOnCards => 'Mostrar número de episodio en las tarjetas';
 	@override String get showEpisodeNumberOnCardsDescription => 'Mostrar temporada y episodio en tarjetas de episodio';
 	@override String get showSeasonPostersOnTabs => 'Mostrar pósters de temporada en las pestañas';
@@ -301,6 +307,7 @@ class _Translations$settings$es extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Decodificación por hardware';
 	@override String get hardwareDecodingDescription => 'Usar aceleración por hardware cuando esté disponible';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Búfer de reproducción';
 	@override String get playbackBufferAuto => 'Automático (recomendado)';
 	@override String get playbackBufferLarge => 'Grande';
@@ -309,8 +316,6 @@ class _Translations$settings$es extends Translations$settings$en {
 	@override String get defaultQualityTitle => 'Calidad predeterminada';
 	@override String get cellularQualityTitle => 'Calidad predeterminada en datos móviles';
 	@override String get cellularQualitySameAsDefault => 'Igual que la calidad predeterminada';
-	@override String get directPlayCoveredQuality => 'Reproducir videos más pequeños en calidad original';
-	@override String get directPlayCoveredQualityDescription => 'Reproducir directamente los videos que ya están dentro del límite de calidad en lugar de transcodificarlos';
 	@override String get musicQualityTitle => 'Calidad de música';
 	@override String get subtitleStyling => 'Estilo de subtítulos';
 	@override String get subtitleStylingDescription => 'Personalizar la apariencia de los subtítulos';
@@ -387,17 +392,6 @@ class _Translations$settings$es extends Translations$settings$en {
 	@override String get shuffleStartsFromBeginningDescription => 'Empezar cada episodio desde el principio en reproducción aleatoria en lugar de reanudarlo';
 	@override String get playNextCountdown => 'Cuenta atrás para el siguiente episodio';
 	@override String get playNextCountdownImmediate => 'Reproducir de inmediato';
-	@override String get skipIntroMode => 'Saltar intro';
-	@override String get skipIntroModeOffDescription => 'Reproducir las intros normalmente sin botón de salto';
-	@override String get skipIntroModeButtonDescription => 'Mostrar un botón de salto cuando empiece una intro';
-	@override String get skipIntroModeAutoDescription => 'Saltar las intros automáticamente tras el retraso indicado abajo';
-	@override String get skipCreditsMode => 'Saltar créditos';
-	@override String get skipCreditsModeOffDescription => 'Reproducir los créditos normalmente sin botón de salto';
-	@override String get skipCreditsModeButtonDescription => 'Mostrar un botón de salto cuando empiecen los créditos';
-	@override String get skipCreditsModeAutoDescription => 'Saltar los créditos automáticamente y reproducir el siguiente episodio';
-	@override String get skipMarkerModeOff => 'Desactivado';
-	@override String get skipMarkerModeButton => 'Mostrar botón';
-	@override String get skipMarkerModeAuto => 'Automático';
 	@override String get forceSkipMarkerFallback => 'Forzar marcadores alternativos';
 	@override String get forceSkipMarkerFallbackDescription => 'Usar patrones de títulos de capítulos aunque Plex tenga marcadores';
 	@override String get autoSkipDelay => 'Retraso del salto automático';
@@ -525,8 +519,6 @@ class _Translations$settings$es extends Translations$settings$en {
 	@override String get gestureVolumeSwipeDescription => 'Desliza hacia arriba o abajo en el borde derecho para ajustar el volumen';
 	@override String get gesturePinchToZoom => 'Pellizcar para hacer zoom';
 	@override String get gesturePinchToZoomDescription => 'Pellizca el video para acercar o alejar';
-	@override String get rememberBrightnessLevel => 'Recordar nivel de brillo';
-	@override String get rememberBrightnessLevelDescription => 'Iniciar la reproducción con el brillo establecido por el último deslizamiento';
 	@override String get controls => 'Controles';
 	@override String get rememberPlayerChanges => 'Recordar cambios del reproductor';
 	@override String get rememberPlayerChangesDescription => 'Dónde se guarda y se vuelve a aplicar un cambio realizado durante la reproducción';
@@ -539,6 +531,29 @@ class _Translations$settings$es extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Por biblioteca';
 	@override String get playerScopeTitle => 'Por serie o película';
 	@override String get exportDialogTitle => 'Exportar ajustes de Plezy';
+	@override String get showWatchedIndicators => 'Mostrar indicadores de visto';
+	@override String get showWatchedIndicatorsDescription => 'Mostrar una marca de verificación en películas, series y episodios vistos';
+	@override String get directPlayCoveredQuality => 'Reproducir videos más pequeños en calidad original';
+	@override String get directPlayCoveredQualityDescription => 'Reproducir directamente los videos que ya están dentro del límite de calidad en lugar de transcodificarlos';
+	@override String get skipIntroMode => 'Saltar intro';
+	@override String get skipIntroModeOffDescription => 'Reproducir las intros normalmente sin botón de salto';
+	@override String get skipIntroModeButtonDescription => 'Mostrar un botón de salto cuando empiece una intro';
+	@override String get skipIntroModeAutoDescription => 'Saltar las intros automáticamente tras el retraso indicado abajo';
+	@override String get skipCreditsMode => 'Saltar créditos';
+	@override String get skipCreditsModeOffDescription => 'Reproducir los créditos normalmente sin botón de salto';
+	@override String get skipCreditsModeButtonDescription => 'Mostrar un botón de salto cuando empiecen los créditos';
+	@override String get skipCreditsModeAutoDescription => 'Saltar los créditos automáticamente y reproducir el siguiente episodio';
+	@override String get skipMarkerModeOff => 'Desactivado';
+	@override String get skipMarkerModeButton => 'Mostrar botón';
+	@override String get skipMarkerModeAuto => 'Automático';
+	@override String get rememberBrightnessLevel => 'Recordar nivel de brillo';
+	@override String get rememberBrightnessLevelDescription => 'Iniciar la reproducción con el brillo establecido por el último deslizamiento';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -827,6 +842,10 @@ class _Translations$videoControls$es extends Translations$videoControls$en {
 	final TranslationsEs _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('es'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => 'Audio';
 	@override String get subtitlesLabel => 'Subtítulos';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -873,6 +892,7 @@ class _Translations$videoControls$es extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'No se pudieron cargar los subtítulos seleccionados — continuando sin subtítulos';
 	@override String get pipButton => 'Modo de imagen en imagen';
 	@override String get aspectRatioButton => 'Relación de aspecto';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Iluminación ambiental';
 	@override String get fullscreenButton => 'Entrar en pantalla completa';
 	@override String get exitFullscreenButton => 'Salir de pantalla completa';
@@ -1312,6 +1332,7 @@ class _Translations$libraries$es extends Translations$libraries$en {
 	@override late final _Translations$libraries$groupings$es groupings = _Translations$libraries$groupings$es._(_root);
 	@override late final _Translations$libraries$filterCategories$es filterCategories = _Translations$libraries$filterCategories$es._(_root);
 	@override late final _Translations$libraries$sortLabels$es sortLabels = _Translations$libraries$sortLabels$es._(_root);
+	@override late final _Translations$libraries$advancedFilters$es advancedFilters = _Translations$libraries$advancedFilters$es._(_root);
 }
 
 // Path: about
@@ -1326,6 +1347,9 @@ class _Translations$about$es extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Versión ${version}';
 	@override String get appDescription => 'Un cliente de Plex, Jellyfin y Emby para Flutter';
 	@override String get viewLicensesDescription => 'Ver las licencias de bibliotecas de terceros';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -2365,6 +2389,8 @@ class _Translations$hotkeys$actions$es extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Activar/desactivar shaders';
 	@override String get skipMarker => 'Saltar introducción/créditos';
 	@override String get screenshot => 'Tomar captura de pantalla';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.clip
@@ -2559,6 +2585,7 @@ class _Translations$libraries$filterCategories$es extends Translations$libraries
 	@override String get unwatched => 'No vistos';
 	@override String get unplayed => 'No reproducidos';
 	@override String get favorites => 'Favoritos';
+	@override String get filePath => 'File Path';
 }
 
 // Path: libraries.sortLabels
@@ -2591,6 +2618,41 @@ class _Translations$libraries$sortLabels$es extends Translations$libraries$sortL
 	@override String get dateDownloaded => 'Fecha de descarga';
 	@override String get size => 'Tamaño';
 	@override String get library => 'Biblioteca';
+}
+
+// Path: libraries.advancedFilters
+class _Translations$libraries$advancedFilters$es extends Translations$libraries$advancedFilters$en {
+	_Translations$libraries$advancedFilters$es._(TranslationsEs root) : this._root = root, super.internal(root);
+
+	final TranslationsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get include => 'Include';
+	@override String get exclude => 'Exclude';
+	@override String get any => 'Any';
+	@override String get yes => 'Yes';
+	@override String get no => 'No';
+	@override String not({required Object value}) => 'Not ${value}';
+	@override String valueCount({required Object count}) => '${count} selected';
+	@override String valueCountExcluded({required Object count}) => '${count} excluded';
+	@override String get searchValues => 'Search values';
+	@override String get noValues => 'No values';
+	@override String get matchContains => 'Contains';
+	@override String get matchNotContains => 'Does not contain';
+	@override String get matchIs => 'Is';
+	@override String get matchIsNot => 'Is not';
+	@override String get matchBeginsWith => 'Begins with';
+	@override String get matchEndsWith => 'Ends with';
+	@override String get textHint => 'Type to match';
+	@override String get from => 'From';
+	@override String get to => 'To';
+	@override String range({required Object from, required Object to}) => '${from} to ${to}';
+	@override String atLeast({required Object value}) => '${value} and up';
+	@override String atMost({required Object value}) => 'Up to ${value}';
+	@override String dateLastDays({required Object count}) => 'Last ${count} days';
+	@override String get dateLastYear => 'Past year';
+	@override String dateOlderThanDays({required Object count}) => 'Older than ${count} days';
+	@override String get dateOlderThanYear => 'Older than a year';
 }
 
 // Path: explore.rows
@@ -3075,7 +3137,7 @@ class _Translations$services$libraryFilter$es extends Translations$services$libr
 extension on TranslationsEs {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Inicia sesión con Plex',
 			'auth.showQRCode' => 'Mostrar código QR',
 			'auth.authenticate' => 'Autenticar',
@@ -3177,6 +3239,14 @@ extension on TranslationsEs {
 			'update.viewRelease' => 'Ver versión',
 			'update.latestVersion' => 'Ya estás en la última versión',
 			'update.checkFailed' => 'Error al buscar actualizaciones',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Configuración',
 			'settings.supportDeveloper' => 'Apoya Plezy',
 			'settings.supportDeveloperDescription' => 'Dona vía Liberapay para financiar el desarrollo',
@@ -3230,8 +3300,6 @@ extension on TranslationsEs {
 			'settings.alwaysKeepSidebarOpenDescription' => 'La barra lateral permanece expandida y el área de contenido se ajusta para adaptarse',
 			'settings.showUnwatchedCount' => 'Mostrar el número de elementos no vistos',
 			'settings.showUnwatchedCountDescription' => 'Mostrar el número de episodios no vistos en series y temporadas',
-			'settings.showWatchedIndicators' => 'Mostrar indicadores de visto',
-			'settings.showWatchedIndicatorsDescription' => 'Mostrar una marca de verificación en películas, series y episodios vistos',
 			'settings.showEpisodeNumberOnCards' => 'Mostrar número de episodio en las tarjetas',
 			'settings.showEpisodeNumberOnCardsDescription' => 'Mostrar temporada y episodio en tarjetas de episodio',
 			'settings.showSeasonPostersOnTabs' => 'Mostrar pósters de temporada en las pestañas',
@@ -3253,6 +3321,7 @@ extension on TranslationsEs {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Decodificación por hardware',
 			'settings.hardwareDecodingDescription' => 'Usar aceleración por hardware cuando esté disponible',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Búfer de reproducción',
 			'settings.playbackBufferAuto' => 'Automático (recomendado)',
 			'settings.playbackBufferLarge' => 'Grande',
@@ -3261,8 +3330,6 @@ extension on TranslationsEs {
 			'settings.defaultQualityTitle' => 'Calidad predeterminada',
 			'settings.cellularQualityTitle' => 'Calidad predeterminada en datos móviles',
 			'settings.cellularQualitySameAsDefault' => 'Igual que la calidad predeterminada',
-			'settings.directPlayCoveredQuality' => 'Reproducir videos más pequeños en calidad original',
-			'settings.directPlayCoveredQualityDescription' => 'Reproducir directamente los videos que ya están dentro del límite de calidad en lugar de transcodificarlos',
 			'settings.musicQualityTitle' => 'Calidad de música',
 			'settings.subtitleStyling' => 'Estilo de subtítulos',
 			'settings.subtitleStylingDescription' => 'Personalizar la apariencia de los subtítulos',
@@ -3339,17 +3406,6 @@ extension on TranslationsEs {
 			'settings.shuffleStartsFromBeginningDescription' => 'Empezar cada episodio desde el principio en reproducción aleatoria en lugar de reanudarlo',
 			'settings.playNextCountdown' => 'Cuenta atrás para el siguiente episodio',
 			'settings.playNextCountdownImmediate' => 'Reproducir de inmediato',
-			'settings.skipIntroMode' => 'Saltar intro',
-			'settings.skipIntroModeOffDescription' => 'Reproducir las intros normalmente sin botón de salto',
-			'settings.skipIntroModeButtonDescription' => 'Mostrar un botón de salto cuando empiece una intro',
-			'settings.skipIntroModeAutoDescription' => 'Saltar las intros automáticamente tras el retraso indicado abajo',
-			'settings.skipCreditsMode' => 'Saltar créditos',
-			'settings.skipCreditsModeOffDescription' => 'Reproducir los créditos normalmente sin botón de salto',
-			'settings.skipCreditsModeButtonDescription' => 'Mostrar un botón de salto cuando empiecen los créditos',
-			'settings.skipCreditsModeAutoDescription' => 'Saltar los créditos automáticamente y reproducir el siguiente episodio',
-			'settings.skipMarkerModeOff' => 'Desactivado',
-			'settings.skipMarkerModeButton' => 'Mostrar botón',
-			'settings.skipMarkerModeAuto' => 'Automático',
 			'settings.forceSkipMarkerFallback' => 'Forzar marcadores alternativos',
 			'settings.forceSkipMarkerFallbackDescription' => 'Usar patrones de títulos de capítulos aunque Plex tenga marcadores',
 			'settings.autoSkipDelay' => 'Retraso del salto automático',
@@ -3477,8 +3533,6 @@ extension on TranslationsEs {
 			'settings.gestureVolumeSwipeDescription' => 'Desliza hacia arriba o abajo en el borde derecho para ajustar el volumen',
 			'settings.gesturePinchToZoom' => 'Pellizcar para hacer zoom',
 			'settings.gesturePinchToZoomDescription' => 'Pellizca el video para acercar o alejar',
-			'settings.rememberBrightnessLevel' => 'Recordar nivel de brillo',
-			'settings.rememberBrightnessLevelDescription' => 'Iniciar la reproducción con el brillo establecido por el último deslizamiento',
 			'settings.controls' => 'Controles',
 			'settings.rememberPlayerChanges' => 'Recordar cambios del reproductor',
 			'settings.rememberPlayerChangesDescription' => 'Dónde se guarda y se vuelve a aplicar un cambio realizado durante la reproducción',
@@ -3491,6 +3545,29 @@ extension on TranslationsEs {
 			'settings.playerScopeLibrary' => 'Por biblioteca',
 			'settings.playerScopeTitle' => 'Por serie o película',
 			'settings.exportDialogTitle' => 'Exportar ajustes de Plezy',
+			'settings.showWatchedIndicators' => 'Mostrar indicadores de visto',
+			'settings.showWatchedIndicatorsDescription' => 'Mostrar una marca de verificación en películas, series y episodios vistos',
+			'settings.directPlayCoveredQuality' => 'Reproducir videos más pequeños en calidad original',
+			'settings.directPlayCoveredQualityDescription' => 'Reproducir directamente los videos que ya están dentro del límite de calidad en lugar de transcodificarlos',
+			'settings.skipIntroMode' => 'Saltar intro',
+			'settings.skipIntroModeOffDescription' => 'Reproducir las intros normalmente sin botón de salto',
+			'settings.skipIntroModeButtonDescription' => 'Mostrar un botón de salto cuando empiece una intro',
+			'settings.skipIntroModeAutoDescription' => 'Saltar las intros automáticamente tras el retraso indicado abajo',
+			'settings.skipCreditsMode' => 'Saltar créditos',
+			'settings.skipCreditsModeOffDescription' => 'Reproducir los créditos normalmente sin botón de salto',
+			'settings.skipCreditsModeButtonDescription' => 'Mostrar un botón de salto cuando empiecen los créditos',
+			'settings.skipCreditsModeAutoDescription' => 'Saltar los créditos automáticamente y reproducir el siguiente episodio',
+			'settings.skipMarkerModeOff' => 'Desactivado',
+			'settings.skipMarkerModeButton' => 'Mostrar botón',
+			'settings.skipMarkerModeAuto' => 'Automático',
+			'settings.rememberBrightnessLevel' => 'Recordar nivel de brillo',
+			'settings.rememberBrightnessLevelDescription' => 'Iniciar la reproducción con el brillo establecido por el último deslizamiento',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => 'Buscar películas, series, música...',
 			'search.tryDifferentTerm' => 'Prueba con un término de búsqueda diferente',
 			'search.searchYourMedia' => 'Busca en tu contenido',
@@ -3526,6 +3603,8 @@ extension on TranslationsEs {
 			'hotkeys.actions.shaderToggle' => 'Activar/desactivar shaders',
 			'hotkeys.actions.skipMarker' => 'Saltar introducción/créditos',
 			'hotkeys.actions.screenshot' => 'Tomar captura de pantalla',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Información del archivo',
 			'fileInfo.overview' => 'Resumen',
 			'fileInfo.video' => 'Video',
@@ -3581,6 +3660,8 @@ extension on TranslationsEs {
 			'fileInfo.baseLayerCompatibility' => 'Compatibilidad de capa base',
 			'fileInfo.avcBitstream' => 'Flujo de bits AVC',
 			'fileInfo.nalLengthSize' => 'Tamaño de longitud NAL',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Matriz de escalado personalizada',
 			'fileInfo.streamIdentifier' => 'Identificador de flujo',
 			'fileInfo.streamIndex' => 'Índice de flujo',
@@ -3715,6 +3796,7 @@ extension on TranslationsEs {
 			'tooltips.markAsWatched' => 'Marcar como visto',
 			'tooltips.markAsUnwatched' => 'Marcar como no visto',
 			'audioTracks.track' => ({required Object n}) => 'Pista de audio ${n}',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('es'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => 'Audio',
 			'videoControls.subtitlesLabel' => 'Subtítulos',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3761,6 +3843,7 @@ extension on TranslationsEs {
 			'videoControls.subtitleUnavailableFallback' => 'No se pudieron cargar los subtítulos seleccionados — continuando sin subtítulos',
 			'videoControls.pipButton' => 'Modo de imagen en imagen',
 			'videoControls.aspectRatioButton' => 'Relación de aspecto',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Iluminación ambiental',
 			'videoControls.fullscreenButton' => 'Entrar en pantalla completa',
 			'videoControls.exitFullscreenButton' => 'Salir de pantalla completa',
@@ -4132,6 +4215,8 @@ extension on TranslationsEs {
 			'libraries.scanLibraryFiles' => 'Escanear archivos de la biblioteca',
 			'libraries.scanLibrary' => 'Escanear biblioteca',
 			'libraries.analyze' => 'Analizar',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Analizar biblioteca',
 			'libraries.refreshMetadata' => 'Actualizar metadatos',
 			'libraries.emptyTrash' => 'Vaciar papelera',
@@ -4189,6 +4274,7 @@ extension on TranslationsEs {
 			'libraries.filterCategories.unwatched' => 'No vistos',
 			'libraries.filterCategories.unplayed' => 'No reproducidos',
 			'libraries.filterCategories.favorites' => 'Favoritos',
+			'libraries.filterCategories.filePath' => 'File Path',
 			'libraries.sortLabels.title' => 'Título',
 			'libraries.sortLabels.dateAdded' => 'Fecha de adición',
 			'libraries.sortLabels.releaseDate' => 'Fecha de estreno',
@@ -4212,11 +4298,40 @@ extension on TranslationsEs {
 			'libraries.sortLabels.dateDownloaded' => 'Fecha de descarga',
 			'libraries.sortLabels.size' => 'Tamaño',
 			'libraries.sortLabels.library' => 'Biblioteca',
+			'libraries.advancedFilters.include' => 'Include',
+			'libraries.advancedFilters.exclude' => 'Exclude',
+			'libraries.advancedFilters.any' => 'Any',
+			'libraries.advancedFilters.yes' => 'Yes',
+			'libraries.advancedFilters.no' => 'No',
+			'libraries.advancedFilters.not' => ({required Object value}) => 'Not ${value}',
+			'libraries.advancedFilters.valueCount' => ({required Object count}) => '${count} selected',
+			'libraries.advancedFilters.valueCountExcluded' => ({required Object count}) => '${count} excluded',
+			'libraries.advancedFilters.searchValues' => 'Search values',
+			'libraries.advancedFilters.noValues' => 'No values',
+			'libraries.advancedFilters.matchContains' => 'Contains',
+			'libraries.advancedFilters.matchNotContains' => 'Does not contain',
+			'libraries.advancedFilters.matchIs' => 'Is',
+			'libraries.advancedFilters.matchIsNot' => 'Is not',
+			'libraries.advancedFilters.matchBeginsWith' => 'Begins with',
+			'libraries.advancedFilters.matchEndsWith' => 'Ends with',
+			'libraries.advancedFilters.textHint' => 'Type to match',
+			'libraries.advancedFilters.from' => 'From',
+			'libraries.advancedFilters.to' => 'To',
+			'libraries.advancedFilters.range' => ({required Object from, required Object to}) => '${from} to ${to}',
+			'libraries.advancedFilters.atLeast' => ({required Object value}) => '${value} and up',
+			'libraries.advancedFilters.atMost' => ({required Object value}) => 'Up to ${value}',
+			'libraries.advancedFilters.dateLastDays' => ({required Object count}) => 'Last ${count} days',
+			'libraries.advancedFilters.dateLastYear' => 'Past year',
+			'libraries.advancedFilters.dateOlderThanDays' => ({required Object count}) => 'Older than ${count} days',
+			'libraries.advancedFilters.dateOlderThanYear' => 'Older than a year',
 			'about.title' => 'Acerca de',
 			'about.openSourceLicenses' => 'Licencias de código abierto',
 			'about.versionLabel' => ({required Object version}) => 'Versión ${version}',
 			'about.appDescription' => 'Un cliente de Plex, Jellyfin y Emby para Flutter',
 			'about.viewLicensesDescription' => 'Ver las licencias de bibliotecas de terceros',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'No se encontraron servidores para ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Error al cargar servidores: ${error}',
 			'serverSelection.noValidServers' => 'No se encontraron servidores utilizables en esta cuenta',
@@ -4614,6 +4729,8 @@ extension on TranslationsEs {
 			'watchTogether.endSessionConfirm' => 'Esto finalizará la sesión para todos los participantes.',
 			'watchTogether.leaveSessionConfirm' => 'Saldrás de la sesión.',
 			'watchTogether.endSessionConfirmOverlay' => 'Esto finalizará la sesión de reproducción para todos los participantes.',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'Te desconectarás de la sesión de reproducción.',
 			_ => null,
 		} ?? switch (path) {
@@ -5128,6 +5245,8 @@ extension on TranslationsEs {
 			'services.libraryFilter.libraries' => 'Bibliotecas',
 			'services.libraryFilter.noLibraries' => 'No hay bibliotecas disponibles',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => 'Añadir servidor ${product}',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.serverUrls' => 'Direcciones URL del servidor',
 			_ => null,
 		} ?? switch (path) {
