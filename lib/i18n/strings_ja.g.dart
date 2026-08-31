@@ -299,6 +299,7 @@ class _Translations$settings$ja extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'ハードウェアデコード';
 	@override String get hardwareDecodingDescription => '利用可能な場合にハードウェアアクセラレーションを使用';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => '再生バッファー';
 	@override String get playbackBufferAuto => '自動（推奨）';
 	@override String get playbackBufferLarge => '大';
@@ -840,6 +841,7 @@ class _Translations$videoControls$ja extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => '選択した字幕を読み込めませんでした — 字幕なしで再生を続けます';
 	@override String get pipButton => 'ピクチャーインピクチャーモード';
 	@override String get aspectRatioButton => 'アスペクト比';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'アンビエントライティング';
 	@override String get fullscreenButton => 'フルスクリーンに入る';
 	@override String get exitFullscreenButton => 'フルスクリーンを終了';
@@ -3103,6 +3105,7 @@ extension on TranslationsJa {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'ハードウェアデコード',
 			'settings.hardwareDecodingDescription' => '利用可能な場合にハードウェアアクセラレーションを使用',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => '再生バッファー',
 			'settings.playbackBufferAuto' => '自動（推奨）',
 			'settings.playbackBufferLarge' => '大',
@@ -3438,9 +3441,9 @@ extension on TranslationsJa {
 			'fileInfo.optimizedForStreaming' => 'ストリーミング最適化',
 			'fileInfo.has64bitOffsets' => '64ビットオフセット',
 			'fileInfo.protocol' => 'プロトコル',
-			'fileInfo.mediaType' => 'メディアタイプ',
 			_ => null,
 		} ?? switch (path) {
+			'fileInfo.mediaType' => 'メディアタイプ',
 			'fileInfo.sourceKind' => 'ソース種別',
 			'fileInfo.optimizedVersion' => '最適化バージョン',
 			'fileInfo.optimizationTarget' => '最適化ターゲット',
@@ -3583,6 +3586,7 @@ extension on TranslationsJa {
 			'videoControls.subtitleUnavailableFallback' => '選択した字幕を読み込めませんでした — 字幕なしで再生を続けます',
 			'videoControls.pipButton' => 'ピクチャーインピクチャーモード',
 			'videoControls.aspectRatioButton' => 'アスペクト比',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'アンビエントライティング',
 			'videoControls.fullscreenButton' => 'フルスクリーンに入る',
 			'videoControls.exitFullscreenButton' => 'フルスクリーンを終了',
@@ -3951,10 +3955,10 @@ extension on TranslationsJa {
 			'libraries.filterCategories.genre' => 'ジャンル',
 			'libraries.filterCategories.year' => '年',
 			'libraries.filterCategories.contentRating' => '視聴年齢区分',
-			'libraries.filterCategories.tag' => 'タグ',
-			'libraries.filterCategories.unwatched' => '未視聴',
 			_ => null,
 		} ?? switch (path) {
+			'libraries.filterCategories.tag' => 'タグ',
+			'libraries.filterCategories.unwatched' => '未視聴',
 			'libraries.filterCategories.unplayed' => '未再生',
 			'libraries.filterCategories.favorites' => 'お気に入り',
 			'libraries.sortLabels.title' => 'タイトル',
@@ -4465,10 +4469,10 @@ extension on TranslationsJa {
 			'downloads.syncRuleAndDownloadsRemoved' => '同期ルールと関連するダウンロードを削除しました',
 			'downloads.syncRuleCleanupBusy' => '同期ルールが更新中です。しばらくしてからもう一度お試しください。',
 			'downloads.syncRuleCleanupUnavailable' => '関連するダウンロードを安全に特定できませんでした。サーバーに再接続して再試行するか、ダウンロードを削除せずにルールを削除してください。',
-			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '${title}の新しいエピソードを${count}件同期しました',
-			'downloads.activeSyncRules' => '同期ルール',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '${title}の新しいエピソードを${count}件同期しました',
+			'downloads.activeSyncRules' => '同期ルール',
 			'downloads.noSyncRules' => '同期ルールなし',
 			'downloads.manageSyncRule' => '同期を管理',
 			'downloads.editEpisodeCount' => 'エピソード数',

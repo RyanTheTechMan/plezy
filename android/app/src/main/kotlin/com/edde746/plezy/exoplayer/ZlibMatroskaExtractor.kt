@@ -42,7 +42,8 @@ import java.util.zip.Inflater
  */
 class ZlibMatroskaExtractor(
   subtitleParserFactory: SubtitleParser.Factory,
-  assHandler: AssHandler
+  assHandler: AssHandler,
+  private val onStereoMode: (Long) -> Unit = {}
 ) : AssMatroskaExtractor(subtitleParserFactory, assHandler) {
 
   companion object {
@@ -56,6 +57,7 @@ class ZlibMatroskaExtractor(
     private const val ID_CONTENT_COMPRESSION = 0x5034
     private const val ID_SIMPLE_BLOCK = 0xA3
     private const val ID_BLOCK = 0xA1
+    private const val ID_STEREO_MODE = 0x53B8
 
     /**
      * Codec IDs whose samples MatroskaExtractor rewrites in-place (timecode prefix
@@ -104,6 +106,7 @@ class ZlibMatroskaExtractor(
   }
 
   override fun integerElement(id: Int, value: Long) {
+    if (id == ID_STEREO_MODE) onStereoMode(value)
     if (id == ID_CONTENT_COMPRESSION_ALGORITHM) {
       if (value == 0L) {
         currentTrackUsesZlib = true

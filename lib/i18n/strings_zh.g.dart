@@ -299,6 +299,7 @@ class Translations$settings$zh extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => '硬件解码';
 	@override String get hardwareDecodingDescription => '如果可用，使用硬件加速';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => '播放缓冲';
 	@override String get playbackBufferAuto => '自动（推荐）';
 	@override String get playbackBufferLarge => '大';
@@ -840,6 +841,7 @@ class Translations$videoControls$zh extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => '无法加载所选字幕 — 将继续无字幕播放';
 	@override String get pipButton => '画中画';
 	@override String get aspectRatioButton => '宽高比';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => '氛围灯光';
 	@override String get fullscreenButton => '进入全屏';
 	@override String get exitFullscreenButton => '退出全屏';
@@ -3103,6 +3105,7 @@ extension on TranslationsZh {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => '硬件解码',
 			'settings.hardwareDecodingDescription' => '如果可用，使用硬件加速',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => '播放缓冲',
 			'settings.playbackBufferAuto' => '自动（推荐）',
 			'settings.playbackBufferLarge' => '大',
@@ -3438,9 +3441,9 @@ extension on TranslationsZh {
 			'fileInfo.optimizedForStreaming' => '已针对流式传输优化',
 			'fileInfo.has64bitOffsets' => '64 位偏移量',
 			'fileInfo.protocol' => '协议',
-			'fileInfo.mediaType' => '媒体类型',
 			_ => null,
 		} ?? switch (path) {
+			'fileInfo.mediaType' => '媒体类型',
 			'fileInfo.sourceKind' => '来源类型',
 			'fileInfo.optimizedVersion' => '优化版本',
 			'fileInfo.optimizationTarget' => '优化目标',
@@ -3583,6 +3586,7 @@ extension on TranslationsZh {
 			'videoControls.subtitleUnavailableFallback' => '无法加载所选字幕 — 将继续无字幕播放',
 			'videoControls.pipButton' => '画中画',
 			'videoControls.aspectRatioButton' => '宽高比',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => '氛围灯光',
 			'videoControls.fullscreenButton' => '进入全屏',
 			'videoControls.exitFullscreenButton' => '退出全屏',
@@ -3951,10 +3955,10 @@ extension on TranslationsZh {
 			'libraries.filterCategories.genre' => '类型',
 			'libraries.filterCategories.year' => '年份',
 			'libraries.filterCategories.contentRating' => '内容分级',
-			'libraries.filterCategories.tag' => '标签',
-			'libraries.filterCategories.unwatched' => '未观看',
 			_ => null,
 		} ?? switch (path) {
+			'libraries.filterCategories.tag' => '标签',
+			'libraries.filterCategories.unwatched' => '未观看',
 			'libraries.filterCategories.unplayed' => '未播放',
 			'libraries.filterCategories.favorites' => '收藏夹',
 			'libraries.sortLabels.title' => '标题',
@@ -4465,10 +4469,10 @@ extension on TranslationsZh {
 			'downloads.syncRuleAndDownloadsRemoved' => '同步规则及相关下载已删除',
 			'downloads.syncRuleCleanupBusy' => '同步规则正在更新中，请稍后再试。',
 			'downloads.syncRuleCleanupUnavailable' => '无法安全识别相关下载。请重新连接服务器后再试，或在不删除下载的情况下移除规则。',
-			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '已为 ${title} 同步 ${count} 个新剧集',
-			'downloads.activeSyncRules' => '同步规则',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '已为 ${title} 同步 ${count} 个新剧集',
+			'downloads.activeSyncRules' => '同步规则',
 			'downloads.noSyncRules' => '没有同步规则',
 			'downloads.manageSyncRule' => '管理同步',
 			'downloads.editEpisodeCount' => '剧集数量',

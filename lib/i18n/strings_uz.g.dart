@@ -299,6 +299,7 @@ class _Translations$settings$uz extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Apparatli dekodlash';
 	@override String get hardwareDecodingDescription => 'Imkon qadar apparatli tezlashtirishdan foydalanish';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Ijro buferi';
 	@override String get playbackBufferAuto => 'Avto (tavsiya etiladi)';
 	@override String get playbackBufferLarge => 'Katta';
@@ -843,6 +844,7 @@ class _Translations$videoControls$uz extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'Tanlangan subtitr yuklanmadi';
 	@override String get pipButton => 'Rasm ichida rasm rejimi';
 	@override String get aspectRatioButton => 'Tomonlar nisbati';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Atrof-muhit yoritilishi';
 	@override String get fullscreenButton => 'Toʻliq ekranga oʻtish';
 	@override String get exitFullscreenButton => 'Toʻliq ekrandan chiqish';
@@ -3113,6 +3115,7 @@ extension on TranslationsUz {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Apparatli dekodlash',
 			'settings.hardwareDecodingDescription' => 'Imkon qadar apparatli tezlashtirishdan foydalanish',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Ijro buferi',
 			'settings.playbackBufferAuto' => 'Avto (tavsiya etiladi)',
 			'settings.playbackBufferLarge' => 'Katta',
@@ -3448,9 +3451,9 @@ extension on TranslationsUz {
 			'fileInfo.optimizedForStreaming' => 'Oqimli uzatish uchun optimallashtirilgan',
 			'fileInfo.has64bitOffsets' => '64-bitli siljishlar',
 			'fileInfo.protocol' => 'Protokol',
-			'fileInfo.mediaType' => 'Media turi',
 			_ => null,
 		} ?? switch (path) {
+			'fileInfo.mediaType' => 'Media turi',
 			'fileInfo.sourceKind' => 'Manba turi',
 			'fileInfo.optimizedVersion' => 'Optimallashtirilgan versiya',
 			'fileInfo.optimizationTarget' => 'Optimallashtirish maqsadi',
@@ -3593,6 +3596,7 @@ extension on TranslationsUz {
 			'videoControls.subtitleUnavailableFallback' => 'Tanlangan subtitr yuklanmadi',
 			'videoControls.pipButton' => 'Rasm ichida rasm rejimi',
 			'videoControls.aspectRatioButton' => 'Tomonlar nisbati',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Atrof-muhit yoritilishi',
 			'videoControls.fullscreenButton' => 'Toʻliq ekranga oʻtish',
 			'videoControls.exitFullscreenButton' => 'Toʻliq ekrandan chiqish',
@@ -3961,10 +3965,10 @@ extension on TranslationsUz {
 			'libraries.filterCategories.genre' => 'Janr',
 			'libraries.filterCategories.year' => 'Yil',
 			'libraries.filterCategories.contentRating' => 'Kontent reytingi',
-			'libraries.filterCategories.tag' => 'Teg',
-			'libraries.filterCategories.unwatched' => 'Koʻrilmagan',
 			_ => null,
 		} ?? switch (path) {
+			'libraries.filterCategories.tag' => 'Teg',
+			'libraries.filterCategories.unwatched' => 'Koʻrilmagan',
 			'libraries.filterCategories.unplayed' => 'Eshitilmagan',
 			'libraries.filterCategories.favorites' => 'Tanlanganlar',
 			'libraries.sortLabels.title' => 'Nomi',
@@ -4475,10 +4479,10 @@ extension on TranslationsUz {
 			'downloads.syncRuleAndDownloadsRemoved' => 'Sinxronlash qoidasi va bogʻliq yuklamalar oʻchirildi',
 			'downloads.syncRuleCleanupBusy' => 'Sinxronlash qoidalari hozir yangilanmoqda. Bir ozdan soʻng qayta urinib koʻring.',
 			'downloads.syncRuleCleanupUnavailable' => 'Bogʻliq yuklamalarni xavfsiz aniqlab boʻlmadi. Serverga qayta ulanib koʻring yoki yuklamalarni oʻchirmasdan qoidani olib tashlang.',
-			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '${title} uchun ${count} yangi qism sinxronlandi',
-			'downloads.activeSyncRules' => 'Faol sinxronlash qoidalari',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '${title} uchun ${count} yangi qism sinxronlandi',
+			'downloads.activeSyncRules' => 'Faol sinxronlash qoidalari',
 			'downloads.noSyncRules' => 'Sinxronlash qoidalari yoʻq',
 			'downloads.manageSyncRule' => 'Sinxronlashni boshqarish',
 			'downloads.editEpisodeCount' => 'Qismlar soni',

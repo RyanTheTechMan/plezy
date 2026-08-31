@@ -299,6 +299,7 @@ class _Translations$settings$bg extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Хардуерно декодиране';
 	@override String get hardwareDecodingDescription => 'Използвай хардуерно ускорение, когато е налично';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Буфер за възпроизвеждане';
 	@override String get playbackBufferAuto => 'Автоматично (препоръчително)';
 	@override String get playbackBufferLarge => 'Голям';
@@ -843,6 +844,7 @@ class _Translations$videoControls$bg extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'Избраните субтитри не можаха да се заредят — възпроизвеждането продължава без субтитри';
 	@override String get pipButton => 'Режим картина в картината';
 	@override String get aspectRatioButton => 'Съотношение на страните';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Амбиентно осветление';
 	@override String get fullscreenButton => 'Влез на цял екран';
 	@override String get exitFullscreenButton => 'Излез от цял екран';
@@ -3113,6 +3115,7 @@ extension on TranslationsBg {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Хардуерно декодиране',
 			'settings.hardwareDecodingDescription' => 'Използвай хардуерно ускорение, когато е налично',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Буфер за възпроизвеждане',
 			'settings.playbackBufferAuto' => 'Автоматично (препоръчително)',
 			'settings.playbackBufferLarge' => 'Голям',
@@ -3448,9 +3451,9 @@ extension on TranslationsBg {
 			'fileInfo.optimizedForStreaming' => 'Оптимизирано за стрийминг',
 			'fileInfo.has64bitOffsets' => '64-битови отмествания',
 			'fileInfo.protocol' => 'Протокол',
-			'fileInfo.mediaType' => 'Тип медия',
 			_ => null,
 		} ?? switch (path) {
+			'fileInfo.mediaType' => 'Тип медия',
 			'fileInfo.sourceKind' => 'Вид източник',
 			'fileInfo.optimizedVersion' => 'Оптимизирана версия',
 			'fileInfo.optimizationTarget' => 'Цел на оптимизацията',
@@ -3593,6 +3596,7 @@ extension on TranslationsBg {
 			'videoControls.subtitleUnavailableFallback' => 'Избраните субтитри не можаха да се заредят — възпроизвеждането продължава без субтитри',
 			'videoControls.pipButton' => 'Режим картина в картината',
 			'videoControls.aspectRatioButton' => 'Съотношение на страните',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Амбиентно осветление',
 			'videoControls.fullscreenButton' => 'Влез на цял екран',
 			'videoControls.exitFullscreenButton' => 'Излез от цял екран',
@@ -3961,10 +3965,10 @@ extension on TranslationsBg {
 			'libraries.filterCategories.genre' => 'Жанр',
 			'libraries.filterCategories.year' => 'Година',
 			'libraries.filterCategories.contentRating' => 'Възрастов рейтинг',
-			'libraries.filterCategories.tag' => 'Таг',
-			'libraries.filterCategories.unwatched' => 'Негледани',
 			_ => null,
 		} ?? switch (path) {
+			'libraries.filterCategories.tag' => 'Таг',
+			'libraries.filterCategories.unwatched' => 'Негледани',
 			'libraries.filterCategories.unplayed' => 'Непускани',
 			'libraries.filterCategories.favorites' => 'Любими',
 			'libraries.sortLabels.title' => 'Заглавие',
@@ -4475,10 +4479,10 @@ extension on TranslationsBg {
 			'downloads.syncRuleAndDownloadsRemoved' => 'Правилото за синхронизация и свързаните изтегляния са премахнати',
 			'downloads.syncRuleCleanupBusy' => 'Правилата за синхронизация в момента се обновяват. Опитайте отново след малко.',
 			'downloads.syncRuleCleanupUnavailable' => 'Свързаните изтегляния не можаха да бъдат идентифицирани безопасно. Свържете се отново със сървъра и опитайте отново, или премахнете правилото, без да изтривате изтеглянията.',
-			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => 'Синхронизирани са ${count} нови епизода за ${title}',
-			'downloads.activeSyncRules' => 'Правила за синхронизация',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => 'Синхронизирани са ${count} нови епизода за ${title}',
+			'downloads.activeSyncRules' => 'Правила за синхронизация',
 			'downloads.noSyncRules' => 'Няма правила за синхронизация',
 			'downloads.manageSyncRule' => 'Управление на синхронизацията',
 			'downloads.editEpisodeCount' => 'Брой епизоди',

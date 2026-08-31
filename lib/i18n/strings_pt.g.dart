@@ -299,6 +299,7 @@ class _Translations$settings$pt extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Decodificação por Hardware';
 	@override String get hardwareDecodingDescription => 'Usar aceleração por hardware quando disponível';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Buffer de reprodução';
 	@override String get playbackBufferAuto => 'Automático (recomendado)';
 	@override String get playbackBufferLarge => 'Grande';
@@ -843,6 +844,7 @@ class _Translations$videoControls$pt extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'Não foi possível carregar as legendas selecionadas — a reprodução continuará sem legendas';
 	@override String get pipButton => 'Modo Picture-in-Picture';
 	@override String get aspectRatioButton => 'Proporção';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Iluminação ambiente';
 	@override String get fullscreenButton => 'Entrar em tela cheia';
 	@override String get exitFullscreenButton => 'Sair da tela cheia';
@@ -3113,6 +3115,7 @@ extension on TranslationsPt {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Decodificação por Hardware',
 			'settings.hardwareDecodingDescription' => 'Usar aceleração por hardware quando disponível',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Buffer de reprodução',
 			'settings.playbackBufferAuto' => 'Automático (recomendado)',
 			'settings.playbackBufferLarge' => 'Grande',
@@ -3448,9 +3451,9 @@ extension on TranslationsPt {
 			'fileInfo.optimizedForStreaming' => 'Otimizado para transmissão',
 			'fileInfo.has64bitOffsets' => 'Deslocamentos de 64 bits',
 			'fileInfo.protocol' => 'Protocolo',
-			'fileInfo.mediaType' => 'Tipo de mídia',
 			_ => null,
 		} ?? switch (path) {
+			'fileInfo.mediaType' => 'Tipo de mídia',
 			'fileInfo.sourceKind' => 'Tipo de origem',
 			'fileInfo.optimizedVersion' => 'Versão otimizada',
 			'fileInfo.optimizationTarget' => 'Alvo de otimização',
@@ -3593,6 +3596,7 @@ extension on TranslationsPt {
 			'videoControls.subtitleUnavailableFallback' => 'Não foi possível carregar as legendas selecionadas — a reprodução continuará sem legendas',
 			'videoControls.pipButton' => 'Modo Picture-in-Picture',
 			'videoControls.aspectRatioButton' => 'Proporção',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Iluminação ambiente',
 			'videoControls.fullscreenButton' => 'Entrar em tela cheia',
 			'videoControls.exitFullscreenButton' => 'Sair da tela cheia',
@@ -3961,10 +3965,10 @@ extension on TranslationsPt {
 			'libraries.filterCategories.genre' => 'Gênero',
 			'libraries.filterCategories.year' => 'Ano',
 			'libraries.filterCategories.contentRating' => 'Classificação indicativa',
-			'libraries.filterCategories.tag' => 'Tag',
-			'libraries.filterCategories.unwatched' => 'Não assistidos',
 			_ => null,
 		} ?? switch (path) {
+			'libraries.filterCategories.tag' => 'Tag',
+			'libraries.filterCategories.unwatched' => 'Não assistidos',
 			'libraries.filterCategories.unplayed' => 'Não reproduzidos',
 			'libraries.filterCategories.favorites' => 'Favoritos',
 			'libraries.sortLabels.title' => 'Título',
@@ -4475,10 +4479,10 @@ extension on TranslationsPt {
 			'downloads.syncRuleAndDownloadsRemoved' => 'Regra de sincronização e downloads associados removidos',
 			'downloads.syncRuleCleanupBusy' => 'As regras de sincronização estão sendo atualizadas. Tente novamente em instantes.',
 			'downloads.syncRuleCleanupUnavailable' => 'Os downloads associados não puderam ser identificados com segurança. Reconecte o servidor e tente novamente, ou remova a regra sem excluir os downloads.',
-			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => '${count} novos episódios sincronizados para ${title}',
-			'downloads.activeSyncRules' => 'Regras de sincronização',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => '${count} novos episódios sincronizados para ${title}',
+			'downloads.activeSyncRules' => 'Regras de sincronização',
 			'downloads.noSyncRules' => 'Nenhuma regra de sincronização',
 			'downloads.manageSyncRule' => 'Gerenciar sincronização',
 			'downloads.editEpisodeCount' => 'Número de episódios',

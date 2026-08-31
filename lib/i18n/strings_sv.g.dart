@@ -299,6 +299,7 @@ class _Translations$settings$sv extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Hårdvaruavkodning';
 	@override String get hardwareDecodingDescription => 'Använd hårdvaruacceleration när tillgängligt';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Uppspelningsbuffert';
 	@override String get playbackBufferAuto => 'Auto (rekommenderas)';
 	@override String get playbackBufferLarge => 'Stor';
@@ -843,6 +844,7 @@ class _Translations$videoControls$sv extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'De valda undertexterna kunde inte läsas in — uppspelningen fortsätter utan undertexter';
 	@override String get pipButton => 'Bild-i-bild-läge';
 	@override String get aspectRatioButton => 'Bildförhållande';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Ambientbelysning';
 	@override String get fullscreenButton => 'Aktivera helskärm';
 	@override String get exitFullscreenButton => 'Avsluta helskärm';
@@ -3113,6 +3115,7 @@ extension on TranslationsSv {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Hårdvaruavkodning',
 			'settings.hardwareDecodingDescription' => 'Använd hårdvaruacceleration när tillgängligt',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Uppspelningsbuffert',
 			'settings.playbackBufferAuto' => 'Auto (rekommenderas)',
 			'settings.playbackBufferLarge' => 'Stor',
@@ -3448,9 +3451,9 @@ extension on TranslationsSv {
 			'fileInfo.optimizedForStreaming' => 'Optimerad för streaming',
 			'fileInfo.has64bitOffsets' => '64-bitars offsetvärden',
 			'fileInfo.protocol' => 'Protokoll',
-			'fileInfo.mediaType' => 'Mediatyp',
 			_ => null,
 		} ?? switch (path) {
+			'fileInfo.mediaType' => 'Mediatyp',
 			'fileInfo.sourceKind' => 'Källtyp',
 			'fileInfo.optimizedVersion' => 'Optimerad version',
 			'fileInfo.optimizationTarget' => 'Optimeringsmål',
@@ -3593,6 +3596,7 @@ extension on TranslationsSv {
 			'videoControls.subtitleUnavailableFallback' => 'De valda undertexterna kunde inte läsas in — uppspelningen fortsätter utan undertexter',
 			'videoControls.pipButton' => 'Bild-i-bild-läge',
 			'videoControls.aspectRatioButton' => 'Bildförhållande',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Ambientbelysning',
 			'videoControls.fullscreenButton' => 'Aktivera helskärm',
 			'videoControls.exitFullscreenButton' => 'Avsluta helskärm',
@@ -3961,10 +3965,10 @@ extension on TranslationsSv {
 			'libraries.filterCategories.genre' => 'Genre',
 			'libraries.filterCategories.year' => 'År',
 			'libraries.filterCategories.contentRating' => 'Åldersgräns',
-			'libraries.filterCategories.tag' => 'Tagg',
-			'libraries.filterCategories.unwatched' => 'Osedda',
 			_ => null,
 		} ?? switch (path) {
+			'libraries.filterCategories.tag' => 'Tagg',
+			'libraries.filterCategories.unwatched' => 'Osedda',
 			'libraries.filterCategories.unplayed' => 'Ospelat',
 			'libraries.filterCategories.favorites' => 'Favoriter',
 			'libraries.sortLabels.title' => 'Titel',
@@ -4475,10 +4479,10 @@ extension on TranslationsSv {
 			'downloads.syncRuleAndDownloadsRemoved' => 'Synkregel och associerade nedladdningar borttagna',
 			'downloads.syncRuleCleanupBusy' => 'Synkregler uppdateras just nu. Försök igen om en liten stund.',
 			'downloads.syncRuleCleanupUnavailable' => 'Associerade nedladdningar kunde inte identifieras på ett säkert sätt. Återanslut servern och försök igen, eller ta bort regeln utan att ta bort nedladdningar.',
-			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => 'Synkroniserade ${count} nya avsnitt för ${title}',
-			'downloads.activeSyncRules' => 'Synkregler',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => 'Synkroniserade ${count} nya avsnitt för ${title}',
+			'downloads.activeSyncRules' => 'Synkregler',
 			'downloads.noSyncRules' => 'Inga synkregler',
 			'downloads.manageSyncRule' => 'Hantera synkronisering',
 			'downloads.editEpisodeCount' => 'Antal avsnitt',

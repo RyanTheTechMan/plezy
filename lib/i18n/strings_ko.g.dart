@@ -299,6 +299,7 @@ class _Translations$settings$ko extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => '하드웨어 디코딩';
 	@override String get hardwareDecodingDescription => '가능한 경우 하드웨어 가속을 사용합니다';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => '재생 버퍼';
 	@override String get playbackBufferAuto => '자동 (권장)';
 	@override String get playbackBufferLarge => '대형';
@@ -840,6 +841,7 @@ class _Translations$videoControls$ko extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => '선택한 자막을 불러올 수 없어 자막 없이 재생을 계속합니다';
 	@override String get pipButton => '픽처 인 픽처 모드';
 	@override String get aspectRatioButton => '화면비율';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => '주변 조명';
 	@override String get fullscreenButton => '전체 화면';
 	@override String get exitFullscreenButton => '전체 화면 종료';
@@ -3103,6 +3105,7 @@ extension on TranslationsKo {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => '하드웨어 디코딩',
 			'settings.hardwareDecodingDescription' => '가능한 경우 하드웨어 가속을 사용합니다',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => '재생 버퍼',
 			'settings.playbackBufferAuto' => '자동 (권장)',
 			'settings.playbackBufferLarge' => '대형',
@@ -3438,9 +3441,9 @@ extension on TranslationsKo {
 			'fileInfo.optimizedForStreaming' => '스트리밍 최적화',
 			'fileInfo.has64bitOffsets' => '64비트 오프셋',
 			'fileInfo.protocol' => '프로토콜',
-			'fileInfo.mediaType' => '미디어 유형',
 			_ => null,
 		} ?? switch (path) {
+			'fileInfo.mediaType' => '미디어 유형',
 			'fileInfo.sourceKind' => '소스 종류',
 			'fileInfo.optimizedVersion' => '최적화 버전',
 			'fileInfo.optimizationTarget' => '최적화 대상',
@@ -3583,6 +3586,7 @@ extension on TranslationsKo {
 			'videoControls.subtitleUnavailableFallback' => '선택한 자막을 불러올 수 없어 자막 없이 재생을 계속합니다',
 			'videoControls.pipButton' => '픽처 인 픽처 모드',
 			'videoControls.aspectRatioButton' => '화면비율',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => '주변 조명',
 			'videoControls.fullscreenButton' => '전체 화면',
 			'videoControls.exitFullscreenButton' => '전체 화면 종료',
@@ -3951,10 +3955,10 @@ extension on TranslationsKo {
 			'libraries.filterCategories.genre' => '장르',
 			'libraries.filterCategories.year' => '연도',
 			'libraries.filterCategories.contentRating' => '시청 등급',
-			'libraries.filterCategories.tag' => '태그',
-			'libraries.filterCategories.unwatched' => '미시청',
 			_ => null,
 		} ?? switch (path) {
+			'libraries.filterCategories.tag' => '태그',
+			'libraries.filterCategories.unwatched' => '미시청',
 			'libraries.filterCategories.unplayed' => '재생하지 않음',
 			'libraries.filterCategories.favorites' => '즐겨찾기',
 			'libraries.sortLabels.title' => '제목',
@@ -4465,10 +4469,10 @@ extension on TranslationsKo {
 			'downloads.syncRuleAndDownloadsRemoved' => '동기화 규칙과 연결된 다운로드가 삭제되었습니다',
 			'downloads.syncRuleCleanupBusy' => '동기화 규칙이 현재 업데이트 중입니다. 잠시 후 다시 시도하세요.',
 			'downloads.syncRuleCleanupUnavailable' => '연결된 다운로드를 안전하게 확인할 수 없습니다. 서버에 다시 연결한 후 시도하거나, 다운로드를 삭제하지 않고 규칙만 제거하세요.',
-			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '${title}의 새 에피소드 ${count}개 동기화됨',
-			'downloads.activeSyncRules' => '동기화 규칙',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '${title}의 새 에피소드 ${count}개 동기화됨',
+			'downloads.activeSyncRules' => '동기화 규칙',
 			'downloads.noSyncRules' => '동기화 규칙 없음',
 			'downloads.manageSyncRule' => '동기화 관리',
 			'downloads.editEpisodeCount' => '에피소드 수',

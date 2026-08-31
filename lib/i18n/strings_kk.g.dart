@@ -299,6 +299,7 @@ class _Translations$settings$kk extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Аппараттық декодтау';
 	@override String get hardwareDecodingDescription => 'Мүмкіндігінше аппараттық үдетуді пайдалану';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Ойнату буфері';
 	@override String get playbackBufferAuto => 'Авто (ұсынылады)';
 	@override String get playbackBufferLarge => 'Үлкен';
@@ -843,6 +844,7 @@ class _Translations$videoControls$kk extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'Таңдалған субтитр жүктелмеді';
 	@override String get pipButton => 'Суреттегі сурет режимі';
 	@override String get aspectRatioButton => 'Тараптар қатынасы';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Фондық жарықтандыру';
 	@override String get fullscreenButton => 'Толық экранға өту';
 	@override String get exitFullscreenButton => 'Толық экраннан шығу';
@@ -3113,6 +3115,7 @@ extension on TranslationsKk {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Аппараттық декодтау',
 			'settings.hardwareDecodingDescription' => 'Мүмкіндігінше аппараттық үдетуді пайдалану',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Ойнату буфері',
 			'settings.playbackBufferAuto' => 'Авто (ұсынылады)',
 			'settings.playbackBufferLarge' => 'Үлкен',
@@ -3448,9 +3451,9 @@ extension on TranslationsKk {
 			'fileInfo.optimizedForStreaming' => 'Ағынды беру үшін оңтайландырылған',
 			'fileInfo.has64bitOffsets' => '64-биттік ығысулар',
 			'fileInfo.protocol' => 'Протокол',
-			'fileInfo.mediaType' => 'Медиа түрі',
 			_ => null,
 		} ?? switch (path) {
+			'fileInfo.mediaType' => 'Медиа түрі',
 			'fileInfo.sourceKind' => 'Дереккөз түрі',
 			'fileInfo.optimizedVersion' => 'Оңтайландырылған нұсқа',
 			'fileInfo.optimizationTarget' => 'Оңтайландыру мақсаты',
@@ -3593,6 +3596,7 @@ extension on TranslationsKk {
 			'videoControls.subtitleUnavailableFallback' => 'Таңдалған субтитр жүктелмеді',
 			'videoControls.pipButton' => 'Суреттегі сурет режимі',
 			'videoControls.aspectRatioButton' => 'Тараптар қатынасы',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Фондық жарықтандыру',
 			'videoControls.fullscreenButton' => 'Толық экранға өту',
 			'videoControls.exitFullscreenButton' => 'Толық экраннан шығу',
@@ -3961,10 +3965,10 @@ extension on TranslationsKk {
 			'libraries.filterCategories.genre' => 'Жанр',
 			'libraries.filterCategories.year' => 'Жыл',
 			'libraries.filterCategories.contentRating' => 'Мазмұн рейтингі',
-			'libraries.filterCategories.tag' => 'Тег',
-			'libraries.filterCategories.unwatched' => 'Көрілмеген',
 			_ => null,
 		} ?? switch (path) {
+			'libraries.filterCategories.tag' => 'Тег',
+			'libraries.filterCategories.unwatched' => 'Көрілмеген',
 			'libraries.filterCategories.unplayed' => 'Ойнатылмаған',
 			'libraries.filterCategories.favorites' => 'Таңдаулылар',
 			'libraries.sortLabels.title' => 'Атауы',
@@ -4475,10 +4479,10 @@ extension on TranslationsKk {
 			'downloads.syncRuleAndDownloadsRemoved' => 'Синхрондау ережесі және байланысты жүктеулер өшірілді',
 			'downloads.syncRuleCleanupBusy' => 'Синхрондау ережелері қазір жаңартылуда. Сәлден соң қайталап көріңіз.',
 			'downloads.syncRuleCleanupUnavailable' => 'Байланысты жүктеулерді қауіпсіз анықтау мүмкін болмады. Серверге қайта қосылып көріңіз немесе ережені жүктеулерді жоймай өшіріңіз.',
-			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '${title} үшін ${count} жаңа бөлім синхрондалды',
-			'downloads.activeSyncRules' => 'Белсенді синхрондау ережелері',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '${title} үшін ${count} жаңа бөлім синхрондалды',
+			'downloads.activeSyncRules' => 'Белсенді синхрондау ережелері',
 			'downloads.noSyncRules' => 'Синхрондау ережелері жоқ',
 			'downloads.manageSyncRule' => 'Синхрондауды басқару',
 			'downloads.editEpisodeCount' => 'Бөлімдер саны',

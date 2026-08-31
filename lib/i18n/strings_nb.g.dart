@@ -299,6 +299,7 @@ class _Translations$settings$nb extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Maskinvaredekoding';
 	@override String get hardwareDecodingDescription => 'Bruk maskinvareakselerasjon når tilgjengelig';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Avspillingsbuffer';
 	@override String get playbackBufferAuto => 'Auto (anbefalt)';
 	@override String get playbackBufferLarge => 'Stor';
@@ -843,6 +844,7 @@ class _Translations$videoControls$nb extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'De valgte undertekstene kunne ikke lastes inn — avspillingen fortsetter uten undertekster';
 	@override String get pipButton => 'Bilde-i-bilde-modus';
 	@override String get aspectRatioButton => 'Sideforhold';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Omgivelseslys';
 	@override String get fullscreenButton => 'Gå til fullskjerm';
 	@override String get exitFullscreenButton => 'Avslutt fullskjerm';
@@ -3113,6 +3115,7 @@ extension on TranslationsNb {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Maskinvaredekoding',
 			'settings.hardwareDecodingDescription' => 'Bruk maskinvareakselerasjon når tilgjengelig',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Avspillingsbuffer',
 			'settings.playbackBufferAuto' => 'Auto (anbefalt)',
 			'settings.playbackBufferLarge' => 'Stor',
@@ -3448,9 +3451,9 @@ extension on TranslationsNb {
 			'fileInfo.optimizedForStreaming' => 'Optimalisert for strømming',
 			'fileInfo.has64bitOffsets' => '64-biters forskyvninger',
 			'fileInfo.protocol' => 'Protokoll',
-			'fileInfo.mediaType' => 'Mediatype',
 			_ => null,
 		} ?? switch (path) {
+			'fileInfo.mediaType' => 'Mediatype',
 			'fileInfo.sourceKind' => 'Kildetype',
 			'fileInfo.optimizedVersion' => 'Optimalisert versjon',
 			'fileInfo.optimizationTarget' => 'Optimaliseringsmål',
@@ -3593,6 +3596,7 @@ extension on TranslationsNb {
 			'videoControls.subtitleUnavailableFallback' => 'De valgte undertekstene kunne ikke lastes inn — avspillingen fortsetter uten undertekster',
 			'videoControls.pipButton' => 'Bilde-i-bilde-modus',
 			'videoControls.aspectRatioButton' => 'Sideforhold',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Omgivelseslys',
 			'videoControls.fullscreenButton' => 'Gå til fullskjerm',
 			'videoControls.exitFullscreenButton' => 'Avslutt fullskjerm',
@@ -3961,10 +3965,10 @@ extension on TranslationsNb {
 			'libraries.filterCategories.genre' => 'Sjanger',
 			'libraries.filterCategories.year' => 'År',
 			'libraries.filterCategories.contentRating' => 'Aldersgrense',
-			'libraries.filterCategories.tag' => 'Tagg',
-			'libraries.filterCategories.unwatched' => 'Usette',
 			_ => null,
 		} ?? switch (path) {
+			'libraries.filterCategories.tag' => 'Tagg',
+			'libraries.filterCategories.unwatched' => 'Usette',
 			'libraries.filterCategories.unplayed' => 'Ikke avspilt',
 			'libraries.filterCategories.favorites' => 'Favoritter',
 			'libraries.sortLabels.title' => 'Tittel',
@@ -4475,10 +4479,10 @@ extension on TranslationsNb {
 			'downloads.syncRuleAndDownloadsRemoved' => 'Synkroniseringsregel og tilknyttede nedlastinger fjernet',
 			'downloads.syncRuleCleanupBusy' => 'Synkroniseringsreglene oppdateres for øyeblikket. Prøv igjen om et øyeblikk.',
 			'downloads.syncRuleCleanupUnavailable' => 'Tilknyttede nedlastinger kunne ikke identifiseres på en trygg måte. Koble til serveren på nytt og prøv igjen, eller fjern regelen uten å slette nedlastingene.',
-			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => 'Synkroniserte ${count} nye episoder for ${title}',
-			'downloads.activeSyncRules' => 'Synkroniseringsregler',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => 'Synkroniserte ${count} nye episoder for ${title}',
+			'downloads.activeSyncRules' => 'Synkroniseringsregler',
 			'downloads.noSyncRules' => 'Ingen synkroniseringsregler',
 			'downloads.manageSyncRule' => 'Administrer synkronisering',
 			'downloads.editEpisodeCount' => 'Antall episoder',

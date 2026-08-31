@@ -299,6 +299,7 @@ class _Translations$settings$nl extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Hardwaredecodering';
 	@override String get hardwareDecodingDescription => 'Gebruik hardwareversnelling indien beschikbaar';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Afspeelbuffer';
 	@override String get playbackBufferAuto => 'Auto (aanbevolen)';
 	@override String get playbackBufferLarge => 'Groot';
@@ -843,6 +844,7 @@ class _Translations$videoControls$nl extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'De geselecteerde ondertitels konden niet worden geladen — afspelen gaat door zonder ondertitels';
 	@override String get pipButton => 'Beeld-in-beeldmodus';
 	@override String get aspectRatioButton => 'Beeldverhouding';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Omgevingsverlichting';
 	@override String get fullscreenButton => 'Volledig scherm activeren';
 	@override String get exitFullscreenButton => 'Volledig scherm verlaten';
@@ -3113,6 +3115,7 @@ extension on TranslationsNl {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Hardwaredecodering',
 			'settings.hardwareDecodingDescription' => 'Gebruik hardwareversnelling indien beschikbaar',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Afspeelbuffer',
 			'settings.playbackBufferAuto' => 'Auto (aanbevolen)',
 			'settings.playbackBufferLarge' => 'Groot',
@@ -3448,9 +3451,9 @@ extension on TranslationsNl {
 			'fileInfo.optimizedForStreaming' => 'Geoptimaliseerd voor streaming',
 			'fileInfo.has64bitOffsets' => '64-bits offsets',
 			'fileInfo.protocol' => 'Protocol',
-			'fileInfo.mediaType' => 'Mediatype',
 			_ => null,
 		} ?? switch (path) {
+			'fileInfo.mediaType' => 'Mediatype',
 			'fileInfo.sourceKind' => 'Soort bron',
 			'fileInfo.optimizedVersion' => 'Geoptimaliseerde versie',
 			'fileInfo.optimizationTarget' => 'Optimalisatiedoel',
@@ -3593,6 +3596,7 @@ extension on TranslationsNl {
 			'videoControls.subtitleUnavailableFallback' => 'De geselecteerde ondertitels konden niet worden geladen — afspelen gaat door zonder ondertitels',
 			'videoControls.pipButton' => 'Beeld-in-beeldmodus',
 			'videoControls.aspectRatioButton' => 'Beeldverhouding',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Omgevingsverlichting',
 			'videoControls.fullscreenButton' => 'Volledig scherm activeren',
 			'videoControls.exitFullscreenButton' => 'Volledig scherm verlaten',
@@ -3961,10 +3965,10 @@ extension on TranslationsNl {
 			'libraries.filterCategories.genre' => 'Genre',
 			'libraries.filterCategories.year' => 'Jaar',
 			'libraries.filterCategories.contentRating' => 'Leeftijdsclassificatie',
-			'libraries.filterCategories.tag' => 'Tag',
-			'libraries.filterCategories.unwatched' => 'Onbekeken',
 			_ => null,
 		} ?? switch (path) {
+			'libraries.filterCategories.tag' => 'Tag',
+			'libraries.filterCategories.unwatched' => 'Onbekeken',
 			'libraries.filterCategories.unplayed' => 'Niet afgespeeld',
 			'libraries.filterCategories.favorites' => 'Favorieten',
 			'libraries.sortLabels.title' => 'Titel',
@@ -4475,10 +4479,10 @@ extension on TranslationsNl {
 			'downloads.syncRuleAndDownloadsRemoved' => 'Synchronisatieregel en gekoppelde downloads verwijderd',
 			'downloads.syncRuleCleanupBusy' => 'Synchronisatieregels worden momenteel bijgewerkt. Probeer het over een moment opnieuw.',
 			'downloads.syncRuleCleanupUnavailable' => 'Gekoppelde downloads konden niet veilig worden geïdentificeerd. Maak opnieuw verbinding met de server en probeer het opnieuw, of verwijder de regel zonder de downloads te verwijderen.',
-			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => '${count} nieuwe afleveringen gesynchroniseerd voor ${title}',
-			'downloads.activeSyncRules' => 'Synchronisatieregels',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => '${count} nieuwe afleveringen gesynchroniseerd voor ${title}',
+			'downloads.activeSyncRules' => 'Synchronisatieregels',
 			'downloads.noSyncRules' => 'Geen synchronisatieregels',
 			'downloads.manageSyncRule' => 'Synchronisatie beheren',
 			'downloads.editEpisodeCount' => 'Aantal afleveringen',

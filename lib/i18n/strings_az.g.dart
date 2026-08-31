@@ -299,6 +299,7 @@ class _Translations$settings$az extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Avadanlıq kod açılması';
 	@override String get hardwareDecodingDescription => 'Mümkün olduqda avadanlıq sürətləndirməsini istifadə et';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Oxutma buferi';
 	@override String get playbackBufferAuto => 'Avtomatik (tövsiyə olunur)';
 	@override String get playbackBufferLarge => 'Böyük';
@@ -843,6 +844,7 @@ class _Translations$videoControls$az extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'Seçilmiş altyazı yüklənə bilmədi — altyazısız davam edilir';
 	@override String get pipButton => 'Pəncərə daxilində pəncərə rejimi';
 	@override String get aspectRatioButton => 'Tərəf nisbəti';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Ətraf işıqlandırması';
 	@override String get fullscreenButton => 'Tam ekrana keç';
 	@override String get exitFullscreenButton => 'Tam ekrandan çıx';
@@ -3113,6 +3115,7 @@ extension on TranslationsAz {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Avadanlıq kod açılması',
 			'settings.hardwareDecodingDescription' => 'Mümkün olduqda avadanlıq sürətləndirməsini istifadə et',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Oxutma buferi',
 			'settings.playbackBufferAuto' => 'Avtomatik (tövsiyə olunur)',
 			'settings.playbackBufferLarge' => 'Böyük',
@@ -3448,9 +3451,9 @@ extension on TranslationsAz {
 			'fileInfo.optimizedForStreaming' => 'Yayım üçün optimallaşdırılıb',
 			'fileInfo.has64bitOffsets' => '64-bit ofsetlər',
 			'fileInfo.protocol' => 'Protokol',
-			'fileInfo.mediaType' => 'Media növü',
 			_ => null,
 		} ?? switch (path) {
+			'fileInfo.mediaType' => 'Media növü',
 			'fileInfo.sourceKind' => 'Mənbə növü',
 			'fileInfo.optimizedVersion' => 'Optimallaşdırılmış versiya',
 			'fileInfo.optimizationTarget' => 'Optimallaşdırma hədəfi',
@@ -3593,6 +3596,7 @@ extension on TranslationsAz {
 			'videoControls.subtitleUnavailableFallback' => 'Seçilmiş altyazı yüklənə bilmədi — altyazısız davam edilir',
 			'videoControls.pipButton' => 'Pəncərə daxilində pəncərə rejimi',
 			'videoControls.aspectRatioButton' => 'Tərəf nisbəti',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Ətraf işıqlandırması',
 			'videoControls.fullscreenButton' => 'Tam ekrana keç',
 			'videoControls.exitFullscreenButton' => 'Tam ekrandan çıx',
@@ -3961,10 +3965,10 @@ extension on TranslationsAz {
 			'libraries.filterCategories.genre' => 'Janr',
 			'libraries.filterCategories.year' => 'İl',
 			'libraries.filterCategories.contentRating' => 'Məzmun reytinqi',
-			'libraries.filterCategories.tag' => 'Teq',
-			'libraries.filterCategories.unwatched' => 'Baxılmayıb',
 			_ => null,
 		} ?? switch (path) {
+			'libraries.filterCategories.tag' => 'Teq',
+			'libraries.filterCategories.unwatched' => 'Baxılmayıb',
 			'libraries.filterCategories.unplayed' => 'Oynadılmayıb',
 			'libraries.filterCategories.favorites' => 'Sevimlilər',
 			'libraries.sortLabels.title' => 'Ad',
@@ -4475,10 +4479,10 @@ extension on TranslationsAz {
 			'downloads.syncRuleAndDownloadsRemoved' => 'Eyniləşdirmə qaydası və əlaqəli yükləmələr silindi',
 			'downloads.syncRuleCleanupBusy' => 'Eyniləşdirmə qaydaları hazırda yenilənir. Bir azdan təzədən cəhd edin.',
 			'downloads.syncRuleCleanupUnavailable' => 'Əlaqəli yükləmələr təhlükəsiz şəkildə müəyyən edilə bilmədi. Serverə yenidən qoşulub cəhd edin və ya qaydanı yükləmələri silmədən silin.',
-			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '${title} üçün ${count} yeni seriya eyniləşdirildi',
-			'downloads.activeSyncRules' => 'Eyniləşdirmə qaydaları',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '${title} üçün ${count} yeni seriya eyniləşdirildi',
+			'downloads.activeSyncRules' => 'Eyniləşdirmə qaydaları',
 			'downloads.noSyncRules' => 'Eyniləşdirmə qaydası yoxdur',
 			'downloads.manageSyncRule' => 'Eyniləşdirməni idarə et',
 			'downloads.editEpisodeCount' => 'Seriya sayı',

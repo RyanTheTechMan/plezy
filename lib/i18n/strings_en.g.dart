@@ -609,6 +609,9 @@ class Translations$settings$en {
 	/// en: 'Use hardware acceleration when available'
 	String get hardwareDecodingDescription => 'Use hardware acceleration when available';
 
+	/// en: '3D Playback UI'
+	String get packedStereoUi => '3D Playback UI';
+
 	/// en: 'Playback Buffer'
 	String get playbackBuffer => 'Playback Buffer';
 
@@ -2059,6 +2062,9 @@ class Translations$videoControls$en {
 
 	/// en: 'Aspect ratio'
 	String get aspectRatioButton => 'Aspect ratio';
+
+	/// en: 'Cannot change while playing 3D source'
+	String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 
 	/// en: 'Ambient lighting'
 	String get ambientLighting => 'Ambient lighting';
@@ -7090,6 +7096,7 @@ extension on Translations {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Hardware Decoding',
 			'settings.hardwareDecodingDescription' => 'Use hardware acceleration when available',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Playback Buffer',
 			'settings.playbackBufferAuto' => 'Auto (Recommended)',
 			'settings.playbackBufferLarge' => 'Large',
@@ -7425,9 +7432,9 @@ extension on Translations {
 			'fileInfo.optimizedForStreaming' => 'Optimized for Streaming',
 			'fileInfo.has64bitOffsets' => '64-bit Offsets',
 			'fileInfo.protocol' => 'Protocol',
-			'fileInfo.mediaType' => 'Media Type',
 			_ => null,
 		} ?? switch (path) {
+			'fileInfo.mediaType' => 'Media Type',
 			'fileInfo.sourceKind' => 'Source Kind',
 			'fileInfo.optimizedVersion' => 'Optimized Version',
 			'fileInfo.optimizationTarget' => 'Optimization Target',
@@ -7570,6 +7577,7 @@ extension on Translations {
 			'videoControls.subtitleUnavailableFallback' => 'Selected subtitles could not be loaded — continuing without subtitles',
 			'videoControls.pipButton' => 'Picture-in-Picture mode',
 			'videoControls.aspectRatioButton' => 'Aspect ratio',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Ambient lighting',
 			'videoControls.fullscreenButton' => 'Enter fullscreen',
 			'videoControls.exitFullscreenButton' => 'Exit fullscreen',
@@ -7938,10 +7946,10 @@ extension on Translations {
 			'libraries.filterCategories.genre' => 'Genre',
 			'libraries.filterCategories.year' => 'Year',
 			'libraries.filterCategories.contentRating' => 'Content Rating',
-			'libraries.filterCategories.tag' => 'Tag',
-			'libraries.filterCategories.unwatched' => 'Unwatched',
 			_ => null,
 		} ?? switch (path) {
+			'libraries.filterCategories.tag' => 'Tag',
+			'libraries.filterCategories.unwatched' => 'Unwatched',
 			'libraries.filterCategories.unplayed' => 'Unplayed',
 			'libraries.filterCategories.favorites' => 'Favorites',
 			'libraries.sortLabels.title' => 'Title',
@@ -8452,10 +8460,10 @@ extension on Translations {
 			'downloads.syncRuleAndDownloadsRemoved' => 'Sync rule and associated downloads removed',
 			'downloads.syncRuleCleanupBusy' => 'Sync rules are currently updating. Try again in a moment.',
 			'downloads.syncRuleCleanupUnavailable' => 'Associated downloads could not be identified safely. Reconnect the server and try again, or remove the rule without deleting downloads.',
-			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => 'Synced ${count} new episodes for ${title}',
-			'downloads.activeSyncRules' => 'Sync rules',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.syncedNewEpisodes' => ({required Object count, required Object title}) => 'Synced ${count} new episodes for ${title}',
+			'downloads.activeSyncRules' => 'Sync rules',
 			'downloads.noSyncRules' => 'No sync rules',
 			'downloads.manageSyncRule' => 'Manage sync',
 			'downloads.editEpisodeCount' => 'Episode count',
