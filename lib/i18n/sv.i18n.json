@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Logga in med Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Hoppa över denna version",
     "viewRelease": "Visa versionsinformation",
     "latestVersion": "Du har den senaste versionen",
-    "checkFailed": "Det gick inte att söka efter uppdateringar"
+    "checkFailed": "Det gick inte att söka efter uppdateringar",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Inställningar",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Sidofältet förblir utfällt och innehållsytan anpassas efter det",
     "showUnwatchedCount": "Visa antal osedda",
     "showUnwatchedCountDescription": "Visa antal osedda avsnitt för serier och säsonger",
-    "showWatchedIndicators": "Visa seddmarkeringar",
-    "showWatchedIndicatorsDescription": "Visa en bock på sedda filmer, serier och avsnitt",
     "showEpisodeNumberOnCards": "Visa avsnittsnummer på kort",
     "showEpisodeNumberOnCardsDescription": "Visa säsongs- och avsnittsnummer på avsnittskort",
     "showSeasonPostersOnTabs": "Visa säsongsaffischer på flikar",
@@ -192,6 +198,7 @@
     "mpv": "mpv",
     "hardwareDecoding": "Hårdvaruavkodning",
     "hardwareDecodingDescription": "Använd hårdvaruacceleration när tillgängligt",
+    "packedStereoUi": "3D Playback UI",
     "playbackBuffer": "Uppspelningsbuffert",
     "playbackBufferAuto": "Auto (rekommenderas)",
     "playbackBufferLarge": "Stor",
@@ -200,8 +207,6 @@
     "defaultQualityTitle": "Standardkvalitet",
     "cellularQualityTitle": "Standardkvalitet på mobildata",
     "cellularQualitySameAsDefault": "Samma som standardkvalitet",
-    "directPlayCoveredQuality": "Spela mindre videor i originalkvalitet",
-    "directPlayCoveredQualityDescription": "Direktspela videor som redan ligger inom kvalitetsgränsen i stället för att transkoda dem",
     "musicQualityTitle": "Musikkvalitet",
     "subtitleStyling": "Utseende för undertexter",
     "subtitleStylingDescription": "Anpassa undertexternas utseende",
@@ -278,17 +283,6 @@
     "shuffleStartsFromBeginningDescription": "Starta varje avsnitt från början vid blandad uppspelning i stället för att återuppta",
     "playNextCountdown": "Nedräkning för nästa avsnitt",
     "playNextCountdownImmediate": "Spela direkt",
-    "skipIntroMode": "Hoppa över intro",
-    "skipIntroModeOffDescription": "Spela intron som vanligt utan knapp för att hoppa över",
-    "skipIntroModeButtonDescription": "Visa en knapp för att hoppa över när ett intro börjar",
-    "skipIntroModeAutoDescription": "Hoppa över intron automatiskt efter fördröjningen nedan",
-    "skipCreditsMode": "Hoppa över eftertexter",
-    "skipCreditsModeOffDescription": "Spela eftertexterna som vanligt utan knapp för att hoppa över",
-    "skipCreditsModeButtonDescription": "Visa en knapp för att hoppa över när eftertexterna börjar",
-    "skipCreditsModeAutoDescription": "Hoppa över eftertexterna automatiskt och spela nästa avsnitt",
-    "skipMarkerModeOff": "Av",
-    "skipMarkerModeButton": "Visa knapp",
-    "skipMarkerModeAuto": "Automatiskt",
     "forceSkipMarkerFallback": "Tvinga reservmarkörer",
     "forceSkipMarkerFallbackDescription": "Använd mönster i kapiteltitlar även när Plex har markörer",
     "autoSkipDelay": "Fördröjning före automatiskt hopp",
@@ -416,8 +410,6 @@
     "gestureVolumeSwipeDescription": "Svep uppåt eller nedåt i högerkanten för att justera volymen",
     "gesturePinchToZoom": "Nyp för att zooma",
     "gesturePinchToZoomDescription": "Nyp på videon för att zooma in eller ut",
-    "rememberBrightnessLevel": "Kom ihåg ljusstyrkan",
-    "rememberBrightnessLevelDescription": "Starta uppspelningen med ljusstyrkan från det senaste svepet",
     "controls": "Kontroller",
     "rememberPlayerChanges": "Kom ihåg spelarändringar",
     "rememberPlayerChangesDescription": "Var en ändring under uppspelning sparas och tillämpas igen",
@@ -429,7 +421,30 @@
     "playerScopeGlobal": "Överallt",
     "playerScopeLibrary": "Per bibliotek",
     "playerScopeTitle": "Per serie eller film",
-    "exportDialogTitle": "Exportera Plezy-inställningar"
+    "exportDialogTitle": "Exportera Plezy-inställningar",
+    "showWatchedIndicators": "Visa seddmarkeringar",
+    "showWatchedIndicatorsDescription": "Visa en bock på sedda filmer, serier och avsnitt",
+    "directPlayCoveredQuality": "Spela mindre videor i originalkvalitet",
+    "directPlayCoveredQualityDescription": "Direktspela videor som redan ligger inom kvalitetsgränsen i stället för att transkoda dem",
+    "skipIntroMode": "Hoppa över intro",
+    "skipIntroModeOffDescription": "Spela intron som vanligt utan knapp för att hoppa över",
+    "skipIntroModeButtonDescription": "Visa en knapp för att hoppa över när ett intro börjar",
+    "skipIntroModeAutoDescription": "Hoppa över intron automatiskt efter fördröjningen nedan",
+    "skipCreditsMode": "Hoppa över eftertexter",
+    "skipCreditsModeOffDescription": "Spela eftertexterna som vanligt utan knapp för att hoppa över",
+    "skipCreditsModeButtonDescription": "Visa en knapp för att hoppa över när eftertexterna börjar",
+    "skipCreditsModeAutoDescription": "Hoppa över eftertexterna automatiskt och spela nästa avsnitt",
+    "skipMarkerModeOff": "Av",
+    "skipMarkerModeButton": "Visa knapp",
+    "skipMarkerModeAuto": "Automatiskt",
+    "rememberBrightnessLevel": "Kom ihåg ljusstyrkan",
+    "rememberBrightnessLevelDescription": "Starta uppspelningen med ljusstyrkan från det senaste svepet",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Sök filmer, serier, musik...",
@@ -469,7 +484,9 @@
       "subSeekPrev": "Hoppa till föregående undertext",
       "shaderToggle": "Växla shaders",
       "skipMarker": "Hoppa över intro/eftertexter",
-      "screenshot": "Ta skärmbild"
+      "screenshot": "Ta skärmbild",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -681,6 +698,10 @@
     "track": "Ljudspår ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Ljud",
     "subtitlesLabel": "Undertexter",
     "addTime": "+${amount}${unit}",
@@ -727,6 +748,7 @@
     "subtitleUnavailableFallback": "De valda undertexterna kunde inte läsas in — uppspelningen fortsätter utan undertexter",
     "pipButton": "Bild-i-bild-läge",
     "aspectRatioButton": "Bildförhållande",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "ambientLighting": "Ambientbelysning",
     "fullscreenButton": "Aktivera helskärm",
     "exitFullscreenButton": "Avsluta helskärm",
@@ -1201,7 +1223,7 @@
       "unwatched": "Osedda",
       "unplayed": "Ospelat",
       "favorites": "Favoriter",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "Titel",
@@ -1229,32 +1251,32 @@
       "library": "Bibliotek"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1262,7 +1284,10 @@
     "openSourceLicenses": "Licenser för öppen källkod",
     "versionLabel": "Version ${version}",
     "appDescription": "En vacker Plex-, Jellyfin- och Emby-klient för Flutter",
-    "viewLicensesDescription": "Visa licenser för tredjepartsbibliotek"
+    "viewLicensesDescription": "Visa licenser för tredjepartsbibliotek",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Inga servrar hittades för ${username} (${email})",

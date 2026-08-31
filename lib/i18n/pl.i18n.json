@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Zaloguj się przez Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Pomiń tę wersję",
     "viewRelease": "Zobacz wydanie",
     "latestVersion": "Masz najnowszą wersję",
-    "checkFailed": "Nie udało się sprawdzić aktualizacji"
+    "checkFailed": "Nie udało się sprawdzić aktualizacji",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Ustawienia",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Panel boczny jest rozwinięty, a obszar treści dostosowuje się",
     "showUnwatchedCount": "Pokaż liczbę nieobejrzanych",
     "showUnwatchedCountDescription": "Wyświetl liczbę nieobejrzanych odcinków w serialach i sezonach",
-    "showWatchedIndicators": "Pokaż wskaźniki obejrzenia",
-    "showWatchedIndicatorsDescription": "Wyświetlaj znacznik na obejrzanych filmach, serialach i odcinkach",
     "showEpisodeNumberOnCards": "Pokaż numer odcinka na kartach",
     "showEpisodeNumberOnCardsDescription": "Pokazuj numer sezonu i odcinka na kartach odcinków",
     "showSeasonPostersOnTabs": "Pokaż plakaty sezonów na zakładkach",
@@ -192,6 +198,7 @@
     "mpv": "mpv",
     "hardwareDecoding": "Dekodowanie sprzętowe",
     "hardwareDecodingDescription": "Użyj akceleracji sprzętowej, gdy dostępna",
+    "packedStereoUi": "3D Playback UI",
     "playbackBuffer": "Bufor odtwarzania",
     "playbackBufferAuto": "Auto (zalecane)",
     "playbackBufferLarge": "Duży",
@@ -200,8 +207,6 @@
     "defaultQualityTitle": "Domyślna jakość",
     "cellularQualityTitle": "Domyślna jakość w sieci komórkowej",
     "cellularQualitySameAsDefault": "Taka sama jak domyślna jakość",
-    "directPlayCoveredQuality": "Odtwarzaj mniejsze wideo w oryginalnej jakości",
-    "directPlayCoveredQualityDescription": "Odtwarzaj bezpośrednio wideo mieszczące się już w limicie jakości zamiast je transkodować",
     "musicQualityTitle": "Jakość muzyki",
     "subtitleStyling": "Styl napisów",
     "subtitleStylingDescription": "Dostosuj wygląd napisów",
@@ -278,17 +283,6 @@
     "shuffleStartsFromBeginningDescription": "Rozpoczynaj każdy odcinek od początku przy odtwarzaniu losowym zamiast wznawiać",
     "playNextCountdown": "Odliczanie do następnego odcinka",
     "playNextCountdownImmediate": "Odtwarzaj natychmiast",
-    "skipIntroMode": "Pomijanie czołówki",
-    "skipIntroModeOffDescription": "Odtwarzaj czołówki normalnie, bez przycisku pomijania",
-    "skipIntroModeButtonDescription": "Pokazuj przycisk pomijania, gdy zaczyna się czołówka",
-    "skipIntroModeAutoDescription": "Pomijaj czołówki automatycznie po opóźnieniu poniżej",
-    "skipCreditsMode": "Pomijanie napisów końcowych",
-    "skipCreditsModeOffDescription": "Odtwarzaj napisy końcowe normalnie, bez przycisku pomijania",
-    "skipCreditsModeButtonDescription": "Pokazuj przycisk pomijania, gdy zaczynają się napisy końcowe",
-    "skipCreditsModeAutoDescription": "Pomijaj napisy końcowe automatycznie i odtwarzaj następny odcinek",
-    "skipMarkerModeOff": "Wył.",
-    "skipMarkerModeButton": "Pokaż przycisk",
-    "skipMarkerModeAuto": "Automatycznie",
     "forceSkipMarkerFallback": "Wymuś znaczniki awaryjne",
     "forceSkipMarkerFallbackDescription": "Używaj wzorców tytułów rozdziałów, nawet gdy Plex ma znaczniki",
     "autoSkipDelay": "Opóźnienie automatycznego pomijania",
@@ -416,8 +410,6 @@
     "gestureVolumeSwipeDescription": "Przesuwaj palcem w górę lub w dół na prawej krawędzi, aby regulować głośność",
     "gesturePinchToZoom": "Powiększanie ściskaniem",
     "gesturePinchToZoomDescription": "Ściśnij wideo palcami, aby powiększyć lub pomniejszyć",
-    "rememberBrightnessLevel": "Zapamiętaj poziom jasności",
-    "rememberBrightnessLevelDescription": "Rozpoczynaj odtwarzanie z jasnością ustawioną ostatnim przesunięciem",
     "controls": "Sterowanie",
     "rememberPlayerChanges": "Zapamiętuj zmiany odtwarzacza",
     "rememberPlayerChangesDescription": "Miejsce zapisywania i ponownego stosowania zmian dokonanych podczas odtwarzania",
@@ -429,7 +421,30 @@
     "playerScopeGlobal": "Wszędzie",
     "playerScopeLibrary": "Na bibliotekę",
     "playerScopeTitle": "Na serial lub film",
-    "exportDialogTitle": "Eksport ustawień Plezy"
+    "exportDialogTitle": "Eksport ustawień Plezy",
+    "showWatchedIndicators": "Pokaż wskaźniki obejrzenia",
+    "showWatchedIndicatorsDescription": "Wyświetlaj znacznik na obejrzanych filmach, serialach i odcinkach",
+    "directPlayCoveredQuality": "Odtwarzaj mniejsze wideo w oryginalnej jakości",
+    "directPlayCoveredQualityDescription": "Odtwarzaj bezpośrednio wideo mieszczące się już w limicie jakości zamiast je transkodować",
+    "skipIntroMode": "Pomijanie czołówki",
+    "skipIntroModeOffDescription": "Odtwarzaj czołówki normalnie, bez przycisku pomijania",
+    "skipIntroModeButtonDescription": "Pokazuj przycisk pomijania, gdy zaczyna się czołówka",
+    "skipIntroModeAutoDescription": "Pomijaj czołówki automatycznie po opóźnieniu poniżej",
+    "skipCreditsMode": "Pomijanie napisów końcowych",
+    "skipCreditsModeOffDescription": "Odtwarzaj napisy końcowe normalnie, bez przycisku pomijania",
+    "skipCreditsModeButtonDescription": "Pokazuj przycisk pomijania, gdy zaczynają się napisy końcowe",
+    "skipCreditsModeAutoDescription": "Pomijaj napisy końcowe automatycznie i odtwarzaj następny odcinek",
+    "skipMarkerModeOff": "Wył.",
+    "skipMarkerModeButton": "Pokaż przycisk",
+    "skipMarkerModeAuto": "Automatycznie",
+    "rememberBrightnessLevel": "Zapamiętaj poziom jasności",
+    "rememberBrightnessLevelDescription": "Rozpoczynaj odtwarzanie z jasnością ustawioną ostatnim przesunięciem",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Szukaj filmów, seriali, muzyki...",
@@ -469,7 +484,9 @@
       "subSeekPrev": "Przewiń do poprzedniego napisu",
       "shaderToggle": "Przełącz shadery",
       "skipMarker": "Pomiń intro/napisy końcowe",
-      "screenshot": "Zrób zrzut ekranu"
+      "screenshot": "Zrób zrzut ekranu",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -687,6 +704,12 @@
     "track": "Ścieżka audio ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "few": "",
+      "many": "",
+      "other": "${n} frames"
+    },
     "audioLabel": "Audio",
     "subtitlesLabel": "Napisy",
     "addTime": "+${amount}${unit}",
@@ -733,6 +756,7 @@
     "subtitleUnavailableFallback": "Nie udało się wczytać wybranych napisów — odtwarzanie jest kontynuowane bez napisów",
     "pipButton": "Tryb obraz w obrazie",
     "aspectRatioButton": "Proporcje",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "ambientLighting": "Oświetlenie otoczenia",
     "fullscreenButton": "Wejdź w pełny ekran",
     "exitFullscreenButton": "Wyjdź z pełnego ekranu",
@@ -1211,7 +1235,7 @@
       "unwatched": "Nieobejrzane",
       "unplayed": "Nieodtworzone",
       "favorites": "Ulubione",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "Tytuł",
@@ -1239,32 +1263,32 @@
       "library": "Biblioteka"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1272,7 +1296,10 @@
     "openSourceLicenses": "Licencje oprogramowania open source",
     "versionLabel": "Wersja ${version}",
     "appDescription": "Piękny klient Plex, Jellyfin i Emby stworzony we Flutterze",
-    "viewLicensesDescription": "Wyświetl licencje bibliotek innych firm"
+    "viewLicensesDescription": "Wyświetl licencje bibliotek innych firm",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Nie znaleziono serwerów dla ${username} (${email})",

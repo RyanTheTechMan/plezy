@@ -99,7 +99,7 @@ class _Translations$app$kk extends Translations$app$en {
 	final TranslationsKk _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -216,6 +216,14 @@ class _Translations$update$kk extends Translations$update$en {
 	@override String get viewRelease => 'Релизді көру';
 	@override String get latestVersion => 'Сізде ең соңғы нұсқа орнатылған';
 	@override String get checkFailed => 'Жаңартуларды тексеру мүмкін болмады';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -278,8 +286,6 @@ class _Translations$settings$kk extends Translations$settings$en {
 	@override String get alwaysKeepSidebarOpenDescription => 'Бүйірлік мәзір ашық күйінде қалады, мазмұн аймағы соған бейімделеді';
 	@override String get showUnwatchedCount => 'Көрілмегендер санын көрсету';
 	@override String get showUnwatchedCountDescription => 'Сериалдар мен маусымдарда көрілмеген бөлімдер санын көрсету';
-	@override String get showWatchedIndicators => 'Көрілген белгілерді көрсету';
-	@override String get showWatchedIndicatorsDescription => 'Көрілген фильмдерде, сериалдарда және бөлімдерде құсбелгіні көрсету';
 	@override String get showEpisodeNumberOnCards => 'Карточкаларда бөлім нөмірін көрсету';
 	@override String get showEpisodeNumberOnCardsDescription => 'Бөлім карточкаларында маусым мен бөлім нөмірін көрсету';
 	@override String get showSeasonPostersOnTabs => 'Қойындыларда маусым постерлерін көрсету';
@@ -301,6 +307,7 @@ class _Translations$settings$kk extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Аппараттық декодтау';
 	@override String get hardwareDecodingDescription => 'Мүмкіндігінше аппараттық үдетуді пайдалану';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Ойнату буфері';
 	@override String get playbackBufferAuto => 'Авто (ұсынылады)';
 	@override String get playbackBufferLarge => 'Үлкен';
@@ -309,8 +316,6 @@ class _Translations$settings$kk extends Translations$settings$en {
 	@override String get defaultQualityTitle => 'Әдепкі сапа';
 	@override String get cellularQualityTitle => 'Мобильді желідегі әдепкі сапа';
 	@override String get cellularQualitySameAsDefault => 'Әдепкі сапамен бірдей';
-	@override String get directPlayCoveredQuality => 'Кіші видеоларды түпнұсқа сапада ойнату';
-	@override String get directPlayCoveredQualityDescription => 'Сапа шегіне сәйкес келетін видеоларды транскодтаудың орнына тікелей ойнату';
 	@override String get musicQualityTitle => 'Музыка сапасы';
 	@override String get subtitleStyling => 'Субтитр баптаулары';
 	@override String get subtitleStylingDescription => 'Субтитрлердің сыртқы келбетін теңшеу';
@@ -387,17 +392,6 @@ class _Translations$settings$kk extends Translations$settings$en {
 	@override String get shuffleStartsFromBeginningDescription => 'Араластырғанда әр бөлімді жалғастырудың орнына басынан бастау';
 	@override String get playNextCountdown => 'Келесіні ойнату санағы';
 	@override String get playNextCountdownImmediate => 'Дереу ойнату';
-	@override String get skipIntroMode => 'Кіріспені өткізу';
-	@override String get skipIntroModeOffDescription => 'Кіріспелерді өткізу түймесінсіз қалыпты ойнату';
-	@override String get skipIntroModeButtonDescription => 'Кіріспе басталғанда өткізу түймесін көрсету';
-	@override String get skipIntroModeAutoDescription => 'Кіріспелерді төмендегі кідірістен кейін автоматты өткізу';
-	@override String get skipCreditsMode => 'Титрлерді өткізу';
-	@override String get skipCreditsModeOffDescription => 'Титрлерді өткізу түймесінсіз қалыпты ойнату';
-	@override String get skipCreditsModeButtonDescription => 'Титрлер басталғанда өткізу түймесін көрсету';
-	@override String get skipCreditsModeAutoDescription => 'Титрлерді автоматты өткізіп, келесі бөлімді ойнату';
-	@override String get skipMarkerModeOff => 'Өшірулі';
-	@override String get skipMarkerModeButton => 'Түймені көрсету';
-	@override String get skipMarkerModeAuto => 'Автоматты';
 	@override String get forceSkipMarkerFallback => 'Қосалқы белгілерді мәжбүрлеу';
 	@override String get forceSkipMarkerFallbackDescription => 'Plex белгілері болса да бөлім тақырыбы үлгілерін пайдалану';
 	@override String get autoSkipDelay => 'Автоматты өткізу кідірісі';
@@ -525,8 +519,6 @@ class _Translations$settings$kk extends Translations$settings$en {
 	@override String get gestureVolumeSwipeDescription => 'Оң жақ шетінде жоғары немесе төмен сырғытып, дыбыс деңгейін реттеу';
 	@override String get gesturePinchToZoom => 'Шымшу арқылы масштабтау';
 	@override String get gesturePinchToZoomDescription => 'Видеода шымшып, жақындату немесе алыстату';
-	@override String get rememberBrightnessLevel => 'Жарықтық деңгейін есте сақтау';
-	@override String get rememberBrightnessLevelDescription => 'Ойнатуды соңғы сырғытумен орнатылған жарықтықта бастау';
 	@override String get controls => 'Басқару элементтері';
 	@override String get rememberPlayerChanges => 'Ойнатқыш өзгерістерін есте сақтау';
 	@override String get rememberPlayerChangesDescription => 'Ойнату кезінде жасалған өзгеріс сақталатын және қайта қолданылатын орын';
@@ -539,6 +531,29 @@ class _Translations$settings$kk extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Кітапхана бойынша';
 	@override String get playerScopeTitle => 'Сериал немесе фильм бойынша';
 	@override String get exportDialogTitle => 'Plezy параметрлерін экспорттау';
+	@override String get showWatchedIndicators => 'Көрілген белгілерді көрсету';
+	@override String get showWatchedIndicatorsDescription => 'Көрілген фильмдерде, сериалдарда және бөлімдерде құсбелгіні көрсету';
+	@override String get directPlayCoveredQuality => 'Кіші видеоларды түпнұсқа сапада ойнату';
+	@override String get directPlayCoveredQualityDescription => 'Сапа шегіне сәйкес келетін видеоларды транскодтаудың орнына тікелей ойнату';
+	@override String get skipIntroMode => 'Кіріспені өткізу';
+	@override String get skipIntroModeOffDescription => 'Кіріспелерді өткізу түймесінсіз қалыпты ойнату';
+	@override String get skipIntroModeButtonDescription => 'Кіріспе басталғанда өткізу түймесін көрсету';
+	@override String get skipIntroModeAutoDescription => 'Кіріспелерді төмендегі кідірістен кейін автоматты өткізу';
+	@override String get skipCreditsMode => 'Титрлерді өткізу';
+	@override String get skipCreditsModeOffDescription => 'Титрлерді өткізу түймесінсіз қалыпты ойнату';
+	@override String get skipCreditsModeButtonDescription => 'Титрлер басталғанда өткізу түймесін көрсету';
+	@override String get skipCreditsModeAutoDescription => 'Титрлерді автоматты өткізіп, келесі бөлімді ойнату';
+	@override String get skipMarkerModeOff => 'Өшірулі';
+	@override String get skipMarkerModeButton => 'Түймені көрсету';
+	@override String get skipMarkerModeAuto => 'Автоматты';
+	@override String get rememberBrightnessLevel => 'Жарықтық деңгейін есте сақтау';
+	@override String get rememberBrightnessLevelDescription => 'Ойнатуды соңғы сырғытумен орнатылған жарықтықта бастау';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -827,6 +842,10 @@ class _Translations$videoControls$kk extends Translations$videoControls$en {
 	final TranslationsKk _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('kk'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => 'Дыбыс';
 	@override String get subtitlesLabel => 'Субтитр';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -873,6 +892,7 @@ class _Translations$videoControls$kk extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'Таңдалған субтитрлерді жүктеу мүмкін болмады — субтитрсіз жалғасады';
 	@override String get pipButton => 'Суреттегі сурет режимі';
 	@override String get aspectRatioButton => 'Тараптар қатынасы';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Фондық жарықтандыру';
 	@override String get fullscreenButton => 'Толық экранға өту';
 	@override String get exitFullscreenButton => 'Толық экраннан шығу';
@@ -1312,6 +1332,7 @@ class _Translations$libraries$kk extends Translations$libraries$en {
 	@override late final _Translations$libraries$groupings$kk groupings = _Translations$libraries$groupings$kk._(_root);
 	@override late final _Translations$libraries$filterCategories$kk filterCategories = _Translations$libraries$filterCategories$kk._(_root);
 	@override late final _Translations$libraries$sortLabels$kk sortLabels = _Translations$libraries$sortLabels$kk._(_root);
+	@override late final _Translations$libraries$advancedFilters$kk advancedFilters = _Translations$libraries$advancedFilters$kk._(_root);
 }
 
 // Path: about
@@ -1326,6 +1347,9 @@ class _Translations$about$kk extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Нұсқа ${version}';
 	@override String get appDescription => 'Flutter негізіндегі ыңғайлы Plex, Jellyfin және Emby клиенті';
 	@override String get viewLicensesDescription => 'Үшінші тарап кітапханаларының лицензияларын көру';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -2365,6 +2389,8 @@ class _Translations$hotkeys$actions$kk extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Шейдерлерді қосу/өшіру';
 	@override String get skipMarker => 'Интро/Титрді өткізу';
 	@override String get screenshot => 'Экран суретін түсіру';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.clip
@@ -2559,6 +2585,7 @@ class _Translations$libraries$filterCategories$kk extends Translations$libraries
 	@override String get unwatched => 'Көрілмеген';
 	@override String get unplayed => 'Ойнатылмаған';
 	@override String get favorites => 'Таңдаулылар';
+	@override String get filePath => 'File Path';
 }
 
 // Path: libraries.sortLabels
@@ -2591,6 +2618,41 @@ class _Translations$libraries$sortLabels$kk extends Translations$libraries$sortL
 	@override String get dateDownloaded => 'Жүктелген күні';
 	@override String get size => 'Көлемі';
 	@override String get library => 'Кітапхана';
+}
+
+// Path: libraries.advancedFilters
+class _Translations$libraries$advancedFilters$kk extends Translations$libraries$advancedFilters$en {
+	_Translations$libraries$advancedFilters$kk._(TranslationsKk root) : this._root = root, super.internal(root);
+
+	final TranslationsKk _root; // ignore: unused_field
+
+	// Translations
+	@override String get include => 'Include';
+	@override String get exclude => 'Exclude';
+	@override String get any => 'Any';
+	@override String get yes => 'Yes';
+	@override String get no => 'No';
+	@override String not({required Object value}) => 'Not ${value}';
+	@override String valueCount({required Object count}) => '${count} selected';
+	@override String valueCountExcluded({required Object count}) => '${count} excluded';
+	@override String get searchValues => 'Search values';
+	@override String get noValues => 'No values';
+	@override String get matchContains => 'Contains';
+	@override String get matchNotContains => 'Does not contain';
+	@override String get matchIs => 'Is';
+	@override String get matchIsNot => 'Is not';
+	@override String get matchBeginsWith => 'Begins with';
+	@override String get matchEndsWith => 'Ends with';
+	@override String get textHint => 'Type to match';
+	@override String get from => 'From';
+	@override String get to => 'To';
+	@override String range({required Object from, required Object to}) => '${from} to ${to}';
+	@override String atLeast({required Object value}) => '${value} and up';
+	@override String atMost({required Object value}) => 'Up to ${value}';
+	@override String dateLastDays({required Object count}) => 'Last ${count} days';
+	@override String get dateLastYear => 'Past year';
+	@override String dateOlderThanDays({required Object count}) => 'Older than ${count} days';
+	@override String get dateOlderThanYear => 'Older than a year';
 }
 
 // Path: explore.rows
@@ -3075,7 +3137,7 @@ class _Translations$services$libraryFilter$kk extends Translations$services$libr
 extension on TranslationsKk {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Plex арқылы кіру',
 			'auth.showQRCode' => 'QR кодты көрсету',
 			'auth.authenticate' => 'Растау',
@@ -3177,6 +3239,14 @@ extension on TranslationsKk {
 			'update.viewRelease' => 'Релизді көру',
 			'update.latestVersion' => 'Сізде ең соңғы нұсқа орнатылған',
 			'update.checkFailed' => 'Жаңартуларды тексеру мүмкін болмады',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Баптаулар',
 			'settings.supportDeveloper' => 'Plezy жобасын қолдау',
 			'settings.supportDeveloperDescription' => 'Дамытуды қаржыландыру үшін Liberapay арқылы демеушілік жасаңыз',
@@ -3230,8 +3300,6 @@ extension on TranslationsKk {
 			'settings.alwaysKeepSidebarOpenDescription' => 'Бүйірлік мәзір ашық күйінде қалады, мазмұн аймағы соған бейімделеді',
 			'settings.showUnwatchedCount' => 'Көрілмегендер санын көрсету',
 			'settings.showUnwatchedCountDescription' => 'Сериалдар мен маусымдарда көрілмеген бөлімдер санын көрсету',
-			'settings.showWatchedIndicators' => 'Көрілген белгілерді көрсету',
-			'settings.showWatchedIndicatorsDescription' => 'Көрілген фильмдерде, сериалдарда және бөлімдерде құсбелгіні көрсету',
 			'settings.showEpisodeNumberOnCards' => 'Карточкаларда бөлім нөмірін көрсету',
 			'settings.showEpisodeNumberOnCardsDescription' => 'Бөлім карточкаларында маусым мен бөлім нөмірін көрсету',
 			'settings.showSeasonPostersOnTabs' => 'Қойындыларда маусым постерлерін көрсету',
@@ -3253,6 +3321,7 @@ extension on TranslationsKk {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Аппараттық декодтау',
 			'settings.hardwareDecodingDescription' => 'Мүмкіндігінше аппараттық үдетуді пайдалану',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Ойнату буфері',
 			'settings.playbackBufferAuto' => 'Авто (ұсынылады)',
 			'settings.playbackBufferLarge' => 'Үлкен',
@@ -3261,8 +3330,6 @@ extension on TranslationsKk {
 			'settings.defaultQualityTitle' => 'Әдепкі сапа',
 			'settings.cellularQualityTitle' => 'Мобильді желідегі әдепкі сапа',
 			'settings.cellularQualitySameAsDefault' => 'Әдепкі сапамен бірдей',
-			'settings.directPlayCoveredQuality' => 'Кіші видеоларды түпнұсқа сапада ойнату',
-			'settings.directPlayCoveredQualityDescription' => 'Сапа шегіне сәйкес келетін видеоларды транскодтаудың орнына тікелей ойнату',
 			'settings.musicQualityTitle' => 'Музыка сапасы',
 			'settings.subtitleStyling' => 'Субтитр баптаулары',
 			'settings.subtitleStylingDescription' => 'Субтитрлердің сыртқы келбетін теңшеу',
@@ -3339,17 +3406,6 @@ extension on TranslationsKk {
 			'settings.shuffleStartsFromBeginningDescription' => 'Араластырғанда әр бөлімді жалғастырудың орнына басынан бастау',
 			'settings.playNextCountdown' => 'Келесіні ойнату санағы',
 			'settings.playNextCountdownImmediate' => 'Дереу ойнату',
-			'settings.skipIntroMode' => 'Кіріспені өткізу',
-			'settings.skipIntroModeOffDescription' => 'Кіріспелерді өткізу түймесінсіз қалыпты ойнату',
-			'settings.skipIntroModeButtonDescription' => 'Кіріспе басталғанда өткізу түймесін көрсету',
-			'settings.skipIntroModeAutoDescription' => 'Кіріспелерді төмендегі кідірістен кейін автоматты өткізу',
-			'settings.skipCreditsMode' => 'Титрлерді өткізу',
-			'settings.skipCreditsModeOffDescription' => 'Титрлерді өткізу түймесінсіз қалыпты ойнату',
-			'settings.skipCreditsModeButtonDescription' => 'Титрлер басталғанда өткізу түймесін көрсету',
-			'settings.skipCreditsModeAutoDescription' => 'Титрлерді автоматты өткізіп, келесі бөлімді ойнату',
-			'settings.skipMarkerModeOff' => 'Өшірулі',
-			'settings.skipMarkerModeButton' => 'Түймені көрсету',
-			'settings.skipMarkerModeAuto' => 'Автоматты',
 			'settings.forceSkipMarkerFallback' => 'Қосалқы белгілерді мәжбүрлеу',
 			'settings.forceSkipMarkerFallbackDescription' => 'Plex белгілері болса да бөлім тақырыбы үлгілерін пайдалану',
 			'settings.autoSkipDelay' => 'Автоматты өткізу кідірісі',
@@ -3477,8 +3533,6 @@ extension on TranslationsKk {
 			'settings.gestureVolumeSwipeDescription' => 'Оң жақ шетінде жоғары немесе төмен сырғытып, дыбыс деңгейін реттеу',
 			'settings.gesturePinchToZoom' => 'Шымшу арқылы масштабтау',
 			'settings.gesturePinchToZoomDescription' => 'Видеода шымшып, жақындату немесе алыстату',
-			'settings.rememberBrightnessLevel' => 'Жарықтық деңгейін есте сақтау',
-			'settings.rememberBrightnessLevelDescription' => 'Ойнатуды соңғы сырғытумен орнатылған жарықтықта бастау',
 			'settings.controls' => 'Басқару элементтері',
 			'settings.rememberPlayerChanges' => 'Ойнатқыш өзгерістерін есте сақтау',
 			'settings.rememberPlayerChangesDescription' => 'Ойнату кезінде жасалған өзгеріс сақталатын және қайта қолданылатын орын',
@@ -3491,6 +3545,29 @@ extension on TranslationsKk {
 			'settings.playerScopeLibrary' => 'Кітапхана бойынша',
 			'settings.playerScopeTitle' => 'Сериал немесе фильм бойынша',
 			'settings.exportDialogTitle' => 'Plezy параметрлерін экспорттау',
+			'settings.showWatchedIndicators' => 'Көрілген белгілерді көрсету',
+			'settings.showWatchedIndicatorsDescription' => 'Көрілген фильмдерде, сериалдарда және бөлімдерде құсбелгіні көрсету',
+			'settings.directPlayCoveredQuality' => 'Кіші видеоларды түпнұсқа сапада ойнату',
+			'settings.directPlayCoveredQualityDescription' => 'Сапа шегіне сәйкес келетін видеоларды транскодтаудың орнына тікелей ойнату',
+			'settings.skipIntroMode' => 'Кіріспені өткізу',
+			'settings.skipIntroModeOffDescription' => 'Кіріспелерді өткізу түймесінсіз қалыпты ойнату',
+			'settings.skipIntroModeButtonDescription' => 'Кіріспе басталғанда өткізу түймесін көрсету',
+			'settings.skipIntroModeAutoDescription' => 'Кіріспелерді төмендегі кідірістен кейін автоматты өткізу',
+			'settings.skipCreditsMode' => 'Титрлерді өткізу',
+			'settings.skipCreditsModeOffDescription' => 'Титрлерді өткізу түймесінсіз қалыпты ойнату',
+			'settings.skipCreditsModeButtonDescription' => 'Титрлер басталғанда өткізу түймесін көрсету',
+			'settings.skipCreditsModeAutoDescription' => 'Титрлерді автоматты өткізіп, келесі бөлімді ойнату',
+			'settings.skipMarkerModeOff' => 'Өшірулі',
+			'settings.skipMarkerModeButton' => 'Түймені көрсету',
+			'settings.skipMarkerModeAuto' => 'Автоматты',
+			'settings.rememberBrightnessLevel' => 'Жарықтық деңгейін есте сақтау',
+			'settings.rememberBrightnessLevelDescription' => 'Ойнатуды соңғы сырғытумен орнатылған жарықтықта бастау',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => 'Фильмдер, сериалдар, музыка іздеу...',
 			'search.tryDifferentTerm' => 'Басқа іздеу сөзін байқап көріңіз',
 			'search.searchYourMedia' => 'Медиафайлдардан іздеу',
@@ -3526,6 +3603,8 @@ extension on TranslationsKk {
 			'hotkeys.actions.shaderToggle' => 'Шейдерлерді қосу/өшіру',
 			'hotkeys.actions.skipMarker' => 'Интро/Титрді өткізу',
 			'hotkeys.actions.screenshot' => 'Экран суретін түсіру',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Файл туралы ақпарат',
 			'fileInfo.overview' => 'Шолу',
 			'fileInfo.video' => 'Видео',
@@ -3581,6 +3660,8 @@ extension on TranslationsKk {
 			'fileInfo.baseLayerCompatibility' => 'Базалық қабат үйлесімділігі',
 			'fileInfo.avcBitstream' => 'AVC бит ағыны',
 			'fileInfo.nalLengthSize' => 'NAL ұзындық өлшемі',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Теңшелетін масштабтау матрицасы',
 			'fileInfo.streamIdentifier' => 'Ағын идентификаторы',
 			'fileInfo.streamIndex' => 'Ағын индексі',
@@ -3715,6 +3796,7 @@ extension on TranslationsKk {
 			'tooltips.markAsWatched' => 'Көрілді деп белгілеу',
 			'tooltips.markAsUnwatched' => 'Көрілмеді деп белгілеу',
 			'audioTracks.track' => ({required Object n}) => 'Аудиожол ${n}',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('kk'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => 'Дыбыс',
 			'videoControls.subtitlesLabel' => 'Субтитр',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3761,6 +3843,7 @@ extension on TranslationsKk {
 			'videoControls.subtitleUnavailableFallback' => 'Таңдалған субтитрлерді жүктеу мүмкін болмады — субтитрсіз жалғасады',
 			'videoControls.pipButton' => 'Суреттегі сурет режимі',
 			'videoControls.aspectRatioButton' => 'Тараптар қатынасы',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Фондық жарықтандыру',
 			'videoControls.fullscreenButton' => 'Толық экранға өту',
 			'videoControls.exitFullscreenButton' => 'Толық экраннан шығу',
@@ -4132,6 +4215,8 @@ extension on TranslationsKk {
 			'libraries.scanLibraryFiles' => 'Файлдарды сканерлеу',
 			'libraries.scanLibrary' => 'Кітапхананы сканерлеу',
 			'libraries.analyze' => 'Талдау жасау',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Кітапханаға талдау жасау',
 			'libraries.refreshMetadata' => 'Метадеректерді жаңарту',
 			'libraries.emptyTrash' => 'Себетті тазалау',
@@ -4189,6 +4274,7 @@ extension on TranslationsKk {
 			'libraries.filterCategories.unwatched' => 'Көрілмеген',
 			'libraries.filterCategories.unplayed' => 'Ойнатылмаған',
 			'libraries.filterCategories.favorites' => 'Таңдаулылар',
+			'libraries.filterCategories.filePath' => 'File Path',
 			'libraries.sortLabels.title' => 'Атауы',
 			'libraries.sortLabels.dateAdded' => 'Қосылған күні',
 			'libraries.sortLabels.releaseDate' => 'Шыққан күні',
@@ -4212,11 +4298,40 @@ extension on TranslationsKk {
 			'libraries.sortLabels.dateDownloaded' => 'Жүктелген күні',
 			'libraries.sortLabels.size' => 'Көлемі',
 			'libraries.sortLabels.library' => 'Кітапхана',
+			'libraries.advancedFilters.include' => 'Include',
+			'libraries.advancedFilters.exclude' => 'Exclude',
+			'libraries.advancedFilters.any' => 'Any',
+			'libraries.advancedFilters.yes' => 'Yes',
+			'libraries.advancedFilters.no' => 'No',
+			'libraries.advancedFilters.not' => ({required Object value}) => 'Not ${value}',
+			'libraries.advancedFilters.valueCount' => ({required Object count}) => '${count} selected',
+			'libraries.advancedFilters.valueCountExcluded' => ({required Object count}) => '${count} excluded',
+			'libraries.advancedFilters.searchValues' => 'Search values',
+			'libraries.advancedFilters.noValues' => 'No values',
+			'libraries.advancedFilters.matchContains' => 'Contains',
+			'libraries.advancedFilters.matchNotContains' => 'Does not contain',
+			'libraries.advancedFilters.matchIs' => 'Is',
+			'libraries.advancedFilters.matchIsNot' => 'Is not',
+			'libraries.advancedFilters.matchBeginsWith' => 'Begins with',
+			'libraries.advancedFilters.matchEndsWith' => 'Ends with',
+			'libraries.advancedFilters.textHint' => 'Type to match',
+			'libraries.advancedFilters.from' => 'From',
+			'libraries.advancedFilters.to' => 'To',
+			'libraries.advancedFilters.range' => ({required Object from, required Object to}) => '${from} to ${to}',
+			'libraries.advancedFilters.atLeast' => ({required Object value}) => '${value} and up',
+			'libraries.advancedFilters.atMost' => ({required Object value}) => 'Up to ${value}',
+			'libraries.advancedFilters.dateLastDays' => ({required Object count}) => 'Last ${count} days',
+			'libraries.advancedFilters.dateLastYear' => 'Past year',
+			'libraries.advancedFilters.dateOlderThanDays' => ({required Object count}) => 'Older than ${count} days',
+			'libraries.advancedFilters.dateOlderThanYear' => 'Older than a year',
 			'about.title' => 'Қолданба туралы',
 			'about.openSourceLicenses' => 'Ашық бастапқы код лицензиялары',
 			'about.versionLabel' => ({required Object version}) => 'Нұсқа ${version}',
 			'about.appDescription' => 'Flutter негізіндегі ыңғайлы Plex, Jellyfin және Emby клиенті',
 			'about.viewLicensesDescription' => 'Үшінші тарап кітапханаларының лицензияларын көру',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email}) үшін серверлер табылмады',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Серверлерді жүктеу қатесі: ${error}',
 			'serverSelection.noValidServers' => 'Бұл тіркелгіде жарамды сервер табылмады',
@@ -4614,6 +4729,8 @@ extension on TranslationsKk {
 			'watchTogether.endSessionConfirm' => 'Бұл барлық қатысушылар үшін сеансты аяқтайды.',
 			'watchTogether.leaveSessionConfirm' => 'Сіз сеанстан ажыратыласыз.',
 			'watchTogether.endSessionConfirmOverlay' => 'Бұл барлығы үшін көру сеансын аяқтайды.',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'Көру сеансынан ажыратыласыз.',
 			_ => null,
 		} ?? switch (path) {
@@ -5128,6 +5245,8 @@ extension on TranslationsKk {
 			'services.libraryFilter.libraries' => 'Кітапханалар',
 			'services.libraryFilter.noLibraries' => 'Кітапханалар жоқ',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product} серверін қосу',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.serverUrls' => 'Сервер URL-дері',
 			_ => null,
 		} ?? switch (path) {

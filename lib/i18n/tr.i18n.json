@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Plex ile Giriş Yap",
@@ -113,7 +113,15 @@
     "skipVersion": "Bu Sürümü Atla",
     "viewRelease": "Sürümü Görüntüle",
     "latestVersion": "En son sürümü kullanıyorsunuz",
-    "checkFailed": "Güncellemeler kontrol edilemedi"
+    "checkFailed": "Güncellemeler kontrol edilemedi",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Ayarlar",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Yan menü genişletilmiş kalır ve içerik alanı buna göre ayarlanır",
     "showUnwatchedCount": "İzlenmemiş Sayısını Göster",
     "showUnwatchedCountDescription": "Dizilerde ve sezonlarda izlenmemiş bölüm sayısını göster",
-    "showWatchedIndicators": "İzlendi İşaretlerini Göster",
-    "showWatchedIndicatorsDescription": "İzlenen film, dizi ve bölümlerde onay işareti göster",
     "showEpisodeNumberOnCards": "Kartlarda Bölüm Numarasını Göster",
     "showEpisodeNumberOnCardsDescription": "Bölüm kartlarında sezon ve bölüm numarasını göster",
     "showSeasonPostersOnTabs": "Sekmelerde Sezon Afişlerini Göster",
@@ -192,6 +198,7 @@
     "mpv": "mpv",
     "hardwareDecoding": "Donanım Çözme",
     "hardwareDecodingDescription": "Mümkün olduğunda donanım hızlandırmasını kullan",
+    "packedStereoUi": "3D Playback UI",
     "playbackBuffer": "Oynatma Tamponu",
     "playbackBufferAuto": "Otomatik (Önerilen)",
     "playbackBufferLarge": "Büyük",
@@ -200,8 +207,6 @@
     "defaultQualityTitle": "Varsayılan Kalite",
     "cellularQualityTitle": "Hücresel Veride Varsayılan Kalite",
     "cellularQualitySameAsDefault": "Varsayılan Kaliteyle Aynı",
-    "directPlayCoveredQuality": "Küçük Videoları Orijinal Kalitede Oynat",
-    "directPlayCoveredQualityDescription": "Kalite sınırı içindeki videoları kod dönüştürme yerine doğrudan oynat",
     "musicQualityTitle": "Müzik Kalitesi",
     "subtitleStyling": "Altyazı Biçimlendirmesi",
     "subtitleStylingDescription": "Altyazı görünümünü özelleştirin",
@@ -278,17 +283,6 @@
     "shuffleStartsFromBeginningDescription": "Karışık oynatmada her bölümü devam ettirmek yerine baştan başlat",
     "playNextCountdown": "Sonraki Bölüm Geri Sayımı",
     "playNextCountdownImmediate": "Hemen oynat",
-    "skipIntroMode": "Jeneriği Atla",
-    "skipIntroModeOffDescription": "Jenerikleri atlama düğmesi olmadan normal şekilde oynat",
-    "skipIntroModeButtonDescription": "Jenerik başladığında atlama düğmesi göster",
-    "skipIntroModeAutoDescription": "Jenerikleri aşağıdaki gecikmeden sonra otomatik olarak atla",
-    "skipCreditsMode": "Emeği Geçenleri Atla",
-    "skipCreditsModeOffDescription": "Emeği geçenleri atlama düğmesi olmadan normal şekilde oynat",
-    "skipCreditsModeButtonDescription": "Emeği geçenler başladığında atlama düğmesi göster",
-    "skipCreditsModeAutoDescription": "Emeği geçenleri otomatik olarak atla ve sonraki bölümü oynat",
-    "skipMarkerModeOff": "Kapalı",
-    "skipMarkerModeButton": "Düğme Göster",
-    "skipMarkerModeAuto": "Otomatik",
     "forceSkipMarkerFallback": "Yedek İşaretçileri Zorla",
     "forceSkipMarkerFallbackDescription": "Plex işaretçileri olsa bile kısım başlığı kalıplarını kullan",
     "autoSkipDelay": "Otomatik Atlama Gecikmesi",
@@ -416,8 +410,6 @@
     "gestureVolumeSwipeDescription": "Sesi ayarlamak için sağ kenarda yukarı veya aşağı kaydırın",
     "gesturePinchToZoom": "Kıstırarak Yakınlaştır",
     "gesturePinchToZoomDescription": "Yakınlaştırmak veya uzaklaştırmak için videoyu kıstırın",
-    "rememberBrightnessLevel": "Parlaklık Seviyesini Hatırla",
-    "rememberBrightnessLevelDescription": "Oynatmayı son kaydırmayla ayarlanan parlaklıkta başlat",
     "controls": "Kontroller",
     "rememberPlayerChanges": "Oynatıcı değişikliklerini hatırla",
     "rememberPlayerChangesDescription": "Oynatma sırasında yapılan değişikliklerin kaydedilip yeniden uygulanacağı yer",
@@ -429,7 +421,30 @@
     "playerScopeGlobal": "Her yerde",
     "playerScopeLibrary": "Kitaplık başına",
     "playerScopeTitle": "Dizi veya film başına",
-    "exportDialogTitle": "Plezy ayarlarını dışa aktar"
+    "exportDialogTitle": "Plezy ayarlarını dışa aktar",
+    "showWatchedIndicators": "İzlendi İşaretlerini Göster",
+    "showWatchedIndicatorsDescription": "İzlenen film, dizi ve bölümlerde onay işareti göster",
+    "directPlayCoveredQuality": "Küçük Videoları Orijinal Kalitede Oynat",
+    "directPlayCoveredQualityDescription": "Kalite sınırı içindeki videoları kod dönüştürme yerine doğrudan oynat",
+    "skipIntroMode": "Jeneriği Atla",
+    "skipIntroModeOffDescription": "Jenerikleri atlama düğmesi olmadan normal şekilde oynat",
+    "skipIntroModeButtonDescription": "Jenerik başladığında atlama düğmesi göster",
+    "skipIntroModeAutoDescription": "Jenerikleri aşağıdaki gecikmeden sonra otomatik olarak atla",
+    "skipCreditsMode": "Emeği Geçenleri Atla",
+    "skipCreditsModeOffDescription": "Emeği geçenleri atlama düğmesi olmadan normal şekilde oynat",
+    "skipCreditsModeButtonDescription": "Emeği geçenler başladığında atlama düğmesi göster",
+    "skipCreditsModeAutoDescription": "Emeği geçenleri otomatik olarak atla ve sonraki bölümü oynat",
+    "skipMarkerModeOff": "Kapalı",
+    "skipMarkerModeButton": "Düğme Göster",
+    "skipMarkerModeAuto": "Otomatik",
+    "rememberBrightnessLevel": "Parlaklık Seviyesini Hatırla",
+    "rememberBrightnessLevelDescription": "Oynatmayı son kaydırmayla ayarlanan parlaklıkta başlat",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Film, dizi, müzik ara...",
@@ -469,7 +484,9 @@
       "subSeekPrev": "Önceki Altyazıya Sar",
       "shaderToggle": "Gölgelendiricileri Aç/Kapat",
       "skipMarker": "Jenerik/Emeği Geçenleri Atla",
-      "screenshot": "Ekran Görüntüsü Al"
+      "screenshot": "Ekran Görüntüsü Al",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -681,6 +698,10 @@
     "track": "Ses Parçası ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Ses",
     "subtitlesLabel": "Altyazı",
     "addTime": "+${amount}${unit}",
@@ -727,6 +748,7 @@
     "subtitleUnavailableFallback": "Seçilen altyazı yüklenemedi — altyazısız devam ediliyor",
     "pipButton": "Pencere İçinde Pencere modu",
     "aspectRatioButton": "En boy oranı",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "ambientLighting": "Ortam aydınlatması",
     "fullscreenButton": "Tam ekrana geç",
     "exitFullscreenButton": "Tam ekrandan çık",
@@ -1201,7 +1223,7 @@
       "unwatched": "İzlenmemiş",
       "unplayed": "Oynatılmamış",
       "favorites": "Favoriler",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "Başlık",
@@ -1229,32 +1251,32 @@
       "library": "Kitaplık"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1262,7 +1284,10 @@
     "openSourceLicenses": "Açık Kaynak Lisansları",
     "versionLabel": "Sürüm ${version}",
     "appDescription": "Flutter için şık bir Plex, Jellyfin ve Emby istemcisi",
-    "viewLicensesDescription": "Üçüncü taraf kütüphanelerin lisanslarını görüntüleyin"
+    "viewLicensesDescription": "Üçüncü taraf kütüphanelerin lisanslarını görüntüleyin",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email}) için sunucu bulunamadı",
