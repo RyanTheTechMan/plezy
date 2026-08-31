@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Plex ilə daxil ol",
@@ -113,7 +113,15 @@
     "skipVersion": "Bu versiyanı ötür",
     "viewRelease": "Buraxılışa bax",
     "latestVersion": "Siz ən son versiyadasınız",
-    "checkFailed": "Yenilənmələr yoxlanıla bilmədi"
+    "checkFailed": "Yenilənmələr yoxlanıla bilmədi",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Tənzimləmələr",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Yan menyu genişlənmiş qalır və məzmun sahəsi buna uyğunlaşır",
     "showUnwatchedCount": "Baxılmamış sayını göstər",
     "showUnwatchedCountDescription": "Seriallarda və mövsümlərdə baxılmamış seriya sayını göstər",
-    "showWatchedIndicators": "Baxılmış göstəriciləri göstər",
-    "showWatchedIndicatorsDescription": "Baxılmış kinolarda, seriallarda və seriyalarda quşçuq göstər",
     "showEpisodeNumberOnCards": "Kartlarda seriya nömrəsini göstər",
     "showEpisodeNumberOnCardsDescription": "Seriya kartlarında mövsüm və seriya nömrəsini göstər",
     "showSeasonPostersOnTabs": "Mərhələlərdə mövsüm posterlərini göstər",
@@ -192,6 +198,7 @@
     "mpv": "mpv",
     "hardwareDecoding": "Avadanlıq kod açılması",
     "hardwareDecodingDescription": "Mümkün olduqda avadanlıq sürətləndirməsini istifadə et",
+    "packedStereoUi": "3D Playback UI",
     "playbackBuffer": "Oxutma buferi",
     "playbackBufferAuto": "Avtomatik (tövsiyə olunur)",
     "playbackBufferLarge": "Böyük",
@@ -200,8 +207,6 @@
     "defaultQualityTitle": "Defolt keyfiyyət",
     "cellularQualityTitle": "Mobil şəbəkədə defolt keyfiyyət",
     "cellularQualitySameAsDefault": "Defolt keyfiyyətlə eyni",
-    "directPlayCoveredQuality": "Kiçik videoları orijinal keyfiyyətdə oynat",
-    "directPlayCoveredQualityDescription": "Keyfiyyət limitinə uyğun gələn videoları yenidən kodlaşdırmaq əvəzinə birbaşa oynat",
     "musicQualityTitle": "Musiqi keyfiyyəti",
     "subtitleStyling": "Altyazı tənzimləmələri",
     "subtitleStylingDescription": "Altyazı görünüşünü özünüləşdirin",
@@ -278,17 +283,6 @@
     "shuffleStartsFromBeginningDescription": "Qarışdırarkən hər seriyanı davam etdirmək əvəzinə əvvəldən başlat",
     "playNextCountdown": "Növbəti seriya geri sayımı",
     "playNextCountdownImmediate": "Dərhal oynat",
-    "skipIntroMode": "Girişi ötür",
-    "skipIntroModeOffDescription": "Girişləri ötürmə düyməsi olmadan normal oynat",
-    "skipIntroModeButtonDescription": "Giriş başlayanda ötürmə düyməsini göstər",
-    "skipIntroModeAutoDescription": "Girişləri aşağıdakı ləngimədən sonra avtomatik ötür",
-    "skipCreditsMode": "Titrləri ötür",
-    "skipCreditsModeOffDescription": "Titrləri ötürmə düyməsi olmadan normal oynat",
-    "skipCreditsModeButtonDescription": "Titrlər başlayanda ötürmə düyməsini göstər",
-    "skipCreditsModeAutoDescription": "Titrləri avtomatik ötür və növbəti seriyanı oynat",
-    "skipMarkerModeOff": "Söndürülüb",
-    "skipMarkerModeButton": "Düyməni göstər",
-    "skipMarkerModeAuto": "Avtomatik",
     "forceSkipMarkerFallback": "Ehtiyat işarələri məcburi et",
     "forceSkipMarkerFallbackDescription": "Plex işarələri olsa belə hissə başlığı şablonlarını istifadə et",
     "autoSkipDelay": "Avtomatik ötürmə ləngiməsi",
@@ -416,8 +410,6 @@
     "gestureVolumeSwipeDescription": "Səsi tənzimləmək üçün sağ kənarda yuxarı və ya aşağı sürüşdürün",
     "gesturePinchToZoom": "Çimdiklə yaxınlaşdır",
     "gesturePinchToZoomDescription": "Yaxınlaşdırmaq və ya uzaqlaşdırmaq üçün videoda çimdik hərəkəti edin",
-    "rememberBrightnessLevel": "Parlaqlıq səviyyəsini xatırla",
-    "rememberBrightnessLevelDescription": "Oxutmanı son sürüşdürmə ilə təyin edilmiş parlaqlıqda başlat",
     "controls": "İdarəetmələr",
     "rememberPlayerChanges": "Pleyer dəyişikliklərini yadda saxla",
     "rememberPlayerChangesDescription": "Oxutma zamanı edilən dəyişikliklərin harada saxlanacağı və yenidən tətbiq ediləcəyi",
@@ -429,7 +421,30 @@
     "playerScopeGlobal": "Hər yerdə",
     "playerScopeLibrary": "Kitabxana üzrə",
     "playerScopeTitle": "Serial və ya film üzrə",
-    "exportDialogTitle": "Plezy tənzimləmələrini ixrac et"
+    "exportDialogTitle": "Plezy tənzimləmələrini ixrac et",
+    "showWatchedIndicators": "Baxılmış göstəriciləri göstər",
+    "showWatchedIndicatorsDescription": "Baxılmış kinolarda, seriallarda və seriyalarda quşçuq göstər",
+    "directPlayCoveredQuality": "Kiçik videoları orijinal keyfiyyətdə oynat",
+    "directPlayCoveredQualityDescription": "Keyfiyyət limitinə uyğun gələn videoları yenidən kodlaşdırmaq əvəzinə birbaşa oynat",
+    "skipIntroMode": "Girişi ötür",
+    "skipIntroModeOffDescription": "Girişləri ötürmə düyməsi olmadan normal oynat",
+    "skipIntroModeButtonDescription": "Giriş başlayanda ötürmə düyməsini göstər",
+    "skipIntroModeAutoDescription": "Girişləri aşağıdakı ləngimədən sonra avtomatik ötür",
+    "skipCreditsMode": "Titrləri ötür",
+    "skipCreditsModeOffDescription": "Titrləri ötürmə düyməsi olmadan normal oynat",
+    "skipCreditsModeButtonDescription": "Titrlər başlayanda ötürmə düyməsini göstər",
+    "skipCreditsModeAutoDescription": "Titrləri avtomatik ötür və növbəti seriyanı oynat",
+    "skipMarkerModeOff": "Söndürülüb",
+    "skipMarkerModeButton": "Düyməni göstər",
+    "skipMarkerModeAuto": "Avtomatik",
+    "rememberBrightnessLevel": "Parlaqlıq səviyyəsini xatırla",
+    "rememberBrightnessLevelDescription": "Oxutmanı son sürüşdürmə ilə təyin edilmiş parlaqlıqda başlat",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Kino, serial, musiqi axtar...",
@@ -469,7 +484,9 @@
       "subSeekPrev": "Əvvəlki altyazıya sar",
       "shaderToggle": "Şeyderləri aç/bağla",
       "skipMarker": "Girişi/Titrləri ötür",
-      "screenshot": "Ekran şəkli çək"
+      "screenshot": "Ekran şəkli çək",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -681,6 +698,10 @@
     "track": "Səs zolağı ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Səs",
     "subtitlesLabel": "Altyazı",
     "addTime": "+${amount}${unit}",
@@ -727,6 +748,7 @@
     "subtitleUnavailableFallback": "Seçilmiş altyazı yüklənə bilmədi — altyazısız davam edilir",
     "pipButton": "Pəncərə daxilində pəncərə rejimi",
     "aspectRatioButton": "Tərəf nisbəti",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "ambientLighting": "Ətraf işıqlandırması",
     "fullscreenButton": "Tam ekrana keç",
     "exitFullscreenButton": "Tam ekrandan çıx",
@@ -1201,7 +1223,7 @@
       "unwatched": "Baxılmayıb",
       "unplayed": "Oynadılmayıb",
       "favorites": "Sevimlilər",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "Ad",
@@ -1229,32 +1251,32 @@
       "library": "Kitabxana"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1262,7 +1284,10 @@
     "openSourceLicenses": "Açıq mənbə lisenziyaları",
     "versionLabel": "Versiya ${version}",
     "appDescription": "Flutter üçün gözəl bir Plex, Jellyfin və Emby klienti",
-    "viewLicensesDescription": "Üçüncü tərəf kitabxanalarının lisenziyalarına baxın"
+    "viewLicensesDescription": "Üçüncü tərəf kitabxanalarının lisenziyalarına baxın",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email}) üçün server tapılmadı",

@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Вход с Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Пропусни тази версия",
     "viewRelease": "Виж версията",
     "latestVersion": "Използвате най-новата версия",
-    "checkFailed": "Неуспешна проверка за актуализации"
+    "checkFailed": "Неуспешна проверка за актуализации",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Настройки",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Страничната лента остава разгъната и зоната със съдържание се наглася да пасне",
     "showUnwatchedCount": "Показвай броя негледани",
     "showUnwatchedCountDescription": "Показвай броя негледани епизоди при сериали и сезони",
-    "showWatchedIndicators": "Показвай индикатори за гледано",
-    "showWatchedIndicatorsDescription": "Показвай отметка върху гледани филми, сериали и епизоди",
     "showEpisodeNumberOnCards": "Показвай номера на епизода върху картите",
     "showEpisodeNumberOnCardsDescription": "Показвай сезон и номер на епизод върху картите на епизодите",
     "showSeasonPostersOnTabs": "Показвай постери на сезоните в табовете",
@@ -192,6 +198,7 @@
     "mpv": "mpv",
     "hardwareDecoding": "Хардуерно декодиране",
     "hardwareDecodingDescription": "Използвай хардуерно ускорение, когато е налично",
+    "packedStereoUi": "3D Playback UI",
     "playbackBuffer": "Буфер за възпроизвеждане",
     "playbackBufferAuto": "Автоматично (препоръчително)",
     "playbackBufferLarge": "Голям",
@@ -200,8 +207,6 @@
     "defaultQualityTitle": "Качество по подразбиране",
     "cellularQualityTitle": "Качество по подразбиране при мобилни данни",
     "cellularQualitySameAsDefault": "Същото като качеството по подразбиране",
-    "directPlayCoveredQuality": "Пускай по-малките видеа в оригинално качество",
-    "directPlayCoveredQualityDescription": "Възпроизвеждай директно видеата, които вече са в рамките на лимита за качество, вместо да ги транскодираш",
     "musicQualityTitle": "Качество на музиката",
     "subtitleStyling": "Стил на субтитрите",
     "subtitleStylingDescription": "Настройване на вида на субтитрите",
@@ -278,17 +283,6 @@
     "shuffleStartsFromBeginningDescription": "При разбъркано възпроизвеждане започвай всеки епизод отначало, вместо да продължаваш",
     "playNextCountdown": "Отброяване до следващия епизод",
     "playNextCountdownImmediate": "Пусни веднага",
-    "skipIntroMode": "Прескачане на интрото",
-    "skipIntroModeOffDescription": "Пускай интротата нормално, без бутон за прескачане",
-    "skipIntroModeButtonDescription": "Показвай бутон за прескачане, когато започне интро",
-    "skipIntroModeAutoDescription": "Прескачай интротата автоматично след забавянето по-долу",
-    "skipCreditsMode": "Прескачане на финалните надписи",
-    "skipCreditsModeOffDescription": "Пускай финалните надписи нормално, без бутон за прескачане",
-    "skipCreditsModeButtonDescription": "Показвай бутон за прескачане, когато започнат финалните надписи",
-    "skipCreditsModeAutoDescription": "Прескачай финалните надписи автоматично и пускай следващия епизод",
-    "skipMarkerModeOff": "Изключено",
-    "skipMarkerModeButton": "Показвай бутон",
-    "skipMarkerModeAuto": "Автоматично",
     "forceSkipMarkerFallback": "Принуди резервни маркери",
     "forceSkipMarkerFallbackDescription": "Използвай шаблони в заглавията на главите дори когато Plex има маркери",
     "autoSkipDelay": "Забавяне за автоматично прескачане",
@@ -416,8 +410,6 @@
     "gestureVolumeSwipeDescription": "Плъзни нагоре или надолу по десния ръб, за да регулираш силата на звука",
     "gesturePinchToZoom": "Стискане за мащабиране",
     "gesturePinchToZoomDescription": "Стисни видеото, за да увеличиш или намалиш мащаба",
-    "rememberBrightnessLevel": "Запомняй нивото на яркостта",
-    "rememberBrightnessLevelDescription": "Започвай възпроизвеждането с яркостта, зададена от последното плъзгане",
     "controls": "Контроли",
     "rememberPlayerChanges": "Запомняне на промените в плейъра",
     "rememberPlayerChangesDescription": "Къде се записва и откъде се прилага отново промяна, направена по време на възпроизвеждане",
@@ -429,7 +421,30 @@
     "playerScopeGlobal": "Навсякъде",
     "playerScopeLibrary": "По библиотека",
     "playerScopeTitle": "По сериал или филм",
-    "exportDialogTitle": "Експортиране на настройките на Plezy"
+    "exportDialogTitle": "Експортиране на настройките на Plezy",
+    "showWatchedIndicators": "Показвай индикатори за гледано",
+    "showWatchedIndicatorsDescription": "Показвай отметка върху гледани филми, сериали и епизоди",
+    "directPlayCoveredQuality": "Пускай по-малките видеа в оригинално качество",
+    "directPlayCoveredQualityDescription": "Възпроизвеждай директно видеата, които вече са в рамките на лимита за качество, вместо да ги транскодираш",
+    "skipIntroMode": "Прескачане на интрото",
+    "skipIntroModeOffDescription": "Пускай интротата нормално, без бутон за прескачане",
+    "skipIntroModeButtonDescription": "Показвай бутон за прескачане, когато започне интро",
+    "skipIntroModeAutoDescription": "Прескачай интротата автоматично след забавянето по-долу",
+    "skipCreditsMode": "Прескачане на финалните надписи",
+    "skipCreditsModeOffDescription": "Пускай финалните надписи нормално, без бутон за прескачане",
+    "skipCreditsModeButtonDescription": "Показвай бутон за прескачане, когато започнат финалните надписи",
+    "skipCreditsModeAutoDescription": "Прескачай финалните надписи автоматично и пускай следващия епизод",
+    "skipMarkerModeOff": "Изключено",
+    "skipMarkerModeButton": "Показвай бутон",
+    "skipMarkerModeAuto": "Автоматично",
+    "rememberBrightnessLevel": "Запомняй нивото на яркостта",
+    "rememberBrightnessLevelDescription": "Започвай възпроизвеждането с яркостта, зададена от последното плъзгане",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Търсене на филми, сериали, музика...",
@@ -469,7 +484,9 @@
       "subSeekPrev": "Отиди до предишен субтитър",
       "shaderToggle": "Превключи шейдъри",
       "skipMarker": "Прескочи интро/финални надписи",
-      "screenshot": "Направи екранна снимка"
+      "screenshot": "Направи екранна снимка",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -681,6 +698,10 @@
     "track": "Аудиопътечка ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Аудио",
     "subtitlesLabel": "Субтитри",
     "addTime": "+${amount}${unit}",
@@ -727,6 +748,7 @@
     "subtitleUnavailableFallback": "Избраните субтитри не можаха да се заредят — възпроизвеждането продължава без субтитри",
     "pipButton": "Режим картина в картината",
     "aspectRatioButton": "Съотношение на страните",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source",
     "ambientLighting": "Амбиентно осветление",
     "fullscreenButton": "Влез на цял екран",
     "exitFullscreenButton": "Излез от цял екран",
@@ -1201,7 +1223,7 @@
       "unwatched": "Негледани",
       "unplayed": "Непускани",
       "favorites": "Любими",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "Заглавие",
@@ -1229,32 +1251,32 @@
       "library": "Библиотека"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1262,7 +1284,10 @@
     "openSourceLicenses": "Лицензи с отворен код",
     "versionLabel": "Версия ${version}",
     "appDescription": "Красив клиент за Plex, Jellyfin и Emby, създаден с Flutter",
-    "viewLicensesDescription": "Виж лицензите на библиотеки на трети страни"
+    "viewLicensesDescription": "Виж лицензите на библиотеки на трети страни",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Не са намерени сървъри за ${username} (${email})",
