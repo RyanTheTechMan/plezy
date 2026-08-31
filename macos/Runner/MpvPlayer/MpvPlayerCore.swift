@@ -1,5 +1,6 @@
 import AVFoundation
 import Cocoa
+import Darwin
 import Libmpv
 import QuartzCore
 
@@ -38,13 +39,19 @@ class MpvPlayerCore: MpvPlayerCoreBase {
   /// The viewer's zoom, kept so the display layer gets it back after PiP,
   /// which shows the whole picture.
   private var videoZoomScale = 1.0
+  private var overlayMode = false
+  private var initialOptions: [String: String] = [:]
 
   /// True while any reason (occlusion, screen sleep) requires the layer hidden.
   private var hasLayerHideReason: Bool {
     layerHiddenForOcclusion || layerHiddenForScreenSleep
   }
 
-  func initialize(in window: NSWindow) -> Bool {
+  func initialize(
+    in window: NSWindow,
+    overlay: Bool = false,
+    initialOptions: [String: String] = [:]
+  ) -> Bool {
     guard !isInitialized else {
       MpvLog.debug("[MpvPlayerCore] Already initialized")
       return true
@@ -56,6 +63,8 @@ class MpvPlayerCore: MpvPlayerCoreBase {
     }
 
     self.window = window
+    overlayMode = overlay
+    self.initialOptions = initialOptions
 
     let container = MpvVideoContainerLayer()
     container.frame = contentView.bounds
@@ -85,7 +94,9 @@ class MpvPlayerCore: MpvPlayerCoreBase {
 
     MpvLog.debug("[MpvPlayerCore] Video layer added, frame: \(container.frame)")
 
-    guard setupMpv() else {
+    // Each preview/encoder owns an independent context with pre-init options.
+    setlocale(LC_NUMERIC, "C")
+    guard setupMpv(initialOptions: initialOptions) else {
       MpvLog.debug("[MpvPlayerCore] Failed to setup MPV")
       container.removeFromSuperlayer()
       containerLayer = nil
@@ -172,7 +183,8 @@ class MpvPlayerCore: MpvPlayerCoreBase {
       if let contentView = window?.contentView {
         contentView.wantsLayer = true
         if let superlayer = contentView.layer {
-          attachContainerLayer(to: superlayer, frame: contentView.bounds)
+          let frame = overlayMode ? (containerLayer?.frame ?? contentView.bounds) : contentView.bounds
+          attachContainerLayer(to: superlayer, frame: frame)
         }
       }
       beginPlaybackActivity()
@@ -303,7 +315,9 @@ class MpvPlayerCore: MpvPlayerCoreBase {
     setContainerHidden(true)
     let container = containerLayer
     let layer = videoLayer
-    disposeSharedState(destroySynchronously: false) {
+    // Encoders must finish writing before Dart post-processes the output.
+    // Playback stays asynchronous and uses upstream's delayed layer retirement.
+    disposeSharedState(destroySynchronously: initialOptions["o"] != nil) {
       DispatchQueue.main.asyncAfter(deadline: .now() + Self.layerRetireDelay) {
         layer?.removeFromSuperlayer()
         container?.removeFromSuperlayer()
@@ -424,7 +438,7 @@ class MpvPlayerCore: MpvPlayerCoreBase {
     if let containerLayer, let contentView = window?.contentView {
       contentView.wantsLayer = true
       if let superlayer = contentView.layer {
-        let targetFrame = contentView.bounds
+        let targetFrame = overlayMode ? containerLayer.frame : contentView.bounds
         let needsAttach =
           containerLayer.superlayer !== superlayer || superlayer.sublayers?.first !== containerLayer
         if needsAttach {
@@ -443,14 +457,23 @@ class MpvPlayerCore: MpvPlayerCoreBase {
     guard let containerLayer else { return }
 
     withoutLayerAnimations {
-      superlayer.backgroundColor = NSColor.black.cgColor
-      superlayer.isOpaque = true
-
-      let needsReorder = superlayer.sublayers?.first !== containerLayer
-      if containerLayer.superlayer !== superlayer || needsReorder {
-        containerLayer.removeFromSuperlayer()
-        superlayer.insertSublayer(containerLayer, at: 0)
+      let targetIndex: UInt32
+      if overlayMode {
+        // Preview video stays above the main player's container, below Flutter.
+        targetIndex = UInt32(superlayer.sublayers?.filter {
+          $0 !== containerLayer && $0 is MpvVideoContainerLayer
+        }.count ?? 0)
+      } else {
+        superlayer.backgroundColor = NSColor.black.cgColor
+        superlayer.isOpaque = true
+        targetIndex = 0
       }
+      let currentIndex = superlayer.sublayers?.firstIndex { $0 === containerLayer }
+      if containerLayer.superlayer !== superlayer || currentIndex != Int(targetIndex) {
+        containerLayer.removeFromSuperlayer()
+        superlayer.insertSublayer(containerLayer, at: targetIndex)
+      }
+      containerLayer.zPosition = 0
 
       containerLayer.frame = frame
       updateContentsScale()

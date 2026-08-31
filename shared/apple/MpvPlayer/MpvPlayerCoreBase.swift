@@ -486,7 +486,7 @@ class MpvPlayerCoreBase: NSObject {
     return abs(nearest - fps) / nearest < 0.01 ? nearest : fps
   }
 
-  func setupMpv() -> Bool {
+  func setupMpv(initialOptions: [String: String] = [:]) -> Bool {
     guard let renderLayer = videoLayer else { return false }
 
     applyDvConversionModeEnvironment()
@@ -495,6 +495,9 @@ class MpvPlayerCoreBase: NSObject {
       var layer = Int64(Int(bitPattern: Unmanaged.passUnretained(renderLayer).toOpaque()))
       checkError(mpv_set_option(mpv, "wid", MPV_FORMAT_INT64, &layer))
       applySharedMpvOptions(mpv: mpv)
+      for (name, value) in initialOptions {
+        checkError(mpv_set_option_string(mpv, name, value))
+      }
     }
     guard created else { return false }
 
