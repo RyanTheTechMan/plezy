@@ -299,6 +299,7 @@ class _Translations$settings$tr extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Donanım Çözme';
 	@override String get hardwareDecodingDescription => 'Mümkün olduğunda donanım hızlandırmasını kullan';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Oynatma Tamponu';
 	@override String get playbackBufferAuto => 'Otomatik (Önerilen)';
 	@override String get playbackBufferLarge => 'Büyük';
@@ -843,6 +844,7 @@ class _Translations$videoControls$tr extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'Seçilen altyazı yüklenemedi — altyazısız devam ediliyor';
 	@override String get pipButton => 'Pencere İçinde Pencere modu';
 	@override String get aspectRatioButton => 'En boy oranı';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Ortam aydınlatması';
 	@override String get fullscreenButton => 'Tam ekrana geç';
 	@override String get exitFullscreenButton => 'Tam ekrandan çık';
@@ -3113,6 +3115,7 @@ extension on TranslationsTr {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Donanım Çözme',
 			'settings.hardwareDecodingDescription' => 'Mümkün olduğunda donanım hızlandırmasını kullan',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Oynatma Tamponu',
 			'settings.playbackBufferAuto' => 'Otomatik (Önerilen)',
 			'settings.playbackBufferLarge' => 'Büyük',
@@ -3448,9 +3451,9 @@ extension on TranslationsTr {
 			'fileInfo.optimizedForStreaming' => 'Akış İçin Optimize Edilmiş',
 			'fileInfo.has64bitOffsets' => '64-bit Ofsetler',
 			'fileInfo.protocol' => 'Protokol',
-			'fileInfo.mediaType' => 'Medya Türü',
 			_ => null,
 		} ?? switch (path) {
+			'fileInfo.mediaType' => 'Medya Türü',
 			'fileInfo.sourceKind' => 'Kaynak Türü',
 			'fileInfo.optimizedVersion' => 'Optimize Edilmiş Sürüm',
 			'fileInfo.optimizationTarget' => 'Optimizasyon Hedefi',
@@ -3593,6 +3596,7 @@ extension on TranslationsTr {
 			'videoControls.subtitleUnavailableFallback' => 'Seçilen altyazı yüklenemedi — altyazısız devam ediliyor',
 			'videoControls.pipButton' => 'Pencere İçinde Pencere modu',
 			'videoControls.aspectRatioButton' => 'En boy oranı',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Ortam aydınlatması',
 			'videoControls.fullscreenButton' => 'Tam ekrana geç',
 			'videoControls.exitFullscreenButton' => 'Tam ekrandan çık',
@@ -3961,10 +3965,10 @@ extension on TranslationsTr {
 			'libraries.filterCategories.genre' => 'Tür',
 			'libraries.filterCategories.year' => 'Yıl',
 			'libraries.filterCategories.contentRating' => 'İçerik Derecelendirmesi',
-			'libraries.filterCategories.tag' => 'Etiket',
-			'libraries.filterCategories.unwatched' => 'İzlenmemiş',
 			_ => null,
 		} ?? switch (path) {
+			'libraries.filterCategories.tag' => 'Etiket',
+			'libraries.filterCategories.unwatched' => 'İzlenmemiş',
 			'libraries.filterCategories.unplayed' => 'Oynatılmamış',
 			'libraries.filterCategories.favorites' => 'Favoriler',
 			'libraries.sortLabels.title' => 'Başlık',
@@ -4475,10 +4479,10 @@ extension on TranslationsTr {
 			'downloads.syncRuleAndDownloadsRemoved' => 'Eşitleme kuralı ve ilişkili indirmeler kaldırıldı',
 			'downloads.syncRuleCleanupBusy' => 'Eşitleme kuralları şu anda güncelleniyor. Birazdan tekrar deneyin.',
 			'downloads.syncRuleCleanupUnavailable' => 'İlişkili indirmeler güvenli biçimde belirlenemedi. Sunucuya yeniden bağlanıp tekrar deneyin veya kuralı indirmeleri silmeden kaldırın.',
-			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '${title} için ${count} yeni bölüm eşitlendi',
-			'downloads.activeSyncRules' => 'Eşitleme kuralları',
 			_ => null,
 		} ?? switch (path) {
+			'downloads.syncedNewEpisodes' => ({required Object title, required Object count}) => '${title} için ${count} yeni bölüm eşitlendi',
+			'downloads.activeSyncRules' => 'Eşitleme kuralları',
 			'downloads.noSyncRules' => 'Eşitleme kuralı yok',
 			'downloads.manageSyncRule' => 'Eşitlemeyi yönet',
 			'downloads.editEpisodeCount' => 'Bölüm sayısı',
