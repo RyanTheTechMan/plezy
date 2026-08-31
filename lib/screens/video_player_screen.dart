@@ -58,6 +58,8 @@ import '../services/playback_coordinator.dart';
 import '../services/music/music_playback_service.dart';
 import '../services/playback_initialization_service.dart';
 import '../services/playback_context.dart';
+import '../services/clip_export_service.dart';
+import '../services/clip_preview_player_controller.dart';
 import '../services/local_playback_history.dart';
 import '../services/playback_session.dart';
 import '../services/playback_subtitle_resolver.dart';
@@ -121,6 +123,7 @@ import 'video_player/visual_effects_controller.dart';
 import 'video_player/widgets/player_prompt_overlays.dart';
 import '../widgets/overlay_sheet.dart';
 import '../widgets/video_controls/player_chrome_controller.dart';
+import '../widgets/video_controls/sheets/clip_editor_sheet.dart';
 import '../widgets/video_controls/video_controls.dart';
 import '../widgets/video_controls/widgets/player_toast_indicator.dart';
 import '../focus/focusable_button.dart';
@@ -136,6 +139,7 @@ import '../watch_together/services/player_adapter.dart';
 import '../utils/error_message_utils.dart';
 
 part 'video_player/parts/companion_remote.dart';
+part 'video_player/parts/clips.dart';
 part 'video_player/parts/display_matching.dart';
 part 'video_player/parts/episode_navigation.dart';
 part 'video_player/parts/episode_queue.dart';
@@ -1336,6 +1340,7 @@ class VideoPlayerScreenState extends State<VideoPlayerScreen>
   MediaControlRouter debugMediaControlRouterForTesting() => _buildMediaControlRouter();
 
   late final PlayerNavigationCoordinator _playerNavigationCoordinator;
+  late final ClipExportService _clipExportService = ClipExportService();
 
   @override
   void initState() {
@@ -2093,7 +2098,8 @@ class VideoPlayerScreenState extends State<VideoPlayerScreen>
       }
 
       if (PlatformDetector.isDesktopOS()) {
-        await currentPlayer.setProperty('screenshot-directory', '~/Pictures');
+        final screenshotDirectory = await ClipExportService.screenshotDirectory();
+        await currentPlayer.setProperty('screenshot-directory', screenshotDirectory.path);
       }
 
       // Before custom mpv.conf, so an `audio-device` line there still wins.
@@ -2429,6 +2435,7 @@ class VideoPlayerScreenState extends State<VideoPlayerScreen>
     _isExiting.dispose();
     _chromeController.dispose();
     _toastController.dispose();
+    _clipExportService.dispose();
 
     // The release sequence below mirrors _tearDownFailedPlayerAttempt but is
     // deliberately separate: dispose() cannot await, and it destroys the
