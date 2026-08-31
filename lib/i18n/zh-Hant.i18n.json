@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "使用 Plex 登入",
@@ -113,7 +113,15 @@
     "skipVersion": "跳過此版本",
     "viewRelease": "查看版本詳情",
     "latestVersion": "已安裝的版本為最新版本",
-    "checkFailed": "無法檢查更新"
+    "checkFailed": "無法檢查更新",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "設定",
@@ -143,10 +151,6 @@
     "displayScale": "介面縮放",
     "compact": "緊湊",
     "comfortable": "舒適",
-    "gridSpacing": "網格間距",
-    "gridSpacingTight": "緊湊",
-    "gridSpacingNormal": "一般",
-    "gridSpacingSpacious": "寬鬆",
     "tvCornerSpotlightBackdrop": "右上角焦點背景圖",
     "tvCornerSpotlightBackdropDescription": "在右上角顯示焦點內容圖片，而非填滿整個畫面",
     "viewMode": "檢視模式",
@@ -197,8 +201,6 @@
     "playbackBufferExtraLarge": "特大",
     "playbackBufferDescription": "針對不穩定的連線緩衝更多內容。也受緩衝大小限制。",
     "defaultQualityTitle": "預設畫質",
-    "cellularQualityTitle": "行動網路上的預設畫質",
-    "cellularQualitySameAsDefault": "與預設畫質相同",
     "musicQualityTitle": "音樂品質",
     "subtitleStyling": "字幕樣式",
     "subtitleStylingDescription": "調整字幕外觀",
@@ -212,8 +214,6 @@
     "rememberTrackSelectionsDescription": "記住每部影片的音軌與字幕選擇",
     "followServerTrackSelections": "使用伺服器為每集選擇的軌道",
     "followServerTrackSelectionsDescription": "切換劇集時，套用伺服器上為該集選擇的音訊與字幕，而不是沿用目前選擇",
-    "resumeMusicOnLaunch": "記住音樂工作階段",
-    "resumeMusicOnLaunchDescription": "應用程式啟動時，將上次播放的歌曲在停止處以暫停狀態開啟",
     "showChapterMarkersOnTimeline": "在進度條上顯示章節標記",
     "showChapterMarkersOnTimelineDescription": "依章節分段顯示進度條",
     "specialsOrdering": "特別篇依集數排序",
@@ -267,11 +267,6 @@
     "shortcutAlreadyAssigned": "該快速鍵已指派給 ${action}",
     "shortcutUpdated": "已更新 ${action} 的快速鍵",
     "saveFailed": "無法儲存變更。請重試。",
-    "autoPlayAndSkip": "自動播放與跳過",
-    "autoPlayNextEpisode": "自動播放下一集",
-    "autoPlayNextEpisodeDescription": "目前單集結束時自動播放下一集",
-    "playNextCountdown": "下一集倒數計時",
-    "playNextCountdownImmediate": "立即播放",
     "autoSkipIntro": "自動跳過片頭",
     "autoSkipIntroDescription": "幾秒鐘後自動跳過片頭標記",
     "autoSkipCredits": "自動跳過片尾",
@@ -297,6 +292,17 @@
     "downloadLocationReset": "下載位置已重設為預設值",
     "downloadLocationInvalid": "所選資料夾不具寫入權限",
     "downloadLocationPickerUnavailable": "此裝置無法選擇資料夾",
+    "downloadLocationSelectError": "Failed to select folder",
+    "mediaCapture": "Media Capture",
+    "clips": "Clips",
+    "screenshots": "Screenshots",
+    "captureLocationTitle": "${title} Location",
+    "clipLocationDescription": "Choose where clips are saved.",
+    "screenshotLocationDescription": "Choose where screenshots are saved.",
+    "clipLocationChanged": "Clip location changed",
+    "screenshotLocationChanged": "Screenshot location changed",
+    "clipLocationReset": "Clip location reset to Desktop",
+    "screenshotLocationReset": "Screenshot location reset to Desktop",
     "downloadOnWifiOnly": "僅在 Wi-Fi 連線時下載",
     "downloadOnWifiOnlyDescription": "使用行動網路時不會下載",
     "autoRemoveWatchedDownloads": "自動移除已觀看的下載內容",
@@ -346,8 +352,6 @@
     "dvConversionNativeDescription": "強制使用原生 DV7 並停用 DV 轉換重試",
     "dvConversionDv81Description": "強制將內嵌的 RPU 轉換為 Dolby Vision Profile 8.1",
     "dvConversionHevcStripDescription": "移除 Dolby Vision RPU/EL 層，並以一般 HEVC 呈現",
-    "deinterlace": "去交錯",
-    "deinterlaceDescription": "移除交錯影片中的梳狀雜訊（僅限 mpv 播放器）",
     "requireProfileSelectionOnOpen": "開啟應用程式時要求選擇使用者",
     "requireProfileSelectionOnOpenDescription": "每次開啟應用程式時顯示使用者設定檔選擇畫面",
     "forceTvMode": "強制 TV 模式",
@@ -365,31 +369,13 @@
     "showExploreTabDescription": "顯示探索分頁，其中包含來自 Plex Discover 和已連結追蹤服務的內容",
     "liveTvDefaultFavorites": "預設顯示最愛頻道",
     "liveTvDefaultFavoritesDescription": "開啟直播電視時僅顯示最愛頻道",
-    "general": "一般",
-    "generalDescription": "語言、啟動與視窗行為",
-    "languageAndRegion": "語言與地區",
-    "startup": "啟動",
     "display": "顯示器",
-    "libraryAndCards": "媒體庫與卡片",
     "homeScreen": "主畫面",
     "navigation": "導覽",
     "window": "視窗",
-    "liveTv": "直播電視",
     "player": "播放器",
-    "videoAndDisplay": "影片與顯示器",
-    "audio": "音訊",
-    "quality": "畫質",
-    "subtitles": "字幕",
     "seekAndTiming": "跳轉與計時",
     "behavior": "行為",
-    "gestures": "手勢",
-    "gestureBrightnessSwipe": "亮度滑動手勢",
-    "gestureBrightnessSwipeDescription": "在螢幕左側邊緣上下滑動以調整亮度",
-    "gestureVolumeSwipe": "音量滑動手勢",
-    "gestureVolumeSwipeDescription": "在螢幕右側邊緣上下滑動以調整音量",
-    "gesturePinchToZoom": "雙指縮放",
-    "gesturePinchToZoomDescription": "在影片上雙指捏合以放大或縮小",
-    "controls": "控制",
     "rememberPlayerChanges": "記住播放器變更",
     "rememberPlayerChangesDescription": "播放期間所做的變更要儲存並從何處重新套用",
     "scopePlaybackSpeed": "播放速度",
@@ -400,7 +386,46 @@
     "playerScopeGlobal": "全部",
     "playerScopeLibrary": "依媒體庫",
     "playerScopeTitle": "依影集或電影",
-    "exportDialogTitle": "匯出 Plezy 設定"
+    "exportDialogTitle": "匯出 Plezy 設定",
+    "gridSpacing": "網格間距",
+    "gridSpacingTight": "緊湊",
+    "gridSpacingNormal": "一般",
+    "gridSpacingSpacious": "寬鬆",
+    "cellularQualityTitle": "行動網路上的預設畫質",
+    "cellularQualitySameAsDefault": "與預設畫質相同",
+    "resumeMusicOnLaunch": "記住音樂工作階段",
+    "resumeMusicOnLaunchDescription": "應用程式啟動時，將上次播放的歌曲在停止處以暫停狀態開啟",
+    "autoPlayAndSkip": "自動播放與跳過",
+    "autoPlayNextEpisode": "自動播放下一集",
+    "autoPlayNextEpisodeDescription": "目前單集結束時自動播放下一集",
+    "playNextCountdown": "下一集倒數計時",
+    "playNextCountdownImmediate": "立即播放",
+    "deinterlace": "去交錯",
+    "deinterlaceDescription": "移除交錯影片中的梳狀雜訊（僅限 mpv 播放器）",
+    "general": "一般",
+    "generalDescription": "語言、啟動與視窗行為",
+    "languageAndRegion": "語言與地區",
+    "startup": "啟動",
+    "libraryAndCards": "媒體庫與卡片",
+    "liveTv": "直播電視",
+    "videoAndDisplay": "影片與顯示器",
+    "audio": "音訊",
+    "quality": "畫質",
+    "subtitles": "字幕",
+    "gestures": "手勢",
+    "gestureBrightnessSwipe": "亮度滑動手勢",
+    "gestureBrightnessSwipeDescription": "在螢幕左側邊緣上下滑動以調整亮度",
+    "gestureVolumeSwipe": "音量滑動手勢",
+    "gestureVolumeSwipeDescription": "在螢幕右側邊緣上下滑動以調整音量",
+    "gesturePinchToZoom": "雙指縮放",
+    "gesturePinchToZoomDescription": "在影片上雙指捏合以放大或縮小",
+    "controls": "控制",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "搜尋電影、影集、音樂…",
@@ -440,7 +465,9 @@
       "subSeekPrev": "跳轉至上一句字幕",
       "shaderToggle": "切換著色器",
       "skipMarker": "跳過片頭/片尾",
-      "screenshot": "螢幕截圖"
+      "screenshot": "螢幕截圖",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -585,12 +612,15 @@
     "confirmDeleteTarget": "確定要從您的伺服器永久刪除「${title}」嗎？",
     "deleteMultipleWarning": "這將會刪除所有單集及其檔案。",
     "deleteEpisodeCountWarning": {
+      "one": "This deletes all ${n} episode in it, and its file.",
       "other": "這會刪除其中全部 ${n} 集及其檔案。"
     },
     "deleteMultiPartWarning": {
+      "one": "This item is stored as ${n} file, which will be deleted.",
       "other": "此項目分散儲存於 ${n} 個檔案中，且全部都會被刪除。"
     },
     "deleteSharedFileHeading": {
+      "one": "${n} other episode is stored in the same file and will be deleted too:",
       "other": "另有 ${n} 集儲存在同一檔案中，也會一併被刪除："
     },
     "deleteScopeUnverifiedProbeFailed": "Plezy 無法確認此操作會刪除哪些檔案，因此刪除範圍可能超出上方所列的項目。請取消後重試，或仍要刪除。",
@@ -649,6 +679,10 @@
     "track": "音軌 ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "音訊",
     "subtitlesLabel": "字幕",
     "addTime": "+${amount} ${unit}",
@@ -710,6 +744,44 @@
     "pipActive": "正在以子母畫面模式播放",
     "pipFailed": "啟動子母畫面失敗",
     "screenshotSaved": "螢幕截圖已儲存",
+    "clip": {
+      "title": "Clip",
+      "vodOnly": "Clips are available for on-demand video playback.",
+      "sourceUnavailable": "Clip source is not available for this playback session.",
+      "playAtLeastOneSecond": "Play at least 1 second before clipping.",
+      "startBeforeBeginning": "Clip start cannot be before the beginning of the video.",
+      "endAfterStart": "Clip end must be after the start.",
+      "minimumDuration": "Clips must be at least 1 second long.",
+      "endPastVideo": "Clip end is past the end of the video.",
+      "exportCanceled": "Clip export canceled.",
+      "cacheUnavailable": "The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.",
+      "sourceCopyNoEncoder": "Source-copy export does not use an encoder.",
+      "encodingDesktopOnly": "H.264 and HEVC clip encoding is currently available on macOS and Windows.",
+      "hdrRequiresSource": "HDR export requires a direct-play HDR10 or HLG-compatible source.",
+      "transcodeStartUnavailable": "This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.",
+      "previewRequired": "Clip preview must finish loading before it can be saved.",
+      "h264Failed": "This source could not be encoded as an H.264 SDR MP4.",
+      "hevcSdrFailed": "This source could not be encoded as an HEVC SDR MP4.",
+      "hevcHdrFailed": "This source could not be encoded as an HEVC HDR MP4.",
+      "gifFailed": "This source could not be encoded as a GIF.",
+      "originalFailed": "This source could not be copied from the mpv cache.",
+      "previewUnavailable": "Clip preview playback is not available in this build.",
+      "previewFailed": "Clip preview playback failed.",
+      "previewLoadingScreenshot": "The clip preview must finish loading before taking a screenshot.",
+      "screenshotInProgress": "A screenshot is already being saved.",
+      "saveAsDialog": "Save Clip As",
+      "savedTo": "Saved to ${fileName}",
+      "openFolder": "Open Folder",
+      "saveAs": "Save As",
+      "cancelExport": "Cancel Export",
+      "saving": "Saving...",
+      "savingProgress": "Saving ${percent}%",
+      "mutePreview": "Mute preview",
+      "unmutePreview": "Unmute preview",
+      "formatHevcSdr": "HEVC SDR",
+      "formatH264Sdr": "H.264 SDR",
+      "formatHevcHdr": "HEVC HDR"
+    },
     "zoomPercent": "縮放 ${percent}%",
     "pipErrors": {
       "androidVersion": "需要 Android 8.0 或更高版本",
@@ -751,6 +823,7 @@
     "markedAsUnwatchedOffline": "已標記為未觀看（將在連線時同步）",
     "autoRemovedWatchedDownload": "已自動移除：${title}",
     "autoRemovedWatchedDownloads": {
+      "one": "Auto-removed ${n} watched download",
       "other": "已自動移除 ${n} 個已觀看的下載內容"
     },
     "removedFromContinueWatching": "已從「繼續觀看」中移除",
@@ -930,77 +1003,6 @@
     "editMediaBrowserTitle": "編輯 ${product} 連線",
     "editMediaBrowserIntro": "為 ${serverName} 新增或移除 URL。Plezy 將使用延遲最低且可連線的 URL。"
   },
-  "accountPreferences": {
-    "sectionTitle": "帳戶偏好設定",
-    "hubSubtitleSingle": "已在 ${account} 上儲存音訊、字幕與媒體庫選項",
-    "hubSubtitleMultiple": "已在 ${count} 個帳戶上儲存音訊、字幕與媒體庫選項",
-    "pickAccount": "每個帳戶都會儲存各自的偏好設定。請選擇要編輯的帳戶。",
-    "storedOnAccount": "這些選項會儲存在帳戶本身，因此登入該帳戶的所有應用程式都會使用它們，包括您其他裝置上的 Plezy。",
-    "noAccounts": "沒有可設定的帳戶",
-    "noAccountsHint": "登入 Plex，或連線至 Jellyfin 或 Emby 伺服器，儲存在該帳戶上的偏好設定便會顯示在此處。",
-    "unavailable": "無法連線至此帳戶",
-    "loadFailed": "無法載入這些偏好設定",
-    "noPreference": "無偏好",
-    "notSet": "未設定",
-    "groups": {
-      "audioAndSubtitles": "音訊與字幕",
-      "libraryDisplay": "媒體庫",
-      "personalMedia": "個人媒體"
-    },
-    "preferredAudioLanguage": "偏好音訊語言",
-    "autoSelectAudio": "依語言選擇音訊",
-    "autoSelectAudioDescription": "關閉時會使用檔案標記為預設的音訊軌。",
-    "preferredSubtitleLanguage": "偏好字幕語言",
-    "subtitleMode": "自動開啟字幕",
-    "subtitleModes": {
-      "none": "手動選擇",
-      "noneDescription": "絕不自行開啟字幕。",
-      "defaultMode": "遵循軌道旗標",
-      "defaultModeDescription": "使用每個字幕軌上儲存的預設與強制旗標。",
-      "always": "一律啟用",
-      "alwaysDescription": "只要有偏好語言的字幕軌就自動開啟。",
-      "onlyForced": "僅強制字幕",
-      "onlyForcedDescription": "僅載入標記為強制的軌道。",
-      "smart": "外語配音時顯示",
-      "smartDescription": "僅在音訊為其他語言時開啟字幕。"
-    },
-    "subtitleAccessibility": "SDH 字幕",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "偏好非 SDH 字幕",
-      "preferSdh": "偏好 SDH 字幕",
-      "onlySdh": "僅 SDH 字幕",
-      "onlyNonSdh": "僅非 SDH 字幕"
-    },
-    "forcedSubtitles": "強制字幕",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "偏好非強制字幕",
-      "preferForced": "偏好強制字幕",
-      "onlyForced": "僅強制字幕",
-      "onlyNonForced": "僅非強制字幕"
-    },
-    "displayMissingEpisodes": "顯示缺少的單集",
-    "displayMissingEpisodesDescription": "列出伺服器已知但沒有檔案的單集。",
-    "hidePlayedInLatest": "在「最新」中隱藏已觀看項目",
-    "hidePlayedInLatestDescription": "將您已觀看的項目從伺服器的「最新」列中移除。",
-    "displayCollectionsView": "顯示收藏集檢視",
-    "displayCollectionsViewDescription": "在您的媒體庫旁提供伺服器的收藏集檢視。",
-    "rewatchingInNextUp": "在「接下來播放」中保留重看的影集",
-    "rewatchingInNextUpDescription": "看完一部影集後再次開始觀看時，「接下來播放」會追蹤重看的進度，而不是將該影集移除。",
-    "watchedIndicator": "已觀看指示",
-    "watchedIndicatorOptions": {
-      "none": "從不",
-      "moviesAndShows": "電影與影集",
-      "movies": "僅電影",
-      "shows": "僅影集"
-    },
-    "mediaReviewsVisibility": "評分與評論",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "使用者與影評人",
-      "usersOnly": "僅使用者",
-      "criticsOnly": "僅影評人",
-      "nobody": "隱藏"
-    }
-  },
   "discover": {
     "title": "發現",
     "noContentAvailable": "沒有可用內容",
@@ -1027,6 +1029,7 @@
     "minutesLeft": "剩餘 ${minutes} 分鐘",
     "moreLikeThis": "更多類似內容",
     "titleCount": {
+      "one": "${n} title",
       "other": "${n} 部作品"
     }
   },
@@ -1141,7 +1144,10 @@
     "openSourceLicenses": "開源授權條款",
     "versionLabel": "版本 ${version}",
     "appDescription": "一款精美的 Plex 與 Jellyfin Flutter 用戶端",
-    "viewLicensesDescription": "查看第三方套件的授權條款"
+    "viewLicensesDescription": "查看第三方套件的授權條款",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "找不到 ${username}（${email}） 的伺服器",
@@ -1230,6 +1236,7 @@
       "upcoming": "即將上線"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n} 集"
     },
     "cast": "演員陣容",
@@ -1284,6 +1291,7 @@
       "favorited": "${n} 人收藏",
       "dropRate": "${percent} 的人棄番",
       "comments": {
+        "one": "${n} comment",
         "other": "${n} 則留言"
       },
       "votes": "${n} 票",
@@ -1364,6 +1372,7 @@
       "ratings": "評分",
       "schedule": "播出時間",
       "recommendedByUsers": {
+        "one": "Recommended by ${n} user",
         "other": "${n} 位使用者推薦"
       },
       "recommendedBy": "由 ${who} 推薦",
@@ -1374,6 +1383,7 @@
       "background": "背景介紹"
     },
     "totalResults": {
+      "one": "${n} result",
       "other": "${n} 筆結果"
     }
   },
@@ -1527,6 +1537,7 @@
     "addToQueue": "新增至佇列",
     "discNumber": "CD ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n} 首"
     },
     "nowPlaying": "正在播放",
@@ -2176,5 +2187,76 @@
     "redirectDifferentHost": "伺服器重新導向至不同的主機。請直接輸入最終的 ${product} URL。",
     "redirectInsecure": "伺服器從 HTTPS 重新導向至不安全的 URL",
     "redirectUnsupportedEnterFinal": "伺服器重新導向至不支援的 URL。請直接輸入最終的 ${product} URL。"
+  },
+  "accountPreferences": {
+    "sectionTitle": "帳戶偏好設定",
+    "hubSubtitleSingle": "已在 ${account} 上儲存音訊、字幕與媒體庫選項",
+    "hubSubtitleMultiple": "已在 ${count} 個帳戶上儲存音訊、字幕與媒體庫選項",
+    "pickAccount": "每個帳戶都會儲存各自的偏好設定。請選擇要編輯的帳戶。",
+    "storedOnAccount": "這些選項會儲存在帳戶本身，因此登入該帳戶的所有應用程式都會使用它們，包括您其他裝置上的 Plezy。",
+    "noAccounts": "沒有可設定的帳戶",
+    "noAccountsHint": "登入 Plex，或連線至 Jellyfin 或 Emby 伺服器，儲存在該帳戶上的偏好設定便會顯示在此處。",
+    "unavailable": "無法連線至此帳戶",
+    "loadFailed": "無法載入這些偏好設定",
+    "noPreference": "無偏好",
+    "notSet": "未設定",
+    "groups": {
+      "audioAndSubtitles": "音訊與字幕",
+      "libraryDisplay": "媒體庫",
+      "personalMedia": "個人媒體"
+    },
+    "preferredAudioLanguage": "偏好音訊語言",
+    "autoSelectAudio": "依語言選擇音訊",
+    "autoSelectAudioDescription": "關閉時會使用檔案標記為預設的音訊軌。",
+    "preferredSubtitleLanguage": "偏好字幕語言",
+    "subtitleMode": "自動開啟字幕",
+    "subtitleModes": {
+      "none": "手動選擇",
+      "noneDescription": "絕不自行開啟字幕。",
+      "defaultMode": "遵循軌道旗標",
+      "defaultModeDescription": "使用每個字幕軌上儲存的預設與強制旗標。",
+      "always": "一律啟用",
+      "alwaysDescription": "只要有偏好語言的字幕軌就自動開啟。",
+      "onlyForced": "僅強制字幕",
+      "onlyForcedDescription": "僅載入標記為強制的軌道。",
+      "smart": "外語配音時顯示",
+      "smartDescription": "僅在音訊為其他語言時開啟字幕。"
+    },
+    "subtitleAccessibility": "SDH 字幕",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "偏好非 SDH 字幕",
+      "preferSdh": "偏好 SDH 字幕",
+      "onlySdh": "僅 SDH 字幕",
+      "onlyNonSdh": "僅非 SDH 字幕"
+    },
+    "forcedSubtitles": "強制字幕",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "偏好非強制字幕",
+      "preferForced": "偏好強制字幕",
+      "onlyForced": "僅強制字幕",
+      "onlyNonForced": "僅非強制字幕"
+    },
+    "displayMissingEpisodes": "顯示缺少的單集",
+    "displayMissingEpisodesDescription": "列出伺服器已知但沒有檔案的單集。",
+    "hidePlayedInLatest": "在「最新」中隱藏已觀看項目",
+    "hidePlayedInLatestDescription": "將您已觀看的項目從伺服器的「最新」列中移除。",
+    "displayCollectionsView": "顯示收藏集檢視",
+    "displayCollectionsViewDescription": "在您的媒體庫旁提供伺服器的收藏集檢視。",
+    "rewatchingInNextUp": "在「接下來播放」中保留重看的影集",
+    "rewatchingInNextUpDescription": "看完一部影集後再次開始觀看時，「接下來播放」會追蹤重看的進度，而不是將該影集移除。",
+    "watchedIndicator": "已觀看指示",
+    "watchedIndicatorOptions": {
+      "none": "從不",
+      "moviesAndShows": "電影與影集",
+      "movies": "僅電影",
+      "shows": "僅影集"
+    },
+    "mediaReviewsVisibility": "評分與評論",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "使用者與影評人",
+      "usersOnly": "僅使用者",
+      "criticsOnly": "僅影評人",
+      "nobody": "隱藏"
+    }
   }
 }
