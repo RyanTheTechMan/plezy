@@ -199,6 +199,10 @@ class ExoPlayerCore(private val activity: Activity) :
   private var lastAssMargins: IntArray? = null
   private var overlayLayoutListener: ViewTreeObserver.OnGlobalLayoutListener? = null
   private var lastVideoSize: VideoSize? = null
+
+  @Volatile private var matroskaStereoMode: Long? = null
+
+  @Volatile private var requestedBoxFitMode = 0
   private var exoPlayer: ExoPlayer? = null
   private var renderersFactory: PlezyRenderersFactory? = null
   private val subtitleDelayUs = AtomicLong(0L)
@@ -749,7 +753,9 @@ class ExoPlayerCore(private val activity: Activity) :
         extractorsFactory.createExtractors().map { extractor ->
           when {
             extractor is MatroskaExtractor -> {
-              val assExtractor = ZlibMatroskaExtractor(subtitleParserFactory, handler)
+              val assExtractor = ZlibMatroskaExtractor(subtitleParserFactory, handler) { mode ->
+                updateMatroskaStereoMode(mode)
+              }
               val inner = if (doviEnabled) {
                 DoviExtractorWrapper(assExtractor, currentDvMode) { level, prefix, message ->
                   emitLog(level, prefix, message)
@@ -1754,15 +1760,38 @@ class ExoPlayerCore(private val activity: Activity) :
     updateSurfaceViewSize(videoSize.width, videoSize.height, videoSize.pixelWidthHeightRatio)
   }
 
+  private fun updateMatroskaStereoMode(mode: Long) {
+    matroskaStereoMode = mode
+    applyBoxFitMode()
+    lastVideoSize?.let { size ->
+      updateSurfaceViewSize(size.width, size.height, size.pixelWidthHeightRatio)
+    }
+  }
+
+  private fun packedStereoPixelRatio(pixelRatio: Float): Float = when (matroskaStereoMode) {
+    1L, 11L -> pixelRatio * 2f
+    2L, 3L -> pixelRatio / 2f
+    else -> pixelRatio
+  }
+
+  fun packedStereoInput(): String = when (matroskaStereoMode) {
+    1L -> "sbs2l"
+    11L -> "sbs2r"
+    2L -> "ab2r"
+    3L -> "ab2l"
+    else -> "mono"
+  }
+
   private fun updateSurfaceViewSize(videoWidth: Int, videoHeight: Int, pixelRatio: Float) {
     if (disposing) return
     if (videoWidth == 0 || videoHeight == 0) return
 
-    val videoAspect = (videoWidth * pixelRatio) / videoHeight
+    val rendererPixelRatio = packedStereoPixelRatio(pixelRatio)
+    val videoAspect = (videoWidth * rendererPixelRatio) / videoHeight
     activity.runOnUiThread {
       videoAspectContainer?.setAspectRatio(videoAspect)
     }
-    updateSubtitleViewSize(videoWidth, videoHeight, pixelRatio)
+    updateSubtitleViewSize(videoWidth, videoHeight, rendererPixelRatio)
     updateAssMargins()
   }
 
@@ -1841,7 +1870,8 @@ class ExoPlayerCore(private val activity: Activity) :
       val containerHeight = surfaceContainer?.height ?: 0
       if (containerWidth == 0 || containerHeight == 0) return@runOnUiThread
 
-      val videoAspect = (vs.width * vs.pixelWidthHeightRatio) / vs.height
+      val rendererPixelRatio = packedStereoPixelRatio(vs.pixelWidthHeightRatio)
+      val videoAspect = (vs.width * rendererPixelRatio) / vs.height
       val containerAspect = containerWidth.toFloat() / containerHeight
       val resizeMode = videoAspectContainer?.resizeMode ?: AspectRatioFrameLayout.RESIZE_MODE_FIT
 
@@ -1903,8 +1933,17 @@ class ExoPlayerCore(private val activity: Activity) :
   }
 
   fun setBoxFitMode(mode: Int) {
+    requestedBoxFitMode = mode.coerceIn(0, 2)
+    applyBoxFitMode()
+  }
+
+  private fun applyBoxFitMode() {
     if (disposing) return
-    val resizeMode = boxFitModeToResizeMode(mode.coerceIn(0, 2))
+    val packedStereo = when (matroskaStereoMode) {
+      1L, 2L, 3L, 11L -> true
+      else -> false
+    }
+    val resizeMode = boxFitModeToResizeMode(if (packedStereo) 0 else requestedBoxFitMode)
     activity.runOnUiThread {
       val container = videoAspectContainer ?: return@runOnUiThread
       if (container.resizeMode == resizeMode) return@runOnUiThread
@@ -3429,6 +3468,8 @@ class ExoPlayerCore(private val activity: Activity) :
     directAudioOutputBlockedAfterFailure.clear()
     loggedDirectAudioRecoveryBlocks.clear()
     currentVideoFormat = null
+    matroskaStereoMode = null
+    applyBoxFitMode()
     firstFrameRendered = false
     hasRenderedVideoFrameForMedia = false
     lastRenderedFrameCount = -1
