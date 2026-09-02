@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Inloggen met Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Deze versie overslaan",
     "viewRelease": "Bekijk release",
     "latestVersion": "Je hebt de nieuwste versie",
-    "checkFailed": "Kon niet controleren op updates"
+    "checkFailed": "Kon niet controleren op updates",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Instellingen",
@@ -143,10 +151,6 @@
     "displayScale": "Weergaveschaal",
     "compact": "Compact",
     "comfortable": "Comfortabel",
-    "gridSpacing": "Rasterafstand",
-    "gridSpacingTight": "Compact",
-    "gridSpacingNormal": "Normaal",
-    "gridSpacingSpacious": "Ruim",
     "tvCornerSpotlightBackdrop": "Uitgelichte achtergrond in de hoek",
     "tvCornerSpotlightBackdropDescription": "Toon de uitgelichte afbeelding rechtsboven in plaats van schermvullend",
     "viewMode": "Weergavemodus",
@@ -197,8 +201,6 @@
     "playbackBufferExtraLarge": "Extra groot",
     "playbackBufferDescription": "Buffert meer tegen onstabiele verbindingen. Ook beperkt door de buffergrootte.",
     "defaultQualityTitle": "Standaardkwaliteit",
-    "cellularQualityTitle": "Standaardkwaliteit bij mobiele data",
-    "cellularQualitySameAsDefault": "Zelfde als standaardkwaliteit",
     "musicQualityTitle": "Muziekkwaliteit",
     "subtitleStyling": "Ondertitelopmaak",
     "subtitleStylingDescription": "Pas de weergave van ondertitels aan",
@@ -212,8 +214,6 @@
     "rememberTrackSelectionsDescription": "Onthoud audio- en ondertitelkeuzes per titel",
     "followServerTrackSelections": "Trackselecties van de server per aflevering gebruiken",
     "followServerTrackSelectionsDescription": "Pas bij het wisselen van aflevering de op de server geselecteerde audio en ondertitels toe in plaats van de huidige keuze over te nemen",
-    "resumeMusicOnLaunch": "Muzieksessie onthouden",
-    "resumeMusicOnLaunchDescription": "Open bij het starten van de app het laatste nummer gepauzeerd waar het gebleven was",
     "showChapterMarkersOnTimeline": "Hoofdstukmarkeringen op tijdlijn tonen",
     "showChapterMarkersOnTimelineDescription": "Verdeel de tijdlijn bij hoofdstukgrenzen",
     "specialsOrdering": "Specials in afleveringsvolgorde",
@@ -267,11 +267,6 @@
     "shortcutAlreadyAssigned": "Sneltoets al toegewezen aan ${action}",
     "shortcutUpdated": "Sneltoets bijgewerkt voor ${action}",
     "saveFailed": "Wijzigingen konden niet worden opgeslagen. Probeer het opnieuw.",
-    "autoPlayAndSkip": "Automatisch afspelen en overslaan",
-    "autoPlayNextEpisode": "Volgende aflevering automatisch afspelen",
-    "autoPlayNextEpisodeDescription": "Start de volgende aflevering automatisch wanneer een aflevering eindigt",
-    "playNextCountdown": "Aftellen voor volgende aflevering",
-    "playNextCountdownImmediate": "Direct afspelen",
     "autoSkipIntro": "Intro automatisch overslaan",
     "autoSkipIntroDescription": "Intromarkeringen na enkele seconden automatisch overslaan",
     "autoSkipCredits": "Aftiteling automatisch overslaan",
@@ -357,8 +352,6 @@
     "dvConversionNativeDescription": "Dwing native DV7 af en voorkom een nieuwe poging met DV-conversie",
     "dvConversionDv81Description": "Dwing directe RPU-conversie naar Dolby Vision-profiel 8.1 af",
     "dvConversionHevcStripDescription": "Verwijder Dolby Vision RPU/EL-lagen en bied gewone HEVC aan",
-    "deinterlace": "Deinterlacing",
-    "deinterlaceDescription": "Verwijder kamartefacten uit interlaced video (alleen mpv-speler)",
     "requireProfileSelectionOnOpen": "Vraag om profiel bij openen",
     "requireProfileSelectionOnOpenDescription": "Toon profielselectie telkens wanneer de app wordt geopend",
     "forceTvMode": "Tv-modus afdwingen",
@@ -376,31 +369,13 @@
     "showExploreTabDescription": "Toon het tabblad Ontdekken met content uit Plex Discover en gekoppelde trackers",
     "liveTvDefaultFavorites": "Standaard favoriete zenders",
     "liveTvDefaultFavoritesDescription": "Toon alleen favoriete zenders bij het openen van Live TV",
-    "general": "Algemeen",
-    "generalDescription": "Taal, opstart- en venstergedrag",
-    "languageAndRegion": "Taal en regio",
-    "startup": "Opstarten",
     "display": "Weergave",
-    "libraryAndCards": "Bibliotheek en kaarten",
     "homeScreen": "Startscherm",
     "navigation": "Navigatie",
     "window": "Venster",
-    "liveTv": "Live-tv",
     "player": "Speler",
-    "videoAndDisplay": "Video en weergave",
-    "audio": "Audio",
-    "quality": "Kwaliteit",
-    "subtitles": "Ondertitels",
     "seekAndTiming": "Spoelen en timing",
     "behavior": "Gedrag",
-    "gestures": "Gebaren",
-    "gestureBrightnessSwipe": "Vegen voor helderheid",
-    "gestureBrightnessSwipeDescription": "Veeg op de linkerrand omhoog of omlaag om de helderheid aan te passen",
-    "gestureVolumeSwipe": "Vegen voor volume",
-    "gestureVolumeSwipeDescription": "Veeg op de rechterrand omhoog of omlaag om het volume aan te passen",
-    "gesturePinchToZoom": "Knijpen om te zoomen",
-    "gesturePinchToZoomDescription": "Knijp op de video om in of uit te zoomen",
-    "controls": "Bediening",
     "rememberPlayerChanges": "Spelerwijzigingen onthouden",
     "rememberPlayerChangesDescription": "Waar een wijziging tijdens het afspelen wordt opgeslagen en opnieuw toegepast",
     "scopePlaybackSpeed": "Afspeelsnelheid",
@@ -411,7 +386,46 @@
     "playerScopeGlobal": "Overal",
     "playerScopeLibrary": "Per bibliotheek",
     "playerScopeTitle": "Per serie of film",
-    "exportDialogTitle": "Plezy-instellingen exporteren"
+    "exportDialogTitle": "Plezy-instellingen exporteren",
+    "gridSpacing": "Rasterafstand",
+    "gridSpacingTight": "Compact",
+    "gridSpacingNormal": "Normaal",
+    "gridSpacingSpacious": "Ruim",
+    "cellularQualityTitle": "Standaardkwaliteit bij mobiele data",
+    "cellularQualitySameAsDefault": "Zelfde als standaardkwaliteit",
+    "resumeMusicOnLaunch": "Muzieksessie onthouden",
+    "resumeMusicOnLaunchDescription": "Open bij het starten van de app het laatste nummer gepauzeerd waar het gebleven was",
+    "autoPlayAndSkip": "Automatisch afspelen en overslaan",
+    "autoPlayNextEpisode": "Volgende aflevering automatisch afspelen",
+    "autoPlayNextEpisodeDescription": "Start de volgende aflevering automatisch wanneer een aflevering eindigt",
+    "playNextCountdown": "Aftellen voor volgende aflevering",
+    "playNextCountdownImmediate": "Direct afspelen",
+    "deinterlace": "Deinterlacing",
+    "deinterlaceDescription": "Verwijder kamartefacten uit interlaced video (alleen mpv-speler)",
+    "general": "Algemeen",
+    "generalDescription": "Taal, opstart- en venstergedrag",
+    "languageAndRegion": "Taal en regio",
+    "startup": "Opstarten",
+    "libraryAndCards": "Bibliotheek en kaarten",
+    "liveTv": "Live-tv",
+    "videoAndDisplay": "Video en weergave",
+    "audio": "Audio",
+    "quality": "Kwaliteit",
+    "subtitles": "Ondertitels",
+    "gestures": "Gebaren",
+    "gestureBrightnessSwipe": "Vegen voor helderheid",
+    "gestureBrightnessSwipeDescription": "Veeg op de linkerrand omhoog of omlaag om de helderheid aan te passen",
+    "gestureVolumeSwipe": "Vegen voor volume",
+    "gestureVolumeSwipeDescription": "Veeg op de rechterrand omhoog of omlaag om het volume aan te passen",
+    "gesturePinchToZoom": "Knijpen om te zoomen",
+    "gesturePinchToZoomDescription": "Knijp op de video om in of uit te zoomen",
+    "controls": "Bediening",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Zoek films, series, muziek...",
@@ -451,7 +465,9 @@
       "subSeekPrev": "Naar vorige ondertitel",
       "shaderToggle": "Shaders aan/uit",
       "skipMarker": "Intro/aftiteling overslaan",
-      "screenshot": "Schermafbeelding maken"
+      "screenshot": "Schermafbeelding maken",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -663,6 +679,10 @@
     "track": "Audiospoor ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Audio",
     "subtitlesLabel": "Ondertitels",
     "addTime": "+${amount}${unit}",
@@ -983,77 +1003,6 @@
     "editMediaBrowserTitle": "${product}-verbinding bewerken",
     "editMediaBrowserIntro": "Voeg URL's toe aan ${serverName} of verwijder ze. Plezy gebruikt de bereikbare URL met de laagste latentie."
   },
-  "accountPreferences": {
-    "sectionTitle": "Accountvoorkeuren",
-    "hubSubtitleSingle": "Audio-, ondertitel- en bibliotheekopties opgeslagen op ${account}",
-    "hubSubtitleMultiple": "Audio-, ondertitel- en bibliotheekopties opgeslagen op ${count} accounts",
-    "pickAccount": "Elk account slaat zijn eigen voorkeuren op. Kies het account dat je wilt bewerken.",
-    "storedOnAccount": "Deze opties worden op het account zelf opgeslagen, zodat elke app die ermee is aangemeld ze gebruikt — ook Plezy op je andere apparaten.",
-    "noAccounts": "Geen accounts om te configureren",
-    "noAccountsHint": "Log in bij Plex of verbind een Jellyfin- of Emby-server en de voorkeuren die op dat account zijn opgeslagen, verschijnen hier.",
-    "unavailable": "Dit account is niet bereikbaar",
-    "loadFailed": "Deze voorkeuren konden niet worden geladen",
-    "noPreference": "Geen voorkeur",
-    "notSet": "Niet ingesteld",
-    "groups": {
-      "audioAndSubtitles": "Audio en ondertitels",
-      "libraryDisplay": "Bibliotheek",
-      "personalMedia": "Persoonlijke media"
-    },
-    "preferredAudioLanguage": "Voorkeurstaal voor audio",
-    "autoSelectAudio": "Kies audio op taal",
-    "autoSelectAudioDescription": "Bij 'Uit' wordt de audiotrack gebruikt die het bestand als standaard markeert.",
-    "preferredSubtitleLanguage": "Voorkeurstaal voor ondertitels",
-    "subtitleMode": "Ondertitels inschakelen",
-    "subtitleModes": {
-      "none": "Handmatig geselecteerd",
-      "noneDescription": "Schakel ondertitels nooit automatisch in.",
-      "defaultMode": "Trackvlaggen volgen",
-      "defaultModeDescription": "Gebruik de standaard- en geforceerde vlaggen die op elke ondertiteltrack zijn opgeslagen.",
-      "always": "Altijd ingeschakeld",
-      "alwaysDescription": "Schakel een ondertiteltrack in de voorkeurstaal in zodra er een beschikbaar is.",
-      "onlyForced": "Alleen geforceerde ondertitels",
-      "onlyForcedDescription": "Laad alleen de tracks die als geforceerd zijn gemarkeerd.",
-      "smart": "Weergeven bij anderstalig geluid",
-      "smartDescription": "Schakel ondertitels alleen in wanneer de audio in een andere taal is."
-    },
-    "subtitleAccessibility": "SDH-ondertitels",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "Voorkeur voor niet-SDH-ondertitels",
-      "preferSdh": "Voorkeur voor SDH-ondertitels",
-      "onlySdh": "Alleen SDH-ondertitels",
-      "onlyNonSdh": "Alleen niet-SDH-ondertitels"
-    },
-    "forcedSubtitles": "Geforceerde ondertitels",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "Voorkeur voor niet-geforceerde ondertitels",
-      "preferForced": "Voorkeur voor geforceerde ondertitels",
-      "onlyForced": "Alleen geforceerde ondertitels",
-      "onlyNonForced": "Alleen niet-geforceerde ondertitels"
-    },
-    "displayMissingEpisodes": "Ontbrekende afleveringen tonen",
-    "displayMissingEpisodesDescription": "Toon afleveringen die de server kent maar waarvoor geen bestand aanwezig is.",
-    "hidePlayedInLatest": "Bekeken items verbergen in 'Nieuwste'",
-    "hidePlayedInLatestDescription": "Laat items die je al hebt bekeken buiten de 'Nieuwste'-rijen van de server.",
-    "displayCollectionsView": "Collecties-weergave tonen",
-    "displayCollectionsViewDescription": "Bied de collecties-weergave van de server naast je bibliotheken aan.",
-    "rewatchingInNextUp": "Opnieuw bekeken series in 'Volgende' houden",
-    "rewatchingInNextUpDescription": "Als je een serie afrondt en opnieuw start, blijft 'Volgende' de herkijk volgen in plaats van de serie te laten vallen.",
-    "watchedIndicator": "Bekeken-indicatoren",
-    "watchedIndicatorOptions": {
-      "none": "Nooit",
-      "moviesAndShows": "Films en tv-series",
-      "movies": "Alleen films",
-      "shows": "Alleen tv-series"
-    },
-    "mediaReviewsVisibility": "Beoordelingen en recensies",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "Gebruikers en critici",
-      "usersOnly": "Alleen gebruikers",
-      "criticsOnly": "Alleen critici",
-      "nobody": "Verborgen"
-    }
-  },
   "discover": {
     "title": "Ontdekken",
     "noContentAvailable": "Geen inhoud beschikbaar",
@@ -1195,7 +1144,10 @@
     "openSourceLicenses": "Opensourcelicenties",
     "versionLabel": "Versie ${version}",
     "appDescription": "Een mooie Plex- en Jellyfin-client voor Flutter",
-    "viewLicensesDescription": "Licenties van bibliotheken van derden bekijken"
+    "viewLicensesDescription": "Licenties van bibliotheken van derden bekijken",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Geen servers gevonden voor ${username} (${email})",
@@ -2235,5 +2187,76 @@
     "redirectDifferentHost": "De server heeft doorgestuurd naar een andere host. Voer de uiteindelijke ${product}-URL rechtstreeks in.",
     "redirectInsecure": "De server heeft van HTTPS doorgestuurd naar een onbeveiligde URL",
     "redirectUnsupportedEnterFinal": "De server heeft doorgestuurd naar een niet-ondersteunde URL. Voer de uiteindelijke ${product}-URL rechtstreeks in."
+  },
+  "accountPreferences": {
+    "sectionTitle": "Accountvoorkeuren",
+    "hubSubtitleSingle": "Audio-, ondertitel- en bibliotheekopties opgeslagen op ${account}",
+    "hubSubtitleMultiple": "Audio-, ondertitel- en bibliotheekopties opgeslagen op ${count} accounts",
+    "pickAccount": "Elk account slaat zijn eigen voorkeuren op. Kies het account dat je wilt bewerken.",
+    "storedOnAccount": "Deze opties worden op het account zelf opgeslagen, zodat elke app die ermee is aangemeld ze gebruikt — ook Plezy op je andere apparaten.",
+    "noAccounts": "Geen accounts om te configureren",
+    "noAccountsHint": "Log in bij Plex of verbind een Jellyfin- of Emby-server en de voorkeuren die op dat account zijn opgeslagen, verschijnen hier.",
+    "unavailable": "Dit account is niet bereikbaar",
+    "loadFailed": "Deze voorkeuren konden niet worden geladen",
+    "noPreference": "Geen voorkeur",
+    "notSet": "Niet ingesteld",
+    "groups": {
+      "audioAndSubtitles": "Audio en ondertitels",
+      "libraryDisplay": "Bibliotheek",
+      "personalMedia": "Persoonlijke media"
+    },
+    "preferredAudioLanguage": "Voorkeurstaal voor audio",
+    "autoSelectAudio": "Kies audio op taal",
+    "autoSelectAudioDescription": "Bij 'Uit' wordt de audiotrack gebruikt die het bestand als standaard markeert.",
+    "preferredSubtitleLanguage": "Voorkeurstaal voor ondertitels",
+    "subtitleMode": "Ondertitels inschakelen",
+    "subtitleModes": {
+      "none": "Handmatig geselecteerd",
+      "noneDescription": "Schakel ondertitels nooit automatisch in.",
+      "defaultMode": "Trackvlaggen volgen",
+      "defaultModeDescription": "Gebruik de standaard- en geforceerde vlaggen die op elke ondertiteltrack zijn opgeslagen.",
+      "always": "Altijd ingeschakeld",
+      "alwaysDescription": "Schakel een ondertiteltrack in de voorkeurstaal in zodra er een beschikbaar is.",
+      "onlyForced": "Alleen geforceerde ondertitels",
+      "onlyForcedDescription": "Laad alleen de tracks die als geforceerd zijn gemarkeerd.",
+      "smart": "Weergeven bij anderstalig geluid",
+      "smartDescription": "Schakel ondertitels alleen in wanneer de audio in een andere taal is."
+    },
+    "subtitleAccessibility": "SDH-ondertitels",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "Voorkeur voor niet-SDH-ondertitels",
+      "preferSdh": "Voorkeur voor SDH-ondertitels",
+      "onlySdh": "Alleen SDH-ondertitels",
+      "onlyNonSdh": "Alleen niet-SDH-ondertitels"
+    },
+    "forcedSubtitles": "Geforceerde ondertitels",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "Voorkeur voor niet-geforceerde ondertitels",
+      "preferForced": "Voorkeur voor geforceerde ondertitels",
+      "onlyForced": "Alleen geforceerde ondertitels",
+      "onlyNonForced": "Alleen niet-geforceerde ondertitels"
+    },
+    "displayMissingEpisodes": "Ontbrekende afleveringen tonen",
+    "displayMissingEpisodesDescription": "Toon afleveringen die de server kent maar waarvoor geen bestand aanwezig is.",
+    "hidePlayedInLatest": "Bekeken items verbergen in 'Nieuwste'",
+    "hidePlayedInLatestDescription": "Laat items die je al hebt bekeken buiten de 'Nieuwste'-rijen van de server.",
+    "displayCollectionsView": "Collecties-weergave tonen",
+    "displayCollectionsViewDescription": "Bied de collecties-weergave van de server naast je bibliotheken aan.",
+    "rewatchingInNextUp": "Opnieuw bekeken series in 'Volgende' houden",
+    "rewatchingInNextUpDescription": "Als je een serie afrondt en opnieuw start, blijft 'Volgende' de herkijk volgen in plaats van de serie te laten vallen.",
+    "watchedIndicator": "Bekeken-indicatoren",
+    "watchedIndicatorOptions": {
+      "none": "Nooit",
+      "moviesAndShows": "Films en tv-series",
+      "movies": "Alleen films",
+      "shows": "Alleen tv-series"
+    },
+    "mediaReviewsVisibility": "Beoordelingen en recensies",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "Gebruikers en critici",
+      "usersOnly": "Alleen gebruikers",
+      "criticsOnly": "Alleen critici",
+      "nobody": "Verborgen"
+    }
   }
 }

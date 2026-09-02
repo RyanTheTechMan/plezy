@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Inicia sesión con Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Saltar esta versión",
     "viewRelease": "Ver versión",
     "latestVersion": "Ya estás en la última versión",
-    "checkFailed": "Error al buscar actualizaciones"
+    "checkFailed": "Error al buscar actualizaciones",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Configuración",
@@ -143,10 +151,6 @@
     "displayScale": "Escala de visualización",
     "compact": "Compacto",
     "comfortable": "Cómodo",
-    "gridSpacing": "Espaciado de la cuadrícula",
-    "gridSpacingTight": "Ajustado",
-    "gridSpacingNormal": "Normal",
-    "gridSpacingSpacious": "Espacioso",
     "tvCornerSpotlightBackdrop": "Imagen destacada en la esquina",
     "tvCornerSpotlightBackdropDescription": "Mostrar la imagen destacada en la esquina superior derecha en lugar de ocupar toda la pantalla",
     "viewMode": "Modo de vista",
@@ -197,8 +201,6 @@
     "playbackBufferExtraLarge": "Extra grande",
     "playbackBufferDescription": "Almacena más en búfer para conexiones inestables. También limitado por el tamaño del búfer.",
     "defaultQualityTitle": "Calidad predeterminada",
-    "cellularQualityTitle": "Calidad predeterminada en datos móviles",
-    "cellularQualitySameAsDefault": "Igual que la calidad predeterminada",
     "musicQualityTitle": "Calidad de música",
     "subtitleStyling": "Estilo de subtítulos",
     "subtitleStylingDescription": "Personalizar la apariencia de los subtítulos",
@@ -212,8 +214,6 @@
     "rememberTrackSelectionsDescription": "Recordar opciones de audio y subtítulos por título",
     "followServerTrackSelections": "Usar la selección de pistas del servidor por episodio",
     "followServerTrackSelectionsDescription": "Al cambiar de episodio, aplicar el audio y los subtítulos seleccionados en el servidor en lugar de mantener la elección actual",
-    "resumeMusicOnLaunch": "Recordar la sesión de música",
-    "resumeMusicOnLaunchDescription": "Al iniciar la aplicación, reabrir la última canción en pausa donde se quedó",
     "showChapterMarkersOnTimeline": "Mostrar marcadores de capítulos en la barra de progreso",
     "showChapterMarkersOnTimelineDescription": "Dividir la barra de progreso en los límites de capítulos",
     "specialsOrdering": "Especiales en orden de episodios",
@@ -267,11 +267,6 @@
     "shortcutAlreadyAssigned": "El atajo ya está asignado a ${action}",
     "shortcutUpdated": "Atajo actualizado para ${action}",
     "saveFailed": "No se pudieron guardar los cambios. Inténtalo de nuevo.",
-    "autoPlayAndSkip": "Reproducción automática y saltos",
-    "autoPlayNextEpisode": "Reproducción automática del siguiente episodio",
-    "autoPlayNextEpisodeDescription": "Iniciar automáticamente el siguiente episodio cuando termine el actual",
-    "playNextCountdown": "Cuenta atrás para el siguiente episodio",
-    "playNextCountdownImmediate": "Reproducir de inmediato",
     "autoSkipIntro": "Saltar introducción automáticamente",
     "autoSkipIntroDescription": "Saltar automáticamente los marcadores de introducción después de unos segundos",
     "autoSkipCredits": "Saltar créditos automáticamente",
@@ -357,8 +352,6 @@
     "dvConversionNativeDescription": "Forzar DV7 nativo y suprimir el reintento de conversión DV",
     "dvConversionDv81Description": "Forzar la conversión de RPU en línea al perfil 8.1 de Dolby Vision",
     "dvConversionHevcStripDescription": "Eliminar las capas RPU/EL de Dolby Vision y presentar HEVC convencional",
-    "deinterlace": "Desentrelazado",
-    "deinterlaceDescription": "Elimina los artefactos de peine del video entrelazado (solo reproductor mpv)",
     "requireProfileSelectionOnOpen": "Pedir perfil al abrir la aplicación",
     "requireProfileSelectionOnOpenDescription": "Mostrar selección de perfil cada vez que se abre la aplicación",
     "forceTvMode": "Forzar modo TV",
@@ -376,31 +369,13 @@
     "showExploreTabDescription": "Muestra la pestaña Explorar con contenido de Plex Discover y servicios de seguimiento conectados",
     "liveTvDefaultFavorites": "Canales favoritos por defecto",
     "liveTvDefaultFavoritesDescription": "Mostrar solo canales favoritos al abrir TV en vivo",
-    "general": "General",
-    "generalDescription": "Idioma, inicio y comportamiento de la ventana",
-    "languageAndRegion": "Idioma y región",
-    "startup": "Inicio",
     "display": "Pantalla",
-    "libraryAndCards": "Biblioteca y tarjetas",
     "homeScreen": "Pantalla de inicio",
     "navigation": "Navegación",
     "window": "Ventana",
-    "liveTv": "TV en vivo",
     "player": "Reproductor",
-    "videoAndDisplay": "Video y pantalla",
-    "audio": "Audio",
-    "quality": "Calidad",
-    "subtitles": "Subtítulos",
     "seekAndTiming": "Desplazamiento y tiempos",
     "behavior": "Comportamiento",
-    "gestures": "Gestos",
-    "gestureBrightnessSwipe": "Gesto de brillo",
-    "gestureBrightnessSwipeDescription": "Desliza hacia arriba o abajo en el borde izquierdo para ajustar el brillo",
-    "gestureVolumeSwipe": "Gesto de volumen",
-    "gestureVolumeSwipeDescription": "Desliza hacia arriba o abajo en el borde derecho para ajustar el volumen",
-    "gesturePinchToZoom": "Pellizcar para hacer zoom",
-    "gesturePinchToZoomDescription": "Pellizca el video para acercar o alejar",
-    "controls": "Controles",
     "rememberPlayerChanges": "Recordar cambios del reproductor",
     "rememberPlayerChangesDescription": "Dónde se guarda y se vuelve a aplicar un cambio realizado durante la reproducción",
     "scopePlaybackSpeed": "Velocidad de reproducción",
@@ -411,7 +386,46 @@
     "playerScopeGlobal": "En todas partes",
     "playerScopeLibrary": "Por biblioteca",
     "playerScopeTitle": "Por serie o película",
-    "exportDialogTitle": "Exportar ajustes de Plezy"
+    "exportDialogTitle": "Exportar ajustes de Plezy",
+    "gridSpacing": "Espaciado de la cuadrícula",
+    "gridSpacingTight": "Ajustado",
+    "gridSpacingNormal": "Normal",
+    "gridSpacingSpacious": "Espacioso",
+    "cellularQualityTitle": "Calidad predeterminada en datos móviles",
+    "cellularQualitySameAsDefault": "Igual que la calidad predeterminada",
+    "resumeMusicOnLaunch": "Recordar la sesión de música",
+    "resumeMusicOnLaunchDescription": "Al iniciar la aplicación, reabrir la última canción en pausa donde se quedó",
+    "autoPlayAndSkip": "Reproducción automática y saltos",
+    "autoPlayNextEpisode": "Reproducción automática del siguiente episodio",
+    "autoPlayNextEpisodeDescription": "Iniciar automáticamente el siguiente episodio cuando termine el actual",
+    "playNextCountdown": "Cuenta atrás para el siguiente episodio",
+    "playNextCountdownImmediate": "Reproducir de inmediato",
+    "deinterlace": "Desentrelazado",
+    "deinterlaceDescription": "Elimina los artefactos de peine del video entrelazado (solo reproductor mpv)",
+    "general": "General",
+    "generalDescription": "Idioma, inicio y comportamiento de la ventana",
+    "languageAndRegion": "Idioma y región",
+    "startup": "Inicio",
+    "libraryAndCards": "Biblioteca y tarjetas",
+    "liveTv": "TV en vivo",
+    "videoAndDisplay": "Video y pantalla",
+    "audio": "Audio",
+    "quality": "Calidad",
+    "subtitles": "Subtítulos",
+    "gestures": "Gestos",
+    "gestureBrightnessSwipe": "Gesto de brillo",
+    "gestureBrightnessSwipeDescription": "Desliza hacia arriba o abajo en el borde izquierdo para ajustar el brillo",
+    "gestureVolumeSwipe": "Gesto de volumen",
+    "gestureVolumeSwipeDescription": "Desliza hacia arriba o abajo en el borde derecho para ajustar el volumen",
+    "gesturePinchToZoom": "Pellizcar para hacer zoom",
+    "gesturePinchToZoomDescription": "Pellizca el video para acercar o alejar",
+    "controls": "Controles",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Buscar películas, series, música...",
@@ -451,7 +465,9 @@
       "subSeekPrev": "Ir al subtítulo anterior",
       "shaderToggle": "Activar/desactivar shaders",
       "skipMarker": "Saltar introducción/créditos",
-      "screenshot": "Tomar captura de pantalla"
+      "screenshot": "Tomar captura de pantalla",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -663,6 +679,10 @@
     "track": "Pista de audio ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Audio",
     "subtitlesLabel": "Subtítulos",
     "addTime": "+${amount}${unit}",
@@ -983,77 +1003,6 @@
     "editMediaBrowserTitle": "Editar conexión de ${product}",
     "editMediaBrowserIntro": "Añade o elimina URL para ${serverName}. Plezy usará la URL accesible con menor latencia."
   },
-  "accountPreferences": {
-    "sectionTitle": "Preferencias de cuenta",
-    "hubSubtitleSingle": "Opciones de audio, subtítulos y biblioteca guardadas en ${account}",
-    "hubSubtitleMultiple": "Opciones de audio, subtítulos y biblioteca guardadas en ${count} cuentas",
-    "pickAccount": "Cada cuenta guarda sus propias preferencias. Elige la que quieras editar.",
-    "storedOnAccount": "Estas opciones se guardan en la propia cuenta, así que cualquier aplicación con la sesión iniciada las usa, incluido Plezy en tus otros dispositivos.",
-    "noAccounts": "No hay cuentas que configurar",
-    "noAccountsHint": "Inicia sesión con Plex o conecta un servidor de Jellyfin o Emby y las preferencias guardadas en esa cuenta aparecerán aquí.",
-    "unavailable": "No se puede acceder a esta cuenta",
-    "loadFailed": "No se pudieron cargar estas preferencias",
-    "noPreference": "Sin preferencia",
-    "notSet": "No establecido",
-    "groups": {
-      "audioAndSubtitles": "Audio y subtítulos",
-      "libraryDisplay": "Biblioteca",
-      "personalMedia": "Medios personales"
-    },
-    "preferredAudioLanguage": "Idioma de audio preferido",
-    "autoSelectAudio": "Elegir audio por idioma",
-    "autoSelectAudioDescription": "Desactivado mantiene la pista de audio que el archivo marca como predeterminada.",
-    "preferredSubtitleLanguage": "Idioma de subtítulos preferido",
-    "subtitleMode": "Activar subtítulos",
-    "subtitleModes": {
-      "none": "Seleccionado manualmente",
-      "noneDescription": "No activar los subtítulos por sí solo.",
-      "defaultMode": "Seguir las marcas de la pista",
-      "defaultModeDescription": "Usar las marcas de predeterminada y forzada guardadas en cada pista de subtítulos.",
-      "always": "Siempre activado",
-      "alwaysDescription": "Activar una pista de subtítulos en el idioma preferido siempre que exista.",
-      "onlyForced": "Solo subtítulos forzados",
-      "onlyForcedDescription": "Cargar solo las pistas marcadas como forzadas.",
-      "smart": "Mostrar con audio extranjero",
-      "smartDescription": "Activar los subtítulos solo cuando el audio está en otro idioma."
-    },
-    "subtitleAccessibility": "Subtítulos SDH",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "Preferir subtítulos no SDH",
-      "preferSdh": "Preferir subtítulos SDH",
-      "onlySdh": "Solo subtítulos SDH",
-      "onlyNonSdh": "Solo subtítulos no SDH"
-    },
-    "forcedSubtitles": "Subtítulos forzados",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "Preferir subtítulos no forzados",
-      "preferForced": "Preferir subtítulos forzados",
-      "onlyForced": "Solo subtítulos forzados",
-      "onlyNonForced": "Solo subtítulos no forzados"
-    },
-    "displayMissingEpisodes": "Mostrar episodios faltantes",
-    "displayMissingEpisodesDescription": "Enumera los episodios que el servidor conoce pero para los que no tiene ningún archivo.",
-    "hidePlayedInLatest": "Ocultar elementos vistos en Recientes",
-    "hidePlayedInLatestDescription": "Deja fuera de las filas de Recientes del servidor los elementos que ya has visto.",
-    "displayCollectionsView": "Mostrar la vista de colecciones",
-    "displayCollectionsViewDescription": "Ofrecer la vista de colecciones del servidor junto a tus bibliotecas.",
-    "rewatchingInNextUp": "Mantener las series revistas en A continuación",
-    "rewatchingInNextUpDescription": "Cuando termines una serie y la vuelvas a empezar, A continuación seguirá tu revisión en lugar de descartarla.",
-    "watchedIndicator": "Indicadores de visto",
-    "watchedIndicatorOptions": {
-      "none": "Nunca",
-      "moviesAndShows": "Películas y series de TV",
-      "movies": "Solo películas",
-      "shows": "Solo series de TV"
-    },
-    "mediaReviewsVisibility": "Valoraciones y reseñas",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "Usuarios y críticos",
-      "usersOnly": "Solo usuarios",
-      "criticsOnly": "Solo críticos",
-      "nobody": "Ocultos"
-    }
-  },
   "discover": {
     "title": "Descubrir",
     "noContentAvailable": "No hay contenido disponible",
@@ -1195,7 +1144,10 @@
     "openSourceLicenses": "Licencias de código abierto",
     "versionLabel": "Versión ${version}",
     "appDescription": "Un cliente de Plex y Jellyfin para Flutter",
-    "viewLicensesDescription": "Ver las licencias de bibliotecas de terceros"
+    "viewLicensesDescription": "Ver las licencias de bibliotecas de terceros",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "No se encontraron servidores para ${username} (${email})",
@@ -2235,5 +2187,76 @@
     "redirectDifferentHost": "El servidor redirigió a un host diferente. Introduce directamente la URL final de ${product}.",
     "redirectInsecure": "El servidor redirigió de HTTPS a una URL no segura",
     "redirectUnsupportedEnterFinal": "El servidor redirigió a una URL no compatible. Introduce directamente la URL final de ${product}."
+  },
+  "accountPreferences": {
+    "sectionTitle": "Preferencias de cuenta",
+    "hubSubtitleSingle": "Opciones de audio, subtítulos y biblioteca guardadas en ${account}",
+    "hubSubtitleMultiple": "Opciones de audio, subtítulos y biblioteca guardadas en ${count} cuentas",
+    "pickAccount": "Cada cuenta guarda sus propias preferencias. Elige la que quieras editar.",
+    "storedOnAccount": "Estas opciones se guardan en la propia cuenta, así que cualquier aplicación con la sesión iniciada las usa, incluido Plezy en tus otros dispositivos.",
+    "noAccounts": "No hay cuentas que configurar",
+    "noAccountsHint": "Inicia sesión con Plex o conecta un servidor de Jellyfin o Emby y las preferencias guardadas en esa cuenta aparecerán aquí.",
+    "unavailable": "No se puede acceder a esta cuenta",
+    "loadFailed": "No se pudieron cargar estas preferencias",
+    "noPreference": "Sin preferencia",
+    "notSet": "No establecido",
+    "groups": {
+      "audioAndSubtitles": "Audio y subtítulos",
+      "libraryDisplay": "Biblioteca",
+      "personalMedia": "Medios personales"
+    },
+    "preferredAudioLanguage": "Idioma de audio preferido",
+    "autoSelectAudio": "Elegir audio por idioma",
+    "autoSelectAudioDescription": "Desactivado mantiene la pista de audio que el archivo marca como predeterminada.",
+    "preferredSubtitleLanguage": "Idioma de subtítulos preferido",
+    "subtitleMode": "Activar subtítulos",
+    "subtitleModes": {
+      "none": "Seleccionado manualmente",
+      "noneDescription": "No activar los subtítulos por sí solo.",
+      "defaultMode": "Seguir las marcas de la pista",
+      "defaultModeDescription": "Usar las marcas de predeterminada y forzada guardadas en cada pista de subtítulos.",
+      "always": "Siempre activado",
+      "alwaysDescription": "Activar una pista de subtítulos en el idioma preferido siempre que exista.",
+      "onlyForced": "Solo subtítulos forzados",
+      "onlyForcedDescription": "Cargar solo las pistas marcadas como forzadas.",
+      "smart": "Mostrar con audio extranjero",
+      "smartDescription": "Activar los subtítulos solo cuando el audio está en otro idioma."
+    },
+    "subtitleAccessibility": "Subtítulos SDH",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "Preferir subtítulos no SDH",
+      "preferSdh": "Preferir subtítulos SDH",
+      "onlySdh": "Solo subtítulos SDH",
+      "onlyNonSdh": "Solo subtítulos no SDH"
+    },
+    "forcedSubtitles": "Subtítulos forzados",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "Preferir subtítulos no forzados",
+      "preferForced": "Preferir subtítulos forzados",
+      "onlyForced": "Solo subtítulos forzados",
+      "onlyNonForced": "Solo subtítulos no forzados"
+    },
+    "displayMissingEpisodes": "Mostrar episodios faltantes",
+    "displayMissingEpisodesDescription": "Enumera los episodios que el servidor conoce pero para los que no tiene ningún archivo.",
+    "hidePlayedInLatest": "Ocultar elementos vistos en Recientes",
+    "hidePlayedInLatestDescription": "Deja fuera de las filas de Recientes del servidor los elementos que ya has visto.",
+    "displayCollectionsView": "Mostrar la vista de colecciones",
+    "displayCollectionsViewDescription": "Ofrecer la vista de colecciones del servidor junto a tus bibliotecas.",
+    "rewatchingInNextUp": "Mantener las series revistas en A continuación",
+    "rewatchingInNextUpDescription": "Cuando termines una serie y la vuelvas a empezar, A continuación seguirá tu revisión en lugar de descartarla.",
+    "watchedIndicator": "Indicadores de visto",
+    "watchedIndicatorOptions": {
+      "none": "Nunca",
+      "moviesAndShows": "Películas y series de TV",
+      "movies": "Solo películas",
+      "shows": "Solo series de TV"
+    },
+    "mediaReviewsVisibility": "Valoraciones y reseñas",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "Usuarios y críticos",
+      "usersOnly": "Solo usuarios",
+      "criticsOnly": "Solo críticos",
+      "nobody": "Ocultos"
+    }
   }
 }

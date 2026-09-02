@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Войти через Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Пропустить эту версию",
     "viewRelease": "Посмотреть релиз",
     "latestVersion": "У вас последняя версия",
-    "checkFailed": "Не удалось проверить обновления"
+    "checkFailed": "Не удалось проверить обновления",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Настройки",
@@ -143,10 +151,6 @@
     "displayScale": "Масштаб отображения",
     "compact": "Компактный",
     "comfortable": "Комфортный",
-    "gridSpacing": "Отступы сетки",
-    "gridSpacingTight": "Плотные",
-    "gridSpacingNormal": "Обычные",
-    "gridSpacingSpacious": "Просторные",
     "tvCornerSpotlightBackdrop": "Фоновое изображение в углу",
     "tvCornerSpotlightBackdropDescription": "Показывать изображение избранного материала в правом верхнем углу, а не на весь экран",
     "viewMode": "Режим просмотра",
@@ -197,8 +201,6 @@
     "playbackBufferExtraLarge": "Очень большой",
     "playbackBufferDescription": "Буферизирует больше при нестабильном соединении. Также ограничено размером буфера.",
     "defaultQualityTitle": "Качество по умолчанию",
-    "cellularQualityTitle": "Качество по умолчанию в мобильной сети",
-    "cellularQualitySameAsDefault": "Как качество по умолчанию",
     "musicQualityTitle": "Качество музыки",
     "subtitleStyling": "Стиль субтитров",
     "subtitleStylingDescription": "Настроить внешний вид субтитров",
@@ -212,8 +214,6 @@
     "rememberTrackSelectionsDescription": "Запоминать выбор аудиодорожки и субтитров для каждого материала",
     "followServerTrackSelections": "Использовать выбор дорожек сервера для каждой серии",
     "followServerTrackSelectionsDescription": "При смене серии применять аудио и субтитры, выбранные на сервере, вместо переноса текущего выбора",
-    "resumeMusicOnLaunch": "Запоминать музыкальную сессию",
-    "resumeMusicOnLaunchDescription": "При запуске приложения открывать последний трек на паузе с того места, где он остановился",
     "showChapterMarkersOnTimeline": "Показывать маркеры глав на шкале перемотки",
     "showChapterMarkersOnTimelineDescription": "Разделять шкалу перемотки по границам глав",
     "specialsOrdering": "Спецвыпуски в порядке эпизодов",
@@ -267,11 +267,6 @@
     "shortcutAlreadyAssigned": "Сочетание клавиш уже назначено действию «${action}»",
     "shortcutUpdated": "Сочетание клавиш для действия «${action}» обновлено",
     "saveFailed": "Не удалось сохранить изменения. Попробуйте снова.",
-    "autoPlayAndSkip": "Автовоспроизведение и пропуск",
-    "autoPlayNextEpisode": "Автовоспроизведение следующего эпизода",
-    "autoPlayNextEpisodeDescription": "Автоматически запускать следующий эпизод, когда заканчивается текущий",
-    "playNextCountdown": "Обратный отсчёт перед следующим",
-    "playNextCountdownImmediate": "Воспроизводить сразу",
     "autoSkipIntro": "Автопропуск вступления",
     "autoSkipIntroDescription": "Автоматически пропускать маркеры вступления через несколько секунд",
     "autoSkipCredits": "Автопропуск титров",
@@ -357,8 +352,6 @@
     "dvConversionNativeDescription": "Принудительно использовать нативный DV7 и не повторять DV-конвертацию",
     "dvConversionDv81Description": "Принудительно выполнять inline-конвертацию RPU в Dolby Vision профиль 8.1",
     "dvConversionHevcStripDescription": "Удалять слои Dolby Vision RPU/EL и передавать обычный HEVC",
-    "deinterlace": "Деинтерлейсинг",
-    "deinterlaceDescription": "Устранять гребёнку на чересстрочном видео (только в плеере mpv)",
     "requireProfileSelectionOnOpen": "Запрашивать профиль при запуске",
     "requireProfileSelectionOnOpenDescription": "Показывать выбор профиля при каждом открытии приложения",
     "forceTvMode": "Принудительный режим ТВ",
@@ -376,31 +369,13 @@
     "showExploreTabDescription": "Показывать вкладку «Обзор» с контентом из Plex Discover и подключённых трекеров",
     "liveTvDefaultFavorites": "Избранные каналы по умолчанию",
     "liveTvDefaultFavoritesDescription": "Показывать только избранные каналы при открытии ТВ",
-    "general": "Основные",
-    "generalDescription": "Язык, запуск и поведение окна",
-    "languageAndRegion": "Язык и регион",
-    "startup": "Запуск",
     "display": "Экран",
-    "libraryAndCards": "Библиотека и карточки",
     "homeScreen": "Главный экран",
     "navigation": "Навигация",
     "window": "Окно",
-    "liveTv": "Прямой эфир",
     "player": "Плеер",
-    "videoAndDisplay": "Видео и экран",
-    "audio": "Аудио",
-    "quality": "Качество",
-    "subtitles": "Субтитры",
     "seekAndTiming": "Перемотка и время",
     "behavior": "Поведение",
-    "gestures": "Жесты",
-    "gestureBrightnessSwipe": "Свайп для яркости",
-    "gestureBrightnessSwipeDescription": "Проведите вверх или вниз по левому краю, чтобы изменить яркость",
-    "gestureVolumeSwipe": "Свайп для громкости",
-    "gestureVolumeSwipeDescription": "Проведите вверх или вниз по правому краю, чтобы изменить громкость",
-    "gesturePinchToZoom": "Щипок для масштабирования",
-    "gesturePinchToZoomDescription": "Сведите или разведите пальцы на видео, чтобы изменить масштаб",
-    "controls": "Элементы управления",
     "rememberPlayerChanges": "Запоминать изменения плеера",
     "rememberPlayerChangesDescription": "Где сохраняется и откуда повторно применяется изменение, сделанное во время воспроизведения",
     "scopePlaybackSpeed": "Скорость воспроизведения",
@@ -411,7 +386,46 @@
     "playerScopeGlobal": "Везде",
     "playerScopeLibrary": "Для библиотеки",
     "playerScopeTitle": "Для сериала или фильма",
-    "exportDialogTitle": "Экспорт настроек Plezy"
+    "exportDialogTitle": "Экспорт настроек Plezy",
+    "gridSpacing": "Отступы сетки",
+    "gridSpacingTight": "Плотные",
+    "gridSpacingNormal": "Обычные",
+    "gridSpacingSpacious": "Просторные",
+    "cellularQualityTitle": "Качество по умолчанию в мобильной сети",
+    "cellularQualitySameAsDefault": "Как качество по умолчанию",
+    "resumeMusicOnLaunch": "Запоминать музыкальную сессию",
+    "resumeMusicOnLaunchDescription": "При запуске приложения открывать последний трек на паузе с того места, где он остановился",
+    "autoPlayAndSkip": "Автовоспроизведение и пропуск",
+    "autoPlayNextEpisode": "Автовоспроизведение следующего эпизода",
+    "autoPlayNextEpisodeDescription": "Автоматически запускать следующий эпизод, когда заканчивается текущий",
+    "playNextCountdown": "Обратный отсчёт перед следующим",
+    "playNextCountdownImmediate": "Воспроизводить сразу",
+    "deinterlace": "Деинтерлейсинг",
+    "deinterlaceDescription": "Устранять гребёнку на чересстрочном видео (только в плеере mpv)",
+    "general": "Основные",
+    "generalDescription": "Язык, запуск и поведение окна",
+    "languageAndRegion": "Язык и регион",
+    "startup": "Запуск",
+    "libraryAndCards": "Библиотека и карточки",
+    "liveTv": "Прямой эфир",
+    "videoAndDisplay": "Видео и экран",
+    "audio": "Аудио",
+    "quality": "Качество",
+    "subtitles": "Субтитры",
+    "gestures": "Жесты",
+    "gestureBrightnessSwipe": "Свайп для яркости",
+    "gestureBrightnessSwipeDescription": "Проведите вверх или вниз по левому краю, чтобы изменить яркость",
+    "gestureVolumeSwipe": "Свайп для громкости",
+    "gestureVolumeSwipeDescription": "Проведите вверх или вниз по правому краю, чтобы изменить громкость",
+    "gesturePinchToZoom": "Щипок для масштабирования",
+    "gesturePinchToZoomDescription": "Сведите или разведите пальцы на видео, чтобы изменить масштаб",
+    "controls": "Элементы управления",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Поиск фильмов, сериалов, музыки...",
@@ -451,7 +465,9 @@
       "subSeekPrev": "К предыдущему субтитру",
       "shaderToggle": "Вкл./выкл. шейдеры",
       "skipMarker": "Пропустить вступление/титры",
-      "screenshot": "Сделать снимок экрана"
+      "screenshot": "Сделать снимок экрана",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -669,6 +685,12 @@
     "track": "Аудиодорожка ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "few": "",
+      "many": "",
+      "other": "${n} frames"
+    },
     "audioLabel": "Аудио",
     "subtitlesLabel": "Субтитры",
     "addTime": "+${amount}${unit}",
@@ -991,77 +1013,6 @@
     "editMediaBrowserTitle": "Изменить подключение ${product}",
     "editMediaBrowserIntro": "Добавьте или удалите URL-адреса для ${serverName}. Plezy будет использовать доступный URL с наименьшей задержкой."
   },
-  "accountPreferences": {
-    "sectionTitle": "Настройки аккаунта",
-    "hubSubtitleSingle": "Параметры аудио, субтитров и библиотеки сохранены на аккаунте ${account}",
-    "hubSubtitleMultiple": "Параметры аудио, субтитров и библиотеки сохранены на ${count} аккаунтах",
-    "pickAccount": "Каждый аккаунт хранит собственные настройки. Выберите, какой редактировать.",
-    "storedOnAccount": "Эти параметры сохраняются на самом аккаунте, поэтому их используют все приложения, вошедшие в него, — включая Plezy на ваших других устройствах.",
-    "noAccounts": "Нет аккаунтов для настройки",
-    "noAccountsHint": "Войдите в Plex или подключите сервер Jellyfin или Emby — и настройки, сохранённые на этом аккаунте, появятся здесь.",
-    "unavailable": "Не удаётся получить доступ к этому аккаунту",
-    "loadFailed": "Не удалось загрузить эти настройки",
-    "noPreference": "Без предпочтений",
-    "notSet": "Не задано",
-    "groups": {
-      "audioAndSubtitles": "Аудио и субтитры",
-      "libraryDisplay": "Библиотека",
-      "personalMedia": "Личные медиа"
-    },
-    "preferredAudioLanguage": "Предпочитаемый язык аудио",
-    "autoSelectAudio": "Выбирать аудиодорожку по языку",
-    "autoSelectAudioDescription": "В выключенном состоянии используется аудиодорожка, помеченная в файле как дорожка по умолчанию.",
-    "preferredSubtitleLanguage": "Предпочитаемый язык субтитров",
-    "subtitleMode": "Включать субтитры",
-    "subtitleModes": {
-      "none": "Выбор вручную",
-      "noneDescription": "Никогда не включать субтитры автоматически.",
-      "defaultMode": "Следовать флагам дорожки",
-      "defaultModeDescription": "Использовать флаги «по умолчанию» и «принудительная», сохранённые на каждой дорожке субтитров.",
-      "always": "Всегда включены",
-      "alwaysDescription": "Включать дорожку субтитров на предпочитаемом языке, когда такая существует.",
-      "onlyForced": "Только принудительные субтитры",
-      "onlyForcedDescription": "Загружать только дорожки, помеченные как принудительные.",
-      "smart": "Показывать при иноязычном аудио",
-      "smartDescription": "Включать субтитры только когда аудио на другом языке."
-    },
-    "subtitleAccessibility": "Субтитры SDH",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "Предпочитать субтитры без SDH",
-      "preferSdh": "Предпочитать субтитры SDH",
-      "onlySdh": "Только субтитры SDH",
-      "onlyNonSdh": "Только субтитры без SDH"
-    },
-    "forcedSubtitles": "Принудительные субтитры",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "Предпочитать непринудительные субтитры",
-      "preferForced": "Предпочитать принудительные субтитры",
-      "onlyForced": "Только принудительные субтитры",
-      "onlyNonForced": "Только непринудительные субтитры"
-    },
-    "displayMissingEpisodes": "Показывать отсутствующие эпизоды",
-    "displayMissingEpisodesDescription": "Перечислять эпизоды, которые знает сервер, но для которых нет файлов.",
-    "hidePlayedInLatest": "Скрывать просмотренное в «Недавно добавленном»",
-    "hidePlayedInLatestDescription": "Исключать уже просмотренные материалы из рядов «Недавно добавленное» сервера.",
-    "displayCollectionsView": "Показывать раздел «Коллекции»",
-    "displayCollectionsViewDescription": "Показывать раздел коллекций сервера рядом с вашими библиотеками.",
-    "rewatchingInNextUp": "Сохранять пересматриваемые сериалы в «Далее»",
-    "rewatchingInNextUpDescription": "Когда вы досматриваете сериал и начинаете его заново, «Далее» продолжает отслеживать повторный просмотр, а не убирает сериал.",
-    "watchedIndicator": "Индикаторы просмотра",
-    "watchedIndicatorOptions": {
-      "none": "Никогда",
-      "moviesAndShows": "Фильмы и сериалы",
-      "movies": "Только фильмы",
-      "shows": "Только сериалы"
-    },
-    "mediaReviewsVisibility": "Оценки и отзывы",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "Пользователи и критики",
-      "usersOnly": "Только пользователи",
-      "criticsOnly": "Только критики",
-      "nobody": "Скрыто"
-    }
-  },
   "discover": {
     "title": "Обзор",
     "noContentAvailable": "Контент недоступен",
@@ -1205,7 +1156,10 @@
     "openSourceLicenses": "Лицензии открытого ПО",
     "versionLabel": "Версия ${version}",
     "appDescription": "Красивый клиент Plex и Jellyfin на Flutter",
-    "viewLicensesDescription": "Просмотр лицензий сторонних библиотек"
+    "viewLicensesDescription": "Просмотр лицензий сторонних библиотек",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Серверы не найдены для ${username} (${email})",
@@ -2255,5 +2209,76 @@
     "redirectDifferentHost": "Сервер перенаправил на другой хост. Введите конечный URL ${product} напрямую.",
     "redirectInsecure": "Сервер перенаправил с HTTPS на небезопасный URL",
     "redirectUnsupportedEnterFinal": "Сервер перенаправил на неподдерживаемый URL. Введите конечный URL ${product} напрямую."
+  },
+  "accountPreferences": {
+    "sectionTitle": "Настройки аккаунта",
+    "hubSubtitleSingle": "Параметры аудио, субтитров и библиотеки сохранены на аккаунте ${account}",
+    "hubSubtitleMultiple": "Параметры аудио, субтитров и библиотеки сохранены на ${count} аккаунтах",
+    "pickAccount": "Каждый аккаунт хранит собственные настройки. Выберите, какой редактировать.",
+    "storedOnAccount": "Эти параметры сохраняются на самом аккаунте, поэтому их используют все приложения, вошедшие в него, — включая Plezy на ваших других устройствах.",
+    "noAccounts": "Нет аккаунтов для настройки",
+    "noAccountsHint": "Войдите в Plex или подключите сервер Jellyfin или Emby — и настройки, сохранённые на этом аккаунте, появятся здесь.",
+    "unavailable": "Не удаётся получить доступ к этому аккаунту",
+    "loadFailed": "Не удалось загрузить эти настройки",
+    "noPreference": "Без предпочтений",
+    "notSet": "Не задано",
+    "groups": {
+      "audioAndSubtitles": "Аудио и субтитры",
+      "libraryDisplay": "Библиотека",
+      "personalMedia": "Личные медиа"
+    },
+    "preferredAudioLanguage": "Предпочитаемый язык аудио",
+    "autoSelectAudio": "Выбирать аудиодорожку по языку",
+    "autoSelectAudioDescription": "В выключенном состоянии используется аудиодорожка, помеченная в файле как дорожка по умолчанию.",
+    "preferredSubtitleLanguage": "Предпочитаемый язык субтитров",
+    "subtitleMode": "Включать субтитры",
+    "subtitleModes": {
+      "none": "Выбор вручную",
+      "noneDescription": "Никогда не включать субтитры автоматически.",
+      "defaultMode": "Следовать флагам дорожки",
+      "defaultModeDescription": "Использовать флаги «по умолчанию» и «принудительная», сохранённые на каждой дорожке субтитров.",
+      "always": "Всегда включены",
+      "alwaysDescription": "Включать дорожку субтитров на предпочитаемом языке, когда такая существует.",
+      "onlyForced": "Только принудительные субтитры",
+      "onlyForcedDescription": "Загружать только дорожки, помеченные как принудительные.",
+      "smart": "Показывать при иноязычном аудио",
+      "smartDescription": "Включать субтитры только когда аудио на другом языке."
+    },
+    "subtitleAccessibility": "Субтитры SDH",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "Предпочитать субтитры без SDH",
+      "preferSdh": "Предпочитать субтитры SDH",
+      "onlySdh": "Только субтитры SDH",
+      "onlyNonSdh": "Только субтитры без SDH"
+    },
+    "forcedSubtitles": "Принудительные субтитры",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "Предпочитать непринудительные субтитры",
+      "preferForced": "Предпочитать принудительные субтитры",
+      "onlyForced": "Только принудительные субтитры",
+      "onlyNonForced": "Только непринудительные субтитры"
+    },
+    "displayMissingEpisodes": "Показывать отсутствующие эпизоды",
+    "displayMissingEpisodesDescription": "Перечислять эпизоды, которые знает сервер, но для которых нет файлов.",
+    "hidePlayedInLatest": "Скрывать просмотренное в «Недавно добавленном»",
+    "hidePlayedInLatestDescription": "Исключать уже просмотренные материалы из рядов «Недавно добавленное» сервера.",
+    "displayCollectionsView": "Показывать раздел «Коллекции»",
+    "displayCollectionsViewDescription": "Показывать раздел коллекций сервера рядом с вашими библиотеками.",
+    "rewatchingInNextUp": "Сохранять пересматриваемые сериалы в «Далее»",
+    "rewatchingInNextUpDescription": "Когда вы досматриваете сериал и начинаете его заново, «Далее» продолжает отслеживать повторный просмотр, а не убирает сериал.",
+    "watchedIndicator": "Индикаторы просмотра",
+    "watchedIndicatorOptions": {
+      "none": "Никогда",
+      "moviesAndShows": "Фильмы и сериалы",
+      "movies": "Только фильмы",
+      "shows": "Только сериалы"
+    },
+    "mediaReviewsVisibility": "Оценки и отзывы",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "Пользователи и критики",
+      "usersOnly": "Только пользователи",
+      "criticsOnly": "Только критики",
+      "nobody": "Скрыто"
+    }
   }
 }

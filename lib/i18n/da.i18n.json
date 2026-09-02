@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Log ind med Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Spring denne version over",
     "viewRelease": "Vis udgivelse",
     "latestVersion": "Du har den nyeste version",
-    "checkFailed": "Kunne ikke søge efter opdateringer"
+    "checkFailed": "Kunne ikke søge efter opdateringer",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Indstillinger",
@@ -143,10 +151,6 @@
     "displayScale": "Skalering",
     "compact": "Kompakt",
     "comfortable": "Komfortabel",
-    "gridSpacing": "Gitterafstand",
-    "gridSpacingTight": "Tæt",
-    "gridSpacingNormal": "Normal",
-    "gridSpacingSpacious": "Rummelig",
     "tvCornerSpotlightBackdrop": "Fremhævet baggrundsbillede i hjørnet",
     "tvCornerSpotlightBackdropDescription": "Vis fremhævet grafik i øverste højre hjørne i stedet for at fylde skærmen",
     "viewMode": "Visningstilstand",
@@ -197,8 +201,6 @@
     "playbackBufferExtraLarge": "Ekstra stor",
     "playbackBufferDescription": "Bufrer mere mod ustabile forbindelser. Begrænses også af bufferstørrelsen.",
     "defaultQualityTitle": "Standardkvalitet",
-    "cellularQualityTitle": "Standardkvalitet på mobildata",
-    "cellularQualitySameAsDefault": "Samme som standardkvalitet",
     "musicQualityTitle": "Musikkvalitet",
     "subtitleStyling": "Undertekststil",
     "subtitleStylingDescription": "Tilpas underteksters udseende",
@@ -212,8 +214,6 @@
     "rememberTrackSelectionsDescription": "Husk valget af lyd og undertekster for hver titel",
     "followServerTrackSelections": "Brug serverens sporvalg for hvert afsnit",
     "followServerTrackSelectionsDescription": "Ved afsnitsskift anvendes lyden og underteksterne valgt på serveren i stedet for at videreføre det aktuelle valg",
-    "resumeMusicOnLaunch": "Husk musiksession",
-    "resumeMusicOnLaunchDescription": "Åbn den seneste sang på pause der, hvor den slap, når appen starter",
     "showChapterMarkersOnTimeline": "Vis kapitelmarkører på tidslinjen",
     "showChapterMarkersOnTimelineDescription": "Opdel tidslinjen ved kapitelgrænser",
     "specialsOrdering": "Specialafsnit i episoderekkefølge",
@@ -267,11 +267,6 @@
     "shortcutAlreadyAssigned": "Genvejen er allerede tildelt ${action}",
     "shortcutUpdated": "Genvejen for ${action} er opdateret",
     "saveFailed": "Ændringerne kunne ikke gemmes. Prøv igen.",
-    "autoPlayAndSkip": "Autoafspilning og spring",
-    "autoPlayNextEpisode": "Autoafspil næste afsnit",
-    "autoPlayNextEpisodeDescription": "Start automatisk næste afsnit, når et afsnit slutter",
-    "playNextCountdown": "Nedtælling til næste afsnit",
-    "playNextCountdownImmediate": "Afspil med det samme",
     "autoSkipIntro": "Spring intro over automatisk",
     "autoSkipIntroDescription": "Spring automatisk intromarkører over efter få sekunder",
     "autoSkipCredits": "Spring rulletekster over automatisk",
@@ -357,8 +352,6 @@
     "dvConversionNativeDescription": "Gennemtving indbygget DV7-understøttelse, og undlad at forsøge DV-konvertering igen",
     "dvConversionDv81Description": "Tving inline RPU-konvertering til Dolby Vision profil 8.1",
     "dvConversionHevcStripDescription": "Fjern Dolby Vision RPU/EL-lag og brug almindelig HEVC",
-    "deinterlace": "Deinterlacing",
-    "deinterlaceDescription": "Fjern kamartefakter fra interlaced video (kun mpv-afspiller)",
     "requireProfileSelectionOnOpen": "Spørg om profil ved åbning",
     "requireProfileSelectionOnOpenDescription": "Vis profilvalg hver gang appen åbnes",
     "forceTvMode": "Gennemtving TV-tilstand",
@@ -376,31 +369,13 @@
     "showExploreTabDescription": "Vis fanen Opdag med indhold fra Plex Discover og tilknyttede trackere",
     "liveTvDefaultFavorites": "Vis favoritkanaler som standard",
     "liveTvDefaultFavoritesDescription": "Vis kun favoritkanaler ved åbning af Live TV",
-    "general": "Generelt",
-    "generalDescription": "Sprog, opstart og vinduesadfærd",
-    "languageAndRegion": "Sprog og region",
-    "startup": "Opstart",
     "display": "Skærm",
-    "libraryAndCards": "Bibliotek og kort",
     "homeScreen": "Startskærm",
     "navigation": "Navigation",
     "window": "Vindue",
-    "liveTv": "Live TV",
     "player": "Afspiller",
-    "videoAndDisplay": "Video og skærm",
-    "audio": "Lyd",
-    "quality": "Kvalitet",
-    "subtitles": "Undertekster",
     "seekAndTiming": "Søgning og timing",
     "behavior": "Adfærd",
-    "gestures": "Bevægelser",
-    "gestureBrightnessSwipe": "Lysstyrke-strygning",
-    "gestureBrightnessSwipeDescription": "Stryg op eller ned i venstre kant for at justere lysstyrken",
-    "gestureVolumeSwipe": "Lydstyrke-strygning",
-    "gestureVolumeSwipeDescription": "Stryg op eller ned i højre kant for at justere lydstyrken",
-    "gesturePinchToZoom": "Klem for at zoome",
-    "gesturePinchToZoomDescription": "Klem på videoen for at zoome ind eller ud",
-    "controls": "Kontroller",
     "rememberPlayerChanges": "Husk afspillerændringer",
     "rememberPlayerChangesDescription": "Hvor en ændring under afspilning gemmes og anvendes igen",
     "scopePlaybackSpeed": "Afspilningshastighed",
@@ -411,7 +386,46 @@
     "playerScopeGlobal": "Overalt",
     "playerScopeLibrary": "Pr. bibliotek",
     "playerScopeTitle": "Pr. serie eller film",
-    "exportDialogTitle": "Eksportér Plezy-indstillinger"
+    "exportDialogTitle": "Eksportér Plezy-indstillinger",
+    "gridSpacing": "Gitterafstand",
+    "gridSpacingTight": "Tæt",
+    "gridSpacingNormal": "Normal",
+    "gridSpacingSpacious": "Rummelig",
+    "cellularQualityTitle": "Standardkvalitet på mobildata",
+    "cellularQualitySameAsDefault": "Samme som standardkvalitet",
+    "resumeMusicOnLaunch": "Husk musiksession",
+    "resumeMusicOnLaunchDescription": "Åbn den seneste sang på pause der, hvor den slap, når appen starter",
+    "autoPlayAndSkip": "Autoafspilning og spring",
+    "autoPlayNextEpisode": "Autoafspil næste afsnit",
+    "autoPlayNextEpisodeDescription": "Start automatisk næste afsnit, når et afsnit slutter",
+    "playNextCountdown": "Nedtælling til næste afsnit",
+    "playNextCountdownImmediate": "Afspil med det samme",
+    "deinterlace": "Deinterlacing",
+    "deinterlaceDescription": "Fjern kamartefakter fra interlaced video (kun mpv-afspiller)",
+    "general": "Generelt",
+    "generalDescription": "Sprog, opstart og vinduesadfærd",
+    "languageAndRegion": "Sprog og region",
+    "startup": "Opstart",
+    "libraryAndCards": "Bibliotek og kort",
+    "liveTv": "Live TV",
+    "videoAndDisplay": "Video og skærm",
+    "audio": "Lyd",
+    "quality": "Kvalitet",
+    "subtitles": "Undertekster",
+    "gestures": "Bevægelser",
+    "gestureBrightnessSwipe": "Lysstyrke-strygning",
+    "gestureBrightnessSwipeDescription": "Stryg op eller ned i venstre kant for at justere lysstyrken",
+    "gestureVolumeSwipe": "Lydstyrke-strygning",
+    "gestureVolumeSwipeDescription": "Stryg op eller ned i højre kant for at justere lydstyrken",
+    "gesturePinchToZoom": "Klem for at zoome",
+    "gesturePinchToZoomDescription": "Klem på videoen for at zoome ind eller ud",
+    "controls": "Kontroller",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Søg film, serier, musik...",
@@ -451,7 +465,9 @@
       "subSeekPrev": "Søg til forrige undertekst",
       "shaderToggle": "Slå shadere til/fra",
       "skipMarker": "Spring intro/rulletekster over",
-      "screenshot": "Tag skærmbillede"
+      "screenshot": "Tag skærmbillede",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -663,6 +679,10 @@
     "track": "Lydspor ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Lyd",
     "subtitlesLabel": "Undertekster",
     "addTime": "+${amount}${unit}",
@@ -983,77 +1003,6 @@
     "editMediaBrowserTitle": "Rediger ${product}-forbindelse",
     "editMediaBrowserIntro": "Tilføj eller fjern URL'er for ${serverName}. Plezy bruger den tilgængelige URL med laveste latenstid."
   },
-  "accountPreferences": {
-    "sectionTitle": "Kontopræferencer",
-    "hubSubtitleSingle": "Lyd-, undertekst- og biblioteksindstillinger gemt på ${account}",
-    "hubSubtitleMultiple": "Lyd-, undertekst- og biblioteksindstillinger gemt på ${count} konti",
-    "pickAccount": "Hver konto gemmer sine egne præferencer. Vælg den, du vil redigere.",
-    "storedOnAccount": "Disse indstillinger gemmes på selve kontoen, så alle apps, der er logget ind på den, bruger dem — inklusive Plezy på dine andre enheder.",
-    "noAccounts": "Ingen konti at konfigurere",
-    "noAccountsHint": "Log ind på Plex, eller forbind en Jellyfin- eller Emby-server, så vises de præferencer, der er gemt på kontoen, her.",
-    "unavailable": "Kan ikke nå denne konto",
-    "loadFailed": "Kunne ikke indlæse disse præferencer",
-    "noPreference": "Ingen præference",
-    "notSet": "Ikke indstillet",
-    "groups": {
-      "audioAndSubtitles": "Lyd og undertekster",
-      "libraryDisplay": "Bibliotek",
-      "personalMedia": "Personlige medier"
-    },
-    "preferredAudioLanguage": "Foretrukket lydsprog",
-    "autoSelectAudio": "Vælg lyd ud fra sprog",
-    "autoSelectAudioDescription": "Fra beholder det lydspor, som filen markerer som standard.",
-    "preferredSubtitleLanguage": "Foretrukket undertekstsprog",
-    "subtitleMode": "Slå undertekster til",
-    "subtitleModes": {
-      "none": "Manuelt valgt",
-      "noneDescription": "Slår aldrig undertekster til af sig selv.",
-      "defaultMode": "Følg sporets flag",
-      "defaultModeDescription": "Brug standard- og tvungne flag, der er gemt på hvert undertekstspor.",
-      "always": "Altid aktiveret",
-      "alwaysDescription": "Slå et undertekstspor til på det foretrukne sprog, når der findes ét.",
-      "onlyForced": "Kun tvungne undertekster",
-      "onlyForcedDescription": "Indlæs kun spor, der er markeret som tvungne.",
-      "smart": "Vis ved fremmedsproget lyd",
-      "smartDescription": "Slå kun undertekster til, når lyden er på et andet sprog."
-    },
-    "subtitleAccessibility": "SDH-undertekster",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "Foretræk ikke-SDH-undertekster",
-      "preferSdh": "Foretræk SDH-undertekster",
-      "onlySdh": "Kun SDH-undertekster",
-      "onlyNonSdh": "Kun ikke-SDH-undertekster"
-    },
-    "forcedSubtitles": "Tvungne undertekster",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "Foretræk ikke-tvungne undertekster",
-      "preferForced": "Foretræk tvungne undertekster",
-      "onlyForced": "Kun tvungne undertekster",
-      "onlyNonForced": "Kun ikke-tvungne undertekster"
-    },
-    "displayMissingEpisodes": "Vis manglende afsnit",
-    "displayMissingEpisodesDescription": "Vis afsnit, som serveren kender til, men som ikke har nogen fil.",
-    "hidePlayedInLatest": "Skjul sete elementer i Seneste",
-    "hidePlayedInLatestDescription": "Hold elementer, du allerede har set, ude af serverens Seneste-rækker.",
-    "displayCollectionsView": "Vis samlingsvisningen",
-    "displayCollectionsViewDescription": "Vis serverens samlingsvisning sammen med dine biblioteker.",
-    "rewatchingInNextUp": "Behold gensete serier i Næste afsnit",
-    "rewatchingInNextUpDescription": "Når du er færdig med en serie og ser den igen, følger Næste afsnit med i gensynet i stedet for at fjerne serien.",
-    "watchedIndicator": "Set-indikatorer",
-    "watchedIndicatorOptions": {
-      "none": "Aldrig",
-      "moviesAndShows": "Film og TV-serier",
-      "movies": "Kun film",
-      "shows": "Kun TV-serier"
-    },
-    "mediaReviewsVisibility": "Bedømmelser og anmeldelser",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "Brugere og anmeldere",
-      "usersOnly": "Kun brugere",
-      "criticsOnly": "Kun anmeldere",
-      "nobody": "Skjult"
-    }
-  },
   "discover": {
     "title": "Opdag",
     "noContentAvailable": "Intet indhold tilgængeligt",
@@ -1195,7 +1144,10 @@
     "openSourceLicenses": "Open source-licenser",
     "versionLabel": "Version ${version}",
     "appDescription": "En smuk Plex- og Jellyfin-klient bygget med Flutter",
-    "viewLicensesDescription": "Se licenser for tredjepartsbiblioteker"
+    "viewLicensesDescription": "Se licenser for tredjepartsbiblioteker",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Ingen servere fundet for ${username} (${email})",
@@ -2235,5 +2187,76 @@
     "redirectDifferentHost": "Serveren videresendte til en anden vært. Indtast den endelige ${product}-URL direkte.",
     "redirectInsecure": "Serveren videresendte fra HTTPS til en usikker URL",
     "redirectUnsupportedEnterFinal": "Serveren videresendte til en URL, der ikke understøttes. Indtast den endelige ${product}-URL direkte."
+  },
+  "accountPreferences": {
+    "sectionTitle": "Kontopræferencer",
+    "hubSubtitleSingle": "Lyd-, undertekst- og biblioteksindstillinger gemt på ${account}",
+    "hubSubtitleMultiple": "Lyd-, undertekst- og biblioteksindstillinger gemt på ${count} konti",
+    "pickAccount": "Hver konto gemmer sine egne præferencer. Vælg den, du vil redigere.",
+    "storedOnAccount": "Disse indstillinger gemmes på selve kontoen, så alle apps, der er logget ind på den, bruger dem — inklusive Plezy på dine andre enheder.",
+    "noAccounts": "Ingen konti at konfigurere",
+    "noAccountsHint": "Log ind på Plex, eller forbind en Jellyfin- eller Emby-server, så vises de præferencer, der er gemt på kontoen, her.",
+    "unavailable": "Kan ikke nå denne konto",
+    "loadFailed": "Kunne ikke indlæse disse præferencer",
+    "noPreference": "Ingen præference",
+    "notSet": "Ikke indstillet",
+    "groups": {
+      "audioAndSubtitles": "Lyd og undertekster",
+      "libraryDisplay": "Bibliotek",
+      "personalMedia": "Personlige medier"
+    },
+    "preferredAudioLanguage": "Foretrukket lydsprog",
+    "autoSelectAudio": "Vælg lyd ud fra sprog",
+    "autoSelectAudioDescription": "Fra beholder det lydspor, som filen markerer som standard.",
+    "preferredSubtitleLanguage": "Foretrukket undertekstsprog",
+    "subtitleMode": "Slå undertekster til",
+    "subtitleModes": {
+      "none": "Manuelt valgt",
+      "noneDescription": "Slår aldrig undertekster til af sig selv.",
+      "defaultMode": "Følg sporets flag",
+      "defaultModeDescription": "Brug standard- og tvungne flag, der er gemt på hvert undertekstspor.",
+      "always": "Altid aktiveret",
+      "alwaysDescription": "Slå et undertekstspor til på det foretrukne sprog, når der findes ét.",
+      "onlyForced": "Kun tvungne undertekster",
+      "onlyForcedDescription": "Indlæs kun spor, der er markeret som tvungne.",
+      "smart": "Vis ved fremmedsproget lyd",
+      "smartDescription": "Slå kun undertekster til, når lyden er på et andet sprog."
+    },
+    "subtitleAccessibility": "SDH-undertekster",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "Foretræk ikke-SDH-undertekster",
+      "preferSdh": "Foretræk SDH-undertekster",
+      "onlySdh": "Kun SDH-undertekster",
+      "onlyNonSdh": "Kun ikke-SDH-undertekster"
+    },
+    "forcedSubtitles": "Tvungne undertekster",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "Foretræk ikke-tvungne undertekster",
+      "preferForced": "Foretræk tvungne undertekster",
+      "onlyForced": "Kun tvungne undertekster",
+      "onlyNonForced": "Kun ikke-tvungne undertekster"
+    },
+    "displayMissingEpisodes": "Vis manglende afsnit",
+    "displayMissingEpisodesDescription": "Vis afsnit, som serveren kender til, men som ikke har nogen fil.",
+    "hidePlayedInLatest": "Skjul sete elementer i Seneste",
+    "hidePlayedInLatestDescription": "Hold elementer, du allerede har set, ude af serverens Seneste-rækker.",
+    "displayCollectionsView": "Vis samlingsvisningen",
+    "displayCollectionsViewDescription": "Vis serverens samlingsvisning sammen med dine biblioteker.",
+    "rewatchingInNextUp": "Behold gensete serier i Næste afsnit",
+    "rewatchingInNextUpDescription": "Når du er færdig med en serie og ser den igen, følger Næste afsnit med i gensynet i stedet for at fjerne serien.",
+    "watchedIndicator": "Set-indikatorer",
+    "watchedIndicatorOptions": {
+      "none": "Aldrig",
+      "moviesAndShows": "Film og TV-serier",
+      "movies": "Kun film",
+      "shows": "Kun TV-serier"
+    },
+    "mediaReviewsVisibility": "Bedømmelser og anmeldelser",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "Brugere og anmeldere",
+      "usersOnly": "Kun brugere",
+      "criticsOnly": "Kun anmeldere",
+      "nobody": "Skjult"
+    }
   }
 }

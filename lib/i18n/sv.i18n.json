@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Logga in med Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Hoppa över denna version",
     "viewRelease": "Visa versionsinformation",
     "latestVersion": "Du har den senaste versionen",
-    "checkFailed": "Det gick inte att söka efter uppdateringar"
+    "checkFailed": "Det gick inte att söka efter uppdateringar",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Inställningar",
@@ -143,10 +151,6 @@
     "displayScale": "Skalning",
     "compact": "Kompakt",
     "comfortable": "Luftig",
-    "gridSpacing": "Rutnätsavstånd",
-    "gridSpacingTight": "Tätt",
-    "gridSpacingNormal": "Normal",
-    "gridSpacingSpacious": "Rymligt",
     "tvCornerSpotlightBackdrop": "Bakgrundsbild för utvalt innehåll i hörnet",
     "tvCornerSpotlightBackdropDescription": "Visa bakgrundsbilden för utvalt innehåll i övre högra hörnet i stället för över hela skärmen",
     "viewMode": "Visningsläge",
@@ -197,8 +201,6 @@
     "playbackBufferExtraLarge": "Extra stor",
     "playbackBufferDescription": "Buffrar mer mot instabila anslutningar. Begränsas även av buffertstorleken.",
     "defaultQualityTitle": "Standardkvalitet",
-    "cellularQualityTitle": "Standardkvalitet på mobildata",
-    "cellularQualitySameAsDefault": "Samma som standardkvalitet",
     "musicQualityTitle": "Musikkvalitet",
     "subtitleStyling": "Utseende för undertexter",
     "subtitleStylingDescription": "Anpassa undertexternas utseende",
@@ -212,8 +214,6 @@
     "rememberTrackSelectionsDescription": "Kom ihåg ljud- och undertextval per titel",
     "followServerTrackSelections": "Använd serverns spårval per avsnitt",
     "followServerTrackSelectionsDescription": "Vid avsnittsbyte används ljudet och undertexterna som valts på servern i stället för att föra över det aktuella valet",
-    "resumeMusicOnLaunch": "Kom ihåg musiksession",
-    "resumeMusicOnLaunchDescription": "Öppna den senaste låten pausad där den slutade när appen startar",
     "showChapterMarkersOnTimeline": "Visa kapitelmarkörer på tidslinjen",
     "showChapterMarkersOnTimelineDescription": "Dela upp tidslinjen vid kapitelgränser",
     "specialsOrdering": "Specialavsnitt i episodordning",
@@ -267,11 +267,6 @@
     "shortcutAlreadyAssigned": "Genvägen används redan för ${action}",
     "shortcutUpdated": "Genvägen för ${action} har uppdaterats",
     "saveFailed": "Det gick inte att spara ändringarna. Försök igen.",
-    "autoPlayAndSkip": "Autouppspelning och hoppa över",
-    "autoPlayNextEpisode": "Spela nästa avsnitt automatiskt",
-    "autoPlayNextEpisodeDescription": "Starta nästa avsnitt automatiskt när det aktuella avsnittet slutar",
-    "playNextCountdown": "Nedräkning för nästa avsnitt",
-    "playNextCountdownImmediate": "Spela direkt",
     "autoSkipIntro": "Hoppa över intro automatiskt",
     "autoSkipIntroDescription": "Hoppa automatiskt över intromarkörer efter några sekunder",
     "autoSkipCredits": "Hoppa över eftertexter automatiskt",
@@ -357,8 +352,6 @@
     "dvConversionNativeDescription": "Tvinga inbyggd DV7 och förhindra nya försök med DV-konvertering",
     "dvConversionDv81Description": "Tvinga direkt RPU-konvertering till Dolby Vision-profil 8.1",
     "dvConversionHevcStripDescription": "Ta bort Dolby Visions RPU-/EL-lager och använd vanlig HEVC",
-    "deinterlace": "Deinterlacing",
-    "deinterlaceDescription": "Ta bort kamningsartefakter från interlaced video (endast mpv)",
     "requireProfileSelectionOnOpen": "Fråga efter profil vid appstart",
     "requireProfileSelectionOnOpenDescription": "Visa profilval varje gång appen öppnas",
     "forceTvMode": "Tvinga TV-läge",
@@ -376,31 +369,13 @@
     "showExploreTabDescription": "Visa fliken Utforska med innehåll från Plex Discover och anslutna spårningstjänster",
     "liveTvDefaultFavorites": "Öppna med favoriter",
     "liveTvDefaultFavoritesDescription": "Visa endast favoritkanaler när Live-TV öppnas",
-    "general": "Allmänt",
-    "generalDescription": "Språk, start och fönsterbeteende",
-    "languageAndRegion": "Språk och region",
-    "startup": "Start",
     "display": "Skärm",
-    "libraryAndCards": "Bibliotek och kort",
     "homeScreen": "Hemskärm",
     "navigation": "Navigering",
     "window": "Fönster",
-    "liveTv": "Live-TV",
     "player": "Spelare",
-    "videoAndDisplay": "Video och skärm",
-    "audio": "Ljud",
-    "quality": "Kvalitet",
-    "subtitles": "Undertexter",
     "seekAndTiming": "Spolning och tidsinställningar",
     "behavior": "Beteende",
-    "gestures": "Gester",
-    "gestureBrightnessSwipe": "Svep för ljusstyrka",
-    "gestureBrightnessSwipeDescription": "Svep uppåt eller nedåt i vänsterkanten för att justera ljusstyrkan",
-    "gestureVolumeSwipe": "Svep för volym",
-    "gestureVolumeSwipeDescription": "Svep uppåt eller nedåt i högerkanten för att justera volymen",
-    "gesturePinchToZoom": "Nyp för att zooma",
-    "gesturePinchToZoomDescription": "Nyp på videon för att zooma in eller ut",
-    "controls": "Kontroller",
     "rememberPlayerChanges": "Kom ihåg spelarändringar",
     "rememberPlayerChangesDescription": "Var en ändring under uppspelning sparas och tillämpas igen",
     "scopePlaybackSpeed": "Uppspelningshastighet",
@@ -411,7 +386,46 @@
     "playerScopeGlobal": "Överallt",
     "playerScopeLibrary": "Per bibliotek",
     "playerScopeTitle": "Per serie eller film",
-    "exportDialogTitle": "Exportera Plezy-inställningar"
+    "exportDialogTitle": "Exportera Plezy-inställningar",
+    "gridSpacing": "Rutnätsavstånd",
+    "gridSpacingTight": "Tätt",
+    "gridSpacingNormal": "Normal",
+    "gridSpacingSpacious": "Rymligt",
+    "cellularQualityTitle": "Standardkvalitet på mobildata",
+    "cellularQualitySameAsDefault": "Samma som standardkvalitet",
+    "resumeMusicOnLaunch": "Kom ihåg musiksession",
+    "resumeMusicOnLaunchDescription": "Öppna den senaste låten pausad där den slutade när appen startar",
+    "autoPlayAndSkip": "Autouppspelning och hoppa över",
+    "autoPlayNextEpisode": "Spela nästa avsnitt automatiskt",
+    "autoPlayNextEpisodeDescription": "Starta nästa avsnitt automatiskt när det aktuella avsnittet slutar",
+    "playNextCountdown": "Nedräkning för nästa avsnitt",
+    "playNextCountdownImmediate": "Spela direkt",
+    "deinterlace": "Deinterlacing",
+    "deinterlaceDescription": "Ta bort kamningsartefakter från interlaced video (endast mpv)",
+    "general": "Allmänt",
+    "generalDescription": "Språk, start och fönsterbeteende",
+    "languageAndRegion": "Språk och region",
+    "startup": "Start",
+    "libraryAndCards": "Bibliotek och kort",
+    "liveTv": "Live-TV",
+    "videoAndDisplay": "Video och skärm",
+    "audio": "Ljud",
+    "quality": "Kvalitet",
+    "subtitles": "Undertexter",
+    "gestures": "Gester",
+    "gestureBrightnessSwipe": "Svep för ljusstyrka",
+    "gestureBrightnessSwipeDescription": "Svep uppåt eller nedåt i vänsterkanten för att justera ljusstyrkan",
+    "gestureVolumeSwipe": "Svep för volym",
+    "gestureVolumeSwipeDescription": "Svep uppåt eller nedåt i högerkanten för att justera volymen",
+    "gesturePinchToZoom": "Nyp för att zooma",
+    "gesturePinchToZoomDescription": "Nyp på videon för att zooma in eller ut",
+    "controls": "Kontroller",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Sök filmer, serier, musik...",
@@ -451,7 +465,9 @@
       "subSeekPrev": "Hoppa till föregående undertext",
       "shaderToggle": "Växla shaders",
       "skipMarker": "Hoppa över intro/eftertexter",
-      "screenshot": "Ta skärmbild"
+      "screenshot": "Ta skärmbild",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -663,6 +679,10 @@
     "track": "Ljudspår ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Ljud",
     "subtitlesLabel": "Undertexter",
     "addTime": "+${amount}${unit}",
@@ -983,77 +1003,6 @@
     "editMediaBrowserTitle": "Redigera ${product}-anslutning",
     "editMediaBrowserIntro": "Lägg till eller ta bort URL:er för ${serverName}. Plezy använder den nåbara URL:en med lägst latens."
   },
-  "accountPreferences": {
-    "sectionTitle": "Kontoinställningar",
-    "hubSubtitleSingle": "Ljud-, undertext- och biblioteksalternativ sparade på ${account}",
-    "hubSubtitleMultiple": "Ljud-, undertext- och biblioteksalternativ sparade på ${count} konton",
-    "pickAccount": "Varje konto lagrar sina egna inställningar. Välj det du vill redigera.",
-    "storedOnAccount": "Dessa alternativ sparas på själva kontot, så alla appar som är inloggade på det använder dem — inklusive Plezy på dina andra enheter.",
-    "noAccounts": "Inga konton att konfigurera",
-    "noAccountsHint": "Logga in på Plex, eller anslut en Jellyfin- eller Emby-server, så visas de inställningar som lagras på det kontot här.",
-    "unavailable": "Det går inte att nå detta konto",
-    "loadFailed": "Det gick inte att läsa in dessa inställningar",
-    "noPreference": "Ingen preferens",
-    "notSet": "Inte angiven",
-    "groups": {
-      "audioAndSubtitles": "Ljud och undertexter",
-      "libraryDisplay": "Bibliotek",
-      "personalMedia": "Personliga media"
-    },
-    "preferredAudioLanguage": "Föredraget ljudspråk",
-    "autoSelectAudio": "Välj ljud efter språk",
-    "autoSelectAudioDescription": "Av behåller det ljudspår som filen markerar som standard.",
-    "preferredSubtitleLanguage": "Föredraget undertextspråk",
-    "subtitleMode": "Aktivera undertexter",
-    "subtitleModes": {
-      "none": "Manuellt vald",
-      "noneDescription": "Slår aldrig på undertexter av sig själv.",
-      "defaultMode": "Följ spårens flaggor",
-      "defaultModeDescription": "Använd de standard- och forcerade flaggor som lagras på varje undertextspår.",
-      "always": "Alltid aktiverad",
-      "alwaysDescription": "Slå på ett undertextspår på det föredragna språket när ett sådant finns.",
-      "onlyForced": "Endast forcerade undertexter",
-      "onlyForcedDescription": "Ladda endast spår som är markerade som forcerade.",
-      "smart": "Visas med ljud på främmande språk",
-      "smartDescription": "Slå på undertexter endast när ljudet är på ett annat språk."
-    },
-    "subtitleAccessibility": "SDH-undertexter",
-    "subtitleAccessibilityOptions": {
-      "preferNonSdh": "Föredra icke-SDH-undertexter",
-      "preferSdh": "Föredra SDH-undertexter",
-      "onlySdh": "Endast SDH-undertexter",
-      "onlyNonSdh": "Endast icke-SDH-undertexter"
-    },
-    "forcedSubtitles": "Forcerade undertexter",
-    "forcedSubtitleOptions": {
-      "preferNonForced": "Föredra icke-forcerade undertexter",
-      "preferForced": "Föredra forcerade undertexter",
-      "onlyForced": "Endast forcerade undertexter",
-      "onlyNonForced": "Endast icke-forcerade undertexter"
-    },
-    "displayMissingEpisodes": "Visa saknade avsnitt",
-    "displayMissingEpisodesDescription": "Lista avsnitt som servern känner till men som saknar fil.",
-    "hidePlayedInLatest": "Dölj sedda objekt i Senaste",
-    "hidePlayedInLatestDescription": "Lämna objekt du redan har sett utanför serverns Senaste-rader.",
-    "displayCollectionsView": "Visa vyn Samlingar",
-    "displayCollectionsViewDescription": "Visa serverns Samlingar-vy tillsammans med dina bibliotek.",
-    "rewatchingInNextUp": "Behåll omtittade serier i Nästa",
-    "rewatchingInNextUpDescription": "När du har sett klart en serie och börjar om följer Nästa med i omtittningen i stället för att släppa serien.",
-    "watchedIndicator": "Seddmarkeringar",
-    "watchedIndicatorOptions": {
-      "none": "Aldrig",
-      "moviesAndShows": "Filmer och TV-serier",
-      "movies": "Endast filmer",
-      "shows": "Endast TV-serier"
-    },
-    "mediaReviewsVisibility": "Betyg och recensioner",
-    "mediaReviewsOptions": {
-      "usersAndCritics": "Användare och kritiker",
-      "usersOnly": "Endast användare",
-      "criticsOnly": "Endast kritiker",
-      "nobody": "Dolda"
-    }
-  },
   "discover": {
     "title": "Upptäck",
     "noContentAvailable": "Inget innehåll tillgängligt",
@@ -1195,7 +1144,10 @@
     "openSourceLicenses": "Licenser för öppen källkod",
     "versionLabel": "Version ${version}",
     "appDescription": "En vacker Plex- och Jellyfin-klient för Flutter",
-    "viewLicensesDescription": "Visa licenser för tredjepartsbibliotek"
+    "viewLicensesDescription": "Visa licenser för tredjepartsbibliotek",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Inga servrar hittades för ${username} (${email})",
@@ -2235,5 +2187,76 @@
     "redirectDifferentHost": "Servern omdirigerade till en annan värd. Ange den slutliga URL:en för ${product} direkt.",
     "redirectInsecure": "Servern omdirigerade från HTTPS till en osäker URL",
     "redirectUnsupportedEnterFinal": "Servern omdirigerade till en URL som inte stöds. Ange den slutliga URL:en för ${product} direkt."
+  },
+  "accountPreferences": {
+    "sectionTitle": "Kontoinställningar",
+    "hubSubtitleSingle": "Ljud-, undertext- och biblioteksalternativ sparade på ${account}",
+    "hubSubtitleMultiple": "Ljud-, undertext- och biblioteksalternativ sparade på ${count} konton",
+    "pickAccount": "Varje konto lagrar sina egna inställningar. Välj det du vill redigera.",
+    "storedOnAccount": "Dessa alternativ sparas på själva kontot, så alla appar som är inloggade på det använder dem — inklusive Plezy på dina andra enheter.",
+    "noAccounts": "Inga konton att konfigurera",
+    "noAccountsHint": "Logga in på Plex, eller anslut en Jellyfin- eller Emby-server, så visas de inställningar som lagras på det kontot här.",
+    "unavailable": "Det går inte att nå detta konto",
+    "loadFailed": "Det gick inte att läsa in dessa inställningar",
+    "noPreference": "Ingen preferens",
+    "notSet": "Inte angiven",
+    "groups": {
+      "audioAndSubtitles": "Ljud och undertexter",
+      "libraryDisplay": "Bibliotek",
+      "personalMedia": "Personliga media"
+    },
+    "preferredAudioLanguage": "Föredraget ljudspråk",
+    "autoSelectAudio": "Välj ljud efter språk",
+    "autoSelectAudioDescription": "Av behåller det ljudspår som filen markerar som standard.",
+    "preferredSubtitleLanguage": "Föredraget undertextspråk",
+    "subtitleMode": "Aktivera undertexter",
+    "subtitleModes": {
+      "none": "Manuellt vald",
+      "noneDescription": "Slår aldrig på undertexter av sig själv.",
+      "defaultMode": "Följ spårens flaggor",
+      "defaultModeDescription": "Använd de standard- och forcerade flaggor som lagras på varje undertextspår.",
+      "always": "Alltid aktiverad",
+      "alwaysDescription": "Slå på ett undertextspår på det föredragna språket när ett sådant finns.",
+      "onlyForced": "Endast forcerade undertexter",
+      "onlyForcedDescription": "Ladda endast spår som är markerade som forcerade.",
+      "smart": "Visas med ljud på främmande språk",
+      "smartDescription": "Slå på undertexter endast när ljudet är på ett annat språk."
+    },
+    "subtitleAccessibility": "SDH-undertexter",
+    "subtitleAccessibilityOptions": {
+      "preferNonSdh": "Föredra icke-SDH-undertexter",
+      "preferSdh": "Föredra SDH-undertexter",
+      "onlySdh": "Endast SDH-undertexter",
+      "onlyNonSdh": "Endast icke-SDH-undertexter"
+    },
+    "forcedSubtitles": "Forcerade undertexter",
+    "forcedSubtitleOptions": {
+      "preferNonForced": "Föredra icke-forcerade undertexter",
+      "preferForced": "Föredra forcerade undertexter",
+      "onlyForced": "Endast forcerade undertexter",
+      "onlyNonForced": "Endast icke-forcerade undertexter"
+    },
+    "displayMissingEpisodes": "Visa saknade avsnitt",
+    "displayMissingEpisodesDescription": "Lista avsnitt som servern känner till men som saknar fil.",
+    "hidePlayedInLatest": "Dölj sedda objekt i Senaste",
+    "hidePlayedInLatestDescription": "Lämna objekt du redan har sett utanför serverns Senaste-rader.",
+    "displayCollectionsView": "Visa vyn Samlingar",
+    "displayCollectionsViewDescription": "Visa serverns Samlingar-vy tillsammans med dina bibliotek.",
+    "rewatchingInNextUp": "Behåll omtittade serier i Nästa",
+    "rewatchingInNextUpDescription": "När du har sett klart en serie och börjar om följer Nästa med i omtittningen i stället för att släppa serien.",
+    "watchedIndicator": "Seddmarkeringar",
+    "watchedIndicatorOptions": {
+      "none": "Aldrig",
+      "moviesAndShows": "Filmer och TV-serier",
+      "movies": "Endast filmer",
+      "shows": "Endast TV-serier"
+    },
+    "mediaReviewsVisibility": "Betyg och recensioner",
+    "mediaReviewsOptions": {
+      "usersAndCritics": "Användare och kritiker",
+      "usersOnly": "Endast användare",
+      "criticsOnly": "Endast kritiker",
+      "nobody": "Dolda"
+    }
   }
 }
