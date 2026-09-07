@@ -2304,6 +2304,7 @@ class _Translations$videoControls$clip$nb extends Translations$videoControls$cli
 	final TranslationsNb _root; // ignore: unused_field
 
 	// Translations
+	@override String get fineAdjust => 'Finjustering';
 	@override String get title => 'Klipp';
 	@override String get vodOnly => 'Klipp er tilgjengelig for videoavspilling på forespørsel.';
 	@override String get sourceUnavailable => 'Klippkilden er ikke tilgjengelig for denne avspillingsøkten.';
@@ -3498,12 +3499,12 @@ extension on TranslationsNb {
 			'fileInfo.size' => 'Størrelse',
 			'fileInfo.totalSize' => 'Total størrelse',
 			'fileInfo.container' => 'Format',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.duration' => 'Varighet',
 			'fileInfo.previewThumbnails' => 'Forhåndsvisningsminiatyrer',
 			'fileInfo.previewIndex' => 'Forhåndsvisningsindeks',
 			'fileInfo.packetLength' => 'Pakkelengde',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Fil til stede',
 			'fileInfo.fileReadable' => 'Lesbar for serveren',
 			'fileInfo.streamPath' => 'Strømbane',
@@ -3515,8 +3516,6 @@ extension on TranslationsNb {
 			'fileInfo.optimizedVersion' => 'Optimalisert versjon',
 			'fileInfo.optimizationTarget' => 'Optimaliseringsmål',
 			'fileInfo.deletedAt' => 'Slettet',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.remoteSource' => 'Ekstern kilde',
 			'fileInfo.infiniteStream' => 'Uendelig strøm',
 			'fileInfo.directPlay' => 'Direct Play',
@@ -3669,6 +3668,7 @@ extension on TranslationsNb {
 			'videoControls.pipActive' => 'Spiller i bilde-i-bilde',
 			'videoControls.pipFailed' => 'Bilde-i-bilde kunne ikke starte',
 			'videoControls.screenshotSaved' => 'Skjermbilde lagret',
+			'videoControls.clip.fineAdjust' => 'Finjustering',
 			'videoControls.clip.title' => 'Klipp',
 			'videoControls.clip.vodOnly' => 'Klipp er tilgjengelig for videoavspilling på forespørsel.',
 			'videoControls.clip.sourceUnavailable' => 'Klippkilden er ikke tilgjengelig for denne avspillingsøkten.',
@@ -4014,11 +4014,11 @@ extension on TranslationsNb {
 			'libraries.failedToEmptyTrash' => ({required Object error}) => 'Kunne ikke tømme papirkurv: ${error}',
 			'libraries.analyzing' => ({required Object title}) => 'Analyserer "${title}"...',
 			'libraries.analysisStarted' => ({required Object title}) => 'Analyse startet for "${title}"',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Kunne ikke analysere bibliotek: ${error}',
 			'libraries.noLibrariesFound' => 'Ingen biblioteker funnet',
 			'libraries.allLibrariesHidden' => 'Alle biblioteker er skjult',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Skjulte biblioteker (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Dette biblioteket er tomt',
 			'libraries.noItemsMatchFilters' => 'Ingen elementer samsvarer med de aktive filtrene',
@@ -4067,8 +4067,6 @@ extension on TranslationsNb {
 			'libraries.filterCategories.favorites' => 'Favoritter',
 			'libraries.sortLabels.title' => 'Tittel',
 			'libraries.sortLabels.dateAdded' => 'Dato lagt til',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.sortLabels.releaseDate' => 'Utgivelsesdato',
 			'libraries.sortLabels.rating' => 'Vurdering',
 			'libraries.sortLabels.communityRating' => 'Fellesskapsvurdering',
@@ -4530,11 +4528,11 @@ extension on TranslationsNb {
 			'downloads.downloadQueued' => 'Nedlasting i kø',
 			'downloads.downloadResumed' => 'Nedlasting gjenopptatt',
 			'downloads.serverErrorBitrate' => 'Serverfeil: filen kan overskride grensen for ekstern bitrate',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.storageFull' => 'Nedlastingene ble stoppet fordi lagringsplassen på enheten er full. Frigjør plass, og prøv igjen.',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} episoder i nedlastingskø',
 			'downloads.downloadDeleted' => 'Nedlasting slettet',
+			_ => null,
+		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => 'Slette "${title}" fra denne enheten?',
 			'downloads.cancelledDownloadTitle' => 'Avbrutt nedlasting',
 			'downloads.cancelledDownloadMessage' => 'Denne nedlastingen ble avbrutt. Hva vil du gjøre?',
@@ -4583,8 +4581,6 @@ extension on TranslationsNb {
 			'downloads.manageSyncRule' => 'Administrer synkronisering',
 			'downloads.editEpisodeCount' => 'Antall episoder',
 			'downloads.editSyncFilter' => 'Synkroniseringsfilter',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.syncAllItems' => 'Synkroniserer alle elementer',
 			'downloads.syncUnwatchedItems' => 'Synkroniserer usette elementer',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Server: ${server} • ${status}',
