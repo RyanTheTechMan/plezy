@@ -811,6 +811,7 @@
     "osdAudio": "Ljud: ${track}",
     "screenshotFailed": "",
     "clip": {
+      "fineAdjust": "Finjustering",
       "title": "Klämma",
       "vodOnly": "Klipp är tillgängliga för videouppspelning på begäran.",
       "sourceUnavailable": "Klippkälla är inte tillgänglig för denna uppspelningssession.",

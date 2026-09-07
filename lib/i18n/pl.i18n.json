@@ -817,6 +817,7 @@
     "osdAudio": "Audio: ${track}",
     "screenshotFailed": "",
     "clip": {
+      "fineAdjust": "Precyzyjna regulacja",
       "title": "Klips",
       "vodOnly": "Klipy są dostępne do odtwarzania wideo na żądanie.",
       "sourceUnavailable": "Źródło klipu nie jest dostępne dla tej sesji odtwarzania.",

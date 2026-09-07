@@ -811,6 +811,7 @@
     "osdAudio": "Lyd: ${track}",
     "screenshotFailed": "",
     "clip": {
+      "fineAdjust": "Finjustering",
       "title": "Klipp",
       "vodOnly": "Klipp er tilgjengelig for videoavspilling på forespørsel.",
       "sourceUnavailable": "Klippkilden er ikke tilgjengelig for denne avspillingsøkten.",
