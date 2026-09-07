@@ -917,6 +917,7 @@
     "osdSubtitles": "Undertekster: ${track}",
     "osdAudio": "Lyd: ${track}",
     "clip": {
+      "fineAdjust": "Finjustering",
       "title": "Klip",
       "vodOnly": "Klip er tilgængelige til on-demand videoafspilning.",
       "sourceUnavailable": "Klipkilde er ikke tilgængelig for denne afspilningssession.",

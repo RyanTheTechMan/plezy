@@ -917,6 +917,7 @@
     "osdSubtitles": "Subtítulos: ${track}",
     "osdAudio": "Audio: ${track}",
     "clip": {
+      "fineAdjust": "Ajuste fino",
       "title": "Acortar",
       "vodOnly": "Los clips están disponibles para reproducción de vídeo bajo demanda.",
       "sourceUnavailable": "La fuente del clip no está disponible para esta sesión de reproducción.",

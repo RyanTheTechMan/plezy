@@ -900,6 +900,7 @@
     "screenshotSaved": "Screenshot saved",
     "screenshotFailed": "Couldn't take a screenshot",
     "clip": {
+      "fineAdjust": "Fine adjust",
       "title": "Clip",
       "vodOnly": "Clips are available for on-demand video playback.",
       "sourceUnavailable": "Clip source is not available for this playback session.",
