@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Sign in with Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Skip This Version",
     "viewRelease": "View Release",
     "latestVersion": "You are on the latest version",
-    "checkFailed": "Failed to check for updates"
+    "checkFailed": "Failed to check for updates",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Settings",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Sidebar stays expanded and content area adjusts to fit",
     "showUnwatchedCount": "Show Unwatched Count",
     "showUnwatchedCountDescription": "Display unwatched episode count on shows and seasons",
-    "showWatchedIndicators": "Show Watched Indicators",
-    "showWatchedIndicatorsDescription": "Display a checkmark on watched movies, shows, and episodes",
     "showEpisodeNumberOnCards": "Show Episode Number on Cards",
     "showEpisodeNumberOnCardsDescription": "Show season and episode number on episode cards",
     "showSeasonPostersOnTabs": "Show Season Posters on Tabs",
@@ -200,8 +206,6 @@
     "defaultQualityTitle": "Default Quality",
     "cellularQualityTitle": "Default Quality on Cellular",
     "cellularQualitySameAsDefault": "Same as Default Quality",
-    "directPlayCoveredQuality": "Play Smaller Videos at Original Quality",
-    "directPlayCoveredQualityDescription": "Direct play videos already within the quality limit instead of transcoding them",
     "musicQualityTitle": "Music Quality",
     "subtitleStyling": "Subtitle Styling",
     "subtitleStylingDescription": "Customize subtitle appearance",
@@ -275,17 +279,6 @@
     "autoPlayNextEpisodeDescription": "Start the next episode automatically when one ends",
     "playNextCountdown": "Play Next Countdown",
     "playNextCountdownImmediate": "Play immediately",
-    "skipIntroMode": "Skip Intro",
-    "skipIntroModeOffDescription": "Play intros normally without a skip button",
-    "skipIntroModeButtonDescription": "Show a skip button when an intro starts",
-    "skipIntroModeAutoDescription": "Skip intros automatically after the delay below",
-    "skipCreditsMode": "Skip Credits",
-    "skipCreditsModeOffDescription": "Play credits normally without a skip button",
-    "skipCreditsModeButtonDescription": "Show a skip button when credits start",
-    "skipCreditsModeAutoDescription": "Skip credits automatically and play the next episode",
-    "skipMarkerModeOff": "Off",
-    "skipMarkerModeButton": "Show button",
-    "skipMarkerModeAuto": "Automatic",
     "forceSkipMarkerFallback": "Force Fallback Markers",
     "forceSkipMarkerFallbackDescription": "Use chapter title patterns even when Plex has markers",
     "autoSkipDelay": "Auto Skip Delay",
@@ -399,8 +392,6 @@
     "gestureVolumeSwipeDescription": "Swipe up or down on the right edge to adjust volume",
     "gesturePinchToZoom": "Pinch to Zoom",
     "gesturePinchToZoomDescription": "Pinch on the video to zoom in or out",
-    "rememberBrightnessLevel": "Remember Brightness Level",
-    "rememberBrightnessLevelDescription": "Start playback at the brightness set by the last swipe",
     "controls": "Controls",
     "rememberPlayerChanges": "Remember Player Changes",
     "rememberPlayerChangesDescription": "Where a change made during playback is saved and reapplied from",
@@ -412,7 +403,30 @@
     "playerScopeGlobal": "Everywhere",
     "playerScopeLibrary": "Per library",
     "playerScopeTitle": "Per show or movie",
-    "exportDialogTitle": "Export Plezy settings"
+    "exportDialogTitle": "Export Plezy settings",
+    "showWatchedIndicators": "Show Watched Indicators",
+    "showWatchedIndicatorsDescription": "Display a checkmark on watched movies, shows, and episodes",
+    "directPlayCoveredQuality": "Play Smaller Videos at Original Quality",
+    "directPlayCoveredQualityDescription": "Direct play videos already within the quality limit instead of transcoding them",
+    "skipIntroMode": "Skip Intro",
+    "skipIntroModeOffDescription": "Play intros normally without a skip button",
+    "skipIntroModeButtonDescription": "Show a skip button when an intro starts",
+    "skipIntroModeAutoDescription": "Skip intros automatically after the delay below",
+    "skipCreditsMode": "Skip Credits",
+    "skipCreditsModeOffDescription": "Play credits normally without a skip button",
+    "skipCreditsModeButtonDescription": "Show a skip button when credits start",
+    "skipCreditsModeAutoDescription": "Skip credits automatically and play the next episode",
+    "skipMarkerModeOff": "Off",
+    "skipMarkerModeButton": "Show button",
+    "skipMarkerModeAuto": "Automatic",
+    "rememberBrightnessLevel": "Remember Brightness Level",
+    "rememberBrightnessLevelDescription": "Start playback at the brightness set by the last swipe",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Search movies, shows, music...",
@@ -1161,7 +1175,10 @@
     "openSourceLicenses": "Open Source Licenses",
     "versionLabel": "Version ${version}",
     "appDescription": "A beautiful Plex, Jellyfin, and Emby client for Flutter",
-    "viewLicensesDescription": "View licenses of third-party libraries"
+    "viewLicensesDescription": "View licenses of third-party libraries",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "No servers found for ${username} (${email})",
