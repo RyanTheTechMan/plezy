@@ -2304,6 +2304,7 @@ class _Translations$videoControls$clip$bg extends Translations$videoControls$cli
 	final TranslationsBg _root; // ignore: unused_field
 
 	// Translations
+	@override String get fineAdjust => 'Фина настройка';
 	@override String get title => 'Клип';
 	@override String get vodOnly => 'Налични са клипове за възпроизвеждане на видео при поискване.';
 	@override String get sourceUnavailable => 'Източникът на клип не е наличен за тази сесия на възпроизвеждане.';
@@ -3498,12 +3499,12 @@ extension on TranslationsBg {
 			'fileInfo.size' => 'Размер',
 			'fileInfo.totalSize' => 'Общ размер',
 			'fileInfo.container' => 'Контейнер',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.duration' => 'Продължителност',
 			'fileInfo.previewThumbnails' => 'Миниатюри за преглед',
 			'fileInfo.previewIndex' => 'Индекс на прегледа',
 			'fileInfo.packetLength' => 'Дължина на пакета',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Файлът е наличен',
 			'fileInfo.fileReadable' => 'Четим от сървъра',
 			'fileInfo.streamPath' => 'Път на потока',
@@ -3515,8 +3516,6 @@ extension on TranslationsBg {
 			'fileInfo.optimizedVersion' => 'Оптимизирана версия',
 			'fileInfo.optimizationTarget' => 'Цел на оптимизацията',
 			'fileInfo.deletedAt' => 'Изтрит',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.remoteSource' => 'Отдалечен източник',
 			'fileInfo.infiniteStream' => 'Безкраен поток',
 			'fileInfo.directPlay' => 'Директно възпроизвеждане',
@@ -3669,6 +3668,7 @@ extension on TranslationsBg {
 			'videoControls.pipActive' => 'Възпроизвеждане в режим картина в картината',
 			'videoControls.pipFailed' => 'Режимът картина в картината не успя да стартира',
 			'videoControls.screenshotSaved' => 'Екранната снимка е запазена',
+			'videoControls.clip.fineAdjust' => 'Фина настройка',
 			'videoControls.clip.title' => 'Клип',
 			'videoControls.clip.vodOnly' => 'Налични са клипове за възпроизвеждане на видео при поискване.',
 			'videoControls.clip.sourceUnavailable' => 'Източникът на клип не е наличен за тази сесия на възпроизвеждане.',
@@ -4014,11 +4014,11 @@ extension on TranslationsBg {
 			'libraries.failedToEmptyTrash' => ({required Object error}) => 'Неуспешно изпразване на кошчето: ${error}',
 			'libraries.analyzing' => ({required Object title}) => 'Анализиране на "${title}"...',
 			'libraries.analysisStarted' => ({required Object title}) => 'Анализът е стартиран за "${title}"',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Неуспешен анализ на библиотеката: ${error}',
 			'libraries.noLibrariesFound' => 'Не са намерени библиотеки',
 			'libraries.allLibrariesHidden' => 'Всички библиотеки са скрити',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Скрити библиотеки (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Тази библиотека е празна',
 			'libraries.noItemsMatchFilters' => 'Няма елементи, съответстващи на активните филтри',
@@ -4067,8 +4067,6 @@ extension on TranslationsBg {
 			'libraries.filterCategories.favorites' => 'Любими',
 			'libraries.sortLabels.title' => 'Заглавие',
 			'libraries.sortLabels.dateAdded' => 'Дата на добавяне',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.sortLabels.releaseDate' => 'Дата на излизане',
 			'libraries.sortLabels.rating' => 'Рейтинг',
 			'libraries.sortLabels.communityRating' => 'Оценка от общността',
@@ -4530,11 +4528,11 @@ extension on TranslationsBg {
 			'downloads.downloadQueued' => 'Изтеглянето е добавено в опашката',
 			'downloads.downloadResumed' => 'Изтеглянето е възобновено',
 			'downloads.serverErrorBitrate' => 'Грешка на сървъра: файлът може да надвишава лимита за отдалечен битрейт',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.storageFull' => 'Изтеглянията бяха спрени, защото паметта на устройството е пълна. Освободете място и опитайте отново.',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} епизода са добавени в опашката за изтегляне',
 			'downloads.downloadDeleted' => 'Изтеглянето е изтрито',
+			_ => null,
+		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => 'Да се изтрие ли "${title}" от това устройство?',
 			'downloads.cancelledDownloadTitle' => 'Отменено изтегляне',
 			'downloads.cancelledDownloadMessage' => 'Това изтегляне беше отменено. Какво искате да направите?',
@@ -4583,8 +4581,6 @@ extension on TranslationsBg {
 			'downloads.manageSyncRule' => 'Управление на синхронизацията',
 			'downloads.editEpisodeCount' => 'Брой епизоди',
 			'downloads.editSyncFilter' => 'Филтър за синхронизация',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.syncAllItems' => 'Синхронизират се всички елементи',
 			'downloads.syncUnwatchedItems' => 'Синхронизират се негледаните елементи',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Сървър: ${server} • ${status}',

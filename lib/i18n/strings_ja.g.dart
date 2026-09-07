@@ -2296,6 +2296,7 @@ class _Translations$videoControls$clip$ja extends Translations$videoControls$cli
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
+	@override String get fineAdjust => '微調整';
 	@override String get title => 'クリップ';
 	@override String get vodOnly => 'クリップはオンデマンドのビデオ再生に利用できます。';
 	@override String get sourceUnavailable => 'クリップ ソースはこの再生セッションでは使用できません。';
@@ -3488,12 +3489,12 @@ extension on TranslationsJa {
 			'fileInfo.size' => 'サイズ',
 			'fileInfo.totalSize' => '合計サイズ',
 			'fileInfo.container' => 'コンテナ',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.duration' => '長さ',
 			'fileInfo.previewThumbnails' => 'プレビューサムネイル',
 			'fileInfo.previewIndex' => 'プレビューインデックス',
 			'fileInfo.packetLength' => 'パケット長',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.filePresent' => 'ファイルあり',
 			'fileInfo.fileReadable' => 'サーバーから読み取り可能',
 			'fileInfo.streamPath' => 'ストリームパス',
@@ -3505,8 +3506,6 @@ extension on TranslationsJa {
 			'fileInfo.optimizedVersion' => '最適化バージョン',
 			'fileInfo.optimizationTarget' => '最適化ターゲット',
 			'fileInfo.deletedAt' => '削除済み',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.remoteSource' => 'リモートソース',
 			'fileInfo.infiniteStream' => '無限ストリーム',
 			'fileInfo.directPlay' => 'ダイレクト再生',
@@ -3659,6 +3658,7 @@ extension on TranslationsJa {
 			'videoControls.pipActive' => 'ピクチャーインピクチャーで再生中',
 			'videoControls.pipFailed' => 'ピクチャーインピクチャーの開始に失敗しました',
 			'videoControls.screenshotSaved' => 'スクリーンショットを保存しました',
+			'videoControls.clip.fineAdjust' => '微調整',
 			'videoControls.clip.title' => 'クリップ',
 			'videoControls.clip.vodOnly' => 'クリップはオンデマンドのビデオ再生に利用できます。',
 			'videoControls.clip.sourceUnavailable' => 'クリップ ソースはこの再生セッションでは使用できません。',
@@ -4004,11 +4004,11 @@ extension on TranslationsJa {
 			'libraries.failedToEmptyTrash' => ({required Object error}) => 'ゴミ箱を空にできませんでした: ${error}',
 			'libraries.analyzing' => ({required Object title}) => '「${title}」を解析中…',
 			'libraries.analysisStarted' => ({required Object title}) => '「${title}」の解析を開始しました',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'ライブラリの解析に失敗しました: ${error}',
 			'libraries.noLibrariesFound' => 'ライブラリが見つかりません',
 			'libraries.allLibrariesHidden' => 'すべてのライブラリが非表示です',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => '非表示のライブラリ (${count})',
 			'libraries.thisLibraryIsEmpty' => 'このライブラリは空です',
 			'libraries.noItemsMatchFilters' => '有効なフィルターに一致する項目はありません',
@@ -4057,8 +4057,6 @@ extension on TranslationsJa {
 			'libraries.filterCategories.favorites' => 'お気に入り',
 			'libraries.sortLabels.title' => 'タイトル',
 			'libraries.sortLabels.dateAdded' => '追加日',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.sortLabels.releaseDate' => 'リリース日',
 			'libraries.sortLabels.rating' => '評価',
 			'libraries.sortLabels.communityRating' => 'コミュニティ評価',
@@ -4520,11 +4518,11 @@ extension on TranslationsJa {
 			'downloads.downloadQueued' => 'ダウンロードをキューに追加しました',
 			'downloads.downloadResumed' => 'ダウンロードを再開しました',
 			'downloads.serverErrorBitrate' => 'サーバーエラー: ファイルがリモートビットレート制限を超えている可能性があります',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.storageFull' => 'デバイスのストレージがいっぱいのため、ダウンロードを停止しました。空き容量を確保してから、もう一度お試しください。',
 			'downloads.episodesQueued' => ({required Object count}) => '${count}エピソードをダウンロードキューに追加しました',
 			'downloads.downloadDeleted' => 'ダウンロードを削除しました',
+			_ => null,
+		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => 'このデバイスから「${title}」を削除しますか？',
 			'downloads.cancelledDownloadTitle' => 'キャンセル済みのダウンロード',
 			'downloads.cancelledDownloadMessage' => 'このダウンロードはキャンセルされました。どうしますか？',
@@ -4573,8 +4571,6 @@ extension on TranslationsJa {
 			'downloads.manageSyncRule' => '同期を管理',
 			'downloads.editEpisodeCount' => 'エピソード数',
 			'downloads.editSyncFilter' => '同期フィルター',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.syncAllItems' => 'すべてのアイテムを同期中',
 			'downloads.syncUnwatchedItems' => '未視聴のアイテムを同期中',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'サーバー: ${server} • ${status}',
