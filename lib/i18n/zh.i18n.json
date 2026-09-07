@@ -808,6 +808,7 @@
     "osdAudio": "音频：${track}",
     "screenshotFailed": "",
     "clip": {
+      "fineAdjust": "微调",
       "title": "夹子",
       "vodOnly": "剪辑可用于点播视频播放。",
       "sourceUnavailable": "剪辑源不可用于此播放会话。",

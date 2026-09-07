@@ -811,6 +811,7 @@
     "osdAudio": "Audio : ${track}",
     "screenshotFailed": "",
     "clip": {
+      "fineAdjust": "Réglage fin",
       "title": "Agrafe",
       "vodOnly": "Des clips sont disponibles pour la lecture vidéo à la demande.",
       "sourceUnavailable": "La source du clip n’est pas disponible pour cette session de lecture.",

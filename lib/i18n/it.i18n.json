@@ -811,6 +811,7 @@
     "osdAudio": "Audio: ${track}",
     "screenshotFailed": "",
     "clip": {
+      "fineAdjust": "Regolazione fine",
       "title": "Clip",
       "vodOnly": "I clip sono disponibili per la riproduzione video su richiesta.",
       "sourceUnavailable": "La sorgente della clip non è disponibile per questa sessione di riproduzione.",
