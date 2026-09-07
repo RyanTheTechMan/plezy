@@ -2320,6 +2320,7 @@ class _Translations$videoControls$clip$pl extends Translations$videoControls$cli
 	final TranslationsPl _root; // ignore: unused_field
 
 	// Translations
+	@override String get fineAdjust => 'Precyzyjna regulacja';
 	@override String get title => 'Klips';
 	@override String get vodOnly => 'Klipy są dostępne do odtwarzania wideo na żądanie.';
 	@override String get sourceUnavailable => 'Źródło klipu nie jest dostępne dla tej sesji odtwarzania.';
@@ -3518,12 +3519,12 @@ extension on TranslationsPl {
 			'fileInfo.size' => 'Rozmiar',
 			'fileInfo.totalSize' => 'Całkowity rozmiar',
 			'fileInfo.container' => 'Kontener',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.duration' => 'Czas trwania',
 			'fileInfo.previewThumbnails' => 'Miniatury podglądu',
 			'fileInfo.previewIndex' => 'Indeks podglądu',
 			'fileInfo.packetLength' => 'Długość pakietu',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Plik obecny',
 			'fileInfo.fileReadable' => 'Czytelny dla serwera',
 			'fileInfo.streamPath' => 'Ścieżka strumienia',
@@ -3535,8 +3536,6 @@ extension on TranslationsPl {
 			'fileInfo.optimizedVersion' => 'Zoptymalizowana wersja',
 			'fileInfo.optimizationTarget' => 'Cel optymalizacji',
 			'fileInfo.deletedAt' => 'Usunięto',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.remoteSource' => 'Źródło zdalne',
 			'fileInfo.infiniteStream' => 'Nieskończony strumień',
 			'fileInfo.directPlay' => 'Odtwarzanie bezpośrednie',
@@ -3689,6 +3688,7 @@ extension on TranslationsPl {
 			'videoControls.pipActive' => 'Odtwarzanie w trybie obraz w obrazie',
 			'videoControls.pipFailed' => 'Nie udało się uruchomić trybu obraz w obrazie',
 			'videoControls.screenshotSaved' => 'Zrzut ekranu zapisany',
+			'videoControls.clip.fineAdjust' => 'Precyzyjna regulacja',
 			'videoControls.clip.title' => 'Klips',
 			'videoControls.clip.vodOnly' => 'Klipy są dostępne do odtwarzania wideo na żądanie.',
 			'videoControls.clip.sourceUnavailable' => 'Źródło klipu nie jest dostępne dla tej sesji odtwarzania.',
@@ -4034,11 +4034,11 @@ extension on TranslationsPl {
 			'libraries.failedToEmptyTrash' => ({required Object error}) => 'Nie udało się opróżnić kosza: ${error}',
 			'libraries.analyzing' => ({required Object title}) => 'Analizowanie "${title}"...',
 			'libraries.analysisStarted' => ({required Object title}) => 'Analiza rozpoczęta dla "${title}"',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Nie udało się przeanalizować biblioteki: ${error}',
 			'libraries.noLibrariesFound' => 'Nie znaleziono bibliotek',
 			'libraries.allLibrariesHidden' => 'Wszystkie biblioteki są ukryte',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Ukryte biblioteki (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Ta biblioteka jest pusta',
 			'libraries.noItemsMatchFilters' => 'Żaden element nie pasuje do aktywnych filtrów',
@@ -4087,8 +4087,6 @@ extension on TranslationsPl {
 			'libraries.filterCategories.favorites' => 'Ulubione',
 			'libraries.sortLabels.title' => 'Tytuł',
 			'libraries.sortLabels.dateAdded' => 'Data dodania',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.sortLabels.releaseDate' => 'Data premiery',
 			'libraries.sortLabels.rating' => 'Ocena',
 			'libraries.sortLabels.communityRating' => 'Ocena społeczności',
@@ -4550,11 +4548,11 @@ extension on TranslationsPl {
 			'downloads.downloadQueued' => 'Pobranie w kolejce',
 			'downloads.downloadResumed' => 'Pobieranie wznowione',
 			'downloads.serverErrorBitrate' => 'Błąd serwera: plik może przekraczać zdalny limit bitrate',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.storageFull' => 'Pobieranie zostało zatrzymane, ponieważ pamięć urządzenia jest pełna. Zwolnij miejsce i spróbuj ponownie.',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} odcinków w kolejce pobierania',
 			'downloads.downloadDeleted' => 'Pobranie usunięte',
+			_ => null,
+		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => 'Usunąć "${title}" z tego urządzenia?',
 			'downloads.cancelledDownloadTitle' => 'Anulowane pobieranie',
 			'downloads.cancelledDownloadMessage' => 'To pobieranie zostało anulowane. Co chcesz zrobić?',
@@ -4603,8 +4601,6 @@ extension on TranslationsPl {
 			'downloads.manageSyncRule' => 'Zarządzaj synchronizacją',
 			'downloads.editEpisodeCount' => 'Liczba odcinków',
 			'downloads.editSyncFilter' => 'Filtr synchronizacji',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.syncAllItems' => 'Synchronizacja wszystkich elementów',
 			'downloads.syncUnwatchedItems' => 'Synchronizacja nieobejrzanych elementów',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Serwer: ${server} • ${status}',

@@ -2304,6 +2304,7 @@ class _Translations$videoControls$clip$pt extends Translations$videoControls$cli
 	final TranslationsPt _root; // ignore: unused_field
 
 	// Translations
+	@override String get fineAdjust => 'Ajuste fino';
 	@override String get title => 'Grampo';
 	@override String get vodOnly => 'Os clipes estão disponíveis para reprodução de vídeo sob demanda.';
 	@override String get sourceUnavailable => 'A origem do clipe não está disponível para esta sessão de reprodução.';
@@ -3498,12 +3499,12 @@ extension on TranslationsPt {
 			'fileInfo.size' => 'Tamanho',
 			'fileInfo.totalSize' => 'Tamanho total',
 			'fileInfo.container' => 'Contêiner',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.duration' => 'Duração',
 			'fileInfo.previewThumbnails' => 'Miniaturas de pré-visualização',
 			'fileInfo.previewIndex' => 'Índice de pré-visualização',
 			'fileInfo.packetLength' => 'Tamanho do pacote',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Arquivo presente',
 			'fileInfo.fileReadable' => 'Legível pelo servidor',
 			'fileInfo.streamPath' => 'Caminho do fluxo',
@@ -3515,8 +3516,6 @@ extension on TranslationsPt {
 			'fileInfo.optimizedVersion' => 'Versão otimizada',
 			'fileInfo.optimizationTarget' => 'Alvo de otimização',
 			'fileInfo.deletedAt' => 'Excluído',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.remoteSource' => 'Origem remota',
 			'fileInfo.infiniteStream' => 'Fluxo infinito',
 			'fileInfo.directPlay' => 'Reprodução direta',
@@ -3669,6 +3668,7 @@ extension on TranslationsPt {
 			'videoControls.pipActive' => 'Reproduzindo em Picture-in-Picture',
 			'videoControls.pipFailed' => 'Falha ao iniciar picture-in-picture',
 			'videoControls.screenshotSaved' => 'Captura de tela salva',
+			'videoControls.clip.fineAdjust' => 'Ajuste fino',
 			'videoControls.clip.title' => 'Grampo',
 			'videoControls.clip.vodOnly' => 'Os clipes estão disponíveis para reprodução de vídeo sob demanda.',
 			'videoControls.clip.sourceUnavailable' => 'A origem do clipe não está disponível para esta sessão de reprodução.',
@@ -4014,11 +4014,11 @@ extension on TranslationsPt {
 			'libraries.failedToEmptyTrash' => ({required Object error}) => 'Falha ao esvaziar lixeira: ${error}',
 			'libraries.analyzing' => ({required Object title}) => 'Analisando "${title}"...',
 			'libraries.analysisStarted' => ({required Object title}) => 'Análise iniciada para "${title}"',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Falha ao analisar biblioteca: ${error}',
 			'libraries.noLibrariesFound' => 'Nenhuma biblioteca encontrada',
 			'libraries.allLibrariesHidden' => 'Todas as bibliotecas estão ocultas',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Bibliotecas ocultas (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Esta biblioteca está vazia',
 			'libraries.noItemsMatchFilters' => 'Nenhum item corresponde aos filtros ativos',
@@ -4067,8 +4067,6 @@ extension on TranslationsPt {
 			'libraries.filterCategories.favorites' => 'Favoritos',
 			'libraries.sortLabels.title' => 'Título',
 			'libraries.sortLabels.dateAdded' => 'Data de adição',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.sortLabels.releaseDate' => 'Data de lançamento',
 			'libraries.sortLabels.rating' => 'Avaliação',
 			'libraries.sortLabels.communityRating' => 'Avaliação da comunidade',
@@ -4530,11 +4528,11 @@ extension on TranslationsPt {
 			'downloads.downloadQueued' => 'Download na fila',
 			'downloads.downloadResumed' => 'Download retomado',
 			'downloads.serverErrorBitrate' => 'Erro do servidor: o arquivo pode exceder o limite remoto de taxa de bits',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.storageFull' => 'Os downloads foram interrompidos porque o armazenamento do dispositivo está cheio. Libere espaço e tente novamente.',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} episódios na fila de download',
 			'downloads.downloadDeleted' => 'Download excluído',
+			_ => null,
+		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => 'Excluir "${title}" deste dispositivo?',
 			'downloads.cancelledDownloadTitle' => 'Download cancelado',
 			'downloads.cancelledDownloadMessage' => 'Este download foi cancelado. O que você deseja fazer?',
@@ -4583,8 +4581,6 @@ extension on TranslationsPt {
 			'downloads.manageSyncRule' => 'Gerenciar sincronização',
 			'downloads.editEpisodeCount' => 'Número de episódios',
 			'downloads.editSyncFilter' => 'Filtro de sincronização',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.syncAllItems' => 'Sincronizando todos os itens',
 			'downloads.syncUnwatchedItems' => 'Sincronizando itens não assistidos',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Servidor: ${server} • ${status}',

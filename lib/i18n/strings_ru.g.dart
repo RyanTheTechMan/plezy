@@ -2320,6 +2320,7 @@ class _Translations$videoControls$clip$ru extends Translations$videoControls$cli
 	final TranslationsRu _root; // ignore: unused_field
 
 	// Translations
+	@override String get fineAdjust => 'Точная настройка';
 	@override String get title => 'Клип';
 	@override String get vodOnly => 'Клипы доступны для воспроизведения видео по требованию.';
 	@override String get sourceUnavailable => 'Источник клипа недоступен для этого сеанса воспроизведения.';
@@ -3518,12 +3519,12 @@ extension on TranslationsRu {
 			'fileInfo.size' => 'Размер',
 			'fileInfo.totalSize' => 'Общий размер',
 			'fileInfo.container' => 'Контейнер',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.duration' => 'Длительность',
 			'fileInfo.previewThumbnails' => 'Миниатюры превью',
 			'fileInfo.previewIndex' => 'Индекс превью',
 			'fileInfo.packetLength' => 'Длина пакета',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Файл присутствует',
 			'fileInfo.fileReadable' => 'Доступен для чтения сервером',
 			'fileInfo.streamPath' => 'Путь потока',
@@ -3535,8 +3536,6 @@ extension on TranslationsRu {
 			'fileInfo.optimizedVersion' => 'Оптимизированная версия',
 			'fileInfo.optimizationTarget' => 'Цель оптимизации',
 			'fileInfo.deletedAt' => 'Удалено',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.remoteSource' => 'Удалённый источник',
 			'fileInfo.infiniteStream' => 'Бесконечный поток',
 			'fileInfo.directPlay' => 'Прямое воспроизведение',
@@ -3689,6 +3688,7 @@ extension on TranslationsRu {
 			'videoControls.pipActive' => 'Воспроизводится в режиме «картинка в картинке»',
 			'videoControls.pipFailed' => 'Не удалось запустить режим «картинка в картинке»',
 			'videoControls.screenshotSaved' => 'Снимок экрана сохранён',
+			'videoControls.clip.fineAdjust' => 'Точная настройка',
 			'videoControls.clip.title' => 'Клип',
 			'videoControls.clip.vodOnly' => 'Клипы доступны для воспроизведения видео по требованию.',
 			'videoControls.clip.sourceUnavailable' => 'Источник клипа недоступен для этого сеанса воспроизведения.',
@@ -4034,11 +4034,11 @@ extension on TranslationsRu {
 			'libraries.failedToEmptyTrash' => ({required Object error}) => 'Не удалось очистить корзину: ${error}',
 			'libraries.analyzing' => ({required Object title}) => 'Анализ "${title}"...',
 			'libraries.analysisStarted' => ({required Object title}) => 'Анализ начат для "${title}"',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Не удалось проанализировать библиотеку: ${error}',
 			'libraries.noLibrariesFound' => 'Библиотеки не найдены',
 			'libraries.allLibrariesHidden' => 'Все библиотеки скрыты',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Скрытые библиотеки (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Эта библиотека пуста',
 			'libraries.noItemsMatchFilters' => 'Нет элементов, соответствующих активным фильтрам',
@@ -4087,8 +4087,6 @@ extension on TranslationsRu {
 			'libraries.filterCategories.favorites' => 'Избранное',
 			'libraries.sortLabels.title' => 'Название',
 			'libraries.sortLabels.dateAdded' => 'Дата добавления',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.sortLabels.releaseDate' => 'Дата выхода',
 			'libraries.sortLabels.rating' => 'Рейтинг',
 			'libraries.sortLabels.communityRating' => 'Оценка сообщества',
@@ -4550,11 +4548,11 @@ extension on TranslationsRu {
 			'downloads.downloadQueued' => 'Загрузка поставлена в очередь',
 			'downloads.downloadResumed' => 'Загрузка возобновлена',
 			'downloads.serverErrorBitrate' => 'Ошибка сервера: файл может превышать установленное на сервере ограничение битрейта',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.storageFull' => 'Загрузки остановлены, так как хранилище устройства заполнено. Освободите место и повторите попытку.',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} эпизодов поставлено в очередь загрузки',
 			'downloads.downloadDeleted' => 'Загрузка удалена',
+			_ => null,
+		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => 'Удалить "${title}" с этого устройства?',
 			'downloads.cancelledDownloadTitle' => 'Загрузка отменена',
 			'downloads.cancelledDownloadMessage' => 'Эта загрузка была отменена. Что вы хотите сделать?',
@@ -4603,8 +4601,6 @@ extension on TranslationsRu {
 			'downloads.manageSyncRule' => 'Управление синхронизацией',
 			'downloads.editEpisodeCount' => 'Количество эпизодов',
 			'downloads.editSyncFilter' => 'Фильтр синхронизации',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.syncAllItems' => 'Синхронизация всех элементов',
 			'downloads.syncUnwatchedItems' => 'Синхронизация непросмотренных элементов',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Сервер: ${server} • ${status}',

@@ -2296,6 +2296,7 @@ class Translations$videoControls$clip$zh extends Translations$videoControls$clip
 	final TranslationsZh _root; // ignore: unused_field
 
 	// Translations
+	@override String get fineAdjust => '微调';
 	@override String get title => '夹子';
 	@override String get vodOnly => '剪辑可用于点播视频播放。';
 	@override String get sourceUnavailable => '剪辑源不可用于此播放会话。';
@@ -3488,12 +3489,12 @@ extension on TranslationsZh {
 			'fileInfo.size' => '大小',
 			'fileInfo.totalSize' => '总大小',
 			'fileInfo.container' => '容器',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.duration' => '时长',
 			'fileInfo.previewThumbnails' => '预览缩略图',
 			'fileInfo.previewIndex' => '预览索引',
 			'fileInfo.packetLength' => '数据包长度',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.filePresent' => '文件存在',
 			'fileInfo.fileReadable' => '服务器可读',
 			'fileInfo.streamPath' => '流路径',
@@ -3505,8 +3506,6 @@ extension on TranslationsZh {
 			'fileInfo.optimizedVersion' => '优化版本',
 			'fileInfo.optimizationTarget' => '优化目标',
 			'fileInfo.deletedAt' => '已删除',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.remoteSource' => '远程来源',
 			'fileInfo.infiniteStream' => '无限流',
 			'fileInfo.directPlay' => '直接播放',
@@ -3659,6 +3658,7 @@ extension on TranslationsZh {
 			'videoControls.pipActive' => '正在以画中画模式播放',
 			'videoControls.pipFailed' => '画中画启动失败',
 			'videoControls.screenshotSaved' => '截图已保存',
+			'videoControls.clip.fineAdjust' => '微调',
 			'videoControls.clip.title' => '夹子',
 			'videoControls.clip.vodOnly' => '剪辑可用于点播视频播放。',
 			'videoControls.clip.sourceUnavailable' => '剪辑源不可用于此播放会话。',
@@ -4004,11 +4004,11 @@ extension on TranslationsZh {
 			'libraries.failedToEmptyTrash' => ({required Object error}) => '无法清空回收站：${error}',
 			'libraries.analyzing' => ({required Object title}) => '正在分析“${title}”…',
 			'libraries.analysisStarted' => ({required Object title}) => '已开始分析“${title}”',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.failedToAnalyze' => ({required Object error}) => '无法分析媒体库：${error}',
 			'libraries.noLibrariesFound' => '未找到媒体库',
 			'libraries.allLibrariesHidden' => '所有媒体库已隐藏',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => '已隐藏的媒体库 (${count})',
 			'libraries.thisLibraryIsEmpty' => '此媒体库为空',
 			'libraries.noItemsMatchFilters' => '没有项目符合当前筛选条件',
@@ -4057,8 +4057,6 @@ extension on TranslationsZh {
 			'libraries.filterCategories.favorites' => '收藏夹',
 			'libraries.sortLabels.title' => '标题',
 			'libraries.sortLabels.dateAdded' => '添加日期',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.sortLabels.releaseDate' => '发行日期',
 			'libraries.sortLabels.rating' => '评分',
 			'libraries.sortLabels.communityRating' => '社区评分',
@@ -4520,11 +4518,11 @@ extension on TranslationsZh {
 			'downloads.downloadQueued' => '下载已排队',
 			'downloads.downloadResumed' => '下载已继续',
 			'downloads.serverErrorBitrate' => '服务器错误：文件可能超过远程比特率限制',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.storageFull' => '设备存储空间已满，因此下载已停止。请释放空间后重试。',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} 集已加入下载队列',
 			'downloads.downloadDeleted' => '下载已删除',
+			_ => null,
+		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => '要从此设备删除“${title}”吗？',
 			'downloads.cancelledDownloadTitle' => '已取消的下载',
 			'downloads.cancelledDownloadMessage' => '此下载已取消。你想怎么做？',
@@ -4573,8 +4571,6 @@ extension on TranslationsZh {
 			'downloads.manageSyncRule' => '管理同步',
 			'downloads.editEpisodeCount' => '剧集数量',
 			'downloads.editSyncFilter' => '同步筛选',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.syncAllItems' => '同步所有项目',
 			'downloads.syncUnwatchedItems' => '同步未观看项目',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => '服务器：${server} • ${status}',
