@@ -99,7 +99,7 @@ class _Translations$app$tr extends Translations$app$en {
 	final TranslationsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -216,6 +216,14 @@ class _Translations$update$tr extends Translations$update$en {
 	@override String get viewRelease => 'Sürümü Görüntüle';
 	@override String get latestVersion => 'En son sürümü kullanıyorsunuz';
 	@override String get checkFailed => 'Güncellemeler kontrol edilemedi';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -299,6 +307,7 @@ class _Translations$settings$tr extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Donanım Çözme';
 	@override String get hardwareDecodingDescription => 'Mümkün olduğunda donanım hızlandırmasını kullan';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Oynatma Tamponu';
 	@override String get playbackBufferAuto => 'Otomatik (Önerilen)';
 	@override String get playbackBufferLarge => 'Büyük';
@@ -516,6 +525,29 @@ class _Translations$settings$tr extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Kitaplık başına';
 	@override String get playerScopeTitle => 'Dizi veya film başına';
 	@override String get exportDialogTitle => 'Plezy ayarlarını dışa aktar';
+	@override String get showWatchedIndicators => 'Show Watched Indicators';
+	@override String get showWatchedIndicatorsDescription => 'Display a checkmark on watched movies, shows, and episodes';
+	@override String get directPlayCoveredQuality => 'Play Smaller Videos at Original Quality';
+	@override String get directPlayCoveredQualityDescription => 'Direct play videos already within the quality limit instead of transcoding them';
+	@override String get skipIntroMode => 'Skip Intro';
+	@override String get skipIntroModeOffDescription => 'Play intros normally without a skip button';
+	@override String get skipIntroModeButtonDescription => 'Show a skip button when an intro starts';
+	@override String get skipIntroModeAutoDescription => 'Skip intros automatically after the delay below';
+	@override String get skipCreditsMode => 'Skip Credits';
+	@override String get skipCreditsModeOffDescription => 'Play credits normally without a skip button';
+	@override String get skipCreditsModeButtonDescription => 'Show a skip button when credits start';
+	@override String get skipCreditsModeAutoDescription => 'Skip credits automatically and play the next episode';
+	@override String get skipMarkerModeOff => 'Off';
+	@override String get skipMarkerModeButton => 'Show button';
+	@override String get skipMarkerModeAuto => 'Automatic';
+	@override String get rememberBrightnessLevel => 'Remember Brightness Level';
+	@override String get rememberBrightnessLevelDescription => 'Start playback at the brightness set by the last swipe';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -804,6 +836,10 @@ class _Translations$videoControls$tr extends Translations$videoControls$en {
 	final TranslationsTr _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => 'Ses';
 	@override String get subtitlesLabel => 'Altyazı';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -850,6 +886,7 @@ class _Translations$videoControls$tr extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'Seçilen altyazı yüklenemedi — altyazısız devam ediliyor';
 	@override String get pipButton => 'Pencere İçinde Pencere modu';
 	@override String get aspectRatioButton => 'En boy oranı';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Ortam aydınlatması';
 	@override String get fullscreenButton => 'Tam ekrana geç';
 	@override String get exitFullscreenButton => 'Tam ekrandan çık';
@@ -917,6 +954,7 @@ class _Translations$messages$tr extends Translations$messages$en {
 	@override String get playbackDataInvalid => 'Sunucu geçersiz oynatma bilgisi döndürdü.';
 	@override String get playbackCancelled => 'Oynatma iptal edildi.';
 	@override String get playbackFailed => 'Oynatma başlatılamadı.';
+	@override String get mediaUnavailable => 'This content is no longer available.';
 	@override String errorLoadingFileInfo({required Object error}) => 'Dosya bilgisi yüklenirken hata: ${error}';
 	@override String get errorLoadingSeries => 'Dizi yüklenirken hata';
 	@override String get musicNotSupported => 'Müzik oynatma henüz desteklenmiyor';
@@ -1016,6 +1054,9 @@ class _Translations$mpvConfig$tr extends Translations$mpvConfig$en {
 	@override String get presetDeleted => 'Önayar silindi';
 	@override String get confirmDeletePreset => 'Bu önayarı silmek istediğinizden emin misiniz?';
 	@override String get configPlaceholder => 'gpu-api=vulkan\nhwdec=auto\n# yorum';
+	@override String get lineHint => 'option=value';
+	@override String get addLine => 'Add line';
+	@override String get removeLine => 'Remove line';
 	@override String get embeddedVoHint => 'vo, gpu-context ve gpu-api Linux\'ta yok sayılır: gömülü video her zaman video düzleminde vo=libmpv üzerinden işlenir ve gpu-next (ArtCNN gibi compute shader\'ların ihtiyaç duyduğu) gömülü olarak çalışamaz.';
 }
 
@@ -1286,6 +1327,9 @@ class _Translations$about$tr extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Sürüm ${version}';
 	@override String get appDescription => 'Flutter için şık bir Plex ve Jellyfin istemcisi';
 	@override String get viewLicensesDescription => 'Üçüncü taraf kütüphanelerin lisanslarını görüntüleyin';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1414,9 +1458,14 @@ class _Translations$explore$tr extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'İzleme listesinden kaldırıldı';
 	@override String get watchlistUpdateFailed => 'İzleme listesi güncellenemedi';
 	@override String get watchlistNoMatch => 'Bu öğe bir izleme listesiyle eşleştirilemedi';
+	@override String get openInLibrary => 'Kitaplıkta aç';
 	@override String get notInLibrary => 'Kitaplığınızda yok';
 	@override String get inTheseLibraries => 'Bu kitaplıklarda var';
 	@override String get checkingLibrary => 'Kitaplığınız kontrol ediliyor...';
+	@override String libraryCheckFailed({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n,
+		one: 'Couldn\'t check ${n} server',
+		other: 'Couldn\'t check ${n} servers',
+	);
 	@override String get emptyTitle => 'Henüz burada bir şey yok';
 	@override String emptyMessage({required Object source}) => '${source} kaynağındaki satırlar içerik bulunduğunda burada görünecektir.';
 	@override String searchHint({required Object source}) => '${source} üzerinde ara';
@@ -1662,6 +1711,13 @@ class _Translations$watchTogether$tr extends Translations$watchTogether$en {
 	@override String get host => 'Kurucu';
 	@override String get hostBadge => 'KURUCU';
 	@override String get youAreHost => 'Kurucu sizsiniz';
+	@override String get makeHost => 'Make host';
+	@override String get makeHostQuestion => 'Transfer host?';
+	@override String makeHostConfirm({required Object name}) => '${name} will control playback and drive the session for everyone.';
+	@override String get transfer => 'Transfer';
+	@override String hostChangedTo({required Object name}) => '${name} is now the host';
+	@override String get youAreNowHost => 'You are now the host';
+	@override String hostTransferFailed({required Object name}) => 'Couldn\'t make ${name} the host';
 	@override String get watchingWithOthers => 'Başkalarıyla birlikte izleniyor';
 	@override String get endSession => 'Oturumu Bitir';
 	@override String get leaveSession => 'Oturumdan Ayrıl';
@@ -1694,6 +1750,7 @@ class _Translations$watchTogether$tr extends Translations$watchTogether$en {
 	@override String participantPaused({required Object name}) => '${name} duraklattı';
 	@override String participantResumed({required Object name}) => '${name} devam ettirdi';
 	@override String participantSeeked({required Object name}) => '${name} oynatma konumunu değiştirdi';
+	@override String participantChangedSpeed({required Object name, required Object speed}) => '${name} set the speed to ${speed}';
 	@override String participantBuffering({required Object name}) => '${name} arabelleğe alıyor';
 	@override String participantNeedsUpdate({required Object name}) => '${name} eski bir uygulama sürümünde — eşitleme kullanılamıyor';
 	@override String resumingWithout({required Object name}) => '${name} olmadan devam ediliyor';
@@ -2119,6 +2176,10 @@ class _Translations$seerr$tr extends Translations$seerr$en {
 	@override String get qualityProfile => 'Kalite profili';
 	@override String get rootFolder => 'Kök klasör';
 	@override String get languageProfile => 'Dil profili';
+	@override String get tags => 'Tags';
+	@override String get noTags => 'No tags';
+	@override String defaultOption({required Object name}) => '${name} (Default)';
+	@override String get animeNote => 'This series is an anime.';
 	@override String get requestSubmitted => 'İstek gönderildi';
 	@override String requestFailed({required Object error}) => 'İstek başarısız oldu: ${error}';
 	@override String get requestsLoadFailed => 'İstek seçenekleri yüklenemedi';
@@ -2130,6 +2191,7 @@ class _Translations$seerr$tr extends Translations$seerr$en {
 	@override String get statusBlocklisted => 'Engelleme listesinde';
 	@override String couldNotReach({required Object url, required Object error}) => '${url} adresine ulaşılamadı: ${error}';
 	@override String noInstanceAtUrl({required Object url, required Object status}) => '${url} adresinde Seerr örneği bulunamadı (HTTP ${status})';
+	@override String get behindAuthProxy => 'An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr\'s /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.';
 	@override String get invalidUrl => 'https://seerr.example.com gibi bir sunucu adresi girin';
 	@override String get quickConnectUnsupported => 'Bu Seerr örneği Quick Connect\'i desteklemiyor. Seerr 3.4 veya daha yenisini gerektiriyor.';
 	@override String get notInitialized => 'Bu Seerr örneği ilk çalıştırma kurulumunu tamamlamadı';
@@ -2140,6 +2202,8 @@ class _Translations$seerr$tr extends Translations$seerr$en {
 	@override String get freshCookieRejected => 'Seerr yeni oturum çerezini reddetti';
 	@override String get noUserInformation => 'Seerr kullanıcı bilgilerini döndürmedi';
 	@override String get sessionRejectedAfterReauth => 'Yeniden giriş yapıldıktan sonra oturum reddedildi';
+	@override String get permissionDenied => 'Seerr denied this action: your account no longer has the required permission';
+	@override String get permissionRevoked => 'You no longer have permission to request this';
 }
 
 // Path: services
@@ -2295,6 +2359,8 @@ class _Translations$hotkeys$actions$tr extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Gölgelendiricileri Aç/Kapat';
 	@override String get skipMarker => 'Jenerik/Emeği Geçenleri Atla';
 	@override String get screenshot => 'Ekran Görüntüsü Al';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.clip
@@ -2775,6 +2841,7 @@ class _Translations$watchTogether$errors$tr extends Translations$watchTogether$e
 	@override String get connectionLost => 'Oturum hazır olmadan bağlantı kapandı';
 	@override String get invalidRelayResponse => 'Aktarıcı sunucusu beklenmeyen bir yanıt gönderdi';
 	@override String get sessionEnded => 'Kurucu oturumu sonlandırdı';
+	@override String get sessionUnavailable => 'Unable to resume this session. Join or create a room to continue.';
 }
 
 // Path: downloads.backgroundWarning
@@ -2991,7 +3058,7 @@ class _Translations$services$libraryFilter$tr extends Translations$services$libr
 extension on TranslationsTr {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Plex ile Giriş Yap',
 			'auth.showQRCode' => 'QR Kodunu Göster',
 			'auth.authenticate' => 'Doğrula',
@@ -3093,6 +3160,14 @@ extension on TranslationsTr {
 			'update.viewRelease' => 'Sürümü Görüntüle',
 			'update.latestVersion' => 'En son sürümü kullanıyorsunuz',
 			'update.checkFailed' => 'Güncellemeler kontrol edilemedi',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Ayarlar',
 			'settings.supportDeveloper' => 'Plezy\'yi Destekleyin',
 			'settings.supportDeveloperDescription' => 'Geliştirmeyi fonlamak için Liberapay üzerinden bağış yapın',
@@ -3167,6 +3242,7 @@ extension on TranslationsTr {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Donanım Çözme',
 			'settings.hardwareDecodingDescription' => 'Mümkün olduğunda donanım hızlandırmasını kullan',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Oynatma Tamponu',
 			'settings.playbackBufferAuto' => 'Otomatik (Önerilen)',
 			'settings.playbackBufferLarge' => 'Büyük',
@@ -3384,6 +3460,29 @@ extension on TranslationsTr {
 			'settings.playerScopeLibrary' => 'Kitaplık başına',
 			'settings.playerScopeTitle' => 'Dizi veya film başına',
 			'settings.exportDialogTitle' => 'Plezy ayarlarını dışa aktar',
+			'settings.showWatchedIndicators' => 'Show Watched Indicators',
+			'settings.showWatchedIndicatorsDescription' => 'Display a checkmark on watched movies, shows, and episodes',
+			'settings.directPlayCoveredQuality' => 'Play Smaller Videos at Original Quality',
+			'settings.directPlayCoveredQualityDescription' => 'Direct play videos already within the quality limit instead of transcoding them',
+			'settings.skipIntroMode' => 'Skip Intro',
+			'settings.skipIntroModeOffDescription' => 'Play intros normally without a skip button',
+			'settings.skipIntroModeButtonDescription' => 'Show a skip button when an intro starts',
+			'settings.skipIntroModeAutoDescription' => 'Skip intros automatically after the delay below',
+			'settings.skipCreditsMode' => 'Skip Credits',
+			'settings.skipCreditsModeOffDescription' => 'Play credits normally without a skip button',
+			'settings.skipCreditsModeButtonDescription' => 'Show a skip button when credits start',
+			'settings.skipCreditsModeAutoDescription' => 'Skip credits automatically and play the next episode',
+			'settings.skipMarkerModeOff' => 'Off',
+			'settings.skipMarkerModeButton' => 'Show button',
+			'settings.skipMarkerModeAuto' => 'Automatic',
+			'settings.rememberBrightnessLevel' => 'Remember Brightness Level',
+			'settings.rememberBrightnessLevelDescription' => 'Start playback at the brightness set by the last swipe',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => 'Film, dizi, müzik ara...',
 			'search.tryDifferentTerm' => 'Farklı bir arama terimi deneyin',
 			'search.searchYourMedia' => 'Medyanızda arayın',
@@ -3419,6 +3518,8 @@ extension on TranslationsTr {
 			'hotkeys.actions.shaderToggle' => 'Gölgelendiricileri Aç/Kapat',
 			'hotkeys.actions.skipMarker' => 'Jenerik/Emeği Geçenleri Atla',
 			'hotkeys.actions.screenshot' => 'Ekran Görüntüsü Al',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Dosya Bilgisi',
 			'fileInfo.overview' => 'Genel Bakış',
 			'fileInfo.video' => 'Video',
@@ -3469,6 +3570,8 @@ extension on TranslationsTr {
 			'fileInfo.dynamicRange' => 'Dinamik Aralık',
 			'fileInfo.dolbyVision' => 'Dolby Vision',
 			'fileInfo.dolbyVisionLevel' => 'Dolby Vision Seviyesi',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.dolbyVisionVersion' => 'Dolby Vision Sürümü',
 			'fileInfo.dolbyVisionLayers' => 'Dolby Vision Katmanları',
 			'fileInfo.baseLayerCompatibility' => 'Temel Katman Uyumluluğu',
@@ -3503,8 +3606,6 @@ extension on TranslationsTr {
 			'fileInfo.previewThumbnails' => 'Önizleme Küçük Resimleri',
 			'fileInfo.previewIndex' => 'Önizleme Dizini',
 			'fileInfo.packetLength' => 'Paket Uzunluğu',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Dosya Mevcut',
 			'fileInfo.fileReadable' => 'Sunucu Tarafından Okunabilir',
 			'fileInfo.streamPath' => 'Akış Yolu',
@@ -3608,6 +3709,7 @@ extension on TranslationsTr {
 			'tooltips.markAsWatched' => 'İzlendi olarak işaretle',
 			'tooltips.markAsUnwatched' => 'İzlenmedi olarak işaretle',
 			'audioTracks.track' => ({required Object n}) => 'Ses Parçası ${n}',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => 'Ses',
 			'videoControls.subtitlesLabel' => 'Altyazı',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3654,6 +3756,7 @@ extension on TranslationsTr {
 			'videoControls.subtitleUnavailableFallback' => 'Seçilen altyazı yüklenemedi — altyazısız devam ediliyor',
 			'videoControls.pipButton' => 'Pencere İçinde Pencere modu',
 			'videoControls.aspectRatioButton' => 'En boy oranı',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Ortam aydınlatması',
 			'videoControls.fullscreenButton' => 'Tam ekrana geç',
 			'videoControls.exitFullscreenButton' => 'Tam ekrandan çık',
@@ -3752,6 +3855,7 @@ extension on TranslationsTr {
 			'messages.playbackDataInvalid' => 'Sunucu geçersiz oynatma bilgisi döndürdü.',
 			'messages.playbackCancelled' => 'Oynatma iptal edildi.',
 			'messages.playbackFailed' => 'Oynatma başlatılamadı.',
+			'messages.mediaUnavailable' => 'This content is no longer available.',
 			'messages.errorLoadingFileInfo' => ({required Object error}) => 'Dosya bilgisi yüklenirken hata: ${error}',
 			'messages.errorLoadingSeries' => 'Dizi yüklenirken hata',
 			'messages.musicNotSupported' => 'Müzik oynatma henüz desteklenmiyor',
@@ -3833,6 +3937,9 @@ extension on TranslationsTr {
 			'mpvConfig.presetDeleted' => 'Önayar silindi',
 			'mpvConfig.confirmDeletePreset' => 'Bu önayarı silmek istediğinizden emin misiniz?',
 			'mpvConfig.configPlaceholder' => 'gpu-api=vulkan\nhwdec=auto\n# yorum',
+			'mpvConfig.lineHint' => 'option=value',
+			'mpvConfig.addLine' => 'Add line',
+			'mpvConfig.removeLine' => 'Remove line',
 			'mpvConfig.embeddedVoHint' => 'vo, gpu-context ve gpu-api Linux\'ta yok sayılır: gömülü video her zaman video düzleminde vo=libmpv üzerinden işlenir ve gpu-next (ArtCNN gibi compute shader\'ların ihtiyaç duyduğu) gömülü olarak çalışamaz.',
 			'dialog.confirmAction' => 'Eylemi Onayla',
 			'profiles.addPlezyProfile' => 'Plezy profili ekle',
@@ -3977,6 +4084,8 @@ extension on TranslationsTr {
 			'discover.recentlyPlayedIn' => ({required Object library}) => '${library} içinde Son Oynatılanlar',
 			'discover.mostPlayedIn' => ({required Object library}) => '${library} içinde En Çok Oynatılanlar',
 			'discover.playEpisode' => ({required Object season, required Object episode}) => 'S${season}B${episode}',
+			_ => null,
+		} ?? switch (path) {
 			'discover.overview' => 'Genel Bakış',
 			'discover.cast' => 'Oyuncular',
 			'discover.extras' => 'Fragmanlar ve Ekstralar',
@@ -4017,8 +4126,6 @@ extension on TranslationsTr {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Kitaplık analiz edilemedi: ${error}',
 			'libraries.noLibrariesFound' => 'Kitaplık bulunamadı',
 			'libraries.allLibrariesHidden' => 'Tüm kitaplıklar gizli',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Gizli kitaplıklar (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Bu kitaplık boş',
 			'libraries.noItemsMatchFilters' => 'Etkin filtrelerle eşleşen öge yok',
@@ -4090,6 +4197,9 @@ extension on TranslationsTr {
 			'about.versionLabel' => ({required Object version}) => 'Sürüm ${version}',
 			'about.appDescription' => 'Flutter için şık bir Plex ve Jellyfin istemcisi',
 			'about.viewLicensesDescription' => 'Üçüncü taraf kütüphanelerin lisanslarını görüntüleyin',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email}) için sunucu bulunamadı',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Sunucular yüklenemedi: ${error}',
 			'serverSelection.noValidServers' => 'Bu hesapta kullanılabilir sunucu bulunamadı',
@@ -4168,9 +4278,11 @@ extension on TranslationsTr {
 			'explore.removedFromWatchlist' => 'İzleme listesinden kaldırıldı',
 			'explore.watchlistUpdateFailed' => 'İzleme listesi güncellenemedi',
 			'explore.watchlistNoMatch' => 'Bu öğe bir izleme listesiyle eşleştirilemedi',
+			'explore.openInLibrary' => 'Kitaplıkta aç',
 			'explore.notInLibrary' => 'Kitaplığınızda yok',
 			'explore.inTheseLibraries' => 'Bu kitaplıklarda var',
 			'explore.checkingLibrary' => 'Kitaplığınız kontrol ediliyor...',
+			'explore.libraryCheckFailed' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n, one: 'Couldn\'t check ${n} server', other: 'Couldn\'t check ${n} servers', ), 
 			'explore.emptyTitle' => 'Henüz burada bir şey yok',
 			'explore.emptyMessage' => ({required Object source}) => '${source} kaynağındaki satırlar içerik bulunduğunda burada görünecektir.',
 			'explore.searchHint' => ({required Object source}) => '${source} üzerinde ara',
@@ -4467,6 +4579,13 @@ extension on TranslationsTr {
 			'watchTogether.host' => 'Kurucu',
 			'watchTogether.hostBadge' => 'KURUCU',
 			'watchTogether.youAreHost' => 'Kurucu sizsiniz',
+			'watchTogether.makeHost' => 'Make host',
+			'watchTogether.makeHostQuestion' => 'Transfer host?',
+			'watchTogether.makeHostConfirm' => ({required Object name}) => '${name} will control playback and drive the session for everyone.',
+			'watchTogether.transfer' => 'Transfer',
+			'watchTogether.hostChangedTo' => ({required Object name}) => '${name} is now the host',
+			'watchTogether.youAreNowHost' => 'You are now the host',
+			'watchTogether.hostTransferFailed' => ({required Object name}) => 'Couldn\'t make ${name} the host',
 			'watchTogether.watchingWithOthers' => 'Başkalarıyla birlikte izleniyor',
 			'watchTogether.endSession' => 'Oturumu Bitir',
 			'watchTogether.leaveSession' => 'Oturumdan Ayrıl',
@@ -4479,6 +4598,8 @@ extension on TranslationsTr {
 			'watchTogether.end' => 'Bitir',
 			'watchTogether.leave' => 'Ayrıl',
 			'watchTogether.syncing' => 'Eşitleniyor...',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.joinWatchSession' => 'İzleme Oturumuna Katıl',
 			'watchTogether.enterCodeHint' => '5 karakterlik kodu girin',
 			'watchTogether.pasteFromClipboard' => 'Panodan yapıştır',
@@ -4499,6 +4620,7 @@ extension on TranslationsTr {
 			'watchTogether.participantPaused' => ({required Object name}) => '${name} duraklattı',
 			'watchTogether.participantResumed' => ({required Object name}) => '${name} devam ettirdi',
 			'watchTogether.participantSeeked' => ({required Object name}) => '${name} oynatma konumunu değiştirdi',
+			'watchTogether.participantChangedSpeed' => ({required Object name, required Object speed}) => '${name} set the speed to ${speed}',
 			'watchTogether.participantBuffering' => ({required Object name}) => '${name} arabelleğe alıyor',
 			'watchTogether.participantNeedsUpdate' => ({required Object name}) => '${name} eski bir uygulama sürümünde — eşitleme kullanılamıyor',
 			'watchTogether.resumingWithout' => ({required Object name}) => '${name} olmadan devam ediliyor',
@@ -4514,6 +4636,7 @@ extension on TranslationsTr {
 			'watchTogether.errors.connectionLost' => 'Oturum hazır olmadan bağlantı kapandı',
 			'watchTogether.errors.invalidRelayResponse' => 'Aktarıcı sunucusu beklenmeyen bir yanıt gönderdi',
 			'watchTogether.errors.sessionEnded' => 'Kurucu oturumu sonlandırdı',
+			'watchTogether.errors.sessionUnavailable' => 'Unable to resume this session. Join or create a room to continue.',
 			'downloads.title' => 'İndirmeler',
 			'downloads.manage' => 'Yönet',
 			'downloads.tvShows' => 'TV Dizileri',
@@ -4531,8 +4654,6 @@ extension on TranslationsTr {
 			'downloads.storageFull' => 'Cihaz depolama alanı dolu olduğu için indirmeler durduruldu. Biraz alan boşaltıp tekrar deneyin.',
 			'downloads.episodesQueued' => ({required Object count}) => 'İndirmek için ${count} bölüm kuyruğa alındı',
 			'downloads.downloadDeleted' => 'İndirme silindi',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => '"${title}" bu cihazdan silinsin mi?',
 			'downloads.cancelledDownloadTitle' => 'İptal Edilen İndirme',
 			'downloads.cancelledDownloadMessage' => 'Bu indirme iptal edildi. Ne yapmak istersiniz?',
@@ -4913,6 +5034,10 @@ extension on TranslationsTr {
 			'seerr.qualityProfile' => 'Kalite profili',
 			'seerr.rootFolder' => 'Kök klasör',
 			'seerr.languageProfile' => 'Dil profili',
+			'seerr.tags' => 'Tags',
+			'seerr.noTags' => 'No tags',
+			'seerr.defaultOption' => ({required Object name}) => '${name} (Default)',
+			'seerr.animeNote' => 'This series is an anime.',
 			'seerr.requestSubmitted' => 'İstek gönderildi',
 			'seerr.requestFailed' => ({required Object error}) => 'İstek başarısız oldu: ${error}',
 			'seerr.requestsLoadFailed' => 'İstek seçenekleri yüklenemedi',
@@ -4924,6 +5049,7 @@ extension on TranslationsTr {
 			'seerr.statusBlocklisted' => 'Engelleme listesinde',
 			'seerr.couldNotReach' => ({required Object url, required Object error}) => '${url} adresine ulaşılamadı: ${error}',
 			'seerr.noInstanceAtUrl' => ({required Object url, required Object status}) => '${url} adresinde Seerr örneği bulunamadı (HTTP ${status})',
+			'seerr.behindAuthProxy' => 'An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr\'s /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.',
 			'seerr.invalidUrl' => 'https://seerr.example.com gibi bir sunucu adresi girin',
 			'seerr.quickConnectUnsupported' => 'Bu Seerr örneği Quick Connect\'i desteklemiyor. Seerr 3.4 veya daha yenisini gerektiriyor.',
 			'seerr.notInitialized' => 'Bu Seerr örneği ilk çalıştırma kurulumunu tamamlamadı',
@@ -4934,6 +5060,8 @@ extension on TranslationsTr {
 			'seerr.freshCookieRejected' => 'Seerr yeni oturum çerezini reddetti',
 			'seerr.noUserInformation' => 'Seerr kullanıcı bilgilerini döndürmedi',
 			'seerr.sessionRejectedAfterReauth' => 'Yeniden giriş yapıldıktan sonra oturum reddedildi',
+			'seerr.permissionDenied' => 'Seerr denied this action: your account no longer has the required permission',
+			'seerr.permissionRevoked' => 'You no longer have permission to request this',
 			'services.title' => 'Servisler',
 			'services.hubSubtitle' => 'İzleme ilerlemesini eşitleyin ve yeni başlıklar isteyin.',
 			'services.integrations' => 'Entegrasyonlar',
@@ -4984,6 +5112,8 @@ extension on TranslationsTr {
 			'addServer.change' => 'Değiştir',
 			'addServer.required' => 'Gerekli',
 			'addServer.couldNotReachServer' => ({required Object error}) => 'Sunucuya ulaşılamadı: ${error}',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.signInFailed' => ({required Object error}) => 'Giriş başarısız: ${error}',
 			'addServer.quickConnectFailed' => ({required Object error}) => 'Hızlı Bağlantı başarısız: ${error}',
 			'addServer.addPlexTitle' => 'Plex ile Giriş Yap',

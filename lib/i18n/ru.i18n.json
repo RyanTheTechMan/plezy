@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Войти через Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Пропустить эту версию",
     "viewRelease": "Посмотреть релиз",
     "latestVersion": "У вас последняя версия",
-    "checkFailed": "Не удалось проверить обновления"
+    "checkFailed": "Не удалось проверить обновления",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Настройки",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Боковая панель остаётся развёрнутой, область контента подстраивается",
     "showUnwatchedCount": "Показывать количество непросмотренных",
     "showUnwatchedCountDescription": "Отображать количество непросмотренных эпизодов для сериалов и сезонов",
-    "showWatchedIndicators": "",
-    "showWatchedIndicatorsDescription": "",
     "showEpisodeNumberOnCards": "Показывать номер эпизода на карточках",
     "showEpisodeNumberOnCardsDescription": "Показывать номер сезона и серии на карточках серий",
     "showSeasonPostersOnTabs": "Показывать постеры сезонов на вкладках",
@@ -201,8 +207,6 @@
     "defaultQualityTitle": "Качество по умолчанию",
     "cellularQualityTitle": "Качество по умолчанию в мобильной сети",
     "cellularQualitySameAsDefault": "Как качество по умолчанию",
-    "directPlayCoveredQuality": "",
-    "directPlayCoveredQualityDescription": "",
     "musicQualityTitle": "Качество музыки",
     "subtitleStyling": "Стиль субтитров",
     "subtitleStylingDescription": "Настроить внешний вид субтитров",
@@ -276,17 +280,6 @@
     "autoPlayNextEpisodeDescription": "Автоматически запускать следующий эпизод, когда заканчивается текущий",
     "playNextCountdown": "Обратный отсчёт перед следующим",
     "playNextCountdownImmediate": "Воспроизводить сразу",
-    "skipIntroMode": "",
-    "skipIntroModeOffDescription": "",
-    "skipIntroModeButtonDescription": "",
-    "skipIntroModeAutoDescription": "",
-    "skipCreditsMode": "",
-    "skipCreditsModeOffDescription": "",
-    "skipCreditsModeButtonDescription": "",
-    "skipCreditsModeAutoDescription": "",
-    "skipMarkerModeOff": "",
-    "skipMarkerModeButton": "",
-    "skipMarkerModeAuto": "",
     "forceSkipMarkerFallback": "Всегда использовать резервные маркеры",
     "forceSkipMarkerFallbackDescription": "Использовать шаблоны названий глав, даже если в Plex есть собственные маркеры",
     "autoSkipDelay": "Задержка автопропуска",
@@ -411,8 +404,6 @@
     "gestureVolumeSwipeDescription": "Проведите вверх или вниз по правому краю, чтобы изменить громкость",
     "gesturePinchToZoom": "Щипок для масштабирования",
     "gesturePinchToZoomDescription": "Сведите или разведите пальцы на видео, чтобы изменить масштаб",
-    "rememberBrightnessLevel": "",
-    "rememberBrightnessLevelDescription": "",
     "controls": "Элементы управления",
     "rememberPlayerChanges": "Запоминать изменения плеера",
     "rememberPlayerChangesDescription": "Где сохраняется и откуда повторно применяется изменение, сделанное во время воспроизведения",
@@ -424,7 +415,30 @@
     "playerScopeGlobal": "Везде",
     "playerScopeLibrary": "Для библиотеки",
     "playerScopeTitle": "Для сериала или фильма",
-    "exportDialogTitle": "Экспорт настроек Plezy"
+    "exportDialogTitle": "Экспорт настроек Plezy",
+    "showWatchedIndicators": "Show Watched Indicators",
+    "showWatchedIndicatorsDescription": "Display a checkmark on watched movies, shows, and episodes",
+    "directPlayCoveredQuality": "Play Smaller Videos at Original Quality",
+    "directPlayCoveredQualityDescription": "Direct play videos already within the quality limit instead of transcoding them",
+    "skipIntroMode": "Skip Intro",
+    "skipIntroModeOffDescription": "Play intros normally without a skip button",
+    "skipIntroModeButtonDescription": "Show a skip button when an intro starts",
+    "skipIntroModeAutoDescription": "Skip intros automatically after the delay below",
+    "skipCreditsMode": "Skip Credits",
+    "skipCreditsModeOffDescription": "Play credits normally without a skip button",
+    "skipCreditsModeButtonDescription": "Show a skip button when credits start",
+    "skipCreditsModeAutoDescription": "Skip credits automatically and play the next episode",
+    "skipMarkerModeOff": "Off",
+    "skipMarkerModeButton": "Show button",
+    "skipMarkerModeAuto": "Automatic",
+    "rememberBrightnessLevel": "Remember Brightness Level",
+    "rememberBrightnessLevelDescription": "Start playback at the brightness set by the last swipe",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Поиск фильмов, сериалов, музыки...",
@@ -464,7 +478,9 @@
       "subSeekPrev": "К предыдущему субтитру",
       "shaderToggle": "Вкл./выкл. шейдеры",
       "skipMarker": "Пропустить вступление/титры",
-      "screenshot": "Сделать снимок экрана"
+      "screenshot": "Сделать снимок экрана",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -682,6 +698,12 @@
     "track": "Аудиодорожка ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "few": "",
+      "many": "",
+      "other": "${n} frames"
+    },
     "audioLabel": "Аудио",
     "subtitlesLabel": "Субтитры",
     "addTime": "+${amount}${unit}",
@@ -839,7 +861,7 @@
     "playbackDataInvalid": "Сервер вернул некорректные сведения для воспроизведения.",
     "playbackCancelled": "Воспроизведение отменено.",
     "playbackFailed": "Не удалось начать воспроизведение.",
-    "mediaUnavailable": "",
+    "mediaUnavailable": "This content is no longer available.",
     "errorLoadingFileInfo": "Ошибка загрузки информации о файле: ${error}",
     "errorLoadingSeries": "Ошибка загрузки сериала",
     "musicNotSupported": "Воспроизведение музыки пока не поддерживается",
@@ -925,9 +947,9 @@
     "presetDeleted": "Пресет удалён",
     "confirmDeletePreset": "Вы уверены, что хотите удалить этот пресет?",
     "configPlaceholder": "gpu-api=vulkan\nhwdec=auto\n# comment",
-    "lineHint": "",
-    "addLine": "",
-    "removeLine": "",
+    "lineHint": "option=value",
+    "addLine": "Add line",
+    "removeLine": "Remove line",
     "embeddedVoHint": "vo, gpu-context и gpu-api игнорируются в Linux: встроенное видео всегда отображается через vo=libmpv на видеоплоскости, а gpu-next (нужный для compute-шейдеров вроде ArtCNN) не может работать во встроенном режиме."
   },
   "dialog": {
@@ -1223,7 +1245,10 @@
     "openSourceLicenses": "Лицензии открытого ПО",
     "versionLabel": "Версия ${version}",
     "appDescription": "Красивый клиент Plex и Jellyfin на Flutter",
-    "viewLicensesDescription": "Просмотр лицензий сторонних библиотек"
+    "viewLicensesDescription": "Просмотр лицензий сторонних библиотек",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Серверы не найдены для ${username} (${email})",
@@ -1330,10 +1355,10 @@
     "inTheseLibraries": "В этих библиотеках",
     "checkingLibrary": "Проверка вашей библиотеки...",
     "libraryCheckFailed": {
-      "one": "",
+      "one": "Couldn't check ${n} server",
       "few": "",
       "many": "",
-      "other": ""
+      "other": "Couldn't check ${n} servers"
     },
     "emptyTitle": "Здесь пока ничего нет",
     "emptyMessage": "Разделы из ${source} появятся здесь, когда в них появится контент.",
@@ -1681,13 +1706,13 @@
     "host": "Организатор",
     "hostBadge": "ОРГАНИЗАТОР",
     "youAreHost": "Вы — организатор",
-    "makeHost": "",
-    "makeHostQuestion": "",
-    "makeHostConfirm": "",
-    "transfer": "",
-    "hostChangedTo": "",
-    "youAreNowHost": "",
-    "hostTransferFailed": "",
+    "makeHost": "Make host",
+    "makeHostQuestion": "Transfer host?",
+    "makeHostConfirm": "${name} will control playback and drive the session for everyone.",
+    "transfer": "Transfer",
+    "hostChangedTo": "${name} is now the host",
+    "youAreNowHost": "You are now the host",
+    "hostTransferFailed": "Couldn't make ${name} the host",
     "watchingWithOthers": "Совместный просмотр",
     "endSession": "Завершить сессию",
     "leaveSession": "Покинуть сессию",
@@ -1720,7 +1745,7 @@
     "participantPaused": "${name} поставил на паузу",
     "participantResumed": "${name} возобновил",
     "participantSeeked": "${name} перемотал",
-    "participantChangedSpeed": "",
+    "participantChangedSpeed": "${name} set the speed to ${speed}",
     "participantBuffering": "У ${name} идёт буферизация",
     "participantNeedsUpdate": "${name} использует старую версию приложения — синхронизация недоступна",
     "resumingWithout": "Возобновление без ${name}",
@@ -1737,7 +1762,7 @@
       "connectionLost": "Соединение закрылось до того, как сессия была готова",
       "invalidRelayResponse": "Сервер ретрансляции прислал неожиданный ответ",
       "sessionEnded": "Организатор завершил сессию",
-      "sessionUnavailable": ""
+      "sessionUnavailable": "Unable to resume this session. Join or create a room to continue."
     }
   },
   "downloads": {
@@ -2168,10 +2193,10 @@
     "qualityProfile": "Профиль качества",
     "rootFolder": "Корневая папка",
     "languageProfile": "Языковой профиль",
-    "tags": "",
-    "noTags": "",
-    "defaultOption": "",
-    "animeNote": "",
+    "tags": "Tags",
+    "noTags": "No tags",
+    "defaultOption": "${name} (Default)",
+    "animeNote": "This series is an anime.",
     "requestSubmitted": "Запрос отправлен",
     "requestFailed": "Ошибка запроса: ${error}",
     "requestsLoadFailed": "Не удалось загрузить параметры запроса",
@@ -2183,7 +2208,7 @@
     "statusBlocklisted": "В списке блокировки",
     "couldNotReach": "Не удалось связаться с ${url}: ${error}",
     "noInstanceAtUrl": "По адресу ${url} нет экземпляра Seerr (HTTP ${status})",
-    "behindAuthProxy": "",
+    "behindAuthProxy": "An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr's /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.",
     "invalidUrl": "Введите адрес сервера, например https://seerr.example.com",
     "quickConnectUnsupported": "Этот экземпляр Seerr не поддерживает Quick Connect. Нужна версия Seerr 3.4 или новее.",
     "notInitialized": "Первоначальная настройка этого экземпляра Seerr не завершена",
@@ -2194,8 +2219,8 @@
     "freshCookieRejected": "Seerr отклонил новый cookie-файл сеанса",
     "noUserInformation": "Seerr не вернул сведения о пользователе",
     "sessionRejectedAfterReauth": "Сеанс был отклонён после повторного входа",
-    "permissionDenied": "",
-    "permissionRevoked": ""
+    "permissionDenied": "Seerr denied this action: your account no longer has the required permission",
+    "permissionRevoked": "You no longer have permission to request this"
   },
   "services": {
     "title": "Сервисы",

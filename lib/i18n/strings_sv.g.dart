@@ -99,7 +99,7 @@ class _Translations$app$sv extends Translations$app$en {
 	final TranslationsSv _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -216,6 +216,14 @@ class _Translations$update$sv extends Translations$update$en {
 	@override String get viewRelease => 'Visa versionsinformation';
 	@override String get latestVersion => 'Du har den senaste versionen';
 	@override String get checkFailed => 'Det gick inte att söka efter uppdateringar';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -299,6 +307,7 @@ class _Translations$settings$sv extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Hårdvaruavkodning';
 	@override String get hardwareDecodingDescription => 'Använd hårdvaruacceleration när tillgängligt';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Uppspelningsbuffert';
 	@override String get playbackBufferAuto => 'Auto (rekommenderas)';
 	@override String get playbackBufferLarge => 'Stor';
@@ -516,6 +525,29 @@ class _Translations$settings$sv extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Per bibliotek';
 	@override String get playerScopeTitle => 'Per serie eller film';
 	@override String get exportDialogTitle => 'Exportera Plezy-inställningar';
+	@override String get showWatchedIndicators => 'Show Watched Indicators';
+	@override String get showWatchedIndicatorsDescription => 'Display a checkmark on watched movies, shows, and episodes';
+	@override String get directPlayCoveredQuality => 'Play Smaller Videos at Original Quality';
+	@override String get directPlayCoveredQualityDescription => 'Direct play videos already within the quality limit instead of transcoding them';
+	@override String get skipIntroMode => 'Skip Intro';
+	@override String get skipIntroModeOffDescription => 'Play intros normally without a skip button';
+	@override String get skipIntroModeButtonDescription => 'Show a skip button when an intro starts';
+	@override String get skipIntroModeAutoDescription => 'Skip intros automatically after the delay below';
+	@override String get skipCreditsMode => 'Skip Credits';
+	@override String get skipCreditsModeOffDescription => 'Play credits normally without a skip button';
+	@override String get skipCreditsModeButtonDescription => 'Show a skip button when credits start';
+	@override String get skipCreditsModeAutoDescription => 'Skip credits automatically and play the next episode';
+	@override String get skipMarkerModeOff => 'Off';
+	@override String get skipMarkerModeButton => 'Show button';
+	@override String get skipMarkerModeAuto => 'Automatic';
+	@override String get rememberBrightnessLevel => 'Remember Brightness Level';
+	@override String get rememberBrightnessLevelDescription => 'Start playback at the brightness set by the last swipe';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -804,6 +836,10 @@ class _Translations$videoControls$sv extends Translations$videoControls$en {
 	final TranslationsSv _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('sv'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => 'Ljud';
 	@override String get subtitlesLabel => 'Undertexter';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -850,6 +886,7 @@ class _Translations$videoControls$sv extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'De valda undertexterna kunde inte läsas in — uppspelningen fortsätter utan undertexter';
 	@override String get pipButton => 'Bild-i-bild-läge';
 	@override String get aspectRatioButton => 'Bildförhållande';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Ambientbelysning';
 	@override String get fullscreenButton => 'Aktivera helskärm';
 	@override String get exitFullscreenButton => 'Avsluta helskärm';
@@ -917,6 +954,7 @@ class _Translations$messages$sv extends Translations$messages$en {
 	@override String get playbackDataInvalid => 'Servern returnerade ogiltig uppspelningsinformation.';
 	@override String get playbackCancelled => 'Uppspelningen avbröts.';
 	@override String get playbackFailed => 'Det gick inte att starta uppspelningen.';
+	@override String get mediaUnavailable => 'This content is no longer available.';
 	@override String errorLoadingFileInfo({required Object error}) => 'Fel vid laddning av filinformation: ${error}';
 	@override String get errorLoadingSeries => 'Fel vid laddning av serie';
 	@override String get musicNotSupported => 'Musikuppspelning stöds inte ännu';
@@ -1016,6 +1054,9 @@ class _Translations$mpvConfig$sv extends Translations$mpvConfig$en {
 	@override String get presetDeleted => 'Förval borttaget';
 	@override String get confirmDeletePreset => 'Är du säker på att du vill ta bort detta förval?';
 	@override String get configPlaceholder => 'gpu-api=vulkan\nhwdec=auto\n# comment';
+	@override String get lineHint => 'option=value';
+	@override String get addLine => 'Add line';
+	@override String get removeLine => 'Remove line';
 	@override String get embeddedVoHint => 'vo, gpu-context och gpu-api ignoreras på Linux: inbäddad video renderas alltid via vo=libmpv på videoplanet, och gpu-next (som compute-shaders som ArtCNN behöver) kan inte köras inbäddat.';
 }
 
@@ -1286,6 +1327,9 @@ class _Translations$about$sv extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Version ${version}';
 	@override String get appDescription => 'En vacker Plex- och Jellyfin-klient för Flutter';
 	@override String get viewLicensesDescription => 'Visa licenser för tredjepartsbibliotek';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1414,9 +1458,14 @@ class _Translations$explore$sv extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Borttagen från bevakningslistan';
 	@override String get watchlistUpdateFailed => 'Det gick inte att uppdatera bevakningslistan';
 	@override String get watchlistNoMatch => 'Det gick inte att matcha det här objektet mot en bevakningslista';
+	@override String get openInLibrary => 'Öppna i bibliotek';
 	@override String get notInLibrary => 'Finns inte i ditt bibliotek';
 	@override String get inTheseLibraries => 'I dessa bibliotek';
 	@override String get checkingLibrary => 'Kontrollerar ditt bibliotek...';
+	@override String libraryCheckFailed({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('sv'))(n,
+		one: 'Couldn\'t check ${n} server',
+		other: 'Couldn\'t check ${n} servers',
+	);
 	@override String get emptyTitle => 'Inget här ännu';
 	@override String emptyMessage({required Object source}) => 'Rader från ${source} visas här när de har innehåll.';
 	@override String searchHint({required Object source}) => 'Sök i ${source}';
@@ -1662,6 +1711,13 @@ class _Translations$watchTogether$sv extends Translations$watchTogether$en {
 	@override String get host => 'Värd';
 	@override String get hostBadge => 'VÄRD';
 	@override String get youAreHost => 'Du är värden';
+	@override String get makeHost => 'Make host';
+	@override String get makeHostQuestion => 'Transfer host?';
+	@override String makeHostConfirm({required Object name}) => '${name} will control playback and drive the session for everyone.';
+	@override String get transfer => 'Transfer';
+	@override String hostChangedTo({required Object name}) => '${name} is now the host';
+	@override String get youAreNowHost => 'You are now the host';
+	@override String hostTransferFailed({required Object name}) => 'Couldn\'t make ${name} the host';
 	@override String get watchingWithOthers => 'Tittar med andra';
 	@override String get endSession => 'Avsluta session';
 	@override String get leaveSession => 'Lämna session';
@@ -1694,6 +1750,7 @@ class _Translations$watchTogether$sv extends Translations$watchTogether$en {
 	@override String participantPaused({required Object name}) => '${name} pausade';
 	@override String participantResumed({required Object name}) => '${name} återupptog';
 	@override String participantSeeked({required Object name}) => '${name} ändrade uppspelningspositionen';
+	@override String participantChangedSpeed({required Object name, required Object speed}) => '${name} set the speed to ${speed}';
 	@override String participantBuffering({required Object name}) => '${name} buffrar';
 	@override String participantNeedsUpdate({required Object name}) => '${name} använder en äldre appversion — synkronisering är inte tillgänglig';
 	@override String resumingWithout({required Object name}) => 'Återupptar utan ${name}';
@@ -2119,6 +2176,10 @@ class _Translations$seerr$sv extends Translations$seerr$en {
 	@override String get qualityProfile => 'Kvalitetsprofil';
 	@override String get rootFolder => 'Rotmapp';
 	@override String get languageProfile => 'Språkprofil';
+	@override String get tags => 'Tags';
+	@override String get noTags => 'No tags';
+	@override String defaultOption({required Object name}) => '${name} (Default)';
+	@override String get animeNote => 'This series is an anime.';
 	@override String get requestSubmitted => 'Begäran skickad';
 	@override String requestFailed({required Object error}) => 'Begäran kunde inte genomföras: ${error}';
 	@override String get requestsLoadFailed => 'Det gick inte att läsa in alternativ för begäran';
@@ -2130,6 +2191,7 @@ class _Translations$seerr$sv extends Translations$seerr$en {
 	@override String get statusBlocklisted => 'På blockeringslistan';
 	@override String couldNotReach({required Object url, required Object error}) => 'Kunde inte nå ${url}: ${error}';
 	@override String noInstanceAtUrl({required Object url, required Object status}) => 'Det finns ingen Seerr-instans på ${url} (HTTP ${status})';
+	@override String get behindAuthProxy => 'An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr\'s /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.';
 	@override String get invalidUrl => 'Ange en serveradress, t.ex. https://seerr.example.com';
 	@override String get quickConnectUnsupported => 'Den här Seerr-instansen stöder inte Quick Connect. Den kräver Seerr 3.4 eller nyare.';
 	@override String get notInitialized => 'Den här Seerr-instansen har inte slutfört den inledande konfigurationen';
@@ -2140,6 +2202,8 @@ class _Translations$seerr$sv extends Translations$seerr$en {
 	@override String get freshCookieRejected => 'Seerr avvisade den nya sessionscookien';
 	@override String get noUserInformation => 'Seerr returnerade ingen användarinformation';
 	@override String get sessionRejectedAfterReauth => 'Sessionen avvisades efter den nya inloggningen';
+	@override String get permissionDenied => 'Seerr denied this action: your account no longer has the required permission';
+	@override String get permissionRevoked => 'You no longer have permission to request this';
 }
 
 // Path: services
@@ -2295,6 +2359,8 @@ class _Translations$hotkeys$actions$sv extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Växla shaders';
 	@override String get skipMarker => 'Hoppa över intro/eftertexter';
 	@override String get screenshot => 'Ta skärmbild';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.clip
@@ -2775,6 +2841,7 @@ class _Translations$watchTogether$errors$sv extends Translations$watchTogether$e
 	@override String get connectionLost => 'Anslutningen stängdes innan sessionen var klar';
 	@override String get invalidRelayResponse => 'Reläservern skickade ett oväntat svar';
 	@override String get sessionEnded => 'Värden avslutade sessionen';
+	@override String get sessionUnavailable => 'Unable to resume this session. Join or create a room to continue.';
 }
 
 // Path: downloads.backgroundWarning
@@ -2991,7 +3058,7 @@ class _Translations$services$libraryFilter$sv extends Translations$services$libr
 extension on TranslationsSv {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Logga in med Plex',
 			'auth.showQRCode' => 'Visa QR-kod',
 			'auth.authenticate' => 'Verifiera',
@@ -3093,6 +3160,14 @@ extension on TranslationsSv {
 			'update.viewRelease' => 'Visa versionsinformation',
 			'update.latestVersion' => 'Du har den senaste versionen',
 			'update.checkFailed' => 'Det gick inte att söka efter uppdateringar',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Inställningar',
 			'settings.supportDeveloper' => 'Stöd Plezy',
 			'settings.supportDeveloperDescription' => 'Donera via Liberapay för att finansiera utvecklingen',
@@ -3167,6 +3242,7 @@ extension on TranslationsSv {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Hårdvaruavkodning',
 			'settings.hardwareDecodingDescription' => 'Använd hårdvaruacceleration när tillgängligt',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Uppspelningsbuffert',
 			'settings.playbackBufferAuto' => 'Auto (rekommenderas)',
 			'settings.playbackBufferLarge' => 'Stor',
@@ -3384,6 +3460,29 @@ extension on TranslationsSv {
 			'settings.playerScopeLibrary' => 'Per bibliotek',
 			'settings.playerScopeTitle' => 'Per serie eller film',
 			'settings.exportDialogTitle' => 'Exportera Plezy-inställningar',
+			'settings.showWatchedIndicators' => 'Show Watched Indicators',
+			'settings.showWatchedIndicatorsDescription' => 'Display a checkmark on watched movies, shows, and episodes',
+			'settings.directPlayCoveredQuality' => 'Play Smaller Videos at Original Quality',
+			'settings.directPlayCoveredQualityDescription' => 'Direct play videos already within the quality limit instead of transcoding them',
+			'settings.skipIntroMode' => 'Skip Intro',
+			'settings.skipIntroModeOffDescription' => 'Play intros normally without a skip button',
+			'settings.skipIntroModeButtonDescription' => 'Show a skip button when an intro starts',
+			'settings.skipIntroModeAutoDescription' => 'Skip intros automatically after the delay below',
+			'settings.skipCreditsMode' => 'Skip Credits',
+			'settings.skipCreditsModeOffDescription' => 'Play credits normally without a skip button',
+			'settings.skipCreditsModeButtonDescription' => 'Show a skip button when credits start',
+			'settings.skipCreditsModeAutoDescription' => 'Skip credits automatically and play the next episode',
+			'settings.skipMarkerModeOff' => 'Off',
+			'settings.skipMarkerModeButton' => 'Show button',
+			'settings.skipMarkerModeAuto' => 'Automatic',
+			'settings.rememberBrightnessLevel' => 'Remember Brightness Level',
+			'settings.rememberBrightnessLevelDescription' => 'Start playback at the brightness set by the last swipe',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => 'Sök filmer, serier, musik...',
 			'search.tryDifferentTerm' => 'Prova en annan sökterm',
 			'search.searchYourMedia' => 'Sök i dina media',
@@ -3419,6 +3518,8 @@ extension on TranslationsSv {
 			'hotkeys.actions.shaderToggle' => 'Växla shaders',
 			'hotkeys.actions.skipMarker' => 'Hoppa över intro/eftertexter',
 			'hotkeys.actions.screenshot' => 'Ta skärmbild',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Filinformation',
 			'fileInfo.overview' => 'Översikt',
 			'fileInfo.video' => 'Video',
@@ -3469,6 +3570,8 @@ extension on TranslationsSv {
 			'fileInfo.dynamicRange' => 'Dynamiskt omfång',
 			'fileInfo.dolbyVision' => 'Dolby Vision',
 			'fileInfo.dolbyVisionLevel' => 'Dolby Vision-nivå',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.dolbyVisionVersion' => 'Dolby Vision-version',
 			'fileInfo.dolbyVisionLayers' => 'Dolby Vision-lager',
 			'fileInfo.baseLayerCompatibility' => 'Kompatibilitet för baslager',
@@ -3503,8 +3606,6 @@ extension on TranslationsSv {
 			'fileInfo.previewThumbnails' => 'Förhandsgranskningsminiatyrer',
 			'fileInfo.previewIndex' => 'Förhandsgranskningsindex',
 			'fileInfo.packetLength' => 'Paketlängd',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Fil finns',
 			'fileInfo.fileReadable' => 'Läsbar av servern',
 			'fileInfo.streamPath' => 'Strömsökväg',
@@ -3608,6 +3709,7 @@ extension on TranslationsSv {
 			'tooltips.markAsWatched' => 'Markera som sedd',
 			'tooltips.markAsUnwatched' => 'Markera som osedd',
 			'audioTracks.track' => ({required Object n}) => 'Ljudspår ${n}',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('sv'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => 'Ljud',
 			'videoControls.subtitlesLabel' => 'Undertexter',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3654,6 +3756,7 @@ extension on TranslationsSv {
 			'videoControls.subtitleUnavailableFallback' => 'De valda undertexterna kunde inte läsas in — uppspelningen fortsätter utan undertexter',
 			'videoControls.pipButton' => 'Bild-i-bild-läge',
 			'videoControls.aspectRatioButton' => 'Bildförhållande',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Ambientbelysning',
 			'videoControls.fullscreenButton' => 'Aktivera helskärm',
 			'videoControls.exitFullscreenButton' => 'Avsluta helskärm',
@@ -3752,6 +3855,7 @@ extension on TranslationsSv {
 			'messages.playbackDataInvalid' => 'Servern returnerade ogiltig uppspelningsinformation.',
 			'messages.playbackCancelled' => 'Uppspelningen avbröts.',
 			'messages.playbackFailed' => 'Det gick inte att starta uppspelningen.',
+			'messages.mediaUnavailable' => 'This content is no longer available.',
 			'messages.errorLoadingFileInfo' => ({required Object error}) => 'Fel vid laddning av filinformation: ${error}',
 			'messages.errorLoadingSeries' => 'Fel vid laddning av serie',
 			'messages.musicNotSupported' => 'Musikuppspelning stöds inte ännu',
@@ -3833,6 +3937,9 @@ extension on TranslationsSv {
 			'mpvConfig.presetDeleted' => 'Förval borttaget',
 			'mpvConfig.confirmDeletePreset' => 'Är du säker på att du vill ta bort detta förval?',
 			'mpvConfig.configPlaceholder' => 'gpu-api=vulkan\nhwdec=auto\n# comment',
+			'mpvConfig.lineHint' => 'option=value',
+			'mpvConfig.addLine' => 'Add line',
+			'mpvConfig.removeLine' => 'Remove line',
 			'mpvConfig.embeddedVoHint' => 'vo, gpu-context och gpu-api ignoreras på Linux: inbäddad video renderas alltid via vo=libmpv på videoplanet, och gpu-next (som compute-shaders som ArtCNN behöver) kan inte köras inbäddat.',
 			'dialog.confirmAction' => 'Bekräfta åtgärd',
 			'profiles.addPlezyProfile' => 'Lägg till Plezy-profil',
@@ -3977,6 +4084,8 @@ extension on TranslationsSv {
 			'discover.recentlyPlayedIn' => ({required Object library}) => 'Nyligen spelade i ${library}',
 			'discover.mostPlayedIn' => ({required Object library}) => 'Mest spelade i ${library}',
 			'discover.playEpisode' => ({required Object season, required Object episode}) => 'S${season}E${episode}',
+			_ => null,
+		} ?? switch (path) {
 			'discover.overview' => 'Översikt',
 			'discover.cast' => 'Rollbesättning',
 			'discover.extras' => 'Trailrar och extramaterial',
@@ -4017,8 +4126,6 @@ extension on TranslationsSv {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Det gick inte att analysera biblioteket: ${error}',
 			'libraries.noLibrariesFound' => 'Inga bibliotek hittades',
 			'libraries.allLibrariesHidden' => 'Alla bibliotek är dolda',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Dolda bibliotek (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Detta bibliotek är tomt',
 			'libraries.noItemsMatchFilters' => 'Inga objekt matchar de aktiva filtren',
@@ -4090,6 +4197,9 @@ extension on TranslationsSv {
 			'about.versionLabel' => ({required Object version}) => 'Version ${version}',
 			'about.appDescription' => 'En vacker Plex- och Jellyfin-klient för Flutter',
 			'about.viewLicensesDescription' => 'Visa licenser för tredjepartsbibliotek',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Inga servrar hittades för ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Det gick inte att läsa in servrar: ${error}',
 			'serverSelection.noValidServers' => 'Inga användbara servrar hittades på det här kontot',
@@ -4168,9 +4278,11 @@ extension on TranslationsSv {
 			'explore.removedFromWatchlist' => 'Borttagen från bevakningslistan',
 			'explore.watchlistUpdateFailed' => 'Det gick inte att uppdatera bevakningslistan',
 			'explore.watchlistNoMatch' => 'Det gick inte att matcha det här objektet mot en bevakningslista',
+			'explore.openInLibrary' => 'Öppna i bibliotek',
 			'explore.notInLibrary' => 'Finns inte i ditt bibliotek',
 			'explore.inTheseLibraries' => 'I dessa bibliotek',
 			'explore.checkingLibrary' => 'Kontrollerar ditt bibliotek...',
+			'explore.libraryCheckFailed' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('sv'))(n, one: 'Couldn\'t check ${n} server', other: 'Couldn\'t check ${n} servers', ), 
 			'explore.emptyTitle' => 'Inget här ännu',
 			'explore.emptyMessage' => ({required Object source}) => 'Rader från ${source} visas här när de har innehåll.',
 			'explore.searchHint' => ({required Object source}) => 'Sök i ${source}',
@@ -4467,6 +4579,13 @@ extension on TranslationsSv {
 			'watchTogether.host' => 'Värd',
 			'watchTogether.hostBadge' => 'VÄRD',
 			'watchTogether.youAreHost' => 'Du är värden',
+			'watchTogether.makeHost' => 'Make host',
+			'watchTogether.makeHostQuestion' => 'Transfer host?',
+			'watchTogether.makeHostConfirm' => ({required Object name}) => '${name} will control playback and drive the session for everyone.',
+			'watchTogether.transfer' => 'Transfer',
+			'watchTogether.hostChangedTo' => ({required Object name}) => '${name} is now the host',
+			'watchTogether.youAreNowHost' => 'You are now the host',
+			'watchTogether.hostTransferFailed' => ({required Object name}) => 'Couldn\'t make ${name} the host',
 			'watchTogether.watchingWithOthers' => 'Tittar med andra',
 			'watchTogether.endSession' => 'Avsluta session',
 			'watchTogether.leaveSession' => 'Lämna session',
@@ -4479,6 +4598,8 @@ extension on TranslationsSv {
 			'watchTogether.end' => 'Avsluta',
 			'watchTogether.leave' => 'Lämna',
 			'watchTogether.syncing' => 'Synkroniserar...',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.joinWatchSession' => 'Gå med i tittarsession',
 			'watchTogether.enterCodeHint' => 'Ange en kod med 5 tecken',
 			'watchTogether.pasteFromClipboard' => 'Klistra in från urklipp',
@@ -4499,6 +4620,7 @@ extension on TranslationsSv {
 			'watchTogether.participantPaused' => ({required Object name}) => '${name} pausade',
 			'watchTogether.participantResumed' => ({required Object name}) => '${name} återupptog',
 			'watchTogether.participantSeeked' => ({required Object name}) => '${name} ändrade uppspelningspositionen',
+			'watchTogether.participantChangedSpeed' => ({required Object name, required Object speed}) => '${name} set the speed to ${speed}',
 			'watchTogether.participantBuffering' => ({required Object name}) => '${name} buffrar',
 			'watchTogether.participantNeedsUpdate' => ({required Object name}) => '${name} använder en äldre appversion — synkronisering är inte tillgänglig',
 			'watchTogether.resumingWithout' => ({required Object name}) => 'Återupptar utan ${name}',
@@ -4514,6 +4636,7 @@ extension on TranslationsSv {
 			'watchTogether.errors.connectionLost' => 'Anslutningen stängdes innan sessionen var klar',
 			'watchTogether.errors.invalidRelayResponse' => 'Reläservern skickade ett oväntat svar',
 			'watchTogether.errors.sessionEnded' => 'Värden avslutade sessionen',
+			'watchTogether.errors.sessionUnavailable' => 'Unable to resume this session. Join or create a room to continue.',
 			'downloads.title' => 'Nedladdningar',
 			'downloads.manage' => 'Hantera',
 			'downloads.tvShows' => 'TV-serier',
@@ -4531,8 +4654,6 @@ extension on TranslationsSv {
 			'downloads.storageFull' => 'Nedladdningarna stoppades eftersom enhetens lagringsutrymme är fullt. Frigör utrymme och försök igen.',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} avsnitt köade för nedladdning',
 			'downloads.downloadDeleted' => 'Nedladdning borttagen',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => 'Ta bort "${title}" från den här enheten?',
 			'downloads.cancelledDownloadTitle' => 'Avbruten nedladdning',
 			'downloads.cancelledDownloadMessage' => 'Den här nedladdningen avbröts. Vad vill du göra?',
@@ -4913,6 +5034,10 @@ extension on TranslationsSv {
 			'seerr.qualityProfile' => 'Kvalitetsprofil',
 			'seerr.rootFolder' => 'Rotmapp',
 			'seerr.languageProfile' => 'Språkprofil',
+			'seerr.tags' => 'Tags',
+			'seerr.noTags' => 'No tags',
+			'seerr.defaultOption' => ({required Object name}) => '${name} (Default)',
+			'seerr.animeNote' => 'This series is an anime.',
 			'seerr.requestSubmitted' => 'Begäran skickad',
 			'seerr.requestFailed' => ({required Object error}) => 'Begäran kunde inte genomföras: ${error}',
 			'seerr.requestsLoadFailed' => 'Det gick inte att läsa in alternativ för begäran',
@@ -4924,6 +5049,7 @@ extension on TranslationsSv {
 			'seerr.statusBlocklisted' => 'På blockeringslistan',
 			'seerr.couldNotReach' => ({required Object url, required Object error}) => 'Kunde inte nå ${url}: ${error}',
 			'seerr.noInstanceAtUrl' => ({required Object url, required Object status}) => 'Det finns ingen Seerr-instans på ${url} (HTTP ${status})',
+			'seerr.behindAuthProxy' => 'An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr\'s /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.',
 			'seerr.invalidUrl' => 'Ange en serveradress, t.ex. https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => 'Den här Seerr-instansen stöder inte Quick Connect. Den kräver Seerr 3.4 eller nyare.',
 			'seerr.notInitialized' => 'Den här Seerr-instansen har inte slutfört den inledande konfigurationen',
@@ -4934,6 +5060,8 @@ extension on TranslationsSv {
 			'seerr.freshCookieRejected' => 'Seerr avvisade den nya sessionscookien',
 			'seerr.noUserInformation' => 'Seerr returnerade ingen användarinformation',
 			'seerr.sessionRejectedAfterReauth' => 'Sessionen avvisades efter den nya inloggningen',
+			'seerr.permissionDenied' => 'Seerr denied this action: your account no longer has the required permission',
+			'seerr.permissionRevoked' => 'You no longer have permission to request this',
 			'services.title' => 'Tjänster',
 			'services.hubSubtitle' => 'Synkronisera visningsstatus och begär nya titlar.',
 			'services.integrations' => 'Integrationer',
@@ -4984,6 +5112,8 @@ extension on TranslationsSv {
 			'addServer.change' => 'Ändra',
 			'addServer.required' => 'Krävs',
 			'addServer.couldNotReachServer' => ({required Object error}) => 'Kunde inte nå servern: ${error}',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.signInFailed' => ({required Object error}) => 'Det gick inte att logga in: ${error}',
 			'addServer.quickConnectFailed' => ({required Object error}) => 'Quick Connect misslyckades: ${error}',
 			'addServer.addPlexTitle' => 'Logga in med Plex',

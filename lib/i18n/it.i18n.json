@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Accedi con Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Salta questa versione",
     "viewRelease": "Visualizza note di rilascio",
     "latestVersion": "La versione installata è l'ultima disponibile",
-    "checkFailed": "Impossibile controllare gli aggiornamenti"
+    "checkFailed": "Impossibile controllare gli aggiornamenti",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Impostazioni",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "La barra laterale rimane espansa e l'area del contenuto si adatta",
     "showUnwatchedCount": "Mostra il numero di episodi non visti",
     "showUnwatchedCountDescription": "Mostra il numero di episodi non visti per serie e stagioni",
-    "showWatchedIndicators": "",
-    "showWatchedIndicatorsDescription": "",
     "showEpisodeNumberOnCards": "Mostra il numero dell'episodio sulle schede",
     "showEpisodeNumberOnCardsDescription": "Mostra il numero della stagione e dell'episodio sulle schede degli episodi",
     "showSeasonPostersOnTabs": "Mostra i poster delle stagioni nelle schede",
@@ -201,8 +207,6 @@
     "defaultQualityTitle": "Qualità predefinita",
     "cellularQualityTitle": "Qualità predefinita sulla rete mobile",
     "cellularQualitySameAsDefault": "Come la qualità predefinita",
-    "directPlayCoveredQuality": "",
-    "directPlayCoveredQualityDescription": "",
     "musicQualityTitle": "Qualità musicale",
     "subtitleStyling": "Stile sottotitoli",
     "subtitleStylingDescription": "Personalizza l'aspetto dei sottotitoli",
@@ -276,17 +280,6 @@
     "autoPlayNextEpisodeDescription": "Avvia automaticamente l'episodio successivo quando termina quello in riproduzione",
     "playNextCountdown": "Conto alla rovescia del successivo",
     "playNextCountdownImmediate": "Riproduci subito",
-    "skipIntroMode": "",
-    "skipIntroModeOffDescription": "",
-    "skipIntroModeButtonDescription": "",
-    "skipIntroModeAutoDescription": "",
-    "skipCreditsMode": "",
-    "skipCreditsModeOffDescription": "",
-    "skipCreditsModeButtonDescription": "",
-    "skipCreditsModeAutoDescription": "",
-    "skipMarkerModeOff": "",
-    "skipMarkerModeButton": "",
-    "skipMarkerModeAuto": "",
     "forceSkipMarkerFallback": "Forza i marcatori di ripiego",
     "forceSkipMarkerFallbackDescription": "Usa i modelli dei titoli dei capitoli anche quando Plex dispone di marcatori",
     "autoSkipDelay": "Ritardo del salto automatico",
@@ -411,8 +404,6 @@
     "gestureVolumeSwipeDescription": "Scorri verso l'alto o il basso sul bordo destro per regolare il volume",
     "gesturePinchToZoom": "Pizzica per lo zoom",
     "gesturePinchToZoomDescription": "Pizzica il video per ingrandire o ridurre",
-    "rememberBrightnessLevel": "",
-    "rememberBrightnessLevelDescription": "",
     "controls": "Controlli",
     "rememberPlayerChanges": "Ricorda le modifiche del lettore",
     "rememberPlayerChangesDescription": "Dove viene salvata e riapplicata una modifica effettuata durante la riproduzione",
@@ -424,7 +415,30 @@
     "playerScopeGlobal": "Ovunque",
     "playerScopeLibrary": "Per libreria",
     "playerScopeTitle": "Per serie o film",
-    "exportDialogTitle": "Esporta le impostazioni di Plezy"
+    "exportDialogTitle": "Esporta le impostazioni di Plezy",
+    "showWatchedIndicators": "Show Watched Indicators",
+    "showWatchedIndicatorsDescription": "Display a checkmark on watched movies, shows, and episodes",
+    "directPlayCoveredQuality": "Play Smaller Videos at Original Quality",
+    "directPlayCoveredQualityDescription": "Direct play videos already within the quality limit instead of transcoding them",
+    "skipIntroMode": "Skip Intro",
+    "skipIntroModeOffDescription": "Play intros normally without a skip button",
+    "skipIntroModeButtonDescription": "Show a skip button when an intro starts",
+    "skipIntroModeAutoDescription": "Skip intros automatically after the delay below",
+    "skipCreditsMode": "Skip Credits",
+    "skipCreditsModeOffDescription": "Play credits normally without a skip button",
+    "skipCreditsModeButtonDescription": "Show a skip button when credits start",
+    "skipCreditsModeAutoDescription": "Skip credits automatically and play the next episode",
+    "skipMarkerModeOff": "Off",
+    "skipMarkerModeButton": "Show button",
+    "skipMarkerModeAuto": "Automatic",
+    "rememberBrightnessLevel": "Remember Brightness Level",
+    "rememberBrightnessLevelDescription": "Start playback at the brightness set by the last swipe",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Cerca film, serie TV e musica...",
@@ -464,7 +478,9 @@
       "subSeekPrev": "Vai al sottotitolo precedente",
       "shaderToggle": "Attiva/disattiva shader",
       "skipMarker": "Salta intro/titoli di coda",
-      "screenshot": "Cattura schermata"
+      "screenshot": "Cattura schermata",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -676,6 +692,10 @@
     "track": "Traccia audio ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Audio",
     "subtitlesLabel": "Sottotitoli",
     "addTime": "+${amount}${unit}",
@@ -831,7 +851,7 @@
     "playbackDataInvalid": "Il server ha restituito informazioni di riproduzione non valide.",
     "playbackCancelled": "Riproduzione annullata.",
     "playbackFailed": "Impossibile avviare la riproduzione.",
-    "mediaUnavailable": "",
+    "mediaUnavailable": "This content is no longer available.",
     "errorLoadingFileInfo": "Errore durante il caricamento delle informazioni sul file: ${error}",
     "errorLoadingSeries": "Errore durante il caricamento della serie",
     "musicNotSupported": "La riproduzione musicale non è ancora supportata",
@@ -917,9 +937,9 @@
     "presetDeleted": "Preset eliminato",
     "confirmDeletePreset": "Sei sicuro di voler eliminare questo preset?",
     "configPlaceholder": "gpu-api=vulkan\nhwdec=auto\n# comment",
-    "lineHint": "",
-    "addLine": "",
-    "removeLine": "",
+    "lineHint": "option=value",
+    "addLine": "Add line",
+    "removeLine": "Remove line",
     "embeddedVoHint": "vo, gpu-context e gpu-api vengono ignorati su Linux: il video incorporato viene sempre renderizzato tramite vo=libmpv sul piano video e gpu-next (che gli shader di calcolo come ArtCNN richiedono) non può essere eseguito in modalità incorporata."
   },
   "dialog": {
@@ -1213,7 +1233,10 @@
     "openSourceLicenses": "Licenze open source",
     "versionLabel": "Versione ${version}",
     "appDescription": "Un elegante client Plex e Jellyfin per Flutter",
-    "viewLicensesDescription": "Visualizza le licenze delle librerie di terze parti"
+    "viewLicensesDescription": "Visualizza le licenze delle librerie di terze parti",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Nessun server trovato per ${username} (${email})",
@@ -1318,8 +1341,8 @@
     "inTheseLibraries": "In queste librerie",
     "checkingLibrary": "Ricerca nella tua libreria...",
     "libraryCheckFailed": {
-      "one": "",
-      "other": ""
+      "one": "Couldn't check ${n} server",
+      "other": "Couldn't check ${n} servers"
     },
     "emptyTitle": "Ancora niente qui",
     "emptyMessage": "Le sezioni di ${source} appariranno qui quando saranno disponibili dei contenuti.",
@@ -1659,13 +1682,13 @@
     "host": "Host",
     "hostBadge": "HOST",
     "youAreHost": "Sei l'host",
-    "makeHost": "",
-    "makeHostQuestion": "",
-    "makeHostConfirm": "",
-    "transfer": "",
-    "hostChangedTo": "",
-    "youAreNowHost": "",
-    "hostTransferFailed": "",
+    "makeHost": "Make host",
+    "makeHostQuestion": "Transfer host?",
+    "makeHostConfirm": "${name} will control playback and drive the session for everyone.",
+    "transfer": "Transfer",
+    "hostChangedTo": "${name} is now the host",
+    "youAreNowHost": "You are now the host",
+    "hostTransferFailed": "Couldn't make ${name} the host",
     "watchingWithOthers": "In visione con altri partecipanti",
     "endSession": "Termina la sessione",
     "leaveSession": "Abbandona la sessione",
@@ -1698,7 +1721,7 @@
     "participantPaused": "${name} ha messo in pausa",
     "participantResumed": "${name} ha ripreso",
     "participantSeeked": "${name} ha cambiato la posizione di riproduzione",
-    "participantChangedSpeed": "",
+    "participantChangedSpeed": "${name} set the speed to ${speed}",
     "participantBuffering": "${name} è in buffering",
     "participantNeedsUpdate": "${name} usa una versione precedente dell'app — sincronizzazione non disponibile",
     "resumingWithout": "Ripresa senza ${name}",
@@ -1715,7 +1738,7 @@
       "connectionLost": "La connessione si è chiusa prima che la sessione fosse pronta",
       "invalidRelayResponse": "Il server relay ha inviato una risposta imprevista",
       "sessionEnded": "L’host ha terminato la sessione",
-      "sessionUnavailable": ""
+      "sessionUnavailable": "Unable to resume this session. Join or create a room to continue."
     }
   },
   "downloads": {
@@ -2146,10 +2169,10 @@
     "qualityProfile": "Profilo di qualità",
     "rootFolder": "Cartella radice",
     "languageProfile": "Profilo della lingua",
-    "tags": "",
-    "noTags": "",
-    "defaultOption": "",
-    "animeNote": "",
+    "tags": "Tags",
+    "noTags": "No tags",
+    "defaultOption": "${name} (Default)",
+    "animeNote": "This series is an anime.",
     "requestSubmitted": "Richiesta inviata",
     "requestFailed": "Richiesta non riuscita: ${error}",
     "requestsLoadFailed": "Impossibile caricare le opzioni di richiesta",
@@ -2161,7 +2184,7 @@
     "statusBlocklisted": "Nella lista di blocco",
     "couldNotReach": "Impossibile raggiungere ${url}: ${error}",
     "noInstanceAtUrl": "Nessuna istanza Seerr all'indirizzo ${url} (HTTP ${status})",
-    "behindAuthProxy": "",
+    "behindAuthProxy": "An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr's /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.",
     "invalidUrl": "Inserisci un indirizzo del server come https://seerr.example.com",
     "quickConnectUnsupported": "Questa istanza Seerr non supporta Quick Connect. È necessaria la versione 3.4 o successiva di Seerr.",
     "notInitialized": "Questa istanza Seerr non ha completato la configurazione iniziale",
@@ -2172,8 +2195,8 @@
     "freshCookieRejected": "Seerr ha rifiutato il nuovo cookie di sessione",
     "noUserInformation": "Seerr non ha restituito le informazioni sull'utente",
     "sessionRejectedAfterReauth": "La sessione è stata rifiutata dopo aver effettuato nuovamente l'accesso",
-    "permissionDenied": "",
-    "permissionRevoked": ""
+    "permissionDenied": "Seerr denied this action: your account no longer has the required permission",
+    "permissionRevoked": "You no longer have permission to request this"
   },
   "services": {
     "title": "Servizi",

@@ -99,7 +99,7 @@ class Translations$app$zh extends Translations$app$en {
 	final TranslationsZh _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -216,6 +216,14 @@ class Translations$update$zh extends Translations$update$en {
 	@override String get viewRelease => '查看发布详情';
 	@override String get latestVersion => '当前已是最新版本';
 	@override String get checkFailed => '无法检查更新';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -299,6 +307,7 @@ class Translations$settings$zh extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => '硬件解码';
 	@override String get hardwareDecodingDescription => '如果可用，使用硬件加速';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => '播放缓冲';
 	@override String get playbackBufferAuto => '自动（推荐）';
 	@override String get playbackBufferLarge => '大';
@@ -516,6 +525,29 @@ class Translations$settings$zh extends Translations$settings$en {
 	@override String get playerScopeLibrary => '按媒体库';
 	@override String get playerScopeTitle => '按剧集或电影';
 	@override String get exportDialogTitle => '导出 Plezy 设置';
+	@override String get showWatchedIndicators => 'Show Watched Indicators';
+	@override String get showWatchedIndicatorsDescription => 'Display a checkmark on watched movies, shows, and episodes';
+	@override String get directPlayCoveredQuality => 'Play Smaller Videos at Original Quality';
+	@override String get directPlayCoveredQualityDescription => 'Direct play videos already within the quality limit instead of transcoding them';
+	@override String get skipIntroMode => 'Skip Intro';
+	@override String get skipIntroModeOffDescription => 'Play intros normally without a skip button';
+	@override String get skipIntroModeButtonDescription => 'Show a skip button when an intro starts';
+	@override String get skipIntroModeAutoDescription => 'Skip intros automatically after the delay below';
+	@override String get skipCreditsMode => 'Skip Credits';
+	@override String get skipCreditsModeOffDescription => 'Play credits normally without a skip button';
+	@override String get skipCreditsModeButtonDescription => 'Show a skip button when credits start';
+	@override String get skipCreditsModeAutoDescription => 'Skip credits automatically and play the next episode';
+	@override String get skipMarkerModeOff => 'Off';
+	@override String get skipMarkerModeButton => 'Show button';
+	@override String get skipMarkerModeAuto => 'Automatic';
+	@override String get rememberBrightnessLevel => 'Remember Brightness Level';
+	@override String get rememberBrightnessLevelDescription => 'Start playback at the brightness set by the last swipe';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -702,12 +734,15 @@ class Translations$mediaMenu$zh extends Translations$mediaMenu$en {
 	@override String confirmDeleteTarget({required Object title}) => '从你的服务器永久删除 ${title}？';
 	@override String get deleteMultipleWarning => '这包括所有剧集及其文件。';
 	@override String deleteEpisodeCountWarning({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: 'This deletes all ${n} episode in it, and its file.',
 		other: '这将删除其中全部 ${n} 集以及它们的文件。',
 	);
 	@override String deleteMultiPartWarning({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: 'This item is stored as ${n} file, which will be deleted.',
 		other: '此项目存储在 ${n} 个文件中，所有这些文件都会被删除。',
 	);
 	@override String deleteSharedFileHeading({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} other episode is stored in the same file and will be deleted too:',
 		other: '另外 ${n} 集存储在同一个文件中，也会一并删除：',
 	);
 	@override String get deleteScopeUnverifiedProbeFailed => 'Plezy 无法确认此操作会删除哪些文件，因此删除范围可能超出上面提到的项目。请取消后重试，或仍然删除。';
@@ -801,6 +836,10 @@ class Translations$videoControls$zh extends Translations$videoControls$en {
 	final TranslationsZh _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => '音频';
 	@override String get subtitlesLabel => '字幕';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -847,6 +886,7 @@ class Translations$videoControls$zh extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => '无法加载所选字幕 — 将继续无字幕播放';
 	@override String get pipButton => '画中画';
 	@override String get aspectRatioButton => '宽高比';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => '氛围灯光';
 	@override String get fullscreenButton => '进入全屏';
 	@override String get exitFullscreenButton => '退出全屏';
@@ -900,6 +940,7 @@ class Translations$messages$zh extends Translations$messages$en {
 	@override String get markedAsUnwatchedOffline => '已标记为未观看（将在联网时同步）';
 	@override String autoRemovedWatchedDownload({required Object title}) => '已自动移除：${title}';
 	@override String autoRemovedWatchedDownloads({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: 'Auto-removed ${n} watched download',
 		other: '已自动移除 ${n} 个看过的下载',
 	);
 	@override String get removedFromContinueWatching => '已从继续观看中移除';
@@ -913,6 +954,7 @@ class Translations$messages$zh extends Translations$messages$en {
 	@override String get playbackDataInvalid => '服务器返回了无效的播放信息。';
 	@override String get playbackCancelled => '播放已取消。';
 	@override String get playbackFailed => '无法开始播放。';
+	@override String get mediaUnavailable => 'This content is no longer available.';
 	@override String errorLoadingFileInfo({required Object error}) => '加载文件信息时出错：${error}';
 	@override String get errorLoadingSeries => '加载剧集时出错';
 	@override String get musicNotSupported => '尚不支持播放音乐';
@@ -1012,6 +1054,9 @@ class Translations$mpvConfig$zh extends Translations$mpvConfig$en {
 	@override String get presetDeleted => '预设已删除';
 	@override String get confirmDeletePreset => '确定要删除此预设吗？';
 	@override String get configPlaceholder => 'gpu-api=vulkan\nhwdec=auto\n# comment';
+	@override String get lineHint => 'option=value';
+	@override String get addLine => 'Add line';
+	@override String get removeLine => 'Remove line';
 	@override String get embeddedVoHint => 'Linux 上会忽略 vo、gpu-context 和 gpu-api：嵌入式视频始终通过视频平面上的 vo=libmpv 渲染，而 gpu-next（ArtCNN 等计算着色器需要它）无法以嵌入式方式运行。';
 }
 
@@ -1190,6 +1235,7 @@ class Translations$discover$zh extends Translations$discover$en {
 	@override String minutesLeft({required Object minutes}) => '剩余 ${minutes} 分钟';
 	@override String get moreLikeThis => '更多类似内容';
 	@override String titleCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} title',
 		other: '${n} 个标题',
 	);
 }
@@ -1281,6 +1327,9 @@ class Translations$about$zh extends Translations$about$en {
 	@override String versionLabel({required Object version}) => '版本 ${version}';
 	@override String get appDescription => '一款精美的 Flutter Plex 和 Jellyfin 客户端';
 	@override String get viewLicensesDescription => '查看第三方库的许可证';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1398,6 +1447,7 @@ class Translations$explore$zh extends Translations$explore$en {
 	@override late final Translations$explore$rows$zh rows = Translations$explore$rows$zh.internal(_root);
 	@override late final Translations$explore$status$zh status = Translations$explore$status$zh.internal(_root);
 	@override String episodeCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} episode',
 		other: '${n} 集',
 	);
 	@override String get cast => '演员表';
@@ -1408,9 +1458,14 @@ class Translations$explore$zh extends Translations$explore$en {
 	@override String get removedFromWatchlist => '已从待看列表中移除';
 	@override String get watchlistUpdateFailed => '无法更新想看列表';
 	@override String get watchlistNoMatch => '无法将此项目与待看列表匹配';
+	@override String get openInLibrary => '在媒体库中打开';
 	@override String get notInLibrary => '不在你的媒体库中';
 	@override String get inTheseLibraries => '在这些媒体库中';
 	@override String get checkingLibrary => '正在检查你的媒体库…';
+	@override String libraryCheckFailed({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: 'Couldn\'t check ${n} server',
+		other: 'Couldn\'t check ${n} servers',
+	);
 	@override String get emptyTitle => '这里还什么都没有';
 	@override String emptyMessage({required Object source}) => '当 ${source} 有内容时，相关内容将显示在这里。';
 	@override String searchHint({required Object source}) => '搜索 ${source}';
@@ -1428,6 +1483,7 @@ class Translations$explore$zh extends Translations$explore$en {
 	@override String broadcastWithZone({required Object day, required Object time, required Object timezone}) => '每周${day} ${time} ${timezone}播出';
 	@override late final Translations$explore$detail$zh detail = Translations$explore$detail$zh.internal(_root);
 	@override String totalResults({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} result',
 		other: '${n} 条结果',
 	);
 }
@@ -1600,6 +1656,7 @@ class Translations$music$zh extends Translations$music$en {
 	@override String get addToQueue => '添加到队列';
 	@override String discNumber({required Object n}) => '碟片 ${n}';
 	@override String trackCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} track',
 		other: '${n} 首',
 	);
 	@override String get nowPlaying => '正在播放';
@@ -1654,6 +1711,13 @@ class Translations$watchTogether$zh extends Translations$watchTogether$en {
 	@override String get host => '主持人';
 	@override String get hostBadge => '主持人';
 	@override String get youAreHost => '你是主持人';
+	@override String get makeHost => 'Make host';
+	@override String get makeHostQuestion => 'Transfer host?';
+	@override String makeHostConfirm({required Object name}) => '${name} will control playback and drive the session for everyone.';
+	@override String get transfer => 'Transfer';
+	@override String hostChangedTo({required Object name}) => '${name} is now the host';
+	@override String get youAreNowHost => 'You are now the host';
+	@override String hostTransferFailed({required Object name}) => 'Couldn\'t make ${name} the host';
 	@override String get watchingWithOthers => '与他人一起观看';
 	@override String get endSession => '结束会话';
 	@override String get leaveSession => '离开会话';
@@ -1686,6 +1750,7 @@ class Translations$watchTogether$zh extends Translations$watchTogether$en {
 	@override String participantPaused({required Object name}) => '${name} 暂停了播放';
 	@override String participantResumed({required Object name}) => '${name} 恢复了播放';
 	@override String participantSeeked({required Object name}) => '${name} 更改了播放位置';
+	@override String participantChangedSpeed({required Object name, required Object speed}) => '${name} set the speed to ${speed}';
 	@override String participantBuffering({required Object name}) => '${name} 正在缓冲';
 	@override String participantNeedsUpdate({required Object name}) => '${name} 正在使用较旧版本的应用，无法同步';
 	@override String resumingWithout({required Object name}) => '不再等待 ${name}，继续播放';
@@ -2111,6 +2176,10 @@ class Translations$seerr$zh extends Translations$seerr$en {
 	@override String get qualityProfile => '画质配置';
 	@override String get rootFolder => '根目录';
 	@override String get languageProfile => '语言配置';
+	@override String get tags => 'Tags';
+	@override String get noTags => 'No tags';
+	@override String defaultOption({required Object name}) => '${name} (Default)';
+	@override String get animeNote => 'This series is an anime.';
 	@override String get requestSubmitted => '请求已提交';
 	@override String requestFailed({required Object error}) => '请求失败：${error}';
 	@override String get requestsLoadFailed => '无法加载请求选项';
@@ -2122,6 +2191,7 @@ class Translations$seerr$zh extends Translations$seerr$en {
 	@override String get statusBlocklisted => '已加入屏蔽列表';
 	@override String couldNotReach({required Object url, required Object error}) => '无法连接到 ${url}：${error}';
 	@override String noInstanceAtUrl({required Object url, required Object status}) => '${url} 上没有 Seerr 实例（HTTP ${status}）';
+	@override String get behindAuthProxy => 'An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr\'s /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.';
 	@override String get invalidUrl => '输入服务器地址，例如 https://seerr.example.com';
 	@override String get quickConnectUnsupported => '此 Seerr 实例不支持 Quick Connect。需要 Seerr 3.4 或更高版本。';
 	@override String get notInitialized => '此 Seerr 实例尚未完成首次运行设置';
@@ -2132,6 +2202,8 @@ class Translations$seerr$zh extends Translations$seerr$en {
 	@override String get freshCookieRejected => 'Seerr 拒绝了新的会话 Cookie';
 	@override String get noUserInformation => 'Seerr 未返回用户信息';
 	@override String get sessionRejectedAfterReauth => '重新登录后会话被拒绝';
+	@override String get permissionDenied => 'Seerr denied this action: your account no longer has the required permission';
+	@override String get permissionRevoked => 'You no longer have permission to request this';
 }
 
 // Path: services
@@ -2287,6 +2359,8 @@ class Translations$hotkeys$actions$zh extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => '切换着色器';
 	@override String get skipMarker => '跳过片头/片尾';
 	@override String get screenshot => '截图';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.clip
@@ -2595,6 +2669,7 @@ class Translations$explore$stats$zh extends Translations$explore$stats$en {
 	@override String favorited({required Object n}) => '${n} 人收藏';
 	@override String dropRate({required Object percent}) => '${percent} 弃番';
 	@override String comments({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} comment',
 		other: '${n} 条评论',
 	);
 	@override String votes({required Object n}) => '${n} 票';
@@ -2715,6 +2790,7 @@ class Translations$explore$detail$zh extends Translations$explore$detail$en {
 	@override String get ratings => '评分';
 	@override String get schedule => '播出时间';
 	@override String recommendedByUsers({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: 'Recommended by ${n} user',
 		other: '由 ${n} 位用户推荐',
 	);
 	@override String recommendedBy({required Object who}) => '由 ${who} 推荐';
@@ -2765,6 +2841,7 @@ class Translations$watchTogether$errors$zh extends Translations$watchTogether$er
 	@override String get connectionLost => '会话准备就绪前连接已断开';
 	@override String get invalidRelayResponse => '中继服务器返回了意外的响应';
 	@override String get sessionEnded => '主持人已结束会话';
+	@override String get sessionUnavailable => 'Unable to resume this session. Join or create a room to continue.';
 }
 
 // Path: downloads.backgroundWarning
@@ -2981,7 +3058,7 @@ class Translations$services$libraryFilter$zh extends Translations$services$libra
 extension on TranslationsZh {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => '使用 Plex 登录',
 			'auth.showQRCode' => '显示二维码',
 			'auth.authenticate' => '验证',
@@ -3083,6 +3160,14 @@ extension on TranslationsZh {
 			'update.viewRelease' => '查看发布详情',
 			'update.latestVersion' => '当前已是最新版本',
 			'update.checkFailed' => '无法检查更新',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => '设置',
 			'settings.supportDeveloper' => '支持 Plezy',
 			'settings.supportDeveloperDescription' => '通过 Liberapay 捐赠支持开发',
@@ -3157,6 +3242,7 @@ extension on TranslationsZh {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => '硬件解码',
 			'settings.hardwareDecodingDescription' => '如果可用，使用硬件加速',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => '播放缓冲',
 			'settings.playbackBufferAuto' => '自动（推荐）',
 			'settings.playbackBufferLarge' => '大',
@@ -3374,6 +3460,29 @@ extension on TranslationsZh {
 			'settings.playerScopeLibrary' => '按媒体库',
 			'settings.playerScopeTitle' => '按剧集或电影',
 			'settings.exportDialogTitle' => '导出 Plezy 设置',
+			'settings.showWatchedIndicators' => 'Show Watched Indicators',
+			'settings.showWatchedIndicatorsDescription' => 'Display a checkmark on watched movies, shows, and episodes',
+			'settings.directPlayCoveredQuality' => 'Play Smaller Videos at Original Quality',
+			'settings.directPlayCoveredQualityDescription' => 'Direct play videos already within the quality limit instead of transcoding them',
+			'settings.skipIntroMode' => 'Skip Intro',
+			'settings.skipIntroModeOffDescription' => 'Play intros normally without a skip button',
+			'settings.skipIntroModeButtonDescription' => 'Show a skip button when an intro starts',
+			'settings.skipIntroModeAutoDescription' => 'Skip intros automatically after the delay below',
+			'settings.skipCreditsMode' => 'Skip Credits',
+			'settings.skipCreditsModeOffDescription' => 'Play credits normally without a skip button',
+			'settings.skipCreditsModeButtonDescription' => 'Show a skip button when credits start',
+			'settings.skipCreditsModeAutoDescription' => 'Skip credits automatically and play the next episode',
+			'settings.skipMarkerModeOff' => 'Off',
+			'settings.skipMarkerModeButton' => 'Show button',
+			'settings.skipMarkerModeAuto' => 'Automatic',
+			'settings.rememberBrightnessLevel' => 'Remember Brightness Level',
+			'settings.rememberBrightnessLevelDescription' => 'Start playback at the brightness set by the last swipe',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => '搜索电影、剧集、音乐…',
 			'search.tryDifferentTerm' => '尝试不同的搜索词',
 			'search.searchYourMedia' => '搜索媒体',
@@ -3409,6 +3518,8 @@ extension on TranslationsZh {
 			'hotkeys.actions.shaderToggle' => '切换着色器',
 			'hotkeys.actions.skipMarker' => '跳过片头/片尾',
 			'hotkeys.actions.screenshot' => '截图',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => '文件信息',
 			'fileInfo.overview' => '简介',
 			'fileInfo.video' => '视频',
@@ -3459,6 +3570,8 @@ extension on TranslationsZh {
 			'fileInfo.dynamicRange' => '动态范围',
 			'fileInfo.dolbyVision' => 'Dolby Vision',
 			'fileInfo.dolbyVisionLevel' => 'Dolby Vision 级别',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.dolbyVisionVersion' => 'Dolby Vision 版本',
 			'fileInfo.dolbyVisionLayers' => 'Dolby Vision 图层',
 			'fileInfo.baseLayerCompatibility' => '基础层兼容性',
@@ -3493,8 +3606,6 @@ extension on TranslationsZh {
 			'fileInfo.previewThumbnails' => '预览缩略图',
 			'fileInfo.previewIndex' => '预览索引',
 			'fileInfo.packetLength' => '数据包长度',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.filePresent' => '文件存在',
 			'fileInfo.fileReadable' => '服务器可读',
 			'fileInfo.streamPath' => '流路径',
@@ -3549,9 +3660,9 @@ extension on TranslationsZh {
 			'mediaMenu.deleteAnyway' => '仍然删除',
 			'mediaMenu.confirmDeleteTarget' => ({required Object title}) => '从你的服务器永久删除 ${title}？',
 			'mediaMenu.deleteMultipleWarning' => '这包括所有剧集及其文件。',
-			'mediaMenu.deleteEpisodeCountWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '这将删除其中全部 ${n} 集以及它们的文件。', ), 
-			'mediaMenu.deleteMultiPartWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '此项目存储在 ${n} 个文件中，所有这些文件都会被删除。', ), 
-			'mediaMenu.deleteSharedFileHeading' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '另外 ${n} 集存储在同一个文件中，也会一并删除：', ), 
+			'mediaMenu.deleteEpisodeCountWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: 'This deletes all ${n} episode in it, and its file.', other: '这将删除其中全部 ${n} 集以及它们的文件。', ), 
+			'mediaMenu.deleteMultiPartWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: 'This item is stored as ${n} file, which will be deleted.', other: '此项目存储在 ${n} 个文件中，所有这些文件都会被删除。', ), 
+			'mediaMenu.deleteSharedFileHeading' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} other episode is stored in the same file and will be deleted too:', other: '另外 ${n} 集存储在同一个文件中，也会一并删除：', ), 
 			'mediaMenu.deleteScopeUnverifiedProbeFailed' => 'Plezy 无法确认此操作会删除哪些文件，因此删除范围可能超出上面提到的项目。请取消后重试，或仍然删除。',
 			'mediaMenu.deleteScopeUnverifiedNoFileInfo' => '你的服务器没有提供此项目的文件详情，因此 Plezy 无法确认此操作会删除哪些文件。删除范围可能超出上面提到的项目。',
 			'mediaMenu.mediaDeletedSuccessfully' => '媒体项已成功删除',
@@ -3598,6 +3709,7 @@ extension on TranslationsZh {
 			'tooltips.markAsWatched' => '标记为已观看',
 			'tooltips.markAsUnwatched' => '标记为未观看',
 			'audioTracks.track' => ({required Object n}) => '音轨 ${n}',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => '音频',
 			'videoControls.subtitlesLabel' => '字幕',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3644,6 +3756,7 @@ extension on TranslationsZh {
 			'videoControls.subtitleUnavailableFallback' => '无法加载所选字幕 — 将继续无字幕播放',
 			'videoControls.pipButton' => '画中画',
 			'videoControls.aspectRatioButton' => '宽高比',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => '氛围灯光',
 			'videoControls.fullscreenButton' => '进入全屏',
 			'videoControls.exitFullscreenButton' => '退出全屏',
@@ -3730,7 +3843,7 @@ extension on TranslationsZh {
 			'messages.markedAsWatchedOffline' => '已标记为已观看（将在联网时同步）',
 			'messages.markedAsUnwatchedOffline' => '已标记为未观看（将在联网时同步）',
 			'messages.autoRemovedWatchedDownload' => ({required Object title}) => '已自动移除：${title}',
-			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '已自动移除 ${n} 个看过的下载', ), 
+			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: 'Auto-removed ${n} watched download', other: '已自动移除 ${n} 个看过的下载', ), 
 			'messages.removedFromContinueWatching' => '已从继续观看中移除',
 			'messages.errorLoading' => ({required Object error}) => '出错：${error}',
 			'messages.searchPartialResults' => '部分媒体服务器无法搜索。正在显示可用的结果。',
@@ -3742,6 +3855,7 @@ extension on TranslationsZh {
 			'messages.playbackDataInvalid' => '服务器返回了无效的播放信息。',
 			'messages.playbackCancelled' => '播放已取消。',
 			'messages.playbackFailed' => '无法开始播放。',
+			'messages.mediaUnavailable' => 'This content is no longer available.',
 			'messages.errorLoadingFileInfo' => ({required Object error}) => '加载文件信息时出错：${error}',
 			'messages.errorLoadingSeries' => '加载剧集时出错',
 			'messages.musicNotSupported' => '尚不支持播放音乐',
@@ -3823,6 +3937,9 @@ extension on TranslationsZh {
 			'mpvConfig.presetDeleted' => '预设已删除',
 			'mpvConfig.confirmDeletePreset' => '确定要删除此预设吗？',
 			'mpvConfig.configPlaceholder' => 'gpu-api=vulkan\nhwdec=auto\n# comment',
+			'mpvConfig.lineHint' => 'option=value',
+			'mpvConfig.addLine' => 'Add line',
+			'mpvConfig.removeLine' => 'Remove line',
 			'mpvConfig.embeddedVoHint' => 'Linux 上会忽略 vo、gpu-context 和 gpu-api：嵌入式视频始终通过视频平面上的 vo=libmpv 渲染，而 gpu-next（ArtCNN 等计算着色器需要它）无法以嵌入式方式运行。',
 			'dialog.confirmAction' => '确认操作',
 			'profiles.addPlezyProfile' => '添加 Plezy 用户资料',
@@ -3967,6 +4084,8 @@ extension on TranslationsZh {
 			'discover.recentlyPlayedIn' => ({required Object library}) => '${library} 中最近播放',
 			'discover.mostPlayedIn' => ({required Object library}) => '${library} 中最常播放',
 			'discover.playEpisode' => ({required Object season, required Object episode}) => 'S${season}E${episode}',
+			_ => null,
+		} ?? switch (path) {
 			'discover.overview' => '概述',
 			'discover.cast' => '演员表',
 			'discover.extras' => '预告片与花絮',
@@ -3978,7 +4097,7 @@ extension on TranslationsZh {
 			'discover.tvShow' => '电视剧',
 			'discover.minutesLeft' => ({required Object minutes}) => '剩余 ${minutes} 分钟',
 			'discover.moreLikeThis' => '更多类似内容',
-			'discover.titleCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 个标题', ), 
+			'discover.titleCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} title', other: '${n} 个标题', ), 
 			'errors.searchFailed' => ({required Object error}) => '搜索失败：${error}',
 			'errors.searchUnavailable' => '搜索无法连接任何媒体服务器。',
 			'errors.connectionTimeout' => ({required Object context}) => '加载 ${context} 时连接超时',
@@ -4007,8 +4126,6 @@ extension on TranslationsZh {
 			'libraries.failedToAnalyze' => ({required Object error}) => '无法分析媒体库：${error}',
 			'libraries.noLibrariesFound' => '未找到媒体库',
 			'libraries.allLibrariesHidden' => '所有媒体库已隐藏',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => '已隐藏的媒体库 (${count})',
 			'libraries.thisLibraryIsEmpty' => '此媒体库为空',
 			'libraries.noItemsMatchFilters' => '没有项目符合当前筛选条件',
@@ -4080,6 +4197,9 @@ extension on TranslationsZh {
 			'about.versionLabel' => ({required Object version}) => '版本 ${version}',
 			'about.appDescription' => '一款精美的 Flutter Plex 和 Jellyfin 客户端',
 			'about.viewLicensesDescription' => '查看第三方库的许可证',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '未找到 ${username}（${email}）的服务器',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => '无法加载服务器：${error}',
 			'serverSelection.noValidServers' => '此账号下未找到可用的服务器',
@@ -4149,7 +4269,7 @@ extension on TranslationsZh {
 			'explore.status.ended' => '已完结',
 			'explore.status.canceled' => '已取消',
 			'explore.status.upcoming' => '即将上线',
-			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 集', ), 
+			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} episode', other: '${n} 集', ), 
 			'explore.cast' => '演员表',
 			'explore.characters' => '角色',
 			'explore.addToWatchlist' => '添加到想看列表',
@@ -4158,9 +4278,11 @@ extension on TranslationsZh {
 			'explore.removedFromWatchlist' => '已从待看列表中移除',
 			'explore.watchlistUpdateFailed' => '无法更新想看列表',
 			'explore.watchlistNoMatch' => '无法将此项目与待看列表匹配',
+			'explore.openInLibrary' => '在媒体库中打开',
 			'explore.notInLibrary' => '不在你的媒体库中',
 			'explore.inTheseLibraries' => '在这些媒体库中',
 			'explore.checkingLibrary' => '正在检查你的媒体库…',
+			'explore.libraryCheckFailed' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: 'Couldn\'t check ${n} server', other: 'Couldn\'t check ${n} servers', ), 
 			'explore.emptyTitle' => '这里还什么都没有',
 			'explore.emptyMessage' => ({required Object source}) => '当 ${source} 有内容时，相关内容将显示在这里。',
 			'explore.searchHint' => ({required Object source}) => '搜索 ${source}',
@@ -4197,7 +4319,7 @@ extension on TranslationsZh {
 			'explore.stats.planning' => ({required Object n}) => '${n} 人想看',
 			'explore.stats.favorited' => ({required Object n}) => '${n} 人收藏',
 			'explore.stats.dropRate' => ({required Object percent}) => '${percent} 弃番',
-			'explore.stats.comments' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 条评论', ), 
+			'explore.stats.comments' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} comment', other: '${n} 条评论', ), 
 			'explore.stats.votes' => ({required Object n}) => '${n} 票',
 			'explore.stats.watching' => ({required Object n}) => '${n} 人正在观看',
 			'explore.stats.completed' => ({required Object n}) => '${n} 人已看完',
@@ -4263,14 +4385,14 @@ extension on TranslationsZh {
 			'explore.detail.crew' => '演职人员',
 			'explore.detail.ratings' => '评分',
 			'explore.detail.schedule' => '播出时间',
-			'explore.detail.recommendedByUsers' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '由 ${n} 位用户推荐', ), 
+			'explore.detail.recommendedByUsers' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: 'Recommended by ${n} user', other: '由 ${n} 位用户推荐', ), 
 			'explore.detail.recommendedBy' => ({required Object who}) => '由 ${who} 推荐',
 			'explore.detail.favoritedBy' => ({required Object who}) => '由 ${who} 收藏',
 			'explore.detail.unairedEpisodes' => ({required Object n}) => '还有 ${n} 集未播出',
 			'explore.detail.recommendedByPercent' => ({required Object percent}) => '${percent} 的观众推荐',
 			'explore.detail.relatedTitles' => '相关作品',
 			'explore.detail.background' => '背景',
-			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 条结果', ), 
+			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} result', other: '${n} 条结果', ), 
 			'liveTv.title' => '直播电视',
 			'liveTv.guide' => '节目指南',
 			'liveTv.noChannels' => '没有可用的频道',
@@ -4411,7 +4533,7 @@ extension on TranslationsZh {
 			'music.playNext' => '下一首播放',
 			'music.addToQueue' => '添加到队列',
 			'music.discNumber' => ({required Object n}) => '碟片 ${n}',
-			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 首', ), 
+			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} track', other: '${n} 首', ), 
 			'music.nowPlaying' => '正在播放',
 			'music.playingFrom' => ({required Object title}) => '播放来源：${title}',
 			'music.queue' => '播放队列',
@@ -4457,6 +4579,13 @@ extension on TranslationsZh {
 			'watchTogether.host' => '主持人',
 			'watchTogether.hostBadge' => '主持人',
 			'watchTogether.youAreHost' => '你是主持人',
+			'watchTogether.makeHost' => 'Make host',
+			'watchTogether.makeHostQuestion' => 'Transfer host?',
+			'watchTogether.makeHostConfirm' => ({required Object name}) => '${name} will control playback and drive the session for everyone.',
+			'watchTogether.transfer' => 'Transfer',
+			'watchTogether.hostChangedTo' => ({required Object name}) => '${name} is now the host',
+			'watchTogether.youAreNowHost' => 'You are now the host',
+			'watchTogether.hostTransferFailed' => ({required Object name}) => 'Couldn\'t make ${name} the host',
 			'watchTogether.watchingWithOthers' => '与他人一起观看',
 			'watchTogether.endSession' => '结束会话',
 			'watchTogether.leaveSession' => '离开会话',
@@ -4469,6 +4598,8 @@ extension on TranslationsZh {
 			'watchTogether.end' => '结束',
 			'watchTogether.leave' => '离开',
 			'watchTogether.syncing' => '正在同步…',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.joinWatchSession' => '加入观看会话',
 			'watchTogether.enterCodeHint' => '输入 5 位代码',
 			'watchTogether.pasteFromClipboard' => '从剪贴板粘贴',
@@ -4489,6 +4620,7 @@ extension on TranslationsZh {
 			'watchTogether.participantPaused' => ({required Object name}) => '${name} 暂停了播放',
 			'watchTogether.participantResumed' => ({required Object name}) => '${name} 恢复了播放',
 			'watchTogether.participantSeeked' => ({required Object name}) => '${name} 更改了播放位置',
+			'watchTogether.participantChangedSpeed' => ({required Object name, required Object speed}) => '${name} set the speed to ${speed}',
 			'watchTogether.participantBuffering' => ({required Object name}) => '${name} 正在缓冲',
 			'watchTogether.participantNeedsUpdate' => ({required Object name}) => '${name} 正在使用较旧版本的应用，无法同步',
 			'watchTogether.resumingWithout' => ({required Object name}) => '不再等待 ${name}，继续播放',
@@ -4504,6 +4636,7 @@ extension on TranslationsZh {
 			'watchTogether.errors.connectionLost' => '会话准备就绪前连接已断开',
 			'watchTogether.errors.invalidRelayResponse' => '中继服务器返回了意外的响应',
 			'watchTogether.errors.sessionEnded' => '主持人已结束会话',
+			'watchTogether.errors.sessionUnavailable' => 'Unable to resume this session. Join or create a room to continue.',
 			'downloads.title' => '下载',
 			'downloads.manage' => '管理',
 			'downloads.tvShows' => '电视剧',
@@ -4521,8 +4654,6 @@ extension on TranslationsZh {
 			'downloads.storageFull' => '设备存储空间已满，因此下载已停止。请释放空间后重试。',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} 集已加入下载队列',
 			'downloads.downloadDeleted' => '下载已删除',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => '要从此设备删除“${title}”吗？',
 			'downloads.cancelledDownloadTitle' => '已取消的下载',
 			'downloads.cancelledDownloadMessage' => '此下载已取消。你想怎么做？',
@@ -4903,6 +5034,10 @@ extension on TranslationsZh {
 			'seerr.qualityProfile' => '画质配置',
 			'seerr.rootFolder' => '根目录',
 			'seerr.languageProfile' => '语言配置',
+			'seerr.tags' => 'Tags',
+			'seerr.noTags' => 'No tags',
+			'seerr.defaultOption' => ({required Object name}) => '${name} (Default)',
+			'seerr.animeNote' => 'This series is an anime.',
 			'seerr.requestSubmitted' => '请求已提交',
 			'seerr.requestFailed' => ({required Object error}) => '请求失败：${error}',
 			'seerr.requestsLoadFailed' => '无法加载请求选项',
@@ -4914,6 +5049,7 @@ extension on TranslationsZh {
 			'seerr.statusBlocklisted' => '已加入屏蔽列表',
 			'seerr.couldNotReach' => ({required Object url, required Object error}) => '无法连接到 ${url}：${error}',
 			'seerr.noInstanceAtUrl' => ({required Object url, required Object status}) => '${url} 上没有 Seerr 实例（HTTP ${status}）',
+			'seerr.behindAuthProxy' => 'An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr\'s /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.',
 			'seerr.invalidUrl' => '输入服务器地址，例如 https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => '此 Seerr 实例不支持 Quick Connect。需要 Seerr 3.4 或更高版本。',
 			'seerr.notInitialized' => '此 Seerr 实例尚未完成首次运行设置',
@@ -4924,6 +5060,8 @@ extension on TranslationsZh {
 			'seerr.freshCookieRejected' => 'Seerr 拒绝了新的会话 Cookie',
 			'seerr.noUserInformation' => 'Seerr 未返回用户信息',
 			'seerr.sessionRejectedAfterReauth' => '重新登录后会话被拒绝',
+			'seerr.permissionDenied' => 'Seerr denied this action: your account no longer has the required permission',
+			'seerr.permissionRevoked' => 'You no longer have permission to request this',
 			'services.title' => '服务',
 			'services.hubSubtitle' => '同步观看进度并请求新内容。',
 			'services.integrations' => '集成',
@@ -4974,6 +5112,8 @@ extension on TranslationsZh {
 			'addServer.change' => '更改',
 			'addServer.required' => '必填',
 			'addServer.couldNotReachServer' => ({required Object error}) => '无法连接到服务器：${error}',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.signInFailed' => ({required Object error}) => '登录失败：${error}',
 			'addServer.quickConnectFailed' => ({required Object error}) => 'Quick Connect 失败：${error}',
 			'addServer.addPlexTitle' => '使用 Plex 登录',

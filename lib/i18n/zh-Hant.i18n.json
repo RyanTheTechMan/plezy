@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "使用 Plex 登入",
@@ -113,7 +113,15 @@
     "skipVersion": "跳過此版本",
     "viewRelease": "查看版本詳情",
     "latestVersion": "已安裝的版本為最新版本",
-    "checkFailed": "無法檢查更新"
+    "checkFailed": "無法檢查更新",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "設定",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "側邊欄保持展開狀態，內容區域自動調整",
     "showUnwatchedCount": "顯示未觀看數量",
     "showUnwatchedCountDescription": "在影集和單季上顯示未觀看的集數",
-    "showWatchedIndicators": "",
-    "showWatchedIndicatorsDescription": "",
     "showEpisodeNumberOnCards": "在卡片上顯示集數",
     "showEpisodeNumberOnCardsDescription": "在單集卡片上顯示季和集編號",
     "showSeasonPostersOnTabs": "在索引標籤上顯示單季海報",
@@ -201,8 +207,6 @@
     "defaultQualityTitle": "預設畫質",
     "cellularQualityTitle": "行動網路上的預設畫質",
     "cellularQualitySameAsDefault": "與預設畫質相同",
-    "directPlayCoveredQuality": "",
-    "directPlayCoveredQualityDescription": "",
     "musicQualityTitle": "音樂品質",
     "subtitleStyling": "字幕樣式",
     "subtitleStylingDescription": "調整字幕外觀",
@@ -276,17 +280,6 @@
     "autoPlayNextEpisodeDescription": "目前單集結束時自動播放下一集",
     "playNextCountdown": "下一集倒數計時",
     "playNextCountdownImmediate": "立即播放",
-    "skipIntroMode": "",
-    "skipIntroModeOffDescription": "",
-    "skipIntroModeButtonDescription": "",
-    "skipIntroModeAutoDescription": "",
-    "skipCreditsMode": "",
-    "skipCreditsModeOffDescription": "",
-    "skipCreditsModeButtonDescription": "",
-    "skipCreditsModeAutoDescription": "",
-    "skipMarkerModeOff": "",
-    "skipMarkerModeButton": "",
-    "skipMarkerModeAuto": "",
     "forceSkipMarkerFallback": "強制使用備用標記",
     "forceSkipMarkerFallbackDescription": "即使 Plex 有標記，也強制使用章節標題模式",
     "autoSkipDelay": "自動跳過延遲",
@@ -411,8 +404,6 @@
     "gestureVolumeSwipeDescription": "在螢幕右側邊緣上下滑動以調整音量",
     "gesturePinchToZoom": "雙指縮放",
     "gesturePinchToZoomDescription": "在影片上雙指捏合以放大或縮小",
-    "rememberBrightnessLevel": "",
-    "rememberBrightnessLevelDescription": "",
     "controls": "控制",
     "rememberPlayerChanges": "記住播放器變更",
     "rememberPlayerChangesDescription": "播放期間所做的變更要儲存並從何處重新套用",
@@ -424,7 +415,30 @@
     "playerScopeGlobal": "全部",
     "playerScopeLibrary": "依媒體庫",
     "playerScopeTitle": "依影集或電影",
-    "exportDialogTitle": "匯出 Plezy 設定"
+    "exportDialogTitle": "匯出 Plezy 設定",
+    "showWatchedIndicators": "Show Watched Indicators",
+    "showWatchedIndicatorsDescription": "Display a checkmark on watched movies, shows, and episodes",
+    "directPlayCoveredQuality": "Play Smaller Videos at Original Quality",
+    "directPlayCoveredQualityDescription": "Direct play videos already within the quality limit instead of transcoding them",
+    "skipIntroMode": "Skip Intro",
+    "skipIntroModeOffDescription": "Play intros normally without a skip button",
+    "skipIntroModeButtonDescription": "Show a skip button when an intro starts",
+    "skipIntroModeAutoDescription": "Skip intros automatically after the delay below",
+    "skipCreditsMode": "Skip Credits",
+    "skipCreditsModeOffDescription": "Play credits normally without a skip button",
+    "skipCreditsModeButtonDescription": "Show a skip button when credits start",
+    "skipCreditsModeAutoDescription": "Skip credits automatically and play the next episode",
+    "skipMarkerModeOff": "Off",
+    "skipMarkerModeButton": "Show button",
+    "skipMarkerModeAuto": "Automatic",
+    "rememberBrightnessLevel": "Remember Brightness Level",
+    "rememberBrightnessLevelDescription": "Start playback at the brightness set by the last swipe",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "搜尋電影、影集、音樂…",
@@ -464,7 +478,9 @@
       "subSeekPrev": "跳轉至上一句字幕",
       "shaderToggle": "切換著色器",
       "skipMarker": "跳過片頭/片尾",
-      "screenshot": "螢幕截圖"
+      "screenshot": "螢幕截圖",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -609,12 +625,15 @@
     "confirmDeleteTarget": "確定要從您的伺服器永久刪除「${title}」嗎？",
     "deleteMultipleWarning": "這將會刪除所有單集及其檔案。",
     "deleteEpisodeCountWarning": {
+      "one": "This deletes all ${n} episode in it, and its file.",
       "other": "這會刪除其中全部 ${n} 集及其檔案。"
     },
     "deleteMultiPartWarning": {
+      "one": "This item is stored as ${n} file, which will be deleted.",
       "other": "此項目分散儲存於 ${n} 個檔案中，且全部都會被刪除。"
     },
     "deleteSharedFileHeading": {
+      "one": "${n} other episode is stored in the same file and will be deleted too:",
       "other": "另有 ${n} 集儲存在同一檔案中，也會一併被刪除："
     },
     "deleteScopeUnverifiedProbeFailed": "Plezy 無法確認此操作會刪除哪些檔案，因此刪除範圍可能超出上方所列的項目。請取消後重試，或仍要刪除。",
@@ -673,6 +692,10 @@
     "track": "音軌 ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "音訊",
     "subtitlesLabel": "字幕",
     "addTime": "+${amount} ${unit}",
@@ -814,6 +837,7 @@
     "markedAsUnwatchedOffline": "已標記為未觀看（將在連線時同步）",
     "autoRemovedWatchedDownload": "已自動移除：${title}",
     "autoRemovedWatchedDownloads": {
+      "one": "Auto-removed ${n} watched download",
       "other": "已自動移除 ${n} 個已觀看的下載內容"
     },
     "removedFromContinueWatching": "已從「繼續觀看」中移除",
@@ -827,7 +851,7 @@
     "playbackDataInvalid": "伺服器傳回的播放資訊無效。",
     "playbackCancelled": "播放已取消。",
     "playbackFailed": "無法開始播放。",
-    "mediaUnavailable": "",
+    "mediaUnavailable": "This content is no longer available.",
     "errorLoadingFileInfo": "載入檔案資訊時發生錯誤：${error}",
     "errorLoadingSeries": "載入影集時發生錯誤",
     "musicNotSupported": "目前不支援播放音樂",
@@ -913,9 +937,9 @@
     "presetDeleted": "預設組已刪除",
     "confirmDeletePreset": "確定要刪除此預設組嗎？",
     "configPlaceholder": "gpu-api=vulkan\nhwdec=auto\n# 註解",
-    "lineHint": "",
-    "addLine": "",
-    "removeLine": "",
+    "lineHint": "option=value",
+    "addLine": "Add line",
+    "removeLine": "Remove line",
     "embeddedVoHint": "在 Linux 上會忽略 vo、gpu-context 和 gpu-api：嵌入式影片一律透過影片平面上的 vo=libmpv 轉譯，而 gpu-next（ArtCNN 等計算著色器需要它）無法以嵌入式方式執行。"
   },
   "dialog": {
@@ -1094,6 +1118,7 @@
     "minutesLeft": "剩餘 ${minutes} 分鐘",
     "moreLikeThis": "更多類似內容",
     "titleCount": {
+      "one": "${n} title",
       "other": "${n} 部作品"
     }
   },
@@ -1208,7 +1233,10 @@
     "openSourceLicenses": "開源授權條款",
     "versionLabel": "版本 ${version}",
     "appDescription": "一款精美的 Plex 與 Jellyfin Flutter 用戶端",
-    "viewLicensesDescription": "查看第三方套件的授權條款"
+    "viewLicensesDescription": "查看第三方套件的授權條款",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "找不到 ${username}（${email}） 的伺服器",
@@ -1297,6 +1325,7 @@
       "upcoming": "即將上線"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n} 集"
     },
     "cast": "演員陣容",
@@ -1312,7 +1341,8 @@
     "inTheseLibraries": "在這些媒體庫中",
     "checkingLibrary": "正在檢查您的媒體庫…",
     "libraryCheckFailed": {
-      "other": ""
+      "one": "Couldn't check ${n} server",
+      "other": "Couldn't check ${n} servers"
     },
     "emptyTitle": "這裡還沒有任何內容",
     "emptyMessage": "當 ${source} 有內容時，相關資訊將顯示在此處。",
@@ -1354,6 +1384,7 @@
       "favorited": "${n} 人收藏",
       "dropRate": "${percent} 的人棄番",
       "comments": {
+        "one": "${n} comment",
         "other": "${n} 則留言"
       },
       "votes": "${n} 票",
@@ -1434,6 +1465,7 @@
       "ratings": "評分",
       "schedule": "播出時間",
       "recommendedByUsers": {
+        "one": "Recommended by ${n} user",
         "other": "${n} 位使用者推薦"
       },
       "recommendedBy": "由 ${who} 推薦",
@@ -1444,6 +1476,7 @@
       "background": "背景介紹"
     },
     "totalResults": {
+      "one": "${n} result",
       "other": "${n} 筆結果"
     }
   },
@@ -1597,6 +1630,7 @@
     "addToQueue": "新增至佇列",
     "discNumber": "CD ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n} 首"
     },
     "nowPlaying": "正在播放",
@@ -1648,13 +1682,13 @@
     "host": "主持人",
     "hostBadge": "主持人",
     "youAreHost": "您是主持人",
-    "makeHost": "",
-    "makeHostQuestion": "",
-    "makeHostConfirm": "",
-    "transfer": "",
-    "hostChangedTo": "",
-    "youAreNowHost": "",
-    "hostTransferFailed": "",
+    "makeHost": "Make host",
+    "makeHostQuestion": "Transfer host?",
+    "makeHostConfirm": "${name} will control playback and drive the session for everyone.",
+    "transfer": "Transfer",
+    "hostChangedTo": "${name} is now the host",
+    "youAreNowHost": "You are now the host",
+    "hostTransferFailed": "Couldn't make ${name} the host",
     "watchingWithOthers": "與他人一起觀看",
     "endSession": "結束工作階段",
     "leaveSession": "離開工作階段",
@@ -1687,7 +1721,7 @@
     "participantPaused": "${name} 暫停了播放",
     "participantResumed": "${name} 恢復了播放",
     "participantSeeked": "${name} 變更了播放位置",
-    "participantChangedSpeed": "",
+    "participantChangedSpeed": "${name} set the speed to ${speed}",
     "participantBuffering": "${name} 正在緩衝",
     "participantNeedsUpdate": "${name} 正在使用舊版應用程式，無法進行同步",
     "resumingWithout": "不等待 ${name}，繼續播放",
@@ -1704,7 +1738,7 @@
       "connectionLost": "工作階段就緒前連線已中斷",
       "invalidRelayResponse": "中繼伺服器傳回了非預期的回應",
       "sessionEnded": "主持人已結束工作階段",
-      "sessionUnavailable": ""
+      "sessionUnavailable": "Unable to resume this session. Join or create a room to continue."
     }
   },
   "downloads": {
@@ -2135,10 +2169,10 @@
     "qualityProfile": "畫質設定檔（Quality Profile）",
     "rootFolder": "根目錄資料夾",
     "languageProfile": "語言設定檔（Language Profile）",
-    "tags": "",
-    "noTags": "",
-    "defaultOption": "",
-    "animeNote": "",
+    "tags": "Tags",
+    "noTags": "No tags",
+    "defaultOption": "${name} (Default)",
+    "animeNote": "This series is an anime.",
     "requestSubmitted": "請求已送出",
     "requestFailed": "請求失敗：${error}",
     "requestsLoadFailed": "無法載入請求選項",
@@ -2150,7 +2184,7 @@
     "statusBlocklisted": "已加入封鎖清單",
     "couldNotReach": "無法連線至 ${url}：${error}",
     "noInstanceAtUrl": "在 ${url} 找不到 Seerr 執行個體（HTTP ${status}）",
-    "behindAuthProxy": "",
+    "behindAuthProxy": "An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr's /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.",
     "invalidUrl": "請輸入伺服器位址，例如 https://seerr.example.com",
     "quickConnectUnsupported": "此 Seerr 執行個體不支援 Quick Connect。需要 Seerr 3.4 或更新版本。",
     "notInitialized": "此 Seerr 執行個體尚未完成首次執行設定",
@@ -2161,8 +2195,8 @@
     "freshCookieRejected": "Seerr 拒絕了新的工作階段 Cookie",
     "noUserInformation": "Seerr 未傳回使用者資訊",
     "sessionRejectedAfterReauth": "重新登入後，工作階段遭到拒絕",
-    "permissionDenied": "",
-    "permissionRevoked": ""
+    "permissionDenied": "Seerr denied this action: your account no longer has the required permission",
+    "permissionRevoked": "You no longer have permission to request this"
   },
   "services": {
     "title": "外部服務",

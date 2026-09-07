@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Inloggen met Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Deze versie overslaan",
     "viewRelease": "Bekijk release",
     "latestVersion": "Je hebt de nieuwste versie",
-    "checkFailed": "Kon niet controleren op updates"
+    "checkFailed": "Kon niet controleren op updates",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Instellingen",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Zijbalk blijft uitgevouwen en inhoudsgebied past zich aan",
     "showUnwatchedCount": "Aantal ongekeken tonen",
     "showUnwatchedCountDescription": "Toon aantal ongekeken afleveringen bij series en seizoenen",
-    "showWatchedIndicators": "",
-    "showWatchedIndicatorsDescription": "",
     "showEpisodeNumberOnCards": "Afleveringsnummer op kaarten tonen",
     "showEpisodeNumberOnCardsDescription": "Toon seizoen- en afleveringsnummer op afleveringskaarten",
     "showSeasonPostersOnTabs": "Toon seizoensposters op tabbladen",
@@ -201,8 +207,6 @@
     "defaultQualityTitle": "Standaardkwaliteit",
     "cellularQualityTitle": "Standaardkwaliteit bij mobiele data",
     "cellularQualitySameAsDefault": "Zelfde als standaardkwaliteit",
-    "directPlayCoveredQuality": "",
-    "directPlayCoveredQualityDescription": "",
     "musicQualityTitle": "Muziekkwaliteit",
     "subtitleStyling": "Ondertitelopmaak",
     "subtitleStylingDescription": "Pas de weergave van ondertitels aan",
@@ -276,17 +280,6 @@
     "autoPlayNextEpisodeDescription": "Start de volgende aflevering automatisch wanneer een aflevering eindigt",
     "playNextCountdown": "Aftellen voor volgende aflevering",
     "playNextCountdownImmediate": "Direct afspelen",
-    "skipIntroMode": "",
-    "skipIntroModeOffDescription": "",
-    "skipIntroModeButtonDescription": "",
-    "skipIntroModeAutoDescription": "",
-    "skipCreditsMode": "",
-    "skipCreditsModeOffDescription": "",
-    "skipCreditsModeButtonDescription": "",
-    "skipCreditsModeAutoDescription": "",
-    "skipMarkerModeOff": "",
-    "skipMarkerModeButton": "",
-    "skipMarkerModeAuto": "",
     "forceSkipMarkerFallback": "Reservemarkeringen afdwingen",
     "forceSkipMarkerFallbackDescription": "Gebruik patronen in hoofdstuktitels, zelfs wanneer Plex markeringen heeft",
     "autoSkipDelay": "Vertraging voor automatisch overslaan",
@@ -411,8 +404,6 @@
     "gestureVolumeSwipeDescription": "Veeg op de rechterrand omhoog of omlaag om het volume aan te passen",
     "gesturePinchToZoom": "Knijpen om te zoomen",
     "gesturePinchToZoomDescription": "Knijp op de video om in of uit te zoomen",
-    "rememberBrightnessLevel": "",
-    "rememberBrightnessLevelDescription": "",
     "controls": "Bediening",
     "rememberPlayerChanges": "Spelerwijzigingen onthouden",
     "rememberPlayerChangesDescription": "Waar een wijziging tijdens het afspelen wordt opgeslagen en opnieuw toegepast",
@@ -424,7 +415,30 @@
     "playerScopeGlobal": "Overal",
     "playerScopeLibrary": "Per bibliotheek",
     "playerScopeTitle": "Per serie of film",
-    "exportDialogTitle": "Plezy-instellingen exporteren"
+    "exportDialogTitle": "Plezy-instellingen exporteren",
+    "showWatchedIndicators": "Show Watched Indicators",
+    "showWatchedIndicatorsDescription": "Display a checkmark on watched movies, shows, and episodes",
+    "directPlayCoveredQuality": "Play Smaller Videos at Original Quality",
+    "directPlayCoveredQualityDescription": "Direct play videos already within the quality limit instead of transcoding them",
+    "skipIntroMode": "Skip Intro",
+    "skipIntroModeOffDescription": "Play intros normally without a skip button",
+    "skipIntroModeButtonDescription": "Show a skip button when an intro starts",
+    "skipIntroModeAutoDescription": "Skip intros automatically after the delay below",
+    "skipCreditsMode": "Skip Credits",
+    "skipCreditsModeOffDescription": "Play credits normally without a skip button",
+    "skipCreditsModeButtonDescription": "Show a skip button when credits start",
+    "skipCreditsModeAutoDescription": "Skip credits automatically and play the next episode",
+    "skipMarkerModeOff": "Off",
+    "skipMarkerModeButton": "Show button",
+    "skipMarkerModeAuto": "Automatic",
+    "rememberBrightnessLevel": "Remember Brightness Level",
+    "rememberBrightnessLevelDescription": "Start playback at the brightness set by the last swipe",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Zoek films, series, muziek...",
@@ -464,7 +478,9 @@
       "subSeekPrev": "Naar vorige ondertitel",
       "shaderToggle": "Shaders aan/uit",
       "skipMarker": "Intro/aftiteling overslaan",
-      "screenshot": "Schermafbeelding maken"
+      "screenshot": "Schermafbeelding maken",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -676,6 +692,10 @@
     "track": "Audiospoor ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Audio",
     "subtitlesLabel": "Ondertitels",
     "addTime": "+${amount}${unit}",
@@ -831,7 +851,7 @@
     "playbackDataInvalid": "De server heeft ongeldige afspeelinformatie geretourneerd.",
     "playbackCancelled": "Het afspelen is geannuleerd.",
     "playbackFailed": "Het afspelen kon niet worden gestart.",
-    "mediaUnavailable": "",
+    "mediaUnavailable": "This content is no longer available.",
     "errorLoadingFileInfo": "Fout bij laden van bestandsinformatie: ${error}",
     "errorLoadingSeries": "Fout bij laden van serie",
     "musicNotSupported": "Muziek afspelen wordt nog niet ondersteund",
@@ -917,9 +937,9 @@
     "presetDeleted": "Voorinstelling verwijderd",
     "confirmDeletePreset": "Weet je zeker dat je deze voorinstelling wilt verwijderen?",
     "configPlaceholder": "gpu-api=vulkan\nhwdec=auto\n# comment",
-    "lineHint": "",
-    "addLine": "",
-    "removeLine": "",
+    "lineHint": "option=value",
+    "addLine": "Add line",
+    "removeLine": "Remove line",
     "embeddedVoHint": "vo, gpu-context en gpu-api worden genegeerd op Linux: ingebedde video wordt altijd weergegeven via vo=libmpv op het videovlak, en gpu-next (nodig voor compute-shaders zoals ArtCNN) kan niet ingebed draaien."
   },
   "dialog": {
@@ -1213,7 +1233,10 @@
     "openSourceLicenses": "Opensourcelicenties",
     "versionLabel": "Versie ${version}",
     "appDescription": "Een mooie Plex- en Jellyfin-client voor Flutter",
-    "viewLicensesDescription": "Licenties van bibliotheken van derden bekijken"
+    "viewLicensesDescription": "Licenties van bibliotheken van derden bekijken",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Geen servers gevonden voor ${username} (${email})",
@@ -1318,8 +1341,8 @@
     "inTheseLibraries": "In deze bibliotheken",
     "checkingLibrary": "Je bibliotheek controleren...",
     "libraryCheckFailed": {
-      "one": "",
-      "other": ""
+      "one": "Couldn't check ${n} server",
+      "other": "Couldn't check ${n} servers"
     },
     "emptyTitle": "Hier is nog niets",
     "emptyMessage": "Rijen van ${source} verschijnen hier zodra ze inhoud hebben.",
@@ -1659,13 +1682,13 @@
     "host": "Host",
     "hostBadge": "HOST",
     "youAreHost": "Jij bent de host",
-    "makeHost": "",
-    "makeHostQuestion": "",
-    "makeHostConfirm": "",
-    "transfer": "",
-    "hostChangedTo": "",
-    "youAreNowHost": "",
-    "hostTransferFailed": "",
+    "makeHost": "Make host",
+    "makeHostQuestion": "Transfer host?",
+    "makeHostConfirm": "${name} will control playback and drive the session for everyone.",
+    "transfer": "Transfer",
+    "hostChangedTo": "${name} is now the host",
+    "youAreNowHost": "You are now the host",
+    "hostTransferFailed": "Couldn't make ${name} the host",
     "watchingWithOthers": "Kijken met anderen",
     "endSession": "Sessie beëindigen",
     "leaveSession": "Sessie verlaten",
@@ -1698,7 +1721,7 @@
     "participantPaused": "${name} heeft gepauzeerd",
     "participantResumed": "${name} heeft hervat",
     "participantSeeked": "${name} heeft de afspeelpositie gewijzigd",
-    "participantChangedSpeed": "",
+    "participantChangedSpeed": "${name} set the speed to ${speed}",
     "participantBuffering": "${name} is aan het bufferen",
     "participantNeedsUpdate": "${name} gebruikt een oudere appversie — synchronisatie niet beschikbaar",
     "resumingWithout": "Hervatten zonder ${name}",
@@ -1715,7 +1738,7 @@
       "connectionLost": "De verbinding is verbroken voordat de sessie gereed was",
       "invalidRelayResponse": "De relayserver heeft een onverwacht antwoord verzonden",
       "sessionEnded": "De host heeft de sessie beëindigd",
-      "sessionUnavailable": ""
+      "sessionUnavailable": "Unable to resume this session. Join or create a room to continue."
     }
   },
   "downloads": {
@@ -2146,10 +2169,10 @@
     "qualityProfile": "Kwaliteitsprofiel",
     "rootFolder": "Hoofdmap",
     "languageProfile": "Taalprofiel",
-    "tags": "",
-    "noTags": "",
-    "defaultOption": "",
-    "animeNote": "",
+    "tags": "Tags",
+    "noTags": "No tags",
+    "defaultOption": "${name} (Default)",
+    "animeNote": "This series is an anime.",
     "requestSubmitted": "Aanvraag verzonden",
     "requestFailed": "Aanvraag mislukt: ${error}",
     "requestsLoadFailed": "Aanvraagopties konden niet worden geladen",
@@ -2161,7 +2184,7 @@
     "statusBlocklisted": "Op de blokkeerlijst",
     "couldNotReach": "Kon ${url} niet bereiken: ${error}",
     "noInstanceAtUrl": "Geen Seerr-instantie op ${url} (HTTP ${status})",
-    "behindAuthProxy": "",
+    "behindAuthProxy": "An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr's /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.",
     "invalidUrl": "Voer een serveradres in, zoals https://seerr.example.com",
     "quickConnectUnsupported": "Deze Seerr-instantie ondersteunt Quick Connect niet. Hiervoor is Seerr 3.4 of nieuwer nodig.",
     "notInitialized": "De eerste configuratie van deze Seerr-instantie is niet voltooid",
@@ -2172,8 +2195,8 @@
     "freshCookieRejected": "Seerr heeft de nieuwe sessiecookie geweigerd",
     "noUserInformation": "Seerr heeft geen gebruikersgegevens geretourneerd",
     "sessionRejectedAfterReauth": "De sessie is na het opnieuw inloggen geweigerd",
-    "permissionDenied": "",
-    "permissionRevoked": ""
+    "permissionDenied": "Seerr denied this action: your account no longer has the required permission",
+    "permissionRevoked": "You no longer have permission to request this"
   },
   "services": {
     "title": "Diensten",
