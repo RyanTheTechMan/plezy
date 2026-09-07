@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Logg inn med Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Hopp over denne versjonen",
     "viewRelease": "Vis utgivelse",
     "latestVersion": "Du har den nyeste versjonen",
-    "checkFailed": "Kunne ikke se etter oppdateringer"
+    "checkFailed": "Kunne ikke se etter oppdateringer",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Innstillinger",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Sidefeltet forblir utvidet og innholdsområdet tilpasser seg",
     "showUnwatchedCount": "Vis antall usette",
     "showUnwatchedCountDescription": "Vis antall usette episoder på serier og sesonger",
-    "showWatchedIndicators": "",
-    "showWatchedIndicatorsDescription": "",
     "showEpisodeNumberOnCards": "Vis episodenummer på kort",
     "showEpisodeNumberOnCardsDescription": "Vis sesong- og episodenummer på episodekort",
     "showSeasonPostersOnTabs": "Vis sesongplakater på faner",
@@ -201,8 +207,6 @@
     "defaultQualityTitle": "Standardkvalitet",
     "cellularQualityTitle": "Standardkvalitet på mobilnett",
     "cellularQualitySameAsDefault": "Samme som standardkvalitet",
-    "directPlayCoveredQuality": "",
-    "directPlayCoveredQualityDescription": "",
     "musicQualityTitle": "Musikkvalitet",
     "subtitleStyling": "Undertekststil",
     "subtitleStylingDescription": "Tilpass utseendet på undertekster",
@@ -276,17 +280,6 @@
     "autoPlayNextEpisodeDescription": "Start neste episode automatisk når en episode er ferdig",
     "playNextCountdown": "Nedtelling for neste episode",
     "playNextCountdownImmediate": "Spill umiddelbart",
-    "skipIntroMode": "",
-    "skipIntroModeOffDescription": "",
-    "skipIntroModeButtonDescription": "",
-    "skipIntroModeAutoDescription": "",
-    "skipCreditsMode": "",
-    "skipCreditsModeOffDescription": "",
-    "skipCreditsModeButtonDescription": "",
-    "skipCreditsModeAutoDescription": "",
-    "skipMarkerModeOff": "",
-    "skipMarkerModeButton": "",
-    "skipMarkerModeAuto": "",
     "forceSkipMarkerFallback": "Tving reservemarkører",
     "forceSkipMarkerFallbackDescription": "Bruk mønstre i kapiteltitler selv når Plex har markører",
     "autoSkipDelay": "Forsinkelse for automatisk hopp",
@@ -411,8 +404,6 @@
     "gestureVolumeSwipeDescription": "Sveip opp eller ned på høyre kant for å justere volumet",
     "gesturePinchToZoom": "Klyp for å zoome",
     "gesturePinchToZoomDescription": "Klyp på videoen for å zoome inn eller ut",
-    "rememberBrightnessLevel": "",
-    "rememberBrightnessLevelDescription": "",
     "controls": "Kontroller",
     "rememberPlayerChanges": "Husk endringer i spilleren",
     "rememberPlayerChangesDescription": "Hvor en endring under avspilling lagres og brukes på nytt",
@@ -424,7 +415,30 @@
     "playerScopeGlobal": "Overalt",
     "playerScopeLibrary": "Per bibliotek",
     "playerScopeTitle": "Per serie eller film",
-    "exportDialogTitle": "Eksporter Plezy-innstillinger"
+    "exportDialogTitle": "Eksporter Plezy-innstillinger",
+    "showWatchedIndicators": "Show Watched Indicators",
+    "showWatchedIndicatorsDescription": "Display a checkmark on watched movies, shows, and episodes",
+    "directPlayCoveredQuality": "Play Smaller Videos at Original Quality",
+    "directPlayCoveredQualityDescription": "Direct play videos already within the quality limit instead of transcoding them",
+    "skipIntroMode": "Skip Intro",
+    "skipIntroModeOffDescription": "Play intros normally without a skip button",
+    "skipIntroModeButtonDescription": "Show a skip button when an intro starts",
+    "skipIntroModeAutoDescription": "Skip intros automatically after the delay below",
+    "skipCreditsMode": "Skip Credits",
+    "skipCreditsModeOffDescription": "Play credits normally without a skip button",
+    "skipCreditsModeButtonDescription": "Show a skip button when credits start",
+    "skipCreditsModeAutoDescription": "Skip credits automatically and play the next episode",
+    "skipMarkerModeOff": "Off",
+    "skipMarkerModeButton": "Show button",
+    "skipMarkerModeAuto": "Automatic",
+    "rememberBrightnessLevel": "Remember Brightness Level",
+    "rememberBrightnessLevelDescription": "Start playback at the brightness set by the last swipe",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Søk i filmer, serier, musikk...",
@@ -464,7 +478,9 @@
       "subSeekPrev": "Spol til forrige undertekst",
       "shaderToggle": "Slå shadere av/på",
       "skipMarker": "Hopp over intro/rulletekst",
-      "screenshot": "Ta skjermbilde"
+      "screenshot": "Ta skjermbilde",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -676,6 +692,10 @@
     "track": "Lydspor ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Lyd",
     "subtitlesLabel": "Undertekster",
     "addTime": "+${amount}${unit}",
@@ -831,7 +851,7 @@
     "playbackDataInvalid": "Serveren returnerte ugyldig avspillingsinformasjon.",
     "playbackCancelled": "Avspillingen ble avbrutt.",
     "playbackFailed": "Kunne ikke starte avspillingen.",
-    "mediaUnavailable": "",
+    "mediaUnavailable": "This content is no longer available.",
     "errorLoadingFileInfo": "Feil ved lasting av filinformasjon: ${error}",
     "errorLoadingSeries": "Feil ved lasting av serie",
     "musicNotSupported": "Musikkavspilling støttes ikke ennå",
@@ -917,9 +937,9 @@
     "presetDeleted": "Forhåndsinnstilling slettet",
     "confirmDeletePreset": "Er du sikker på at du vil slette denne forhåndsinnstillingen?",
     "configPlaceholder": "gpu-api=vulkan\nhwdec=auto\n# kommentar",
-    "lineHint": "",
-    "addLine": "",
-    "removeLine": "",
+    "lineHint": "option=value",
+    "addLine": "Add line",
+    "removeLine": "Remove line",
     "embeddedVoHint": "vo, gpu-context og gpu-api ignoreres på Linux: innebygd video renderes alltid via vo=libmpv på videoplanet, og gpu-next (som compute-shadere som ArtCNN trenger) kan ikke kjøre innebygd."
   },
   "dialog": {
@@ -1213,7 +1233,10 @@
     "openSourceLicenses": "Lisenser for åpen kildekode",
     "versionLabel": "Versjon ${version}",
     "appDescription": "En vakker Plex- og Jellyfin-klient for Flutter",
-    "viewLicensesDescription": "Vis lisenser for tredjepartsbiblioteker"
+    "viewLicensesDescription": "Vis lisenser for tredjepartsbiblioteker",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Ingen servere funnet for ${username} (${email})",
@@ -1318,8 +1341,8 @@
     "inTheseLibraries": "I disse bibliotekene",
     "checkingLibrary": "Sjekker biblioteket ditt...",
     "libraryCheckFailed": {
-      "one": "",
-      "other": ""
+      "one": "Couldn't check ${n} server",
+      "other": "Couldn't check ${n} servers"
     },
     "emptyTitle": "Ingenting her ennå",
     "emptyMessage": "Rader fra ${source} vises her når de har innhold.",
@@ -1659,13 +1682,13 @@
     "host": "Vert",
     "hostBadge": "VERT",
     "youAreHost": "Du er verten",
-    "makeHost": "",
-    "makeHostQuestion": "",
-    "makeHostConfirm": "",
-    "transfer": "",
-    "hostChangedTo": "",
-    "youAreNowHost": "",
-    "hostTransferFailed": "",
+    "makeHost": "Make host",
+    "makeHostQuestion": "Transfer host?",
+    "makeHostConfirm": "${name} will control playback and drive the session for everyone.",
+    "transfer": "Transfer",
+    "hostChangedTo": "${name} is now the host",
+    "youAreNowHost": "You are now the host",
+    "hostTransferFailed": "Couldn't make ${name} the host",
     "watchingWithOthers": "Ser med andre",
     "endSession": "Avslutt økt",
     "leaveSession": "Forlat økt",
@@ -1698,7 +1721,7 @@
     "participantPaused": "${name} satte avspillingen på pause",
     "participantResumed": "${name} startet avspillingen igjen",
     "participantSeeked": "${name} endret avspillingsposisjonen",
-    "participantChangedSpeed": "",
+    "participantChangedSpeed": "${name} set the speed to ${speed}",
     "participantBuffering": "${name} buffrer",
     "participantNeedsUpdate": "${name} bruker en eldre appversjon — synkronisering er ikke tilgjengelig",
     "resumingWithout": "Fortsetter uten ${name}",
@@ -1715,7 +1738,7 @@
       "connectionLost": "Tilkoblingen ble lukket før økten var klar",
       "invalidRelayResponse": "Reléserveren sendte et uventet svar",
       "sessionEnded": "Verten avsluttet økten",
-      "sessionUnavailable": ""
+      "sessionUnavailable": "Unable to resume this session. Join or create a room to continue."
     }
   },
   "downloads": {
@@ -2146,10 +2169,10 @@
     "qualityProfile": "Kvalitetsprofil",
     "rootFolder": "Rotmappe",
     "languageProfile": "Språkprofil",
-    "tags": "",
-    "noTags": "",
-    "defaultOption": "",
-    "animeNote": "",
+    "tags": "Tags",
+    "noTags": "No tags",
+    "defaultOption": "${name} (Default)",
+    "animeNote": "This series is an anime.",
     "requestSubmitted": "Forespørsel sendt",
     "requestFailed": "Forespørsel mislyktes: ${error}",
     "requestsLoadFailed": "Kunne ikke laste forespørselsalternativer",
@@ -2161,7 +2184,7 @@
     "statusBlocklisted": "På blokkeringslisten",
     "couldNotReach": "Kunne ikke nå ${url}: ${error}",
     "noInstanceAtUrl": "Ingen Seerr-instans på ${url} (HTTP ${status})",
-    "behindAuthProxy": "",
+    "behindAuthProxy": "An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr's /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.",
     "invalidUrl": "Skriv inn en serveradresse som https://seerr.example.com",
     "quickConnectUnsupported": "Denne Seerr-instansen støtter ikke Quick Connect. Den krever Seerr 3.4 eller nyere.",
     "notInitialized": "Denne Seerr-instansen har ikke fullført førstegangsoppsettet",
@@ -2172,8 +2195,8 @@
     "freshCookieRejected": "Seerr avviste den nye øktinformasjonskapselen",
     "noUserInformation": "Seerr returnerte ingen brukerinformasjon",
     "sessionRejectedAfterReauth": "Økten ble avvist etter ny innlogging",
-    "permissionDenied": "",
-    "permissionRevoked": ""
+    "permissionDenied": "Seerr denied this action: your account no longer has the required permission",
+    "permissionRevoked": "You no longer have permission to request this"
   },
   "services": {
     "title": "Tjenester",

@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Вход с Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Пропусни тази версия",
     "viewRelease": "Виж версията",
     "latestVersion": "Използвате най-новата версия",
-    "checkFailed": "Неуспешна проверка за актуализации"
+    "checkFailed": "Неуспешна проверка за актуализации",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Настройки",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Страничната лента остава разгъната и зоната със съдържание се наглася да пасне",
     "showUnwatchedCount": "Показвай броя негледани",
     "showUnwatchedCountDescription": "Показвай броя негледани епизоди при сериали и сезони",
-    "showWatchedIndicators": "",
-    "showWatchedIndicatorsDescription": "",
     "showEpisodeNumberOnCards": "Показвай номера на епизода върху картите",
     "showEpisodeNumberOnCardsDescription": "Показвай сезон и номер на епизод върху картите на епизодите",
     "showSeasonPostersOnTabs": "Показвай постери на сезоните в табовете",
@@ -201,8 +207,6 @@
     "defaultQualityTitle": "Качество по подразбиране",
     "cellularQualityTitle": "Качество по подразбиране при мобилни данни",
     "cellularQualitySameAsDefault": "Същото като качеството по подразбиране",
-    "directPlayCoveredQuality": "",
-    "directPlayCoveredQualityDescription": "",
     "musicQualityTitle": "Качество на музиката",
     "subtitleStyling": "Стил на субтитрите",
     "subtitleStylingDescription": "Настройване на вида на субтитрите",
@@ -276,17 +280,6 @@
     "autoPlayNextEpisodeDescription": "Пускай следващия епизод автоматично, когато текущият свърши",
     "playNextCountdown": "Отброяване до следващия епизод",
     "playNextCountdownImmediate": "Пусни веднага",
-    "skipIntroMode": "",
-    "skipIntroModeOffDescription": "",
-    "skipIntroModeButtonDescription": "",
-    "skipIntroModeAutoDescription": "",
-    "skipCreditsMode": "",
-    "skipCreditsModeOffDescription": "",
-    "skipCreditsModeButtonDescription": "",
-    "skipCreditsModeAutoDescription": "",
-    "skipMarkerModeOff": "",
-    "skipMarkerModeButton": "",
-    "skipMarkerModeAuto": "",
     "forceSkipMarkerFallback": "Принуди резервни маркери",
     "forceSkipMarkerFallbackDescription": "Използвай шаблони в заглавията на главите дори когато Plex има маркери",
     "autoSkipDelay": "Забавяне за автоматично прескачане",
@@ -411,8 +404,6 @@
     "gestureVolumeSwipeDescription": "Плъзни нагоре или надолу по десния ръб, за да регулираш силата на звука",
     "gesturePinchToZoom": "Стискане за мащабиране",
     "gesturePinchToZoomDescription": "Стисни видеото, за да увеличиш или намалиш мащаба",
-    "rememberBrightnessLevel": "",
-    "rememberBrightnessLevelDescription": "",
     "controls": "Контроли",
     "rememberPlayerChanges": "Запомняне на промените в плейъра",
     "rememberPlayerChangesDescription": "Къде се записва и откъде се прилага отново промяна, направена по време на възпроизвеждане",
@@ -424,7 +415,30 @@
     "playerScopeGlobal": "Навсякъде",
     "playerScopeLibrary": "По библиотека",
     "playerScopeTitle": "По сериал или филм",
-    "exportDialogTitle": "Експортиране на настройките на Plezy"
+    "exportDialogTitle": "Експортиране на настройките на Plezy",
+    "showWatchedIndicators": "Show Watched Indicators",
+    "showWatchedIndicatorsDescription": "Display a checkmark on watched movies, shows, and episodes",
+    "directPlayCoveredQuality": "Play Smaller Videos at Original Quality",
+    "directPlayCoveredQualityDescription": "Direct play videos already within the quality limit instead of transcoding them",
+    "skipIntroMode": "Skip Intro",
+    "skipIntroModeOffDescription": "Play intros normally without a skip button",
+    "skipIntroModeButtonDescription": "Show a skip button when an intro starts",
+    "skipIntroModeAutoDescription": "Skip intros automatically after the delay below",
+    "skipCreditsMode": "Skip Credits",
+    "skipCreditsModeOffDescription": "Play credits normally without a skip button",
+    "skipCreditsModeButtonDescription": "Show a skip button when credits start",
+    "skipCreditsModeAutoDescription": "Skip credits automatically and play the next episode",
+    "skipMarkerModeOff": "Off",
+    "skipMarkerModeButton": "Show button",
+    "skipMarkerModeAuto": "Automatic",
+    "rememberBrightnessLevel": "Remember Brightness Level",
+    "rememberBrightnessLevelDescription": "Start playback at the brightness set by the last swipe",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Търсене на филми, сериали, музика...",
@@ -464,7 +478,9 @@
       "subSeekPrev": "Отиди до предишен субтитър",
       "shaderToggle": "Превключи шейдъри",
       "skipMarker": "Прескочи интро/финални надписи",
-      "screenshot": "Направи екранна снимка"
+      "screenshot": "Направи екранна снимка",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -676,6 +692,10 @@
     "track": "Аудиопътечка ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Аудио",
     "subtitlesLabel": "Субтитри",
     "addTime": "+${amount}${unit}",
@@ -831,7 +851,7 @@
     "playbackDataInvalid": "Сървърът върна невалидна информация за възпроизвеждането.",
     "playbackCancelled": "Възпроизвеждането беше отменено.",
     "playbackFailed": "Възпроизвеждането не можа да бъде стартирано.",
-    "mediaUnavailable": "",
+    "mediaUnavailable": "This content is no longer available.",
     "errorLoadingFileInfo": "Грешка при зареждане на информация за файла: ${error}",
     "errorLoadingSeries": "Грешка при зареждане на сериала",
     "musicNotSupported": "Възпроизвеждането на музика все още не се поддържа",
@@ -917,9 +937,9 @@
     "presetDeleted": "Пресетът е изтрит",
     "confirmDeletePreset": "Сигурни ли сте, че искате да изтриете този пресет?",
     "configPlaceholder": "gpu-api=vulkan\nhwdec=auto\n# comment",
-    "lineHint": "",
-    "addLine": "",
-    "removeLine": "",
+    "lineHint": "option=value",
+    "addLine": "Add line",
+    "removeLine": "Remove line",
     "embeddedVoHint": "vo, gpu-context и gpu-api се игнорират на Linux: вграденото видео винаги се рендерира през vo=libmpv върху видео равнината, а gpu-next (който е нужен за compute шейдъри като ArtCNN) не може да работи вградено."
   },
   "dialog": {
@@ -1213,7 +1233,10 @@
     "openSourceLicenses": "Лицензи с отворен код",
     "versionLabel": "Версия ${version}",
     "appDescription": "Красив клиент за Plex и Jellyfin, създаден с Flutter",
-    "viewLicensesDescription": "Виж лицензите на библиотеки на трети страни"
+    "viewLicensesDescription": "Виж лицензите на библиотеки на трети страни",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Не са намерени сървъри за ${username} (${email})",
@@ -1318,8 +1341,8 @@
     "inTheseLibraries": "В тези библиотеки",
     "checkingLibrary": "Проверка на твоята библиотека...",
     "libraryCheckFailed": {
-      "one": "",
-      "other": ""
+      "one": "Couldn't check ${n} server",
+      "other": "Couldn't check ${n} servers"
     },
     "emptyTitle": "Тук все още няма нищо",
     "emptyMessage": "Редовете от ${source} ще се появят тук, когато има съдържание.",
@@ -1659,13 +1682,13 @@
     "host": "Организатор",
     "hostBadge": "ОРГАНИЗАТОР",
     "youAreHost": "Вие сте организаторът",
-    "makeHost": "",
-    "makeHostQuestion": "",
-    "makeHostConfirm": "",
-    "transfer": "",
-    "hostChangedTo": "",
-    "youAreNowHost": "",
-    "hostTransferFailed": "",
+    "makeHost": "Make host",
+    "makeHostQuestion": "Transfer host?",
+    "makeHostConfirm": "${name} will control playback and drive the session for everyone.",
+    "transfer": "Transfer",
+    "hostChangedTo": "${name} is now the host",
+    "youAreNowHost": "You are now the host",
+    "hostTransferFailed": "Couldn't make ${name} the host",
     "watchingWithOthers": "Гледате с други",
     "endSession": "Край на сесията",
     "leaveSession": "Напусни сесията",
@@ -1698,7 +1721,7 @@
     "participantPaused": "${name} постави на пауза",
     "participantResumed": "${name} продължи",
     "participantSeeked": "${name} промени позицията на възпроизвеждане",
-    "participantChangedSpeed": "",
+    "participantChangedSpeed": "${name} set the speed to ${speed}",
     "participantBuffering": "${name} буферира",
     "participantNeedsUpdate": "${name} е с по-стара версия на приложението — синхронизирането не е налично",
     "resumingWithout": "Продължаване без ${name}",
@@ -1715,7 +1738,7 @@
       "connectionLost": "Връзката се затвори, преди сесията да е готова",
       "invalidRelayResponse": "Релейният сървър изпрати неочакван отговор",
       "sessionEnded": "Организаторът прекрати сесията",
-      "sessionUnavailable": ""
+      "sessionUnavailable": "Unable to resume this session. Join or create a room to continue."
     }
   },
   "downloads": {
@@ -2146,10 +2169,10 @@
     "qualityProfile": "Профил за качество",
     "rootFolder": "Основна папка",
     "languageProfile": "Езиков профил",
-    "tags": "",
-    "noTags": "",
-    "defaultOption": "",
-    "animeNote": "",
+    "tags": "Tags",
+    "noTags": "No tags",
+    "defaultOption": "${name} (Default)",
+    "animeNote": "This series is an anime.",
     "requestSubmitted": "Заявката е изпратена",
     "requestFailed": "Заявката се провали: ${error}",
     "requestsLoadFailed": "Неуспешно зареждане на опциите за заявка",
@@ -2161,7 +2184,7 @@
     "statusBlocklisted": "В списъка с блокирани",
     "couldNotReach": "Неуспешна връзка с ${url}: ${error}",
     "noInstanceAtUrl": "На ${url} няма инстанция на Seerr (HTTP ${status})",
-    "behindAuthProxy": "",
+    "behindAuthProxy": "An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr's /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.",
     "invalidUrl": "Въведете адрес на сървър като https://seerr.example.com",
     "quickConnectUnsupported": "Тази Seerr инстанция не поддържа Quick Connect. Изисква се Seerr 3.4 или по-нова версия.",
     "notInitialized": "Тази инстанция на Seerr не е завършила първоначалната настройка",
@@ -2172,8 +2195,8 @@
     "freshCookieRejected": "Seerr отхвърли новата бисквитка за сесията",
     "noUserInformation": "Seerr не върна информация за потребителя",
     "sessionRejectedAfterReauth": "Сесията беше отхвърлена след повторния вход",
-    "permissionDenied": "",
-    "permissionRevoked": ""
+    "permissionDenied": "Seerr denied this action: your account no longer has the required permission",
+    "permissionRevoked": "You no longer have permission to request this"
   },
   "services": {
     "title": "Услуги",

@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Plex ile Giriş Yap",
@@ -113,7 +113,15 @@
     "skipVersion": "Bu Sürümü Atla",
     "viewRelease": "Sürümü Görüntüle",
     "latestVersion": "En son sürümü kullanıyorsunuz",
-    "checkFailed": "Güncellemeler kontrol edilemedi"
+    "checkFailed": "Güncellemeler kontrol edilemedi",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Ayarlar",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Yan menü genişletilmiş kalır ve içerik alanı buna göre ayarlanır",
     "showUnwatchedCount": "İzlenmemiş Sayısını Göster",
     "showUnwatchedCountDescription": "Dizilerde ve sezonlarda izlenmemiş bölüm sayısını göster",
-    "showWatchedIndicators": "",
-    "showWatchedIndicatorsDescription": "",
     "showEpisodeNumberOnCards": "Kartlarda Bölüm Numarasını Göster",
     "showEpisodeNumberOnCardsDescription": "Bölüm kartlarında sezon ve bölüm numarasını göster",
     "showSeasonPostersOnTabs": "Sekmelerde Sezon Afişlerini Göster",
@@ -201,8 +207,6 @@
     "defaultQualityTitle": "Varsayılan Kalite",
     "cellularQualityTitle": "Hücresel Veride Varsayılan Kalite",
     "cellularQualitySameAsDefault": "Varsayılan Kaliteyle Aynı",
-    "directPlayCoveredQuality": "",
-    "directPlayCoveredQualityDescription": "",
     "musicQualityTitle": "Müzik Kalitesi",
     "subtitleStyling": "Altyazı Biçimlendirmesi",
     "subtitleStylingDescription": "Altyazı görünümünü özelleştirin",
@@ -276,17 +280,6 @@
     "autoPlayNextEpisodeDescription": "Bir bölüm bittiğinde sonraki bölümü otomatik başlat",
     "playNextCountdown": "Sonraki Bölüm Geri Sayımı",
     "playNextCountdownImmediate": "Hemen oynat",
-    "skipIntroMode": "",
-    "skipIntroModeOffDescription": "",
-    "skipIntroModeButtonDescription": "",
-    "skipIntroModeAutoDescription": "",
-    "skipCreditsMode": "",
-    "skipCreditsModeOffDescription": "",
-    "skipCreditsModeButtonDescription": "",
-    "skipCreditsModeAutoDescription": "",
-    "skipMarkerModeOff": "",
-    "skipMarkerModeButton": "",
-    "skipMarkerModeAuto": "",
     "forceSkipMarkerFallback": "Yedek İşaretçileri Zorla",
     "forceSkipMarkerFallbackDescription": "Plex işaretçileri olsa bile kısım başlığı kalıplarını kullan",
     "autoSkipDelay": "Otomatik Atlama Gecikmesi",
@@ -411,8 +404,6 @@
     "gestureVolumeSwipeDescription": "Sesi ayarlamak için sağ kenarda yukarı veya aşağı kaydırın",
     "gesturePinchToZoom": "Kıstırarak Yakınlaştır",
     "gesturePinchToZoomDescription": "Yakınlaştırmak veya uzaklaştırmak için videoyu kıstırın",
-    "rememberBrightnessLevel": "",
-    "rememberBrightnessLevelDescription": "",
     "controls": "Kontroller",
     "rememberPlayerChanges": "Oynatıcı değişikliklerini hatırla",
     "rememberPlayerChangesDescription": "Oynatma sırasında yapılan değişikliklerin kaydedilip yeniden uygulanacağı yer",
@@ -424,7 +415,30 @@
     "playerScopeGlobal": "Her yerde",
     "playerScopeLibrary": "Kitaplık başına",
     "playerScopeTitle": "Dizi veya film başına",
-    "exportDialogTitle": "Plezy ayarlarını dışa aktar"
+    "exportDialogTitle": "Plezy ayarlarını dışa aktar",
+    "showWatchedIndicators": "Show Watched Indicators",
+    "showWatchedIndicatorsDescription": "Display a checkmark on watched movies, shows, and episodes",
+    "directPlayCoveredQuality": "Play Smaller Videos at Original Quality",
+    "directPlayCoveredQualityDescription": "Direct play videos already within the quality limit instead of transcoding them",
+    "skipIntroMode": "Skip Intro",
+    "skipIntroModeOffDescription": "Play intros normally without a skip button",
+    "skipIntroModeButtonDescription": "Show a skip button when an intro starts",
+    "skipIntroModeAutoDescription": "Skip intros automatically after the delay below",
+    "skipCreditsMode": "Skip Credits",
+    "skipCreditsModeOffDescription": "Play credits normally without a skip button",
+    "skipCreditsModeButtonDescription": "Show a skip button when credits start",
+    "skipCreditsModeAutoDescription": "Skip credits automatically and play the next episode",
+    "skipMarkerModeOff": "Off",
+    "skipMarkerModeButton": "Show button",
+    "skipMarkerModeAuto": "Automatic",
+    "rememberBrightnessLevel": "Remember Brightness Level",
+    "rememberBrightnessLevelDescription": "Start playback at the brightness set by the last swipe",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Film, dizi, müzik ara...",
@@ -464,7 +478,9 @@
       "subSeekPrev": "Önceki Altyazıya Sar",
       "shaderToggle": "Gölgelendiricileri Aç/Kapat",
       "skipMarker": "Jenerik/Emeği Geçenleri Atla",
-      "screenshot": "Ekran Görüntüsü Al"
+      "screenshot": "Ekran Görüntüsü Al",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -676,6 +692,10 @@
     "track": "Ses Parçası ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Ses",
     "subtitlesLabel": "Altyazı",
     "addTime": "+${amount}${unit}",
@@ -831,7 +851,7 @@
     "playbackDataInvalid": "Sunucu geçersiz oynatma bilgisi döndürdü.",
     "playbackCancelled": "Oynatma iptal edildi.",
     "playbackFailed": "Oynatma başlatılamadı.",
-    "mediaUnavailable": "",
+    "mediaUnavailable": "This content is no longer available.",
     "errorLoadingFileInfo": "Dosya bilgisi yüklenirken hata: ${error}",
     "errorLoadingSeries": "Dizi yüklenirken hata",
     "musicNotSupported": "Müzik oynatma henüz desteklenmiyor",
@@ -917,9 +937,9 @@
     "presetDeleted": "Önayar silindi",
     "confirmDeletePreset": "Bu önayarı silmek istediğinizden emin misiniz?",
     "configPlaceholder": "gpu-api=vulkan\nhwdec=auto\n# yorum",
-    "lineHint": "",
-    "addLine": "",
-    "removeLine": "",
+    "lineHint": "option=value",
+    "addLine": "Add line",
+    "removeLine": "Remove line",
     "embeddedVoHint": "vo, gpu-context ve gpu-api Linux'ta yok sayılır: gömülü video her zaman video düzleminde vo=libmpv üzerinden işlenir ve gpu-next (ArtCNN gibi compute shader'ların ihtiyaç duyduğu) gömülü olarak çalışamaz."
   },
   "dialog": {
@@ -1213,7 +1233,10 @@
     "openSourceLicenses": "Açık Kaynak Lisansları",
     "versionLabel": "Sürüm ${version}",
     "appDescription": "Flutter için şık bir Plex ve Jellyfin istemcisi",
-    "viewLicensesDescription": "Üçüncü taraf kütüphanelerin lisanslarını görüntüleyin"
+    "viewLicensesDescription": "Üçüncü taraf kütüphanelerin lisanslarını görüntüleyin",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email}) için sunucu bulunamadı",
@@ -1318,8 +1341,8 @@
     "inTheseLibraries": "Bu kitaplıklarda var",
     "checkingLibrary": "Kitaplığınız kontrol ediliyor...",
     "libraryCheckFailed": {
-      "one": "",
-      "other": ""
+      "one": "Couldn't check ${n} server",
+      "other": "Couldn't check ${n} servers"
     },
     "emptyTitle": "Henüz burada bir şey yok",
     "emptyMessage": "${source} kaynağındaki satırlar içerik bulunduğunda burada görünecektir.",
@@ -1659,13 +1682,13 @@
     "host": "Kurucu",
     "hostBadge": "KURUCU",
     "youAreHost": "Kurucu sizsiniz",
-    "makeHost": "",
-    "makeHostQuestion": "",
-    "makeHostConfirm": "",
-    "transfer": "",
-    "hostChangedTo": "",
-    "youAreNowHost": "",
-    "hostTransferFailed": "",
+    "makeHost": "Make host",
+    "makeHostQuestion": "Transfer host?",
+    "makeHostConfirm": "${name} will control playback and drive the session for everyone.",
+    "transfer": "Transfer",
+    "hostChangedTo": "${name} is now the host",
+    "youAreNowHost": "You are now the host",
+    "hostTransferFailed": "Couldn't make ${name} the host",
     "watchingWithOthers": "Başkalarıyla birlikte izleniyor",
     "endSession": "Oturumu Bitir",
     "leaveSession": "Oturumdan Ayrıl",
@@ -1698,7 +1721,7 @@
     "participantPaused": "${name} duraklattı",
     "participantResumed": "${name} devam ettirdi",
     "participantSeeked": "${name} oynatma konumunu değiştirdi",
-    "participantChangedSpeed": "",
+    "participantChangedSpeed": "${name} set the speed to ${speed}",
     "participantBuffering": "${name} arabelleğe alıyor",
     "participantNeedsUpdate": "${name} eski bir uygulama sürümünde — eşitleme kullanılamıyor",
     "resumingWithout": "${name} olmadan devam ediliyor",
@@ -1715,7 +1738,7 @@
       "connectionLost": "Oturum hazır olmadan bağlantı kapandı",
       "invalidRelayResponse": "Aktarıcı sunucusu beklenmeyen bir yanıt gönderdi",
       "sessionEnded": "Kurucu oturumu sonlandırdı",
-      "sessionUnavailable": ""
+      "sessionUnavailable": "Unable to resume this session. Join or create a room to continue."
     }
   },
   "downloads": {
@@ -2146,10 +2169,10 @@
     "qualityProfile": "Kalite profili",
     "rootFolder": "Kök klasör",
     "languageProfile": "Dil profili",
-    "tags": "",
-    "noTags": "",
-    "defaultOption": "",
-    "animeNote": "",
+    "tags": "Tags",
+    "noTags": "No tags",
+    "defaultOption": "${name} (Default)",
+    "animeNote": "This series is an anime.",
     "requestSubmitted": "İstek gönderildi",
     "requestFailed": "İstek başarısız oldu: ${error}",
     "requestsLoadFailed": "İstek seçenekleri yüklenemedi",
@@ -2161,7 +2184,7 @@
     "statusBlocklisted": "Engelleme listesinde",
     "couldNotReach": "${url} adresine ulaşılamadı: ${error}",
     "noInstanceAtUrl": "${url} adresinde Seerr örneği bulunamadı (HTTP ${status})",
-    "behindAuthProxy": "",
+    "behindAuthProxy": "An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr's /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.",
     "invalidUrl": "https://seerr.example.com gibi bir sunucu adresi girin",
     "quickConnectUnsupported": "Bu Seerr örneği Quick Connect'i desteklemiyor. Seerr 3.4 veya daha yenisini gerektiriyor.",
     "notInitialized": "Bu Seerr örneği ilk çalıştırma kurulumunu tamamlamadı",
@@ -2172,8 +2195,8 @@
     "freshCookieRejected": "Seerr yeni oturum çerezini reddetti",
     "noUserInformation": "Seerr kullanıcı bilgilerini döndürmedi",
     "sessionRejectedAfterReauth": "Yeniden giriş yapıldıktan sonra oturum reddedildi",
-    "permissionDenied": "",
-    "permissionRevoked": ""
+    "permissionDenied": "Seerr denied this action: your account no longer has the required permission",
+    "permissionRevoked": "You no longer have permission to request this"
   },
   "services": {
     "title": "Servisler",

@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Bejelentkezés Plexszel",
@@ -113,7 +113,15 @@
     "skipVersion": "Verzió kihagyása",
     "viewRelease": "Kiadási megjegyzések",
     "latestVersion": "A legújabb verziót használod",
-    "checkFailed": "Nem sikerült az újabb frissítések ellenőrzése"
+    "checkFailed": "Nem sikerült az újabb frissítések ellenőrzése",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Beállítások",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "Az oldalsáv kibontva marad, a tartalom területe igazodik hozzá",
     "showUnwatchedCount": "Nem látott elemek számának megjelenítése",
     "showUnwatchedCountDescription": "Megjeleníti a még nem látott epizódok számát a sorozatoknál és évadoknál",
-    "showWatchedIndicators": "",
-    "showWatchedIndicatorsDescription": "",
     "showEpisodeNumberOnCards": "Epizódszám megjelenítése a kártyákon",
     "showEpisodeNumberOnCardsDescription": "Megjeleníti az évad- és epizódszámot az epizódkártyákon",
     "showSeasonPostersOnTabs": "Évadborítók megjelenítése a füleken",
@@ -201,8 +207,6 @@
     "defaultQualityTitle": "Alapértelmezett minőség",
     "cellularQualityTitle": "Alapértelmezett minőség mobilhálózaton",
     "cellularQualitySameAsDefault": "Ugyanaz, mint az alapértelmezett minőség",
-    "directPlayCoveredQuality": "",
-    "directPlayCoveredQualityDescription": "",
     "musicQualityTitle": "Zene minősége",
     "subtitleStyling": "Feliratok stílusa",
     "subtitleStylingDescription": "Feliratok megjelenésének testreszabása",
@@ -276,17 +280,6 @@
     "autoPlayNextEpisodeDescription": "A következő epizód automatikus elindítása, amikor az aktuális véget ér",
     "playNextCountdown": "Visszaszámlálás a következő epizódig",
     "playNextCountdownImmediate": "Azonnali lejátszás",
-    "skipIntroMode": "",
-    "skipIntroModeOffDescription": "",
-    "skipIntroModeButtonDescription": "",
-    "skipIntroModeAutoDescription": "",
-    "skipCreditsMode": "",
-    "skipCreditsModeOffDescription": "",
-    "skipCreditsModeButtonDescription": "",
-    "skipCreditsModeAutoDescription": "",
-    "skipMarkerModeOff": "",
-    "skipMarkerModeButton": "",
-    "skipMarkerModeAuto": "",
     "forceSkipMarkerFallback": "Tartalék jelölők kényszerítése",
     "forceSkipMarkerFallbackDescription": "Fejezetcím-minták használata akkor is, ha a Plex rendelkezik jelölőkkel",
     "autoSkipDelay": "Automatikus átugrás késleltetése",
@@ -411,8 +404,6 @@
     "gestureVolumeSwipeDescription": "Húzd felfelé vagy lefelé a jobb szélén a hangerő beállításához",
     "gesturePinchToZoom": "Csípés a nagyításhoz",
     "gesturePinchToZoomDescription": "Csípj a videóra a nagyításhoz vagy kicsinyítéshez",
-    "rememberBrightnessLevel": "",
-    "rememberBrightnessLevelDescription": "",
     "controls": "Vezérlők",
     "rememberPlayerChanges": "Lejátszó módosításainak megjegyzése",
     "rememberPlayerChangesDescription": "A lejátszás közben végzett módosítások mentési és újbóli alkalmazási helye",
@@ -424,7 +415,30 @@
     "playerScopeGlobal": "Mindenhol",
     "playerScopeLibrary": "Könyvtáronként",
     "playerScopeTitle": "Sorozatonként vagy filmenként",
-    "exportDialogTitle": "Plezy-beállítások exportálása"
+    "exportDialogTitle": "Plezy-beállítások exportálása",
+    "showWatchedIndicators": "Show Watched Indicators",
+    "showWatchedIndicatorsDescription": "Display a checkmark on watched movies, shows, and episodes",
+    "directPlayCoveredQuality": "Play Smaller Videos at Original Quality",
+    "directPlayCoveredQualityDescription": "Direct play videos already within the quality limit instead of transcoding them",
+    "skipIntroMode": "Skip Intro",
+    "skipIntroModeOffDescription": "Play intros normally without a skip button",
+    "skipIntroModeButtonDescription": "Show a skip button when an intro starts",
+    "skipIntroModeAutoDescription": "Skip intros automatically after the delay below",
+    "skipCreditsMode": "Skip Credits",
+    "skipCreditsModeOffDescription": "Play credits normally without a skip button",
+    "skipCreditsModeButtonDescription": "Show a skip button when credits start",
+    "skipCreditsModeAutoDescription": "Skip credits automatically and play the next episode",
+    "skipMarkerModeOff": "Off",
+    "skipMarkerModeButton": "Show button",
+    "skipMarkerModeAuto": "Automatic",
+    "rememberBrightnessLevel": "Remember Brightness Level",
+    "rememberBrightnessLevelDescription": "Start playback at the brightness set by the last swipe",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Keresés filmek, sorozatok és zenék között...",
@@ -464,7 +478,9 @@
       "subSeekPrev": "Ugrás az előző feliratra",
       "shaderToggle": "Shaderek be- és kikapcsolása",
       "skipMarker": "Intró/stáblista átugrása",
-      "screenshot": "Képernyőkép készítése"
+      "screenshot": "Képernyőkép készítése",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -676,6 +692,10 @@
     "track": "${n}. hangsáv"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Hang",
     "subtitlesLabel": "Feliratok",
     "addTime": "+${amount}${unit}",
@@ -831,7 +851,7 @@
     "playbackDataInvalid": "A szerver érvénytelen lejátszási adatokat küldött.",
     "playbackCancelled": "A lejátszás megszakítva.",
     "playbackFailed": "Nem sikerült elindítani a lejátszást.",
-    "mediaUnavailable": "",
+    "mediaUnavailable": "This content is no longer available.",
     "errorLoadingFileInfo": "Hiba a fájlinformációk betöltésekor: ${error}",
     "errorLoadingSeries": "Hiba a sorozat betöltésekor",
     "musicNotSupported": "A zenelejátszás még nem támogatott",
@@ -917,9 +937,9 @@
     "presetDeleted": "Előbeállítás törölve",
     "confirmDeletePreset": "Biztosan törölni szeretnéd ezt az előbeállítást?",
     "configPlaceholder": "gpu-api=vulkan\nhwdec=auto\n# megjegyzés",
-    "lineHint": "",
-    "addLine": "",
-    "removeLine": "",
+    "lineHint": "option=value",
+    "addLine": "Add line",
+    "removeLine": "Remove line",
     "embeddedVoHint": "A vo, gpu-context és gpu-api beállítások Linuxon figyelmen kívül maradnak: a beágyazott videó mindig a vo=libmpv-n keresztül jelenik meg a videósíkon, a gpu-next (amelyre az ArtCNN-hez hasonló compute shadereknek szükségük van) pedig nem futhat beágyazva."
   },
   "dialog": {
@@ -1213,7 +1233,10 @@
     "openSourceLicenses": "Nyílt forráskódú licencek",
     "versionLabel": "Verzió: ${version}",
     "appDescription": "Gyönyörű Flutter-kliens a Plexhez és a Jellyfinhez",
-    "viewLicensesDescription": "Külső fejlesztésű programkönyvtárak licenceinek megtekintése"
+    "viewLicensesDescription": "Külső fejlesztésű programkönyvtárak licenceinek megtekintése",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Nem találhatók szerverek ehhez a fiókhoz: ${username} (${email})",
@@ -1318,8 +1341,8 @@
     "inTheseLibraries": "Ezekben a könyvtárakban",
     "checkingLibrary": "Könyvtár ellenőrzése...",
     "libraryCheckFailed": {
-      "one": "",
-      "other": ""
+      "one": "Couldn't check ${n} server",
+      "other": "Couldn't check ${n} servers"
     },
     "emptyTitle": "Még nincs itt semmi",
     "emptyMessage": "A(z) ${source} forrásból származó sorok itt fognak megjelenni, amint van tartalmuk.",
@@ -1659,13 +1682,13 @@
     "host": "Házigazda",
     "hostBadge": "HÁZIGAZDA",
     "youAreHost": "Te vagy a házigazda",
-    "makeHost": "",
-    "makeHostQuestion": "",
-    "makeHostConfirm": "",
-    "transfer": "",
-    "hostChangedTo": "",
-    "youAreNowHost": "",
-    "hostTransferFailed": "",
+    "makeHost": "Make host",
+    "makeHostQuestion": "Transfer host?",
+    "makeHostConfirm": "${name} will control playback and drive the session for everyone.",
+    "transfer": "Transfer",
+    "hostChangedTo": "${name} is now the host",
+    "youAreNowHost": "You are now the host",
+    "hostTransferFailed": "Couldn't make ${name} the host",
     "watchingWithOthers": "Nézés másokkal",
     "endSession": "Munkamenet befejezése",
     "leaveSession": "Munkamenet elhagyása",
@@ -1698,7 +1721,7 @@
     "participantPaused": "${name} szüneteltette a lejátszást",
     "participantResumed": "${name} folytatta a lejátszást",
     "participantSeeked": "${name} módosította a lejátszási pozíciót",
-    "participantChangedSpeed": "",
+    "participantChangedSpeed": "${name} set the speed to ${speed}",
     "participantBuffering": "${name} pufferel",
     "participantNeedsUpdate": "${name} régebbi alkalmazásverziót használ — a szinkronizálás nem érhető el",
     "resumingWithout": "Folytatás a következő nélkül: ${name}",
@@ -1715,7 +1738,7 @@
       "connectionLost": "A kapcsolat lezárult, mielőtt a munkamenet elkészült volna",
       "invalidRelayResponse": "A relészerver váratlan választ küldött",
       "sessionEnded": "A házigazda befejezte a munkamenetet",
-      "sessionUnavailable": ""
+      "sessionUnavailable": "Unable to resume this session. Join or create a room to continue."
     }
   },
   "downloads": {
@@ -2146,10 +2169,10 @@
     "qualityProfile": "Minőségi profil",
     "rootFolder": "Gyökérmappa",
     "languageProfile": "Nyelvi profil",
-    "tags": "",
-    "noTags": "",
-    "defaultOption": "",
-    "animeNote": "",
+    "tags": "Tags",
+    "noTags": "No tags",
+    "defaultOption": "${name} (Default)",
+    "animeNote": "This series is an anime.",
     "requestSubmitted": "Igénylés elküldve",
     "requestFailed": "Az igénylés nem sikerült: ${error}",
     "requestsLoadFailed": "Nem sikerült betölteni az igénylési opciókat",
@@ -2161,7 +2184,7 @@
     "statusBlocklisted": "Tiltólistán",
     "couldNotReach": "Nem sikerült elérni ezt: ${url}: ${error}",
     "noInstanceAtUrl": "Nem található Seerr-példány ezen a címen: ${url} (HTTP ${status})",
-    "behindAuthProxy": "",
+    "behindAuthProxy": "An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr's /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.",
     "invalidUrl": "Adj meg egy szervercímet, például: https://seerr.example.com",
     "quickConnectUnsupported": "Ez a Seerr-példány nem támogatja a Quick Connectet. Seerr 3.4 vagy újabb verzió szükséges.",
     "notInitialized": "Ennek a Seerr-példánynak a kezdeti beállítása még nem fejeződött be",
@@ -2172,8 +2195,8 @@
     "freshCookieRejected": "A Seerr elutasította az új munkamenet-sütit",
     "noUserInformation": "A Seerr nem adott vissza felhasználói adatokat",
     "sessionRejectedAfterReauth": "A munkamenetet az újbóli bejelentkezés után elutasították",
-    "permissionDenied": "",
-    "permissionRevoked": ""
+    "permissionDenied": "Seerr denied this action: your account no longer has the required permission",
+    "permissionRevoked": "You no longer have permission to request this"
   },
   "services": {
     "title": "Szolgáltatások",

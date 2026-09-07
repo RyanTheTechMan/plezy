@@ -99,7 +99,7 @@ class _Translations$app$uz extends Translations$app$en {
 	final TranslationsUz _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -216,6 +216,14 @@ class _Translations$update$uz extends Translations$update$en {
 	@override String get viewRelease => 'Tafsilotlarni koʻrish';
 	@override String get latestVersion => 'Sizda eng soʻnggi versiya oʻrnatilgan';
 	@override String get checkFailed => 'Yangilanishlarni tekshirish imkoni boʻlmadi';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -299,6 +307,7 @@ class _Translations$settings$uz extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Apparatli dekodlash';
 	@override String get hardwareDecodingDescription => 'Imkon qadar apparatli tezlashtirishdan foydalanish';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Ijro buferi';
 	@override String get playbackBufferAuto => 'Avto (tavsiya etiladi)';
 	@override String get playbackBufferLarge => 'Katta';
@@ -516,6 +525,29 @@ class _Translations$settings$uz extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Kutubxona boʻyicha';
 	@override String get playerScopeTitle => 'Serial yoki film boʻyicha';
 	@override String get exportDialogTitle => 'Plezy sozlamalarini eksport qilish';
+	@override String get showWatchedIndicators => 'Show Watched Indicators';
+	@override String get showWatchedIndicatorsDescription => 'Display a checkmark on watched movies, shows, and episodes';
+	@override String get directPlayCoveredQuality => 'Play Smaller Videos at Original Quality';
+	@override String get directPlayCoveredQualityDescription => 'Direct play videos already within the quality limit instead of transcoding them';
+	@override String get skipIntroMode => 'Skip Intro';
+	@override String get skipIntroModeOffDescription => 'Play intros normally without a skip button';
+	@override String get skipIntroModeButtonDescription => 'Show a skip button when an intro starts';
+	@override String get skipIntroModeAutoDescription => 'Skip intros automatically after the delay below';
+	@override String get skipCreditsMode => 'Skip Credits';
+	@override String get skipCreditsModeOffDescription => 'Play credits normally without a skip button';
+	@override String get skipCreditsModeButtonDescription => 'Show a skip button when credits start';
+	@override String get skipCreditsModeAutoDescription => 'Skip credits automatically and play the next episode';
+	@override String get skipMarkerModeOff => 'Off';
+	@override String get skipMarkerModeButton => 'Show button';
+	@override String get skipMarkerModeAuto => 'Automatic';
+	@override String get rememberBrightnessLevel => 'Remember Brightness Level';
+	@override String get rememberBrightnessLevelDescription => 'Start playback at the brightness set by the last swipe';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -804,6 +836,10 @@ class _Translations$videoControls$uz extends Translations$videoControls$en {
 	final TranslationsUz _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('uz'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => 'Ovoz';
 	@override String get subtitlesLabel => 'Subtitr';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -850,6 +886,7 @@ class _Translations$videoControls$uz extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'Tanlangan subtitr yuklanmadi';
 	@override String get pipButton => 'Rasm ichida rasm rejimi';
 	@override String get aspectRatioButton => 'Tomonlar nisbati';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Atrof-muhit yoritilishi';
 	@override String get fullscreenButton => 'Toʻliq ekranga oʻtish';
 	@override String get exitFullscreenButton => 'Toʻliq ekrandan chiqish';
@@ -917,6 +954,7 @@ class _Translations$messages$uz extends Translations$messages$en {
 	@override String get playbackDataInvalid => 'Server notoʻgʻri ijro maʼlumotlarini qaytardi.';
 	@override String get playbackCancelled => 'Ijro bekor qilindi.';
 	@override String get playbackFailed => 'Ijroni ishga tushirishda xatolik.';
+	@override String get mediaUnavailable => 'This content is no longer available.';
 	@override String errorLoadingFileInfo({required Object error}) => 'Fayl maʼlumotlarini yuklashda xatolik: ${error}';
 	@override String get errorLoadingSeries => 'Serialni yuklashda xatolik';
 	@override String get musicNotSupported => 'Musiqa ijrosi hali qoʻllab-quvvatlanmaydi';
@@ -1016,6 +1054,9 @@ class _Translations$mpvConfig$uz extends Translations$mpvConfig$en {
 	@override String get presetDeleted => 'Sozlama oʻchirildi';
 	@override String get confirmDeletePreset => 'Ushbu sozlamani oʻchirishga ishonchingiz komilmi?';
 	@override String get configPlaceholder => 'gpu-api=vulkan\nhwdec=auto\n# izoh';
+	@override String get lineHint => 'option=value';
+	@override String get addLine => 'Add line';
+	@override String get removeLine => 'Remove line';
 	@override String get embeddedVoHint => 'Linux-da vo, gpu-context va gpu-api e\'tiborga olinmaydi: ichki video har doim video tekisligida vo=libmpv orqali ko\'rsatiladi va gpu-next (ArtCNN kabi compute shaderlar uchun zarur) ichki rejimda ishlay olmaydi.';
 }
 
@@ -1286,6 +1327,9 @@ class _Translations$about$uz extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Versiya ${version}';
 	@override String get appDescription => 'Flutter asosidagi qulay Plex va Jellyfin mijozi';
 	@override String get viewLicensesDescription => 'Uchinchi tomon kutubxonalarining litsenziyalarini koʻrish';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1414,9 +1458,14 @@ class _Translations$explore$uz extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Tomosha roʻyxatidan olib tashlandi';
 	@override String get watchlistUpdateFailed => 'Tomosha roʻyxatini yangilab boʻlmadi';
 	@override String get watchlistNoMatch => 'Bu elementni tomosha roʻyxatiga moslab boʻlmadi';
+	@override String get openInLibrary => 'Kutubxonada ochish';
 	@override String get notInLibrary => 'Kutubxonangizda yoʻq';
 	@override String get inTheseLibraries => 'Ushbu kutubxonalarda bor';
 	@override String get checkingLibrary => 'Kutubxona tekshirilmoqda...';
+	@override String libraryCheckFailed({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('uz'))(n,
+		one: 'Couldn\'t check ${n} server',
+		other: 'Couldn\'t check ${n} servers',
+	);
 	@override String get emptyTitle => 'Hali bu yerda hech narsa yoʻq';
 	@override String emptyMessage({required Object source}) => '${source} manbasidan olingan qatorlar bu yerda koʻrinadi.';
 	@override String searchHint({required Object source}) => '${source} ichidan qidirish';
@@ -1662,6 +1711,13 @@ class _Translations$watchTogether$uz extends Translations$watchTogether$en {
 	@override String get host => 'Tashkilotchi';
 	@override String get hostBadge => 'TASHKILOTCHI';
 	@override String get youAreHost => 'Siz tashkilotchisiz';
+	@override String get makeHost => 'Make host';
+	@override String get makeHostQuestion => 'Transfer host?';
+	@override String makeHostConfirm({required Object name}) => '${name} will control playback and drive the session for everyone.';
+	@override String get transfer => 'Transfer';
+	@override String hostChangedTo({required Object name}) => '${name} is now the host';
+	@override String get youAreNowHost => 'You are now the host';
+	@override String hostTransferFailed({required Object name}) => 'Couldn\'t make ${name} the host';
 	@override String get watchingWithOthers => 'Boshqalar bilan tomosha qilinmoqda';
 	@override String get endSession => 'Seansni yakunlash';
 	@override String get leaveSession => 'Seansdan chiqish';
@@ -1694,6 +1750,7 @@ class _Translations$watchTogether$uz extends Translations$watchTogether$en {
 	@override String participantPaused({required Object name}) => '${name} toʻxtatdi';
 	@override String participantResumed({required Object name}) => '${name} davom ettirdi';
 	@override String participantSeeked({required Object name}) => '${name} vaqtni oʻzgartirdi';
+	@override String participantChangedSpeed({required Object name, required Object speed}) => '${name} set the speed to ${speed}';
 	@override String participantBuffering({required Object name}) => '${name} buferlamoqda';
 	@override String participantNeedsUpdate({required Object name}) => '${name} eski versiyada';
 	@override String resumingWithout({required Object name}) => '${name} hisobga olinmasdan davom ettirilmoqda';
@@ -2119,6 +2176,10 @@ class _Translations$seerr$uz extends Translations$seerr$en {
 	@override String get qualityProfile => 'Sifat profili';
 	@override String get rootFolder => 'Asosiy jild';
 	@override String get languageProfile => 'Til profili';
+	@override String get tags => 'Tags';
+	@override String get noTags => 'No tags';
+	@override String defaultOption({required Object name}) => '${name} (Default)';
+	@override String get animeNote => 'This series is an anime.';
 	@override String get requestSubmitted => 'Soʻrov yuborildi';
 	@override String requestFailed({required Object error}) => 'Soʻrov xatoligi: ${error}';
 	@override String get requestsLoadFailed => 'Parametrlarni yuklab boʻlmadi';
@@ -2130,6 +2191,7 @@ class _Translations$seerr$uz extends Translations$seerr$en {
 	@override String get statusBlocklisted => 'Bloklangan roʻyxatda';
 	@override String couldNotReach({required Object url, required Object error}) => '${url} manziliga ulanib boʻlmadi: ${error}';
 	@override String noInstanceAtUrl({required Object url, required Object status}) => '${url} manzilida Seerr nusxasi yoʻq (HTTP ${status})';
+	@override String get behindAuthProxy => 'An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr\'s /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.';
 	@override String get invalidUrl => 'Server manzilini kiriting, masalan: https://seerr.example.com';
 	@override String get quickConnectUnsupported => 'Bu Seerr nusxasi Tezkor ulanishni qoʻllab-quvvatlamaydi. Buning uchun Seerr 3.4 yoki undan yangi versiya kerak.';
 	@override String get notInitialized => 'Bu Seerr nusxasining dastlabki sozlamasi yakunlanmagan';
@@ -2140,6 +2202,8 @@ class _Translations$seerr$uz extends Translations$seerr$en {
 	@override String get freshCookieRejected => 'Seerr yangi seans cookie-faylini rad etdi';
 	@override String get noUserInformation => 'Seerr foydalanuvchi maʼlumotlarini qaytarmadi';
 	@override String get sessionRejectedAfterReauth => 'Qayta kirilgandan keyin seans rad etildi';
+	@override String get permissionDenied => 'Seerr denied this action: your account no longer has the required permission';
+	@override String get permissionRevoked => 'You no longer have permission to request this';
 }
 
 // Path: services
@@ -2295,6 +2359,8 @@ class _Translations$hotkeys$actions$uz extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Sheyderlarni yoqish/oʻchirish';
 	@override String get skipMarker => 'Intro/Titrlarni oʻtkazib yuborish';
 	@override String get screenshot => 'Ekran tasvirini olish';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.clip
@@ -2775,6 +2841,7 @@ class _Translations$watchTogether$errors$uz extends Translations$watchTogether$e
 	@override String get connectionLost => 'Seans tayyor boʻlmasidan ulanish uzildi';
 	@override String get invalidRelayResponse => 'Rele serveri kutilmagan javob yubordi';
 	@override String get sessionEnded => 'Tashkilotchi seansni tugatdi';
+	@override String get sessionUnavailable => 'Unable to resume this session. Join or create a room to continue.';
 }
 
 // Path: downloads.backgroundWarning
@@ -2991,7 +3058,7 @@ class _Translations$services$libraryFilter$uz extends Translations$services$libr
 extension on TranslationsUz {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Plex orqali kirish',
 			'auth.showQRCode' => 'QR kodni koʻrsatish',
 			'auth.authenticate' => 'Tasdiqlash',
@@ -3093,6 +3160,14 @@ extension on TranslationsUz {
 			'update.viewRelease' => 'Tafsilotlarni koʻrish',
 			'update.latestVersion' => 'Sizda eng soʻnggi versiya oʻrnatilgan',
 			'update.checkFailed' => 'Yangilanishlarni tekshirish imkoni boʻlmadi',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Sozlamalar',
 			'settings.supportDeveloper' => 'Plezy-ni qoʻllab-quvvatlash',
 			'settings.supportDeveloperDescription' => 'Dasturchini Liberapay orqali qoʻllab-quvvatlang',
@@ -3167,6 +3242,7 @@ extension on TranslationsUz {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Apparatli dekodlash',
 			'settings.hardwareDecodingDescription' => 'Imkon qadar apparatli tezlashtirishdan foydalanish',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Ijro buferi',
 			'settings.playbackBufferAuto' => 'Avto (tavsiya etiladi)',
 			'settings.playbackBufferLarge' => 'Katta',
@@ -3384,6 +3460,29 @@ extension on TranslationsUz {
 			'settings.playerScopeLibrary' => 'Kutubxona boʻyicha',
 			'settings.playerScopeTitle' => 'Serial yoki film boʻyicha',
 			'settings.exportDialogTitle' => 'Plezy sozlamalarini eksport qilish',
+			'settings.showWatchedIndicators' => 'Show Watched Indicators',
+			'settings.showWatchedIndicatorsDescription' => 'Display a checkmark on watched movies, shows, and episodes',
+			'settings.directPlayCoveredQuality' => 'Play Smaller Videos at Original Quality',
+			'settings.directPlayCoveredQualityDescription' => 'Direct play videos already within the quality limit instead of transcoding them',
+			'settings.skipIntroMode' => 'Skip Intro',
+			'settings.skipIntroModeOffDescription' => 'Play intros normally without a skip button',
+			'settings.skipIntroModeButtonDescription' => 'Show a skip button when an intro starts',
+			'settings.skipIntroModeAutoDescription' => 'Skip intros automatically after the delay below',
+			'settings.skipCreditsMode' => 'Skip Credits',
+			'settings.skipCreditsModeOffDescription' => 'Play credits normally without a skip button',
+			'settings.skipCreditsModeButtonDescription' => 'Show a skip button when credits start',
+			'settings.skipCreditsModeAutoDescription' => 'Skip credits automatically and play the next episode',
+			'settings.skipMarkerModeOff' => 'Off',
+			'settings.skipMarkerModeButton' => 'Show button',
+			'settings.skipMarkerModeAuto' => 'Automatic',
+			'settings.rememberBrightnessLevel' => 'Remember Brightness Level',
+			'settings.rememberBrightnessLevelDescription' => 'Start playback at the brightness set by the last swipe',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => 'Filmlar, seriallar, musiqa qidirish...',
 			'search.tryDifferentTerm' => 'Boshqa qidiruv soʻzini kiriting',
 			'search.searchYourMedia' => 'Medialaringizdan qidiring',
@@ -3419,6 +3518,8 @@ extension on TranslationsUz {
 			'hotkeys.actions.shaderToggle' => 'Sheyderlarni yoqish/oʻchirish',
 			'hotkeys.actions.skipMarker' => 'Intro/Titrlarni oʻtkazib yuborish',
 			'hotkeys.actions.screenshot' => 'Ekran tasvirini olish',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Fayl haqida maʼlumot',
 			'fileInfo.overview' => 'Tavsif',
 			'fileInfo.video' => 'Video',
@@ -3469,6 +3570,8 @@ extension on TranslationsUz {
 			'fileInfo.dynamicRange' => 'Dinamik diapazon',
 			'fileInfo.dolbyVision' => 'Dolby Vision',
 			'fileInfo.dolbyVisionLevel' => 'Dolby Vision darajasi',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.dolbyVisionVersion' => 'Dolby Vision versiyasi',
 			'fileInfo.dolbyVisionLayers' => 'Dolby Vision qatlamlari',
 			'fileInfo.baseLayerCompatibility' => 'Asosiy qatlam mosligi',
@@ -3503,8 +3606,6 @@ extension on TranslationsUz {
 			'fileInfo.previewThumbnails' => 'Oldindan koʻrish eskizlari',
 			'fileInfo.previewIndex' => 'Oldindan koʻrish indeksi',
 			'fileInfo.packetLength' => 'Paket uzunligi',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Fayl mavjud',
 			'fileInfo.fileReadable' => 'Server tomonidan oʻqiladigan',
 			'fileInfo.streamPath' => 'Oqim yoʻli',
@@ -3608,6 +3709,7 @@ extension on TranslationsUz {
 			'tooltips.markAsWatched' => 'Koʻrilgan deb belgilash',
 			'tooltips.markAsUnwatched' => 'Koʻrilmagan deb belgilash',
 			'audioTracks.track' => ({required Object n}) => 'Audio yoʻlak ${n}',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('uz'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => 'Ovoz',
 			'videoControls.subtitlesLabel' => 'Subtitr',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3654,6 +3756,7 @@ extension on TranslationsUz {
 			'videoControls.subtitleUnavailableFallback' => 'Tanlangan subtitr yuklanmadi',
 			'videoControls.pipButton' => 'Rasm ichida rasm rejimi',
 			'videoControls.aspectRatioButton' => 'Tomonlar nisbati',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Atrof-muhit yoritilishi',
 			'videoControls.fullscreenButton' => 'Toʻliq ekranga oʻtish',
 			'videoControls.exitFullscreenButton' => 'Toʻliq ekrandan chiqish',
@@ -3752,6 +3855,7 @@ extension on TranslationsUz {
 			'messages.playbackDataInvalid' => 'Server notoʻgʻri ijro maʼlumotlarini qaytardi.',
 			'messages.playbackCancelled' => 'Ijro bekor qilindi.',
 			'messages.playbackFailed' => 'Ijroni ishga tushirishda xatolik.',
+			'messages.mediaUnavailable' => 'This content is no longer available.',
 			'messages.errorLoadingFileInfo' => ({required Object error}) => 'Fayl maʼlumotlarini yuklashda xatolik: ${error}',
 			'messages.errorLoadingSeries' => 'Serialni yuklashda xatolik',
 			'messages.musicNotSupported' => 'Musiqa ijrosi hali qoʻllab-quvvatlanmaydi',
@@ -3833,6 +3937,9 @@ extension on TranslationsUz {
 			'mpvConfig.presetDeleted' => 'Sozlama oʻchirildi',
 			'mpvConfig.confirmDeletePreset' => 'Ushbu sozlamani oʻchirishga ishonchingiz komilmi?',
 			'mpvConfig.configPlaceholder' => 'gpu-api=vulkan\nhwdec=auto\n# izoh',
+			'mpvConfig.lineHint' => 'option=value',
+			'mpvConfig.addLine' => 'Add line',
+			'mpvConfig.removeLine' => 'Remove line',
 			'mpvConfig.embeddedVoHint' => 'Linux-da vo, gpu-context va gpu-api e\'tiborga olinmaydi: ichki video har doim video tekisligida vo=libmpv orqali ko\'rsatiladi va gpu-next (ArtCNN kabi compute shaderlar uchun zarur) ichki rejimda ishlay olmaydi.',
 			'dialog.confirmAction' => 'Harakatni tasdiqlash',
 			'profiles.addPlezyProfile' => 'Plezy profilini qoʻshish',
@@ -3977,6 +4084,8 @@ extension on TranslationsUz {
 			'discover.recentlyPlayedIn' => ({required Object library}) => '${library} ichida yaqinda eshitilganlar',
 			'discover.mostPlayedIn' => ({required Object library}) => '${library} ichida eng koʻp eshitilganlar',
 			'discover.playEpisode' => ({required Object season, required Object episode}) => 'M${season}Q${episode}',
+			_ => null,
+		} ?? switch (path) {
 			'discover.overview' => 'Tavsif',
 			'discover.cast' => 'Aktyorlar',
 			'discover.extras' => 'Treylerlar va qoʻshimchalar',
@@ -4017,8 +4126,6 @@ extension on TranslationsUz {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Tahlil qilib boʻlmadi: ${error}',
 			'libraries.noLibrariesFound' => 'Kutubxonalar topilmadi',
 			'libraries.allLibrariesHidden' => 'Barcha kutubxonalar yashirilgan',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Yashirin kutubxonalar (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Ushbu kutubxona boʻsh',
 			'libraries.noItemsMatchFilters' => 'Filtrlarga mos keladigan elementlar topilmadi',
@@ -4090,6 +4197,9 @@ extension on TranslationsUz {
 			'about.versionLabel' => ({required Object version}) => 'Versiya ${version}',
 			'about.appDescription' => 'Flutter asosidagi qulay Plex va Jellyfin mijozi',
 			'about.viewLicensesDescription' => 'Uchinchi tomon kutubxonalarining litsenziyalarini koʻrish',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email}) uchun serverlar topilmadi',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Serverlarni yuklashda xatolik: ${error}',
 			'serverSelection.noValidServers' => 'Bu hisobda foydalanish mumkin boʻlgan server topilmadi',
@@ -4168,9 +4278,11 @@ extension on TranslationsUz {
 			'explore.removedFromWatchlist' => 'Tomosha roʻyxatidan olib tashlandi',
 			'explore.watchlistUpdateFailed' => 'Tomosha roʻyxatini yangilab boʻlmadi',
 			'explore.watchlistNoMatch' => 'Bu elementni tomosha roʻyxatiga moslab boʻlmadi',
+			'explore.openInLibrary' => 'Kutubxonada ochish',
 			'explore.notInLibrary' => 'Kutubxonangizda yoʻq',
 			'explore.inTheseLibraries' => 'Ushbu kutubxonalarda bor',
 			'explore.checkingLibrary' => 'Kutubxona tekshirilmoqda...',
+			'explore.libraryCheckFailed' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('uz'))(n, one: 'Couldn\'t check ${n} server', other: 'Couldn\'t check ${n} servers', ), 
 			'explore.emptyTitle' => 'Hali bu yerda hech narsa yoʻq',
 			'explore.emptyMessage' => ({required Object source}) => '${source} manbasidan olingan qatorlar bu yerda koʻrinadi.',
 			'explore.searchHint' => ({required Object source}) => '${source} ichidan qidirish',
@@ -4467,6 +4579,13 @@ extension on TranslationsUz {
 			'watchTogether.host' => 'Tashkilotchi',
 			'watchTogether.hostBadge' => 'TASHKILOTCHI',
 			'watchTogether.youAreHost' => 'Siz tashkilotchisiz',
+			'watchTogether.makeHost' => 'Make host',
+			'watchTogether.makeHostQuestion' => 'Transfer host?',
+			'watchTogether.makeHostConfirm' => ({required Object name}) => '${name} will control playback and drive the session for everyone.',
+			'watchTogether.transfer' => 'Transfer',
+			'watchTogether.hostChangedTo' => ({required Object name}) => '${name} is now the host',
+			'watchTogether.youAreNowHost' => 'You are now the host',
+			'watchTogether.hostTransferFailed' => ({required Object name}) => 'Couldn\'t make ${name} the host',
 			'watchTogether.watchingWithOthers' => 'Boshqalar bilan tomosha qilinmoqda',
 			'watchTogether.endSession' => 'Seansni yakunlash',
 			'watchTogether.leaveSession' => 'Seansdan chiqish',
@@ -4479,6 +4598,8 @@ extension on TranslationsUz {
 			'watchTogether.end' => 'Yakunlash',
 			'watchTogether.leave' => 'Chiqish',
 			'watchTogether.syncing' => 'Sinxronlanmoqda...',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.joinWatchSession' => 'Tomosha seansiga qoʻshilish',
 			'watchTogether.enterCodeHint' => '5 xonali kodni kiriting',
 			'watchTogether.pasteFromClipboard' => 'Xotiradan joylash',
@@ -4499,6 +4620,7 @@ extension on TranslationsUz {
 			'watchTogether.participantPaused' => ({required Object name}) => '${name} toʻxtatdi',
 			'watchTogether.participantResumed' => ({required Object name}) => '${name} davom ettirdi',
 			'watchTogether.participantSeeked' => ({required Object name}) => '${name} vaqtni oʻzgartirdi',
+			'watchTogether.participantChangedSpeed' => ({required Object name, required Object speed}) => '${name} set the speed to ${speed}',
 			'watchTogether.participantBuffering' => ({required Object name}) => '${name} buferlamoqda',
 			'watchTogether.participantNeedsUpdate' => ({required Object name}) => '${name} eski versiyada',
 			'watchTogether.resumingWithout' => ({required Object name}) => '${name} hisobga olinmasdan davom ettirilmoqda',
@@ -4514,6 +4636,7 @@ extension on TranslationsUz {
 			'watchTogether.errors.connectionLost' => 'Seans tayyor boʻlmasidan ulanish uzildi',
 			'watchTogether.errors.invalidRelayResponse' => 'Rele serveri kutilmagan javob yubordi',
 			'watchTogether.errors.sessionEnded' => 'Tashkilotchi seansni tugatdi',
+			'watchTogether.errors.sessionUnavailable' => 'Unable to resume this session. Join or create a room to continue.',
 			'downloads.title' => 'Yuklamalar',
 			'downloads.manage' => 'Boshqarish',
 			'downloads.tvShows' => 'TV Shoular',
@@ -4531,8 +4654,6 @@ extension on TranslationsUz {
 			'downloads.storageFull' => 'Xotira toʻlganligi sababli yuklash toʻxtatildi.',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} qism yuklash navbatiga qoʻshildi',
 			'downloads.downloadDeleted' => 'Yuklama oʻchirildi',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => '"${title}" ushbu qurilmadan oʻchirilsinmi?',
 			'downloads.cancelledDownloadTitle' => 'Toʻxtatilgan yuklama',
 			'downloads.cancelledDownloadMessage' => 'Ushbu yuklash toʻxtatildi.',
@@ -4913,6 +5034,10 @@ extension on TranslationsUz {
 			'seerr.qualityProfile' => 'Sifat profili',
 			'seerr.rootFolder' => 'Asosiy jild',
 			'seerr.languageProfile' => 'Til profili',
+			'seerr.tags' => 'Tags',
+			'seerr.noTags' => 'No tags',
+			'seerr.defaultOption' => ({required Object name}) => '${name} (Default)',
+			'seerr.animeNote' => 'This series is an anime.',
 			'seerr.requestSubmitted' => 'Soʻrov yuborildi',
 			'seerr.requestFailed' => ({required Object error}) => 'Soʻrov xatoligi: ${error}',
 			'seerr.requestsLoadFailed' => 'Parametrlarni yuklab boʻlmadi',
@@ -4924,6 +5049,7 @@ extension on TranslationsUz {
 			'seerr.statusBlocklisted' => 'Bloklangan roʻyxatda',
 			'seerr.couldNotReach' => ({required Object url, required Object error}) => '${url} manziliga ulanib boʻlmadi: ${error}',
 			'seerr.noInstanceAtUrl' => ({required Object url, required Object status}) => '${url} manzilida Seerr nusxasi yoʻq (HTTP ${status})',
+			'seerr.behindAuthProxy' => 'An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr\'s /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.',
 			'seerr.invalidUrl' => 'Server manzilini kiriting, masalan: https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => 'Bu Seerr nusxasi Tezkor ulanishni qoʻllab-quvvatlamaydi. Buning uchun Seerr 3.4 yoki undan yangi versiya kerak.',
 			'seerr.notInitialized' => 'Bu Seerr nusxasining dastlabki sozlamasi yakunlanmagan',
@@ -4934,6 +5060,8 @@ extension on TranslationsUz {
 			'seerr.freshCookieRejected' => 'Seerr yangi seans cookie-faylini rad etdi',
 			'seerr.noUserInformation' => 'Seerr foydalanuvchi maʼlumotlarini qaytarmadi',
 			'seerr.sessionRejectedAfterReauth' => 'Qayta kirilgandan keyin seans rad etildi',
+			'seerr.permissionDenied' => 'Seerr denied this action: your account no longer has the required permission',
+			'seerr.permissionRevoked' => 'You no longer have permission to request this',
 			'services.title' => 'Xizmatlar',
 			'services.hubSubtitle' => 'Koʻrish jarayonini sinxronlang va yangi kontent soʻrang.',
 			'services.integrations' => 'Integratsiyalar',
@@ -4984,6 +5112,8 @@ extension on TranslationsUz {
 			'addServer.change' => 'Oʻzgartirish',
 			'addServer.required' => 'Talab qilinadi',
 			'addServer.couldNotReachServer' => ({required Object error}) => 'Serverga ulanib boʻlmadi: ${error}',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.signInFailed' => ({required Object error}) => 'Kirish xatoligi: ${error}',
 			'addServer.quickConnectFailed' => ({required Object error}) => 'Tezkor ulanish xatoligi: ${error}',
 			'addServer.addPlexTitle' => 'Plex orqali kirish',

@@ -99,7 +99,7 @@ class _Translations$app$hu extends Translations$app$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -216,6 +216,14 @@ class _Translations$update$hu extends Translations$update$en {
 	@override String get viewRelease => 'Kiadási megjegyzések';
 	@override String get latestVersion => 'A legújabb verziót használod';
 	@override String get checkFailed => 'Nem sikerült az újabb frissítések ellenőrzése';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -299,6 +307,7 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Hardveres dekódolás';
 	@override String get hardwareDecodingDescription => 'Hardveres gyorsítás használata, ha elérhető';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Lejátszási puffer';
 	@override String get playbackBufferAuto => 'Automatikus (ajánlott)';
 	@override String get playbackBufferLarge => 'Nagy';
@@ -516,6 +525,29 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Könyvtáronként';
 	@override String get playerScopeTitle => 'Sorozatonként vagy filmenként';
 	@override String get exportDialogTitle => 'Plezy-beállítások exportálása';
+	@override String get showWatchedIndicators => 'Show Watched Indicators';
+	@override String get showWatchedIndicatorsDescription => 'Display a checkmark on watched movies, shows, and episodes';
+	@override String get directPlayCoveredQuality => 'Play Smaller Videos at Original Quality';
+	@override String get directPlayCoveredQualityDescription => 'Direct play videos already within the quality limit instead of transcoding them';
+	@override String get skipIntroMode => 'Skip Intro';
+	@override String get skipIntroModeOffDescription => 'Play intros normally without a skip button';
+	@override String get skipIntroModeButtonDescription => 'Show a skip button when an intro starts';
+	@override String get skipIntroModeAutoDescription => 'Skip intros automatically after the delay below';
+	@override String get skipCreditsMode => 'Skip Credits';
+	@override String get skipCreditsModeOffDescription => 'Play credits normally without a skip button';
+	@override String get skipCreditsModeButtonDescription => 'Show a skip button when credits start';
+	@override String get skipCreditsModeAutoDescription => 'Skip credits automatically and play the next episode';
+	@override String get skipMarkerModeOff => 'Off';
+	@override String get skipMarkerModeButton => 'Show button';
+	@override String get skipMarkerModeAuto => 'Automatic';
+	@override String get rememberBrightnessLevel => 'Remember Brightness Level';
+	@override String get rememberBrightnessLevelDescription => 'Start playback at the brightness set by the last swipe';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -804,6 +836,10 @@ class _Translations$videoControls$hu extends Translations$videoControls$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => 'Hang';
 	@override String get subtitlesLabel => 'Feliratok';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -850,6 +886,7 @@ class _Translations$videoControls$hu extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'A kiválasztott feliratot nem sikerült betölteni — folytatás felirat nélkül';
 	@override String get pipButton => 'Kép a képben mód';
 	@override String get aspectRatioButton => 'Méretarány';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Környezeti megvilágítás';
 	@override String get fullscreenButton => 'Teljes képernyős mód bekapcsolása';
 	@override String get exitFullscreenButton => 'Teljes képernyős mód kikapcsolása';
@@ -917,6 +954,7 @@ class _Translations$messages$hu extends Translations$messages$en {
 	@override String get playbackDataInvalid => 'A szerver érvénytelen lejátszási adatokat küldött.';
 	@override String get playbackCancelled => 'A lejátszás megszakítva.';
 	@override String get playbackFailed => 'Nem sikerült elindítani a lejátszást.';
+	@override String get mediaUnavailable => 'This content is no longer available.';
 	@override String errorLoadingFileInfo({required Object error}) => 'Hiba a fájlinformációk betöltésekor: ${error}';
 	@override String get errorLoadingSeries => 'Hiba a sorozat betöltésekor';
 	@override String get musicNotSupported => 'A zenelejátszás még nem támogatott';
@@ -1016,6 +1054,9 @@ class _Translations$mpvConfig$hu extends Translations$mpvConfig$en {
 	@override String get presetDeleted => 'Előbeállítás törölve';
 	@override String get confirmDeletePreset => 'Biztosan törölni szeretnéd ezt az előbeállítást?';
 	@override String get configPlaceholder => 'gpu-api=vulkan\nhwdec=auto\n# megjegyzés';
+	@override String get lineHint => 'option=value';
+	@override String get addLine => 'Add line';
+	@override String get removeLine => 'Remove line';
 	@override String get embeddedVoHint => 'A vo, gpu-context és gpu-api beállítások Linuxon figyelmen kívül maradnak: a beágyazott videó mindig a vo=libmpv-n keresztül jelenik meg a videósíkon, a gpu-next (amelyre az ArtCNN-hez hasonló compute shadereknek szükségük van) pedig nem futhat beágyazva.';
 }
 
@@ -1286,6 +1327,9 @@ class _Translations$about$hu extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Verzió: ${version}';
 	@override String get appDescription => 'Gyönyörű Flutter-kliens a Plexhez és a Jellyfinhez';
 	@override String get viewLicensesDescription => 'Külső fejlesztésű programkönyvtárak licenceinek megtekintése';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1414,9 +1458,14 @@ class _Translations$explore$hu extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Eltávolítva a figyelőlistáról';
 	@override String get watchlistUpdateFailed => 'Nem sikerült a Néznivalók frissítése';
 	@override String get watchlistNoMatch => 'Nem sikerült ezt az elemet figyelőlistához társítani';
+	@override String get openInLibrary => 'Megnyitás a könyvtárban';
 	@override String get notInLibrary => 'Nincs a könyvtáradban';
 	@override String get inTheseLibraries => 'Ezekben a könyvtárakban';
 	@override String get checkingLibrary => 'Könyvtár ellenőrzése...';
+	@override String libraryCheckFailed({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n,
+		one: 'Couldn\'t check ${n} server',
+		other: 'Couldn\'t check ${n} servers',
+	);
 	@override String get emptyTitle => 'Még nincs itt semmi';
 	@override String emptyMessage({required Object source}) => 'A(z) ${source} forrásból származó sorok itt fognak megjelenni, amint van tartalmuk.';
 	@override String searchHint({required Object source}) => 'Keresés itt: ${source}';
@@ -1662,6 +1711,13 @@ class _Translations$watchTogether$hu extends Translations$watchTogether$en {
 	@override String get host => 'Házigazda';
 	@override String get hostBadge => 'HÁZIGAZDA';
 	@override String get youAreHost => 'Te vagy a házigazda';
+	@override String get makeHost => 'Make host';
+	@override String get makeHostQuestion => 'Transfer host?';
+	@override String makeHostConfirm({required Object name}) => '${name} will control playback and drive the session for everyone.';
+	@override String get transfer => 'Transfer';
+	@override String hostChangedTo({required Object name}) => '${name} is now the host';
+	@override String get youAreNowHost => 'You are now the host';
+	@override String hostTransferFailed({required Object name}) => 'Couldn\'t make ${name} the host';
 	@override String get watchingWithOthers => 'Nézés másokkal';
 	@override String get endSession => 'Munkamenet befejezése';
 	@override String get leaveSession => 'Munkamenet elhagyása';
@@ -1694,6 +1750,7 @@ class _Translations$watchTogether$hu extends Translations$watchTogether$en {
 	@override String participantPaused({required Object name}) => '${name} szüneteltette a lejátszást';
 	@override String participantResumed({required Object name}) => '${name} folytatta a lejátszást';
 	@override String participantSeeked({required Object name}) => '${name} módosította a lejátszási pozíciót';
+	@override String participantChangedSpeed({required Object name, required Object speed}) => '${name} set the speed to ${speed}';
 	@override String participantBuffering({required Object name}) => '${name} pufferel';
 	@override String participantNeedsUpdate({required Object name}) => '${name} régebbi alkalmazásverziót használ — a szinkronizálás nem érhető el';
 	@override String resumingWithout({required Object name}) => 'Folytatás a következő nélkül: ${name}';
@@ -2119,6 +2176,10 @@ class _Translations$seerr$hu extends Translations$seerr$en {
 	@override String get qualityProfile => 'Minőségi profil';
 	@override String get rootFolder => 'Gyökérmappa';
 	@override String get languageProfile => 'Nyelvi profil';
+	@override String get tags => 'Tags';
+	@override String get noTags => 'No tags';
+	@override String defaultOption({required Object name}) => '${name} (Default)';
+	@override String get animeNote => 'This series is an anime.';
 	@override String get requestSubmitted => 'Igénylés elküldve';
 	@override String requestFailed({required Object error}) => 'Az igénylés nem sikerült: ${error}';
 	@override String get requestsLoadFailed => 'Nem sikerült betölteni az igénylési opciókat';
@@ -2130,6 +2191,7 @@ class _Translations$seerr$hu extends Translations$seerr$en {
 	@override String get statusBlocklisted => 'Tiltólistán';
 	@override String couldNotReach({required Object url, required Object error}) => 'Nem sikerült elérni ezt: ${url}: ${error}';
 	@override String noInstanceAtUrl({required Object url, required Object status}) => 'Nem található Seerr-példány ezen a címen: ${url} (HTTP ${status})';
+	@override String get behindAuthProxy => 'An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr\'s /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.';
 	@override String get invalidUrl => 'Adj meg egy szervercímet, például: https://seerr.example.com';
 	@override String get quickConnectUnsupported => 'Ez a Seerr-példány nem támogatja a Quick Connectet. Seerr 3.4 vagy újabb verzió szükséges.';
 	@override String get notInitialized => 'Ennek a Seerr-példánynak a kezdeti beállítása még nem fejeződött be';
@@ -2140,6 +2202,8 @@ class _Translations$seerr$hu extends Translations$seerr$en {
 	@override String get freshCookieRejected => 'A Seerr elutasította az új munkamenet-sütit';
 	@override String get noUserInformation => 'A Seerr nem adott vissza felhasználói adatokat';
 	@override String get sessionRejectedAfterReauth => 'A munkamenetet az újbóli bejelentkezés után elutasították';
+	@override String get permissionDenied => 'Seerr denied this action: your account no longer has the required permission';
+	@override String get permissionRevoked => 'You no longer have permission to request this';
 }
 
 // Path: services
@@ -2295,6 +2359,8 @@ class _Translations$hotkeys$actions$hu extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Shaderek be- és kikapcsolása';
 	@override String get skipMarker => 'Intró/stáblista átugrása';
 	@override String get screenshot => 'Képernyőkép készítése';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.clip
@@ -2775,6 +2841,7 @@ class _Translations$watchTogether$errors$hu extends Translations$watchTogether$e
 	@override String get connectionLost => 'A kapcsolat lezárult, mielőtt a munkamenet elkészült volna';
 	@override String get invalidRelayResponse => 'A relészerver váratlan választ küldött';
 	@override String get sessionEnded => 'A házigazda befejezte a munkamenetet';
+	@override String get sessionUnavailable => 'Unable to resume this session. Join or create a room to continue.';
 }
 
 // Path: downloads.backgroundWarning
@@ -2991,7 +3058,7 @@ class _Translations$services$libraryFilter$hu extends Translations$services$libr
 extension on TranslationsHu {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Bejelentkezés Plexszel',
 			'auth.showQRCode' => 'QR-kód megjelenítése',
 			'auth.authenticate' => 'Hitelesítés',
@@ -3093,6 +3160,14 @@ extension on TranslationsHu {
 			'update.viewRelease' => 'Kiadási megjegyzések',
 			'update.latestVersion' => 'A legújabb verziót használod',
 			'update.checkFailed' => 'Nem sikerült az újabb frissítések ellenőrzése',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Beállítások',
 			'settings.supportDeveloper' => 'Plezy támogatása',
 			'settings.supportDeveloperDescription' => 'A fejlesztés támogatása Liberapay-en keresztül',
@@ -3167,6 +3242,7 @@ extension on TranslationsHu {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Hardveres dekódolás',
 			'settings.hardwareDecodingDescription' => 'Hardveres gyorsítás használata, ha elérhető',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Lejátszási puffer',
 			'settings.playbackBufferAuto' => 'Automatikus (ajánlott)',
 			'settings.playbackBufferLarge' => 'Nagy',
@@ -3384,6 +3460,29 @@ extension on TranslationsHu {
 			'settings.playerScopeLibrary' => 'Könyvtáronként',
 			'settings.playerScopeTitle' => 'Sorozatonként vagy filmenként',
 			'settings.exportDialogTitle' => 'Plezy-beállítások exportálása',
+			'settings.showWatchedIndicators' => 'Show Watched Indicators',
+			'settings.showWatchedIndicatorsDescription' => 'Display a checkmark on watched movies, shows, and episodes',
+			'settings.directPlayCoveredQuality' => 'Play Smaller Videos at Original Quality',
+			'settings.directPlayCoveredQualityDescription' => 'Direct play videos already within the quality limit instead of transcoding them',
+			'settings.skipIntroMode' => 'Skip Intro',
+			'settings.skipIntroModeOffDescription' => 'Play intros normally without a skip button',
+			'settings.skipIntroModeButtonDescription' => 'Show a skip button when an intro starts',
+			'settings.skipIntroModeAutoDescription' => 'Skip intros automatically after the delay below',
+			'settings.skipCreditsMode' => 'Skip Credits',
+			'settings.skipCreditsModeOffDescription' => 'Play credits normally without a skip button',
+			'settings.skipCreditsModeButtonDescription' => 'Show a skip button when credits start',
+			'settings.skipCreditsModeAutoDescription' => 'Skip credits automatically and play the next episode',
+			'settings.skipMarkerModeOff' => 'Off',
+			'settings.skipMarkerModeButton' => 'Show button',
+			'settings.skipMarkerModeAuto' => 'Automatic',
+			'settings.rememberBrightnessLevel' => 'Remember Brightness Level',
+			'settings.rememberBrightnessLevelDescription' => 'Start playback at the brightness set by the last swipe',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => 'Keresés filmek, sorozatok és zenék között...',
 			'search.tryDifferentTerm' => 'Próbálj másik keresési kifejezést',
 			'search.searchYourMedia' => 'Keresés a saját médiatartalmak között',
@@ -3419,6 +3518,8 @@ extension on TranslationsHu {
 			'hotkeys.actions.shaderToggle' => 'Shaderek be- és kikapcsolása',
 			'hotkeys.actions.skipMarker' => 'Intró/stáblista átugrása',
 			'hotkeys.actions.screenshot' => 'Képernyőkép készítése',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Fájlinformáció',
 			'fileInfo.overview' => 'Áttekintés',
 			'fileInfo.video' => 'Videó',
@@ -3469,6 +3570,8 @@ extension on TranslationsHu {
 			'fileInfo.dynamicRange' => 'Dinamikatartomány',
 			'fileInfo.dolbyVision' => 'Dolby Vision',
 			'fileInfo.dolbyVisionLevel' => 'Dolby Vision szint',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.dolbyVisionVersion' => 'Dolby Vision verzió',
 			'fileInfo.dolbyVisionLayers' => 'Dolby Vision rétegek',
 			'fileInfo.baseLayerCompatibility' => 'Alapréteg-kompatibilitás',
@@ -3503,8 +3606,6 @@ extension on TranslationsHu {
 			'fileInfo.previewThumbnails' => 'Előnézeti miniatűrök',
 			'fileInfo.previewIndex' => 'Előnézeti index',
 			'fileInfo.packetLength' => 'Csomaghossz',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Fájl jelen van',
 			'fileInfo.fileReadable' => 'A szerver számára olvasható',
 			'fileInfo.streamPath' => 'Adatfolyam útvonala',
@@ -3608,6 +3709,7 @@ extension on TranslationsHu {
 			'tooltips.markAsWatched' => 'Megjelölés megtekintettként',
 			'tooltips.markAsUnwatched' => 'Megjelölés nem megtekintettként',
 			'audioTracks.track' => ({required Object n}) => '${n}. hangsáv',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => 'Hang',
 			'videoControls.subtitlesLabel' => 'Feliratok',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3654,6 +3756,7 @@ extension on TranslationsHu {
 			'videoControls.subtitleUnavailableFallback' => 'A kiválasztott feliratot nem sikerült betölteni — folytatás felirat nélkül',
 			'videoControls.pipButton' => 'Kép a képben mód',
 			'videoControls.aspectRatioButton' => 'Méretarány',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Környezeti megvilágítás',
 			'videoControls.fullscreenButton' => 'Teljes képernyős mód bekapcsolása',
 			'videoControls.exitFullscreenButton' => 'Teljes képernyős mód kikapcsolása',
@@ -3752,6 +3855,7 @@ extension on TranslationsHu {
 			'messages.playbackDataInvalid' => 'A szerver érvénytelen lejátszási adatokat küldött.',
 			'messages.playbackCancelled' => 'A lejátszás megszakítva.',
 			'messages.playbackFailed' => 'Nem sikerült elindítani a lejátszást.',
+			'messages.mediaUnavailable' => 'This content is no longer available.',
 			'messages.errorLoadingFileInfo' => ({required Object error}) => 'Hiba a fájlinformációk betöltésekor: ${error}',
 			'messages.errorLoadingSeries' => 'Hiba a sorozat betöltésekor',
 			'messages.musicNotSupported' => 'A zenelejátszás még nem támogatott',
@@ -3833,6 +3937,9 @@ extension on TranslationsHu {
 			'mpvConfig.presetDeleted' => 'Előbeállítás törölve',
 			'mpvConfig.confirmDeletePreset' => 'Biztosan törölni szeretnéd ezt az előbeállítást?',
 			'mpvConfig.configPlaceholder' => 'gpu-api=vulkan\nhwdec=auto\n# megjegyzés',
+			'mpvConfig.lineHint' => 'option=value',
+			'mpvConfig.addLine' => 'Add line',
+			'mpvConfig.removeLine' => 'Remove line',
 			'mpvConfig.embeddedVoHint' => 'A vo, gpu-context és gpu-api beállítások Linuxon figyelmen kívül maradnak: a beágyazott videó mindig a vo=libmpv-n keresztül jelenik meg a videósíkon, a gpu-next (amelyre az ArtCNN-hez hasonló compute shadereknek szükségük van) pedig nem futhat beágyazva.',
 			'dialog.confirmAction' => 'Művelet megerősítése',
 			'profiles.addPlezyProfile' => 'Plezy profil hozzáadása',
@@ -3977,6 +4084,8 @@ extension on TranslationsHu {
 			'discover.recentlyPlayedIn' => ({required Object library}) => 'Legutóbb lejátszva itt: ${library}',
 			'discover.mostPlayedIn' => ({required Object library}) => 'Legtöbbször lejátszva itt: ${library}',
 			'discover.playEpisode' => ({required Object season, required Object episode}) => '${season}. évad, ${episode}. epizód',
+			_ => null,
+		} ?? switch (path) {
 			'discover.overview' => 'Áttekintés',
 			'discover.cast' => 'Szereplők',
 			'discover.extras' => 'Előzetesek és extrák',
@@ -4017,8 +4126,6 @@ extension on TranslationsHu {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Nem sikerült a könyvtár elemzése: ${error}',
 			'libraries.noLibrariesFound' => 'Nem találhatók könyvtárak',
 			'libraries.allLibrariesHidden' => 'Minden könyvtár el van rejtve',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Rejtett könyvtárak (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Ez a könyvtár üres',
 			'libraries.noItemsMatchFilters' => 'Nincs az aktív szűrőknek megfelelő elem',
@@ -4090,6 +4197,9 @@ extension on TranslationsHu {
 			'about.versionLabel' => ({required Object version}) => 'Verzió: ${version}',
 			'about.appDescription' => 'Gyönyörű Flutter-kliens a Plexhez és a Jellyfinhez',
 			'about.viewLicensesDescription' => 'Külső fejlesztésű programkönyvtárak licenceinek megtekintése',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Nem találhatók szerverek ehhez a fiókhoz: ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Nem sikerült a szerverek betöltése: ${error}',
 			'serverSelection.noValidServers' => 'Nem található használható szerver ehhez a fiókhoz',
@@ -4168,9 +4278,11 @@ extension on TranslationsHu {
 			'explore.removedFromWatchlist' => 'Eltávolítva a figyelőlistáról',
 			'explore.watchlistUpdateFailed' => 'Nem sikerült a Néznivalók frissítése',
 			'explore.watchlistNoMatch' => 'Nem sikerült ezt az elemet figyelőlistához társítani',
+			'explore.openInLibrary' => 'Megnyitás a könyvtárban',
 			'explore.notInLibrary' => 'Nincs a könyvtáradban',
 			'explore.inTheseLibraries' => 'Ezekben a könyvtárakban',
 			'explore.checkingLibrary' => 'Könyvtár ellenőrzése...',
+			'explore.libraryCheckFailed' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n, one: 'Couldn\'t check ${n} server', other: 'Couldn\'t check ${n} servers', ), 
 			'explore.emptyTitle' => 'Még nincs itt semmi',
 			'explore.emptyMessage' => ({required Object source}) => 'A(z) ${source} forrásból származó sorok itt fognak megjelenni, amint van tartalmuk.',
 			'explore.searchHint' => ({required Object source}) => 'Keresés itt: ${source}',
@@ -4467,6 +4579,13 @@ extension on TranslationsHu {
 			'watchTogether.host' => 'Házigazda',
 			'watchTogether.hostBadge' => 'HÁZIGAZDA',
 			'watchTogether.youAreHost' => 'Te vagy a házigazda',
+			'watchTogether.makeHost' => 'Make host',
+			'watchTogether.makeHostQuestion' => 'Transfer host?',
+			'watchTogether.makeHostConfirm' => ({required Object name}) => '${name} will control playback and drive the session for everyone.',
+			'watchTogether.transfer' => 'Transfer',
+			'watchTogether.hostChangedTo' => ({required Object name}) => '${name} is now the host',
+			'watchTogether.youAreNowHost' => 'You are now the host',
+			'watchTogether.hostTransferFailed' => ({required Object name}) => 'Couldn\'t make ${name} the host',
 			'watchTogether.watchingWithOthers' => 'Nézés másokkal',
 			'watchTogether.endSession' => 'Munkamenet befejezése',
 			'watchTogether.leaveSession' => 'Munkamenet elhagyása',
@@ -4479,6 +4598,8 @@ extension on TranslationsHu {
 			'watchTogether.end' => 'Befejezés',
 			'watchTogether.leave' => 'Kilépés',
 			'watchTogether.syncing' => 'Szinkronizálás...',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.joinWatchSession' => 'Csatlakozás közös nézéshez',
 			'watchTogether.enterCodeHint' => 'Add meg az 5 karakteres kódot',
 			'watchTogether.pasteFromClipboard' => 'Beillesztés a vágólapról',
@@ -4499,6 +4620,7 @@ extension on TranslationsHu {
 			'watchTogether.participantPaused' => ({required Object name}) => '${name} szüneteltette a lejátszást',
 			'watchTogether.participantResumed' => ({required Object name}) => '${name} folytatta a lejátszást',
 			'watchTogether.participantSeeked' => ({required Object name}) => '${name} módosította a lejátszási pozíciót',
+			'watchTogether.participantChangedSpeed' => ({required Object name, required Object speed}) => '${name} set the speed to ${speed}',
 			'watchTogether.participantBuffering' => ({required Object name}) => '${name} pufferel',
 			'watchTogether.participantNeedsUpdate' => ({required Object name}) => '${name} régebbi alkalmazásverziót használ — a szinkronizálás nem érhető el',
 			'watchTogether.resumingWithout' => ({required Object name}) => 'Folytatás a következő nélkül: ${name}',
@@ -4514,6 +4636,7 @@ extension on TranslationsHu {
 			'watchTogether.errors.connectionLost' => 'A kapcsolat lezárult, mielőtt a munkamenet elkészült volna',
 			'watchTogether.errors.invalidRelayResponse' => 'A relészerver váratlan választ küldött',
 			'watchTogether.errors.sessionEnded' => 'A házigazda befejezte a munkamenetet',
+			'watchTogether.errors.sessionUnavailable' => 'Unable to resume this session. Join or create a room to continue.',
 			'downloads.title' => 'Letöltések',
 			'downloads.manage' => 'Kezelés',
 			'downloads.tvShows' => 'TV-sorozatok',
@@ -4531,8 +4654,6 @@ extension on TranslationsHu {
 			'downloads.storageFull' => 'A letöltések leálltak, mert az eszköz tárhelye megtelt. Szabadíts fel helyet, majd próbáld újra.',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} epizód letöltésre sorba állítva',
 			'downloads.downloadDeleted' => 'Letöltés törölve',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => 'Törlöd a következőt: "${title}" erről az eszközről?',
 			'downloads.cancelledDownloadTitle' => 'Megszakított letöltés',
 			'downloads.cancelledDownloadMessage' => 'Ez a letöltés meg lett szakítva. Mit szeretnél tenni?',
@@ -4913,6 +5034,10 @@ extension on TranslationsHu {
 			'seerr.qualityProfile' => 'Minőségi profil',
 			'seerr.rootFolder' => 'Gyökérmappa',
 			'seerr.languageProfile' => 'Nyelvi profil',
+			'seerr.tags' => 'Tags',
+			'seerr.noTags' => 'No tags',
+			'seerr.defaultOption' => ({required Object name}) => '${name} (Default)',
+			'seerr.animeNote' => 'This series is an anime.',
 			'seerr.requestSubmitted' => 'Igénylés elküldve',
 			'seerr.requestFailed' => ({required Object error}) => 'Az igénylés nem sikerült: ${error}',
 			'seerr.requestsLoadFailed' => 'Nem sikerült betölteni az igénylési opciókat',
@@ -4924,6 +5049,7 @@ extension on TranslationsHu {
 			'seerr.statusBlocklisted' => 'Tiltólistán',
 			'seerr.couldNotReach' => ({required Object url, required Object error}) => 'Nem sikerült elérni ezt: ${url}: ${error}',
 			'seerr.noInstanceAtUrl' => ({required Object url, required Object status}) => 'Nem található Seerr-példány ezen a címen: ${url} (HTTP ${status})',
+			'seerr.behindAuthProxy' => 'An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr\'s /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.',
 			'seerr.invalidUrl' => 'Adj meg egy szervercímet, például: https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => 'Ez a Seerr-példány nem támogatja a Quick Connectet. Seerr 3.4 vagy újabb verzió szükséges.',
 			'seerr.notInitialized' => 'Ennek a Seerr-példánynak a kezdeti beállítása még nem fejeződött be',
@@ -4934,6 +5060,8 @@ extension on TranslationsHu {
 			'seerr.freshCookieRejected' => 'A Seerr elutasította az új munkamenet-sütit',
 			'seerr.noUserInformation' => 'A Seerr nem adott vissza felhasználói adatokat',
 			'seerr.sessionRejectedAfterReauth' => 'A munkamenetet az újbóli bejelentkezés után elutasították',
+			'seerr.permissionDenied' => 'Seerr denied this action: your account no longer has the required permission',
+			'seerr.permissionRevoked' => 'You no longer have permission to request this',
 			'services.title' => 'Szolgáltatások',
 			'services.hubSubtitle' => 'Megtekintési haladás szinkronizálása és új tartalmak igénylése.',
 			'services.integrations' => 'Integrációk',
@@ -4984,6 +5112,8 @@ extension on TranslationsHu {
 			'addServer.change' => 'Módosítás',
 			'addServer.required' => 'Kötelező',
 			'addServer.couldNotReachServer' => ({required Object error}) => 'Nem sikerült elérni a szervert: ${error}',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.signInFailed' => ({required Object error}) => 'A bejelentkezés nem sikerült: ${error}',
 			'addServer.quickConnectFailed' => ({required Object error}) => 'A Quick Connect használata nem sikerült: ${error}',
 			'addServer.addPlexTitle' => 'Bejelentkezés Plexszel',

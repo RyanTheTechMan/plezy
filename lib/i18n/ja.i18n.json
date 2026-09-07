@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Plexでサインイン",
@@ -113,7 +113,15 @@
     "skipVersion": "このバージョンをスキップ",
     "viewRelease": "リリースを表示",
     "latestVersion": "最新バージョンです",
-    "checkFailed": "アップデートの確認に失敗しました"
+    "checkFailed": "アップデートの確認に失敗しました",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "設定",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "サイドバーを展開したままにし、コンテンツ領域を幅に合わせて調整します",
     "showUnwatchedCount": "未視聴数を表示",
     "showUnwatchedCountDescription": "番組とシーズンに未視聴エピソード数を表示",
-    "showWatchedIndicators": "",
-    "showWatchedIndicatorsDescription": "",
     "showEpisodeNumberOnCards": "カードにエピソード番号を表示",
     "showEpisodeNumberOnCardsDescription": "エピソードカードにシーズン番号とエピソード番号を表示します",
     "showSeasonPostersOnTabs": "タブにシーズンポスターを表示",
@@ -201,8 +207,6 @@
     "defaultQualityTitle": "デフォルト画質",
     "cellularQualityTitle": "モバイルデータ通信時のデフォルト画質",
     "cellularQualitySameAsDefault": "デフォルト画質と同じ",
-    "directPlayCoveredQuality": "",
-    "directPlayCoveredQualityDescription": "",
     "musicQualityTitle": "音楽の音質",
     "subtitleStyling": "字幕スタイル",
     "subtitleStylingDescription": "字幕の外観をカスタマイズ",
@@ -276,17 +280,6 @@
     "autoPlayNextEpisodeDescription": "エピソードが終了すると、次のエピソードを自動的に再生します",
     "playNextCountdown": "次回再生のカウントダウン",
     "playNextCountdownImmediate": "すぐに再生",
-    "skipIntroMode": "",
-    "skipIntroModeOffDescription": "",
-    "skipIntroModeButtonDescription": "",
-    "skipIntroModeAutoDescription": "",
-    "skipCreditsMode": "",
-    "skipCreditsModeOffDescription": "",
-    "skipCreditsModeButtonDescription": "",
-    "skipCreditsModeAutoDescription": "",
-    "skipMarkerModeOff": "",
-    "skipMarkerModeButton": "",
-    "skipMarkerModeAuto": "",
     "forceSkipMarkerFallback": "フォールバックマーカーを強制",
     "forceSkipMarkerFallbackDescription": "Plexにマーカーがある場合でもチャプタータイトルのパターンを使用します",
     "autoSkipDelay": "自動スキップの遅延",
@@ -411,8 +404,6 @@
     "gestureVolumeSwipeDescription": "右端を上下にスワイプして音量を調整します",
     "gesturePinchToZoom": "ピンチでズーム",
     "gesturePinchToZoomDescription": "動画をピンチしてズームイン・アウト",
-    "rememberBrightnessLevel": "",
-    "rememberBrightnessLevelDescription": "",
     "controls": "コントロール",
     "rememberPlayerChanges": "プレーヤーの変更を記憶",
     "rememberPlayerChangesDescription": "再生中に行った変更を保存し、再適用する場所",
@@ -424,7 +415,30 @@
     "playerScopeGlobal": "すべて",
     "playerScopeLibrary": "ライブラリごと",
     "playerScopeTitle": "作品ごと",
-    "exportDialogTitle": "Plezyの設定をエクスポート"
+    "exportDialogTitle": "Plezyの設定をエクスポート",
+    "showWatchedIndicators": "Show Watched Indicators",
+    "showWatchedIndicatorsDescription": "Display a checkmark on watched movies, shows, and episodes",
+    "directPlayCoveredQuality": "Play Smaller Videos at Original Quality",
+    "directPlayCoveredQualityDescription": "Direct play videos already within the quality limit instead of transcoding them",
+    "skipIntroMode": "Skip Intro",
+    "skipIntroModeOffDescription": "Play intros normally without a skip button",
+    "skipIntroModeButtonDescription": "Show a skip button when an intro starts",
+    "skipIntroModeAutoDescription": "Skip intros automatically after the delay below",
+    "skipCreditsMode": "Skip Credits",
+    "skipCreditsModeOffDescription": "Play credits normally without a skip button",
+    "skipCreditsModeButtonDescription": "Show a skip button when credits start",
+    "skipCreditsModeAutoDescription": "Skip credits automatically and play the next episode",
+    "skipMarkerModeOff": "Off",
+    "skipMarkerModeButton": "Show button",
+    "skipMarkerModeAuto": "Automatic",
+    "rememberBrightnessLevel": "Remember Brightness Level",
+    "rememberBrightnessLevelDescription": "Start playback at the brightness set by the last swipe",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "映画、番組、音楽を検索…",
@@ -464,7 +478,9 @@
       "subSeekPrev": "前の字幕にシーク",
       "shaderToggle": "シェーダー切替",
       "skipMarker": "イントロ/クレジットをスキップ",
-      "screenshot": "スクリーンショットを撮る"
+      "screenshot": "スクリーンショットを撮る",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -609,12 +625,15 @@
     "confirmDeleteTarget": "サーバーから「${title}」を完全に削除しますか？",
     "deleteMultipleWarning": "すべてのエピソードとそのファイルが含まれます。",
     "deleteEpisodeCountWarning": {
+      "one": "This deletes all ${n} episode in it, and its file.",
       "other": "中の全${n}エピソードとそのファイルが削除されます。"
     },
     "deleteMultiPartWarning": {
+      "one": "This item is stored as ${n} file, which will be deleted.",
       "other": "このアイテムは${n}個のファイルにまたがって保存されており、すべて削除されます。"
     },
     "deleteSharedFileHeading": {
+      "one": "${n} other episode is stored in the same file and will be deleted too:",
       "other": "同じファイルに保存されている他の${n}エピソードも削除されます："
     },
     "deleteScopeUnverifiedProbeFailed": "Plezyは削除対象のファイルを確認できなかったため、上記のアイテム以上に削除される可能性があります。キャンセルして再試行するか、それでも削除してください。",
@@ -673,6 +692,10 @@
     "track": "音声トラック${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "音声",
     "subtitlesLabel": "字幕",
     "addTime": "+${amount}${unit}",
@@ -814,6 +837,7 @@
     "markedAsUnwatchedOffline": "未視聴にしました（オンライン時に同期）",
     "autoRemovedWatchedDownload": "自動削除: ${title}",
     "autoRemovedWatchedDownloads": {
+      "one": "Auto-removed ${n} watched download",
       "other": "視聴済みダウンロードを${n}件自動削除しました"
     },
     "removedFromContinueWatching": "視聴中から削除しました",
@@ -827,7 +851,7 @@
     "playbackDataInvalid": "サーバーから無効な再生情報が返されました。",
     "playbackCancelled": "再生がキャンセルされました。",
     "playbackFailed": "再生を開始できませんでした。",
-    "mediaUnavailable": "",
+    "mediaUnavailable": "This content is no longer available.",
     "errorLoadingFileInfo": "ファイル情報の読み込みエラー: ${error}",
     "errorLoadingSeries": "シリーズの読み込みエラー",
     "musicNotSupported": "音楽の再生はまだサポートされていません",
@@ -913,9 +937,9 @@
     "presetDeleted": "プリセットを削除しました",
     "confirmDeletePreset": "このプリセットを削除してもよろしいですか？",
     "configPlaceholder": "gpu-api=vulkan\nhwdec=auto\n# comment",
-    "lineHint": "",
-    "addLine": "",
-    "removeLine": "",
+    "lineHint": "option=value",
+    "addLine": "Add line",
+    "removeLine": "Remove line",
     "embeddedVoHint": "Linux では vo、gpu-context、gpu-api は無視されます。埋め込み動画は常にビデオプレーン上で vo=libmpv を通してレンダリングされ、gpu-next（ArtCNN のようなコンピュートシェーダーに必要）は埋め込みでは実行できません。"
   },
   "dialog": {
@@ -1094,6 +1118,7 @@
     "minutesLeft": "残り${minutes}分",
     "moreLikeThis": "似ている作品",
     "titleCount": {
+      "one": "${n} title",
       "other": "${n}作品"
     }
   },
@@ -1208,7 +1233,10 @@
     "openSourceLicenses": "オープンソースライセンス",
     "versionLabel": "バージョン ${version}",
     "appDescription": "Flutter製の美しいPlex・Jellyfinクライアント",
-    "viewLicensesDescription": "サードパーティライブラリのライセンスを表示"
+    "viewLicensesDescription": "サードパーティライブラリのライセンスを表示",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email})のサーバーが見つかりません",
@@ -1297,6 +1325,7 @@
       "upcoming": "放送予定"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n}話"
     },
     "cast": "キャスト",
@@ -1312,7 +1341,8 @@
     "inTheseLibraries": "これらのライブラリにあります",
     "checkingLibrary": "ライブラリを確認中…",
     "libraryCheckFailed": {
-      "other": ""
+      "one": "Couldn't check ${n} server",
+      "other": "Couldn't check ${n} servers"
     },
     "emptyTitle": "まだ何もありません",
     "emptyMessage": "${source}にコンテンツが追加されると、ここに表示されます。",
@@ -1354,6 +1384,7 @@
       "favorited": "お気に入り ${n}件",
       "dropRate": "${percent}が視聴中止",
       "comments": {
+        "one": "${n} comment",
         "other": "コメント ${n}件"
       },
       "votes": "投票 ${n}件",
@@ -1434,6 +1465,7 @@
       "ratings": "評価",
       "schedule": "放送予定",
       "recommendedByUsers": {
+        "one": "Recommended by ${n} user",
         "other": "${n}人のユーザーがおすすめ"
       },
       "recommendedBy": "${who}がおすすめ",
@@ -1444,6 +1476,7 @@
       "background": "背景"
     },
     "totalResults": {
+      "one": "${n} result",
       "other": "${n}件の結果"
     }
   },
@@ -1597,6 +1630,7 @@
     "addToQueue": "キューに追加",
     "discNumber": "ディスク ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n}曲"
     },
     "nowPlaying": "再生中",
@@ -1648,13 +1682,13 @@
     "host": "ホスト",
     "hostBadge": "ホスト",
     "youAreHost": "あなたはホストです",
-    "makeHost": "",
-    "makeHostQuestion": "",
-    "makeHostConfirm": "",
-    "transfer": "",
-    "hostChangedTo": "",
-    "youAreNowHost": "",
-    "hostTransferFailed": "",
+    "makeHost": "Make host",
+    "makeHostQuestion": "Transfer host?",
+    "makeHostConfirm": "${name} will control playback and drive the session for everyone.",
+    "transfer": "Transfer",
+    "hostChangedTo": "${name} is now the host",
+    "youAreNowHost": "You are now the host",
+    "hostTransferFailed": "Couldn't make ${name} the host",
     "watchingWithOthers": "他の人と視聴中",
     "endSession": "セッションを終了",
     "leaveSession": "セッションを退出",
@@ -1687,7 +1721,7 @@
     "participantPaused": "${name}が一時停止しました",
     "participantResumed": "${name}が再開しました",
     "participantSeeked": "${name}が再生位置を変更しました",
-    "participantChangedSpeed": "",
+    "participantChangedSpeed": "${name} set the speed to ${speed}",
     "participantBuffering": "${name}がバッファリング中",
     "participantNeedsUpdate": "${name}は古いバージョンのアプリを使用しているため、同期できません",
     "resumingWithout": "${name}抜きで再開",
@@ -1704,7 +1738,7 @@
       "connectionLost": "セッションの準備が整う前に接続が閉じられました",
       "invalidRelayResponse": "リレーサーバーから予期しない応答が返されました",
       "sessionEnded": "ホストがセッションを終了しました",
-      "sessionUnavailable": ""
+      "sessionUnavailable": "Unable to resume this session. Join or create a room to continue."
     }
   },
   "downloads": {
@@ -2135,10 +2169,10 @@
     "qualityProfile": "画質プロファイル",
     "rootFolder": "ルートフォルダ",
     "languageProfile": "言語プロファイル",
-    "tags": "",
-    "noTags": "",
-    "defaultOption": "",
-    "animeNote": "",
+    "tags": "Tags",
+    "noTags": "No tags",
+    "defaultOption": "${name} (Default)",
+    "animeNote": "This series is an anime.",
     "requestSubmitted": "リクエストを送信しました",
     "requestFailed": "リクエストに失敗しました: ${error}",
     "requestsLoadFailed": "リクエストオプションを読み込めませんでした",
@@ -2150,7 +2184,7 @@
     "statusBlocklisted": "ブロックリスト登録済み",
     "couldNotReach": "${url}に接続できませんでした: ${error}",
     "noInstanceAtUrl": "${url}にSeerrインスタンスがありません（HTTP ${status}）",
-    "behindAuthProxy": "",
+    "behindAuthProxy": "An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr's /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.",
     "invalidUrl": "https://seerr.example.comのようなサーバーアドレスを入力してください",
     "quickConnectUnsupported": "このSeerrインスタンスはQuick Connectに対応していません。Seerr 3.4以降が必要です。",
     "notInitialized": "このSeerrインスタンスでは初回セットアップが完了していません",
@@ -2161,8 +2195,8 @@
     "freshCookieRejected": "Seerrが新しいセッションクッキーを拒否しました",
     "noUserInformation": "Seerrからユーザー情報が返されませんでした",
     "sessionRejectedAfterReauth": "再サインイン後にセッションが拒否されました",
-    "permissionDenied": "",
-    "permissionRevoked": ""
+    "permissionDenied": "Seerr denied this action: your account no longer has the required permission",
+    "permissionRevoked": "You no longer have permission to request this"
   },
   "services": {
     "title": "サービス",

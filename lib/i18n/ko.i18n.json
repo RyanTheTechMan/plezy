@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Plex 계정으로 로그인",
@@ -113,7 +113,15 @@
     "skipVersion": "이 버전 건너뛰기",
     "viewRelease": "릴리스 정보 보기",
     "latestVersion": "최신 버전을 사용 중입니다",
-    "checkFailed": "업데이트 확인 실패"
+    "checkFailed": "업데이트 확인 실패",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "설정",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "사이드바가 확장된 상태로 유지되고 콘텐츠 영역이 맞춰집니다",
     "showUnwatchedCount": "미시청 수 표시",
     "showUnwatchedCountDescription": "시리즈 및 시즌에 미시청 에피소드 수 표시",
-    "showWatchedIndicators": "",
-    "showWatchedIndicatorsDescription": "",
     "showEpisodeNumberOnCards": "카드에 에피소드 번호 표시",
     "showEpisodeNumberOnCardsDescription": "에피소드 카드에 시즌 및 에피소드 번호 표시",
     "showSeasonPostersOnTabs": "탭에 시즌 포스터 표시",
@@ -201,8 +207,6 @@
     "defaultQualityTitle": "기본 화질",
     "cellularQualityTitle": "셀룰러에서 기본 화질",
     "cellularQualitySameAsDefault": "기본 화질과 동일",
-    "directPlayCoveredQuality": "",
-    "directPlayCoveredQualityDescription": "",
     "musicQualityTitle": "음악 음질",
     "subtitleStyling": "자막 스타일",
     "subtitleStylingDescription": "자막 모양을 사용자 지정합니다",
@@ -276,17 +280,6 @@
     "autoPlayNextEpisodeDescription": "에피소드가 끝나면 다음 에피소드를 자동으로 재생",
     "playNextCountdown": "다음 재생 카운트다운",
     "playNextCountdownImmediate": "즉시 재생",
-    "skipIntroMode": "",
-    "skipIntroModeOffDescription": "",
-    "skipIntroModeButtonDescription": "",
-    "skipIntroModeAutoDescription": "",
-    "skipCreditsMode": "",
-    "skipCreditsModeOffDescription": "",
-    "skipCreditsModeButtonDescription": "",
-    "skipCreditsModeAutoDescription": "",
-    "skipMarkerModeOff": "",
-    "skipMarkerModeButton": "",
-    "skipMarkerModeAuto": "",
     "forceSkipMarkerFallback": "대체 마커 강제 사용",
     "forceSkipMarkerFallbackDescription": "Plex에 마커가 있어도 챕터 제목 패턴 사용",
     "autoSkipDelay": "자동 건너뛰기 지연",
@@ -411,8 +404,6 @@
     "gestureVolumeSwipeDescription": "오른쪽 가장자리에서 위아래로 스와이프하여 볼륨을 조절합니다",
     "gesturePinchToZoom": "핀치 줌",
     "gesturePinchToZoomDescription": "비디오에서 핀치하여 확대하거나 축소합니다",
-    "rememberBrightnessLevel": "",
-    "rememberBrightnessLevelDescription": "",
     "controls": "컨트롤",
     "rememberPlayerChanges": "플레이어 변경 사항 기억",
     "rememberPlayerChangesDescription": "재생 중 변경한 사항을 저장하고 다시 적용할 위치",
@@ -424,7 +415,30 @@
     "playerScopeGlobal": "모든 곳",
     "playerScopeLibrary": "라이브러리별",
     "playerScopeTitle": "시리즈 또는 영화별",
-    "exportDialogTitle": "Plezy 설정 내보내기"
+    "exportDialogTitle": "Plezy 설정 내보내기",
+    "showWatchedIndicators": "Show Watched Indicators",
+    "showWatchedIndicatorsDescription": "Display a checkmark on watched movies, shows, and episodes",
+    "directPlayCoveredQuality": "Play Smaller Videos at Original Quality",
+    "directPlayCoveredQualityDescription": "Direct play videos already within the quality limit instead of transcoding them",
+    "skipIntroMode": "Skip Intro",
+    "skipIntroModeOffDescription": "Play intros normally without a skip button",
+    "skipIntroModeButtonDescription": "Show a skip button when an intro starts",
+    "skipIntroModeAutoDescription": "Skip intros automatically after the delay below",
+    "skipCreditsMode": "Skip Credits",
+    "skipCreditsModeOffDescription": "Play credits normally without a skip button",
+    "skipCreditsModeButtonDescription": "Show a skip button when credits start",
+    "skipCreditsModeAutoDescription": "Skip credits automatically and play the next episode",
+    "skipMarkerModeOff": "Off",
+    "skipMarkerModeButton": "Show button",
+    "skipMarkerModeAuto": "Automatic",
+    "rememberBrightnessLevel": "Remember Brightness Level",
+    "rememberBrightnessLevelDescription": "Start playback at the brightness set by the last swipe",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "영화, 시리즈, 음악 등을 검색하세요...",
@@ -464,7 +478,9 @@
       "subSeekPrev": "이전 자막으로 이동",
       "shaderToggle": "셰이더 전환",
       "skipMarker": "인트로/크레딧 건너뛰기",
-      "screenshot": "스크린샷 찍기"
+      "screenshot": "스크린샷 찍기",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -609,12 +625,15 @@
     "confirmDeleteTarget": "서버에서 ${title}을(를) 영구 삭제할까요?",
     "deleteMultipleWarning": "모든 에피소드와 파일이 포함됩니다.",
     "deleteEpisodeCountWarning": {
+      "one": "This deletes all ${n} episode in it, and its file.",
       "other": "포함된 에피소드 ${n}개와 해당 파일이 모두 삭제됩니다."
     },
     "deleteMultiPartWarning": {
+      "one": "This item is stored as ${n} file, which will be deleted.",
       "other": "이 항목은 파일 ${n}개에 걸쳐 저장되어 있으며, 모든 파일이 삭제됩니다."
     },
     "deleteSharedFileHeading": {
+      "one": "${n} other episode is stored in the same file and will be deleted too:",
       "other": "같은 파일에 저장된 다른 에피소드 ${n}개도 함께 삭제됩니다:"
     },
     "deleteScopeUnverifiedProbeFailed": "Plezy가 어떤 파일이 삭제될지 확인하지 못해 위 항목보다 더 많은 파일이 삭제될 수 있습니다. 취소하고 다시 시도하거나 그래도 삭제하세요.",
@@ -673,6 +692,10 @@
     "track": "오디오 트랙 ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "오디오",
     "subtitlesLabel": "자막",
     "addTime": "+${amount}${unit}",
@@ -814,6 +837,7 @@
     "markedAsUnwatchedOffline": "미시청으로 표시됨 (연결 시 동기화됨)",
     "autoRemovedWatchedDownload": "자동 삭제됨: ${title}",
     "autoRemovedWatchedDownloads": {
+      "one": "Auto-removed ${n} watched download",
       "other": "시청한 다운로드 ${n}개를 자동 삭제했습니다"
     },
     "removedFromContinueWatching": "계속 시청 목록에서 제거됨",
@@ -827,7 +851,7 @@
     "playbackDataInvalid": "서버에서 잘못된 재생 정보를 반환했습니다.",
     "playbackCancelled": "재생이 취소되었습니다.",
     "playbackFailed": "재생을 시작할 수 없습니다.",
-    "mediaUnavailable": "",
+    "mediaUnavailable": "This content is no longer available.",
     "errorLoadingFileInfo": "파일 정보 로딩 중 오류: ${error}",
     "errorLoadingSeries": "시리즈 로딩 중 오류",
     "musicNotSupported": "음악 재생 미지원",
@@ -913,9 +937,9 @@
     "presetDeleted": "프리셋이 삭제되었습니다",
     "confirmDeletePreset": "이 프리셋을 삭제하시겠습니까?",
     "configPlaceholder": "gpu-api=vulkan\nhwdec=auto\n# comment",
-    "lineHint": "",
-    "addLine": "",
-    "removeLine": "",
+    "lineHint": "option=value",
+    "addLine": "Add line",
+    "removeLine": "Remove line",
     "embeddedVoHint": "Linux에서는 vo, gpu-context, gpu-api가 무시됩니다. 내장 동영상은 항상 비디오 평면에서 vo=libmpv로 렌더링되며, gpu-next(ArtCNN 같은 컴퓨트 셰이더에 필요)는 내장 방식으로 실행할 수 없습니다."
   },
   "dialog": {
@@ -1094,6 +1118,7 @@
     "minutesLeft": "${minutes}분 남음",
     "moreLikeThis": "비슷한 콘텐츠",
     "titleCount": {
+      "one": "${n} title",
       "other": "${n}개 타이틀"
     }
   },
@@ -1208,7 +1233,10 @@
     "openSourceLicenses": "오픈소스 라이선스",
     "versionLabel": "버전 ${version}",
     "appDescription": "Flutter로 만든 아름다운 Plex 및 Jellyfin 클라이언트",
-    "viewLicensesDescription": "타사 라이브러리 라이선스 보기"
+    "viewLicensesDescription": "타사 라이브러리 라이선스 보기",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email})의 서버를 찾을 수 없습니다.",
@@ -1297,6 +1325,7 @@
       "upcoming": "방영 예정"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n}화"
     },
     "cast": "출연진",
@@ -1312,7 +1341,8 @@
     "inTheseLibraries": "이 라이브러리에 있음",
     "checkingLibrary": "라이브러리 확인 중...",
     "libraryCheckFailed": {
-      "other": ""
+      "one": "Couldn't check ${n} server",
+      "other": "Couldn't check ${n} servers"
     },
     "emptyTitle": "아직 아무것도 없습니다",
     "emptyMessage": "${source}에 콘텐츠가 추가되면 여기에 표시됩니다.",
@@ -1354,6 +1384,7 @@
       "favorited": "즐겨찾기 ${n}명",
       "dropRate": "${percent} 하차",
       "comments": {
+        "one": "${n} comment",
         "other": "댓글 ${n}개"
       },
       "votes": "투표 ${n}개",
@@ -1434,6 +1465,7 @@
       "ratings": "평점",
       "schedule": "방영 일정",
       "recommendedByUsers": {
+        "one": "Recommended by ${n} user",
         "other": "사용자 ${n}명이 추천"
       },
       "recommendedBy": "${who} 추천",
@@ -1444,6 +1476,7 @@
       "background": "배경"
     },
     "totalResults": {
+      "one": "${n} result",
       "other": "결과 ${n}개"
     }
   },
@@ -1597,6 +1630,7 @@
     "addToQueue": "대기열에 추가",
     "discNumber": "디스크 ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n}곡"
     },
     "nowPlaying": "재생 중",
@@ -1648,13 +1682,13 @@
     "host": "호스트",
     "hostBadge": "호스트",
     "youAreHost": "호스트입니다",
-    "makeHost": "",
-    "makeHostQuestion": "",
-    "makeHostConfirm": "",
-    "transfer": "",
-    "hostChangedTo": "",
-    "youAreNowHost": "",
-    "hostTransferFailed": "",
+    "makeHost": "Make host",
+    "makeHostQuestion": "Transfer host?",
+    "makeHostConfirm": "${name} will control playback and drive the session for everyone.",
+    "transfer": "Transfer",
+    "hostChangedTo": "${name} is now the host",
+    "youAreNowHost": "You are now the host",
+    "hostTransferFailed": "Couldn't make ${name} the host",
     "watchingWithOthers": "다른 사람과 함께 시청 중",
     "endSession": "세션 종료",
     "leaveSession": "세션 나가기",
@@ -1687,7 +1721,7 @@
     "participantPaused": "${name}님이 일시정지했습니다",
     "participantResumed": "${name}님이 재생했습니다",
     "participantSeeked": "${name}님이 재생 위치를 변경했습니다",
-    "participantChangedSpeed": "",
+    "participantChangedSpeed": "${name} set the speed to ${speed}",
     "participantBuffering": "${name}님이 버퍼링 중입니다",
     "participantNeedsUpdate": "${name}님이 이전 버전의 앱을 사용 중입니다 — 동기화를 사용할 수 없습니다",
     "resumingWithout": "${name}님 없이 재생을 재개합니다",
@@ -1704,7 +1738,7 @@
       "connectionLost": "세션이 준비되기 전에 연결이 종료되었습니다",
       "invalidRelayResponse": "릴레이 서버가 예기치 않은 응답을 보냈습니다",
       "sessionEnded": "호스트가 세션을 종료했습니다",
-      "sessionUnavailable": ""
+      "sessionUnavailable": "Unable to resume this session. Join or create a room to continue."
     }
   },
   "downloads": {
@@ -2135,10 +2169,10 @@
     "qualityProfile": "화질 프로파일",
     "rootFolder": "루트 폴더",
     "languageProfile": "언어 프로파일",
-    "tags": "",
-    "noTags": "",
-    "defaultOption": "",
-    "animeNote": "",
+    "tags": "Tags",
+    "noTags": "No tags",
+    "defaultOption": "${name} (Default)",
+    "animeNote": "This series is an anime.",
     "requestSubmitted": "요청을 제출했습니다",
     "requestFailed": "요청 실패: ${error}",
     "requestsLoadFailed": "요청 옵션을 불러올 수 없습니다",
@@ -2150,7 +2184,7 @@
     "statusBlocklisted": "차단 목록에 있음",
     "couldNotReach": "${url}에 연결할 수 없습니다: ${error}",
     "noInstanceAtUrl": "${url}에 Seerr 인스턴스가 없습니다(HTTP ${status})",
-    "behindAuthProxy": "",
+    "behindAuthProxy": "An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr's /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.",
     "invalidUrl": "https://seerr.example.com과 같은 서버 주소를 입력하세요",
     "quickConnectUnsupported": "이 Seerr 인스턴스는 Quick Connect를 지원하지 않습니다. Seerr 3.4 이상이 필요합니다.",
     "notInitialized": "이 Seerr 인스턴스는 최초 실행 설정을 완료하지 않았습니다",
@@ -2161,8 +2195,8 @@
     "freshCookieRejected": "Seerr에서 새 세션 쿠키를 거부했습니다",
     "noUserInformation": "Seerr에서 사용자 정보를 반환하지 않았습니다",
     "sessionRejectedAfterReauth": "다시 로그인한 후 세션이 거부되었습니다",
-    "permissionDenied": "",
-    "permissionRevoked": ""
+    "permissionDenied": "Seerr denied this action: your account no longer has the required permission",
+    "permissionRevoked": "You no longer have permission to request this"
   },
   "services": {
     "title": "서비스",
