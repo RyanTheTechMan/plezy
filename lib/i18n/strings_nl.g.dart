@@ -2304,6 +2304,7 @@ class _Translations$videoControls$clip$nl extends Translations$videoControls$cli
 	final TranslationsNl _root; // ignore: unused_field
 
 	// Translations
+	@override String get fineAdjust => 'Fijnafstelling';
 	@override String get title => 'Klem';
 	@override String get vodOnly => 'Er zijn clips beschikbaar voor het on-demand afspelen van video.';
 	@override String get sourceUnavailable => 'Clipbron is niet beschikbaar voor deze afspeelsessie.';
@@ -3498,12 +3499,12 @@ extension on TranslationsNl {
 			'fileInfo.size' => 'Grootte',
 			'fileInfo.totalSize' => 'Totale grootte',
 			'fileInfo.container' => 'Container',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.duration' => 'Duur',
 			'fileInfo.previewThumbnails' => 'Preview-miniaturen',
 			'fileInfo.previewIndex' => 'Preview-index',
 			'fileInfo.packetLength' => 'Pakketlengte',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Bestand aanwezig',
 			'fileInfo.fileReadable' => 'Leesbaar door server',
 			'fileInfo.streamPath' => 'Streampad',
@@ -3515,8 +3516,6 @@ extension on TranslationsNl {
 			'fileInfo.optimizedVersion' => 'Geoptimaliseerde versie',
 			'fileInfo.optimizationTarget' => 'Optimalisatiedoel',
 			'fileInfo.deletedAt' => 'Verwijderd',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.remoteSource' => 'Externe bron',
 			'fileInfo.infiniteStream' => 'Oneindige stream',
 			'fileInfo.directPlay' => 'Direct Play',
@@ -3669,6 +3668,7 @@ extension on TranslationsNl {
 			'videoControls.pipActive' => 'Afspelen in beeld-in-beeld',
 			'videoControls.pipFailed' => 'Beeld-in-beeld kon niet worden gestart',
 			'videoControls.screenshotSaved' => 'Schermafbeelding opgeslagen',
+			'videoControls.clip.fineAdjust' => 'Fijnafstelling',
 			'videoControls.clip.title' => 'Klem',
 			'videoControls.clip.vodOnly' => 'Er zijn clips beschikbaar voor het on-demand afspelen van video.',
 			'videoControls.clip.sourceUnavailable' => 'Clipbron is niet beschikbaar voor deze afspeelsessie.',
@@ -4014,11 +4014,11 @@ extension on TranslationsNl {
 			'libraries.failedToEmptyTrash' => ({required Object error}) => 'Kon prullenbak niet legen: ${error}',
 			'libraries.analyzing' => ({required Object title}) => 'Analyseren "${title}"...',
 			'libraries.analysisStarted' => ({required Object title}) => 'Analyse gestart voor "${title}"',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Kon bibliotheek niet analyseren: ${error}',
 			'libraries.noLibrariesFound' => 'Geen bibliotheken gevonden',
 			'libraries.allLibrariesHidden' => 'Alle bibliotheken zijn verborgen',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Verborgen bibliotheken (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Deze bibliotheek is leeg',
 			'libraries.noItemsMatchFilters' => 'Geen items komen overeen met de actieve filters',
@@ -4067,8 +4067,6 @@ extension on TranslationsNl {
 			'libraries.filterCategories.favorites' => 'Favorieten',
 			'libraries.sortLabels.title' => 'Titel',
 			'libraries.sortLabels.dateAdded' => 'Toegevoegd op',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.sortLabels.releaseDate' => 'Uitgavedatum',
 			'libraries.sortLabels.rating' => 'Beoordeling',
 			'libraries.sortLabels.communityRating' => 'Beoordeling door community',
@@ -4530,11 +4528,11 @@ extension on TranslationsNl {
 			'downloads.downloadQueued' => 'Download in wachtrij',
 			'downloads.downloadResumed' => 'Download hervat',
 			'downloads.serverErrorBitrate' => 'Serverfout: bestand overschrijdt mogelijk de externe bitrate-limiet',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.storageFull' => 'Downloads zijn gestopt omdat de opslag van het apparaat vol is. Maak ruimte vrij en probeer het opnieuw.',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} afleveringen in wachtrij voor download',
 			'downloads.downloadDeleted' => 'Download verwijderd',
+			_ => null,
+		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => '"${title}" van dit apparaat verwijderen?',
 			'downloads.cancelledDownloadTitle' => 'Geannuleerde download',
 			'downloads.cancelledDownloadMessage' => 'Deze download is geannuleerd. Wat wil je doen?',
@@ -4583,8 +4581,6 @@ extension on TranslationsNl {
 			'downloads.manageSyncRule' => 'Synchronisatie beheren',
 			'downloads.editEpisodeCount' => 'Aantal afleveringen',
 			'downloads.editSyncFilter' => 'Synchronisatiefilter',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.syncAllItems' => 'Alle items synchroniseren',
 			'downloads.syncUnwatchedItems' => 'Ongekeken items synchroniseren',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Server: ${server} • ${status}',

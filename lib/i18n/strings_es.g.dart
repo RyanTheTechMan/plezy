@@ -2304,6 +2304,7 @@ class _Translations$videoControls$clip$es extends Translations$videoControls$cli
 	final TranslationsEs _root; // ignore: unused_field
 
 	// Translations
+	@override String get fineAdjust => 'Ajuste fino';
 	@override String get title => 'Acortar';
 	@override String get vodOnly => 'Los clips están disponibles para reproducción de vídeo bajo demanda.';
 	@override String get sourceUnavailable => 'La fuente del clip no está disponible para esta sesión de reproducción.';
@@ -3498,12 +3499,12 @@ extension on TranslationsEs {
 			'fileInfo.size' => 'Tamaño',
 			'fileInfo.totalSize' => 'Tamaño total',
 			'fileInfo.container' => 'Contenedor',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.duration' => 'Duración',
 			'fileInfo.previewThumbnails' => 'Miniaturas de vista previa',
 			'fileInfo.previewIndex' => 'Índice de vista previa',
 			'fileInfo.packetLength' => 'Longitud del paquete',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Archivo presente',
 			'fileInfo.fileReadable' => 'Legible por el servidor',
 			'fileInfo.streamPath' => 'Ruta del flujo',
@@ -3515,8 +3516,6 @@ extension on TranslationsEs {
 			'fileInfo.optimizedVersion' => 'Versión optimizada',
 			'fileInfo.optimizationTarget' => 'Destino de optimización',
 			'fileInfo.deletedAt' => 'Eliminado',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.remoteSource' => 'Origen remoto',
 			'fileInfo.infiniteStream' => 'Flujo infinito',
 			'fileInfo.directPlay' => 'Reproducción directa',
@@ -3669,6 +3668,7 @@ extension on TranslationsEs {
 			'videoControls.pipActive' => 'Reproduciendo en modo de imagen en imagen',
 			'videoControls.pipFailed' => 'No se pudo iniciar el modo de imagen en imagen',
 			'videoControls.screenshotSaved' => 'Captura de pantalla guardada',
+			'videoControls.clip.fineAdjust' => 'Ajuste fino',
 			'videoControls.clip.title' => 'Acortar',
 			'videoControls.clip.vodOnly' => 'Los clips están disponibles para reproducción de vídeo bajo demanda.',
 			'videoControls.clip.sourceUnavailable' => 'La fuente del clip no está disponible para esta sesión de reproducción.',
@@ -4014,11 +4014,11 @@ extension on TranslationsEs {
 			'libraries.failedToEmptyTrash' => ({required Object error}) => 'Error al vaciar papelera: ${error}',
 			'libraries.analyzing' => ({required Object title}) => 'Analizando "${title}"...',
 			'libraries.analysisStarted' => ({required Object title}) => 'Análisis iniciado para "${title}"',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Error al analizar la biblioteca: ${error}',
 			'libraries.noLibrariesFound' => 'No se encontraron bibliotecas',
 			'libraries.allLibrariesHidden' => 'Todas las bibliotecas están ocultas',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Bibliotecas ocultas (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Esta biblioteca está vacía',
 			'libraries.noItemsMatchFilters' => 'Ningún elemento coincide con los filtros activos',
@@ -4067,8 +4067,6 @@ extension on TranslationsEs {
 			'libraries.filterCategories.favorites' => 'Favoritos',
 			'libraries.sortLabels.title' => 'Título',
 			'libraries.sortLabels.dateAdded' => 'Fecha de adición',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.sortLabels.releaseDate' => 'Fecha de estreno',
 			'libraries.sortLabels.rating' => 'Valoración',
 			'libraries.sortLabels.communityRating' => 'Valoración de la comunidad',
@@ -4530,11 +4528,11 @@ extension on TranslationsEs {
 			'downloads.downloadQueued' => 'Descarga en cola',
 			'downloads.downloadResumed' => 'Descarga reanudada',
 			'downloads.serverErrorBitrate' => 'Error del servidor: el archivo puede superar el límite remoto de tasa de bits',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.storageFull' => 'Las descargas se detuvieron porque el almacenamiento del dispositivo está lleno. Libera espacio e inténtalo de nuevo.',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} episodios en cola para descargar',
 			'downloads.downloadDeleted' => 'Descarga eliminada',
+			_ => null,
+		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => '¿Eliminar "${title}" de este dispositivo?',
 			'downloads.cancelledDownloadTitle' => 'Descarga cancelada',
 			'downloads.cancelledDownloadMessage' => 'Esta descarga se canceló. ¿Qué quieres hacer?',
@@ -4583,8 +4581,6 @@ extension on TranslationsEs {
 			'downloads.manageSyncRule' => 'Gestionar sincronización',
 			'downloads.editEpisodeCount' => 'Número de episodios',
 			'downloads.editSyncFilter' => 'Filtro de sincronización',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.syncAllItems' => 'Sincronizando todos los elementos',
 			'downloads.syncUnwatchedItems' => 'Sincronizando elementos no vistos',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Servidor: ${server} • ${status}',

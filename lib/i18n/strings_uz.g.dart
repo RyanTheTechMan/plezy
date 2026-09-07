@@ -401,6 +401,17 @@ class _Translations$settings$uz extends Translations$settings$en {
 	@override String get downloadLocationReset => 'Yuklash joyi standart holatga qaytarildi';
 	@override String get downloadLocationInvalid => 'Tanlangan jildga yozib boʻlmadi';
 	@override String get downloadLocationPickerUnavailable => 'Ushbu qurilmada jildni tanlash imkoniyati yoʻq';
+	@override String get downloadLocationSelectError => 'Jildni tanlab boʻlmadi';
+	@override String get mediaCapture => 'Media yozib olish';
+	@override String get clips => 'Kliplar';
+	@override String get screenshots => 'Ekran tasvirlari';
+	@override String captureLocationTitle({required Object title}) => '${title} saqlash joyi';
+	@override String get clipLocationDescription => 'Kliplar qayerga saqlanishini tanlang.';
+	@override String get screenshotLocationDescription => 'Ekran tasvirlari qayerga saqlanishini tanlang.';
+	@override String get clipLocationChanged => 'Kliplarni saqlash joyi oʻzgartirildi';
+	@override String get screenshotLocationChanged => 'Ekran tasvirlarini saqlash joyi oʻzgartirildi';
+	@override String get clipLocationReset => 'Kliplarni saqlash joyi Ish stoliga qaytarildi';
+	@override String get screenshotLocationReset => 'Ekran tasvirlarini saqlash joyi Ish stoliga qaytarildi';
 	@override String get downloadOnWifiOnly => 'Faqat Wi-Fi orqali yuklash';
 	@override String get downloadOnWifiOnlyDescription => 'Mobil tarmoqdan foydalanilganda yuklashni toʻxtatib turish';
 	@override String get autoRemoveWatchedDownloads => 'Koʻrilgan yuklamalarni avtomatik oʻchirish';
@@ -853,6 +864,7 @@ class _Translations$videoControls$uz extends Translations$videoControls$en {
 	@override String get pipActive => 'Rasm ichida rasm rejimida ijro etilmoqda';
 	@override String get pipFailed => 'PiP rejimini ishga tushirishda xatolik';
 	@override String get screenshotSaved => 'Ekran tasviri saqlandi';
+	@override late final _Translations$videoControls$clip$uz clip = _Translations$videoControls$clip$uz._(_root);
 	@override String zoomPercent({required Object percent}) => 'Masshtab %${percent}';
 	@override late final _Translations$videoControls$pipErrors$uz pipErrors = _Translations$videoControls$pipErrors$uz._(_root);
 	@override String get chapters => 'Boʻlimlar';
@@ -2285,6 +2297,52 @@ class _Translations$hotkeys$actions$uz extends Translations$hotkeys$actions$en {
 	@override String get screenshot => 'Ekran tasvirini olish';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$uz extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$uz._(TranslationsUz root) : this._root = root, super.internal(root);
+
+	final TranslationsUz _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Aniq sozlash';
+	@override String get title => 'Klip';
+	@override String get vodOnly => 'Kliplar talab boʻyicha video ijro etilganda mavjud.';
+	@override String get sourceUnavailable => 'Ushbu ijro seansi uchun klip manbasi mavjud emas.';
+	@override String get playAtLeastOneSecond => 'Klip yaratishdan oldin kamida 1 soniya ijro eting.';
+	@override String get startBeforeBeginning => 'Klip boshlanishi video boshidan oldin boʻlishi mumkin emas.';
+	@override String get endAfterStart => 'Klip oxiri uning boshlanishidan keyin boʻlishi kerak.';
+	@override String get minimumDuration => 'Kliplar kamida 1 soniya uzunlikda boʻlishi kerak.';
+	@override String get endPastVideo => 'Klip oxiri video oxiridan oshib ketgan.';
+	@override String get exportCanceled => 'Klipni eksport qilish bekor qilindi.';
+	@override String get cacheUnavailable => 'Asl nusxa formatida eksport qilish uchun tanlangan oraliqni toʻliq keshlash imkoni boʻlmadi. Qisqaroq klip tanlang yoki saqlashdan oldin oldindan koʻrishni bir marta ijro eting.';
+	@override String get sourceCopyNoEncoder => 'Manbani nusxalash orqali eksport qilishda kodlovchi ishlatilmaydi.';
+	@override String get encodingDesktopOnly => 'Kliplarni H.264 va HEVC formatlarida kodlash hozirda macOS va Windows tizimlarida mavjud.';
+	@override String get hdrRequiresSource => 'HDR eksporti toʻgʻridan-toʻgʻri ijro etiladigan, HDR10 yoki HLG bilan mos manbani talab qiladi.';
+	@override String get transcodeStartUnavailable => 'Bu klip faol qayta kodlangan oqimdan oldin boshlanadi. Oldinroq vaqtga oʻtib, klip muharririni qayta oching yoki asl sifatga oʻting.';
+	@override String get previewRequired => 'Klipni saqlashdan oldin oldindan koʻrish yuklanishi tugashi kerak.';
+	@override String get h264Failed => 'Bu manbani H.264 SDR MP4 formatida kodlab boʻlmadi.';
+	@override String get hevcSdrFailed => 'Bu manbani HEVC SDR MP4 formatida kodlab boʻlmadi.';
+	@override String get hevcHdrFailed => 'Bu manbani HEVC HDR MP4 formatida kodlab boʻlmadi.';
+	@override String get gifFailed => 'Bu manbani GIF formatida kodlab boʻlmadi.';
+	@override String get originalFailed => 'Bu manbani mpv keshidan nusxalab boʻlmadi.';
+	@override String get previewUnavailable => 'Ushbu versiyada klipni oldindan ijro etish mavjud emas.';
+	@override String get previewFailed => 'Klipni oldindan ijro etib boʻlmadi.';
+	@override String get previewLoadingScreenshot => 'Ekran tasvirini olishdan oldin klipni oldindan koʻrish yuklanishi tugashi kerak.';
+	@override String get screenshotInProgress => 'Ekran tasviri allaqachon saqlanmoqda.';
+	@override String get saveAsDialog => 'Klipni boshqacha saqlash';
+	@override String savedTo({required Object fileName}) => '${fileName} fayliga saqlandi';
+	@override String get openFolder => 'Jildni ochish';
+	@override String get saveAs => 'Boshqacha saqlash';
+	@override String get cancelExport => 'Eksportni bekor qilish';
+	@override String get saving => 'Saqlanmoqda...';
+	@override String savingProgress({required Object percent}) => 'Saqlanmoqda: ${percent}%';
+	@override String get mutePreview => 'Oldindan koʻrish ovozini oʻchirish';
+	@override String get unmutePreview => 'Oldindan koʻrish ovozini yoqish';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: videoControls.pipErrors
 class _Translations$videoControls$pipErrors$uz extends Translations$videoControls$pipErrors$en {
 	_Translations$videoControls$pipErrors$uz._(TranslationsUz root) : this._root = root, super.internal(root);
@@ -3211,6 +3269,17 @@ extension on TranslationsUz {
 			'settings.downloadLocationReset' => 'Yuklash joyi standart holatga qaytarildi',
 			'settings.downloadLocationInvalid' => 'Tanlangan jildga yozib boʻlmadi',
 			'settings.downloadLocationPickerUnavailable' => 'Ushbu qurilmada jildni tanlash imkoniyati yoʻq',
+			'settings.downloadLocationSelectError' => 'Jildni tanlab boʻlmadi',
+			'settings.mediaCapture' => 'Media yozib olish',
+			'settings.clips' => 'Kliplar',
+			'settings.screenshots' => 'Ekran tasvirlari',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} saqlash joyi',
+			'settings.clipLocationDescription' => 'Kliplar qayerga saqlanishini tanlang.',
+			'settings.screenshotLocationDescription' => 'Ekran tasvirlari qayerga saqlanishini tanlang.',
+			'settings.clipLocationChanged' => 'Kliplarni saqlash joyi oʻzgartirildi',
+			'settings.screenshotLocationChanged' => 'Ekran tasvirlarini saqlash joyi oʻzgartirildi',
+			'settings.clipLocationReset' => 'Kliplarni saqlash joyi Ish stoliga qaytarildi',
+			'settings.screenshotLocationReset' => 'Ekran tasvirlarini saqlash joyi Ish stoliga qaytarildi',
 			'settings.downloadOnWifiOnly' => 'Faqat Wi-Fi orqali yuklash',
 			'settings.downloadOnWifiOnlyDescription' => 'Mobil tarmoqdan foydalanilganda yuklashni toʻxtatib turish',
 			'settings.autoRemoveWatchedDownloads' => 'Koʻrilgan yuklamalarni avtomatik oʻchirish',
@@ -3434,6 +3503,8 @@ extension on TranslationsUz {
 			'fileInfo.previewThumbnails' => 'Oldindan koʻrish eskizlari',
 			'fileInfo.previewIndex' => 'Oldindan koʻrish indeksi',
 			'fileInfo.packetLength' => 'Paket uzunligi',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Fayl mavjud',
 			'fileInfo.fileReadable' => 'Server tomonidan oʻqiladigan',
 			'fileInfo.streamPath' => 'Oqim yoʻli',
@@ -3445,8 +3516,6 @@ extension on TranslationsUz {
 			'fileInfo.optimizedVersion' => 'Optimallashtirilgan versiya',
 			'fileInfo.optimizationTarget' => 'Optimallashtirish maqsadi',
 			'fileInfo.deletedAt' => 'Oʻchirilgan',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.remoteSource' => 'Masofaviy manba',
 			'fileInfo.infiniteStream' => 'Cheksiz oqim',
 			'fileInfo.directPlay' => 'Toʻgʻridan-toʻgʻri ijro',
@@ -3599,6 +3668,43 @@ extension on TranslationsUz {
 			'videoControls.pipActive' => 'Rasm ichida rasm rejimida ijro etilmoqda',
 			'videoControls.pipFailed' => 'PiP rejimini ishga tushirishda xatolik',
 			'videoControls.screenshotSaved' => 'Ekran tasviri saqlandi',
+			'videoControls.clip.fineAdjust' => 'Aniq sozlash',
+			'videoControls.clip.title' => 'Klip',
+			'videoControls.clip.vodOnly' => 'Kliplar talab boʻyicha video ijro etilganda mavjud.',
+			'videoControls.clip.sourceUnavailable' => 'Ushbu ijro seansi uchun klip manbasi mavjud emas.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Klip yaratishdan oldin kamida 1 soniya ijro eting.',
+			'videoControls.clip.startBeforeBeginning' => 'Klip boshlanishi video boshidan oldin boʻlishi mumkin emas.',
+			'videoControls.clip.endAfterStart' => 'Klip oxiri uning boshlanishidan keyin boʻlishi kerak.',
+			'videoControls.clip.minimumDuration' => 'Kliplar kamida 1 soniya uzunlikda boʻlishi kerak.',
+			'videoControls.clip.endPastVideo' => 'Klip oxiri video oxiridan oshib ketgan.',
+			'videoControls.clip.exportCanceled' => 'Klipni eksport qilish bekor qilindi.',
+			'videoControls.clip.cacheUnavailable' => 'Asl nusxa formatida eksport qilish uchun tanlangan oraliqni toʻliq keshlash imkoni boʻlmadi. Qisqaroq klip tanlang yoki saqlashdan oldin oldindan koʻrishni bir marta ijro eting.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Manbani nusxalash orqali eksport qilishda kodlovchi ishlatilmaydi.',
+			'videoControls.clip.encodingDesktopOnly' => 'Kliplarni H.264 va HEVC formatlarida kodlash hozirda macOS va Windows tizimlarida mavjud.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR eksporti toʻgʻridan-toʻgʻri ijro etiladigan, HDR10 yoki HLG bilan mos manbani talab qiladi.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Bu klip faol qayta kodlangan oqimdan oldin boshlanadi. Oldinroq vaqtga oʻtib, klip muharririni qayta oching yoki asl sifatga oʻting.',
+			'videoControls.clip.previewRequired' => 'Klipni saqlashdan oldin oldindan koʻrish yuklanishi tugashi kerak.',
+			'videoControls.clip.h264Failed' => 'Bu manbani H.264 SDR MP4 formatida kodlab boʻlmadi.',
+			'videoControls.clip.hevcSdrFailed' => 'Bu manbani HEVC SDR MP4 formatida kodlab boʻlmadi.',
+			'videoControls.clip.hevcHdrFailed' => 'Bu manbani HEVC HDR MP4 formatida kodlab boʻlmadi.',
+			'videoControls.clip.gifFailed' => 'Bu manbani GIF formatida kodlab boʻlmadi.',
+			'videoControls.clip.originalFailed' => 'Bu manbani mpv keshidan nusxalab boʻlmadi.',
+			'videoControls.clip.previewUnavailable' => 'Ushbu versiyada klipni oldindan ijro etish mavjud emas.',
+			'videoControls.clip.previewFailed' => 'Klipni oldindan ijro etib boʻlmadi.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Ekran tasvirini olishdan oldin klipni oldindan koʻrish yuklanishi tugashi kerak.',
+			'videoControls.clip.screenshotInProgress' => 'Ekran tasviri allaqachon saqlanmoqda.',
+			'videoControls.clip.saveAsDialog' => 'Klipni boshqacha saqlash',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => '${fileName} fayliga saqlandi',
+			'videoControls.clip.openFolder' => 'Jildni ochish',
+			'videoControls.clip.saveAs' => 'Boshqacha saqlash',
+			'videoControls.clip.cancelExport' => 'Eksportni bekor qilish',
+			'videoControls.clip.saving' => 'Saqlanmoqda...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Saqlanmoqda: ${percent}%',
+			'videoControls.clip.mutePreview' => 'Oldindan koʻrish ovozini oʻchirish',
+			'videoControls.clip.unmutePreview' => 'Oldindan koʻrish ovozini yoqish',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Masshtab %${percent}',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0 yoki undan yangisi talab qilinadi',
 			'videoControls.pipErrors.iosVersion' => 'iOS 15.0 yoki undan yangisi talab qilinadi',
@@ -3911,6 +4017,8 @@ extension on TranslationsUz {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Tahlil qilib boʻlmadi: ${error}',
 			'libraries.noLibrariesFound' => 'Kutubxonalar topilmadi',
 			'libraries.allLibrariesHidden' => 'Barcha kutubxonalar yashirilgan',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Yashirin kutubxonalar (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Ushbu kutubxona boʻsh',
 			'libraries.noItemsMatchFilters' => 'Filtrlarga mos keladigan elementlar topilmadi',
@@ -3959,8 +4067,6 @@ extension on TranslationsUz {
 			'libraries.filterCategories.favorites' => 'Tanlanganlar',
 			'libraries.sortLabels.title' => 'Nomi',
 			'libraries.sortLabels.dateAdded' => 'Qoʻshilgan sanasi',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.sortLabels.releaseDate' => 'Chıqqan sanasi',
 			'libraries.sortLabels.rating' => 'Reyting',
 			'libraries.sortLabels.communityRating' => 'Hamjamiyat reytingi',
@@ -4425,6 +4531,8 @@ extension on TranslationsUz {
 			'downloads.storageFull' => 'Xotira toʻlganligi sababli yuklash toʻxtatildi.',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} qism yuklash navbatiga qoʻshildi',
 			'downloads.downloadDeleted' => 'Yuklama oʻchirildi',
+			_ => null,
+		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => '"${title}" ushbu qurilmadan oʻchirilsinmi?',
 			'downloads.cancelledDownloadTitle' => 'Toʻxtatilgan yuklama',
 			'downloads.cancelledDownloadMessage' => 'Ushbu yuklash toʻxtatildi.',
@@ -4473,8 +4581,6 @@ extension on TranslationsUz {
 			'downloads.manageSyncRule' => 'Sinxronlashni boshqarish',
 			'downloads.editEpisodeCount' => 'Qismlar soni',
 			'downloads.editSyncFilter' => 'Sinxronlash filtri',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.syncAllItems' => 'Barcha elementlar sinxronlanadi',
 			'downloads.syncUnwatchedItems' => 'Koʻrilmagan elementlar sinxronlanadi',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Server: ${server} • ${status}',
