@@ -401,6 +401,17 @@ class _Translations$settings$az extends Translations$settings$en {
 	@override String get downloadLocationReset => 'Yükləmə məkanı defolt vəziyyətə sıfırlandı';
 	@override String get downloadLocationInvalid => 'Seçilmiş qovluğa yazmaq olmur';
 	@override String get downloadLocationPickerUnavailable => 'Qovluq seçimi bu cihazda əlçatan deyil';
+	@override String get downloadLocationSelectError => 'Qovluq seçilə bilmədi';
+	@override String get mediaCapture => 'Media qeydi';
+	@override String get clips => 'Kliplər';
+	@override String get screenshots => 'Ekran şəkilləri';
+	@override String captureLocationTitle({required Object title}) => '${title} üçün saxlama yeri';
+	@override String get clipLocationDescription => 'Kliplərin harada saxlanacağını seçin.';
+	@override String get screenshotLocationDescription => 'Ekran şəkillərinin harada saxlanacağını seçin.';
+	@override String get clipLocationChanged => 'Kliplərin saxlama yeri dəyişdirildi';
+	@override String get screenshotLocationChanged => 'Ekran şəkillərinin saxlama yeri dəyişdirildi';
+	@override String get clipLocationReset => 'Kliplərin saxlama yeri İş masasına qaytarıldı';
+	@override String get screenshotLocationReset => 'Ekran şəkillərinin saxlama yeri İş masasına qaytarıldı';
 	@override String get downloadOnWifiOnly => 'Yalnız Wi-Fi ilə yüklə';
 	@override String get downloadOnWifiOnlyDescription => 'Mobil məlumat istifadə edildikdə yükləmələri dayandır';
 	@override String get autoRemoveWatchedDownloads => 'Baxılmış yükləmələri avtomatik sil';
@@ -853,6 +864,7 @@ class _Translations$videoControls$az extends Translations$videoControls$en {
 	@override String get pipActive => 'Pəncərə daxilində pəncərə rejimində oynadılır';
 	@override String get pipFailed => 'PiP rejimi başladılarkən xəta';
 	@override String get screenshotSaved => 'Ekran şəkli yadda saxlanıldı';
+	@override late final _Translations$videoControls$clip$az clip = _Translations$videoControls$clip$az._(_root);
 	@override String zoomPercent({required Object percent}) => 'Miqyas %${percent}';
 	@override late final _Translations$videoControls$pipErrors$az pipErrors = _Translations$videoControls$pipErrors$az._(_root);
 	@override String get chapters => 'Hissələr';
@@ -2285,6 +2297,52 @@ class _Translations$hotkeys$actions$az extends Translations$hotkeys$actions$en {
 	@override String get screenshot => 'Ekran şəkli çək';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$az extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$az._(TranslationsAz root) : this._root = root, super.internal(root);
+
+	final TranslationsAz _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Dəqiq tənzimləmə';
+	@override String get title => 'Klip';
+	@override String get vodOnly => 'Kliplər tələb üzrə video oynatılması üçün əlçatandır.';
+	@override String get sourceUnavailable => 'Bu oynatma sessiyası üçün klip mənbəyi əlçatan deyil.';
+	@override String get playAtLeastOneSecond => 'Klip yaratmazdan əvvəl ən azı 1 saniyə oynadın.';
+	@override String get startBeforeBeginning => 'Klipin başlanğıcı videonun əvvəlindən öncə ola bilməz.';
+	@override String get endAfterStart => 'Klipin sonu başlanğıcından sonra olmalıdır.';
+	@override String get minimumDuration => 'Klipin uzunluğu ən azı 1 saniyə olmalıdır.';
+	@override String get endPastVideo => 'Klipin sonu videonun sonunu keçir.';
+	@override String get exportCanceled => 'Klipin ixracı ləğv edildi.';
+	@override String get cacheUnavailable => 'Orijinal formatda ixrac üçün seçilmiş aralıq tam keşlənə bilmədi. Daha qısa klip seçin və ya yadda saxlamazdan əvvəl önizləməni bir dəfə oynadın.';
+	@override String get sourceCopyNoEncoder => 'Mənbəni kopyalama ilə ixrac zamanı kodlayıcı istifadə edilmir.';
+	@override String get encodingDesktopOnly => 'H.264 və HEVC klip kodlaşdırması hazırda macOS və Windows-da əlçatandır.';
+	@override String get hdrRequiresSource => 'HDR ixracı birbaşa oynadıla bilən HDR10 və ya HLG uyğun mənbə tələb edir.';
+	@override String get transcodeStartUnavailable => 'Bu klip aktiv transkodlaşdırılmış axından əvvəl başlayır. Daha əvvəlki vaxta keçib klip yaratma pəncərəsini yenidən açın və ya orijinal keyfiyyətə keçin.';
+	@override String get previewRequired => 'Klipi yadda saxlamaq üçün önizləmənin yüklənməsi tamamlanmalıdır.';
+	@override String get h264Failed => 'Bu mənbə H.264 SDR MP4 formatında kodlaşdırıla bilmədi.';
+	@override String get hevcSdrFailed => 'Bu mənbə HEVC SDR MP4 formatında kodlaşdırıla bilmədi.';
+	@override String get hevcHdrFailed => 'Bu mənbə HEVC HDR MP4 formatında kodlaşdırıla bilmədi.';
+	@override String get gifFailed => 'Bu mənbə GIF formatında kodlaşdırıla bilmədi.';
+	@override String get originalFailed => 'Bu mənbə mpv keşindən kopyalana bilmədi.';
+	@override String get previewUnavailable => 'Bu versiyada klip önizləməsinin oynadılması əlçatan deyil.';
+	@override String get previewFailed => 'Klip önizləməsinin oynadılması uğursuz oldu.';
+	@override String get previewLoadingScreenshot => 'Ekran şəkli çəkməzdən əvvəl klip önizləməsinin yüklənməsi tamamlanmalıdır.';
+	@override String get screenshotInProgress => 'Ekran şəkli artıq yadda saxlanılır.';
+	@override String get saveAsDialog => 'Klipi fərqli saxla';
+	@override String savedTo({required Object fileName}) => '${fileName} faylına yadda saxlanıldı';
+	@override String get openFolder => 'Qovluğu aç';
+	@override String get saveAs => 'Fərqli saxla';
+	@override String get cancelExport => 'İxracı ləğv et';
+	@override String get saving => 'Yadda saxlanılır...';
+	@override String savingProgress({required Object percent}) => 'Yadda saxlanılır: ${percent}%';
+	@override String get mutePreview => 'Önizləmənin səsini söndür';
+	@override String get unmutePreview => 'Önizləmənin səsini aç';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: videoControls.pipErrors
 class _Translations$videoControls$pipErrors$az extends Translations$videoControls$pipErrors$en {
 	_Translations$videoControls$pipErrors$az._(TranslationsAz root) : this._root = root, super.internal(root);
@@ -3211,6 +3269,17 @@ extension on TranslationsAz {
 			'settings.downloadLocationReset' => 'Yükləmə məkanı defolt vəziyyətə sıfırlandı',
 			'settings.downloadLocationInvalid' => 'Seçilmiş qovluğa yazmaq olmur',
 			'settings.downloadLocationPickerUnavailable' => 'Qovluq seçimi bu cihazda əlçatan deyil',
+			'settings.downloadLocationSelectError' => 'Qovluq seçilə bilmədi',
+			'settings.mediaCapture' => 'Media qeydi',
+			'settings.clips' => 'Kliplər',
+			'settings.screenshots' => 'Ekran şəkilləri',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} üçün saxlama yeri',
+			'settings.clipLocationDescription' => 'Kliplərin harada saxlanacağını seçin.',
+			'settings.screenshotLocationDescription' => 'Ekran şəkillərinin harada saxlanacağını seçin.',
+			'settings.clipLocationChanged' => 'Kliplərin saxlama yeri dəyişdirildi',
+			'settings.screenshotLocationChanged' => 'Ekran şəkillərinin saxlama yeri dəyişdirildi',
+			'settings.clipLocationReset' => 'Kliplərin saxlama yeri İş masasına qaytarıldı',
+			'settings.screenshotLocationReset' => 'Ekran şəkillərinin saxlama yeri İş masasına qaytarıldı',
 			'settings.downloadOnWifiOnly' => 'Yalnız Wi-Fi ilə yüklə',
 			'settings.downloadOnWifiOnlyDescription' => 'Mobil məlumat istifadə edildikdə yükləmələri dayandır',
 			'settings.autoRemoveWatchedDownloads' => 'Baxılmış yükləmələri avtomatik sil',
@@ -3434,6 +3503,8 @@ extension on TranslationsAz {
 			'fileInfo.previewThumbnails' => 'Önizləmə miniatürləri',
 			'fileInfo.previewIndex' => 'Önizləmə indeksi',
 			'fileInfo.packetLength' => 'Paket uzunluğu',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Fayl mövcuddur',
 			'fileInfo.fileReadable' => 'Server tərəfindən oxuna bilir',
 			'fileInfo.streamPath' => 'Axın yolu',
@@ -3445,8 +3516,6 @@ extension on TranslationsAz {
 			'fileInfo.optimizedVersion' => 'Optimallaşdırılmış versiya',
 			'fileInfo.optimizationTarget' => 'Optimallaşdırma hədəfi',
 			'fileInfo.deletedAt' => 'Silinib',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.remoteSource' => 'Uzaq mənbə',
 			'fileInfo.infiniteStream' => 'Sonsuz axın',
 			'fileInfo.directPlay' => 'Birbaşa oynatma',
@@ -3599,6 +3668,43 @@ extension on TranslationsAz {
 			'videoControls.pipActive' => 'Pəncərə daxilində pəncərə rejimində oynadılır',
 			'videoControls.pipFailed' => 'PiP rejimi başladılarkən xəta',
 			'videoControls.screenshotSaved' => 'Ekran şəkli yadda saxlanıldı',
+			'videoControls.clip.fineAdjust' => 'Dəqiq tənzimləmə',
+			'videoControls.clip.title' => 'Klip',
+			'videoControls.clip.vodOnly' => 'Kliplər tələb üzrə video oynatılması üçün əlçatandır.',
+			'videoControls.clip.sourceUnavailable' => 'Bu oynatma sessiyası üçün klip mənbəyi əlçatan deyil.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Klip yaratmazdan əvvəl ən azı 1 saniyə oynadın.',
+			'videoControls.clip.startBeforeBeginning' => 'Klipin başlanğıcı videonun əvvəlindən öncə ola bilməz.',
+			'videoControls.clip.endAfterStart' => 'Klipin sonu başlanğıcından sonra olmalıdır.',
+			'videoControls.clip.minimumDuration' => 'Klipin uzunluğu ən azı 1 saniyə olmalıdır.',
+			'videoControls.clip.endPastVideo' => 'Klipin sonu videonun sonunu keçir.',
+			'videoControls.clip.exportCanceled' => 'Klipin ixracı ləğv edildi.',
+			'videoControls.clip.cacheUnavailable' => 'Orijinal formatda ixrac üçün seçilmiş aralıq tam keşlənə bilmədi. Daha qısa klip seçin və ya yadda saxlamazdan əvvəl önizləməni bir dəfə oynadın.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Mənbəni kopyalama ilə ixrac zamanı kodlayıcı istifadə edilmir.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 və HEVC klip kodlaşdırması hazırda macOS və Windows-da əlçatandır.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR ixracı birbaşa oynadıla bilən HDR10 və ya HLG uyğun mənbə tələb edir.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Bu klip aktiv transkodlaşdırılmış axından əvvəl başlayır. Daha əvvəlki vaxta keçib klip yaratma pəncərəsini yenidən açın və ya orijinal keyfiyyətə keçin.',
+			'videoControls.clip.previewRequired' => 'Klipi yadda saxlamaq üçün önizləmənin yüklənməsi tamamlanmalıdır.',
+			'videoControls.clip.h264Failed' => 'Bu mənbə H.264 SDR MP4 formatında kodlaşdırıla bilmədi.',
+			'videoControls.clip.hevcSdrFailed' => 'Bu mənbə HEVC SDR MP4 formatında kodlaşdırıla bilmədi.',
+			'videoControls.clip.hevcHdrFailed' => 'Bu mənbə HEVC HDR MP4 formatında kodlaşdırıla bilmədi.',
+			'videoControls.clip.gifFailed' => 'Bu mənbə GIF formatında kodlaşdırıla bilmədi.',
+			'videoControls.clip.originalFailed' => 'Bu mənbə mpv keşindən kopyalana bilmədi.',
+			'videoControls.clip.previewUnavailable' => 'Bu versiyada klip önizləməsinin oynadılması əlçatan deyil.',
+			'videoControls.clip.previewFailed' => 'Klip önizləməsinin oynadılması uğursuz oldu.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Ekran şəkli çəkməzdən əvvəl klip önizləməsinin yüklənməsi tamamlanmalıdır.',
+			'videoControls.clip.screenshotInProgress' => 'Ekran şəkli artıq yadda saxlanılır.',
+			'videoControls.clip.saveAsDialog' => 'Klipi fərqli saxla',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => '${fileName} faylına yadda saxlanıldı',
+			'videoControls.clip.openFolder' => 'Qovluğu aç',
+			'videoControls.clip.saveAs' => 'Fərqli saxla',
+			'videoControls.clip.cancelExport' => 'İxracı ləğv et',
+			'videoControls.clip.saving' => 'Yadda saxlanılır...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Yadda saxlanılır: ${percent}%',
+			'videoControls.clip.mutePreview' => 'Önizləmənin səsini söndür',
+			'videoControls.clip.unmutePreview' => 'Önizləmənin səsini aç',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Miqyas %${percent}',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0 və ya daha yenisini tələb edir',
 			'videoControls.pipErrors.iosVersion' => 'iOS 15.0 və ya daha yenisini tələb edir',
@@ -3911,6 +4017,8 @@ extension on TranslationsAz {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Kitabxana analiz edilə bilmədi: ${error}',
 			'libraries.noLibrariesFound' => 'Kitabxana tapılmadı',
 			'libraries.allLibrariesHidden' => 'Bütün kitabxanalar gizlədilib',
+			_ => null,
+		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Gizli kitabxanalar (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Bu kitabxana boşdur',
 			'libraries.noItemsMatchFilters' => 'Filtrlərə uyğun element tapılmadı',
@@ -3959,8 +4067,6 @@ extension on TranslationsAz {
 			'libraries.filterCategories.favorites' => 'Sevimlilər',
 			'libraries.sortLabels.title' => 'Ad',
 			'libraries.sortLabels.dateAdded' => 'Əlavə olunma tarixi',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.sortLabels.releaseDate' => 'Buraxılış tarixi',
 			'libraries.sortLabels.rating' => 'Reytinq',
 			'libraries.sortLabels.communityRating' => 'İcma reytinqi',
@@ -4425,6 +4531,8 @@ extension on TranslationsAz {
 			'downloads.storageFull' => 'Cihaz yaddaşı dolu olduğu üçün yükləmə dayandırıldı.',
 			'downloads.episodesQueued' => ({required Object count}) => 'Yükləmə üçün ${count} seriya növbəyə alındı',
 			'downloads.downloadDeleted' => 'Yükləmə silindi',
+			_ => null,
+		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => '"${title}" bu cihazdan silinsin?',
 			'downloads.cancelledDownloadTitle' => 'Ləğv edilmiş yükləmə',
 			'downloads.cancelledDownloadMessage' => 'Bu yükləmə ləğv edildi. Nə etmək istərdiniz?',
@@ -4473,8 +4581,6 @@ extension on TranslationsAz {
 			'downloads.manageSyncRule' => 'Eyniləşdirməni idarə et',
 			'downloads.editEpisodeCount' => 'Seriya sayı',
 			'downloads.editSyncFilter' => 'Eyniləşdirmə filtri',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.syncAllItems' => 'Bütün elementlər eyniləşdirilir',
 			'downloads.syncUnwatchedItems' => 'Baxılmayan elementlər eyniləşdirilir',
 			'downloads.syncRuleServerContext' => ({required Object server, required Object status}) => 'Server: ${server} • ${status}',
