@@ -99,7 +99,7 @@ class _Translations$app$ru extends Translations$app$en {
 	final TranslationsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -216,6 +216,14 @@ class _Translations$update$ru extends Translations$update$en {
 	@override String get viewRelease => 'Посмотреть релиз';
 	@override String get latestVersion => 'У вас последняя версия';
 	@override String get checkFailed => 'Не удалось проверить обновления';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -299,6 +307,7 @@ class _Translations$settings$ru extends Translations$settings$en {
 	@override String get mpv => 'mpv';
 	@override String get hardwareDecoding => 'Аппаратное декодирование';
 	@override String get hardwareDecodingDescription => 'Использовать аппаратное ускорение, когда доступно';
+	@override String get packedStereoUi => '3D Playback UI';
 	@override String get playbackBuffer => 'Буфер воспроизведения';
 	@override String get playbackBufferAuto => 'Авто (рекомендуется)';
 	@override String get playbackBufferLarge => 'Большой';
@@ -318,6 +327,7 @@ class _Translations$settings$ru extends Translations$settings$en {
 	@override String minutesUnit({required Object minutes}) => '${minutes} мин';
 	@override String get rememberTrackSelections => 'Запоминать выбор дорожек для каждого сериала/фильма';
 	@override String get rememberTrackSelectionsDescription => 'Запоминать выбор аудиодорожки и субтитров для каждого материала';
+	@override String get rememberTrackSelectionsBackendRule => 'Plex saves each choice on the server per file; Jellyfin also turns on the account\'s Remember selections; Emby is not supported';
 	@override String get followServerTrackSelections => 'Использовать выбор дорожек сервера для каждой серии';
 	@override String get followServerTrackSelectionsDescription => 'При смене серии применять аудио и субтитры, выбранные на сервере, вместо переноса текущего выбора';
 	@override String get resumeMusicOnLaunch => 'Запоминать музыкальную сессию';
@@ -443,6 +453,7 @@ class _Translations$settings$ru extends Translations$settings$en {
 	@override String get audioPassthrough => 'Сквозной вывод аудио';
 	@override String get audioPassthroughDescription => 'Передавать звук Dolby/DTS на ресивер или телевизор без перекодирования, сохраняя объёмный звук. Отключите, если нет звука.';
 	@override String get audioPassthroughDescriptionAppleTv => 'Использовать встроенный декодер Dolby от Apple для Dolby Digital Plus, включая Atmos. DTS и TrueHD по-прежнему воспроизводятся как многоканальный PCM. Отключите, если звук отсутствует.';
+	@override String get audioPassthroughOverriddenByNormalization => 'Off while loudness normalization is on';
 	@override String get audioDownmix => 'Микширование в стерео';
 	@override String get audioDownmixDescription => 'Микширует объёмный звук в два канала для стереодинамиков или наушников';
 	@override String get downmixCenterBoost => 'Усиление центрального канала';
@@ -516,6 +527,29 @@ class _Translations$settings$ru extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Для библиотеки';
 	@override String get playerScopeTitle => 'Для сериала или фильма';
 	@override String get exportDialogTitle => 'Экспорт настроек Plezy';
+	@override String get showWatchedIndicators => 'Show Watched Indicators';
+	@override String get showWatchedIndicatorsDescription => 'Display a checkmark on watched movies, shows, and episodes';
+	@override String get directPlayCoveredQuality => 'Play Smaller Videos at Original Quality';
+	@override String get directPlayCoveredQualityDescription => 'Direct play videos already within the quality limit instead of transcoding them';
+	@override String get skipIntroMode => 'Skip Intro';
+	@override String get skipIntroModeOffDescription => 'Play intros normally without a skip button';
+	@override String get skipIntroModeButtonDescription => 'Show a skip button when an intro starts';
+	@override String get skipIntroModeAutoDescription => 'Skip intros automatically after the delay below';
+	@override String get skipCreditsMode => 'Skip Credits';
+	@override String get skipCreditsModeOffDescription => 'Play credits normally without a skip button';
+	@override String get skipCreditsModeButtonDescription => 'Show a skip button when credits start';
+	@override String get skipCreditsModeAutoDescription => 'Skip credits automatically and play the next episode';
+	@override String get skipMarkerModeOff => 'Off';
+	@override String get skipMarkerModeButton => 'Show button';
+	@override String get skipMarkerModeAuto => 'Automatic';
+	@override String get rememberBrightnessLevel => 'Remember Brightness Level';
+	@override String get rememberBrightnessLevelDescription => 'Start playback at the brightness set by the last swipe';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
 }
 
 // Path: search
@@ -810,6 +844,10 @@ class _Translations$videoControls$ru extends Translations$videoControls$en {
 	final TranslationsRu _root; // ignore: unused_field
 
 	// Translations
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ru'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override String get audioLabel => 'Аудио';
 	@override String get subtitlesLabel => 'Субтитры';
 	@override String addTime({required Object amount, required Object unit}) => '+${amount}${unit}';
@@ -856,6 +894,7 @@ class _Translations$videoControls$ru extends Translations$videoControls$en {
 	@override String get subtitleUnavailableFallback => 'Не удалось загрузить выбранные субтитры — воспроизведение продолжится без субтитров';
 	@override String get pipButton => 'Режим «картинка в картинке»';
 	@override String get aspectRatioButton => 'Соотношение сторон';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 	@override String get ambientLighting => 'Фоновая подсветка';
 	@override String get fullscreenButton => 'Полноэкранный режим';
 	@override String get exitFullscreenButton => 'Выйти из полноэкранного режима';
@@ -925,6 +964,9 @@ class _Translations$messages$ru extends Translations$messages$en {
 	@override String get playbackDataInvalid => 'Сервер вернул некорректные сведения для воспроизведения.';
 	@override String get playbackCancelled => 'Воспроизведение отменено.';
 	@override String get playbackFailed => 'Не удалось начать воспроизведение.';
+	@override String playbackFailedDetail({required Object error}) => 'Playback could not be started: ${error}';
+	@override String get audioOutputFailed => 'The audio output stopped responding. Check the TV or receiver\'s audio connection; if other apps have no sound either, restart the device.';
+	@override String get mediaUnavailable => 'This content is no longer available.';
 	@override String errorLoadingFileInfo({required Object error}) => 'Ошибка загрузки информации о файле: ${error}';
 	@override String get errorLoadingSeries => 'Ошибка загрузки сериала';
 	@override String get musicNotSupported => 'Воспроизведение музыки пока не поддерживается';
@@ -968,6 +1010,7 @@ class _Translations$messages$ru extends Translations$messages$en {
 	@override String get playbackDataNotPrepared => 'Воспроизведение началось до того, как данные были готовы';
 	@override String get streamSelectionUnavailable => 'Выбор потоков недоступен для этого источника';
 	@override String get streamSelectionFailed => 'Не удалось применить выбранные потоки';
+	@override String get trackSelectionNotRemembered => 'This track choice applies to the current playback only.';
 	@override String get serverUnavailableForProfile => 'Для активного профиля нет доступных серверов';
 }
 
@@ -994,6 +1037,8 @@ class _Translations$subtitlingStyling$ru extends Translations$subtitlingStyling$
 	@override String get overrideStrip => 'Удалить стили';
 	@override String get positionTop => 'Сверху';
 	@override String get positionBottom => 'Снизу';
+	@override String get useMargins => 'Use margins';
+	@override String get useMarginsDescription => 'Allow text subtitles in the space outside the video. Styled subtitles may keep their original placement.';
 	@override String get anchorToScreen => 'Привязка к экрану';
 	@override String get anchorToScreenDescription => 'Показывать текстовые субтитры в чёрных полосах под широкоформатным видео';
 	@override String get bold => 'Жирный';
@@ -1024,6 +1069,9 @@ class _Translations$mpvConfig$ru extends Translations$mpvConfig$en {
 	@override String get presetDeleted => 'Пресет удалён';
 	@override String get confirmDeletePreset => 'Вы уверены, что хотите удалить этот пресет?';
 	@override String get configPlaceholder => 'gpu-api=vulkan\nhwdec=auto\n# comment';
+	@override String get lineHint => 'option=value';
+	@override String get addLine => 'Add line';
+	@override String get removeLine => 'Remove line';
 	@override String get embeddedVoHint => 'vo, gpu-context и gpu-api игнорируются в Linux: встроенное видео всегда отображается через vo=libmpv на видеоплоскости, а gpu-next (нужный для compute-шейдеров вроде ArtCNN) не может работать во встроенном режиме.';
 }
 
@@ -1296,6 +1344,9 @@ class _Translations$about$ru extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Версия ${version}';
 	@override String get appDescription => 'Красивый клиент Plex и Jellyfin на Flutter';
 	@override String get viewLicensesDescription => 'Просмотр лицензий сторонних библиотек';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1426,9 +1477,14 @@ class _Translations$explore$ru extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Удалено из списка просмотра';
 	@override String get watchlistUpdateFailed => 'Не удалось обновить список для просмотра';
 	@override String get watchlistNoMatch => 'Не удалось сопоставить этот элемент со списком просмотра';
+	@override String get openInLibrary => 'Открыть в библиотеке';
 	@override String get notInLibrary => 'Нет в вашей библиотеке';
 	@override String get inTheseLibraries => 'В этих библиотеках';
 	@override String get checkingLibrary => 'Проверка вашей библиотеки...';
+	@override String libraryCheckFailed({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ru'))(n,
+		one: 'Couldn\'t check ${n} server',
+		other: 'Couldn\'t check ${n} servers',
+	);
 	@override String get emptyTitle => 'Здесь пока ничего нет';
 	@override String emptyMessage({required Object source}) => 'Разделы из ${source} появятся здесь, когда в них появится контент.';
 	@override String searchHint({required Object source}) => 'Поиск в ${source}';
@@ -1678,6 +1734,13 @@ class _Translations$watchTogether$ru extends Translations$watchTogether$en {
 	@override String get host => 'Организатор';
 	@override String get hostBadge => 'ОРГАНИЗАТОР';
 	@override String get youAreHost => 'Вы — организатор';
+	@override String get makeHost => 'Make host';
+	@override String get makeHostQuestion => 'Transfer host?';
+	@override String makeHostConfirm({required Object name}) => '${name} will control playback and drive the session for everyone.';
+	@override String get transfer => 'Transfer';
+	@override String hostChangedTo({required Object name}) => '${name} is now the host';
+	@override String get youAreNowHost => 'You are now the host';
+	@override String hostTransferFailed({required Object name}) => 'Couldn\'t make ${name} the host';
 	@override String get watchingWithOthers => 'Совместный просмотр';
 	@override String get endSession => 'Завершить сессию';
 	@override String get leaveSession => 'Покинуть сессию';
@@ -1710,6 +1773,7 @@ class _Translations$watchTogether$ru extends Translations$watchTogether$en {
 	@override String participantPaused({required Object name}) => '${name} поставил на паузу';
 	@override String participantResumed({required Object name}) => '${name} возобновил';
 	@override String participantSeeked({required Object name}) => '${name} перемотал';
+	@override String participantChangedSpeed({required Object name, required Object speed}) => '${name} set the speed to ${speed}';
 	@override String participantBuffering({required Object name}) => 'У ${name} идёт буферизация';
 	@override String participantNeedsUpdate({required Object name}) => '${name} использует старую версию приложения — синхронизация недоступна';
 	@override String resumingWithout({required Object name}) => 'Возобновление без ${name}';
@@ -1889,6 +1953,8 @@ class _Translations$videoSettings$ru extends Translations$videoSettings$en {
 	@override String get audioOutputSpatial => 'Пространственное аудио';
 	@override String get audioOutputStereo => 'Стерео';
 	@override String get audioNormalization => 'Нормализация громкости';
+	@override String get audioNormalizationDisablesPassthrough => 'Decodes audio to PCM; passthrough is off while this is on';
+	@override String get audioNormalizationStereoMix => 'Decodes audio to a stereo mix; passthrough is off while this is on';
 	@override String get audioDownmix => 'Микширование в стерео';
 }
 
@@ -2135,6 +2201,10 @@ class _Translations$seerr$ru extends Translations$seerr$en {
 	@override String get qualityProfile => 'Профиль качества';
 	@override String get rootFolder => 'Корневая папка';
 	@override String get languageProfile => 'Языковой профиль';
+	@override String get tags => 'Tags';
+	@override String get noTags => 'No tags';
+	@override String defaultOption({required Object name}) => '${name} (Default)';
+	@override String get animeNote => 'This series is an anime.';
 	@override String get requestSubmitted => 'Запрос отправлен';
 	@override String requestFailed({required Object error}) => 'Ошибка запроса: ${error}';
 	@override String get requestsLoadFailed => 'Не удалось загрузить параметры запроса';
@@ -2146,6 +2216,7 @@ class _Translations$seerr$ru extends Translations$seerr$en {
 	@override String get statusBlocklisted => 'В списке блокировки';
 	@override String couldNotReach({required Object url, required Object error}) => 'Не удалось связаться с ${url}: ${error}';
 	@override String noInstanceAtUrl({required Object url, required Object status}) => 'По адресу ${url} нет экземпляра Seerr (HTTP ${status})';
+	@override String get behindAuthProxy => 'An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr\'s /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.';
 	@override String get invalidUrl => 'Введите адрес сервера, например https://seerr.example.com';
 	@override String get quickConnectUnsupported => 'Этот экземпляр Seerr не поддерживает Quick Connect. Нужна версия Seerr 3.4 или новее.';
 	@override String get notInitialized => 'Первоначальная настройка этого экземпляра Seerr не завершена';
@@ -2156,6 +2227,8 @@ class _Translations$seerr$ru extends Translations$seerr$en {
 	@override String get freshCookieRejected => 'Seerr отклонил новый cookie-файл сеанса';
 	@override String get noUserInformation => 'Seerr не вернул сведения о пользователе';
 	@override String get sessionRejectedAfterReauth => 'Сеанс был отклонён после повторного входа';
+	@override String get permissionDenied => 'Seerr denied this action: your account no longer has the required permission';
+	@override String get permissionRevoked => 'You no longer have permission to request this';
 }
 
 // Path: services
@@ -2311,6 +2384,8 @@ class _Translations$hotkeys$actions$ru extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Вкл./выкл. шейдеры';
 	@override String get skipMarker => 'Пропустить вступление/титры';
 	@override String get screenshot => 'Сделать снимок экрана';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.clip
@@ -2795,6 +2870,7 @@ class _Translations$watchTogether$errors$ru extends Translations$watchTogether$e
 	@override String get connectionLost => 'Соединение закрылось до того, как сессия была готова';
 	@override String get invalidRelayResponse => 'Сервер ретрансляции прислал неожиданный ответ';
 	@override String get sessionEnded => 'Организатор завершил сессию';
+	@override String get sessionUnavailable => 'Unable to resume this session. Join or create a room to continue.';
 }
 
 // Path: downloads.backgroundWarning
@@ -3011,7 +3087,7 @@ class _Translations$services$libraryFilter$ru extends Translations$services$libr
 extension on TranslationsRu {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Войти через Plex',
 			'auth.showQRCode' => 'Показать QR-код',
 			'auth.authenticate' => 'Войти',
@@ -3113,6 +3189,14 @@ extension on TranslationsRu {
 			'update.viewRelease' => 'Посмотреть релиз',
 			'update.latestVersion' => 'У вас последняя версия',
 			'update.checkFailed' => 'Не удалось проверить обновления',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Настройки',
 			'settings.supportDeveloper' => 'Поддержать Plezy',
 			'settings.supportDeveloperDescription' => 'Пожертвуйте через Liberapay на развитие',
@@ -3187,6 +3271,7 @@ extension on TranslationsRu {
 			'settings.mpv' => 'mpv',
 			'settings.hardwareDecoding' => 'Аппаратное декодирование',
 			'settings.hardwareDecodingDescription' => 'Использовать аппаратное ускорение, когда доступно',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'settings.playbackBuffer' => 'Буфер воспроизведения',
 			'settings.playbackBufferAuto' => 'Авто (рекомендуется)',
 			'settings.playbackBufferLarge' => 'Большой',
@@ -3206,6 +3291,7 @@ extension on TranslationsRu {
 			'settings.minutesUnit' => ({required Object minutes}) => '${minutes} мин',
 			'settings.rememberTrackSelections' => 'Запоминать выбор дорожек для каждого сериала/фильма',
 			'settings.rememberTrackSelectionsDescription' => 'Запоминать выбор аудиодорожки и субтитров для каждого материала',
+			'settings.rememberTrackSelectionsBackendRule' => 'Plex saves each choice on the server per file; Jellyfin also turns on the account\'s Remember selections; Emby is not supported',
 			'settings.followServerTrackSelections' => 'Использовать выбор дорожек сервера для каждой серии',
 			'settings.followServerTrackSelectionsDescription' => 'При смене серии применять аудио и субтитры, выбранные на сервере, вместо переноса текущего выбора',
 			'settings.resumeMusicOnLaunch' => 'Запоминать музыкальную сессию',
@@ -3331,6 +3417,7 @@ extension on TranslationsRu {
 			'settings.audioPassthrough' => 'Сквозной вывод аудио',
 			'settings.audioPassthroughDescription' => 'Передавать звук Dolby/DTS на ресивер или телевизор без перекодирования, сохраняя объёмный звук. Отключите, если нет звука.',
 			'settings.audioPassthroughDescriptionAppleTv' => 'Использовать встроенный декодер Dolby от Apple для Dolby Digital Plus, включая Atmos. DTS и TrueHD по-прежнему воспроизводятся как многоканальный PCM. Отключите, если звук отсутствует.',
+			'settings.audioPassthroughOverriddenByNormalization' => 'Off while loudness normalization is on',
 			'settings.audioDownmix' => 'Микширование в стерео',
 			'settings.audioDownmixDescription' => 'Микширует объёмный звук в два канала для стереодинамиков или наушников',
 			'settings.downmixCenterBoost' => 'Усиление центрального канала',
@@ -3404,6 +3491,29 @@ extension on TranslationsRu {
 			'settings.playerScopeLibrary' => 'Для библиотеки',
 			'settings.playerScopeTitle' => 'Для сериала или фильма',
 			'settings.exportDialogTitle' => 'Экспорт настроек Plezy',
+			'settings.showWatchedIndicators' => 'Show Watched Indicators',
+			'settings.showWatchedIndicatorsDescription' => 'Display a checkmark on watched movies, shows, and episodes',
+			'settings.directPlayCoveredQuality' => 'Play Smaller Videos at Original Quality',
+			'settings.directPlayCoveredQualityDescription' => 'Direct play videos already within the quality limit instead of transcoding them',
+			'settings.skipIntroMode' => 'Skip Intro',
+			'settings.skipIntroModeOffDescription' => 'Play intros normally without a skip button',
+			'settings.skipIntroModeButtonDescription' => 'Show a skip button when an intro starts',
+			'settings.skipIntroModeAutoDescription' => 'Skip intros automatically after the delay below',
+			'settings.skipCreditsMode' => 'Skip Credits',
+			'settings.skipCreditsModeOffDescription' => 'Play credits normally without a skip button',
+			'settings.skipCreditsModeButtonDescription' => 'Show a skip button when credits start',
+			'settings.skipCreditsModeAutoDescription' => 'Skip credits automatically and play the next episode',
+			'settings.skipMarkerModeOff' => 'Off',
+			'settings.skipMarkerModeButton' => 'Show button',
+			'settings.skipMarkerModeAuto' => 'Automatic',
+			'settings.rememberBrightnessLevel' => 'Remember Brightness Level',
+			'settings.rememberBrightnessLevelDescription' => 'Start playback at the brightness set by the last swipe',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
 			'search.hint' => 'Поиск фильмов, сериалов, музыки...',
 			'search.tryDifferentTerm' => 'Попробуйте другой запрос',
 			'search.searchYourMedia' => 'Поиск в вашей медиатеке',
@@ -3439,6 +3549,8 @@ extension on TranslationsRu {
 			'hotkeys.actions.shaderToggle' => 'Вкл./выкл. шейдеры',
 			'hotkeys.actions.skipMarker' => 'Пропустить вступление/титры',
 			'hotkeys.actions.screenshot' => 'Сделать снимок экрана',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Информация о файле',
 			'fileInfo.overview' => 'Обзор',
 			'fileInfo.video' => 'Видео',
@@ -3487,6 +3599,8 @@ extension on TranslationsRu {
 			'fileInfo.anamorphic' => 'Анаморфный',
 			'fileInfo.referenceFrames' => 'Опорные кадры',
 			'fileInfo.dynamicRange' => 'Динамический диапазон',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.dolbyVision' => 'Dolby Vision',
 			'fileInfo.dolbyVisionLevel' => 'Уровень Dolby Vision',
 			'fileInfo.dolbyVisionVersion' => 'Версия Dolby Vision',
@@ -3523,8 +3637,6 @@ extension on TranslationsRu {
 			'fileInfo.previewThumbnails' => 'Миниатюры превью',
 			'fileInfo.previewIndex' => 'Индекс превью',
 			'fileInfo.packetLength' => 'Длина пакета',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Файл присутствует',
 			'fileInfo.fileReadable' => 'Доступен для чтения сервером',
 			'fileInfo.streamPath' => 'Путь потока',
@@ -3628,6 +3740,7 @@ extension on TranslationsRu {
 			'tooltips.markAsWatched' => 'Отметить как просмотренное',
 			'tooltips.markAsUnwatched' => 'Отметить как непросмотренное',
 			'audioTracks.track' => ({required Object n}) => 'Аудиодорожка ${n}',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ru'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.audioLabel' => 'Аудио',
 			'videoControls.subtitlesLabel' => 'Субтитры',
 			'videoControls.addTime' => ({required Object amount, required Object unit}) => '+${amount}${unit}',
@@ -3674,6 +3787,7 @@ extension on TranslationsRu {
 			'videoControls.subtitleUnavailableFallback' => 'Не удалось загрузить выбранные субтитры — воспроизведение продолжится без субтитров',
 			'videoControls.pipButton' => 'Режим «картинка в картинке»',
 			'videoControls.aspectRatioButton' => 'Соотношение сторон',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'videoControls.ambientLighting' => 'Фоновая подсветка',
 			'videoControls.fullscreenButton' => 'Полноэкранный режим',
 			'videoControls.exitFullscreenButton' => 'Выйти из полноэкранного режима',
@@ -3772,6 +3886,9 @@ extension on TranslationsRu {
 			'messages.playbackDataInvalid' => 'Сервер вернул некорректные сведения для воспроизведения.',
 			'messages.playbackCancelled' => 'Воспроизведение отменено.',
 			'messages.playbackFailed' => 'Не удалось начать воспроизведение.',
+			'messages.playbackFailedDetail' => ({required Object error}) => 'Playback could not be started: ${error}',
+			'messages.audioOutputFailed' => 'The audio output stopped responding. Check the TV or receiver\'s audio connection; if other apps have no sound either, restart the device.',
+			'messages.mediaUnavailable' => 'This content is no longer available.',
 			'messages.errorLoadingFileInfo' => ({required Object error}) => 'Ошибка загрузки информации о файле: ${error}',
 			'messages.errorLoadingSeries' => 'Ошибка загрузки сериала',
 			'messages.musicNotSupported' => 'Воспроизведение музыки пока не поддерживается',
@@ -3815,6 +3932,7 @@ extension on TranslationsRu {
 			'messages.playbackDataNotPrepared' => 'Воспроизведение началось до того, как данные были готовы',
 			'messages.streamSelectionUnavailable' => 'Выбор потоков недоступен для этого источника',
 			'messages.streamSelectionFailed' => 'Не удалось применить выбранные потоки',
+			'messages.trackSelectionNotRemembered' => 'This track choice applies to the current playback only.',
 			'messages.serverUnavailableForProfile' => 'Для активного профиля нет доступных серверов',
 			'subtitlingStyling.text' => 'Текст',
 			'subtitlingStyling.border' => 'Обводка',
@@ -3832,6 +3950,8 @@ extension on TranslationsRu {
 			'subtitlingStyling.overrideStrip' => 'Удалить стили',
 			'subtitlingStyling.positionTop' => 'Сверху',
 			'subtitlingStyling.positionBottom' => 'Снизу',
+			'subtitlingStyling.useMargins' => 'Use margins',
+			'subtitlingStyling.useMarginsDescription' => 'Allow text subtitles in the space outside the video. Styled subtitles may keep their original placement.',
 			'subtitlingStyling.anchorToScreen' => 'Привязка к экрану',
 			'subtitlingStyling.anchorToScreenDescription' => 'Показывать текстовые субтитры в чёрных полосах под широкоформатным видео',
 			'subtitlingStyling.bold' => 'Жирный',
@@ -3853,6 +3973,9 @@ extension on TranslationsRu {
 			'mpvConfig.presetDeleted' => 'Пресет удалён',
 			'mpvConfig.confirmDeletePreset' => 'Вы уверены, что хотите удалить этот пресет?',
 			'mpvConfig.configPlaceholder' => 'gpu-api=vulkan\nhwdec=auto\n# comment',
+			'mpvConfig.lineHint' => 'option=value',
+			'mpvConfig.addLine' => 'Add line',
+			'mpvConfig.removeLine' => 'Remove line',
 			'mpvConfig.embeddedVoHint' => 'vo, gpu-context и gpu-api игнорируются в Linux: встроенное видео всегда отображается через vo=libmpv на видеоплоскости, а gpu-next (нужный для compute-шейдеров вроде ArtCNN) не может работать во встроенном режиме.',
 			'dialog.confirmAction' => 'Подтвердить действие',
 			'profiles.addPlezyProfile' => 'Добавить профиль Plezy',
@@ -3990,6 +4113,8 @@ extension on TranslationsRu {
 			'discover.continueWatching' => 'Продолжить просмотр',
 			'discover.continueWatchingIn' => ({required Object library}) => 'Продолжить просмотр в ${library}',
 			'discover.nextUp' => 'Далее',
+			_ => null,
+		} ?? switch (path) {
 			'discover.nextUpIn' => ({required Object library}) => 'Далее в ${library}',
 			'discover.recentlyAdded' => 'Недавно добавленное',
 			'discover.recentlyAddedIn' => ({required Object library}) => 'Недавно добавленное в ${library}',
@@ -4037,8 +4162,6 @@ extension on TranslationsRu {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Не удалось проанализировать библиотеку: ${error}',
 			'libraries.noLibrariesFound' => 'Библиотеки не найдены',
 			'libraries.allLibrariesHidden' => 'Все библиотеки скрыты',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Скрытые библиотеки (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Эта библиотека пуста',
 			'libraries.noItemsMatchFilters' => 'Нет элементов, соответствующих активным фильтрам',
@@ -4110,6 +4233,9 @@ extension on TranslationsRu {
 			'about.versionLabel' => ({required Object version}) => 'Версия ${version}',
 			'about.appDescription' => 'Красивый клиент Plex и Jellyfin на Flutter',
 			'about.viewLicensesDescription' => 'Просмотр лицензий сторонних библиотек',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Серверы не найдены для ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Не удалось загрузить серверы: ${error}',
 			'serverSelection.noValidServers' => 'В этой учётной записи не найдено пригодных серверов',
@@ -4188,9 +4314,11 @@ extension on TranslationsRu {
 			'explore.removedFromWatchlist' => 'Удалено из списка просмотра',
 			'explore.watchlistUpdateFailed' => 'Не удалось обновить список для просмотра',
 			'explore.watchlistNoMatch' => 'Не удалось сопоставить этот элемент со списком просмотра',
+			'explore.openInLibrary' => 'Открыть в библиотеке',
 			'explore.notInLibrary' => 'Нет в вашей библиотеке',
 			'explore.inTheseLibraries' => 'В этих библиотеках',
 			'explore.checkingLibrary' => 'Проверка вашей библиотеки...',
+			'explore.libraryCheckFailed' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ru'))(n, one: 'Couldn\'t check ${n} server', other: 'Couldn\'t check ${n} servers', ), 
 			'explore.emptyTitle' => 'Здесь пока ничего нет',
 			'explore.emptyMessage' => ({required Object source}) => 'Разделы из ${source} появятся здесь, когда в них появится контент.',
 			'explore.searchHint' => ({required Object source}) => 'Поиск в ${source}',
@@ -4487,11 +4615,20 @@ extension on TranslationsRu {
 			'watchTogether.host' => 'Организатор',
 			'watchTogether.hostBadge' => 'ОРГАНИЗАТОР',
 			'watchTogether.youAreHost' => 'Вы — организатор',
+			'watchTogether.makeHost' => 'Make host',
+			'watchTogether.makeHostQuestion' => 'Transfer host?',
+			'watchTogether.makeHostConfirm' => ({required Object name}) => '${name} will control playback and drive the session for everyone.',
+			'watchTogether.transfer' => 'Transfer',
+			'watchTogether.hostChangedTo' => ({required Object name}) => '${name} is now the host',
+			'watchTogether.youAreNowHost' => 'You are now the host',
+			'watchTogether.hostTransferFailed' => ({required Object name}) => 'Couldn\'t make ${name} the host',
 			'watchTogether.watchingWithOthers' => 'Совместный просмотр',
 			'watchTogether.endSession' => 'Завершить сессию',
 			'watchTogether.leaveSession' => 'Покинуть сессию',
 			'watchTogether.endSessionQuestion' => 'Завершить сессию?',
 			'watchTogether.leaveSessionQuestion' => 'Покинуть сессию?',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.endSessionConfirm' => 'Это завершит сессию для всех участников.',
 			'watchTogether.leaveSessionConfirm' => 'Вы будете удалены из сессии.',
 			'watchTogether.endSessionConfirmOverlay' => 'Это завершит сеанс просмотра для всех участников.',
@@ -4519,6 +4656,7 @@ extension on TranslationsRu {
 			'watchTogether.participantPaused' => ({required Object name}) => '${name} поставил на паузу',
 			'watchTogether.participantResumed' => ({required Object name}) => '${name} возобновил',
 			'watchTogether.participantSeeked' => ({required Object name}) => '${name} перемотал',
+			'watchTogether.participantChangedSpeed' => ({required Object name, required Object speed}) => '${name} set the speed to ${speed}',
 			'watchTogether.participantBuffering' => ({required Object name}) => 'У ${name} идёт буферизация',
 			'watchTogether.participantNeedsUpdate' => ({required Object name}) => '${name} использует старую версию приложения — синхронизация недоступна',
 			'watchTogether.resumingWithout' => ({required Object name}) => 'Возобновление без ${name}',
@@ -4534,6 +4672,7 @@ extension on TranslationsRu {
 			'watchTogether.errors.connectionLost' => 'Соединение закрылось до того, как сессия была готова',
 			'watchTogether.errors.invalidRelayResponse' => 'Сервер ретрансляции прислал неожиданный ответ',
 			'watchTogether.errors.sessionEnded' => 'Организатор завершил сессию',
+			'watchTogether.errors.sessionUnavailable' => 'Unable to resume this session. Join or create a room to continue.',
 			'downloads.title' => 'Загрузки',
 			'downloads.manage' => 'Управление',
 			'downloads.tvShows' => 'Сериалы',
@@ -4551,8 +4690,6 @@ extension on TranslationsRu {
 			'downloads.storageFull' => 'Загрузки остановлены, так как хранилище устройства заполнено. Освободите место и повторите попытку.',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} эпизодов поставлено в очередь загрузки',
 			'downloads.downloadDeleted' => 'Загрузка удалена',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => 'Удалить "${title}" с этого устройства?',
 			'downloads.cancelledDownloadTitle' => 'Загрузка отменена',
 			'downloads.cancelledDownloadMessage' => 'Эта загрузка была отменена. Что вы хотите сделать?',
@@ -4750,6 +4887,8 @@ extension on TranslationsRu {
 			'videoSettings.audioOutputSpatial' => 'Пространственное аудио',
 			'videoSettings.audioOutputStereo' => 'Стерео',
 			'videoSettings.audioNormalization' => 'Нормализация громкости',
+			'videoSettings.audioNormalizationDisablesPassthrough' => 'Decodes audio to PCM; passthrough is off while this is on',
+			'videoSettings.audioNormalizationStereoMix' => 'Decodes audio to a stereo mix; passthrough is off while this is on',
 			'videoSettings.audioDownmix' => 'Микширование в стерео',
 			'performanceOverlay.color' => 'Цвет',
 			'performanceOverlay.performance' => 'Производительность',
@@ -4933,6 +5072,10 @@ extension on TranslationsRu {
 			'seerr.qualityProfile' => 'Профиль качества',
 			'seerr.rootFolder' => 'Корневая папка',
 			'seerr.languageProfile' => 'Языковой профиль',
+			'seerr.tags' => 'Tags',
+			'seerr.noTags' => 'No tags',
+			'seerr.defaultOption' => ({required Object name}) => '${name} (Default)',
+			'seerr.animeNote' => 'This series is an anime.',
 			'seerr.requestSubmitted' => 'Запрос отправлен',
 			'seerr.requestFailed' => ({required Object error}) => 'Ошибка запроса: ${error}',
 			'seerr.requestsLoadFailed' => 'Не удалось загрузить параметры запроса',
@@ -4944,6 +5087,7 @@ extension on TranslationsRu {
 			'seerr.statusBlocklisted' => 'В списке блокировки',
 			'seerr.couldNotReach' => ({required Object url, required Object error}) => 'Не удалось связаться с ${url}: ${error}',
 			'seerr.noInstanceAtUrl' => ({required Object url, required Object status}) => 'По адресу ${url} нет экземпляра Seerr (HTTP ${status})',
+			'seerr.behindAuthProxy' => 'An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr\'s /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.',
 			'seerr.invalidUrl' => 'Введите адрес сервера, например https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => 'Этот экземпляр Seerr не поддерживает Quick Connect. Нужна версия Seerr 3.4 или новее.',
 			'seerr.notInitialized' => 'Первоначальная настройка этого экземпляра Seerr не завершена',
@@ -4954,6 +5098,8 @@ extension on TranslationsRu {
 			'seerr.freshCookieRejected' => 'Seerr отклонил новый cookie-файл сеанса',
 			'seerr.noUserInformation' => 'Seerr не вернул сведения о пользователе',
 			'seerr.sessionRejectedAfterReauth' => 'Сеанс был отклонён после повторного входа',
+			'seerr.permissionDenied' => 'Seerr denied this action: your account no longer has the required permission',
+			'seerr.permissionRevoked' => 'You no longer have permission to request this',
 			'services.title' => 'Сервисы',
 			'services.hubSubtitle' => 'Синхронизируйте прогресс просмотра и запрашивайте новые фильмы и сериалы.',
 			'services.integrations' => 'Интеграции',
@@ -4995,6 +5141,8 @@ extension on TranslationsRu {
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => 'Добавить сервер ${product}',
 			'addServer.serverUrls' => 'URL-адреса сервера',
 			'addServer.serverUrlsHelper' => 'Можно указать несколько URL через запятую.',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.findServer' => 'Найти сервер',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Поиск локальных серверов ${product}...',
 			'addServer.localMediaBrowserServers' => ({required Object product}) => 'Локальные серверы ${product}',
