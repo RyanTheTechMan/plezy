@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Inicia sesión con Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Saltar esta versión",
     "viewRelease": "Ver versión",
     "latestVersion": "Ya estás en la última versión",
-    "checkFailed": "Error al buscar actualizaciones"
+    "checkFailed": "Error al buscar actualizaciones",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Configuración",
@@ -169,8 +177,6 @@
     "alwaysKeepSidebarOpenDescription": "La barra lateral permanece expandida y el área de contenido se ajusta para adaptarse",
     "showUnwatchedCount": "Mostrar el número de elementos no vistos",
     "showUnwatchedCountDescription": "Mostrar el número de episodios no vistos en series y temporadas",
-    "showWatchedIndicators": "",
-    "showWatchedIndicatorsDescription": "",
     "showEpisodeNumberOnCards": "Mostrar número de episodio en las tarjetas",
     "showEpisodeNumberOnCardsDescription": "Mostrar temporada y episodio en tarjetas de episodio",
     "showSeasonPostersOnTabs": "Mostrar pósters de temporada en las pestañas",
@@ -201,8 +207,6 @@
     "defaultQualityTitle": "Calidad predeterminada",
     "cellularQualityTitle": "Calidad predeterminada en datos móviles",
     "cellularQualitySameAsDefault": "Igual que la calidad predeterminada",
-    "directPlayCoveredQuality": "",
-    "directPlayCoveredQualityDescription": "",
     "musicQualityTitle": "Calidad de música",
     "subtitleStyling": "Estilo de subtítulos",
     "subtitleStylingDescription": "Personalizar la apariencia de los subtítulos",
@@ -214,7 +218,7 @@
     "minutesUnit": "${minutes} minutos",
     "rememberTrackSelections": "Recordar selección de pistas por serie/película",
     "rememberTrackSelectionsDescription": "Recordar opciones de audio y subtítulos por título",
-    "rememberTrackSelectionsBackendRule": "",
+    "rememberTrackSelectionsBackendRule": "Plex saves each choice on the server per file; Jellyfin also turns on the account's Remember selections; Emby is not supported",
     "followServerTrackSelections": "Usar la selección de pistas del servidor por episodio",
     "followServerTrackSelectionsDescription": "Al cambiar de episodio, aplicar el audio y los subtítulos seleccionados en el servidor en lugar de mantener la elección actual",
     "resumeMusicOnLaunch": "Recordar la sesión de música",
@@ -277,17 +281,6 @@
     "autoPlayNextEpisodeDescription": "Iniciar automáticamente el siguiente episodio cuando termine el actual",
     "playNextCountdown": "Cuenta atrás para el siguiente episodio",
     "playNextCountdownImmediate": "Reproducir de inmediato",
-    "skipIntroMode": "",
-    "skipIntroModeOffDescription": "",
-    "skipIntroModeButtonDescription": "",
-    "skipIntroModeAutoDescription": "",
-    "skipCreditsMode": "",
-    "skipCreditsModeOffDescription": "",
-    "skipCreditsModeButtonDescription": "",
-    "skipCreditsModeAutoDescription": "",
-    "skipMarkerModeOff": "",
-    "skipMarkerModeButton": "",
-    "skipMarkerModeAuto": "",
     "forceSkipMarkerFallback": "Forzar marcadores alternativos",
     "forceSkipMarkerFallbackDescription": "Usar patrones de títulos de capítulos aunque Plex tenga marcadores",
     "autoSkipDelay": "Retraso del salto automático",
@@ -351,7 +344,7 @@
     "audioPassthrough": "Transferencia directa de audio",
     "audioPassthroughDescription": "Envía el audio Dolby/DTS a tu receptor o TV sin recodificar, conservando el sonido envolvente. Desactívala si no tienes sonido.",
     "audioPassthroughDescriptionAppleTv": "Usa el decodificador Dolby nativo de Apple para Dolby Digital Plus, incluido Atmos. DTS y TrueHD se siguen reproduciendo como PCM multicanal. Desactívalo si no tienes sonido.",
-    "audioPassthroughOverriddenByNormalization": "",
+    "audioPassthroughOverriddenByNormalization": "Off while loudness normalization is on",
     "audioDownmix": "Mezclar a estéreo",
     "audioDownmixDescription": "Mezcla el sonido envolvente a dos canales para altavoces estéreo o auriculares",
     "downmixCenterBoost": "Realce del canal central",
@@ -413,8 +406,6 @@
     "gestureVolumeSwipeDescription": "Desliza hacia arriba o abajo en el borde derecho para ajustar el volumen",
     "gesturePinchToZoom": "Pellizcar para hacer zoom",
     "gesturePinchToZoomDescription": "Pellizca el video para acercar o alejar",
-    "rememberBrightnessLevel": "",
-    "rememberBrightnessLevelDescription": "",
     "controls": "Controles",
     "rememberPlayerChanges": "Recordar cambios del reproductor",
     "rememberPlayerChangesDescription": "Dónde se guarda y se vuelve a aplicar un cambio realizado durante la reproducción",
@@ -426,7 +417,30 @@
     "playerScopeGlobal": "En todas partes",
     "playerScopeLibrary": "Por biblioteca",
     "playerScopeTitle": "Por serie o película",
-    "exportDialogTitle": "Exportar ajustes de Plezy"
+    "exportDialogTitle": "Exportar ajustes de Plezy",
+    "showWatchedIndicators": "Show Watched Indicators",
+    "showWatchedIndicatorsDescription": "Display a checkmark on watched movies, shows, and episodes",
+    "directPlayCoveredQuality": "Play Smaller Videos at Original Quality",
+    "directPlayCoveredQualityDescription": "Direct play videos already within the quality limit instead of transcoding them",
+    "skipIntroMode": "Skip Intro",
+    "skipIntroModeOffDescription": "Play intros normally without a skip button",
+    "skipIntroModeButtonDescription": "Show a skip button when an intro starts",
+    "skipIntroModeAutoDescription": "Skip intros automatically after the delay below",
+    "skipCreditsMode": "Skip Credits",
+    "skipCreditsModeOffDescription": "Play credits normally without a skip button",
+    "skipCreditsModeButtonDescription": "Show a skip button when credits start",
+    "skipCreditsModeAutoDescription": "Skip credits automatically and play the next episode",
+    "skipMarkerModeOff": "Off",
+    "skipMarkerModeButton": "Show button",
+    "skipMarkerModeAuto": "Automatic",
+    "rememberBrightnessLevel": "Remember Brightness Level",
+    "rememberBrightnessLevelDescription": "Start playback at the brightness set by the last swipe",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable"
   },
   "search": {
     "hint": "Buscar películas, series, música...",
@@ -466,7 +480,9 @@
       "subSeekPrev": "Ir al subtítulo anterior",
       "shaderToggle": "Activar/desactivar shaders",
       "skipMarker": "Saltar introducción/créditos",
-      "screenshot": "Tomar captura de pantalla"
+      "screenshot": "Tomar captura de pantalla",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -678,6 +694,10 @@
     "track": "Pista de audio ${n}"
   },
   "videoControls": {
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "audioLabel": "Audio",
     "subtitlesLabel": "Subtítulos",
     "addTime": "+${amount}${unit}",
@@ -833,9 +853,9 @@
     "playbackDataInvalid": "El servidor devolvió información de reproducción no válida.",
     "playbackCancelled": "Se canceló la reproducción.",
     "playbackFailed": "No se pudo iniciar la reproducción.",
-    "playbackFailedDetail": "",
-    "audioOutputFailed": "",
-    "mediaUnavailable": "",
+    "playbackFailedDetail": "Playback could not be started: ${error}",
+    "audioOutputFailed": "The audio output stopped responding. Check the TV or receiver's audio connection; if other apps have no sound either, restart the device.",
+    "mediaUnavailable": "This content is no longer available.",
     "errorLoadingFileInfo": "Error al cargar la información del archivo: ${error}",
     "errorLoadingSeries": "Error al cargar la serie",
     "musicNotSupported": "La reproducción de música aún no es compatible",
@@ -879,7 +899,7 @@
     "playbackDataNotPrepared": "La reproducción se inició antes de que sus datos estuvieran listos",
     "streamSelectionUnavailable": "La selección de flujos no está disponible para esta fuente",
     "streamSelectionFailed": "No se pudieron aplicar los flujos seleccionados",
-    "trackSelectionNotRemembered": "",
+    "trackSelectionNotRemembered": "This track choice applies to the current playback only.",
     "serverUnavailableForProfile": "No hay ningún servidor disponible para el perfil activo"
   },
   "subtitlingStyling": {
@@ -899,8 +919,8 @@
     "overrideStrip": "Quitar estilos",
     "positionTop": "Arriba",
     "positionBottom": "Abajo",
-    "useMargins": "",
-    "useMarginsDescription": "",
+    "useMargins": "Use margins",
+    "useMarginsDescription": "Allow text subtitles in the space outside the video. Styled subtitles may keep their original placement.",
     "anchorToScreen": "Anclar a la pantalla",
     "anchorToScreenDescription": "Muestra los subtítulos de texto en las barras negras situadas debajo del vídeo panorámico",
     "bold": "Negrita",
@@ -924,9 +944,9 @@
     "presetDeleted": "Preajuste eliminado",
     "confirmDeletePreset": "¿Estás seguro de que quieres eliminar este preajuste?",
     "configPlaceholder": "gpu-api=vulkan\nhwdec=auto\n# comment",
-    "lineHint": "",
-    "addLine": "",
-    "removeLine": "",
+    "lineHint": "option=value",
+    "addLine": "Add line",
+    "removeLine": "Remove line",
     "embeddedVoHint": "vo, gpu-context y gpu-api se ignoran en Linux: el vídeo integrado siempre se renderiza mediante vo=libmpv en el plano de vídeo, y gpu-next (que los shaders de cómputo como ArtCNN necesitan) no puede ejecutarse integrado."
   },
   "dialog": {
@@ -1220,7 +1240,10 @@
     "openSourceLicenses": "Licencias de código abierto",
     "versionLabel": "Versión ${version}",
     "appDescription": "Un cliente de Plex y Jellyfin para Flutter",
-    "viewLicensesDescription": "Ver las licencias de bibliotecas de terceros"
+    "viewLicensesDescription": "Ver las licencias de bibliotecas de terceros",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "No se encontraron servidores para ${username} (${email})",
@@ -1325,8 +1348,8 @@
     "inTheseLibraries": "En estas bibliotecas",
     "checkingLibrary": "Comprobando tu biblioteca...",
     "libraryCheckFailed": {
-      "one": "",
-      "other": ""
+      "one": "Couldn't check ${n} server",
+      "other": "Couldn't check ${n} servers"
     },
     "emptyTitle": "Aquí no hay nada todavía",
     "emptyMessage": "Las filas de ${source} aparecerán aquí cuando tengan contenido.",
@@ -1666,13 +1689,13 @@
     "host": "Anfitrión",
     "hostBadge": "ANFITRIÓN",
     "youAreHost": "Eres el anfitrión",
-    "makeHost": "",
-    "makeHostQuestion": "",
-    "makeHostConfirm": "",
-    "transfer": "",
-    "hostChangedTo": "",
-    "youAreNowHost": "",
-    "hostTransferFailed": "",
+    "makeHost": "Make host",
+    "makeHostQuestion": "Transfer host?",
+    "makeHostConfirm": "${name} will control playback and drive the session for everyone.",
+    "transfer": "Transfer",
+    "hostChangedTo": "${name} is now the host",
+    "youAreNowHost": "You are now the host",
+    "hostTransferFailed": "Couldn't make ${name} the host",
     "watchingWithOthers": "Viendo contenido con otras personas",
     "endSession": "Finalizar sesión",
     "leaveSession": "Salir de la sesión",
@@ -1705,7 +1728,7 @@
     "participantPaused": "${name} pausó",
     "participantResumed": "${name} reanudó",
     "participantSeeked": "${name} cambió la posición de reproducción",
-    "participantChangedSpeed": "",
+    "participantChangedSpeed": "${name} set the speed to ${speed}",
     "participantBuffering": "${name} está almacenando en búfer",
     "participantNeedsUpdate": "${name} usa una versión anterior de la aplicación — sincronización no disponible",
     "resumingWithout": "Reanudando sin ${name}",
@@ -1722,7 +1745,7 @@
       "connectionLost": "La conexión se cerró antes de que la sesión estuviera lista",
       "invalidRelayResponse": "El servidor de retransmisión envió una respuesta inesperada",
       "sessionEnded": "El anfitrión finalizó la sesión",
-      "sessionUnavailable": ""
+      "sessionUnavailable": "Unable to resume this session. Join or create a room to continue."
     }
   },
   "downloads": {
@@ -1956,8 +1979,8 @@
     "audioOutputSpatial": "Audio espacial",
     "audioOutputStereo": "Estéreo",
     "audioNormalization": "Normalizar volumen",
-    "audioNormalizationDisablesPassthrough": "",
-    "audioNormalizationStereoMix": "",
+    "audioNormalizationDisablesPassthrough": "Decodes audio to PCM; passthrough is off while this is on",
+    "audioNormalizationStereoMix": "Decodes audio to a stereo mix; passthrough is off while this is on",
     "audioDownmix": "Mezclar a estéreo"
   },
   "performanceOverlay": {
@@ -2155,10 +2178,10 @@
     "qualityProfile": "Perfil de calidad",
     "rootFolder": "Carpeta raíz",
     "languageProfile": "Perfil de idioma",
-    "tags": "",
-    "noTags": "",
-    "defaultOption": "",
-    "animeNote": "",
+    "tags": "Tags",
+    "noTags": "No tags",
+    "defaultOption": "${name} (Default)",
+    "animeNote": "This series is an anime.",
     "requestSubmitted": "Solicitud enviada",
     "requestFailed": "La solicitud falló: ${error}",
     "requestsLoadFailed": "No se pudieron cargar las opciones de solicitud",
@@ -2170,7 +2193,7 @@
     "statusBlocklisted": "En la lista de bloqueo",
     "couldNotReach": "No se pudo conectar con ${url}: ${error}",
     "noInstanceAtUrl": "No hay ninguna instancia de Seerr en ${url} (HTTP ${status})",
-    "behindAuthProxy": "",
+    "behindAuthProxy": "An authenticating reverse proxy (SSO or HTTP auth) answered instead of Seerr. Plezy cannot sign in through it: let Seerr's /api/v1 path bypass the proxy for this app, or use an address that reaches Seerr directly.",
     "invalidUrl": "Introduce una dirección de servidor como https://seerr.example.com",
     "quickConnectUnsupported": "Esta instancia de Seerr no admite Quick Connect. Necesita Seerr 3.4 o más reciente.",
     "notInitialized": "Esta instancia de Seerr no ha completado la configuración inicial",
@@ -2181,8 +2204,8 @@
     "freshCookieRejected": "Seerr rechazó la nueva cookie de sesión",
     "noUserInformation": "Seerr no devolvió información del usuario",
     "sessionRejectedAfterReauth": "La sesión fue rechazada después de volver a iniciar sesión",
-    "permissionDenied": "",
-    "permissionRevoked": ""
+    "permissionDenied": "Seerr denied this action: your account no longer has the required permission",
+    "permissionRevoked": "You no longer have permission to request this"
   },
   "services": {
     "title": "Servicios",
