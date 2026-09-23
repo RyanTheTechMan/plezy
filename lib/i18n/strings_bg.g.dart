@@ -1478,6 +1478,7 @@ class _Translations$explore$bg extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Премахнато от списъка за гледане';
 	@override String get watchlistUpdateFailed => 'Неуспешно обновяване на списъка за гледане';
 	@override String get watchlistNoMatch => 'Този елемент не можа да бъде съпоставен със списък за гледане';
+	@override String get openInLibrary => 'Отвори в библиотеката';
 	@override String get notInLibrary => 'Не е в твоята библиотека';
 	@override String get inTheseLibraries => 'В тези библиотеки';
 	@override String get checkingLibrary => 'Проверка на твоята библиотека...';
@@ -3649,6 +3650,8 @@ extension on TranslationsBg {
 			'fileInfo.chromaSubsampling' => 'Цветова субдискретизация',
 			'fileInfo.chromaLocation' => 'Позиция на хрома',
 			'fileInfo.scanType' => 'Тип на сканиране',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => 'С преплетени редове',
 			'fileInfo.anamorphic' => 'Анаморфен',
 			'fileInfo.referenceFrames' => 'Референтни кадри',
@@ -3660,16 +3663,12 @@ extension on TranslationsBg {
 			'fileInfo.baseLayerCompatibility' => 'Съвместимост на базовия слой',
 			'fileInfo.avcBitstream' => 'AVC битов поток',
 			'fileInfo.nalLengthSize' => 'Размер на дължината на NAL',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Персонализирана матрица за мащабиране',
 			'fileInfo.streamIdentifier' => 'Идентификатор на потока',
 			'fileInfo.streamIndex' => 'Индекс на потока',
 			'fileInfo.streamId' => 'ID на потока',
 			'fileInfo.language' => 'Език',
 			'fileInfo.languageCode' => 'Код на езика',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Заглавие на пистата',
 			'fileInfo.channels' => 'Канали',
 			'fileInfo.sampleRate' => 'Честота на дискретизация',
@@ -4165,6 +4164,8 @@ extension on TranslationsBg {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Само критици',
 			'accountPreferences.mediaReviewsOptions.nobody' => 'Скрити',
 			'discover.title' => 'Открий',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => 'Няма налично съдържание',
 			'discover.addMediaToLibraries' => 'Добавете медия към библиотеките си',
 			'discover.continueWatching' => 'Продължи гледането',
@@ -4184,8 +4185,6 @@ extension on TranslationsBg {
 			'discover.rating' => 'Рейтинг',
 			'discover.director' => 'Режисьор',
 			'discover.directors' => 'Режисьори',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => 'Филм',
 			'discover.tvShow' => 'ТВ сериал',
 			'discover.minutesLeft' => ({required Object minutes}) => 'Остават ${minutes} мин',
@@ -4215,8 +4214,6 @@ extension on TranslationsBg {
 			'libraries.scanLibraryFiles' => 'Сканирай файловете на библиотеката',
 			'libraries.scanLibrary' => 'Сканирай библиотеката',
 			'libraries.analyze' => 'Анализирай',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Анализирай библиотеката',
 			'libraries.refreshMetadata' => 'Опресни метаданни',
 			'libraries.emptyTrash' => 'Изпразни кошчето',
@@ -4410,6 +4407,7 @@ extension on TranslationsBg {
 			'explore.removedFromWatchlist' => 'Премахнато от списъка за гледане',
 			'explore.watchlistUpdateFailed' => 'Неуспешно обновяване на списъка за гледане',
 			'explore.watchlistNoMatch' => 'Този елемент не можа да бъде съпоставен със списък за гледане',
+			'explore.openInLibrary' => 'Отвори в библиотеката',
 			'explore.notInLibrary' => 'Не е в твоята библиотека',
 			'explore.inTheseLibraries' => 'В тези библиотеки',
 			'explore.checkingLibrary' => 'Проверка на твоята библиотека...',
@@ -4680,6 +4678,8 @@ extension on TranslationsBg {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} минути',
 			'music.stopPlayback' => 'Спри възпроизвеждането',
 			'music.previousTrack' => 'Предишна песен',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => 'Следваща песен',
 			'music.repeat' => 'Повтаряне',
 			'music.repeatAll' => 'Повтаряне на всички',
@@ -4729,11 +4729,7 @@ extension on TranslationsBg {
 			'watchTogether.endSessionConfirm' => 'Това ще прекрати сесията за всички участници.',
 			'watchTogether.leaveSessionConfirm' => 'Ще бъдете премахнати от сесията.',
 			'watchTogether.endSessionConfirmOverlay' => 'Това ще прекрати сесията за гледане за всички участници.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'Ще бъдете изключени от сесията за гледане.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => 'Край',
 			'watchTogether.leave' => 'Напусни',
 			'watchTogether.syncing' => 'Синхронизиране...',
@@ -5196,6 +5192,8 @@ extension on TranslationsBg {
 			'seerr.behindAuthProxy' => 'Вместо Seerr отговори удостоверяващ обратен прокси (SSO или HTTP удостоверяване). Plezy не може да влезе през него: настройте пътя /api/v1 на Seerr да заобикаля проксито за това приложение или използвайте адрес, който достига Seerr директно.',
 			'seerr.invalidUrl' => 'Въведете адрес на сървър като https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => 'Тази Seerr инстанция не поддържа Quick Connect. Изисква се Seerr 3.4 или по-нова версия.',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => 'Тази инстанция на Seerr не е завършила първоначалната настройка',
 			'seerr.noPlexTokenForReauth' => 'Няма наличен Plex токен за повторен вход',
 			'seerr.noStoredCredentials' => 'Няма запазени данни за повторен вход',
@@ -5245,11 +5243,7 @@ extension on TranslationsBg {
 			'services.libraryFilter.libraries' => 'Библиотеки',
 			'services.libraryFilter.noLibraries' => 'Няма налични библиотеки',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => 'Добави ${product} сървър',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => 'URL адреси на сървъра',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Позволени са няколко URL адреса, разделени със запетаи.',
 			'addServer.findServer' => 'Намери сървър',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Търсене на локални ${product} сървъри...',

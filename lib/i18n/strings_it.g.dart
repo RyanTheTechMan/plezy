@@ -1478,6 +1478,7 @@ class _Translations$explore$it extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Rimosso dalla lista titoli';
 	@override String get watchlistUpdateFailed => 'Impossibile aggiornare la lista da guardare';
 	@override String get watchlistNoMatch => 'Impossibile associare questo elemento a una lista titoli';
+	@override String get openInLibrary => 'Apri nella libreria';
 	@override String get notInLibrary => 'Non è nella tua libreria';
 	@override String get inTheseLibraries => 'In queste librerie';
 	@override String get checkingLibrary => 'Ricerca nella tua libreria...';
@@ -3649,6 +3650,8 @@ extension on TranslationsIt {
 			'fileInfo.chromaSubsampling' => 'Sottocampionamento cromatico',
 			'fileInfo.chromaLocation' => 'Posizione crominanza',
 			'fileInfo.scanType' => 'Tipo di scansione',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => 'Interlacciato',
 			'fileInfo.anamorphic' => 'Anamorfico',
 			'fileInfo.referenceFrames' => 'Frame di riferimento',
@@ -3660,16 +3663,12 @@ extension on TranslationsIt {
 			'fileInfo.baseLayerCompatibility' => 'Compatibilità layer di base',
 			'fileInfo.avcBitstream' => 'Bitstream AVC',
 			'fileInfo.nalLengthSize' => 'Dimensione lunghezza NAL',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Matrice di scaling personalizzata',
 			'fileInfo.streamIdentifier' => 'Identificatore flusso',
 			'fileInfo.streamIndex' => 'Indice flusso',
 			'fileInfo.streamId' => 'ID flusso',
 			'fileInfo.language' => 'Lingua',
 			'fileInfo.languageCode' => 'Codice lingua',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Titolo traccia',
 			'fileInfo.channels' => 'Canali',
 			'fileInfo.sampleRate' => 'Frequenza di campionamento',
@@ -4165,6 +4164,8 @@ extension on TranslationsIt {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Solo critici',
 			'accountPreferences.mediaReviewsOptions.nobody' => 'Nascoste',
 			'discover.title' => 'Esplora',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => 'Nessun contenuto disponibile',
 			'discover.addMediaToLibraries' => 'Aggiungi contenuti multimediali alle tue librerie',
 			'discover.continueWatching' => 'Continua a guardare',
@@ -4184,8 +4185,6 @@ extension on TranslationsIt {
 			'discover.rating' => 'Valutazione',
 			'discover.director' => 'Regista',
 			'discover.directors' => 'Registi',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => 'Film',
 			'discover.tvShow' => 'Serie TV',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} minuti rimanenti',
@@ -4215,8 +4214,6 @@ extension on TranslationsIt {
 			'libraries.scanLibraryFiles' => 'Scansiona i file della libreria',
 			'libraries.scanLibrary' => 'Scansiona libreria',
 			'libraries.analyze' => 'Analizza',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Analizza libreria',
 			'libraries.refreshMetadata' => 'Aggiorna metadati',
 			'libraries.emptyTrash' => 'Svuota cestino',
@@ -4410,6 +4407,7 @@ extension on TranslationsIt {
 			'explore.removedFromWatchlist' => 'Rimosso dalla lista titoli',
 			'explore.watchlistUpdateFailed' => 'Impossibile aggiornare la lista da guardare',
 			'explore.watchlistNoMatch' => 'Impossibile associare questo elemento a una lista titoli',
+			'explore.openInLibrary' => 'Apri nella libreria',
 			'explore.notInLibrary' => 'Non è nella tua libreria',
 			'explore.inTheseLibraries' => 'In queste librerie',
 			'explore.checkingLibrary' => 'Ricerca nella tua libreria...',
@@ -4680,6 +4678,8 @@ extension on TranslationsIt {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} minuti',
 			'music.stopPlayback' => 'Interrompi riproduzione',
 			'music.previousTrack' => 'Brano precedente',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => 'Brano successivo',
 			'music.repeat' => 'Ripeti',
 			'music.repeatAll' => 'Ripeti tutto',
@@ -4729,11 +4729,7 @@ extension on TranslationsIt {
 			'watchTogether.endSessionConfirm' => 'Questo terminerà la sessione per tutti i partecipanti.',
 			'watchTogether.leaveSessionConfirm' => 'Sarai rimosso dalla sessione.',
 			'watchTogether.endSessionConfirmOverlay' => 'Questo terminerà la sessione di visione per tutti i partecipanti.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'Sarai disconnesso dalla sessione di visione.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => 'Termina',
 			'watchTogether.leave' => 'Abbandona',
 			'watchTogether.syncing' => 'Sincronizzazione...',
@@ -5196,6 +5192,8 @@ extension on TranslationsIt {
 			'seerr.behindAuthProxy' => 'Un reverse proxy con autenticazione (SSO o autenticazione HTTP) ha risposto al posto di Seerr. Plezy non può accedere attraverso di esso: consenti al percorso /api/v1 di Seerr di bypassare il proxy per questa app, oppure usa un indirizzo che raggiunga Seerr direttamente.',
 			'seerr.invalidUrl' => 'Inserisci un indirizzo del server come https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => 'Questa istanza Seerr non supporta Quick Connect. È necessaria la versione 3.4 o successiva di Seerr.',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => 'Questa istanza Seerr non ha completato la configurazione iniziale',
 			'seerr.noPlexTokenForReauth' => 'Nessun token Plex disponibile per effettuare nuovamente l\'accesso',
 			'seerr.noStoredCredentials' => 'Nessuna credenziale salvata disponibile per effettuare nuovamente l\'accesso',
@@ -5245,11 +5243,7 @@ extension on TranslationsIt {
 			'services.libraryFilter.libraries' => 'Librerie',
 			'services.libraryFilter.noLibraries' => 'Nessuna libreria disponibile',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => 'Aggiungi server ${product}',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => 'URL del server',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Sono consentiti più URL, separati da virgole.',
 			'addServer.findServer' => 'Trova il server',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Ricerca di server ${product} locali...',

@@ -1478,6 +1478,7 @@ class _Translations$explore$sv extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Borttagen från bevakningslistan';
 	@override String get watchlistUpdateFailed => 'Det gick inte att uppdatera bevakningslistan';
 	@override String get watchlistNoMatch => 'Det gick inte att matcha det här objektet mot en bevakningslista';
+	@override String get openInLibrary => 'Öppna i bibliotek';
 	@override String get notInLibrary => 'Finns inte i ditt bibliotek';
 	@override String get inTheseLibraries => 'I dessa bibliotek';
 	@override String get checkingLibrary => 'Kontrollerar ditt bibliotek...';
@@ -3649,6 +3650,8 @@ extension on TranslationsSv {
 			'fileInfo.chromaSubsampling' => 'Krominansnedsampling',
 			'fileInfo.chromaLocation' => 'Kroma-placering',
 			'fileInfo.scanType' => 'Skanningsläge',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => 'Interlaced',
 			'fileInfo.anamorphic' => 'Anamorfisk',
 			'fileInfo.referenceFrames' => 'Referensbildrutor',
@@ -3660,16 +3663,12 @@ extension on TranslationsSv {
 			'fileInfo.baseLayerCompatibility' => 'Kompatibilitet för baslager',
 			'fileInfo.avcBitstream' => 'AVC-bitström',
 			'fileInfo.nalLengthSize' => 'NAL-längdstorlek',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Anpassad skalningsmatris',
 			'fileInfo.streamIdentifier' => 'Strömidentifierare',
 			'fileInfo.streamIndex' => 'Strömindex',
 			'fileInfo.streamId' => 'Ström-ID',
 			'fileInfo.language' => 'Språk',
 			'fileInfo.languageCode' => 'Språkkod',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Spårnamn',
 			'fileInfo.channels' => 'Kanaler',
 			'fileInfo.sampleRate' => 'Samplingsfrekvens',
@@ -4165,6 +4164,8 @@ extension on TranslationsSv {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Endast kritiker',
 			'accountPreferences.mediaReviewsOptions.nobody' => 'Dolda',
 			'discover.title' => 'Upptäck',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => 'Inget innehåll tillgängligt',
 			'discover.addMediaToLibraries' => 'Lägg till medieinnehåll i dina bibliotek',
 			'discover.continueWatching' => 'Fortsätt titta',
@@ -4184,8 +4185,6 @@ extension on TranslationsSv {
 			'discover.rating' => 'Betyg',
 			'discover.director' => 'Regissör',
 			'discover.directors' => 'Regissörer',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => 'Film',
 			'discover.tvShow' => 'TV-serie',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} min kvar',
@@ -4215,8 +4214,6 @@ extension on TranslationsSv {
 			'libraries.scanLibraryFiles' => 'Skanna biblioteksfiler',
 			'libraries.scanLibrary' => 'Skanna bibliotek',
 			'libraries.analyze' => 'Analysera',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Analysera bibliotek',
 			'libraries.refreshMetadata' => 'Uppdatera metadata',
 			'libraries.emptyTrash' => 'Töm papperskorg',
@@ -4410,6 +4407,7 @@ extension on TranslationsSv {
 			'explore.removedFromWatchlist' => 'Borttagen från bevakningslistan',
 			'explore.watchlistUpdateFailed' => 'Det gick inte att uppdatera bevakningslistan',
 			'explore.watchlistNoMatch' => 'Det gick inte att matcha det här objektet mot en bevakningslista',
+			'explore.openInLibrary' => 'Öppna i bibliotek',
 			'explore.notInLibrary' => 'Finns inte i ditt bibliotek',
 			'explore.inTheseLibraries' => 'I dessa bibliotek',
 			'explore.checkingLibrary' => 'Kontrollerar ditt bibliotek...',
@@ -4680,6 +4678,8 @@ extension on TranslationsSv {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} minuter',
 			'music.stopPlayback' => 'Stoppa uppspelning',
 			'music.previousTrack' => 'Föregående låt',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => 'Nästa låt',
 			'music.repeat' => 'Upprepa',
 			'music.repeatAll' => 'Upprepa alla',
@@ -4729,11 +4729,7 @@ extension on TranslationsSv {
 			'watchTogether.endSessionConfirm' => 'Detta avslutar sessionen för alla deltagare.',
 			'watchTogether.leaveSessionConfirm' => 'Du kommer att tas bort från sessionen.',
 			'watchTogether.endSessionConfirmOverlay' => 'Detta avslutar tittarsessionen för alla deltagare.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'Du kommer att kopplas bort från tittarsessionen.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => 'Avsluta',
 			'watchTogether.leave' => 'Lämna',
 			'watchTogether.syncing' => 'Synkroniserar...',
@@ -5196,6 +5192,8 @@ extension on TranslationsSv {
 			'seerr.behindAuthProxy' => 'En autentiserande reverse proxy (SSO eller HTTP-autentisering) svarade i stället för Seerr. Plezy kan inte logga in genom den: låt Seerrs sökväg /api/v1 kringgå proxyn för den här appen, eller använd en adress som når Seerr direkt.',
 			'seerr.invalidUrl' => 'Ange en serveradress, t.ex. https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => 'Den här Seerr-instansen stöder inte Quick Connect. Den kräver Seerr 3.4 eller nyare.',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => 'Den här Seerr-instansen har inte slutfört den inledande konfigurationen',
 			'seerr.noPlexTokenForReauth' => 'Det finns ingen Plex-token tillgänglig för att logga in igen',
 			'seerr.noStoredCredentials' => 'Det finns inga sparade inloggningsuppgifter för att logga in igen',
@@ -5245,11 +5243,7 @@ extension on TranslationsSv {
 			'services.libraryFilter.libraries' => 'Bibliotek',
 			'services.libraryFilter.noLibraries' => 'Inga bibliotek tillgängliga',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => 'Lägg till ${product}-server',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => 'Server-URL:er',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Du kan ange flera URL:er avgränsade med kommatecken.',
 			'addServer.findServer' => 'Hitta server',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Söker efter lokala ${product}-servrar...',
