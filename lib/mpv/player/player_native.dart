@@ -437,7 +437,7 @@ class PlayerNative extends PlayerBase {
     // file before resolving, so explicitly unpause for the replacement. Set
     // after loadfile so the paused old file never audibly unpauses
     // pre-replace.
-    if (play) {
+    if (play && _macOSPlayAfterVolumeRestore == null) {
       await setProperty('pause', 'no');
     }
     return playlistEntryId;
@@ -539,13 +539,6 @@ class PlayerNative extends PlayerBase {
     final loadfileReply = await invoke<Map>('command', {'args': loadfileArgs});
     final playlistEntryId = loadfileReply?['playlistEntryId'];
 
-    // mpv's pause property survives loadfile; in-place reloads pause the old
-    // file before resolving, so explicitly unpause for the replacement. Set
-    // after loadfile so the paused old file never audibly unpauses
-    // pre-replace.
-    if (play && !gateMacOSOutputVolume) {
-      await setProperty('pause', 'no');
-    }
     return playlistEntryId is int ? playlistEntryId : null;
   }
 
