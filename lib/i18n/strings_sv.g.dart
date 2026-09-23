@@ -419,6 +419,17 @@ class _Translations$settings$sv extends Translations$settings$en {
 	@override String get downloadLocationReset => 'Nedladdningsplats återställd till standard';
 	@override String get downloadLocationInvalid => 'Vald mapp är inte skrivbar';
 	@override String get downloadLocationPickerUnavailable => 'Mappval är inte tillgängligt på den här enheten';
+	@override String get downloadLocationSelectError => 'Kunde inte välja mapp';
+	@override String get mediaCapture => 'Mediafångst';
+	@override String get clips => 'Clips';
+	@override String get screenshots => 'Skärmdumpar';
+	@override String captureLocationTitle({required Object title}) => '${title} Plats';
+	@override String get clipLocationDescription => 'Välj var klipp ska sparas.';
+	@override String get screenshotLocationDescription => 'Välj var skärmdumpar sparas.';
+	@override String get clipLocationChanged => 'Klippets plats har ändrats';
+	@override String get screenshotLocationChanged => 'Plats för skärmdump har ändrats';
+	@override String get clipLocationReset => 'Klippplats återställs till skrivbordet';
+	@override String get screenshotLocationReset => 'Skärmdumpens plats återställd till skrivbordet';
 	@override String get downloadOnWifiOnly => 'Ladda endast ned via wifi';
 	@override String get downloadOnWifiOnlyDescription => 'Förhindra nedladdningar via mobildata';
 	@override String get autoRemoveWatchedDownloads => 'Ta automatiskt bort sedda nedladdningar';
@@ -876,6 +887,7 @@ class _Translations$videoControls$sv extends Translations$videoControls$en {
 	@override String get pipActive => 'Spelas upp i bild-i-bild';
 	@override String get pipFailed => 'Bild-i-bild kunde inte starta';
 	@override String get screenshotSaved => 'Skärmbild sparad';
+	@override late final _Translations$videoControls$clip$sv clip = _Translations$videoControls$clip$sv._(_root);
 	@override String zoomPercent({required Object percent}) => 'Zoom ${percent}%';
 	@override String volumePercent({required Object percent}) => 'Volym ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$sv pipErrors = _Translations$videoControls$pipErrors$sv._(_root);
@@ -2355,6 +2367,52 @@ class _Translations$hotkeys$actions$sv extends Translations$hotkeys$actions$en {
 	@override String get screenshot => 'Ta skärmbild';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$sv extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$sv._(TranslationsSv root) : this._root = root, super.internal(root);
+
+	final TranslationsSv _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Finjustering';
+	@override String get title => 'Klämma';
+	@override String get vodOnly => 'Klipp är tillgängliga för videouppspelning på begäran.';
+	@override String get sourceUnavailable => 'Klippkälla är inte tillgänglig för denna uppspelningssession.';
+	@override String get playAtLeastOneSecond => 'Spela minst 1 sekund innan du klipper.';
+	@override String get startBeforeBeginning => 'Klippstart kan inte ske före början av videon.';
+	@override String get endAfterStart => 'Klippets slut måste vara efter starten.';
+	@override String get minimumDuration => 'Klipp måste vara minst 1 sekund långa.';
+	@override String get endPastVideo => 'Klippets slut är förbi slutet av videon.';
+	@override String get exportCanceled => 'Klippexporten avbröts.';
+	@override String get cacheUnavailable => 'Det valda intervallet kunde inte cachelagras helt för originalexport. Prova ett kortare klipp eller spela upp förhandsvisningen en gång innan du sparar.';
+	@override String get sourceCopyNoEncoder => 'Export av källkopia använder inte en kodare.';
+	@override String get encodingDesktopOnly => 'H.264- och HEVC-klippkodning är för närvarande tillgänglig på macOS och Windows.';
+	@override String get hdrRequiresSource => 'HDR-export kräver en HDR10- eller HLG-kompatibel källa med direktuppspelning.';
+	@override String get transcodeStartUnavailable => 'Det här klippet börjar före den aktiva omkodade strömmen. Sök tidigare och öppna klippning igen, eller byt till originalkvalitet.';
+	@override String get previewRequired => 'Förhandsgranskningen av klipp måste avslutas innan den kan sparas.';
+	@override String get h264Failed => 'Denna källa kunde inte kodas som en H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'Denna källa kunde inte kodas som en HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'Den här källan kunde inte kodas som en HEVC HDR MP4.';
+	@override String get gifFailed => 'Den här källan kunde inte kodas som en GIF.';
+	@override String get originalFailed => 'Den här källan kunde inte kopieras från mpv-cachen.';
+	@override String get previewUnavailable => 'Förhandsvisning av klipp är inte tillgängligt i den här versionen.';
+	@override String get previewFailed => 'Förhandsvisning av klipp misslyckades.';
+	@override String get previewLoadingScreenshot => 'Förhandsgranskningen av klippet måste avslutas innan du tar en skärmdump.';
+	@override String get screenshotInProgress => 'En skärmdump sparas redan.';
+	@override String get saveAsDialog => 'Spara klipp som';
+	@override String savedTo({required Object fileName}) => 'Sparad till ${fileName}';
+	@override String get openFolder => 'Öppna mapp';
+	@override String get saveAs => 'Spara som';
+	@override String get cancelExport => 'Avbryt export';
+	@override String get saving => 'Sparande...';
+	@override String savingProgress({required Object percent}) => 'Sparar ${percent} %';
+	@override String get mutePreview => 'Stäng av förhandsvisning';
+	@override String get unmutePreview => 'Slå på förhandsvisning';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: videoControls.pipErrors
 class _Translations$videoControls$pipErrors$sv extends Translations$videoControls$pipErrors$en {
 	_Translations$videoControls$pipErrors$sv._(TranslationsSv root) : this._root = root, super.internal(root);
@@ -3313,6 +3371,17 @@ extension on TranslationsSv {
 			'settings.downloadLocationReset' => 'Nedladdningsplats återställd till standard',
 			'settings.downloadLocationInvalid' => 'Vald mapp är inte skrivbar',
 			'settings.downloadLocationPickerUnavailable' => 'Mappval är inte tillgängligt på den här enheten',
+			'settings.downloadLocationSelectError' => 'Kunde inte välja mapp',
+			'settings.mediaCapture' => 'Mediafångst',
+			'settings.clips' => 'Clips',
+			'settings.screenshots' => 'Skärmdumpar',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Plats',
+			'settings.clipLocationDescription' => 'Välj var klipp ska sparas.',
+			'settings.screenshotLocationDescription' => 'Välj var skärmdumpar sparas.',
+			'settings.clipLocationChanged' => 'Klippets plats har ändrats',
+			'settings.screenshotLocationChanged' => 'Plats för skärmdump har ändrats',
+			'settings.clipLocationReset' => 'Klippplats återställs till skrivbordet',
+			'settings.screenshotLocationReset' => 'Skärmdumpens plats återställd till skrivbordet',
 			'settings.downloadOnWifiOnly' => 'Ladda endast ned via wifi',
 			'settings.downloadOnWifiOnlyDescription' => 'Förhindra nedladdningar via mobildata',
 			'settings.autoRemoveWatchedDownloads' => 'Ta automatiskt bort sedda nedladdningar',
@@ -3518,6 +3587,8 @@ extension on TranslationsSv {
 			'fileInfo.streamId' => 'Ström-ID',
 			'fileInfo.language' => 'Språk',
 			'fileInfo.languageCode' => 'Språkkod',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Spårnamn',
 			'fileInfo.channels' => 'Kanaler',
 			'fileInfo.sampleRate' => 'Samplingsfrekvens',
@@ -3529,8 +3600,6 @@ extension on TranslationsSv {
 			'fileInfo.externalDelivery' => 'Kan levereras separat',
 			'fileInfo.sidecarPath' => 'Sidecar-sökväg',
 			'fileInfo.sourceStream' => 'Kopierad från',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.temporary' => 'Tillfällig',
 			'fileInfo.timeBase' => 'Tidsbas',
 			'fileInfo.overallBitrate' => 'Total bithastighet',
@@ -3706,6 +3775,43 @@ extension on TranslationsSv {
 			'videoControls.pipActive' => 'Spelas upp i bild-i-bild',
 			'videoControls.pipFailed' => 'Bild-i-bild kunde inte starta',
 			'videoControls.screenshotSaved' => 'Skärmbild sparad',
+			'videoControls.clip.fineAdjust' => 'Finjustering',
+			'videoControls.clip.title' => 'Klämma',
+			'videoControls.clip.vodOnly' => 'Klipp är tillgängliga för videouppspelning på begäran.',
+			'videoControls.clip.sourceUnavailable' => 'Klippkälla är inte tillgänglig för denna uppspelningssession.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Spela minst 1 sekund innan du klipper.',
+			'videoControls.clip.startBeforeBeginning' => 'Klippstart kan inte ske före början av videon.',
+			'videoControls.clip.endAfterStart' => 'Klippets slut måste vara efter starten.',
+			'videoControls.clip.minimumDuration' => 'Klipp måste vara minst 1 sekund långa.',
+			'videoControls.clip.endPastVideo' => 'Klippets slut är förbi slutet av videon.',
+			'videoControls.clip.exportCanceled' => 'Klippexporten avbröts.',
+			'videoControls.clip.cacheUnavailable' => 'Det valda intervallet kunde inte cachelagras helt för originalexport. Prova ett kortare klipp eller spela upp förhandsvisningen en gång innan du sparar.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Export av källkopia använder inte en kodare.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264- och HEVC-klippkodning är för närvarande tillgänglig på macOS och Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR-export kräver en HDR10- eller HLG-kompatibel källa med direktuppspelning.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Det här klippet börjar före den aktiva omkodade strömmen. Sök tidigare och öppna klippning igen, eller byt till originalkvalitet.',
+			'videoControls.clip.previewRequired' => 'Förhandsgranskningen av klipp måste avslutas innan den kan sparas.',
+			'videoControls.clip.h264Failed' => 'Denna källa kunde inte kodas som en H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'Denna källa kunde inte kodas som en HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'Den här källan kunde inte kodas som en HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Den här källan kunde inte kodas som en GIF.',
+			'videoControls.clip.originalFailed' => 'Den här källan kunde inte kopieras från mpv-cachen.',
+			'videoControls.clip.previewUnavailable' => 'Förhandsvisning av klipp är inte tillgängligt i den här versionen.',
+			'videoControls.clip.previewFailed' => 'Förhandsvisning av klipp misslyckades.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Förhandsgranskningen av klippet måste avslutas innan du tar en skärmdump.',
+			'videoControls.clip.screenshotInProgress' => 'En skärmdump sparas redan.',
+			'videoControls.clip.saveAsDialog' => 'Spara klipp som',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Sparad till ${fileName}',
+			'videoControls.clip.openFolder' => 'Öppna mapp',
+			'videoControls.clip.saveAs' => 'Spara som',
+			'videoControls.clip.cancelExport' => 'Avbryt export',
+			'videoControls.clip.saving' => 'Sparande...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Sparar ${percent} %',
+			'videoControls.clip.mutePreview' => 'Stäng av förhandsvisning',
+			'videoControls.clip.unmutePreview' => 'Slå på förhandsvisning',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Zoom ${percent}%',
 			'videoControls.volumePercent' => ({required Object percent}) => 'Volym ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Kräver Android 8.0 eller nyare',
@@ -3995,6 +4101,8 @@ extension on TranslationsSv {
 			'discover.rating' => 'Betyg',
 			'discover.director' => 'Regissör',
 			'discover.directors' => 'Regissörer',
+			_ => null,
+		} ?? switch (path) {
 			'discover.movie' => 'Film',
 			'discover.tvShow' => 'TV-serie',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} min kvar',
@@ -4043,8 +4151,6 @@ extension on TranslationsSv {
 			'libraries.clearAll' => 'Rensa alla',
 			'libraries.scanLibraryConfirm' => ({required Object title}) => 'Är du säker på att du vill skanna "${title}"?',
 			'libraries.analyzeLibraryConfirm' => ({required Object title}) => 'Är du säker på att du vill analysera "${title}"?',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.refreshMetadataConfirm' => ({required Object title}) => 'Är du säker på att du vill uppdatera metadata för "${title}"?',
 			'libraries.emptyTrashConfirm' => ({required Object title}) => 'Är du säker på att du vill tömma papperskorgen för "${title}"?',
 			'libraries.manageLibraries' => 'Hantera bibliotek',
@@ -4509,6 +4615,8 @@ extension on TranslationsSv {
 			'watchTogether.leaveSessionConfirm' => 'Du kommer att tas bort från sessionen.',
 			'watchTogether.endSessionConfirmOverlay' => 'Detta avslutar tittarsessionen för alla deltagare.',
 			'watchTogether.leaveSessionConfirmOverlay' => 'Du kommer att kopplas bort från tittarsessionen.',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.end' => 'Avsluta',
 			'watchTogether.leave' => 'Lämna',
 			'watchTogether.syncing' => 'Synkroniserar...',
@@ -4557,8 +4665,6 @@ extension on TranslationsSv {
 			'downloads.tracksQueued' => ({required Object count}) => '${count} låtar i nedladdningskö',
 			'downloads.noDownloads' => 'Inga nedladdningar ännu',
 			'downloads.noDownloadsDescription' => 'Nedladdat innehåll visas här så att du kan titta offline',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.downloadNow' => 'Ladda ner',
 			'downloads.deleteDownload' => 'Ta bort nedladdning',
 			'downloads.retryDownload' => 'Försök igen',
@@ -5023,6 +5129,8 @@ extension on TranslationsSv {
 			'services.libraryFilter.noLibraries' => 'Inga bibliotek tillgängliga',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => 'Lägg till ${product}-server',
 			'addServer.serverUrls' => 'Server-URL:er',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Du kan ange flera URL:er avgränsade med kommatecken.',
 			'addServer.findServer' => 'Hitta server',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Söker efter lokala ${product}-servrar...',

@@ -3587,6 +3587,8 @@ extension on TranslationsHu {
 			'fileInfo.streamId' => 'Adatfolyam azonosítója',
 			'fileInfo.language' => 'Nyelv',
 			'fileInfo.languageCode' => 'Nyelvkód',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Sáv címe',
 			'fileInfo.channels' => 'Csatornák',
 			'fileInfo.sampleRate' => 'Mintavételi frekvencia',
@@ -3598,8 +3600,6 @@ extension on TranslationsHu {
 			'fileInfo.externalDelivery' => 'Külön is kiszolgálható',
 			'fileInfo.sidecarPath' => 'Kísérő fájl útvonala',
 			'fileInfo.sourceStream' => 'Másolva innen',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.temporary' => 'Ideiglenes',
 			'fileInfo.timeBase' => 'Időalap',
 			'fileInfo.overallBitrate' => 'Összesített bitráta',
@@ -3612,8 +3612,6 @@ extension on TranslationsHu {
 			'fileInfo.previewThumbnails' => 'Előnézeti miniatűrök',
 			'fileInfo.previewIndex' => 'Előnézeti index',
 			'fileInfo.packetLength' => 'Csomaghossz',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Fájl jelen van',
 			'fileInfo.fileReadable' => 'A szerver számára olvasható',
 			'fileInfo.streamPath' => 'Adatfolyam útvonala',
@@ -4103,6 +4101,8 @@ extension on TranslationsHu {
 			'discover.rating' => 'Értékelés',
 			'discover.director' => 'Rendező',
 			'discover.directors' => 'Rendezők',
+			_ => null,
+		} ?? switch (path) {
 			'discover.movie' => 'Film',
 			'discover.tvShow' => 'TV-sorozat',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} perc van hátra',
@@ -4143,8 +4143,6 @@ extension on TranslationsHu {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Nem sikerült a könyvtár elemzése: ${error}',
 			'libraries.noLibrariesFound' => 'Nem találhatók könyvtárak',
 			'libraries.allLibrariesHidden' => 'Minden könyvtár el van rejtve',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Rejtett könyvtárak (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Ez a könyvtár üres',
 			'libraries.noItemsMatchFilters' => 'Nincs az aktív szűrőknek megfelelő elem',
@@ -4153,8 +4151,6 @@ extension on TranslationsHu {
 			'libraries.clearAll' => 'Összes törlése',
 			'libraries.scanLibraryConfirm' => ({required Object title}) => 'Biztosan be szeretnéd olvasni a következőt: "${title}"?',
 			'libraries.analyzeLibraryConfirm' => ({required Object title}) => 'Biztosan elemezni szeretnéd a következőt: "${title}"?',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.refreshMetadataConfirm' => ({required Object title}) => 'Biztosan frissíteni szeretnéd a metaadatokat a következőhöz: "${title}"?',
 			'libraries.emptyTrashConfirm' => ({required Object title}) => 'Biztosan ki szeretnéd üríteni a lomtárat a következőnél: "${title}"?',
 			'libraries.manageLibraries' => 'Könyvtárak kezelése',
@@ -4619,6 +4615,8 @@ extension on TranslationsHu {
 			'watchTogether.leaveSessionConfirm' => 'Eltávolításra kerülsz a munkamenetből.',
 			'watchTogether.endSessionConfirmOverlay' => 'Ezzel minden résztvevő számára véget ér a közös nézés.',
 			'watchTogether.leaveSessionConfirmOverlay' => 'Kilépsz a közös nézésből.',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.end' => 'Befejezés',
 			'watchTogether.leave' => 'Kilépés',
 			'watchTogether.syncing' => 'Szinkronizálás...',
@@ -4667,8 +4665,6 @@ extension on TranslationsHu {
 			'downloads.tracksQueued' => ({required Object count}) => '${count} zeneszám letöltésre sorba állítva',
 			'downloads.noDownloads' => 'Még nincsenek letöltések',
 			'downloads.noDownloadsDescription' => 'A letöltött tartalmak itt jelennek meg az offline megtekintéshez',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.downloadNow' => 'Letöltés',
 			'downloads.deleteDownload' => 'Letöltés törlése',
 			'downloads.retryDownload' => 'Letöltés újrapróbálása',
@@ -4679,8 +4675,6 @@ extension on TranslationsHu {
 			'downloads.storageUnavailable' => 'A letöltések leálltak, mert a rendelkezésre álló tárhely nem ellenőrizhető. Ellenőrizd a letöltési helyet, majd próbáld újra.',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} epizód letöltésre sorba állítva',
 			'downloads.downloadDeleted' => 'Letöltés törölve',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => 'Törlöd a következőt: "${title}" erről az eszközről?',
 			'downloads.cancelledDownloadTitle' => 'Megszakított letöltés',
 			'downloads.cancelledDownloadMessage' => 'Ez a letöltés meg lett szakítva. Mit szeretnél tenni?',
@@ -5135,6 +5129,8 @@ extension on TranslationsHu {
 			'services.libraryFilter.noLibraries' => 'Nincsenek elérhető könyvtárak',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product} szerver hozzáadása',
 			'addServer.serverUrls' => 'Szerver URL-címei',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Több URL is megadható, vesszővel elválasztva.',
 			'addServer.findServer' => 'Szerver keresése',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Helyi ${product} szerverek keresése...',
