@@ -3587,6 +3587,8 @@ extension on TranslationsTr {
 			'fileInfo.streamId' => 'Akış Kimliği',
 			'fileInfo.language' => 'Dil',
 			'fileInfo.languageCode' => 'Dil Kodu',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Parça Başlığı',
 			'fileInfo.channels' => 'Kanallar',
 			'fileInfo.sampleRate' => 'Örnekleme Hızı',
@@ -3598,8 +3600,6 @@ extension on TranslationsTr {
 			'fileInfo.externalDelivery' => 'Ayrı Olarak Sunulabilir',
 			'fileInfo.sidecarPath' => 'Yan Dosya Yolu',
 			'fileInfo.sourceStream' => 'Kopyalandığı Yer',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.temporary' => 'Geçici',
 			'fileInfo.timeBase' => 'Zaman Tabanı',
 			'fileInfo.overallBitrate' => 'Genel Bit Hızı',
@@ -3612,8 +3612,6 @@ extension on TranslationsTr {
 			'fileInfo.previewThumbnails' => 'Önizleme Küçük Resimleri',
 			'fileInfo.previewIndex' => 'Önizleme Dizini',
 			'fileInfo.packetLength' => 'Paket Uzunluğu',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Dosya Mevcut',
 			'fileInfo.fileReadable' => 'Sunucu Tarafından Okunabilir',
 			'fileInfo.streamPath' => 'Akış Yolu',
@@ -4103,6 +4101,8 @@ extension on TranslationsTr {
 			'discover.rating' => 'Derecelendirme',
 			'discover.director' => 'Yönetmen',
 			'discover.directors' => 'Yönetmenler',
+			_ => null,
+		} ?? switch (path) {
 			'discover.movie' => 'Film',
 			'discover.tvShow' => 'TV Dizisi',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} dk kaldı',
@@ -4143,8 +4143,6 @@ extension on TranslationsTr {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Kitaplık analiz edilemedi: ${error}',
 			'libraries.noLibrariesFound' => 'Kitaplık bulunamadı',
 			'libraries.allLibrariesHidden' => 'Tüm kitaplıklar gizli',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Gizli kitaplıklar (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Bu kitaplık boş',
 			'libraries.noItemsMatchFilters' => 'Etkin filtrelerle eşleşen öge yok',
@@ -4153,8 +4151,6 @@ extension on TranslationsTr {
 			'libraries.clearAll' => 'Tümünü Temizle',
 			'libraries.scanLibraryConfirm' => ({required Object title}) => '"${title}" kitaplığını taramak istediğinizden emin misiniz?',
 			'libraries.analyzeLibraryConfirm' => ({required Object title}) => '"${title}" kitaplığını analiz etmek istediğinizden emin misiniz?',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.refreshMetadataConfirm' => ({required Object title}) => '"${title}" kitaplığı için meta verileri yenilemek istediğinizden emin misiniz?',
 			'libraries.emptyTrashConfirm' => ({required Object title}) => '"${title}" için çöpü boşaltmak istediğinizden emin misiniz?',
 			'libraries.manageLibraries' => 'Kitaplıkları Yönet',
@@ -4619,6 +4615,8 @@ extension on TranslationsTr {
 			'watchTogether.leaveSessionConfirm' => 'Oturumdan çıkarılacaksınız.',
 			'watchTogether.endSessionConfirmOverlay' => 'Bu işlem tüm katılımcılar için izleme oturumunu bitirecektir.',
 			'watchTogether.leaveSessionConfirmOverlay' => 'İzleme oturumuyla bağlantınız kesilecek.',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.end' => 'Bitir',
 			'watchTogether.leave' => 'Ayrıl',
 			'watchTogether.syncing' => 'Eşitleniyor...',
@@ -4667,8 +4665,6 @@ extension on TranslationsTr {
 			'downloads.tracksQueued' => ({required Object count}) => 'İndirmek için ${count} parça kuyruğa alındı',
 			'downloads.noDownloads' => 'Henüz indirme yok',
 			'downloads.noDownloadsDescription' => 'İndirilen içerik çevrimdışı izlemek için burada görünecektir',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.downloadNow' => 'İndir',
 			'downloads.deleteDownload' => 'İndirmeyi sil',
 			'downloads.retryDownload' => 'İndirmeyi tekrar dene',
@@ -4679,8 +4675,6 @@ extension on TranslationsTr {
 			'downloads.storageUnavailable' => 'Kullanılabilir depolama alanı kontrol edilemediği için indirmeler durduruldu. İndirme konumunu kontrol edip tekrar deneyin.',
 			'downloads.episodesQueued' => ({required Object count}) => 'İndirmek için ${count} bölüm kuyruğa alındı',
 			'downloads.downloadDeleted' => 'İndirme silindi',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => '"${title}" bu cihazdan silinsin mi?',
 			'downloads.cancelledDownloadTitle' => 'İptal Edilen İndirme',
 			'downloads.cancelledDownloadMessage' => 'Bu indirme iptal edildi. Ne yapmak istersiniz?',
@@ -5135,6 +5129,8 @@ extension on TranslationsTr {
 			'services.libraryFilter.noLibraries' => 'Kitaplık bulunmuyor',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product} sunucusu ekle',
 			'addServer.serverUrls' => 'Sunucu URL\'leri',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Virgülle ayrılmış birden fazla URL\'ye izin verilir.',
 			'addServer.findServer' => 'Sunucu bul',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Yerel ${product} sunucuları aranıyor...',
