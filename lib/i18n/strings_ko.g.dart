@@ -1478,6 +1478,7 @@ class _Translations$explore$ko extends Translations$explore$en {
 	@override String get removedFromWatchlist => '관심 목록에서 삭제했습니다';
 	@override String get watchlistUpdateFailed => '관심 목록을 업데이트하지 못했습니다';
 	@override String get watchlistNoMatch => '이 항목을 관심 목록과 연결할 수 없습니다';
+	@override String get openInLibrary => '라이브러리에서 열기';
 	@override String get notInLibrary => '라이브러리에 없음';
 	@override String get inTheseLibraries => '이 라이브러리에 있음';
 	@override String get checkingLibrary => '라이브러리 확인 중...';
@@ -3649,6 +3650,8 @@ extension on TranslationsKo {
 			'fileInfo.chromaSubsampling' => '색차 서브샘플링',
 			'fileInfo.chromaLocation' => '크로마 위치',
 			'fileInfo.scanType' => '주사 방식',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => '비월 주사',
 			'fileInfo.anamorphic' => '아나모픽',
 			'fileInfo.referenceFrames' => '참조 프레임',
@@ -3660,16 +3663,12 @@ extension on TranslationsKo {
 			'fileInfo.baseLayerCompatibility' => '베이스 레이어 호환성',
 			'fileInfo.avcBitstream' => 'AVC 비트스트림',
 			'fileInfo.nalLengthSize' => 'NAL 길이 크기',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => '사용자 지정 스케일링 매트릭스',
 			'fileInfo.streamIdentifier' => '스트림 식별자',
 			'fileInfo.streamIndex' => '스트림 인덱스',
 			'fileInfo.streamId' => '스트림 ID',
 			'fileInfo.language' => '언어',
 			'fileInfo.languageCode' => '언어 코드',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => '트랙 제목',
 			'fileInfo.channels' => '채널',
 			'fileInfo.sampleRate' => '샘플 레이트',
@@ -4165,6 +4164,8 @@ extension on TranslationsKo {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => '평론가만',
 			'accountPreferences.mediaReviewsOptions.nobody' => '숨김',
 			'discover.title' => '둘러보기',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => '사용 가능한 콘텐츠가 없습니다',
 			'discover.addMediaToLibraries' => '미디어 라이브러리에 미디어를 추가해 주세요',
 			'discover.continueWatching' => '계속 시청',
@@ -4184,8 +4185,6 @@ extension on TranslationsKo {
 			'discover.rating' => '연령 등급',
 			'discover.director' => '감독',
 			'discover.directors' => '감독',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => '영화',
 			'discover.tvShow' => 'TV 시리즈',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes}분 남음',
@@ -4215,8 +4214,6 @@ extension on TranslationsKo {
 			'libraries.scanLibraryFiles' => '미디어 라이브러리 파일 스캔',
 			'libraries.scanLibrary' => '미디어 라이브러리 스캔',
 			'libraries.analyze' => '분석',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => '미디어 라이브러리 분석',
 			'libraries.refreshMetadata' => '메타데이터 새로 고침',
 			'libraries.emptyTrash' => '휴지통 비우기',
@@ -4410,6 +4407,7 @@ extension on TranslationsKo {
 			'explore.removedFromWatchlist' => '관심 목록에서 삭제했습니다',
 			'explore.watchlistUpdateFailed' => '관심 목록을 업데이트하지 못했습니다',
 			'explore.watchlistNoMatch' => '이 항목을 관심 목록과 연결할 수 없습니다',
+			'explore.openInLibrary' => '라이브러리에서 열기',
 			'explore.notInLibrary' => '라이브러리에 없음',
 			'explore.inTheseLibraries' => '이 라이브러리에 있음',
 			'explore.checkingLibrary' => '라이브러리 확인 중...',
@@ -4680,6 +4678,8 @@ extension on TranslationsKo {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n}분',
 			'music.stopPlayback' => '재생 중지',
 			'music.previousTrack' => '이전 곡',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => '다음 곡',
 			'music.repeat' => '반복',
 			'music.repeatAll' => '전체 반복',
@@ -4729,11 +4729,7 @@ extension on TranslationsKo {
 			'watchTogether.endSessionConfirm' => '모든 참가자의 세션이 종료됩니다.',
 			'watchTogether.leaveSessionConfirm' => '세션에서 나가게 됩니다.',
 			'watchTogether.endSessionConfirmOverlay' => '모든 참가자의 함께 보기 세션이 종료됩니다.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => '함께 보기 세션의 연결이 끊어집니다.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => '종료',
 			'watchTogether.leave' => '나가기',
 			'watchTogether.syncing' => '동기화 중...',
@@ -5196,6 +5192,8 @@ extension on TranslationsKo {
 			'seerr.behindAuthProxy' => 'Seerr 대신 인증이 필요한 리버스 프록시(SSO 또는 HTTP 인증)가 응답했습니다. Plezy는 이를 통해 로그인할 수 없습니다. 이 앱에서 Seerr의 /api/v1 경로가 프록시를 우회하도록 하거나, Seerr에 직접 연결되는 주소를 사용하세요.',
 			'seerr.invalidUrl' => 'https://seerr.example.com과 같은 서버 주소를 입력하세요',
 			'seerr.quickConnectUnsupported' => '이 Seerr 인스턴스는 Quick Connect를 지원하지 않습니다. Seerr 3.4 이상이 필요합니다.',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => '이 Seerr 인스턴스는 최초 실행 설정을 완료하지 않았습니다',
 			'seerr.noPlexTokenForReauth' => '다시 로그인하는 데 사용할 수 있는 Plex 토큰이 없습니다',
 			'seerr.noStoredCredentials' => '다시 로그인하는 데 사용할 수 있는 저장된 인증 정보가 없습니다',
@@ -5245,11 +5243,7 @@ extension on TranslationsKo {
 			'services.libraryFilter.libraries' => '라이브러리',
 			'services.libraryFilter.noLibraries' => '사용 가능한 라이브러리가 없습니다',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product} 서버 추가',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => '서버 URL',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => '쉼표로 구분하여 여러 URL을 입력할 수 있습니다.',
 			'addServer.findServer' => '서버 찾기',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => '로컬 ${product} 서버를 찾는 중...',

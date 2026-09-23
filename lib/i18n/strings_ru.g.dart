@@ -1490,6 +1490,7 @@ class _Translations$explore$ru extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Удалено из списка просмотра';
 	@override String get watchlistUpdateFailed => 'Не удалось обновить список для просмотра';
 	@override String get watchlistNoMatch => 'Не удалось сопоставить этот элемент со списком просмотра';
+	@override String get openInLibrary => 'Открыть в библиотеке';
 	@override String get notInLibrary => 'Нет в вашей библиотеке';
 	@override String get inTheseLibraries => 'В этих библиотеках';
 	@override String get checkingLibrary => 'Проверка вашей библиотеки...';
@@ -3671,6 +3672,8 @@ extension on TranslationsRu {
 			'fileInfo.chromaSubsampling' => 'Субдискретизация цветности',
 			'fileInfo.chromaLocation' => 'Расположение цветности',
 			'fileInfo.scanType' => 'Тип развёртки',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => 'Чересстрочный',
 			'fileInfo.anamorphic' => 'Анаморфный',
 			'fileInfo.referenceFrames' => 'Опорные кадры',
@@ -3682,16 +3685,12 @@ extension on TranslationsRu {
 			'fileInfo.baseLayerCompatibility' => 'Совместимость базового слоя',
 			'fileInfo.avcBitstream' => 'Битовый поток AVC',
 			'fileInfo.nalLengthSize' => 'Размер длины NAL',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Пользовательская матрица масштабирования',
 			'fileInfo.streamIdentifier' => 'Идентификатор потока',
 			'fileInfo.streamIndex' => 'Индекс потока',
 			'fileInfo.streamId' => 'ID потока',
 			'fileInfo.language' => 'Язык',
 			'fileInfo.languageCode' => 'Код языка',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Название дорожки',
 			'fileInfo.channels' => 'Каналы',
 			'fileInfo.sampleRate' => 'Частота дискретизации',
@@ -4187,6 +4186,8 @@ extension on TranslationsRu {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Только критики',
 			'accountPreferences.mediaReviewsOptions.nobody' => 'Скрыто',
 			'discover.title' => 'Обзор',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => 'Контент недоступен',
 			'discover.addMediaToLibraries' => 'Добавьте медиафайлы в ваши библиотеки',
 			'discover.continueWatching' => 'Продолжить просмотр',
@@ -4206,8 +4207,6 @@ extension on TranslationsRu {
 			'discover.rating' => 'Рейтинг',
 			'discover.director' => 'Режиссёр',
 			'discover.directors' => 'Режиссёры',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => 'Фильм',
 			'discover.tvShow' => 'Сериал',
 			'discover.minutesLeft' => ({required Object minutes}) => 'Осталось ${minutes} мин',
@@ -4237,8 +4236,6 @@ extension on TranslationsRu {
 			'libraries.scanLibraryFiles' => 'Сканировать файлы библиотеки',
 			'libraries.scanLibrary' => 'Сканировать библиотеку',
 			'libraries.analyze' => 'Анализировать',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Анализировать библиотеку',
 			'libraries.refreshMetadata' => 'Обновить метаданные',
 			'libraries.emptyTrash' => 'Очистить корзину',
@@ -4432,6 +4429,7 @@ extension on TranslationsRu {
 			'explore.removedFromWatchlist' => 'Удалено из списка просмотра',
 			'explore.watchlistUpdateFailed' => 'Не удалось обновить список для просмотра',
 			'explore.watchlistNoMatch' => 'Не удалось сопоставить этот элемент со списком просмотра',
+			'explore.openInLibrary' => 'Открыть в библиотеке',
 			'explore.notInLibrary' => 'Нет в вашей библиотеке',
 			'explore.inTheseLibraries' => 'В этих библиотеках',
 			'explore.checkingLibrary' => 'Проверка вашей библиотеки...',
@@ -4702,6 +4700,8 @@ extension on TranslationsRu {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} минут',
 			'music.stopPlayback' => 'Остановить воспроизведение',
 			'music.previousTrack' => 'Предыдущий трек',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => 'Следующий трек',
 			'music.repeat' => 'Повтор',
 			'music.repeatAll' => 'Повторять все',
@@ -4751,11 +4751,7 @@ extension on TranslationsRu {
 			'watchTogether.endSessionConfirm' => 'Это завершит сессию для всех участников.',
 			'watchTogether.leaveSessionConfirm' => 'Вы будете удалены из сессии.',
 			'watchTogether.endSessionConfirmOverlay' => 'Это завершит сеанс просмотра для всех участников.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'Вы будете отключены от сеанса просмотра.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => 'Завершить',
 			'watchTogether.leave' => 'Покинуть',
 			'watchTogether.syncing' => 'Синхронизация...',
@@ -5218,6 +5214,8 @@ extension on TranslationsRu {
 			'seerr.behindAuthProxy' => 'Вместо Seerr ответил аутентифицирующий обратный прокси (SSO или HTTP-аутентификация). Plezy не может войти через него: разрешите пути /api/v1 Seerr обходить прокси для этого приложения или используйте адрес, ведущий к Seerr напрямую.',
 			'seerr.invalidUrl' => 'Введите адрес сервера, например https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => 'Этот экземпляр Seerr не поддерживает Quick Connect. Нужна версия Seerr 3.4 или новее.',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => 'Первоначальная настройка этого экземпляра Seerr не завершена',
 			'seerr.noPlexTokenForReauth' => 'Нет токена Plex для повторного входа',
 			'seerr.noStoredCredentials' => 'Нет сохранённых учётных данных для повторного входа',
@@ -5267,11 +5265,7 @@ extension on TranslationsRu {
 			'services.libraryFilter.libraries' => 'Библиотеки',
 			'services.libraryFilter.noLibraries' => 'Библиотеки недоступны',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => 'Добавить сервер ${product}',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => 'URL-адреса сервера',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Можно указать несколько URL через запятую.',
 			'addServer.findServer' => 'Найти сервер',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Поиск локальных серверов ${product}...',

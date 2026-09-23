@@ -1479,6 +1479,7 @@ class _Translations$explore$zh_Hant extends Translations$explore$zh {
 	@override String get removedFromWatchlist => '已從待看清單移除';
 	@override String get watchlistUpdateFailed => '無法更新待看清單';
 	@override String get watchlistNoMatch => '無法將此項目與待看清單配對';
+	@override String get openInLibrary => '在媒體庫中開啟';
 	@override String get notInLibrary => '不在您的媒體庫中';
 	@override String get inTheseLibraries => '在這些媒體庫中';
 	@override String get checkingLibrary => '正在檢查您的媒體庫…';
@@ -3650,6 +3651,8 @@ extension on TranslationsZhHant {
 			'fileInfo.chromaSubsampling' => '色度抽樣',
 			'fileInfo.chromaLocation' => '色度位置',
 			'fileInfo.scanType' => '掃描類型',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => '交錯式',
 			'fileInfo.anamorphic' => '變形寬銀幕',
 			'fileInfo.referenceFrames' => '參考影格',
@@ -3661,16 +3664,12 @@ extension on TranslationsZhHant {
 			'fileInfo.baseLayerCompatibility' => '基礎圖層相容性',
 			'fileInfo.avcBitstream' => 'AVC 位元串流',
 			'fileInfo.nalLengthSize' => 'NAL 長度大小',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => '自訂縮放矩陣',
 			'fileInfo.streamIdentifier' => '串流識別碼',
 			'fileInfo.streamIndex' => '串流索引',
 			'fileInfo.streamId' => '串流 ID',
 			'fileInfo.language' => '語言',
 			'fileInfo.languageCode' => '語言代碼',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => '軌道名稱',
 			'fileInfo.channels' => '聲道數',
 			'fileInfo.sampleRate' => '取樣率',
@@ -4166,6 +4165,8 @@ extension on TranslationsZhHant {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => '僅影評人',
 			'accountPreferences.mediaReviewsOptions.nobody' => '隱藏',
 			'discover.title' => '發現',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => '沒有可用內容',
 			'discover.addMediaToLibraries' => '請向您的媒體庫新增一些媒體內容',
 			'discover.continueWatching' => '繼續觀看',
@@ -4185,8 +4186,6 @@ extension on TranslationsZhHant {
 			'discover.rating' => '分級',
 			'discover.director' => '導演',
 			'discover.directors' => '導演',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => '電影',
 			'discover.tvShow' => '影集',
 			'discover.minutesLeft' => ({required Object minutes}) => '剩餘 ${minutes} 分鐘',
@@ -4216,8 +4215,6 @@ extension on TranslationsZhHant {
 			'libraries.scanLibraryFiles' => '掃描媒體庫檔案',
 			'libraries.scanLibrary' => '掃描媒體庫',
 			'libraries.analyze' => '分析',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => '分析媒體庫',
 			'libraries.refreshMetadata' => '重新整理中繼資料',
 			'libraries.emptyTrash' => '清空垃圾桶',
@@ -4411,6 +4408,7 @@ extension on TranslationsZhHant {
 			'explore.removedFromWatchlist' => '已從待看清單移除',
 			'explore.watchlistUpdateFailed' => '無法更新待看清單',
 			'explore.watchlistNoMatch' => '無法將此項目與待看清單配對',
+			'explore.openInLibrary' => '在媒體庫中開啟',
 			'explore.notInLibrary' => '不在您的媒體庫中',
 			'explore.inTheseLibraries' => '在這些媒體庫中',
 			'explore.checkingLibrary' => '正在檢查您的媒體庫…',
@@ -4681,6 +4679,8 @@ extension on TranslationsZhHant {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} 分鐘',
 			'music.stopPlayback' => '停止播放',
 			'music.previousTrack' => '上一首',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => '下一首',
 			'music.repeat' => '重複播放',
 			'music.repeatAll' => '全部重複播放',
@@ -4730,11 +4730,7 @@ extension on TranslationsZhHant {
 			'watchTogether.endSessionConfirm' => '這將為所有參與者結束此「一起看」工作階段。',
 			'watchTogether.leaveSessionConfirm' => '您將退出此「一起看」工作階段。',
 			'watchTogether.endSessionConfirmOverlay' => '這將為所有參與者結束觀看工作階段。',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => '您將中斷與「一起看」工作階段的連線。',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => '結束',
 			'watchTogether.leave' => '離開',
 			'watchTogether.syncing' => '同步中…',
@@ -5197,6 +5193,8 @@ extension on TranslationsZhHant {
 			'seerr.behindAuthProxy' => '回應來自需要驗證的反向代理（SSO 或 HTTP 驗證），而非 Seerr。Plezy 無法透過它登入：請讓 Seerr 的 /api/v1 路徑為此應用程式繞過代理，或使用可直接連線至 Seerr 的位址。',
 			'seerr.invalidUrl' => '請輸入伺服器位址，例如 https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => '此 Seerr 執行個體不支援 Quick Connect。需要 Seerr 3.4 或更新版本。',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => '此 Seerr 執行個體尚未完成首次執行設定',
 			'seerr.noPlexTokenForReauth' => '沒有可用於重新登入的 Plex 權杖',
 			'seerr.noStoredCredentials' => '沒有可用於重新登入的已儲存認證資訊',
@@ -5246,11 +5244,7 @@ extension on TranslationsZhHant {
 			'services.libraryFilter.libraries' => '媒體庫',
 			'services.libraryFilter.noLibraries' => '沒有可用的媒體庫',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '新增 ${product} 伺服器',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => '伺服器 URL',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => '可輸入多個連線網址，以逗號區隔。',
 			'addServer.findServer' => '尋找伺服器',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => '正在尋找本機的 ${product} 伺服器…',

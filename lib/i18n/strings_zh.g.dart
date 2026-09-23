@@ -1478,6 +1478,7 @@ class Translations$explore$zh extends Translations$explore$en {
 	@override String get removedFromWatchlist => '已从待看列表中移除';
 	@override String get watchlistUpdateFailed => '无法更新想看列表';
 	@override String get watchlistNoMatch => '无法将此项目与待看列表匹配';
+	@override String get openInLibrary => '在媒体库中打开';
 	@override String get notInLibrary => '不在你的媒体库中';
 	@override String get inTheseLibraries => '在这些媒体库中';
 	@override String get checkingLibrary => '正在检查你的媒体库…';
@@ -3649,6 +3650,8 @@ extension on TranslationsZh {
 			'fileInfo.chromaSubsampling' => '色度子采样',
 			'fileInfo.chromaLocation' => '色度位置',
 			'fileInfo.scanType' => '扫描类型',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => '隔行扫描',
 			'fileInfo.anamorphic' => '变形宽银幕',
 			'fileInfo.referenceFrames' => '参考帧',
@@ -3660,16 +3663,12 @@ extension on TranslationsZh {
 			'fileInfo.baseLayerCompatibility' => '基础层兼容性',
 			'fileInfo.avcBitstream' => 'AVC 比特流',
 			'fileInfo.nalLengthSize' => 'NAL 长度',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => '自定义缩放矩阵',
 			'fileInfo.streamIdentifier' => '流标识符',
 			'fileInfo.streamIndex' => '流索引',
 			'fileInfo.streamId' => '流 ID',
 			'fileInfo.language' => '语言',
 			'fileInfo.languageCode' => '语言代码',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => '轨道标题',
 			'fileInfo.channels' => '声道',
 			'fileInfo.sampleRate' => '采样率',
@@ -4165,6 +4164,8 @@ extension on TranslationsZh {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => '仅影评人',
 			'accountPreferences.mediaReviewsOptions.nobody' => '隐藏',
 			'discover.title' => '发现',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => '没有可用内容',
 			'discover.addMediaToLibraries' => '请向你的媒体库添加一些媒体',
 			'discover.continueWatching' => '继续观看',
@@ -4184,8 +4185,6 @@ extension on TranslationsZh {
 			'discover.rating' => '年龄分级',
 			'discover.director' => '导演',
 			'discover.directors' => '导演',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => '电影',
 			'discover.tvShow' => '电视剧',
 			'discover.minutesLeft' => ({required Object minutes}) => '剩余 ${minutes} 分钟',
@@ -4215,8 +4214,6 @@ extension on TranslationsZh {
 			'libraries.scanLibraryFiles' => '扫描媒体库文件',
 			'libraries.scanLibrary' => '扫描媒体库',
 			'libraries.analyze' => '分析',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => '分析媒体库',
 			'libraries.refreshMetadata' => '刷新元数据',
 			'libraries.emptyTrash' => '清空回收站',
@@ -4410,6 +4407,7 @@ extension on TranslationsZh {
 			'explore.removedFromWatchlist' => '已从待看列表中移除',
 			'explore.watchlistUpdateFailed' => '无法更新想看列表',
 			'explore.watchlistNoMatch' => '无法将此项目与待看列表匹配',
+			'explore.openInLibrary' => '在媒体库中打开',
 			'explore.notInLibrary' => '不在你的媒体库中',
 			'explore.inTheseLibraries' => '在这些媒体库中',
 			'explore.checkingLibrary' => '正在检查你的媒体库…',
@@ -4680,6 +4678,8 @@ extension on TranslationsZh {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} 分钟',
 			'music.stopPlayback' => '停止播放',
 			'music.previousTrack' => '上一首',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => '下一首',
 			'music.repeat' => '循环',
 			'music.repeatAll' => '列表循环',
@@ -4729,11 +4729,7 @@ extension on TranslationsZh {
 			'watchTogether.endSessionConfirm' => '这将为所有参与者结束会话。',
 			'watchTogether.leaveSessionConfirm' => '你将被移出会话。',
 			'watchTogether.endSessionConfirmOverlay' => '这将为所有参与者结束观看会话。',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => '你将断开与观看会话的连接。',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => '结束',
 			'watchTogether.leave' => '离开',
 			'watchTogether.syncing' => '正在同步…',
@@ -5196,6 +5192,8 @@ extension on TranslationsZh {
 			'seerr.behindAuthProxy' => '响应来自需要身份验证的反向代理（SSO 或 HTTP 认证），而非 Seerr。Plezy 无法通过它登录：请让 Seerr 的 /api/v1 路径为此应用绕过代理，或使用可直接访问 Seerr 的地址。',
 			'seerr.invalidUrl' => '输入服务器地址，例如 https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => '此 Seerr 实例不支持 Quick Connect。需要 Seerr 3.4 或更高版本。',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => '此 Seerr 实例尚未完成首次运行设置',
 			'seerr.noPlexTokenForReauth' => '没有可用于重新登录的 Plex 令牌',
 			'seerr.noStoredCredentials' => '没有已保存的凭据可用于重新登录',
@@ -5245,11 +5243,7 @@ extension on TranslationsZh {
 			'services.libraryFilter.libraries' => '媒体库',
 			'services.libraryFilter.noLibraries' => '没有可用的媒体库',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '添加 ${product} 服务器',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => '服务器 URL',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => '可输入多个 URL，并用逗号分隔。',
 			'addServer.findServer' => '查找服务器',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => '正在查找本地 ${product} 服务器…',

@@ -1478,6 +1478,7 @@ class _Translations$explore$nl extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Uit kijklijst verwijderd';
 	@override String get watchlistUpdateFailed => 'Kon kijklijst niet bijwerken';
 	@override String get watchlistNoMatch => 'Kon dit item niet aan een kijklijst koppelen';
+	@override String get openInLibrary => 'Openen in bibliotheek';
 	@override String get notInLibrary => 'Niet in je bibliotheek';
 	@override String get inTheseLibraries => 'In deze bibliotheken';
 	@override String get checkingLibrary => 'Je bibliotheek controleren...';
@@ -3649,6 +3650,8 @@ extension on TranslationsNl {
 			'fileInfo.chromaSubsampling' => 'Chroma-subsampling',
 			'fileInfo.chromaLocation' => 'Chroma-positie',
 			'fileInfo.scanType' => 'Scantype',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => 'Interlaced',
 			'fileInfo.anamorphic' => 'Anamorf',
 			'fileInfo.referenceFrames' => 'Referentieframes',
@@ -3660,16 +3663,12 @@ extension on TranslationsNl {
 			'fileInfo.baseLayerCompatibility' => 'Compatibiliteit basislaag',
 			'fileInfo.avcBitstream' => 'AVC-bitstroom',
 			'fileInfo.nalLengthSize' => 'NAL-lengte',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Aangepaste schalingsmatrix',
 			'fileInfo.streamIdentifier' => 'Stream-id',
 			'fileInfo.streamIndex' => 'Streamindex',
 			'fileInfo.streamId' => 'Stream-ID',
 			'fileInfo.language' => 'Taal',
 			'fileInfo.languageCode' => 'Taalcode',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Tracktitel',
 			'fileInfo.channels' => 'Kanalen',
 			'fileInfo.sampleRate' => 'Samplingsnelheid',
@@ -4165,6 +4164,8 @@ extension on TranslationsNl {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Alleen critici',
 			'accountPreferences.mediaReviewsOptions.nobody' => 'Verborgen',
 			'discover.title' => 'Ontdekken',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => 'Geen inhoud beschikbaar',
 			'discover.addMediaToLibraries' => 'Voeg wat media toe aan je bibliotheken',
 			'discover.continueWatching' => 'Verder kijken',
@@ -4184,8 +4185,6 @@ extension on TranslationsNl {
 			'discover.rating' => 'Beoordeling',
 			'discover.director' => 'Regisseur',
 			'discover.directors' => 'Regisseurs',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => 'Film',
 			'discover.tvShow' => 'Tv-serie',
 			'discover.minutesLeft' => ({required Object minutes}) => 'nog ${minutes} min',
@@ -4215,8 +4214,6 @@ extension on TranslationsNl {
 			'libraries.scanLibraryFiles' => 'Bibliotheekbestanden scannen',
 			'libraries.scanLibrary' => 'Bibliotheek scannen',
 			'libraries.analyze' => 'Analyseren',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Bibliotheek analyseren',
 			'libraries.refreshMetadata' => 'Metadata vernieuwen',
 			'libraries.emptyTrash' => 'Prullenbak legen',
@@ -4410,6 +4407,7 @@ extension on TranslationsNl {
 			'explore.removedFromWatchlist' => 'Uit kijklijst verwijderd',
 			'explore.watchlistUpdateFailed' => 'Kon kijklijst niet bijwerken',
 			'explore.watchlistNoMatch' => 'Kon dit item niet aan een kijklijst koppelen',
+			'explore.openInLibrary' => 'Openen in bibliotheek',
 			'explore.notInLibrary' => 'Niet in je bibliotheek',
 			'explore.inTheseLibraries' => 'In deze bibliotheken',
 			'explore.checkingLibrary' => 'Je bibliotheek controleren...',
@@ -4680,6 +4678,8 @@ extension on TranslationsNl {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} minuten',
 			'music.stopPlayback' => 'Afspelen stoppen',
 			'music.previousTrack' => 'Vorig nummer',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => 'Volgend nummer',
 			'music.repeat' => 'Herhalen',
 			'music.repeatAll' => 'Alles herhalen',
@@ -4729,11 +4729,7 @@ extension on TranslationsNl {
 			'watchTogether.endSessionConfirm' => 'Dit beëindigt de sessie voor alle deelnemers.',
 			'watchTogether.leaveSessionConfirm' => 'Je wordt uit de sessie verwijderd.',
 			'watchTogether.endSessionConfirmOverlay' => 'Dit beëindigt de kijksessie voor alle deelnemers.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'Je wordt losgekoppeld van de kijksessie.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => 'Beëindigen',
 			'watchTogether.leave' => 'Verlaten',
 			'watchTogether.syncing' => 'Synchroniseren...',
@@ -5196,6 +5192,8 @@ extension on TranslationsNl {
 			'seerr.behindAuthProxy' => 'Een authenticerende reverse proxy (SSO of HTTP-auth) heeft geantwoord in plaats van Seerr. Plezy kan hierdoor niet inloggen: laat het /api/v1-pad van Seerr de proxy omzeilen voor deze app, of gebruik een adres dat Seerr direct bereikt.',
 			'seerr.invalidUrl' => 'Voer een serveradres in, zoals https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => 'Deze Seerr-instantie ondersteunt Quick Connect niet. Hiervoor is Seerr 3.4 of nieuwer nodig.',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => 'De eerste configuratie van deze Seerr-instantie is niet voltooid',
 			'seerr.noPlexTokenForReauth' => 'Er is geen Plex-token beschikbaar om opnieuw in te loggen',
 			'seerr.noStoredCredentials' => 'Er zijn geen opgeslagen inloggegevens beschikbaar om opnieuw in te loggen',
@@ -5245,11 +5243,7 @@ extension on TranslationsNl {
 			'services.libraryFilter.libraries' => 'Bibliotheken',
 			'services.libraryFilter.noLibraries' => 'Geen bibliotheken beschikbaar',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product}-server toevoegen',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => 'Server-URL\'s',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Meerdere URL\'s toegestaan, gescheiden door komma\'s.',
 			'addServer.findServer' => 'Server zoeken',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Zoeken naar lokale ${product}-servers...',

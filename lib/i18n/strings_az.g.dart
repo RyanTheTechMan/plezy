@@ -1478,6 +1478,7 @@ class _Translations$explore$az extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Baxış siyahısından silindi';
 	@override String get watchlistUpdateFailed => 'İzləmə siyahısı yenilənə bilmədi';
 	@override String get watchlistNoMatch => 'Bu elementi heç bir baxış siyahısı ilə uyğunlaşdırmaq olmadı';
+	@override String get openInLibrary => 'Kitabxanada aç';
 	@override String get notInLibrary => 'Kitabxananızda yoxdur';
 	@override String get inTheseLibraries => 'Bu kitabxanalarda var';
 	@override String get checkingLibrary => 'Kitabxananız yoxlanılır...';
@@ -3649,6 +3650,8 @@ extension on TranslationsAz {
 			'fileInfo.chromaSubsampling' => 'Rəng alt-diskretləşdirməsi',
 			'fileInfo.chromaLocation' => 'Chroma mövqeyi',
 			'fileInfo.scanType' => 'Tarama növü',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => 'Sətirlərarası',
 			'fileInfo.anamorphic' => 'Anamorfik',
 			'fileInfo.referenceFrames' => 'İstinad kadrları',
@@ -3660,16 +3663,12 @@ extension on TranslationsAz {
 			'fileInfo.baseLayerCompatibility' => 'Baza təbəqə uyğunluğu',
 			'fileInfo.avcBitstream' => 'AVC bit axını',
 			'fileInfo.nalLengthSize' => 'NAL uzunluq ölçüsü',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Xüsusi miqyaslama matrisi',
 			'fileInfo.streamIdentifier' => 'Axın identifikatoru',
 			'fileInfo.streamIndex' => 'Axın indeksi',
 			'fileInfo.streamId' => 'Axın ID-si',
 			'fileInfo.language' => 'Dil',
 			'fileInfo.languageCode' => 'Dil kodu',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Trek başlığı',
 			'fileInfo.channels' => 'Kanallar',
 			'fileInfo.sampleRate' => 'Diskretləşdirmə tezliyi',
@@ -4165,6 +4164,8 @@ extension on TranslationsAz {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Yalnız tənqidçilər',
 			'accountPreferences.mediaReviewsOptions.nobody' => 'Gizlədilib',
 			'discover.title' => 'Kəşf et',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => 'Məzmun əlçatan deyil',
 			'discover.addMediaToLibraries' => 'Kitabxanalarınıza bir az media əlavə edin',
 			'discover.continueWatching' => 'İzləməyə davam et',
@@ -4184,8 +4185,6 @@ extension on TranslationsAz {
 			'discover.rating' => 'Reytinq',
 			'discover.director' => 'Rejissor',
 			'discover.directors' => 'Rejissorlar',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => 'Kino',
 			'discover.tvShow' => 'TV Şou',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} dəq qaldı',
@@ -4215,8 +4214,6 @@ extension on TranslationsAz {
 			'libraries.scanLibraryFiles' => 'Kitabxana fayllarını skan et',
 			'libraries.scanLibrary' => 'Kitabxananı skan et',
 			'libraries.analyze' => 'Analiz et',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Kitabxananı analiz et',
 			'libraries.refreshMetadata' => 'Meta-məlumatları yenilə',
 			'libraries.emptyTrash' => 'Zibil qutusunu təmizlə',
@@ -4410,6 +4407,7 @@ extension on TranslationsAz {
 			'explore.removedFromWatchlist' => 'Baxış siyahısından silindi',
 			'explore.watchlistUpdateFailed' => 'İzləmə siyahısı yenilənə bilmədi',
 			'explore.watchlistNoMatch' => 'Bu elementi heç bir baxış siyahısı ilə uyğunlaşdırmaq olmadı',
+			'explore.openInLibrary' => 'Kitabxanada aç',
 			'explore.notInLibrary' => 'Kitabxananızda yoxdur',
 			'explore.inTheseLibraries' => 'Bu kitabxanalarda var',
 			'explore.checkingLibrary' => 'Kitabxananız yoxlanılır...',
@@ -4680,6 +4678,8 @@ extension on TranslationsAz {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} dəqiqə',
 			'music.stopPlayback' => 'Oynatmanı saxla',
 			'music.previousTrack' => 'Əvvəlki mahnı',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => 'Növbəti mahnı',
 			'music.repeat' => 'Təkrarla',
 			'music.repeatAll' => 'Hamısını təkrarla',
@@ -4729,11 +4729,7 @@ extension on TranslationsAz {
 			'watchTogether.endSessionConfirm' => 'Bu bütün iştirakçılar üçün seansı bitirəcək.',
 			'watchTogether.leaveSessionConfirm' => 'Seansdan xaric ediləcəksiniz.',
 			'watchTogether.endSessionConfirmOverlay' => 'Bu bütün iştirakçılar üçün izləmə seansını bitirəcək.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'İzləmə seansı ilə əlaqəniz kəsiləcək.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => 'Bitir',
 			'watchTogether.leave' => 'Çıx',
 			'watchTogether.syncing' => 'Eyniləşdirilir...',
@@ -5196,6 +5192,8 @@ extension on TranslationsAz {
 			'seerr.behindAuthProxy' => 'Seerr əvəzinə autentifikasiya edən tərs proksi (SSO və ya HTTP auth) cavab verdi. Plezy onun vasitəsilə daxil ola bilmir: bu tətbiq üçün Seerr-in /api/v1 yolunun proksini yan keçməsinə icazə verin və ya Seerr-ə birbaşa çatan ünvan istifadə edin.',
 			'seerr.invalidUrl' => 'https://seerr.example.com kimi server ünvanı daxil edin',
 			'seerr.quickConnectUnsupported' => 'Bu Seerr nüsxəsi Sürətli Qoşulmanı dəstəkləmir. Seerr 3.4 və ya daha yeni versiya tələb olunur.',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => 'Bu Seerr instansiyasının ilkin quraşdırılması tamamlanmayıb',
 			'seerr.noPlexTokenForReauth' => 'Yenidən daxil olmaq üçün Plex tokeni mövcud deyil',
 			'seerr.noStoredCredentials' => 'Yenidən daxil olmaq üçün yadda saxlanmış giriş məlumatları mövcud deyil',
@@ -5245,11 +5243,7 @@ extension on TranslationsAz {
 			'services.libraryFilter.libraries' => 'Kitabxanalar',
 			'services.libraryFilter.noLibraries' => 'Kitabxana yoxdur',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product} serveri əlavə et',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => 'Server URL-ləri',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Vergüllə ayrılmış bir neçə URL-ə icazə verilir.',
 			'addServer.findServer' => 'Server tap',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Yerli ${product} serverləri axtarılır...',

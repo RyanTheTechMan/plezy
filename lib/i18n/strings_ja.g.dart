@@ -1478,6 +1478,7 @@ class _Translations$explore$ja extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'ウォッチリストから削除しました';
 	@override String get watchlistUpdateFailed => 'ウォッチリストを更新できませんでした';
 	@override String get watchlistNoMatch => 'このアイテムに一致するウォッチリスト項目が見つかりませんでした';
+	@override String get openInLibrary => 'ライブラリで開く';
 	@override String get notInLibrary => 'ライブラリにありません';
 	@override String get inTheseLibraries => 'これらのライブラリにあります';
 	@override String get checkingLibrary => 'ライブラリを確認中…';
@@ -3649,6 +3650,8 @@ extension on TranslationsJa {
 			'fileInfo.chromaSubsampling' => 'クロマサブサンプリング',
 			'fileInfo.chromaLocation' => 'クロマ位置',
 			'fileInfo.scanType' => 'スキャンタイプ',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => 'インターレース',
 			'fileInfo.anamorphic' => 'アナモルフィック',
 			'fileInfo.referenceFrames' => '参照フレーム数',
@@ -3660,16 +3663,12 @@ extension on TranslationsJa {
 			'fileInfo.baseLayerCompatibility' => 'ベースレイヤー互換性',
 			'fileInfo.avcBitstream' => 'AVC ビットストリーム',
 			'fileInfo.nalLengthSize' => 'NAL 長さサイズ',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'カスタムスケーリングマトリックス',
 			'fileInfo.streamIdentifier' => 'ストリーム識別子',
 			'fileInfo.streamIndex' => 'ストリームインデックス',
 			'fileInfo.streamId' => 'ストリーム ID',
 			'fileInfo.language' => '言語',
 			'fileInfo.languageCode' => '言語コード',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'トラックタイトル',
 			'fileInfo.channels' => 'チャンネル',
 			'fileInfo.sampleRate' => 'サンプルレート',
@@ -4165,6 +4164,8 @@ extension on TranslationsJa {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => '批評家のみ',
 			'accountPreferences.mediaReviewsOptions.nobody' => '非表示',
 			'discover.title' => '探す',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => 'コンテンツがありません',
 			'discover.addMediaToLibraries' => 'ライブラリにメディアを追加してください',
 			'discover.continueWatching' => '視聴を続ける',
@@ -4184,8 +4185,6 @@ extension on TranslationsJa {
 			'discover.rating' => '評価',
 			'discover.director' => '監督',
 			'discover.directors' => '監督',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => '映画',
 			'discover.tvShow' => 'テレビ番組',
 			'discover.minutesLeft' => ({required Object minutes}) => '残り${minutes}分',
@@ -4215,8 +4214,6 @@ extension on TranslationsJa {
 			'libraries.scanLibraryFiles' => 'ライブラリファイルをスキャン',
 			'libraries.scanLibrary' => 'ライブラリをスキャン',
 			'libraries.analyze' => '解析',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'ライブラリを解析',
 			'libraries.refreshMetadata' => 'メタデータを更新',
 			'libraries.emptyTrash' => 'ゴミ箱を空にする',
@@ -4410,6 +4407,7 @@ extension on TranslationsJa {
 			'explore.removedFromWatchlist' => 'ウォッチリストから削除しました',
 			'explore.watchlistUpdateFailed' => 'ウォッチリストを更新できませんでした',
 			'explore.watchlistNoMatch' => 'このアイテムに一致するウォッチリスト項目が見つかりませんでした',
+			'explore.openInLibrary' => 'ライブラリで開く',
 			'explore.notInLibrary' => 'ライブラリにありません',
 			'explore.inTheseLibraries' => 'これらのライブラリにあります',
 			'explore.checkingLibrary' => 'ライブラリを確認中…',
@@ -4680,6 +4678,8 @@ extension on TranslationsJa {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} 分',
 			'music.stopPlayback' => '再生を停止',
 			'music.previousTrack' => '前の曲',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => '次の曲',
 			'music.repeat' => 'リピート',
 			'music.repeatAll' => '全曲リピート',
@@ -4729,11 +4729,7 @@ extension on TranslationsJa {
 			'watchTogether.endSessionConfirm' => 'すべての参加者のセッションが終了します。',
 			'watchTogether.leaveSessionConfirm' => 'セッションから退出されます。',
 			'watchTogether.endSessionConfirmOverlay' => 'すべての参加者の視聴セッションが終了します。',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => '視聴セッションから切断されます。',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => '終了',
 			'watchTogether.leave' => '退出',
 			'watchTogether.syncing' => '同期中…',
@@ -5196,6 +5192,8 @@ extension on TranslationsJa {
 			'seerr.behindAuthProxy' => 'Seerrではなく、認証が必要なリバースプロキシ（SSOまたはHTTP認証）が応答しました。Plezyはこれを通じてサインインできません。このアプリではSeerrの/api/v1パスをプロキシから除外するか、Seerrに直接到達するアドレスを使用してください。',
 			'seerr.invalidUrl' => 'https://seerr.example.comのようなサーバーアドレスを入力してください',
 			'seerr.quickConnectUnsupported' => 'このSeerrインスタンスはQuick Connectに対応していません。Seerr 3.4以降が必要です。',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => 'このSeerrインスタンスでは初回セットアップが完了していません',
 			'seerr.noPlexTokenForReauth' => '再サインインに使用できるPlexトークンがありません',
 			'seerr.noStoredCredentials' => '再サインインに使用できる保存済みの認証情報がありません',
@@ -5245,11 +5243,7 @@ extension on TranslationsJa {
 			'services.libraryFilter.libraries' => 'ライブラリ',
 			'services.libraryFilter.noLibraries' => '利用できるライブラリがありません',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product}サーバーを追加',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => 'サーバーURL',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => '複数のURLをカンマ区切りで入力できます。',
 			'addServer.findServer' => 'サーバーを検索',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'ローカルの${product}サーバーを検索中…',
