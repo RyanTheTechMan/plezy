@@ -3587,6 +3587,8 @@ extension on TranslationsUz {
 			'fileInfo.streamId' => 'Oqim ID-si',
 			'fileInfo.language' => 'Til',
 			'fileInfo.languageCode' => 'Til kodi',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Trek nomi',
 			'fileInfo.channels' => 'Kanallar',
 			'fileInfo.sampleRate' => 'Namuna tezligi',
@@ -3598,8 +3600,6 @@ extension on TranslationsUz {
 			'fileInfo.externalDelivery' => 'Alohida uzatilishi mumkin',
 			'fileInfo.sidecarPath' => 'Yordamchi fayl yoʻli',
 			'fileInfo.sourceStream' => 'Nusxa olingan manba',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.temporary' => 'Vaqtinchalik',
 			'fileInfo.timeBase' => 'Vaqt bazasi',
 			'fileInfo.overallBitrate' => 'Umumiy bitreyt',
@@ -3612,8 +3612,6 @@ extension on TranslationsUz {
 			'fileInfo.previewThumbnails' => 'Oldindan koʻrish eskizlari',
 			'fileInfo.previewIndex' => 'Oldindan koʻrish indeksi',
 			'fileInfo.packetLength' => 'Paket uzunligi',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Fayl mavjud',
 			'fileInfo.fileReadable' => 'Server tomonidan oʻqiladigan',
 			'fileInfo.streamPath' => 'Oqim yoʻli',
@@ -4103,6 +4101,8 @@ extension on TranslationsUz {
 			'discover.rating' => 'Reyting',
 			'discover.director' => 'Rejissyor',
 			'discover.directors' => 'Rejissyorlar',
+			_ => null,
+		} ?? switch (path) {
 			'discover.movie' => 'Film',
 			'discover.tvShow' => 'TV Shou',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} daq qoldi',
@@ -4143,8 +4143,6 @@ extension on TranslationsUz {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Tahlil qilib boʻlmadi: ${error}',
 			'libraries.noLibrariesFound' => 'Kutubxonalar topilmadi',
 			'libraries.allLibrariesHidden' => 'Barcha kutubxonalar yashirilgan',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Yashirin kutubxonalar (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Ushbu kutubxona boʻsh',
 			'libraries.noItemsMatchFilters' => 'Filtrlarga mos keladigan elementlar topilmadi',
@@ -4153,8 +4151,6 @@ extension on TranslationsUz {
 			'libraries.clearAll' => 'Barchasini tozalash',
 			'libraries.scanLibraryConfirm' => ({required Object title}) => '"${title}" kutubxonasini skanerlamoqchimisiz?',
 			'libraries.analyzeLibraryConfirm' => ({required Object title}) => '"${title}" kutubxonasini tahlil qilmoqchimisiz?',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.refreshMetadataConfirm' => ({required Object title}) => '"${title}" metamaʼlumotlarini yangilaysizmi?',
 			'libraries.emptyTrashConfirm' => ({required Object title}) => '"${title}" savatini tozalaysizmi?',
 			'libraries.manageLibraries' => 'Kutubxonalarni boshqarish',
@@ -4619,6 +4615,8 @@ extension on TranslationsUz {
 			'watchTogether.leaveSessionConfirm' => 'Siz seansdan uzilasiz.',
 			'watchTogether.endSessionConfirmOverlay' => 'Bu barcha uchun tomosha seansini yakunlaydi.',
 			'watchTogether.leaveSessionConfirmOverlay' => 'Tomosha seansidan uzilasiz.',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.end' => 'Yakunlash',
 			'watchTogether.leave' => 'Chiqish',
 			'watchTogether.syncing' => 'Sinxronlanmoqda...',
@@ -4667,8 +4665,6 @@ extension on TranslationsUz {
 			'downloads.tracksQueued' => ({required Object count}) => '${count} tarona yuklash navbatiga qoʻshildi',
 			'downloads.noDownloads' => 'Hali yuklamalar yoʻq',
 			'downloads.noDownloadsDescription' => 'Yuklangan fayllar oflayn koʻrish uchun bu yerda koʻrinadi',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.downloadNow' => 'Yuklab olish',
 			'downloads.deleteDownload' => 'Yuklamani oʻchirish',
 			'downloads.retryDownload' => 'Yuklashni qaytadan urinish',
@@ -4679,8 +4675,6 @@ extension on TranslationsUz {
 			'downloads.storageUnavailable' => 'Boʻsh xotirani tekshirib boʻlmagani uchun yuklamalar toʻxtatildi. Yuklash joyini tekshirib, qaytadan urinib koʻring.',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} qism yuklash navbatiga qoʻshildi',
 			'downloads.downloadDeleted' => 'Yuklama oʻchirildi',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => '"${title}" ushbu qurilmadan oʻchirilsinmi?',
 			'downloads.cancelledDownloadTitle' => 'Toʻxtatilgan yuklama',
 			'downloads.cancelledDownloadMessage' => 'Ushbu yuklash bekor qilindi. Nima qilmoqchisiz?',
@@ -5135,6 +5129,8 @@ extension on TranslationsUz {
 			'services.libraryFilter.noLibraries' => 'Kutubxonalar yoʻq',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product} serverini qoʻshish',
 			'addServer.serverUrls' => 'Server URL-lari',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Vergul bilan ajratilgan bir nechta URL manziliga ruxsat beriladi.',
 			'addServer.findServer' => 'Serverni topish',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Mahalliy ${product} serverlari qidirilmoqda...',

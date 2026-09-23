@@ -3577,6 +3577,8 @@ extension on TranslationsZhHant {
 			'fileInfo.streamId' => '串流 ID',
 			'fileInfo.language' => '語言',
 			'fileInfo.languageCode' => '語言代碼',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.streamTitle' => '軌道名稱',
 			'fileInfo.channels' => '聲道數',
 			'fileInfo.sampleRate' => '取樣率',
@@ -3588,8 +3590,6 @@ extension on TranslationsZhHant {
 			'fileInfo.externalDelivery' => '可分開傳送',
 			'fileInfo.sidecarPath' => '附屬路徑',
 			'fileInfo.sourceStream' => '複製來源',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.temporary' => '暫時',
 			'fileInfo.timeBase' => '時間基準',
 			'fileInfo.overallBitrate' => '總位元率',
@@ -3602,8 +3602,6 @@ extension on TranslationsZhHant {
 			'fileInfo.previewThumbnails' => '預覽縮圖',
 			'fileInfo.previewIndex' => '預覽索引',
 			'fileInfo.packetLength' => '封包長度',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.filePresent' => '檔案存在',
 			'fileInfo.fileReadable' => '伺服器可讀取',
 			'fileInfo.streamPath' => '串流路徑',
@@ -4093,6 +4091,8 @@ extension on TranslationsZhHant {
 			'discover.rating' => '分級',
 			'discover.director' => '導演',
 			'discover.directors' => '導演',
+			_ => null,
+		} ?? switch (path) {
 			'discover.movie' => '電影',
 			'discover.tvShow' => '影集',
 			'discover.minutesLeft' => ({required Object minutes}) => '剩餘 ${minutes} 分鐘',
@@ -4133,8 +4133,6 @@ extension on TranslationsZhHant {
 			'libraries.failedToAnalyze' => ({required Object error}) => '無法分析媒體庫：${error}',
 			'libraries.noLibrariesFound' => '找不到媒體庫',
 			'libraries.allLibrariesHidden' => '所有媒體庫都已隱藏',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => '已隱藏的媒體庫（${count}）',
 			'libraries.thisLibraryIsEmpty' => '此媒體庫為空',
 			'libraries.noItemsMatchFilters' => '沒有符合目前篩選條件的項目',
@@ -4143,8 +4141,6 @@ extension on TranslationsZhHant {
 			'libraries.clearAll' => '全部清除',
 			'libraries.scanLibraryConfirm' => ({required Object title}) => '確定要掃描「${title}」嗎？',
 			'libraries.analyzeLibraryConfirm' => ({required Object title}) => '確定要分析「${title}」嗎？',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.refreshMetadataConfirm' => ({required Object title}) => '確定要重新整理「${title}」的中繼資料嗎？',
 			'libraries.emptyTrashConfirm' => ({required Object title}) => '確定要清空「${title}」的垃圾桶嗎？',
 			'libraries.manageLibraries' => '管理媒體庫',
@@ -4609,6 +4605,8 @@ extension on TranslationsZhHant {
 			'watchTogether.leaveSessionConfirm' => '您將退出此「一起看」工作階段。',
 			'watchTogether.endSessionConfirmOverlay' => '這將為所有參與者結束觀看工作階段。',
 			'watchTogether.leaveSessionConfirmOverlay' => '您將中斷與「一起看」工作階段的連線。',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.end' => '結束',
 			'watchTogether.leave' => '離開',
 			'watchTogether.syncing' => '同步中…',
@@ -4657,8 +4655,6 @@ extension on TranslationsZhHant {
 			'downloads.tracksQueued' => ({required Object count}) => '已將 ${count} 首曲目加入下載佇列',
 			'downloads.noDownloads' => '目前沒有下載內容',
 			'downloads.noDownloadsDescription' => '下載的內容將顯示在此處，供您離線觀看',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.downloadNow' => '下載',
 			'downloads.deleteDownload' => '刪除下載內容',
 			'downloads.retryDownload' => '重試下載',
@@ -4669,8 +4665,6 @@ extension on TranslationsZhHant {
 			'downloads.storageUnavailable' => '無法檢查可用儲存空間，因此下載已停止。請檢查下載位置後再試一次。',
 			'downloads.episodesQueued' => ({required Object count}) => '已將 ${count} 集影片加入下載佇列',
 			'downloads.downloadDeleted' => '下載內容已刪除',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => '確定要從此裝置刪除「${title}」嗎？',
 			'downloads.cancelledDownloadTitle' => '已取消的下載',
 			'downloads.cancelledDownloadMessage' => '此下載已取消。您想要如何處理？',
@@ -5125,6 +5119,8 @@ extension on TranslationsZhHant {
 			'services.libraryFilter.noLibraries' => '沒有可用的媒體庫',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '新增 ${product} 伺服器',
 			'addServer.serverUrls' => '伺服器 URL',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => '可輸入多個連線網址，以逗號區隔。',
 			'addServer.findServer' => '尋找伺服器',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => '正在尋找本機的 ${product} 伺服器…',

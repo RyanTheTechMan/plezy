@@ -419,6 +419,17 @@ class _Translations$settings$nb extends Translations$settings$en {
 	@override String get downloadLocationReset => 'Nedlastingsplassering tilbakestilt til standard';
 	@override String get downloadLocationInvalid => 'Valgt mappe er ikke skrivbar';
 	@override String get downloadLocationPickerUnavailable => 'Mappevalg er ikke tilgjengelig på denne enheten';
+	@override String get downloadLocationSelectError => 'Kunne ikke velge mappe';
+	@override String get mediaCapture => 'Mediefangst';
+	@override String get clips => 'Klipp';
+	@override String get screenshots => 'Skjermbilder';
+	@override String captureLocationTitle({required Object title}) => '${title} Beliggenhet';
+	@override String get clipLocationDescription => 'Velg hvor klippene skal lagres.';
+	@override String get screenshotLocationDescription => 'Velg hvor skjermbilder skal lagres.';
+	@override String get clipLocationChanged => 'Plasseringen av klippet er endret';
+	@override String get screenshotLocationChanged => 'Plassering av skjermbilde endret';
+	@override String get clipLocationReset => 'Klippplassering tilbakestilt til skrivebord';
+	@override String get screenshotLocationReset => 'Skjermbildeplassering tilbakestilt til skrivebord';
 	@override String get downloadOnWifiOnly => 'Last bare ned via Wi-Fi';
 	@override String get downloadOnWifiOnlyDescription => 'Forhindre nedlasting via mobildata';
 	@override String get autoRemoveWatchedDownloads => 'Fjern avspilte nedlastinger automatisk';
@@ -876,6 +887,7 @@ class _Translations$videoControls$nb extends Translations$videoControls$en {
 	@override String get pipActive => 'Spiller i bilde-i-bilde';
 	@override String get pipFailed => 'Bilde-i-bilde kunne ikke starte';
 	@override String get screenshotSaved => 'Skjermbilde lagret';
+	@override late final _Translations$videoControls$clip$nb clip = _Translations$videoControls$clip$nb._(_root);
 	@override String zoomPercent({required Object percent}) => 'Zoom ${percent} %';
 	@override String volumePercent({required Object percent}) => 'Volum ${percent} %';
 	@override late final _Translations$videoControls$pipErrors$nb pipErrors = _Translations$videoControls$pipErrors$nb._(_root);
@@ -2355,6 +2367,52 @@ class _Translations$hotkeys$actions$nb extends Translations$hotkeys$actions$en {
 	@override String get screenshot => 'Ta skjermbilde';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$nb extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$nb._(TranslationsNb root) : this._root = root, super.internal(root);
+
+	final TranslationsNb _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Finjustering';
+	@override String get title => 'Klipp';
+	@override String get vodOnly => 'Klipp er tilgjengelig for videoavspilling på forespørsel.';
+	@override String get sourceUnavailable => 'Klippkilden er ikke tilgjengelig for denne avspillingsøkten.';
+	@override String get playAtLeastOneSecond => 'Spill minst 1 sekund før klipping.';
+	@override String get startBeforeBeginning => 'Klippstart kan ikke være før begynnelsen av videoen.';
+	@override String get endAfterStart => 'Klippslutt må være etter starten.';
+	@override String get minimumDuration => 'Klippene må være minst 1 sekund lange.';
+	@override String get endPastVideo => 'Slutten av klippet er forbi slutten av videoen.';
+	@override String get exportCanceled => 'Klippeksporten ble avbrutt.';
+	@override String get cacheUnavailable => 'Det valgte området kunne ikke bufres fullstendig for originaleksport. Prøv et kortere klipp eller spill av forhåndsvisningen én gang før du lagrer.';
+	@override String get sourceCopyNoEncoder => 'Kildekopieksport bruker ikke en koder.';
+	@override String get encodingDesktopOnly => 'H.264- og HEVC-klippkoding er for øyeblikket tilgjengelig på macOS og Windows.';
+	@override String get hdrRequiresSource => 'HDR-eksport krever en direkteavspilling HDR10 eller HLG-kompatibel kilde.';
+	@override String get transcodeStartUnavailable => 'Dette klippet starter før den aktive transkodede strømmen. Søk tidligere og åpne klipping på nytt, eller bytt til original kvalitet.';
+	@override String get previewRequired => 'Forhåndsvisning av klipp må fullføres innlasting før den kan lagres.';
+	@override String get h264Failed => 'Denne kilden kunne ikke kodes som en H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'Denne kilden kunne ikke kodes som en HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'Denne kilden kunne ikke kodes som en HEVC HDR MP4.';
+	@override String get gifFailed => 'Denne kilden kunne ikke kodes som en GIF.';
+	@override String get originalFailed => 'Denne kilden kunne ikke kopieres fra mpv-bufferen.';
+	@override String get previewUnavailable => 'Forhåndsvisning av klipp er ikke tilgjengelig i denne versjonen.';
+	@override String get previewFailed => 'Forhåndsvisning av klipp mislyktes.';
+	@override String get previewLoadingScreenshot => 'Forhåndsvisningen av klippet må fullføres innlasting før du tar et skjermbilde.';
+	@override String get screenshotInProgress => 'Et skjermbilde lagres allerede.';
+	@override String get saveAsDialog => 'Lagre klipp som';
+	@override String savedTo({required Object fileName}) => 'Lagret i ${fileName}';
+	@override String get openFolder => 'Åpne mappe';
+	@override String get saveAs => 'Lagre som';
+	@override String get cancelExport => 'Avbryt eksport';
+	@override String get saving => 'Lagrer...';
+	@override String savingProgress({required Object percent}) => 'Sparer ${percent} %';
+	@override String get mutePreview => 'Demp forhåndsvisning';
+	@override String get unmutePreview => 'Slå på lyden for forhåndsvisning';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: videoControls.pipErrors
 class _Translations$videoControls$pipErrors$nb extends Translations$videoControls$pipErrors$en {
 	_Translations$videoControls$pipErrors$nb._(TranslationsNb root) : this._root = root, super.internal(root);
@@ -3313,6 +3371,17 @@ extension on TranslationsNb {
 			'settings.downloadLocationReset' => 'Nedlastingsplassering tilbakestilt til standard',
 			'settings.downloadLocationInvalid' => 'Valgt mappe er ikke skrivbar',
 			'settings.downloadLocationPickerUnavailable' => 'Mappevalg er ikke tilgjengelig på denne enheten',
+			'settings.downloadLocationSelectError' => 'Kunne ikke velge mappe',
+			'settings.mediaCapture' => 'Mediefangst',
+			'settings.clips' => 'Klipp',
+			'settings.screenshots' => 'Skjermbilder',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Beliggenhet',
+			'settings.clipLocationDescription' => 'Velg hvor klippene skal lagres.',
+			'settings.screenshotLocationDescription' => 'Velg hvor skjermbilder skal lagres.',
+			'settings.clipLocationChanged' => 'Plasseringen av klippet er endret',
+			'settings.screenshotLocationChanged' => 'Plassering av skjermbilde endret',
+			'settings.clipLocationReset' => 'Klippplassering tilbakestilt til skrivebord',
+			'settings.screenshotLocationReset' => 'Skjermbildeplassering tilbakestilt til skrivebord',
 			'settings.downloadOnWifiOnly' => 'Last bare ned via Wi-Fi',
 			'settings.downloadOnWifiOnlyDescription' => 'Forhindre nedlasting via mobildata',
 			'settings.autoRemoveWatchedDownloads' => 'Fjern avspilte nedlastinger automatisk',
@@ -3518,6 +3587,8 @@ extension on TranslationsNb {
 			'fileInfo.streamId' => 'Strøm-ID',
 			'fileInfo.language' => 'Språk',
 			'fileInfo.languageCode' => 'Språkkode',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Spor-tittel',
 			'fileInfo.channels' => 'Kanaler',
 			'fileInfo.sampleRate' => 'Samplingsfrekvens',
@@ -3529,8 +3600,6 @@ extension on TranslationsNb {
 			'fileInfo.externalDelivery' => 'Kan leveres separat',
 			'fileInfo.sidecarPath' => 'Sidecar-bane',
 			'fileInfo.sourceStream' => 'Kopiert fra',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.temporary' => 'Midlertidig',
 			'fileInfo.timeBase' => 'Tidsbase',
 			'fileInfo.overallBitrate' => 'Total bitrate',
@@ -3706,6 +3775,43 @@ extension on TranslationsNb {
 			'videoControls.pipActive' => 'Spiller i bilde-i-bilde',
 			'videoControls.pipFailed' => 'Bilde-i-bilde kunne ikke starte',
 			'videoControls.screenshotSaved' => 'Skjermbilde lagret',
+			'videoControls.clip.fineAdjust' => 'Finjustering',
+			'videoControls.clip.title' => 'Klipp',
+			'videoControls.clip.vodOnly' => 'Klipp er tilgjengelig for videoavspilling på forespørsel.',
+			'videoControls.clip.sourceUnavailable' => 'Klippkilden er ikke tilgjengelig for denne avspillingsøkten.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Spill minst 1 sekund før klipping.',
+			'videoControls.clip.startBeforeBeginning' => 'Klippstart kan ikke være før begynnelsen av videoen.',
+			'videoControls.clip.endAfterStart' => 'Klippslutt må være etter starten.',
+			'videoControls.clip.minimumDuration' => 'Klippene må være minst 1 sekund lange.',
+			'videoControls.clip.endPastVideo' => 'Slutten av klippet er forbi slutten av videoen.',
+			'videoControls.clip.exportCanceled' => 'Klippeksporten ble avbrutt.',
+			'videoControls.clip.cacheUnavailable' => 'Det valgte området kunne ikke bufres fullstendig for originaleksport. Prøv et kortere klipp eller spill av forhåndsvisningen én gang før du lagrer.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Kildekopieksport bruker ikke en koder.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264- og HEVC-klippkoding er for øyeblikket tilgjengelig på macOS og Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR-eksport krever en direkteavspilling HDR10 eller HLG-kompatibel kilde.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Dette klippet starter før den aktive transkodede strømmen. Søk tidligere og åpne klipping på nytt, eller bytt til original kvalitet.',
+			'videoControls.clip.previewRequired' => 'Forhåndsvisning av klipp må fullføres innlasting før den kan lagres.',
+			'videoControls.clip.h264Failed' => 'Denne kilden kunne ikke kodes som en H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'Denne kilden kunne ikke kodes som en HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'Denne kilden kunne ikke kodes som en HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Denne kilden kunne ikke kodes som en GIF.',
+			'videoControls.clip.originalFailed' => 'Denne kilden kunne ikke kopieres fra mpv-bufferen.',
+			'videoControls.clip.previewUnavailable' => 'Forhåndsvisning av klipp er ikke tilgjengelig i denne versjonen.',
+			'videoControls.clip.previewFailed' => 'Forhåndsvisning av klipp mislyktes.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Forhåndsvisningen av klippet må fullføres innlasting før du tar et skjermbilde.',
+			'videoControls.clip.screenshotInProgress' => 'Et skjermbilde lagres allerede.',
+			'videoControls.clip.saveAsDialog' => 'Lagre klipp som',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Lagret i ${fileName}',
+			'videoControls.clip.openFolder' => 'Åpne mappe',
+			'videoControls.clip.saveAs' => 'Lagre som',
+			'videoControls.clip.cancelExport' => 'Avbryt eksport',
+			'videoControls.clip.saving' => 'Lagrer...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Sparer ${percent} %',
+			'videoControls.clip.mutePreview' => 'Demp forhåndsvisning',
+			'videoControls.clip.unmutePreview' => 'Slå på lyden for forhåndsvisning',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Zoom ${percent} %',
 			'videoControls.volumePercent' => ({required Object percent}) => 'Volum ${percent} %',
 			'videoControls.pipErrors.androidVersion' => 'Krever Android 8.0 eller nyere',
@@ -3995,6 +4101,8 @@ extension on TranslationsNb {
 			'discover.rating' => 'Vurdering',
 			'discover.director' => 'Regissør',
 			'discover.directors' => 'Regissører',
+			_ => null,
+		} ?? switch (path) {
 			'discover.movie' => 'Film',
 			'discover.tvShow' => 'TV-serie',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} min igjen',
@@ -4043,8 +4151,6 @@ extension on TranslationsNb {
 			'libraries.clearAll' => 'Tøm alle',
 			'libraries.scanLibraryConfirm' => ({required Object title}) => 'Er du sikker på at du vil skanne "${title}"?',
 			'libraries.analyzeLibraryConfirm' => ({required Object title}) => 'Er du sikker på at du vil analysere "${title}"?',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.refreshMetadataConfirm' => ({required Object title}) => 'Er du sikker på at du vil oppdatere metadata for "${title}"?',
 			'libraries.emptyTrashConfirm' => ({required Object title}) => 'Er du sikker på at du vil tømme papirkurven for "${title}"?',
 			'libraries.manageLibraries' => 'Administrer biblioteker',
@@ -4509,6 +4615,8 @@ extension on TranslationsNb {
 			'watchTogether.leaveSessionConfirm' => 'Du vil bli fjernet fra økten.',
 			'watchTogether.endSessionConfirmOverlay' => 'Dette vil avslutte se sammen-økten for alle deltakere.',
 			'watchTogether.leaveSessionConfirmOverlay' => 'Du vil bli frakoblet fra se sammen-økten.',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.end' => 'Avslutt',
 			'watchTogether.leave' => 'Forlat',
 			'watchTogether.syncing' => 'Synkroniserer...',
@@ -4557,8 +4665,6 @@ extension on TranslationsNb {
 			'downloads.tracksQueued' => ({required Object count}) => '${count} spor i nedlastingskø',
 			'downloads.noDownloads' => 'Ingen nedlastinger ennå',
 			'downloads.noDownloadsDescription' => 'Nedlastet innhold vil vises her for frakoblet visning',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.downloadNow' => 'Last ned',
 			'downloads.deleteDownload' => 'Slett nedlasting',
 			'downloads.retryDownload' => 'Prøv nedlasting på nytt',
@@ -5023,6 +5129,8 @@ extension on TranslationsNb {
 			'services.libraryFilter.noLibraries' => 'Ingen biblioteker tilgjengelige',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => 'Legg til ${product}-server',
 			'addServer.serverUrls' => 'Server-URL-er',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Flere URL-er er tillatt, atskilt med komma.',
 			'addServer.findServer' => 'Finn server',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Leter etter lokale ${product}-servere...',
