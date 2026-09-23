@@ -1478,6 +1478,7 @@ class _Translations$explore$nb extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Fjernet fra overvåkningslisten';
 	@override String get watchlistUpdateFailed => 'Kunne ikke oppdatere ønskelisten';
 	@override String get watchlistNoMatch => 'Kunne ikke koble dette elementet til en overvåkningsliste';
+	@override String get openInLibrary => 'Åpne i bibliotek';
 	@override String get notInLibrary => 'Ikke i biblioteket ditt';
 	@override String get inTheseLibraries => 'I disse bibliotekene';
 	@override String get checkingLibrary => 'Sjekker biblioteket ditt...';
@@ -3649,6 +3650,8 @@ extension on TranslationsNb {
 			'fileInfo.chromaSubsampling' => 'Krominansnedsampling',
 			'fileInfo.chromaLocation' => 'Kroma-plassering',
 			'fileInfo.scanType' => 'Skanningstype',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => 'Interlaced',
 			'fileInfo.anamorphic' => 'Anamorfisk',
 			'fileInfo.referenceFrames' => 'Referanserammer',
@@ -3660,16 +3663,12 @@ extension on TranslationsNb {
 			'fileInfo.baseLayerCompatibility' => 'Kompatibilitet for basislag',
 			'fileInfo.avcBitstream' => 'AVC-bitstrøm',
 			'fileInfo.nalLengthSize' => 'NAL-lengdestørrelse',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Egendefinert skaleringsmatrise',
 			'fileInfo.streamIdentifier' => 'Strømidentifikator',
 			'fileInfo.streamIndex' => 'Strømindeks',
 			'fileInfo.streamId' => 'Strøm-ID',
 			'fileInfo.language' => 'Språk',
 			'fileInfo.languageCode' => 'Språkkode',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Spor-tittel',
 			'fileInfo.channels' => 'Kanaler',
 			'fileInfo.sampleRate' => 'Samplingsfrekvens',
@@ -4165,6 +4164,8 @@ extension on TranslationsNb {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Kun kritikere',
 			'accountPreferences.mediaReviewsOptions.nobody' => 'Skjult',
 			'discover.title' => 'Oppdag',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => 'Ikke noe innhold tilgjengelig',
 			'discover.addMediaToLibraries' => 'Legg til medier i bibliotekene dine',
 			'discover.continueWatching' => 'Fortsett å se',
@@ -4184,8 +4185,6 @@ extension on TranslationsNb {
 			'discover.rating' => 'Vurdering',
 			'discover.director' => 'Regissør',
 			'discover.directors' => 'Regissører',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => 'Film',
 			'discover.tvShow' => 'TV-serie',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} min igjen',
@@ -4215,8 +4214,6 @@ extension on TranslationsNb {
 			'libraries.scanLibraryFiles' => 'Skann bibliotekfiler',
 			'libraries.scanLibrary' => 'Skann bibliotek',
 			'libraries.analyze' => 'Analyser',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Analyser bibliotek',
 			'libraries.refreshMetadata' => 'Oppdater metadata',
 			'libraries.emptyTrash' => 'Tøm papirkurv',
@@ -4410,6 +4407,7 @@ extension on TranslationsNb {
 			'explore.removedFromWatchlist' => 'Fjernet fra overvåkningslisten',
 			'explore.watchlistUpdateFailed' => 'Kunne ikke oppdatere ønskelisten',
 			'explore.watchlistNoMatch' => 'Kunne ikke koble dette elementet til en overvåkningsliste',
+			'explore.openInLibrary' => 'Åpne i bibliotek',
 			'explore.notInLibrary' => 'Ikke i biblioteket ditt',
 			'explore.inTheseLibraries' => 'I disse bibliotekene',
 			'explore.checkingLibrary' => 'Sjekker biblioteket ditt...',
@@ -4680,6 +4678,8 @@ extension on TranslationsNb {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} minutter',
 			'music.stopPlayback' => 'Stopp avspilling',
 			'music.previousTrack' => 'Forrige spor',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => 'Neste spor',
 			'music.repeat' => 'Gjenta',
 			'music.repeatAll' => 'Gjenta alle',
@@ -4729,11 +4729,7 @@ extension on TranslationsNb {
 			'watchTogether.endSessionConfirm' => 'Dette vil avslutte økten for alle deltakere.',
 			'watchTogether.leaveSessionConfirm' => 'Du vil bli fjernet fra økten.',
 			'watchTogether.endSessionConfirmOverlay' => 'Dette vil avslutte se sammen-økten for alle deltakere.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'Du vil bli frakoblet fra se sammen-økten.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => 'Avslutt',
 			'watchTogether.leave' => 'Forlat',
 			'watchTogether.syncing' => 'Synkroniserer...',
@@ -5196,6 +5192,8 @@ extension on TranslationsNb {
 			'seerr.behindAuthProxy' => 'En autentiserende omvendt proxy (SSO eller HTTP-autentisering) svarte i stedet for Seerr. Plezy kan ikke logge inn gjennom den: La Seerrs /api/v1-sti omgå proxyen for denne appen, eller bruk en adresse som når Seerr direkte.',
 			'seerr.invalidUrl' => 'Skriv inn en serveradresse som https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => 'Denne Seerr-instansen støtter ikke Quick Connect. Den krever Seerr 3.4 eller nyere.',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => 'Denne Seerr-instansen har ikke fullført førstegangsoppsettet',
 			'seerr.noPlexTokenForReauth' => 'Ingen Plex-token er tilgjengelig for å logge inn på nytt',
 			'seerr.noStoredCredentials' => 'Ingen lagret påloggingsinformasjon er tilgjengelig for å logge inn på nytt',
@@ -5245,11 +5243,7 @@ extension on TranslationsNb {
 			'services.libraryFilter.libraries' => 'Biblioteker',
 			'services.libraryFilter.noLibraries' => 'Ingen biblioteker tilgjengelige',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => 'Legg til ${product}-server',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => 'Server-URL-er',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Flere URL-er er tillatt, atskilt med komma.',
 			'addServer.findServer' => 'Finn server',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Leter etter lokale ${product}-servere...',

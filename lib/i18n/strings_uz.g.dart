@@ -1478,6 +1478,7 @@ class _Translations$explore$uz extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Tomosha roʻyxatidan olib tashlandi';
 	@override String get watchlistUpdateFailed => 'Tomosha roʻyxatini yangilab boʻlmadi';
 	@override String get watchlistNoMatch => 'Bu elementni tomosha roʻyxatiga moslab boʻlmadi';
+	@override String get openInLibrary => 'Kutubxonada ochish';
 	@override String get notInLibrary => 'Kutubxonangizda yoʻq';
 	@override String get inTheseLibraries => 'Ushbu kutubxonalarda bor';
 	@override String get checkingLibrary => 'Kutubxona tekshirilmoqda...';
@@ -3649,6 +3650,8 @@ extension on TranslationsUz {
 			'fileInfo.chromaSubsampling' => 'Rangli subdiskretlash',
 			'fileInfo.chromaLocation' => 'Chroma joylashuvi',
 			'fileInfo.scanType' => 'Skanerlash turi',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => 'Interleys',
 			'fileInfo.anamorphic' => 'Anamorfik',
 			'fileInfo.referenceFrames' => 'Tayanch kadrlar',
@@ -3660,16 +3663,12 @@ extension on TranslationsUz {
 			'fileInfo.baseLayerCompatibility' => 'Asosiy qatlam mosligi',
 			'fileInfo.avcBitstream' => 'AVC bit oqimi',
 			'fileInfo.nalLengthSize' => 'NAL uzunlik oʻlchami',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Maxsus masshtablash matritsasi',
 			'fileInfo.streamIdentifier' => 'Oqim identifikatori',
 			'fileInfo.streamIndex' => 'Oqim indeksi',
 			'fileInfo.streamId' => 'Oqim ID-si',
 			'fileInfo.language' => 'Til',
 			'fileInfo.languageCode' => 'Til kodi',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Trek nomi',
 			'fileInfo.channels' => 'Kanallar',
 			'fileInfo.sampleRate' => 'Namuna tezligi',
@@ -4165,6 +4164,8 @@ extension on TranslationsUz {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Faqat tanqidchilar',
 			'accountPreferences.mediaReviewsOptions.nobody' => 'Yashirilgan',
 			'discover.title' => 'Kashf qilish',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => 'Kontent mavjud emas',
 			'discover.addMediaToLibraries' => 'Kutubxonalaringizga media qoʻshing',
 			'discover.continueWatching' => 'Tomoshani davom ettirish',
@@ -4184,8 +4185,6 @@ extension on TranslationsUz {
 			'discover.rating' => 'Reyting',
 			'discover.director' => 'Rejissyor',
 			'discover.directors' => 'Rejissyorlar',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => 'Film',
 			'discover.tvShow' => 'TV Shou',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} daq qoldi',
@@ -4215,8 +4214,6 @@ extension on TranslationsUz {
 			'libraries.scanLibraryFiles' => 'Fayllarni skanerlash',
 			'libraries.scanLibrary' => 'Kutubxonani skanerlash',
 			'libraries.analyze' => 'Tahlil qilish',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Kutubxonani tahlil qilish',
 			'libraries.refreshMetadata' => 'Metamaʼlumotlarni yangilash',
 			'libraries.emptyTrash' => 'Savatni tozalash',
@@ -4410,6 +4407,7 @@ extension on TranslationsUz {
 			'explore.removedFromWatchlist' => 'Tomosha roʻyxatidan olib tashlandi',
 			'explore.watchlistUpdateFailed' => 'Tomosha roʻyxatini yangilab boʻlmadi',
 			'explore.watchlistNoMatch' => 'Bu elementni tomosha roʻyxatiga moslab boʻlmadi',
+			'explore.openInLibrary' => 'Kutubxonada ochish',
 			'explore.notInLibrary' => 'Kutubxonangizda yoʻq',
 			'explore.inTheseLibraries' => 'Ushbu kutubxonalarda bor',
 			'explore.checkingLibrary' => 'Kutubxona tekshirilmoqda...',
@@ -4680,6 +4678,8 @@ extension on TranslationsUz {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} daqiqa',
 			'music.stopPlayback' => 'Ijroni toʻxtatish',
 			'music.previousTrack' => 'Oldingi tarona',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => 'Keyingi tarona',
 			'music.repeat' => 'Takrorlash',
 			'music.repeatAll' => 'Barchasini takrorlash',
@@ -4729,11 +4729,7 @@ extension on TranslationsUz {
 			'watchTogether.endSessionConfirm' => 'Bu barcha ishtirokchilar uchun seansni yakunlaydi.',
 			'watchTogether.leaveSessionConfirm' => 'Siz seansdan uzilasiz.',
 			'watchTogether.endSessionConfirmOverlay' => 'Bu barcha uchun tomosha seansini yakunlaydi.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'Tomosha seansidan uzilasiz.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => 'Yakunlash',
 			'watchTogether.leave' => 'Chiqish',
 			'watchTogether.syncing' => 'Sinxronlanmoqda...',
@@ -5196,6 +5192,8 @@ extension on TranslationsUz {
 			'seerr.behindAuthProxy' => 'Seerr oʻrniga autentifikatsiya qiluvchi teskari proksi (SSO yoki HTTP auth) javob berdi. Plezy uning orqali kira olmaydi: ushbu ilova uchun Seerrning /api/v1 yoʻli proksini aylanib oʻtishiga ruxsat bering yoki Seerrga toʻgʻridan-toʻgʻri yetadigan manzildan foydalaning.',
 			'seerr.invalidUrl' => 'Server manzilini kiriting, masalan: https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => 'Bu Seerr nusxasi Tezkor ulanishni qoʻllab-quvvatlamaydi. Buning uchun Seerr 3.4 yoki undan yangi versiya kerak.',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => 'Bu Seerr nusxasining dastlabki sozlamasi yakunlanmagan',
 			'seerr.noPlexTokenForReauth' => 'Qayta kirish uchun Plex tokeni mavjud emas',
 			'seerr.noStoredCredentials' => 'Qayta kirish uchun saqlangan kirish maʼlumotlari mavjud emas',
@@ -5245,11 +5243,7 @@ extension on TranslationsUz {
 			'services.libraryFilter.libraries' => 'Kutubxonalar',
 			'services.libraryFilter.noLibraries' => 'Kutubxonalar yoʻq',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product} serverini qoʻshish',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => 'Server URL-lari',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Vergul bilan ajratilgan bir nechta URL manziliga ruxsat beriladi.',
 			'addServer.findServer' => 'Serverni topish',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Mahalliy ${product} serverlari qidirilmoqda...',

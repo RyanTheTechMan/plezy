@@ -1478,6 +1478,7 @@ class _Translations$explore$tr extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'İzleme listesinden kaldırıldı';
 	@override String get watchlistUpdateFailed => 'İzleme listesi güncellenemedi';
 	@override String get watchlistNoMatch => 'Bu öğe bir izleme listesiyle eşleştirilemedi';
+	@override String get openInLibrary => 'Kitaplıkta aç';
 	@override String get notInLibrary => 'Kitaplığınızda yok';
 	@override String get inTheseLibraries => 'Bu kitaplıklarda var';
 	@override String get checkingLibrary => 'Kitaplığınız kontrol ediliyor...';
@@ -3649,6 +3650,8 @@ extension on TranslationsTr {
 			'fileInfo.chromaSubsampling' => 'Renk Alt Örneklemesi',
 			'fileInfo.chromaLocation' => 'Chroma Konumu',
 			'fileInfo.scanType' => 'Tarama Türü',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => 'Geçmeli',
 			'fileInfo.anamorphic' => 'Anamorfik',
 			'fileInfo.referenceFrames' => 'Referans Kareler',
@@ -3660,16 +3663,12 @@ extension on TranslationsTr {
 			'fileInfo.baseLayerCompatibility' => 'Temel Katman Uyumluluğu',
 			'fileInfo.avcBitstream' => 'AVC Bit Akışı',
 			'fileInfo.nalLengthSize' => 'NAL Uzunluk Boyutu',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Özel Ölçekleme Matrisi',
 			'fileInfo.streamIdentifier' => 'Akış Tanımlayıcısı',
 			'fileInfo.streamIndex' => 'Akış Dizini',
 			'fileInfo.streamId' => 'Akış Kimliği',
 			'fileInfo.language' => 'Dil',
 			'fileInfo.languageCode' => 'Dil Kodu',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Parça Başlığı',
 			'fileInfo.channels' => 'Kanallar',
 			'fileInfo.sampleRate' => 'Örnekleme Hızı',
@@ -4165,6 +4164,8 @@ extension on TranslationsTr {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Yalnızca eleştirmenler',
 			'accountPreferences.mediaReviewsOptions.nobody' => 'Gizli',
 			'discover.title' => 'Keşfet',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => 'İçerik bulunmuyor',
 			'discover.addMediaToLibraries' => 'Kitaplıklarınıza biraz medya ekleyin',
 			'discover.continueWatching' => 'İzlemeye Devam Et',
@@ -4184,8 +4185,6 @@ extension on TranslationsTr {
 			'discover.rating' => 'Derecelendirme',
 			'discover.director' => 'Yönetmen',
 			'discover.directors' => 'Yönetmenler',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => 'Film',
 			'discover.tvShow' => 'TV Dizisi',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} dk kaldı',
@@ -4215,8 +4214,6 @@ extension on TranslationsTr {
 			'libraries.scanLibraryFiles' => 'Kitaplık Dosyalarını Tarayınız',
 			'libraries.scanLibrary' => 'Kitaplığı Taramak',
 			'libraries.analyze' => 'Analiz Et',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Kitaplığı Analiz Et',
 			'libraries.refreshMetadata' => 'Meta Verileri Yenile',
 			'libraries.emptyTrash' => 'Çöpü Boşalt',
@@ -4410,6 +4407,7 @@ extension on TranslationsTr {
 			'explore.removedFromWatchlist' => 'İzleme listesinden kaldırıldı',
 			'explore.watchlistUpdateFailed' => 'İzleme listesi güncellenemedi',
 			'explore.watchlistNoMatch' => 'Bu öğe bir izleme listesiyle eşleştirilemedi',
+			'explore.openInLibrary' => 'Kitaplıkta aç',
 			'explore.notInLibrary' => 'Kitaplığınızda yok',
 			'explore.inTheseLibraries' => 'Bu kitaplıklarda var',
 			'explore.checkingLibrary' => 'Kitaplığınız kontrol ediliyor...',
@@ -4680,6 +4678,8 @@ extension on TranslationsTr {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} dakika',
 			'music.stopPlayback' => 'Oynatmayı durdur',
 			'music.previousTrack' => 'Önceki parça',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => 'Sonraki parça',
 			'music.repeat' => 'Tekrarla',
 			'music.repeatAll' => 'Tümünü tekrarla',
@@ -4729,11 +4729,7 @@ extension on TranslationsTr {
 			'watchTogether.endSessionConfirm' => 'Bu işlem tüm katılımcılar için oturumu bitirecektir.',
 			'watchTogether.leaveSessionConfirm' => 'Oturumdan çıkarılacaksınız.',
 			'watchTogether.endSessionConfirmOverlay' => 'Bu işlem tüm katılımcılar için izleme oturumunu bitirecektir.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'İzleme oturumuyla bağlantınız kesilecek.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => 'Bitir',
 			'watchTogether.leave' => 'Ayrıl',
 			'watchTogether.syncing' => 'Eşitleniyor...',
@@ -5196,6 +5192,8 @@ extension on TranslationsTr {
 			'seerr.behindAuthProxy' => 'Seerr yerine kimlik doğrulayan bir ters proxy (SSO veya HTTP kimlik doğrulaması) yanıt verdi. Plezy bunun üzerinden giriş yapamaz: bu uygulama için Seerr\'in /api/v1 yolunun proxy\'yi atlamasına izin verin veya Seerr\'e doğrudan ulaşan bir adres kullanın.',
 			'seerr.invalidUrl' => 'https://seerr.example.com gibi bir sunucu adresi girin',
 			'seerr.quickConnectUnsupported' => 'Bu Seerr örneği Quick Connect\'i desteklemiyor. Seerr 3.4 veya daha yenisini gerektiriyor.',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => 'Bu Seerr örneği ilk çalıştırma kurulumunu tamamlamadı',
 			'seerr.noPlexTokenForReauth' => 'Yeniden giriş yapmak için kullanılabilir Plex belirteci yok',
 			'seerr.noStoredCredentials' => 'Yeniden giriş yapmak için kullanılabilir kayıtlı kimlik bilgisi yok',
@@ -5245,11 +5243,7 @@ extension on TranslationsTr {
 			'services.libraryFilter.libraries' => 'Kitaplıklar',
 			'services.libraryFilter.noLibraries' => 'Kitaplık bulunmuyor',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product} sunucusu ekle',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => 'Sunucu URL\'leri',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Virgülle ayrılmış birden fazla URL\'ye izin verilir.',
 			'addServer.findServer' => 'Sunucu bul',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Yerel ${product} sunucuları aranıyor...',

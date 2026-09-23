@@ -1490,6 +1490,7 @@ class _Translations$explore$pl extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Usunięto z listy do obejrzenia';
 	@override String get watchlistUpdateFailed => 'Nie udało się zaktualizować listy do obejrzenia';
 	@override String get watchlistNoMatch => 'Nie udało się dopasować tej pozycji do listy do obejrzenia';
+	@override String get openInLibrary => 'Otwórz w bibliotece';
 	@override String get notInLibrary => 'Nie ma tego w Twojej bibliotece';
 	@override String get inTheseLibraries => 'W tych bibliotekach';
 	@override String get checkingLibrary => 'Sprawdzanie Twojej biblioteki...';
@@ -3671,6 +3672,8 @@ extension on TranslationsPl {
 			'fileInfo.chromaSubsampling' => 'Podpróbkowanie chrominancji',
 			'fileInfo.chromaLocation' => 'Położenie chrominancji',
 			'fileInfo.scanType' => 'Typ skanowania',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => 'Z przeplotem',
 			'fileInfo.anamorphic' => 'Anamorficzny',
 			'fileInfo.referenceFrames' => 'Klatki referencyjne',
@@ -3682,16 +3685,12 @@ extension on TranslationsPl {
 			'fileInfo.baseLayerCompatibility' => 'Zgodność warstwy bazowej',
 			'fileInfo.avcBitstream' => 'Strumień bitowy AVC',
 			'fileInfo.nalLengthSize' => 'Rozmiar długości NAL',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Własna macierz skalowania',
 			'fileInfo.streamIdentifier' => 'Identyfikator strumienia',
 			'fileInfo.streamIndex' => 'Indeks strumienia',
 			'fileInfo.streamId' => 'ID strumienia',
 			'fileInfo.language' => 'Język',
 			'fileInfo.languageCode' => 'Kod języka',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Tytuł ścieżki',
 			'fileInfo.channels' => 'Kanały',
 			'fileInfo.sampleRate' => 'Częstotliwość próbkowania',
@@ -4187,6 +4186,8 @@ extension on TranslationsPl {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Tylko krytycy',
 			'accountPreferences.mediaReviewsOptions.nobody' => 'Ukryte',
 			'discover.title' => 'Odkryj',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => 'Brak dostępnych treści',
 			'discover.addMediaToLibraries' => 'Dodaj multimedia do swoich bibliotek',
 			'discover.continueWatching' => 'Kontynuuj oglądanie',
@@ -4206,8 +4207,6 @@ extension on TranslationsPl {
 			'discover.rating' => 'Ocena',
 			'discover.director' => 'Reżyser',
 			'discover.directors' => 'Reżyserzy',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => 'Film',
 			'discover.tvShow' => 'Serial TV',
 			'discover.minutesLeft' => ({required Object minutes}) => 'Pozostało ${minutes} min',
@@ -4237,8 +4236,6 @@ extension on TranslationsPl {
 			'libraries.scanLibraryFiles' => 'Skanuj pliki biblioteki',
 			'libraries.scanLibrary' => 'Skanuj bibliotekę',
 			'libraries.analyze' => 'Analizuj',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Analizuj bibliotekę',
 			'libraries.refreshMetadata' => 'Odśwież metadane',
 			'libraries.emptyTrash' => 'Opróżnij kosz',
@@ -4432,6 +4429,7 @@ extension on TranslationsPl {
 			'explore.removedFromWatchlist' => 'Usunięto z listy do obejrzenia',
 			'explore.watchlistUpdateFailed' => 'Nie udało się zaktualizować listy do obejrzenia',
 			'explore.watchlistNoMatch' => 'Nie udało się dopasować tej pozycji do listy do obejrzenia',
+			'explore.openInLibrary' => 'Otwórz w bibliotece',
 			'explore.notInLibrary' => 'Nie ma tego w Twojej bibliotece',
 			'explore.inTheseLibraries' => 'W tych bibliotekach',
 			'explore.checkingLibrary' => 'Sprawdzanie Twojej biblioteki...',
@@ -4702,6 +4700,8 @@ extension on TranslationsPl {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} minut',
 			'music.stopPlayback' => 'Zatrzymaj odtwarzanie',
 			'music.previousTrack' => 'Poprzedni utwór',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => 'Następny utwór',
 			'music.repeat' => 'Powtarzaj',
 			'music.repeatAll' => 'Powtarzaj wszystko',
@@ -4751,11 +4751,7 @@ extension on TranslationsPl {
 			'watchTogether.endSessionConfirm' => 'To zakończy sesję dla wszystkich uczestników.',
 			'watchTogether.leaveSessionConfirm' => 'Zostaniesz usunięty z sesji.',
 			'watchTogether.endSessionConfirmOverlay' => 'To zakończy sesję oglądania dla wszystkich uczestników.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'Zostaniesz odłączony od sesji oglądania.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => 'Zakończ',
 			'watchTogether.leave' => 'Opuść',
 			'watchTogether.syncing' => 'Synchronizacja...',
@@ -5218,6 +5214,8 @@ extension on TranslationsPl {
 			'seerr.behindAuthProxy' => 'Zamiast Seerr odpowiedział uwierzytelniający reverse proxy (SSO lub uwierzytelnianie HTTP). Plezy nie może się przez niego zalogować: pozwól, aby ścieżka /api/v1 Seerr omijała proxy dla tej aplikacji, albo użyj adresu, który dociera do Seerr bezpośrednio.',
 			'seerr.invalidUrl' => 'Wprowadź adres serwera, np. https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => 'Ta instancja Seerr nie obsługuje Quick Connect. Wymagany jest Seerr 3.4 lub nowszy.',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => 'Ta instancja Seerr nie ukończyła konfiguracji początkowej',
 			'seerr.noPlexTokenForReauth' => 'Brak tokenu Plex umożliwiającego ponowne zalogowanie',
 			'seerr.noStoredCredentials' => 'Brak zapisanych danych logowania umożliwiających ponowne zalogowanie',
@@ -5267,11 +5265,7 @@ extension on TranslationsPl {
 			'services.libraryFilter.libraries' => 'Biblioteki',
 			'services.libraryFilter.noLibraries' => 'Brak dostępnych bibliotek',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => 'Dodaj serwer ${product}',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => 'Adresy URL serwera',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Można podać wiele adresów URL rozdzielonych przecinkami.',
 			'addServer.findServer' => 'Znajdź serwer',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Szukanie lokalnych serwerów ${product}...',

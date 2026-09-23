@@ -1478,6 +1478,7 @@ class _Translations$explore$hu extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Eltávolítva a figyelőlistáról';
 	@override String get watchlistUpdateFailed => 'Nem sikerült a Néznivalók frissítése';
 	@override String get watchlistNoMatch => 'Nem sikerült ezt az elemet figyelőlistához társítani';
+	@override String get openInLibrary => 'Megnyitás a könyvtárban';
 	@override String get notInLibrary => 'Nincs a könyvtáradban';
 	@override String get inTheseLibraries => 'Ezekben a könyvtárakban';
 	@override String get checkingLibrary => 'Könyvtár ellenőrzése...';
@@ -3649,6 +3650,8 @@ extension on TranslationsHu {
 			'fileInfo.chromaSubsampling' => 'Krominancia-alulmintavételezés',
 			'fileInfo.chromaLocation' => 'Kroma elhelyezkedés',
 			'fileInfo.scanType' => 'Pásztázási típus',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => 'Váltott soros',
 			'fileInfo.anamorphic' => 'Anamorf',
 			'fileInfo.referenceFrames' => 'Referencia képkockák',
@@ -3660,16 +3663,12 @@ extension on TranslationsHu {
 			'fileInfo.baseLayerCompatibility' => 'Alapréteg-kompatibilitás',
 			'fileInfo.avcBitstream' => 'AVC bitfolyam',
 			'fileInfo.nalLengthSize' => 'NAL hosszméret',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Egyéni méretezési mátrix',
 			'fileInfo.streamIdentifier' => 'Adatfolyam-azonosító',
 			'fileInfo.streamIndex' => 'Adatfolyam-index',
 			'fileInfo.streamId' => 'Adatfolyam azonosítója',
 			'fileInfo.language' => 'Nyelv',
 			'fileInfo.languageCode' => 'Nyelvkód',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Sáv címe',
 			'fileInfo.channels' => 'Csatornák',
 			'fileInfo.sampleRate' => 'Mintavételi frekvencia',
@@ -4165,6 +4164,8 @@ extension on TranslationsHu {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Csak kritikusok',
 			'accountPreferences.mediaReviewsOptions.nobody' => 'Rejtett',
 			'discover.title' => 'Felfedezés',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => 'Nincs elérhető tartalom',
 			'discover.addMediaToLibraries' => 'Adj hozzá médiát a könyvtáraidhoz',
 			'discover.continueWatching' => 'Folytatás',
@@ -4184,8 +4185,6 @@ extension on TranslationsHu {
 			'discover.rating' => 'Értékelés',
 			'discover.director' => 'Rendező',
 			'discover.directors' => 'Rendezők',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => 'Film',
 			'discover.tvShow' => 'TV-sorozat',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} perc van hátra',
@@ -4215,8 +4214,6 @@ extension on TranslationsHu {
 			'libraries.scanLibraryFiles' => 'Könyvtárfájlok beolvasása',
 			'libraries.scanLibrary' => 'Könyvtár beolvasása',
 			'libraries.analyze' => 'Elemzés',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Könyvtár elemzése',
 			'libraries.refreshMetadata' => 'Metaadatok frissítése',
 			'libraries.emptyTrash' => 'Lomtár ürítése',
@@ -4410,6 +4407,7 @@ extension on TranslationsHu {
 			'explore.removedFromWatchlist' => 'Eltávolítva a figyelőlistáról',
 			'explore.watchlistUpdateFailed' => 'Nem sikerült a Néznivalók frissítése',
 			'explore.watchlistNoMatch' => 'Nem sikerült ezt az elemet figyelőlistához társítani',
+			'explore.openInLibrary' => 'Megnyitás a könyvtárban',
 			'explore.notInLibrary' => 'Nincs a könyvtáradban',
 			'explore.inTheseLibraries' => 'Ezekben a könyvtárakban',
 			'explore.checkingLibrary' => 'Könyvtár ellenőrzése...',
@@ -4680,6 +4678,8 @@ extension on TranslationsHu {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} perc',
 			'music.stopPlayback' => 'Lejátszás leállítása',
 			'music.previousTrack' => 'Előző szám',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => 'Következő szám',
 			'music.repeat' => 'Ismétlés',
 			'music.repeatAll' => 'Összes ismétlése',
@@ -4729,11 +4729,7 @@ extension on TranslationsHu {
 			'watchTogether.endSessionConfirm' => 'Ezzel minden résztvevő számára véget ér a munkamenet.',
 			'watchTogether.leaveSessionConfirm' => 'Eltávolításra kerülsz a munkamenetből.',
 			'watchTogether.endSessionConfirmOverlay' => 'Ezzel minden résztvevő számára véget ér a közös nézés.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'Kilépsz a közös nézésből.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => 'Befejezés',
 			'watchTogether.leave' => 'Kilépés',
 			'watchTogether.syncing' => 'Szinkronizálás...',
@@ -5196,6 +5192,8 @@ extension on TranslationsHu {
 			'seerr.behindAuthProxy' => 'A Seerr helyett egy hitelesítő fordított proxy (SSO vagy HTTP-hitelesítés) válaszolt. A Plezy nem tud rajta bejelentkezni: engedd, hogy a Seerr /api/v1 útvonala megkerülje a proxyt ennél az alkalmazásnál, vagy használj olyan címet, amely közvetlenül eléri a Seerr-t.',
 			'seerr.invalidUrl' => 'Adj meg egy szervercímet, például: https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => 'Ez a Seerr-példány nem támogatja a Quick Connectet. Seerr 3.4 vagy újabb verzió szükséges.',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => 'Ennek a Seerr-példánynak a kezdeti beállítása még nem fejeződött be',
 			'seerr.noPlexTokenForReauth' => 'Nem áll rendelkezésre Plex-token az újbóli bejelentkezéshez',
 			'seerr.noStoredCredentials' => 'Nem állnak rendelkezésre mentett hitelesítő adatok az újbóli bejelentkezéshez',
@@ -5245,11 +5243,7 @@ extension on TranslationsHu {
 			'services.libraryFilter.libraries' => 'Könyvtárak',
 			'services.libraryFilter.noLibraries' => 'Nincsenek elérhető könyvtárak',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product} szerver hozzáadása',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => 'Szerver URL-címei',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Több URL is megadható, vesszővel elválasztva.',
 			'addServer.findServer' => 'Szerver keresése',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Helyi ${product} szerverek keresése...',

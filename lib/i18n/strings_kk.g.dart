@@ -1478,6 +1478,7 @@ class _Translations$explore$kk extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Көру тізімінен алынды';
 	@override String get watchlistUpdateFailed => 'Көру тізімін жаңарту мүмкін болмады';
 	@override String get watchlistNoMatch => 'Бұл элементті көру тізімімен сәйкестендіру мүмкін болмады';
+	@override String get openInLibrary => 'Кітапханада ашу';
 	@override String get notInLibrary => 'Кітапханаңызда жоқ';
 	@override String get inTheseLibraries => 'Осы кітапханаларда бар';
 	@override String get checkingLibrary => 'Кітапхана тексерілуде...';
@@ -3649,6 +3650,8 @@ extension on TranslationsKk {
 			'fileInfo.chromaSubsampling' => 'Түстік субдискретизация',
 			'fileInfo.chromaLocation' => 'Chroma орналасуы',
 			'fileInfo.scanType' => 'Сканерлеу түрі',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.interlaced' => 'Жоларалық',
 			'fileInfo.anamorphic' => 'Анаморфты',
 			'fileInfo.referenceFrames' => 'Тірек кадрлар',
@@ -3660,16 +3663,12 @@ extension on TranslationsKk {
 			'fileInfo.baseLayerCompatibility' => 'Базалық қабат үйлесімділігі',
 			'fileInfo.avcBitstream' => 'AVC бит ағыны',
 			'fileInfo.nalLengthSize' => 'NAL ұзындық өлшемі',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.scalingMatrix' => 'Теңшелетін масштабтау матрицасы',
 			'fileInfo.streamIdentifier' => 'Ағын идентификаторы',
 			'fileInfo.streamIndex' => 'Ағын индексі',
 			'fileInfo.streamId' => 'Ағын ID',
 			'fileInfo.language' => 'Тіл',
 			'fileInfo.languageCode' => 'Тіл коды',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Трек атауы',
 			'fileInfo.channels' => 'Арналар',
 			'fileInfo.sampleRate' => 'Дискретизация жиілігі',
@@ -4165,6 +4164,8 @@ extension on TranslationsKk {
 			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Тек сыншылар',
 			'accountPreferences.mediaReviewsOptions.nobody' => 'Жасырылған',
 			'discover.title' => 'Шолу',
+			_ => null,
+		} ?? switch (path) {
 			'discover.noContentAvailable' => 'Мазмұн қолжетімсіз',
 			'discover.addMediaToLibraries' => 'Кітапханаларыңызға медиа қосыңыз',
 			'discover.continueWatching' => 'Көруді жалғастыру',
@@ -4184,8 +4185,6 @@ extension on TranslationsKk {
 			'discover.rating' => 'Рейтинг',
 			'discover.director' => 'Режиссер',
 			'discover.directors' => 'Режиссерлер',
-			_ => null,
-		} ?? switch (path) {
 			'discover.movie' => 'Фильм',
 			'discover.tvShow' => 'TV Шоу',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} мин қалды',
@@ -4215,8 +4214,6 @@ extension on TranslationsKk {
 			'libraries.scanLibraryFiles' => 'Файлдарды сканерлеу',
 			'libraries.scanLibrary' => 'Кітапхананы сканерлеу',
 			'libraries.analyze' => 'Талдау жасау',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.analyzeLibrary' => 'Кітапханаға талдау жасау',
 			'libraries.refreshMetadata' => 'Метадеректерді жаңарту',
 			'libraries.emptyTrash' => 'Себетті тазалау',
@@ -4410,6 +4407,7 @@ extension on TranslationsKk {
 			'explore.removedFromWatchlist' => 'Көру тізімінен алынды',
 			'explore.watchlistUpdateFailed' => 'Көру тізімін жаңарту мүмкін болмады',
 			'explore.watchlistNoMatch' => 'Бұл элементті көру тізімімен сәйкестендіру мүмкін болмады',
+			'explore.openInLibrary' => 'Кітапханада ашу',
 			'explore.notInLibrary' => 'Кітапханаңызда жоқ',
 			'explore.inTheseLibraries' => 'Осы кітапханаларда бар',
 			'explore.checkingLibrary' => 'Кітапхана тексерілуде...',
@@ -4680,6 +4678,8 @@ extension on TranslationsKk {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} минут',
 			'music.stopPlayback' => 'Ойнатуды тоқтату',
 			'music.previousTrack' => 'Алдыңғы ән',
+			_ => null,
+		} ?? switch (path) {
 			'music.nextTrack' => 'Келесі ән',
 			'music.repeat' => 'Қайталау',
 			'music.repeatAll' => 'Барлығын қайталау',
@@ -4729,11 +4729,7 @@ extension on TranslationsKk {
 			'watchTogether.endSessionConfirm' => 'Бұл барлық қатысушылар үшін сеансты аяқтайды.',
 			'watchTogether.leaveSessionConfirm' => 'Сіз сеанстан ажыратыласыз.',
 			'watchTogether.endSessionConfirmOverlay' => 'Бұл барлығы үшін көру сеансын аяқтайды.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.leaveSessionConfirmOverlay' => 'Көру сеансынан ажыратыласыз.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.end' => 'Аяқтау',
 			'watchTogether.leave' => 'Шығу',
 			'watchTogether.syncing' => 'Синхрондалуда...',
@@ -5196,6 +5192,8 @@ extension on TranslationsKk {
 			'seerr.behindAuthProxy' => 'Seerr орнына аутентификация жасайтын кері прокси (SSO немесе HTTP auth) жауап берді. Plezy оның арқылы кіре алмайды: осы қолданба үшін Seerr-дің /api/v1 жолы проксиді айналып өтуіне рұқсат етіңіз немесе Seerr-ге тікелей жететін мекенжайды пайдаланыңыз.',
 			'seerr.invalidUrl' => 'Сервер мекенжайын енгізіңіз, мысалы: https://seerr.example.com',
 			'seerr.quickConnectUnsupported' => 'Бұл Seerr данасы Жылдам қосылуды қолдамайды. Оған Seerr 3.4 немесе одан жаңарақ нұсқа қажет.',
+			_ => null,
+		} ?? switch (path) {
 			'seerr.notInitialized' => 'Бұл Seerr данасының бастапқы баптауы аяқталмаған',
 			'seerr.noPlexTokenForReauth' => 'Қайта кіру үшін Plex токені қолжетімді емес',
 			'seerr.noStoredCredentials' => 'Қайта кіру үшін сақталған тіркелгі деректері жоқ',
@@ -5245,11 +5243,7 @@ extension on TranslationsKk {
 			'services.libraryFilter.libraries' => 'Кітапханалар',
 			'services.libraryFilter.noLibraries' => 'Кітапханалар жоқ',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product} серверін қосу',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrls' => 'Сервер URL-дері',
-			_ => null,
-		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Үтірмен бөлінген бірнеше URL мекенжайына рұқсат етіледі.',
 			'addServer.findServer' => 'Серверді табу',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Жергілікті ${product} серверлері ізделуде...',
