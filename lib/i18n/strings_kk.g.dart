@@ -3587,6 +3587,8 @@ extension on TranslationsKk {
 			'fileInfo.streamId' => 'Ағын ID',
 			'fileInfo.language' => 'Тіл',
 			'fileInfo.languageCode' => 'Тіл коды',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Трек атауы',
 			'fileInfo.channels' => 'Арналар',
 			'fileInfo.sampleRate' => 'Дискретизация жиілігі',
@@ -3598,8 +3600,6 @@ extension on TranslationsKk {
 			'fileInfo.externalDelivery' => 'Бөлек жеткізілуі мүмкін',
 			'fileInfo.sidecarPath' => 'Қосалқы файл жолы',
 			'fileInfo.sourceStream' => 'Көшірілген көзі',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.temporary' => 'Уақытша',
 			'fileInfo.timeBase' => 'Уақыт негізі',
 			'fileInfo.overallBitrate' => 'Жалпы биттік жылдамдық',
@@ -3612,8 +3612,6 @@ extension on TranslationsKk {
 			'fileInfo.previewThumbnails' => 'Алдын ала қарау суреттері',
 			'fileInfo.previewIndex' => 'Алдын ала қарау индексі',
 			'fileInfo.packetLength' => 'Пакет ұзындығы',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Файл бар',
 			'fileInfo.fileReadable' => 'Сервер оқи алады',
 			'fileInfo.streamPath' => 'Ағын жолы',
@@ -4103,6 +4101,8 @@ extension on TranslationsKk {
 			'discover.rating' => 'Рейтинг',
 			'discover.director' => 'Режиссер',
 			'discover.directors' => 'Режиссерлер',
+			_ => null,
+		} ?? switch (path) {
 			'discover.movie' => 'Фильм',
 			'discover.tvShow' => 'TV Шоу',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} мин қалды',
@@ -4143,8 +4143,6 @@ extension on TranslationsKk {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Талдау жасау мүмкін болмады: ${error}',
 			'libraries.noLibrariesFound' => 'Кітапханалар табылмады',
 			'libraries.allLibrariesHidden' => 'Барлық кітапханалар жасырылған',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Жасырын кітапханалар (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Бұл кітапхана бос',
 			'libraries.noItemsMatchFilters' => 'Фильтрлерге сәйкес элементтер табылмады',
@@ -4153,8 +4151,6 @@ extension on TranslationsKk {
 			'libraries.clearAll' => 'Барлығын тазалау',
 			'libraries.scanLibraryConfirm' => ({required Object title}) => '"${title}" кітапханасын сканерлегіңіз келе ме?',
 			'libraries.analyzeLibraryConfirm' => ({required Object title}) => '"${title}" кітапханасына талдау жасағыңыз келе ме?',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.refreshMetadataConfirm' => ({required Object title}) => '"${title}" метадеректерін жаңартасыз ба?',
 			'libraries.emptyTrashConfirm' => ({required Object title}) => '"${title}" себетін тазалайсыз ба?',
 			'libraries.manageLibraries' => 'Кітапханаларды басқару',
@@ -4619,6 +4615,8 @@ extension on TranslationsKk {
 			'watchTogether.leaveSessionConfirm' => 'Сіз сеанстан ажыратыласыз.',
 			'watchTogether.endSessionConfirmOverlay' => 'Бұл барлығы үшін көру сеансын аяқтайды.',
 			'watchTogether.leaveSessionConfirmOverlay' => 'Көру сеансынан ажыратыласыз.',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.end' => 'Аяқтау',
 			'watchTogether.leave' => 'Шығу',
 			'watchTogether.syncing' => 'Синхрондалуда...',
@@ -4667,8 +4665,6 @@ extension on TranslationsKk {
 			'downloads.tracksQueued' => ({required Object count}) => '${count} ән жүктеу кезегіне қосылды',
 			'downloads.noDownloads' => 'Әлі де жүктеулер жоқ',
 			'downloads.noDownloadsDescription' => 'Жүктелген файлдар офлайн көру үшін мұнда көрінеді',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.downloadNow' => 'Жүктеу',
 			'downloads.deleteDownload' => 'Жүктеуді өшіру',
 			'downloads.retryDownload' => 'Жүктеуді қайталау',
@@ -4679,8 +4675,6 @@ extension on TranslationsKk {
 			'downloads.storageUnavailable' => 'Бос жадыны тексеру мүмкін болмағандықтан жүктеулер тоқтатылды. Жүктеу орнын тексеріп, қайталаңыз.',
 			'downloads.episodesQueued' => ({required Object count}) => '${count} бөлім жүктеу кезегіне қосылды',
 			'downloads.downloadDeleted' => 'Жүктеу өшірілді',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => '"${title}" осы құрылғыдан өшірілсін бе?',
 			'downloads.cancelledDownloadTitle' => 'Тоқтатылған жүктеу',
 			'downloads.cancelledDownloadMessage' => 'Бұл жүктеу тоқтатылды. Не істегіңіз келеді?',
@@ -5135,6 +5129,8 @@ extension on TranslationsKk {
 			'services.libraryFilter.noLibraries' => 'Кітапханалар жоқ',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product} серверін қосу',
 			'addServer.serverUrls' => 'Сервер URL-дері',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Үтірмен бөлінген бірнеше URL мекенжайына рұқсат етіледі.',
 			'addServer.findServer' => 'Серверді табу',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Жергілікті ${product} серверлері ізделуде...',

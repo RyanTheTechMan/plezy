@@ -3587,6 +3587,8 @@ extension on TranslationsAz {
 			'fileInfo.streamId' => 'Axın ID-si',
 			'fileInfo.language' => 'Dil',
 			'fileInfo.languageCode' => 'Dil kodu',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Trek başlığı',
 			'fileInfo.channels' => 'Kanallar',
 			'fileInfo.sampleRate' => 'Diskretləşdirmə tezliyi',
@@ -3598,8 +3600,6 @@ extension on TranslationsAz {
 			'fileInfo.externalDelivery' => 'Ayrıca ötürülə bilər',
 			'fileInfo.sidecarPath' => 'Sidecar yolu',
 			'fileInfo.sourceStream' => 'Kopyalanan mənbə',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.temporary' => 'Müvəqqəti',
 			'fileInfo.timeBase' => 'Vaxt bazası',
 			'fileInfo.overallBitrate' => 'Ümumi bit sürəti',
@@ -3612,8 +3612,6 @@ extension on TranslationsAz {
 			'fileInfo.previewThumbnails' => 'Önizləmə miniatürləri',
 			'fileInfo.previewIndex' => 'Önizləmə indeksi',
 			'fileInfo.packetLength' => 'Paket uzunluğu',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.filePresent' => 'Fayl mövcuddur',
 			'fileInfo.fileReadable' => 'Server tərəfindən oxuna bilir',
 			'fileInfo.streamPath' => 'Axın yolu',
@@ -4103,6 +4101,8 @@ extension on TranslationsAz {
 			'discover.rating' => 'Reytinq',
 			'discover.director' => 'Rejissor',
 			'discover.directors' => 'Rejissorlar',
+			_ => null,
+		} ?? switch (path) {
 			'discover.movie' => 'Kino',
 			'discover.tvShow' => 'TV Şou',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes} dəq qaldı',
@@ -4143,8 +4143,6 @@ extension on TranslationsAz {
 			'libraries.failedToAnalyze' => ({required Object error}) => 'Kitabxana analiz edilə bilmədi: ${error}',
 			'libraries.noLibrariesFound' => 'Kitabxana tapılmadı',
 			'libraries.allLibrariesHidden' => 'Bütün kitabxanalar gizlədilib',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.hiddenLibrariesCount' => ({required Object count}) => 'Gizli kitabxanalar (${count})',
 			'libraries.thisLibraryIsEmpty' => 'Bu kitabxana boşdur',
 			'libraries.noItemsMatchFilters' => 'Filtrlərə uyğun element tapılmadı',
@@ -4153,8 +4151,6 @@ extension on TranslationsAz {
 			'libraries.clearAll' => 'Hamısını təmizlə',
 			'libraries.scanLibraryConfirm' => ({required Object title}) => '"${title}" kitabxanasını skan etmək istədiyinizdən əminsiniz?',
 			'libraries.analyzeLibraryConfirm' => ({required Object title}) => '"${title}" kitabxanasını analiz etmək istədiyinizdən əminsiniz?',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.refreshMetadataConfirm' => ({required Object title}) => '"${title}" üçün meta-məlumatları yeniləmək istədiyinizdən əminsiniz?',
 			'libraries.emptyTrashConfirm' => ({required Object title}) => '"${title}" üçün zibil qutusunu təmizləmək istədiyinizdən əminsiniz?',
 			'libraries.manageLibraries' => 'Kitabxanaları idarə et',
@@ -4619,6 +4615,8 @@ extension on TranslationsAz {
 			'watchTogether.leaveSessionConfirm' => 'Seansdan xaric ediləcəksiniz.',
 			'watchTogether.endSessionConfirmOverlay' => 'Bu bütün iştirakçılar üçün izləmə seansını bitirəcək.',
 			'watchTogether.leaveSessionConfirmOverlay' => 'İzləmə seansı ilə əlaqəniz kəsiləcək.',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.end' => 'Bitir',
 			'watchTogether.leave' => 'Çıx',
 			'watchTogether.syncing' => 'Eyniləşdirilir...',
@@ -4667,8 +4665,6 @@ extension on TranslationsAz {
 			'downloads.tracksQueued' => ({required Object count}) => 'Yükləmə üçün ${count} mahnı növbəyə alındı',
 			'downloads.noDownloads' => 'Hələlik yükləmə yoxdur',
 			'downloads.noDownloadsDescription' => 'Yüklənmiş məzmun oflayn baxış üçün burada görünəcək',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.downloadNow' => 'Yüklə',
 			'downloads.deleteDownload' => 'Yükləməni sil',
 			'downloads.retryDownload' => 'Yükləməni təzədən cəhd et',
@@ -4679,8 +4675,6 @@ extension on TranslationsAz {
 			'downloads.storageUnavailable' => 'Boş yaddaşı yoxlamaq mümkün olmadığı üçün yükləmələr dayandırıldı. Yükləmə yerini yoxlayın, sonra təzədən cəhd edin.',
 			'downloads.episodesQueued' => ({required Object count}) => 'Yükləmə üçün ${count} seriya növbəyə alındı',
 			'downloads.downloadDeleted' => 'Yükləmə silindi',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.deleteConfirm' => ({required Object title}) => '"${title}" bu cihazdan silinsin?',
 			'downloads.cancelledDownloadTitle' => 'Ləğv edilmiş yükləmə',
 			'downloads.cancelledDownloadMessage' => 'Bu yükləmə ləğv edildi. Nə etmək istərdiniz?',
@@ -5135,6 +5129,8 @@ extension on TranslationsAz {
 			'services.libraryFilter.noLibraries' => 'Kitabxana yoxdur',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product} serveri əlavə et',
 			'addServer.serverUrls' => 'Server URL-ləri',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Vergüllə ayrılmış bir neçə URL-ə icazə verilir.',
 			'addServer.findServer' => 'Server tap',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Yerli ${product} serverləri axtarılır...',

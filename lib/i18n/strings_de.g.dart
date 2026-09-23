@@ -419,6 +419,17 @@ class _Translations$settings$de extends Translations$settings$en {
 	@override String get downloadLocationReset => 'Download-Speicherort auf Standard zurückgesetzt';
 	@override String get downloadLocationInvalid => 'Ausgewählter Ordner ist nicht beschreibbar';
 	@override String get downloadLocationPickerUnavailable => 'Die Ordnerauswahl ist auf diesem Gerät nicht verfügbar';
+	@override String get downloadLocationSelectError => 'Ordnerauswahl fehlgeschlagen';
+	@override String get mediaCapture => 'Medienerfassung';
+	@override String get clips => 'Clips';
+	@override String get screenshots => 'Screenshots';
+	@override String captureLocationTitle({required Object title}) => '${title} Standort';
+	@override String get clipLocationDescription => 'Wählen Sie, wo Clips gespeichert werden.';
+	@override String get screenshotLocationDescription => 'Wählen Sie aus, wo Screenshots gespeichert werden.';
+	@override String get clipLocationChanged => 'Clip-Position geändert';
+	@override String get screenshotLocationChanged => 'Der Speicherort des Screenshots wurde geändert';
+	@override String get clipLocationReset => 'Clip-Speicherort auf Desktop zurückgesetzt';
+	@override String get screenshotLocationReset => 'Screenshot-Speicherort auf Desktop zurückgesetzt';
 	@override String get downloadOnWifiOnly => 'Nur über WLAN herunterladen';
 	@override String get downloadOnWifiOnlyDescription => 'Downloads über mobile Daten verhindern';
 	@override String get autoRemoveWatchedDownloads => 'Gesehene Downloads automatisch entfernen';
@@ -876,6 +887,7 @@ class _Translations$videoControls$de extends Translations$videoControls$en {
 	@override String get pipActive => 'Wiedergabe im Bild-in-Bild-Modus';
 	@override String get pipFailed => 'Bild-in-Bild konnte nicht gestartet werden';
 	@override String get screenshotSaved => 'Screenshot gespeichert';
+	@override late final _Translations$videoControls$clip$de clip = _Translations$videoControls$clip$de._(_root);
 	@override String zoomPercent({required Object percent}) => 'Zoom ${percent}%';
 	@override String volumePercent({required Object percent}) => 'Lautstärke ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$de pipErrors = _Translations$videoControls$pipErrors$de._(_root);
@@ -2355,6 +2367,52 @@ class _Translations$hotkeys$actions$de extends Translations$hotkeys$actions$en {
 	@override String get screenshot => 'Screenshot aufnehmen';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$de extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$de._(TranslationsDe root) : this._root = root, super.internal(root);
+
+	final TranslationsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Feinjustierung';
+	@override String get title => 'Clip';
+	@override String get vodOnly => 'Clips stehen für die On-Demand-Videowiedergabe zur Verfügung.';
+	@override String get sourceUnavailable => 'Die Clipquelle ist für diese Wiedergabesitzung nicht verfügbar.';
+	@override String get playAtLeastOneSecond => 'Spielen Sie mindestens 1 Sekunde ab, bevor Sie den Clip ausschneiden.';
+	@override String get startBeforeBeginning => 'Der Clipanfang darf nicht vor dem Anfang des Videos liegen.';
+	@override String get endAfterStart => 'Das Ende des Clips muss nach dem Anfang liegen.';
+	@override String get minimumDuration => 'Clips müssen mindestens 1 Sekunde lang sein.';
+	@override String get endPastVideo => 'Das Ende des Clips liegt hinter dem Ende des Videos.';
+	@override String get exportCanceled => 'Clip-Export abgebrochen.';
+	@override String get cacheUnavailable => 'Der ausgewählte Bereich konnte für den Originalexport nicht vollständig zwischengespeichert werden. Versuchen Sie es mit einem kürzeren Clip oder spielen Sie die Vorschau einmal ab, bevor Sie speichern.';
+	@override String get sourceCopyNoEncoder => 'Beim Quellkopie-Export wird kein Encoder verwendet.';
+	@override String get encodingDesktopOnly => 'Die Clipkodierung H.264 und HEVC ist derzeit für macOS und Windows verfügbar.';
+	@override String get hdrRequiresSource => 'Für den HDR-Export ist eine Direct-Play-HDR10- oder HLG-kompatible Quelle erforderlich.';
+	@override String get transcodeStartUnavailable => 'Dieser Clip beginnt vor dem aktiven transkodierten Stream. Suchen Sie früher und öffnen Sie den Ausschnitt erneut oder wechseln Sie zur Originalqualität.';
+	@override String get previewRequired => 'Die Clipvorschau muss vollständig geladen sein, bevor sie gespeichert werden kann.';
+	@override String get h264Failed => 'Diese Quelle konnte nicht als H.264 SDR MP4 kodiert werden.';
+	@override String get hevcSdrFailed => 'Diese Quelle konnte nicht als HEVC SDR MP4 kodiert werden.';
+	@override String get hevcHdrFailed => 'Diese Quelle konnte nicht als HEVC HDR MP4 kodiert werden.';
+	@override String get gifFailed => 'Diese Quelle konnte nicht als GIF kodiert werden.';
+	@override String get originalFailed => 'Diese Quelle konnte nicht aus dem MPV-Cache kopiert werden.';
+	@override String get previewUnavailable => 'Die Clip-Vorschauwiedergabe ist in diesem Build nicht verfügbar.';
+	@override String get previewFailed => 'Die Wiedergabe der Clipvorschau ist fehlgeschlagen.';
+	@override String get previewLoadingScreenshot => 'Die Clip-Vorschau muss vollständig geladen sein, bevor ein Screenshot erstellt werden kann.';
+	@override String get screenshotInProgress => 'Ein Screenshot wird bereits gespeichert.';
+	@override String get saveAsDialog => 'Clip speichern unter';
+	@override String savedTo({required Object fileName}) => 'Gespeichert unter ${fileName}';
+	@override String get openFolder => 'Ordner öffnen';
+	@override String get saveAs => 'Speichern unter';
+	@override String get cancelExport => 'Export abbrechen';
+	@override String get saving => 'Sparen...';
+	@override String savingProgress({required Object percent}) => 'Sparen ${percent}%';
+	@override String get mutePreview => 'Vorschau stumm schalten';
+	@override String get unmutePreview => 'Stummschaltung der Vorschau aufheben';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: videoControls.pipErrors
 class _Translations$videoControls$pipErrors$de extends Translations$videoControls$pipErrors$en {
 	_Translations$videoControls$pipErrors$de._(TranslationsDe root) : this._root = root, super.internal(root);
@@ -3313,6 +3371,17 @@ extension on TranslationsDe {
 			'settings.downloadLocationReset' => 'Download-Speicherort auf Standard zurückgesetzt',
 			'settings.downloadLocationInvalid' => 'Ausgewählter Ordner ist nicht beschreibbar',
 			'settings.downloadLocationPickerUnavailable' => 'Die Ordnerauswahl ist auf diesem Gerät nicht verfügbar',
+			'settings.downloadLocationSelectError' => 'Ordnerauswahl fehlgeschlagen',
+			'settings.mediaCapture' => 'Medienerfassung',
+			'settings.clips' => 'Clips',
+			'settings.screenshots' => 'Screenshots',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Standort',
+			'settings.clipLocationDescription' => 'Wählen Sie, wo Clips gespeichert werden.',
+			'settings.screenshotLocationDescription' => 'Wählen Sie aus, wo Screenshots gespeichert werden.',
+			'settings.clipLocationChanged' => 'Clip-Position geändert',
+			'settings.screenshotLocationChanged' => 'Der Speicherort des Screenshots wurde geändert',
+			'settings.clipLocationReset' => 'Clip-Speicherort auf Desktop zurückgesetzt',
+			'settings.screenshotLocationReset' => 'Screenshot-Speicherort auf Desktop zurückgesetzt',
 			'settings.downloadOnWifiOnly' => 'Nur über WLAN herunterladen',
 			'settings.downloadOnWifiOnlyDescription' => 'Downloads über mobile Daten verhindern',
 			'settings.autoRemoveWatchedDownloads' => 'Gesehene Downloads automatisch entfernen',
@@ -3518,6 +3587,8 @@ extension on TranslationsDe {
 			'fileInfo.streamId' => 'Stream-ID',
 			'fileInfo.language' => 'Sprache',
 			'fileInfo.languageCode' => 'Sprachcode',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.streamTitle' => 'Track-Titel',
 			'fileInfo.channels' => 'Kanäle',
 			'fileInfo.sampleRate' => 'Abtastrate',
@@ -3529,8 +3600,6 @@ extension on TranslationsDe {
 			'fileInfo.externalDelivery' => 'Kann separat bereitgestellt werden',
 			'fileInfo.sidecarPath' => 'Sidecar-Pfad',
 			'fileInfo.sourceStream' => 'Kopiert von',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.temporary' => 'Temporär',
 			'fileInfo.timeBase' => 'Zeitbasis',
 			'fileInfo.overallBitrate' => 'Gesamtbitrate',
@@ -3706,6 +3775,43 @@ extension on TranslationsDe {
 			'videoControls.pipActive' => 'Wiedergabe im Bild-in-Bild-Modus',
 			'videoControls.pipFailed' => 'Bild-in-Bild konnte nicht gestartet werden',
 			'videoControls.screenshotSaved' => 'Screenshot gespeichert',
+			'videoControls.clip.fineAdjust' => 'Feinjustierung',
+			'videoControls.clip.title' => 'Clip',
+			'videoControls.clip.vodOnly' => 'Clips stehen für die On-Demand-Videowiedergabe zur Verfügung.',
+			'videoControls.clip.sourceUnavailable' => 'Die Clipquelle ist für diese Wiedergabesitzung nicht verfügbar.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Spielen Sie mindestens 1 Sekunde ab, bevor Sie den Clip ausschneiden.',
+			'videoControls.clip.startBeforeBeginning' => 'Der Clipanfang darf nicht vor dem Anfang des Videos liegen.',
+			'videoControls.clip.endAfterStart' => 'Das Ende des Clips muss nach dem Anfang liegen.',
+			'videoControls.clip.minimumDuration' => 'Clips müssen mindestens 1 Sekunde lang sein.',
+			'videoControls.clip.endPastVideo' => 'Das Ende des Clips liegt hinter dem Ende des Videos.',
+			'videoControls.clip.exportCanceled' => 'Clip-Export abgebrochen.',
+			'videoControls.clip.cacheUnavailable' => 'Der ausgewählte Bereich konnte für den Originalexport nicht vollständig zwischengespeichert werden. Versuchen Sie es mit einem kürzeren Clip oder spielen Sie die Vorschau einmal ab, bevor Sie speichern.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Beim Quellkopie-Export wird kein Encoder verwendet.',
+			'videoControls.clip.encodingDesktopOnly' => 'Die Clipkodierung H.264 und HEVC ist derzeit für macOS und Windows verfügbar.',
+			'videoControls.clip.hdrRequiresSource' => 'Für den HDR-Export ist eine Direct-Play-HDR10- oder HLG-kompatible Quelle erforderlich.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Dieser Clip beginnt vor dem aktiven transkodierten Stream. Suchen Sie früher und öffnen Sie den Ausschnitt erneut oder wechseln Sie zur Originalqualität.',
+			'videoControls.clip.previewRequired' => 'Die Clipvorschau muss vollständig geladen sein, bevor sie gespeichert werden kann.',
+			'videoControls.clip.h264Failed' => 'Diese Quelle konnte nicht als H.264 SDR MP4 kodiert werden.',
+			'videoControls.clip.hevcSdrFailed' => 'Diese Quelle konnte nicht als HEVC SDR MP4 kodiert werden.',
+			'videoControls.clip.hevcHdrFailed' => 'Diese Quelle konnte nicht als HEVC HDR MP4 kodiert werden.',
+			'videoControls.clip.gifFailed' => 'Diese Quelle konnte nicht als GIF kodiert werden.',
+			'videoControls.clip.originalFailed' => 'Diese Quelle konnte nicht aus dem MPV-Cache kopiert werden.',
+			'videoControls.clip.previewUnavailable' => 'Die Clip-Vorschauwiedergabe ist in diesem Build nicht verfügbar.',
+			'videoControls.clip.previewFailed' => 'Die Wiedergabe der Clipvorschau ist fehlgeschlagen.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Die Clip-Vorschau muss vollständig geladen sein, bevor ein Screenshot erstellt werden kann.',
+			'videoControls.clip.screenshotInProgress' => 'Ein Screenshot wird bereits gespeichert.',
+			'videoControls.clip.saveAsDialog' => 'Clip speichern unter',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Gespeichert unter ${fileName}',
+			'videoControls.clip.openFolder' => 'Ordner öffnen',
+			'videoControls.clip.saveAs' => 'Speichern unter',
+			'videoControls.clip.cancelExport' => 'Export abbrechen',
+			'videoControls.clip.saving' => 'Sparen...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Sparen ${percent}%',
+			'videoControls.clip.mutePreview' => 'Vorschau stumm schalten',
+			'videoControls.clip.unmutePreview' => 'Stummschaltung der Vorschau aufheben',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Zoom ${percent}%',
 			'videoControls.volumePercent' => ({required Object percent}) => 'Lautstärke ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Erfordert Android 8.0 oder neuer',
@@ -3995,6 +4101,8 @@ extension on TranslationsDe {
 			'discover.rating' => 'Altersfreigabe',
 			'discover.director' => 'Regisseur',
 			'discover.directors' => 'Regisseure',
+			_ => null,
+		} ?? switch (path) {
 			'discover.movie' => 'Film',
 			'discover.tvShow' => 'Serie',
 			'discover.minutesLeft' => ({required Object minutes}) => 'Noch ${minutes} Min.',
@@ -4043,8 +4151,6 @@ extension on TranslationsDe {
 			'libraries.clearAll' => 'Alle Filter entfernen',
 			'libraries.scanLibraryConfirm' => ({required Object title}) => '„${title}“ wirklich scannen?',
 			'libraries.analyzeLibraryConfirm' => ({required Object title}) => '„${title}“ wirklich analysieren?',
-			_ => null,
-		} ?? switch (path) {
 			'libraries.refreshMetadataConfirm' => ({required Object title}) => 'Metadaten für „${title}“ wirklich aktualisieren?',
 			'libraries.emptyTrashConfirm' => ({required Object title}) => 'Papierkorb für „${title}“ wirklich leeren?',
 			'libraries.manageLibraries' => 'Mediatheken verwalten',
@@ -4509,6 +4615,8 @@ extension on TranslationsDe {
 			'watchTogether.leaveSessionConfirm' => 'Du wirst aus der Sitzung entfernt.',
 			'watchTogether.endSessionConfirmOverlay' => 'Dies beendet die Schausitzung für alle Teilnehmer.',
 			'watchTogether.leaveSessionConfirmOverlay' => 'Du wirst von der Schausitzung getrennt.',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.end' => 'Beenden',
 			'watchTogether.leave' => 'Verlassen',
 			'watchTogether.syncing' => 'Wird synchronisiert …',
@@ -4557,8 +4665,6 @@ extension on TranslationsDe {
 			'downloads.tracksQueued' => ({required Object count}) => '${count} Titel zum Download in Warteschlange',
 			'downloads.noDownloads' => 'Noch keine Downloads',
 			'downloads.noDownloadsDescription' => 'Heruntergeladene Inhalte werden hier für die Offline-Wiedergabe angezeigt',
-			_ => null,
-		} ?? switch (path) {
 			'downloads.downloadNow' => 'Herunterladen',
 			'downloads.deleteDownload' => 'Download löschen',
 			'downloads.retryDownload' => 'Download wiederholen',
@@ -5023,6 +5129,8 @@ extension on TranslationsDe {
 			'services.libraryFilter.noLibraries' => 'Keine Mediatheken verfügbar',
 			'addServer.addMediaBrowserTitle' => ({required Object product}) => '${product}-Server hinzufügen',
 			'addServer.serverUrls' => 'Server-URLs',
+			_ => null,
+		} ?? switch (path) {
 			'addServer.serverUrlsHelper' => 'Mehrere URLs möglich, durch Kommas getrennt.',
 			'addServer.findServer' => 'Server finden',
 			'addServer.searchingLocalMediaBrowserServers' => ({required Object product}) => 'Suche nach lokalen ${product}-Servern …',
