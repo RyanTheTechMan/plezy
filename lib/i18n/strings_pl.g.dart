@@ -60,7 +60,6 @@ class TranslationsPl extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$dialog$pl dialog = _Translations$dialog$pl._(_root);
 	@override late final _Translations$profiles$pl profiles = _Translations$profiles$pl._(_root);
 	@override late final _Translations$connections$pl connections = _Translations$connections$pl._(_root);
-	@override late final _Translations$accountPreferences$pl accountPreferences = _Translations$accountPreferences$pl._(_root);
 	@override late final _Translations$discover$pl discover = _Translations$discover$pl._(_root);
 	@override late final _Translations$errors$pl errors = _Translations$errors$pl._(_root);
 	@override late final _Translations$libraries$pl libraries = _Translations$libraries$pl._(_root);
@@ -90,6 +89,7 @@ class TranslationsPl extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$seerr$pl seerr = _Translations$seerr$pl._(_root);
 	@override late final _Translations$services$pl services = _Translations$services$pl._(_root);
 	@override late final _Translations$addServer$pl addServer = _Translations$addServer$pl._(_root);
+	@override late final _Translations$accountPreferences$pl accountPreferences = _Translations$accountPreferences$pl._(_root);
 }
 
 // Path: app
@@ -99,7 +99,7 @@ class _Translations$app$pl extends Translations$app$en {
 	final TranslationsPl _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -216,6 +216,14 @@ class _Translations$update$pl extends Translations$update$en {
 	@override String get viewRelease => 'Zobacz wydanie';
 	@override String get latestVersion => 'Masz najnowszą wersję';
 	@override String get checkFailed => 'Nie udało się sprawdzić aktualizacji';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -371,6 +379,7 @@ class _Translations$settings$pl extends Translations$settings$en {
 	@override String get importSettingsInvalidFile => 'Ten plik nie jest prawidłowym eksportem Plezy';
 	@override String get importSettingsNoUser => 'Zaloguj się przed importem ustawień';
 	@override String get shortcutsReset => 'Skróty przywrócone do domyślnych';
+	@override String get resetShortcutsConfirm => 'This will replace your custom shortcuts with the defaults. Continue?';
 	@override String get about => 'O aplikacji';
 	@override String get aboutDescription => 'Informacje o aplikacji i licencje';
 	@override String get updates => 'Aktualizacje';
@@ -422,17 +431,6 @@ class _Translations$settings$pl extends Translations$settings$en {
 	@override String get downloadLocationReset => 'Lokalizacja pobierania przywrócona do domyślnej';
 	@override String get downloadLocationInvalid => 'Nie można zapisywać w wybranym folderze';
 	@override String get downloadLocationPickerUnavailable => 'Wybór folderu nie jest dostępny na tym urządzeniu';
-	@override String get downloadLocationSelectError => 'Nie udało się wybrać folderu';
-	@override String get mediaCapture => 'Przechwytywanie multimediów';
-	@override String get clips => 'Klipy';
-	@override String get screenshots => 'Zrzuty ekranu';
-	@override String captureLocationTitle({required Object title}) => 'Lokalizacja ${title}';
-	@override String get clipLocationDescription => 'Wybierz miejsce zapisywania klipów.';
-	@override String get screenshotLocationDescription => 'Wybierz miejsce zapisywania zrzutów ekranu.';
-	@override String get clipLocationChanged => 'Zmieniono lokalizację klipu';
-	@override String get screenshotLocationChanged => 'Zmieniono lokalizację zrzutu ekranu';
-	@override String get clipLocationReset => 'Lokalizacja klipu została zresetowana do pulpitu';
-	@override String get screenshotLocationReset => 'Lokalizacja zrzutu ekranu została zresetowana do pulpitu';
 	@override String get downloadOnWifiOnly => 'Pobieraj tylko przez Wi-Fi';
 	@override String get downloadOnWifiOnlyDescription => 'Blokuj pobieranie na danych komórkowych';
 	@override String get autoRemoveWatchedDownloads => 'Automatycznie usuwaj obejrzane pobrania';
@@ -467,6 +465,14 @@ class _Translations$settings$pl extends Translations$settings$en {
 	@override String get audioPassthroughDescription => 'Przesyłaj dźwięk Dolby/DTS do amplitunera lub telewizora bez ponownego kodowania, zachowując dźwięk przestrzenny. Wyłącz tę opcję, jeśli nie słychać dźwięku.';
 	@override String get audioPassthroughDescriptionAppleTv => 'Używaj natywnego dekodera Dolby firmy Apple dla Dolby Digital Plus, w tym Atmos. DTS i TrueHD nadal będą odtwarzane jako wielokanałowy dźwięk PCM. Wyłącz tę opcję, jeśli nie słychać dźwięku.';
 	@override String get audioPassthroughOverriddenByNormalization => 'Wyłączone, gdy włączona jest normalizacja głośności';
+	@override String get audioChannelLimit => 'Audio Channels';
+	@override String get audioChannelLimitDescription => 'Mix decoded audio down for speakers, headphones, or HDMI setups that cannot play every channel';
+	@override String get audioChannelLimitOriginal => 'Original';
+	@override String get audioChannelLimitOriginalDescription => 'Play every channel in the track';
+	@override String get audioChannelLimitSurround51 => 'Up to 5.1';
+	@override String get audioChannelLimitSurround51Description => 'Mix 7.1 down to 5.1 for TVs and receivers that only take 5.1 PCM. Passthrough is unaffected.';
+	@override String get audioChannelLimitStereo => 'Stereo';
+	@override String get audioChannelLimitStereoDescription => 'Mix down to two channels for stereo speakers or headphones. Turns passthrough off.';
 	@override String get downmixCenterBoost => 'Wzmocnienie kanału centralnego';
 	@override String downmixCenterBoostValue({required Object db}) => '${db} dB';
 	@override String get downmixCenterBoostLabel => 'Wzmocnienie (dB)';
@@ -548,6 +554,24 @@ class _Translations$settings$pl extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Na bibliotekę';
 	@override String get playerScopeTitle => 'Na serial lub film';
 	@override String get exportDialogTitle => 'Eksport ustawień Plezy';
+	@override String get downloadLocationSelectError => 'Nie udało się wybrać folderu';
+	@override String get mediaCapture => 'Przechwytywanie multimediów';
+	@override String get clips => 'Klipy';
+	@override String get screenshots => 'Zrzuty ekranu';
+	@override String captureLocationTitle({required Object title}) => 'Lokalizacja ${title}';
+	@override String get clipLocationDescription => 'Wybierz miejsce zapisywania klipów.';
+	@override String get screenshotLocationDescription => 'Wybierz miejsce zapisywania zrzutów ekranu.';
+	@override String get clipLocationChanged => 'Zmieniono lokalizację klipu';
+	@override String get screenshotLocationChanged => 'Zmieniono lokalizację zrzutu ekranu';
+	@override String get clipLocationReset => 'Lokalizacja klipu została zresetowana do pulpitu';
+	@override String get screenshotLocationReset => 'Lokalizacja zrzutu ekranu została zresetowana do pulpitu';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
+	@override String get packedStereoUi => '3D Playback UI';
 }
 
 // Path: search
@@ -561,6 +585,7 @@ class _Translations$search$pl extends Translations$search$en {
 	@override String get tryDifferentTerm => 'Spróbuj innego wyszukiwania';
 	@override String get searchYourMedia => 'Przeszukaj swoje media';
 	@override String get enterTitleActorOrKeyword => 'Wprowadź tytuł, aktora lub słowo kluczowe';
+	@override String get people => 'People';
 }
 
 // Path: hotkeys
@@ -902,9 +927,7 @@ class _Translations$videoControls$pl extends Translations$videoControls$en {
 	@override String get pipActive => 'Odtwarzanie w trybie obraz w obrazie';
 	@override String get pipFailed => 'Nie udało się uruchomić trybu obraz w obrazie';
 	@override String get screenshotSaved => 'Zrzut ekranu zapisany';
-	@override late final _Translations$videoControls$clip$pl clip = _Translations$videoControls$clip$pl._(_root);
 	@override String zoomPercent({required Object percent}) => 'Powiększenie ${percent}%';
-	@override String volumePercent({required Object percent}) => 'Głośność ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$pl pipErrors = _Translations$videoControls$pipErrors$pl._(_root);
 	@override String get chapters => 'Rozdziały';
 	@override String get noChaptersAvailable => 'Brak dostępnych rozdziałów';
@@ -927,6 +950,13 @@ class _Translations$videoControls$pl extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Napisy: wył.';
 	@override String osdSubtitles({required Object track}) => 'Napisy: ${track}';
 	@override String osdAudio({required Object track}) => 'Audio: ${track}';
+	@override String volumePercent({required Object percent}) => 'Głośność ${percent}%';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('pl'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
+	@override late final _Translations$videoControls$clip$pl clip = _Translations$videoControls$clip$pl._(_root);
 }
 
 // Path: messages
@@ -1098,6 +1128,8 @@ class _Translations$profiles$pl extends Translations$profiles$en {
 	@override String get signOut => 'Wyloguj się';
 	@override String get signOutPlexTitle => 'Wylogować się z Plex?';
 	@override String signOutPlexMessage({required Object displayName}) => 'Usunąć ${displayName} i wszystkich użytkowników Plex Home? Możesz zalogować się ponownie w każdej chwili.';
+	@override String get signOutPlexDeleteDownloads => 'Also delete downloads';
+	@override String get signOutPlexDeleteDownloadsDescription => 'Otherwise they stay on this device and come back when you sign back in to this account.';
 	@override String get signedOutPlex => 'Wylogowano z Plex.';
 	@override String get signOutFailed => 'Wylogowanie nie powiodło się.';
 	@override String get sectionTitle => 'Profile';
@@ -1171,49 +1203,6 @@ class _Translations$connections$pl extends Translations$connections$en {
 	@override String get signInAgain => 'Zaloguj się ponownie';
 	@override String editMediaBrowserTitle({required Object product}) => 'Edytuj połączenie z ${product}';
 	@override String editMediaBrowserIntro({required Object serverName}) => 'Dodaj lub usuń adresy URL dla ${serverName}. Plezy będzie używać osiągalnego adresu URL o najniższym opóźnieniu.';
-}
-
-// Path: accountPreferences
-class _Translations$accountPreferences$pl extends Translations$accountPreferences$en {
-	_Translations$accountPreferences$pl._(TranslationsPl root) : this._root = root, super.internal(root);
-
-	final TranslationsPl _root; // ignore: unused_field
-
-	// Translations
-	@override String get sectionTitle => 'Preferencje konta';
-	@override String hubSubtitleSingle({required Object account}) => 'Opcje audio, napisów i biblioteki zapisane na koncie ${account}';
-	@override String hubSubtitleMultiple({required Object count}) => 'Opcje audio, napisów i biblioteki zapisane na ${count} kontach';
-	@override String get pickAccount => 'Każde konto przechowuje własne preferencje. Wybierz to, które chcesz edytować.';
-	@override String get storedOnAccount => 'Te opcje są zapisywane na samym koncie, więc używa ich każda aplikacja zalogowana na to konto — w tym Plezy na Twoich innych urządzeniach.';
-	@override String get noAccounts => 'Brak kont do skonfigurowania';
-	@override String get noAccountsHint => 'Zaloguj się do Plex albo połącz serwer Jellyfin lub Emby, a preferencje zapisane na tym koncie pojawią się tutaj.';
-	@override String get unavailable => 'Nie można połączyć się z tym kontem';
-	@override String get loadFailed => 'Nie udało się wczytać tych preferencji';
-	@override String get noPreference => 'Brak preferencji';
-	@override String get notSet => 'Nie ustawiono';
-	@override late final _Translations$accountPreferences$groups$pl groups = _Translations$accountPreferences$groups$pl._(_root);
-	@override String get preferredAudioLanguage => 'Preferowany język audio';
-	@override String get autoSelectAudio => 'Wybieraj audio według języka';
-	@override String get autoSelectAudioDescription => 'Ustawienie „Wył.” pozostawia ścieżkę audio, którą plik oznacza jako domyślną.';
-	@override String get preferredSubtitleLanguage => 'Preferowany język napisów';
-	@override String get subtitleMode => 'Włączanie napisów';
-	@override late final _Translations$accountPreferences$subtitleModes$pl subtitleModes = _Translations$accountPreferences$subtitleModes$pl._(_root);
-	@override String get subtitleAccessibility => 'Napisy SDH';
-	@override late final _Translations$accountPreferences$subtitleAccessibilityOptions$pl subtitleAccessibilityOptions = _Translations$accountPreferences$subtitleAccessibilityOptions$pl._(_root);
-	@override String get forcedSubtitles => 'Wymuszone napisy';
-	@override late final _Translations$accountPreferences$forcedSubtitleOptions$pl forcedSubtitleOptions = _Translations$accountPreferences$forcedSubtitleOptions$pl._(_root);
-	@override String get displayMissingEpisodes => 'Pokaż brakujące odcinki';
-	@override String get displayMissingEpisodesDescription => 'Wyświetlaj odcinki, które serwer zna, ale dla których nie ma pliku.';
-	@override String get hidePlayedInLatest => 'Ukrywaj obejrzane pozycje w sekcji Ostatnio dodane';
-	@override String get hidePlayedInLatestDescription => 'Pomijaj pozycje, które już obejrzałeś, w wierszach „Ostatnio dodane” serwera.';
-	@override String get displayCollectionsView => 'Pokaż widok „Kolekcje”';
-	@override String get displayCollectionsViewDescription => 'Pokazuj widok kolekcji serwera obok Twoich bibliotek.';
-	@override String get rewatchingInNextUp => 'Zachowuj ponownie oglądane seriale w sekcji „Następny odcinek”';
-	@override String get rewatchingInNextUpDescription => 'Gdy skończysz serial i zaczniesz go oglądać ponownie, sekcja „Następny odcinek” podąży za ponownym oglądaniem zamiast usuwać serial.';
-	@override String get watchedIndicator => 'Wskaźniki obejrzanych';
-	@override late final _Translations$accountPreferences$watchedIndicatorOptions$pl watchedIndicatorOptions = _Translations$accountPreferences$watchedIndicatorOptions$pl._(_root);
-	@override String get mediaReviewsVisibility => 'Oceny i recenzje';
-	@override late final _Translations$accountPreferences$mediaReviewsOptions$pl mediaReviewsOptions = _Translations$accountPreferences$mediaReviewsOptions$pl._(_root);
 }
 
 // Path: discover
@@ -1335,6 +1324,7 @@ class _Translations$libraries$pl extends Translations$libraries$en {
 	@override late final _Translations$libraries$groupings$pl groupings = _Translations$libraries$groupings$pl._(_root);
 	@override late final _Translations$libraries$filterCategories$pl filterCategories = _Translations$libraries$filterCategories$pl._(_root);
 	@override late final _Translations$libraries$sortLabels$pl sortLabels = _Translations$libraries$sortLabels$pl._(_root);
+	@override late final _Translations$libraries$advancedFilters$pl advancedFilters = _Translations$libraries$advancedFilters$pl._(_root);
 }
 
 // Path: about
@@ -1349,6 +1339,9 @@ class _Translations$about$pl extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Wersja ${version}';
 	@override String get appDescription => 'Piękny klient Plex, Jellyfin i Emby stworzony we Flutterze';
 	@override String get viewLicensesDescription => 'Wyświetl licencje bibliotek innych firm';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1479,6 +1472,7 @@ class _Translations$explore$pl extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Usunięto z listy do obejrzenia';
 	@override String get watchlistUpdateFailed => 'Nie udało się zaktualizować listy do obejrzenia';
 	@override String get watchlistNoMatch => 'Nie udało się dopasować tej pozycji do listy do obejrzenia';
+	@override String get openInLibrary => 'Otwórz w bibliotece';
 	@override String get notInLibrary => 'Nie ma tego w Twojej bibliotece';
 	@override String get inTheseLibraries => 'W tych bibliotekach';
 	@override String get checkingLibrary => 'Sprawdzanie Twojej biblioteki...';
@@ -2329,6 +2323,49 @@ class _Translations$addServer$pl extends Translations$addServer$en {
 	@override String redirectUnsupportedEnterFinal({required Object product}) => 'Serwer przekierował do nieobsługiwanego adresu URL. Wprowadź bezpośrednio docelowy adres URL serwera ${product}.';
 }
 
+// Path: accountPreferences
+class _Translations$accountPreferences$pl extends Translations$accountPreferences$en {
+	_Translations$accountPreferences$pl._(TranslationsPl root) : this._root = root, super.internal(root);
+
+	final TranslationsPl _root; // ignore: unused_field
+
+	// Translations
+	@override String get sectionTitle => 'Preferencje konta';
+	@override String hubSubtitleSingle({required Object account}) => 'Opcje audio, napisów i biblioteki zapisane na koncie ${account}';
+	@override String hubSubtitleMultiple({required Object count}) => 'Opcje audio, napisów i biblioteki zapisane na ${count} kontach';
+	@override String get pickAccount => 'Każde konto przechowuje własne preferencje. Wybierz to, które chcesz edytować.';
+	@override String get storedOnAccount => 'Te opcje są zapisywane na samym koncie, więc używa ich każda aplikacja zalogowana na to konto — w tym Plezy na Twoich innych urządzeniach.';
+	@override String get noAccounts => 'Brak kont do skonfigurowania';
+	@override String get noAccountsHint => 'Zaloguj się do Plex albo połącz serwer Jellyfin lub Emby, a preferencje zapisane na tym koncie pojawią się tutaj.';
+	@override String get unavailable => 'Nie można połączyć się z tym kontem';
+	@override String get loadFailed => 'Nie udało się wczytać tych preferencji';
+	@override String get noPreference => 'Brak preferencji';
+	@override String get notSet => 'Nie ustawiono';
+	@override late final _Translations$accountPreferences$groups$pl groups = _Translations$accountPreferences$groups$pl._(_root);
+	@override String get preferredAudioLanguage => 'Preferowany język audio';
+	@override String get autoSelectAudio => 'Wybieraj audio według języka';
+	@override String get autoSelectAudioDescription => 'Ustawienie „Wył.” pozostawia ścieżkę audio, którą plik oznacza jako domyślną.';
+	@override String get preferredSubtitleLanguage => 'Preferowany język napisów';
+	@override String get subtitleMode => 'Włączanie napisów';
+	@override late final _Translations$accountPreferences$subtitleModes$pl subtitleModes = _Translations$accountPreferences$subtitleModes$pl._(_root);
+	@override String get subtitleAccessibility => 'Napisy SDH';
+	@override late final _Translations$accountPreferences$subtitleAccessibilityOptions$pl subtitleAccessibilityOptions = _Translations$accountPreferences$subtitleAccessibilityOptions$pl._(_root);
+	@override String get forcedSubtitles => 'Wymuszone napisy';
+	@override late final _Translations$accountPreferences$forcedSubtitleOptions$pl forcedSubtitleOptions = _Translations$accountPreferences$forcedSubtitleOptions$pl._(_root);
+	@override String get displayMissingEpisodes => 'Pokaż brakujące odcinki';
+	@override String get displayMissingEpisodesDescription => 'Wyświetlaj odcinki, które serwer zna, ale dla których nie ma pliku.';
+	@override String get hidePlayedInLatest => 'Ukrywaj obejrzane pozycje w sekcji Ostatnio dodane';
+	@override String get hidePlayedInLatestDescription => 'Pomijaj pozycje, które już obejrzałeś, w wierszach „Ostatnio dodane” serwera.';
+	@override String get displayCollectionsView => 'Pokaż widok „Kolekcje”';
+	@override String get displayCollectionsViewDescription => 'Pokazuj widok kolekcji serwera obok Twoich bibliotek.';
+	@override String get rewatchingInNextUp => 'Zachowuj ponownie oglądane seriale w sekcji „Następny odcinek”';
+	@override String get rewatchingInNextUpDescription => 'Gdy skończysz serial i zaczniesz go oglądać ponownie, sekcja „Następny odcinek” podąży za ponownym oglądaniem zamiast usuwać serial.';
+	@override String get watchedIndicator => 'Wskaźniki obejrzanych';
+	@override late final _Translations$accountPreferences$watchedIndicatorOptions$pl watchedIndicatorOptions = _Translations$accountPreferences$watchedIndicatorOptions$pl._(_root);
+	@override String get mediaReviewsVisibility => 'Oceny i recenzje';
+	@override late final _Translations$accountPreferences$mediaReviewsOptions$pl mediaReviewsOptions = _Translations$accountPreferences$mediaReviewsOptions$pl._(_root);
+}
+
 // Path: common.ratingSource
 class _Translations$common$ratingSource$pl extends Translations$common$ratingSource$en {
 	_Translations$common$ratingSource$pl._(TranslationsPl root) : this._root = root, super.internal(root);
@@ -2402,6 +2439,25 @@ class _Translations$hotkeys$actions$pl extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Przełącz shadery';
 	@override String get skipMarker => 'Pomiń intro/napisy końcowe';
 	@override String get screenshot => 'Zrób zrzut ekranu';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
+}
+
+// Path: videoControls.pipErrors
+class _Translations$videoControls$pipErrors$pl extends Translations$videoControls$pipErrors$en {
+	_Translations$videoControls$pipErrors$pl._(TranslationsPl root) : this._root = root, super.internal(root);
+
+	final TranslationsPl _root; // ignore: unused_field
+
+	// Translations
+	@override String get androidVersion => 'Wymaga Androida 8.0 lub nowszego';
+	@override String get iosVersion => 'Wymaga iOS 15.0 lub nowszego';
+	@override String get permissionDisabled => 'Obraz w obrazie jest wyłączony. Włącz go w ustawieniach systemu.';
+	@override String get notSupported => 'Urządzenie nie obsługuje trybu obraz w obrazie';
+	@override String get voSwitchFailed => 'Nie udało się przełączyć wyjścia wideo dla trybu obraz w obrazie';
+	@override String get failed => 'Nie udało się uruchomić trybu obraz w obrazie';
+	@override String get prepareFailed => 'Nie udało się przygotować trybu obraz w obrazie';
+	@override String unknown({required Object error}) => 'Wystąpił błąd: ${error}';
 }
 
 // Path: videoControls.clip
@@ -2450,106 +2506,6 @@ class _Translations$videoControls$clip$pl extends Translations$videoControls$cli
 	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
-// Path: videoControls.pipErrors
-class _Translations$videoControls$pipErrors$pl extends Translations$videoControls$pipErrors$en {
-	_Translations$videoControls$pipErrors$pl._(TranslationsPl root) : this._root = root, super.internal(root);
-
-	final TranslationsPl _root; // ignore: unused_field
-
-	// Translations
-	@override String get androidVersion => 'Wymaga Androida 8.0 lub nowszego';
-	@override String get iosVersion => 'Wymaga iOS 15.0 lub nowszego';
-	@override String get permissionDisabled => 'Obraz w obrazie jest wyłączony. Włącz go w ustawieniach systemu.';
-	@override String get notSupported => 'Urządzenie nie obsługuje trybu obraz w obrazie';
-	@override String get voSwitchFailed => 'Nie udało się przełączyć wyjścia wideo dla trybu obraz w obrazie';
-	@override String get failed => 'Nie udało się uruchomić trybu obraz w obrazie';
-	@override String get prepareFailed => 'Nie udało się przygotować trybu obraz w obrazie';
-	@override String unknown({required Object error}) => 'Wystąpił błąd: ${error}';
-}
-
-// Path: accountPreferences.groups
-class _Translations$accountPreferences$groups$pl extends Translations$accountPreferences$groups$en {
-	_Translations$accountPreferences$groups$pl._(TranslationsPl root) : this._root = root, super.internal(root);
-
-	final TranslationsPl _root; // ignore: unused_field
-
-	// Translations
-	@override String get audioAndSubtitles => 'Audio i napisy';
-	@override String get libraryDisplay => 'Biblioteka';
-	@override String get personalMedia => 'Osobiste multimedia';
-}
-
-// Path: accountPreferences.subtitleModes
-class _Translations$accountPreferences$subtitleModes$pl extends Translations$accountPreferences$subtitleModes$en {
-	_Translations$accountPreferences$subtitleModes$pl._(TranslationsPl root) : this._root = root, super.internal(root);
-
-	final TranslationsPl _root; // ignore: unused_field
-
-	// Translations
-	@override String get none => 'Wybór ręczny';
-	@override String get noneDescription => 'Nigdy nie włączaj napisów automatycznie.';
-	@override String get defaultMode => 'Kieruj się flagami ścieżki';
-	@override String get defaultModeDescription => 'Używaj flag domyślna i wymuszona zapisanych na każdej ścieżce napisów.';
-	@override String get always => 'Zawsze włączone';
-	@override String get alwaysDescription => 'Włączaj ścieżkę napisów w preferowanym języku, gdy tylko istnieje.';
-	@override String get onlyForced => 'Tylko wymuszone napisy';
-	@override String get onlyForcedDescription => 'Wczytuj tylko ścieżki oznaczone jako wymuszone.';
-	@override String get smart => 'Wyświetlane przy dźwięku w obcym języku';
-	@override String get smartDescription => 'Włączaj napisy tylko wtedy, gdy dźwięk jest w innym języku.';
-}
-
-// Path: accountPreferences.subtitleAccessibilityOptions
-class _Translations$accountPreferences$subtitleAccessibilityOptions$pl extends Translations$accountPreferences$subtitleAccessibilityOptions$en {
-	_Translations$accountPreferences$subtitleAccessibilityOptions$pl._(TranslationsPl root) : this._root = root, super.internal(root);
-
-	final TranslationsPl _root; // ignore: unused_field
-
-	// Translations
-	@override String get preferNonSdh => 'Preferuj napisy bez SDH';
-	@override String get preferSdh => 'Preferuj napisy SDH';
-	@override String get onlySdh => 'Tylko napisy SDH';
-	@override String get onlyNonSdh => 'Tylko napisy bez SDH';
-}
-
-// Path: accountPreferences.forcedSubtitleOptions
-class _Translations$accountPreferences$forcedSubtitleOptions$pl extends Translations$accountPreferences$forcedSubtitleOptions$en {
-	_Translations$accountPreferences$forcedSubtitleOptions$pl._(TranslationsPl root) : this._root = root, super.internal(root);
-
-	final TranslationsPl _root; // ignore: unused_field
-
-	// Translations
-	@override String get preferNonForced => 'Preferuj niewymuszone napisy';
-	@override String get preferForced => 'Preferuj wymuszone napisy';
-	@override String get onlyForced => 'Tylko wymuszone napisy';
-	@override String get onlyNonForced => 'Tylko niewymuszone napisy';
-}
-
-// Path: accountPreferences.watchedIndicatorOptions
-class _Translations$accountPreferences$watchedIndicatorOptions$pl extends Translations$accountPreferences$watchedIndicatorOptions$en {
-	_Translations$accountPreferences$watchedIndicatorOptions$pl._(TranslationsPl root) : this._root = root, super.internal(root);
-
-	final TranslationsPl _root; // ignore: unused_field
-
-	// Translations
-	@override String get none => 'Nigdy';
-	@override String get moviesAndShows => 'Filmy i seriale TV';
-	@override String get movies => 'Tylko filmy';
-	@override String get shows => 'Tylko seriale TV';
-}
-
-// Path: accountPreferences.mediaReviewsOptions
-class _Translations$accountPreferences$mediaReviewsOptions$pl extends Translations$accountPreferences$mediaReviewsOptions$en {
-	_Translations$accountPreferences$mediaReviewsOptions$pl._(TranslationsPl root) : this._root = root, super.internal(root);
-
-	final TranslationsPl _root; // ignore: unused_field
-
-	// Translations
-	@override String get usersAndCritics => 'Użytkownicy i krytycy';
-	@override String get usersOnly => 'Tylko użytkownicy';
-	@override String get criticsOnly => 'Tylko krytycy';
-	@override String get nobody => 'Ukryte';
-}
-
 // Path: libraries.tabs
 class _Translations$libraries$tabs$pl extends Translations$libraries$tabs$en {
 	_Translations$libraries$tabs$pl._(TranslationsPl root) : this._root = root, super.internal(root);
@@ -2596,6 +2552,7 @@ class _Translations$libraries$filterCategories$pl extends Translations$libraries
 	@override String get unwatched => 'Nieobejrzane';
 	@override String get unplayed => 'Nieodtworzone';
 	@override String get favorites => 'Ulubione';
+	@override String get filePath => 'File Path';
 }
 
 // Path: libraries.sortLabels
@@ -2628,6 +2585,41 @@ class _Translations$libraries$sortLabels$pl extends Translations$libraries$sortL
 	@override String get dateDownloaded => 'Data pobrania';
 	@override String get size => 'Rozmiar';
 	@override String get library => 'Biblioteka';
+}
+
+// Path: libraries.advancedFilters
+class _Translations$libraries$advancedFilters$pl extends Translations$libraries$advancedFilters$en {
+	_Translations$libraries$advancedFilters$pl._(TranslationsPl root) : this._root = root, super.internal(root);
+
+	final TranslationsPl _root; // ignore: unused_field
+
+	// Translations
+	@override String get include => 'Include';
+	@override String get exclude => 'Exclude';
+	@override String get any => 'Any';
+	@override String get yes => 'Yes';
+	@override String get no => 'No';
+	@override String not({required Object value}) => 'Not ${value}';
+	@override String valueCount({required Object count}) => '${count} selected';
+	@override String valueCountExcluded({required Object count}) => '${count} excluded';
+	@override String get searchValues => 'Search values';
+	@override String get noValues => 'No values';
+	@override String get matchContains => 'Contains';
+	@override String get matchNotContains => 'Does not contain';
+	@override String get matchIs => 'Is';
+	@override String get matchIsNot => 'Is not';
+	@override String get matchBeginsWith => 'Begins with';
+	@override String get matchEndsWith => 'Ends with';
+	@override String get textHint => 'Type to match';
+	@override String get from => 'From';
+	@override String get to => 'To';
+	@override String range({required Object from, required Object to}) => '${from} to ${to}';
+	@override String atLeast({required Object value}) => '${value} and up';
+	@override String atMost({required Object value}) => 'Up to ${value}';
+	@override String dateLastDays({required Object count}) => 'Last ${count} days';
+	@override String get dateLastYear => 'Past year';
+	@override String dateOlderThanDays({required Object count}) => 'Older than ${count} days';
+	@override String get dateOlderThanYear => 'Older than a year';
 }
 
 // Path: explore.rows
@@ -2781,6 +2773,7 @@ class _Translations$explore$creditRole$pl extends Translations$explore$creditRol
 	final TranslationsPl _root; // ignore: unused_field
 
 	// Translations
+	@override String get actor => 'Actor';
 	@override String get director => 'Reżyser';
 	@override String get writer => 'Scenarzysta';
 	@override String get producer => 'Producent';
@@ -3108,6 +3101,89 @@ class _Translations$services$libraryFilter$pl extends Translations$services$libr
 	@override String get noLibraries => 'Brak dostępnych bibliotek';
 }
 
+// Path: accountPreferences.groups
+class _Translations$accountPreferences$groups$pl extends Translations$accountPreferences$groups$en {
+	_Translations$accountPreferences$groups$pl._(TranslationsPl root) : this._root = root, super.internal(root);
+
+	final TranslationsPl _root; // ignore: unused_field
+
+	// Translations
+	@override String get audioAndSubtitles => 'Audio i napisy';
+	@override String get libraryDisplay => 'Biblioteka';
+	@override String get personalMedia => 'Osobiste multimedia';
+}
+
+// Path: accountPreferences.subtitleModes
+class _Translations$accountPreferences$subtitleModes$pl extends Translations$accountPreferences$subtitleModes$en {
+	_Translations$accountPreferences$subtitleModes$pl._(TranslationsPl root) : this._root = root, super.internal(root);
+
+	final TranslationsPl _root; // ignore: unused_field
+
+	// Translations
+	@override String get none => 'Wybór ręczny';
+	@override String get noneDescription => 'Nigdy nie włączaj napisów automatycznie.';
+	@override String get defaultMode => 'Kieruj się flagami ścieżki';
+	@override String get defaultModeDescription => 'Używaj flag domyślna i wymuszona zapisanych na każdej ścieżce napisów.';
+	@override String get always => 'Zawsze włączone';
+	@override String get alwaysDescription => 'Włączaj ścieżkę napisów w preferowanym języku, gdy tylko istnieje.';
+	@override String get onlyForced => 'Tylko wymuszone napisy';
+	@override String get onlyForcedDescription => 'Wczytuj tylko ścieżki oznaczone jako wymuszone.';
+	@override String get smart => 'Wyświetlane przy dźwięku w obcym języku';
+	@override String get smartDescription => 'Włączaj napisy tylko wtedy, gdy dźwięk jest w innym języku.';
+}
+
+// Path: accountPreferences.subtitleAccessibilityOptions
+class _Translations$accountPreferences$subtitleAccessibilityOptions$pl extends Translations$accountPreferences$subtitleAccessibilityOptions$en {
+	_Translations$accountPreferences$subtitleAccessibilityOptions$pl._(TranslationsPl root) : this._root = root, super.internal(root);
+
+	final TranslationsPl _root; // ignore: unused_field
+
+	// Translations
+	@override String get preferNonSdh => 'Preferuj napisy bez SDH';
+	@override String get preferSdh => 'Preferuj napisy SDH';
+	@override String get onlySdh => 'Tylko napisy SDH';
+	@override String get onlyNonSdh => 'Tylko napisy bez SDH';
+}
+
+// Path: accountPreferences.forcedSubtitleOptions
+class _Translations$accountPreferences$forcedSubtitleOptions$pl extends Translations$accountPreferences$forcedSubtitleOptions$en {
+	_Translations$accountPreferences$forcedSubtitleOptions$pl._(TranslationsPl root) : this._root = root, super.internal(root);
+
+	final TranslationsPl _root; // ignore: unused_field
+
+	// Translations
+	@override String get preferNonForced => 'Preferuj niewymuszone napisy';
+	@override String get preferForced => 'Preferuj wymuszone napisy';
+	@override String get onlyForced => 'Tylko wymuszone napisy';
+	@override String get onlyNonForced => 'Tylko niewymuszone napisy';
+}
+
+// Path: accountPreferences.watchedIndicatorOptions
+class _Translations$accountPreferences$watchedIndicatorOptions$pl extends Translations$accountPreferences$watchedIndicatorOptions$en {
+	_Translations$accountPreferences$watchedIndicatorOptions$pl._(TranslationsPl root) : this._root = root, super.internal(root);
+
+	final TranslationsPl _root; // ignore: unused_field
+
+	// Translations
+	@override String get none => 'Nigdy';
+	@override String get moviesAndShows => 'Filmy i seriale TV';
+	@override String get movies => 'Tylko filmy';
+	@override String get shows => 'Tylko seriale TV';
+}
+
+// Path: accountPreferences.mediaReviewsOptions
+class _Translations$accountPreferences$mediaReviewsOptions$pl extends Translations$accountPreferences$mediaReviewsOptions$en {
+	_Translations$accountPreferences$mediaReviewsOptions$pl._(TranslationsPl root) : this._root = root, super.internal(root);
+
+	final TranslationsPl _root; // ignore: unused_field
+
+	// Translations
+	@override String get usersAndCritics => 'Użytkownicy i krytycy';
+	@override String get usersOnly => 'Tylko użytkownicy';
+	@override String get criticsOnly => 'Tylko krytycy';
+	@override String get nobody => 'Ukryte';
+}
+
 /// The flat map containing all translations for locale <pl>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -3116,7 +3192,7 @@ class _Translations$services$libraryFilter$pl extends Translations$services$libr
 extension on TranslationsPl {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Zaloguj się przez Plex',
 			'auth.showQRCode' => 'Pokaż kod QR',
 			'auth.authenticate' => 'Uwierzytelnij',
@@ -3218,6 +3294,14 @@ extension on TranslationsPl {
 			'update.viewRelease' => 'Zobacz wydanie',
 			'update.latestVersion' => 'Masz najnowszą wersję',
 			'update.checkFailed' => 'Nie udało się sprawdzić aktualizacji',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Ustawienia',
 			'settings.supportDeveloper' => 'Wesprzyj Plezy',
 			'settings.supportDeveloperDescription' => 'Wspomóż rozwój darowizną na Liberapay',
@@ -3364,6 +3448,7 @@ extension on TranslationsPl {
 			'settings.importSettingsInvalidFile' => 'Ten plik nie jest prawidłowym eksportem Plezy',
 			'settings.importSettingsNoUser' => 'Zaloguj się przed importem ustawień',
 			'settings.shortcutsReset' => 'Skróty przywrócone do domyślnych',
+			'settings.resetShortcutsConfirm' => 'This will replace your custom shortcuts with the defaults. Continue?',
 			'settings.about' => 'O aplikacji',
 			'settings.aboutDescription' => 'Informacje o aplikacji i licencje',
 			'settings.updates' => 'Aktualizacje',
@@ -3415,17 +3500,6 @@ extension on TranslationsPl {
 			'settings.downloadLocationReset' => 'Lokalizacja pobierania przywrócona do domyślnej',
 			'settings.downloadLocationInvalid' => 'Nie można zapisywać w wybranym folderze',
 			'settings.downloadLocationPickerUnavailable' => 'Wybór folderu nie jest dostępny na tym urządzeniu',
-			'settings.downloadLocationSelectError' => 'Nie udało się wybrać folderu',
-			'settings.mediaCapture' => 'Przechwytywanie multimediów',
-			'settings.clips' => 'Klipy',
-			'settings.screenshots' => 'Zrzuty ekranu',
-			'settings.captureLocationTitle' => ({required Object title}) => 'Lokalizacja ${title}',
-			'settings.clipLocationDescription' => 'Wybierz miejsce zapisywania klipów.',
-			'settings.screenshotLocationDescription' => 'Wybierz miejsce zapisywania zrzutów ekranu.',
-			'settings.clipLocationChanged' => 'Zmieniono lokalizację klipu',
-			'settings.screenshotLocationChanged' => 'Zmieniono lokalizację zrzutu ekranu',
-			'settings.clipLocationReset' => 'Lokalizacja klipu została zresetowana do pulpitu',
-			'settings.screenshotLocationReset' => 'Lokalizacja zrzutu ekranu została zresetowana do pulpitu',
 			'settings.downloadOnWifiOnly' => 'Pobieraj tylko przez Wi-Fi',
 			'settings.downloadOnWifiOnlyDescription' => 'Blokuj pobieranie na danych komórkowych',
 			'settings.autoRemoveWatchedDownloads' => 'Automatycznie usuwaj obejrzane pobrania',
@@ -3460,6 +3534,14 @@ extension on TranslationsPl {
 			'settings.audioPassthroughDescription' => 'Przesyłaj dźwięk Dolby/DTS do amplitunera lub telewizora bez ponownego kodowania, zachowując dźwięk przestrzenny. Wyłącz tę opcję, jeśli nie słychać dźwięku.',
 			'settings.audioPassthroughDescriptionAppleTv' => 'Używaj natywnego dekodera Dolby firmy Apple dla Dolby Digital Plus, w tym Atmos. DTS i TrueHD nadal będą odtwarzane jako wielokanałowy dźwięk PCM. Wyłącz tę opcję, jeśli nie słychać dźwięku.',
 			'settings.audioPassthroughOverriddenByNormalization' => 'Wyłączone, gdy włączona jest normalizacja głośności',
+			'settings.audioChannelLimit' => 'Audio Channels',
+			'settings.audioChannelLimitDescription' => 'Mix decoded audio down for speakers, headphones, or HDMI setups that cannot play every channel',
+			'settings.audioChannelLimitOriginal' => 'Original',
+			'settings.audioChannelLimitOriginalDescription' => 'Play every channel in the track',
+			'settings.audioChannelLimitSurround51' => 'Up to 5.1',
+			'settings.audioChannelLimitSurround51Description' => 'Mix 7.1 down to 5.1 for TVs and receivers that only take 5.1 PCM. Passthrough is unaffected.',
+			'settings.audioChannelLimitStereo' => 'Stereo',
+			'settings.audioChannelLimitStereoDescription' => 'Mix down to two channels for stereo speakers or headphones. Turns passthrough off.',
 			'settings.downmixCenterBoost' => 'Wzmocnienie kanału centralnego',
 			'settings.downmixCenterBoostValue' => ({required Object db}) => '${db} dB',
 			'settings.downmixCenterBoostLabel' => 'Wzmocnienie (dB)',
@@ -3541,10 +3623,29 @@ extension on TranslationsPl {
 			'settings.playerScopeLibrary' => 'Na bibliotekę',
 			'settings.playerScopeTitle' => 'Na serial lub film',
 			'settings.exportDialogTitle' => 'Eksport ustawień Plezy',
+			'settings.downloadLocationSelectError' => 'Nie udało się wybrać folderu',
+			'settings.mediaCapture' => 'Przechwytywanie multimediów',
+			'settings.clips' => 'Klipy',
+			'settings.screenshots' => 'Zrzuty ekranu',
+			'settings.captureLocationTitle' => ({required Object title}) => 'Lokalizacja ${title}',
+			'settings.clipLocationDescription' => 'Wybierz miejsce zapisywania klipów.',
+			'settings.screenshotLocationDescription' => 'Wybierz miejsce zapisywania zrzutów ekranu.',
+			'settings.clipLocationChanged' => 'Zmieniono lokalizację klipu',
+			'settings.screenshotLocationChanged' => 'Zmieniono lokalizację zrzutu ekranu',
+			'settings.clipLocationReset' => 'Lokalizacja klipu została zresetowana do pulpitu',
+			'settings.screenshotLocationReset' => 'Lokalizacja zrzutu ekranu została zresetowana do pulpitu',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'search.hint' => 'Szukaj filmów, seriali, muzyki...',
 			'search.tryDifferentTerm' => 'Spróbuj innego wyszukiwania',
 			'search.searchYourMedia' => 'Przeszukaj swoje media',
 			'search.enterTitleActorOrKeyword' => 'Wprowadź tytuł, aktora lub słowo kluczowe',
+			'search.people' => 'People',
 			'hotkeys.setShortcutFor' => ({required Object actionName}) => 'Ustaw skrót dla ${actionName}',
 			'hotkeys.clearShortcut' => 'Wyczyść skrót',
 			'hotkeys.noShortcutSet' => 'Brak ustawionego skrótu',
@@ -3576,6 +3677,8 @@ extension on TranslationsPl {
 			'hotkeys.actions.shaderToggle' => 'Przełącz shadery',
 			'hotkeys.actions.skipMarker' => 'Pomiń intro/napisy końcowe',
 			'hotkeys.actions.screenshot' => 'Zrób zrzut ekranu',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Informacje o pliku',
 			'fileInfo.overview' => 'Przegląd',
 			'fileInfo.video' => 'Wideo',
@@ -3601,6 +3704,8 @@ extension on TranslationsPl {
 			'fileInfo.rotation' => 'Rotacja',
 			'fileInfo.comment' => 'Komentarz',
 			'fileInfo.audioDescription' => 'Audiodeskrypcja',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.headerCompression' => 'Kompresja nagłówka',
 			'fileInfo.sidecarFile' => 'Plik towarzyszący',
 			'fileInfo.transportTimestamp' => 'Znacznik czasu transportu',
@@ -3628,8 +3733,6 @@ extension on TranslationsPl {
 			'fileInfo.dolbyVisionLevel' => 'Poziom Dolby Vision',
 			'fileInfo.dolbyVisionVersion' => 'Wersja Dolby Vision',
 			'fileInfo.dolbyVisionLayers' => 'Warstwy Dolby Vision',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.baseLayerCompatibility' => 'Zgodność warstwy bazowej',
 			'fileInfo.avcBitstream' => 'Strumień bitowy AVC',
 			'fileInfo.nalLengthSize' => 'Rozmiar długości NAL',
@@ -3825,6 +3928,39 @@ extension on TranslationsPl {
 			'videoControls.pipActive' => 'Odtwarzanie w trybie obraz w obrazie',
 			'videoControls.pipFailed' => 'Nie udało się uruchomić trybu obraz w obrazie',
 			'videoControls.screenshotSaved' => 'Zrzut ekranu zapisany',
+			'videoControls.zoomPercent' => ({required Object percent}) => 'Powiększenie ${percent}%',
+			'videoControls.pipErrors.androidVersion' => 'Wymaga Androida 8.0 lub nowszego',
+			'videoControls.pipErrors.iosVersion' => 'Wymaga iOS 15.0 lub nowszego',
+			'videoControls.pipErrors.permissionDisabled' => 'Obraz w obrazie jest wyłączony. Włącz go w ustawieniach systemu.',
+			'videoControls.pipErrors.notSupported' => 'Urządzenie nie obsługuje trybu obraz w obrazie',
+			'videoControls.pipErrors.voSwitchFailed' => 'Nie udało się przełączyć wyjścia wideo dla trybu obraz w obrazie',
+			'videoControls.pipErrors.failed' => 'Nie udało się uruchomić trybu obraz w obrazie',
+			'videoControls.pipErrors.prepareFailed' => 'Nie udało się przygotować trybu obraz w obrazie',
+			'videoControls.pipErrors.unknown' => ({required Object error}) => 'Wystąpił błąd: ${error}',
+			'videoControls.chapters' => 'Rozdziały',
+			'videoControls.noChaptersAvailable' => 'Brak dostępnych rozdziałów',
+			'videoControls.queue' => 'Kolejka',
+			'videoControls.noQueueItems' => 'Brak elementów w kolejce',
+			'videoControls.noAudioDevicesAvailable' => 'Brak dostępnych urządzeń audio',
+			'videoControls.searchSubtitles' => 'Szukaj napisów',
+			'videoControls.language' => 'Język',
+			'videoControls.noSubtitlesFound' => 'Nie znaleziono napisów',
+			'videoControls.subtitleDownloaded' => 'Napisy pobrane',
+			'videoControls.subtitleDownloadedNotApplied' => 'Napisy zostały pobrane, ale nie można ich było wybrać',
+			'videoControls.subtitleDownloadFailed' => 'Nie udało się pobrać napisów',
+			'videoControls.searchLanguages' => 'Szukaj języków...',
+			'videoControls.skipIntro' => 'Pomiń intro',
+			'videoControls.skipCredits' => 'Pomiń napisy końcowe',
+			'videoControls.nextEpisode' => 'Następny odcinek',
+			'videoControls.subtitleTrack' => ({required Object n}) => 'Ścieżka ${n}',
+			'videoControls.subtitleFile' => ({required Object name}) => 'Napisy ${name}',
+			'videoControls.forcedTrack' => ({required Object label}) => '${label} (wymuszone)',
+			'videoControls.osdSubtitlesOff' => 'Napisy: wył.',
+			'videoControls.osdSubtitles' => ({required Object track}) => 'Napisy: ${track}',
+			'videoControls.osdAudio' => ({required Object track}) => 'Audio: ${track}',
+			'videoControls.volumePercent' => ({required Object percent}) => 'Głośność ${percent}%',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('pl'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.clip.fineAdjust' => 'Precyzyjna regulacja',
 			'videoControls.clip.title' => 'Klips',
 			'videoControls.clip.vodOnly' => 'Klipy są dostępne do odtwarzania wideo na żądanie.',
@@ -3862,37 +3998,6 @@ extension on TranslationsPl {
 			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
 			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
 			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
-			'videoControls.zoomPercent' => ({required Object percent}) => 'Powiększenie ${percent}%',
-			'videoControls.volumePercent' => ({required Object percent}) => 'Głośność ${percent}%',
-			'videoControls.pipErrors.androidVersion' => 'Wymaga Androida 8.0 lub nowszego',
-			'videoControls.pipErrors.iosVersion' => 'Wymaga iOS 15.0 lub nowszego',
-			'videoControls.pipErrors.permissionDisabled' => 'Obraz w obrazie jest wyłączony. Włącz go w ustawieniach systemu.',
-			'videoControls.pipErrors.notSupported' => 'Urządzenie nie obsługuje trybu obraz w obrazie',
-			'videoControls.pipErrors.voSwitchFailed' => 'Nie udało się przełączyć wyjścia wideo dla trybu obraz w obrazie',
-			'videoControls.pipErrors.failed' => 'Nie udało się uruchomić trybu obraz w obrazie',
-			'videoControls.pipErrors.prepareFailed' => 'Nie udało się przygotować trybu obraz w obrazie',
-			'videoControls.pipErrors.unknown' => ({required Object error}) => 'Wystąpił błąd: ${error}',
-			'videoControls.chapters' => 'Rozdziały',
-			'videoControls.noChaptersAvailable' => 'Brak dostępnych rozdziałów',
-			'videoControls.queue' => 'Kolejka',
-			'videoControls.noQueueItems' => 'Brak elementów w kolejce',
-			'videoControls.noAudioDevicesAvailable' => 'Brak dostępnych urządzeń audio',
-			'videoControls.searchSubtitles' => 'Szukaj napisów',
-			'videoControls.language' => 'Język',
-			'videoControls.noSubtitlesFound' => 'Nie znaleziono napisów',
-			'videoControls.subtitleDownloaded' => 'Napisy pobrane',
-			'videoControls.subtitleDownloadedNotApplied' => 'Napisy zostały pobrane, ale nie można ich było wybrać',
-			'videoControls.subtitleDownloadFailed' => 'Nie udało się pobrać napisów',
-			'videoControls.searchLanguages' => 'Szukaj języków...',
-			'videoControls.skipIntro' => 'Pomiń intro',
-			'videoControls.skipCredits' => 'Pomiń napisy końcowe',
-			'videoControls.nextEpisode' => 'Następny odcinek',
-			'videoControls.subtitleTrack' => ({required Object n}) => 'Ścieżka ${n}',
-			'videoControls.subtitleFile' => ({required Object name}) => 'Napisy ${name}',
-			'videoControls.forcedTrack' => ({required Object label}) => '${label} (wymuszone)',
-			'videoControls.osdSubtitlesOff' => 'Napisy: wył.',
-			'videoControls.osdSubtitles' => ({required Object track}) => 'Napisy: ${track}',
-			'videoControls.osdAudio' => ({required Object track}) => 'Audio: ${track}',
 			'messages.markedAsWatched' => 'Oznaczono jako obejrzane',
 			'messages.markedAsUnwatched' => 'Oznaczono jako nieobejrzane',
 			'messages.markedAsWatchedOffline' => 'Oznaczono jako obejrzane (zsynchronizuje się po połączeniu)',
@@ -4014,6 +4119,8 @@ extension on TranslationsPl {
 			'profiles.signOut' => 'Wyloguj się',
 			'profiles.signOutPlexTitle' => 'Wylogować się z Plex?',
 			'profiles.signOutPlexMessage' => ({required Object displayName}) => 'Usunąć ${displayName} i wszystkich użytkowników Plex Home? Możesz zalogować się ponownie w każdej chwili.',
+			'profiles.signOutPlexDeleteDownloads' => 'Also delete downloads',
+			'profiles.signOutPlexDeleteDownloadsDescription' => 'Otherwise they stay on this device and come back when you sign back in to this account.',
 			'profiles.signedOutPlex' => 'Wylogowano z Plex.',
 			'profiles.signOutFailed' => 'Wylogowanie nie powiodło się.',
 			'profiles.sectionTitle' => 'Profile',
@@ -4078,63 +4185,6 @@ extension on TranslationsPl {
 			'connections.signInAgain' => 'Zaloguj się ponownie',
 			'connections.editMediaBrowserTitle' => ({required Object product}) => 'Edytuj połączenie z ${product}',
 			'connections.editMediaBrowserIntro' => ({required Object serverName}) => 'Dodaj lub usuń adresy URL dla ${serverName}. Plezy będzie używać osiągalnego adresu URL o najniższym opóźnieniu.',
-			'accountPreferences.sectionTitle' => 'Preferencje konta',
-			'accountPreferences.hubSubtitleSingle' => ({required Object account}) => 'Opcje audio, napisów i biblioteki zapisane na koncie ${account}',
-			'accountPreferences.hubSubtitleMultiple' => ({required Object count}) => 'Opcje audio, napisów i biblioteki zapisane na ${count} kontach',
-			'accountPreferences.pickAccount' => 'Każde konto przechowuje własne preferencje. Wybierz to, które chcesz edytować.',
-			'accountPreferences.storedOnAccount' => 'Te opcje są zapisywane na samym koncie, więc używa ich każda aplikacja zalogowana na to konto — w tym Plezy na Twoich innych urządzeniach.',
-			'accountPreferences.noAccounts' => 'Brak kont do skonfigurowania',
-			'accountPreferences.noAccountsHint' => 'Zaloguj się do Plex albo połącz serwer Jellyfin lub Emby, a preferencje zapisane na tym koncie pojawią się tutaj.',
-			'accountPreferences.unavailable' => 'Nie można połączyć się z tym kontem',
-			'accountPreferences.loadFailed' => 'Nie udało się wczytać tych preferencji',
-			'accountPreferences.noPreference' => 'Brak preferencji',
-			'accountPreferences.notSet' => 'Nie ustawiono',
-			'accountPreferences.groups.audioAndSubtitles' => 'Audio i napisy',
-			'accountPreferences.groups.libraryDisplay' => 'Biblioteka',
-			'accountPreferences.groups.personalMedia' => 'Osobiste multimedia',
-			'accountPreferences.preferredAudioLanguage' => 'Preferowany język audio',
-			'accountPreferences.autoSelectAudio' => 'Wybieraj audio według języka',
-			'accountPreferences.autoSelectAudioDescription' => 'Ustawienie „Wył.” pozostawia ścieżkę audio, którą plik oznacza jako domyślną.',
-			'accountPreferences.preferredSubtitleLanguage' => 'Preferowany język napisów',
-			'accountPreferences.subtitleMode' => 'Włączanie napisów',
-			'accountPreferences.subtitleModes.none' => 'Wybór ręczny',
-			'accountPreferences.subtitleModes.noneDescription' => 'Nigdy nie włączaj napisów automatycznie.',
-			'accountPreferences.subtitleModes.defaultMode' => 'Kieruj się flagami ścieżki',
-			'accountPreferences.subtitleModes.defaultModeDescription' => 'Używaj flag domyślna i wymuszona zapisanych na każdej ścieżce napisów.',
-			'accountPreferences.subtitleModes.always' => 'Zawsze włączone',
-			'accountPreferences.subtitleModes.alwaysDescription' => 'Włączaj ścieżkę napisów w preferowanym języku, gdy tylko istnieje.',
-			'accountPreferences.subtitleModes.onlyForced' => 'Tylko wymuszone napisy',
-			'accountPreferences.subtitleModes.onlyForcedDescription' => 'Wczytuj tylko ścieżki oznaczone jako wymuszone.',
-			'accountPreferences.subtitleModes.smart' => 'Wyświetlane przy dźwięku w obcym języku',
-			'accountPreferences.subtitleModes.smartDescription' => 'Włączaj napisy tylko wtedy, gdy dźwięk jest w innym języku.',
-			'accountPreferences.subtitleAccessibility' => 'Napisy SDH',
-			'accountPreferences.subtitleAccessibilityOptions.preferNonSdh' => 'Preferuj napisy bez SDH',
-			'accountPreferences.subtitleAccessibilityOptions.preferSdh' => 'Preferuj napisy SDH',
-			'accountPreferences.subtitleAccessibilityOptions.onlySdh' => 'Tylko napisy SDH',
-			'accountPreferences.subtitleAccessibilityOptions.onlyNonSdh' => 'Tylko napisy bez SDH',
-			'accountPreferences.forcedSubtitles' => 'Wymuszone napisy',
-			'accountPreferences.forcedSubtitleOptions.preferNonForced' => 'Preferuj niewymuszone napisy',
-			'accountPreferences.forcedSubtitleOptions.preferForced' => 'Preferuj wymuszone napisy',
-			'accountPreferences.forcedSubtitleOptions.onlyForced' => 'Tylko wymuszone napisy',
-			'accountPreferences.forcedSubtitleOptions.onlyNonForced' => 'Tylko niewymuszone napisy',
-			'accountPreferences.displayMissingEpisodes' => 'Pokaż brakujące odcinki',
-			'accountPreferences.displayMissingEpisodesDescription' => 'Wyświetlaj odcinki, które serwer zna, ale dla których nie ma pliku.',
-			'accountPreferences.hidePlayedInLatest' => 'Ukrywaj obejrzane pozycje w sekcji Ostatnio dodane',
-			'accountPreferences.hidePlayedInLatestDescription' => 'Pomijaj pozycje, które już obejrzałeś, w wierszach „Ostatnio dodane” serwera.',
-			'accountPreferences.displayCollectionsView' => 'Pokaż widok „Kolekcje”',
-			'accountPreferences.displayCollectionsViewDescription' => 'Pokazuj widok kolekcji serwera obok Twoich bibliotek.',
-			'accountPreferences.rewatchingInNextUp' => 'Zachowuj ponownie oglądane seriale w sekcji „Następny odcinek”',
-			'accountPreferences.rewatchingInNextUpDescription' => 'Gdy skończysz serial i zaczniesz go oglądać ponownie, sekcja „Następny odcinek” podąży za ponownym oglądaniem zamiast usuwać serial.',
-			'accountPreferences.watchedIndicator' => 'Wskaźniki obejrzanych',
-			'accountPreferences.watchedIndicatorOptions.none' => 'Nigdy',
-			'accountPreferences.watchedIndicatorOptions.moviesAndShows' => 'Filmy i seriale TV',
-			'accountPreferences.watchedIndicatorOptions.movies' => 'Tylko filmy',
-			'accountPreferences.watchedIndicatorOptions.shows' => 'Tylko seriale TV',
-			'accountPreferences.mediaReviewsVisibility' => 'Oceny i recenzje',
-			'accountPreferences.mediaReviewsOptions.usersAndCritics' => 'Użytkownicy i krytycy',
-			'accountPreferences.mediaReviewsOptions.usersOnly' => 'Tylko użytkownicy',
-			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Tylko krytycy',
-			'accountPreferences.mediaReviewsOptions.nobody' => 'Ukryte',
 			'discover.title' => 'Odkryj',
 			'discover.noContentAvailable' => 'Brak dostępnych treści',
 			'discover.addMediaToLibraries' => 'Dodaj multimedia do swoich bibliotek',
@@ -4142,8 +4192,6 @@ extension on TranslationsPl {
 			'discover.continueWatchingIn' => ({required Object library}) => 'Kontynuuj oglądanie w ${library}',
 			'discover.nextUp' => 'Następny odcinek',
 			'discover.nextUpIn' => ({required Object library}) => 'Następny odcinek w ${library}',
-			_ => null,
-		} ?? switch (path) {
 			'discover.recentlyAdded' => 'Ostatnio dodane',
 			'discover.recentlyAddedIn' => ({required Object library}) => 'Ostatnio dodane w ${library}',
 			'discover.latestAlbumsIn' => ({required Object library}) => 'Najnowsze albumy w ${library}',
@@ -4170,6 +4218,8 @@ extension on TranslationsPl {
 			'errors.noClientAvailable' => 'Brak dostępnego klienta',
 			'errors.pleaseEnterToken' => 'Wprowadź token',
 			'errors.invalidToken' => 'Nieprawidłowy token',
+			_ => null,
+		} ?? switch (path) {
 			'errors.failedToVerifyToken' => ({required Object error}) => 'Nie udało się zweryfikować tokena: ${error}',
 			'errors.failedToSwitchProfile' => ({required Object displayName}) => 'Nie udało się przełączyć na ${displayName}',
 			'errors.failedToDeleteProfile' => ({required Object displayName}) => 'Nie udało się usunąć ${displayName}',
@@ -4243,6 +4293,7 @@ extension on TranslationsPl {
 			'libraries.filterCategories.unwatched' => 'Nieobejrzane',
 			'libraries.filterCategories.unplayed' => 'Nieodtworzone',
 			'libraries.filterCategories.favorites' => 'Ulubione',
+			'libraries.filterCategories.filePath' => 'File Path',
 			'libraries.sortLabels.title' => 'Tytuł',
 			'libraries.sortLabels.dateAdded' => 'Data dodania',
 			'libraries.sortLabels.releaseDate' => 'Data premiery',
@@ -4266,11 +4317,40 @@ extension on TranslationsPl {
 			'libraries.sortLabels.dateDownloaded' => 'Data pobrania',
 			'libraries.sortLabels.size' => 'Rozmiar',
 			'libraries.sortLabels.library' => 'Biblioteka',
+			'libraries.advancedFilters.include' => 'Include',
+			'libraries.advancedFilters.exclude' => 'Exclude',
+			'libraries.advancedFilters.any' => 'Any',
+			'libraries.advancedFilters.yes' => 'Yes',
+			'libraries.advancedFilters.no' => 'No',
+			'libraries.advancedFilters.not' => ({required Object value}) => 'Not ${value}',
+			'libraries.advancedFilters.valueCount' => ({required Object count}) => '${count} selected',
+			'libraries.advancedFilters.valueCountExcluded' => ({required Object count}) => '${count} excluded',
+			'libraries.advancedFilters.searchValues' => 'Search values',
+			'libraries.advancedFilters.noValues' => 'No values',
+			'libraries.advancedFilters.matchContains' => 'Contains',
+			'libraries.advancedFilters.matchNotContains' => 'Does not contain',
+			'libraries.advancedFilters.matchIs' => 'Is',
+			'libraries.advancedFilters.matchIsNot' => 'Is not',
+			'libraries.advancedFilters.matchBeginsWith' => 'Begins with',
+			'libraries.advancedFilters.matchEndsWith' => 'Ends with',
+			'libraries.advancedFilters.textHint' => 'Type to match',
+			'libraries.advancedFilters.from' => 'From',
+			'libraries.advancedFilters.to' => 'To',
+			'libraries.advancedFilters.range' => ({required Object from, required Object to}) => '${from} to ${to}',
+			'libraries.advancedFilters.atLeast' => ({required Object value}) => '${value} and up',
+			'libraries.advancedFilters.atMost' => ({required Object value}) => 'Up to ${value}',
+			'libraries.advancedFilters.dateLastDays' => ({required Object count}) => 'Last ${count} days',
+			'libraries.advancedFilters.dateLastYear' => 'Past year',
+			'libraries.advancedFilters.dateOlderThanDays' => ({required Object count}) => 'Older than ${count} days',
+			'libraries.advancedFilters.dateOlderThanYear' => 'Older than a year',
 			'about.title' => 'O aplikacji',
 			'about.openSourceLicenses' => 'Licencje oprogramowania open source',
 			'about.versionLabel' => ({required Object version}) => 'Wersja ${version}',
 			'about.appDescription' => 'Piękny klient Plex, Jellyfin i Emby stworzony we Flutterze',
 			'about.viewLicensesDescription' => 'Wyświetl licencje bibliotek innych firm',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Nie znaleziono serwerów dla ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Nie udało się załadować serwerów: ${error}',
 			'serverSelection.noValidServers' => 'Nie znaleziono żadnych zdatnych serwerów na tym koncie',
@@ -4349,6 +4429,7 @@ extension on TranslationsPl {
 			'explore.removedFromWatchlist' => 'Usunięto z listy do obejrzenia',
 			'explore.watchlistUpdateFailed' => 'Nie udało się zaktualizować listy do obejrzenia',
 			'explore.watchlistNoMatch' => 'Nie udało się dopasować tej pozycji do listy do obejrzenia',
+			'explore.openInLibrary' => 'Otwórz w bibliotece',
 			'explore.notInLibrary' => 'Nie ma tego w Twojej bibliotece',
 			'explore.inTheseLibraries' => 'W tych bibliotekach',
 			'explore.checkingLibrary' => 'Sprawdzanie Twojej biblioteki...',
@@ -4417,6 +4498,7 @@ extension on TranslationsPl {
 			'explore.sourceMaterial.webComic' => 'Komiks internetowy',
 			'explore.sourceMaterial.musicRelease' => 'Muzyka',
 			'explore.sourceMaterial.otherMedia' => 'Inne',
+			'explore.creditRole.actor' => 'Actor',
 			'explore.creditRole.director' => 'Reżyser',
 			'explore.creditRole.writer' => 'Scenarzysta',
 			'explore.creditRole.producer' => 'Producent',
@@ -4650,14 +4732,14 @@ extension on TranslationsPl {
 			'watchTogether.hostControls' => 'Steruje gospodarz',
 			'watchTogether.anyoneControls' => 'Steruje każdy',
 			'watchTogether.participants' => 'Uczestnicy',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.host' => 'Gospodarz',
 			'watchTogether.hostBadge' => 'GOSPODARZ',
 			'watchTogether.youAreHost' => 'Jesteś gospodarzem',
 			'watchTogether.makeHost' => 'Uczyń gospodarzem',
 			'watchTogether.makeHostQuestion' => 'Przekazać rolę gospodarza?',
 			'watchTogether.makeHostConfirm' => ({required Object name}) => '${name} będzie sterować odtwarzaniem i prowadzić sesję dla wszystkich.',
-			_ => null,
-		} ?? switch (path) {
 			'watchTogether.transfer' => 'Przekaż',
 			'watchTogether.hostChangedTo' => ({required Object name}) => '${name} jest teraz gospodarzem',
 			'watchTogether.youAreNowHost' => 'Jesteś teraz gospodarzem',
@@ -5164,14 +5246,14 @@ extension on TranslationsPl {
 			'services.names.simkl' => 'Simkl',
 			'services.names.seerr' => 'Seerr',
 			'services.names.mdblist' => 'MDBList',
+			_ => null,
+		} ?? switch (path) {
 			'services.deviceCode.title' => ({required Object service}) => 'Aktywuj Plezy w ${service}',
 			'services.deviceCode.instructions' => 'Zeskanuj kod QR albo przejdź pod poniższy adres i wprowadź ten kod:',
 			'services.deviceCode.openToActivate' => ({required Object service}) => 'Otwórz ${service}, aby aktywować',
 			'services.deviceCode.copyCode' => 'Skopiuj kod aktywacyjny',
 			'services.deviceCode.waitingForAuthorization' => 'Oczekiwanie na autoryzację…',
 			'services.deviceCode.codeCopied' => 'Kod skopiowany',
-			_ => null,
-		} ?? switch (path) {
 			'services.oauthProxy.title' => ({required Object service}) => 'Zaloguj się do ${service}',
 			'services.oauthProxy.body' => 'Zeskanuj ten kod QR lub otwórz URL na dowolnym urządzeniu.',
 			'services.oauthProxy.openToSignIn' => ({required Object service}) => 'Otwórz ${service}, aby się zalogować',
@@ -5236,6 +5318,63 @@ extension on TranslationsPl {
 			'addServer.redirectDifferentHost' => ({required Object product}) => 'Serwer przekierował do innego hosta. Wprowadź bezpośrednio docelowy adres URL serwera ${product}.',
 			'addServer.redirectInsecure' => 'Serwer przekierował z HTTPS do niezabezpieczonego adresu URL',
 			'addServer.redirectUnsupportedEnterFinal' => ({required Object product}) => 'Serwer przekierował do nieobsługiwanego adresu URL. Wprowadź bezpośrednio docelowy adres URL serwera ${product}.',
+			'accountPreferences.sectionTitle' => 'Preferencje konta',
+			'accountPreferences.hubSubtitleSingle' => ({required Object account}) => 'Opcje audio, napisów i biblioteki zapisane na koncie ${account}',
+			'accountPreferences.hubSubtitleMultiple' => ({required Object count}) => 'Opcje audio, napisów i biblioteki zapisane na ${count} kontach',
+			'accountPreferences.pickAccount' => 'Każde konto przechowuje własne preferencje. Wybierz to, które chcesz edytować.',
+			'accountPreferences.storedOnAccount' => 'Te opcje są zapisywane na samym koncie, więc używa ich każda aplikacja zalogowana na to konto — w tym Plezy na Twoich innych urządzeniach.',
+			'accountPreferences.noAccounts' => 'Brak kont do skonfigurowania',
+			'accountPreferences.noAccountsHint' => 'Zaloguj się do Plex albo połącz serwer Jellyfin lub Emby, a preferencje zapisane na tym koncie pojawią się tutaj.',
+			'accountPreferences.unavailable' => 'Nie można połączyć się z tym kontem',
+			'accountPreferences.loadFailed' => 'Nie udało się wczytać tych preferencji',
+			'accountPreferences.noPreference' => 'Brak preferencji',
+			'accountPreferences.notSet' => 'Nie ustawiono',
+			'accountPreferences.groups.audioAndSubtitles' => 'Audio i napisy',
+			'accountPreferences.groups.libraryDisplay' => 'Biblioteka',
+			'accountPreferences.groups.personalMedia' => 'Osobiste multimedia',
+			'accountPreferences.preferredAudioLanguage' => 'Preferowany język audio',
+			'accountPreferences.autoSelectAudio' => 'Wybieraj audio według języka',
+			'accountPreferences.autoSelectAudioDescription' => 'Ustawienie „Wył.” pozostawia ścieżkę audio, którą plik oznacza jako domyślną.',
+			'accountPreferences.preferredSubtitleLanguage' => 'Preferowany język napisów',
+			'accountPreferences.subtitleMode' => 'Włączanie napisów',
+			'accountPreferences.subtitleModes.none' => 'Wybór ręczny',
+			'accountPreferences.subtitleModes.noneDescription' => 'Nigdy nie włączaj napisów automatycznie.',
+			'accountPreferences.subtitleModes.defaultMode' => 'Kieruj się flagami ścieżki',
+			'accountPreferences.subtitleModes.defaultModeDescription' => 'Używaj flag domyślna i wymuszona zapisanych na każdej ścieżce napisów.',
+			'accountPreferences.subtitleModes.always' => 'Zawsze włączone',
+			'accountPreferences.subtitleModes.alwaysDescription' => 'Włączaj ścieżkę napisów w preferowanym języku, gdy tylko istnieje.',
+			'accountPreferences.subtitleModes.onlyForced' => 'Tylko wymuszone napisy',
+			'accountPreferences.subtitleModes.onlyForcedDescription' => 'Wczytuj tylko ścieżki oznaczone jako wymuszone.',
+			'accountPreferences.subtitleModes.smart' => 'Wyświetlane przy dźwięku w obcym języku',
+			'accountPreferences.subtitleModes.smartDescription' => 'Włączaj napisy tylko wtedy, gdy dźwięk jest w innym języku.',
+			'accountPreferences.subtitleAccessibility' => 'Napisy SDH',
+			'accountPreferences.subtitleAccessibilityOptions.preferNonSdh' => 'Preferuj napisy bez SDH',
+			'accountPreferences.subtitleAccessibilityOptions.preferSdh' => 'Preferuj napisy SDH',
+			'accountPreferences.subtitleAccessibilityOptions.onlySdh' => 'Tylko napisy SDH',
+			'accountPreferences.subtitleAccessibilityOptions.onlyNonSdh' => 'Tylko napisy bez SDH',
+			'accountPreferences.forcedSubtitles' => 'Wymuszone napisy',
+			'accountPreferences.forcedSubtitleOptions.preferNonForced' => 'Preferuj niewymuszone napisy',
+			'accountPreferences.forcedSubtitleOptions.preferForced' => 'Preferuj wymuszone napisy',
+			'accountPreferences.forcedSubtitleOptions.onlyForced' => 'Tylko wymuszone napisy',
+			'accountPreferences.forcedSubtitleOptions.onlyNonForced' => 'Tylko niewymuszone napisy',
+			'accountPreferences.displayMissingEpisodes' => 'Pokaż brakujące odcinki',
+			'accountPreferences.displayMissingEpisodesDescription' => 'Wyświetlaj odcinki, które serwer zna, ale dla których nie ma pliku.',
+			'accountPreferences.hidePlayedInLatest' => 'Ukrywaj obejrzane pozycje w sekcji Ostatnio dodane',
+			'accountPreferences.hidePlayedInLatestDescription' => 'Pomijaj pozycje, które już obejrzałeś, w wierszach „Ostatnio dodane” serwera.',
+			'accountPreferences.displayCollectionsView' => 'Pokaż widok „Kolekcje”',
+			'accountPreferences.displayCollectionsViewDescription' => 'Pokazuj widok kolekcji serwera obok Twoich bibliotek.',
+			'accountPreferences.rewatchingInNextUp' => 'Zachowuj ponownie oglądane seriale w sekcji „Następny odcinek”',
+			'accountPreferences.rewatchingInNextUpDescription' => 'Gdy skończysz serial i zaczniesz go oglądać ponownie, sekcja „Następny odcinek” podąży za ponownym oglądaniem zamiast usuwać serial.',
+			'accountPreferences.watchedIndicator' => 'Wskaźniki obejrzanych',
+			'accountPreferences.watchedIndicatorOptions.none' => 'Nigdy',
+			'accountPreferences.watchedIndicatorOptions.moviesAndShows' => 'Filmy i seriale TV',
+			'accountPreferences.watchedIndicatorOptions.movies' => 'Tylko filmy',
+			'accountPreferences.watchedIndicatorOptions.shows' => 'Tylko seriale TV',
+			'accountPreferences.mediaReviewsVisibility' => 'Oceny i recenzje',
+			'accountPreferences.mediaReviewsOptions.usersAndCritics' => 'Użytkownicy i krytycy',
+			'accountPreferences.mediaReviewsOptions.usersOnly' => 'Tylko użytkownicy',
+			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Tylko krytycy',
+			'accountPreferences.mediaReviewsOptions.nobody' => 'Ukryte',
 			_ => null,
 		};
 	}

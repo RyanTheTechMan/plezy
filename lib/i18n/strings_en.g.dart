@@ -61,7 +61,6 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final Translations$dialog$en dialog = Translations$dialog$en.internal(_root);
 	late final Translations$profiles$en profiles = Translations$profiles$en.internal(_root);
 	late final Translations$connections$en connections = Translations$connections$en.internal(_root);
-	late final Translations$accountPreferences$en accountPreferences = Translations$accountPreferences$en.internal(_root);
 	late final Translations$discover$en discover = Translations$discover$en.internal(_root);
 	late final Translations$errors$en errors = Translations$errors$en.internal(_root);
 	late final Translations$libraries$en libraries = Translations$libraries$en.internal(_root);
@@ -91,6 +90,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final Translations$seerr$en seerr = Translations$seerr$en.internal(_root);
 	late final Translations$services$en services = Translations$services$en.internal(_root);
 	late final Translations$addServer$en addServer = Translations$addServer$en.internal(_root);
+	late final Translations$accountPreferences$en accountPreferences = Translations$accountPreferences$en.internal(_root);
 }
 
 // Path: app
@@ -101,8 +101,8 @@ class Translations$app$en {
 
 	// Translations
 
-	/// en: 'Plezy'
-	String get title => 'Plezy';
+	/// en: 'Plezy Labs'
+	String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -377,6 +377,30 @@ class Translations$update$en {
 
 	/// en: 'Failed to check for updates'
 	String get checkFailed => 'Failed to check for updates';
+
+	/// en: 'Choose your update channel'
+	String get chooseChannelTitle => 'Choose your update channel';
+
+	/// en: 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.'
+	String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+
+	/// en: 'Use Plezy Labs'
+	String get useLabs => 'Use Plezy Labs';
+
+	/// en: 'Return to Official Plezy'
+	String get returnToOfficial => 'Return to Official Plezy';
+
+	/// en: 'Leave Plezy Labs?'
+	String get returnToOfficialTitle => 'Leave Plezy Labs?';
+
+	/// en: 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.'
+	String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+
+	/// en: 'Open Official Release'
+	String get openOfficialRelease => 'Open Official Release';
+
+	/// en: 'Release notes'
+	String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -981,39 +1005,6 @@ class Translations$settings$en {
 	/// en: 'Folder selection is not available on this device'
 	String get downloadLocationPickerUnavailable => 'Folder selection is not available on this device';
 
-	/// en: 'Failed to select folder'
-	String get downloadLocationSelectError => 'Failed to select folder';
-
-	/// en: 'Media Capture'
-	String get mediaCapture => 'Media Capture';
-
-	/// en: 'Clips'
-	String get clips => 'Clips';
-
-	/// en: 'Screenshots'
-	String get screenshots => 'Screenshots';
-
-	/// en: '${title} Location'
-	String captureLocationTitle({required Object title}) => '${title} Location';
-
-	/// en: 'Choose where clips are saved.'
-	String get clipLocationDescription => 'Choose where clips are saved.';
-
-	/// en: 'Choose where screenshots are saved.'
-	String get screenshotLocationDescription => 'Choose where screenshots are saved.';
-
-	/// en: 'Clip location changed'
-	String get clipLocationChanged => 'Clip location changed';
-
-	/// en: 'Screenshot location changed'
-	String get screenshotLocationChanged => 'Screenshot location changed';
-
-	/// en: 'Clip location reset to Desktop'
-	String get clipLocationReset => 'Clip location reset to Desktop';
-
-	/// en: 'Screenshot location reset to Desktop'
-	String get screenshotLocationReset => 'Screenshot location reset to Desktop';
-
 	/// en: 'Download on Wi-Fi only'
 	String get downloadOnWifiOnly => 'Download on Wi-Fi only';
 
@@ -1382,6 +1373,60 @@ class Translations$settings$en {
 
 	/// en: 'Export Plezy settings'
 	String get exportDialogTitle => 'Export Plezy settings';
+
+	/// en: 'Failed to select folder'
+	String get downloadLocationSelectError => 'Failed to select folder';
+
+	/// en: 'Media Capture'
+	String get mediaCapture => 'Media Capture';
+
+	/// en: 'Clips'
+	String get clips => 'Clips';
+
+	/// en: 'Screenshots'
+	String get screenshots => 'Screenshots';
+
+	/// en: '${title} Location'
+	String captureLocationTitle({required Object title}) => '${title} Location';
+
+	/// en: 'Choose where clips are saved.'
+	String get clipLocationDescription => 'Choose where clips are saved.';
+
+	/// en: 'Choose where screenshots are saved.'
+	String get screenshotLocationDescription => 'Choose where screenshots are saved.';
+
+	/// en: 'Clip location changed'
+	String get clipLocationChanged => 'Clip location changed';
+
+	/// en: 'Screenshot location changed'
+	String get screenshotLocationChanged => 'Screenshot location changed';
+
+	/// en: 'Clip location reset to Desktop'
+	String get clipLocationReset => 'Clip location reset to Desktop';
+
+	/// en: 'Screenshot location reset to Desktop'
+	String get screenshotLocationReset => 'Screenshot location reset to Desktop';
+
+	/// en: 'Official Plezy'
+	String get officialPlezy => 'Official Plezy';
+
+	/// en: 'Plezy Labs'
+	String get plezyLabs => 'Plezy Labs';
+
+	/// en: 'Plezy Labs for Plezy ${version} is not available yet'
+	String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+
+	/// en: 'Latest Labs release: ${version}'
+	String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+
+	/// en: 'Latest official release: ${version}'
+	String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+
+	/// en: 'Release status unavailable'
+	String get releaseStatusUnavailable => 'Release status unavailable';
+
+	/// en: '3D Playback UI'
+	String get packedStereoUi => '3D Playback UI';
 }
 
 // Path: search
@@ -2249,13 +2294,8 @@ class Translations$videoControls$en {
 	/// en: 'Screenshot saved'
 	String get screenshotSaved => 'Screenshot saved';
 
-	late final Translations$videoControls$clip$en clip = Translations$videoControls$clip$en.internal(_root);
-
 	/// en: 'Zoom ${percent}%'
 	String zoomPercent({required Object percent}) => 'Zoom ${percent}%';
-
-	/// en: 'Volume ${percent}%'
-	String volumePercent({required Object percent}) => 'Volume ${percent}%';
 
 	late final Translations$videoControls$pipErrors$en pipErrors = Translations$videoControls$pipErrors$en.internal(_root);
 
@@ -2321,6 +2361,20 @@ class Translations$videoControls$en {
 
 	/// en: 'Audio: ${track}'
 	String osdAudio({required Object track}) => 'Audio: ${track}';
+
+	/// en: 'Volume ${percent}%'
+	String volumePercent({required Object percent}) => 'Volume ${percent}%';
+
+	/// en: 'Cannot change while playing 3D source'
+	String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
+
+	/// en: '(one) {${n} frame} (other) {${n} frames}'
+	String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
+
+	late final Translations$videoControls$clip$en clip = Translations$videoControls$clip$en.internal(_root);
 }
 
 // Path: messages
@@ -2941,111 +2995,6 @@ class Translations$connections$en {
 	String editMediaBrowserIntro({required Object serverName}) => 'Add or remove URLs for ${serverName}. Plezy will use the reachable URL with the lowest latency.';
 }
 
-// Path: accountPreferences
-class Translations$accountPreferences$en {
-	Translations$accountPreferences$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// en: 'Account preferences'
-	String get sectionTitle => 'Account preferences';
-
-	/// en: 'Audio, subtitle and library options saved on ${account}'
-	String hubSubtitleSingle({required Object account}) => 'Audio, subtitle and library options saved on ${account}';
-
-	/// en: 'Audio, subtitle and library options saved on ${count} accounts'
-	String hubSubtitleMultiple({required Object count}) => 'Audio, subtitle and library options saved on ${count} accounts';
-
-	/// en: 'Every account stores its own preferences. Pick the one to edit.'
-	String get pickAccount => 'Every account stores its own preferences. Pick the one to edit.';
-
-	/// en: 'These options are saved on the account itself, so every app signed in to it uses them — including Plezy on your other devices.'
-	String get storedOnAccount => 'These options are saved on the account itself, so every app signed in to it uses them — including Plezy on your other devices.';
-
-	/// en: 'No accounts to configure'
-	String get noAccounts => 'No accounts to configure';
-
-	/// en: 'Sign in to Plex, or connect a Jellyfin or Emby server, and the preferences stored on that account show up here.'
-	String get noAccountsHint => 'Sign in to Plex, or connect a Jellyfin or Emby server, and the preferences stored on that account show up here.';
-
-	/// en: 'Can't reach this account'
-	String get unavailable => 'Can\'t reach this account';
-
-	/// en: 'Couldn't load these preferences'
-	String get loadFailed => 'Couldn\'t load these preferences';
-
-	/// en: 'No preference'
-	String get noPreference => 'No preference';
-
-	/// en: 'Not set'
-	String get notSet => 'Not set';
-
-	late final Translations$accountPreferences$groups$en groups = Translations$accountPreferences$groups$en.internal(_root);
-
-	/// en: 'Preferred audio language'
-	String get preferredAudioLanguage => 'Preferred audio language';
-
-	/// en: 'Choose audio by language'
-	String get autoSelectAudio => 'Choose audio by language';
-
-	/// en: 'Off keeps whatever audio track the file marks as default.'
-	String get autoSelectAudioDescription => 'Off keeps whatever audio track the file marks as default.';
-
-	/// en: 'Preferred subtitle language'
-	String get preferredSubtitleLanguage => 'Preferred subtitle language';
-
-	/// en: 'Turn subtitles on'
-	String get subtitleMode => 'Turn subtitles on';
-
-	late final Translations$accountPreferences$subtitleModes$en subtitleModes = Translations$accountPreferences$subtitleModes$en.internal(_root);
-
-	/// en: 'SDH subtitles'
-	String get subtitleAccessibility => 'SDH subtitles';
-
-	late final Translations$accountPreferences$subtitleAccessibilityOptions$en subtitleAccessibilityOptions = Translations$accountPreferences$subtitleAccessibilityOptions$en.internal(_root);
-
-	/// en: 'Forced subtitles'
-	String get forcedSubtitles => 'Forced subtitles';
-
-	late final Translations$accountPreferences$forcedSubtitleOptions$en forcedSubtitleOptions = Translations$accountPreferences$forcedSubtitleOptions$en.internal(_root);
-
-	/// en: 'Show missing episodes'
-	String get displayMissingEpisodes => 'Show missing episodes';
-
-	/// en: 'List episodes the server knows about but has no file for.'
-	String get displayMissingEpisodesDescription => 'List episodes the server knows about but has no file for.';
-
-	/// en: 'Hide watched items in Latest'
-	String get hidePlayedInLatest => 'Hide watched items in Latest';
-
-	/// en: 'Leave items you have already watched out of the server's Latest rows.'
-	String get hidePlayedInLatestDescription => 'Leave items you have already watched out of the server\'s Latest rows.';
-
-	/// en: 'Show the Collections view'
-	String get displayCollectionsView => 'Show the Collections view';
-
-	/// en: 'Offer the server's Collections view alongside your libraries.'
-	String get displayCollectionsViewDescription => 'Offer the server\'s Collections view alongside your libraries.';
-
-	/// en: 'Keep rewatched shows in Next Up'
-	String get rewatchingInNextUp => 'Keep rewatched shows in Next Up';
-
-	/// en: 'Once you finish a show, start it again and Next Up follows the rewatch instead of dropping the show.'
-	String get rewatchingInNextUpDescription => 'Once you finish a show, start it again and Next Up follows the rewatch instead of dropping the show.';
-
-	/// en: 'Watched indicators'
-	String get watchedIndicator => 'Watched indicators';
-
-	late final Translations$accountPreferences$watchedIndicatorOptions$en watchedIndicatorOptions = Translations$accountPreferences$watchedIndicatorOptions$en.internal(_root);
-
-	/// en: 'Ratings & reviews'
-	String get mediaReviewsVisibility => 'Ratings & reviews';
-
-	late final Translations$accountPreferences$mediaReviewsOptions$en mediaReviewsOptions = Translations$accountPreferences$mediaReviewsOptions$en.internal(_root);
-}
-
 // Path: discover
 class Translations$discover$en {
 	Translations$discover$en.internal(this._root);
@@ -3359,6 +3308,15 @@ class Translations$about$en {
 
 	/// en: 'View licenses of third-party libraries'
 	String get viewLicensesDescription => 'View licenses of third-party libraries';
+
+	/// en: 'An experimental Plezy edition built only on published official releases'
+	String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+
+	/// en: 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.'
+	String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+
+	/// en: 'Plezy Labs source code'
+	String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -3608,6 +3566,9 @@ class Translations$explore$en {
 
 	/// en: 'Couldn't match this item to a watchlist'
 	String get watchlistNoMatch => 'Couldn\'t match this item to a watchlist';
+
+	/// en: 'Open in library'
+	String get openInLibrary => 'Open in library';
 
 	/// en: 'Not in your library'
 	String get notInLibrary => 'Not in your library';
@@ -5759,6 +5720,111 @@ class Translations$addServer$en {
 	String redirectUnsupportedEnterFinal({required Object product}) => 'The server redirected to an unsupported URL. Enter the final ${product} URL directly.';
 }
 
+// Path: accountPreferences
+class Translations$accountPreferences$en {
+	Translations$accountPreferences$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Account preferences'
+	String get sectionTitle => 'Account preferences';
+
+	/// en: 'Audio, subtitle and library options saved on ${account}'
+	String hubSubtitleSingle({required Object account}) => 'Audio, subtitle and library options saved on ${account}';
+
+	/// en: 'Audio, subtitle and library options saved on ${count} accounts'
+	String hubSubtitleMultiple({required Object count}) => 'Audio, subtitle and library options saved on ${count} accounts';
+
+	/// en: 'Every account stores its own preferences. Pick the one to edit.'
+	String get pickAccount => 'Every account stores its own preferences. Pick the one to edit.';
+
+	/// en: 'These options are saved on the account itself, so every app signed in to it uses them — including Plezy on your other devices.'
+	String get storedOnAccount => 'These options are saved on the account itself, so every app signed in to it uses them — including Plezy on your other devices.';
+
+	/// en: 'No accounts to configure'
+	String get noAccounts => 'No accounts to configure';
+
+	/// en: 'Sign in to Plex, or connect a Jellyfin or Emby server, and the preferences stored on that account show up here.'
+	String get noAccountsHint => 'Sign in to Plex, or connect a Jellyfin or Emby server, and the preferences stored on that account show up here.';
+
+	/// en: 'Can't reach this account'
+	String get unavailable => 'Can\'t reach this account';
+
+	/// en: 'Couldn't load these preferences'
+	String get loadFailed => 'Couldn\'t load these preferences';
+
+	/// en: 'No preference'
+	String get noPreference => 'No preference';
+
+	/// en: 'Not set'
+	String get notSet => 'Not set';
+
+	late final Translations$accountPreferences$groups$en groups = Translations$accountPreferences$groups$en.internal(_root);
+
+	/// en: 'Preferred audio language'
+	String get preferredAudioLanguage => 'Preferred audio language';
+
+	/// en: 'Choose audio by language'
+	String get autoSelectAudio => 'Choose audio by language';
+
+	/// en: 'Off keeps whatever audio track the file marks as default.'
+	String get autoSelectAudioDescription => 'Off keeps whatever audio track the file marks as default.';
+
+	/// en: 'Preferred subtitle language'
+	String get preferredSubtitleLanguage => 'Preferred subtitle language';
+
+	/// en: 'Turn subtitles on'
+	String get subtitleMode => 'Turn subtitles on';
+
+	late final Translations$accountPreferences$subtitleModes$en subtitleModes = Translations$accountPreferences$subtitleModes$en.internal(_root);
+
+	/// en: 'SDH subtitles'
+	String get subtitleAccessibility => 'SDH subtitles';
+
+	late final Translations$accountPreferences$subtitleAccessibilityOptions$en subtitleAccessibilityOptions = Translations$accountPreferences$subtitleAccessibilityOptions$en.internal(_root);
+
+	/// en: 'Forced subtitles'
+	String get forcedSubtitles => 'Forced subtitles';
+
+	late final Translations$accountPreferences$forcedSubtitleOptions$en forcedSubtitleOptions = Translations$accountPreferences$forcedSubtitleOptions$en.internal(_root);
+
+	/// en: 'Show missing episodes'
+	String get displayMissingEpisodes => 'Show missing episodes';
+
+	/// en: 'List episodes the server knows about but has no file for.'
+	String get displayMissingEpisodesDescription => 'List episodes the server knows about but has no file for.';
+
+	/// en: 'Hide watched items in Latest'
+	String get hidePlayedInLatest => 'Hide watched items in Latest';
+
+	/// en: 'Leave items you have already watched out of the server's Latest rows.'
+	String get hidePlayedInLatestDescription => 'Leave items you have already watched out of the server\'s Latest rows.';
+
+	/// en: 'Show the Collections view'
+	String get displayCollectionsView => 'Show the Collections view';
+
+	/// en: 'Offer the server's Collections view alongside your libraries.'
+	String get displayCollectionsViewDescription => 'Offer the server\'s Collections view alongside your libraries.';
+
+	/// en: 'Keep rewatched shows in Next Up'
+	String get rewatchingInNextUp => 'Keep rewatched shows in Next Up';
+
+	/// en: 'Once you finish a show, start it again and Next Up follows the rewatch instead of dropping the show.'
+	String get rewatchingInNextUpDescription => 'Once you finish a show, start it again and Next Up follows the rewatch instead of dropping the show.';
+
+	/// en: 'Watched indicators'
+	String get watchedIndicator => 'Watched indicators';
+
+	late final Translations$accountPreferences$watchedIndicatorOptions$en watchedIndicatorOptions = Translations$accountPreferences$watchedIndicatorOptions$en.internal(_root);
+
+	/// en: 'Ratings & reviews'
+	String get mediaReviewsVisibility => 'Ratings & reviews';
+
+	late final Translations$accountPreferences$mediaReviewsOptions$en mediaReviewsOptions = Translations$accountPreferences$mediaReviewsOptions$en.internal(_root);
+}
+
 // Path: common.ratingSource
 class Translations$common$ratingSource$en {
 	Translations$common$ratingSource$en.internal(this._root);
@@ -5928,6 +5994,45 @@ class Translations$hotkeys$actions$en {
 
 	/// en: 'Take Screenshot'
 	String get screenshot => 'Take Screenshot';
+
+	/// en: 'Previous Frame'
+	String get framePrevious => 'Previous Frame';
+
+	/// en: 'Next Frame'
+	String get frameNext => 'Next Frame';
+}
+
+// Path: videoControls.pipErrors
+class Translations$videoControls$pipErrors$en {
+	Translations$videoControls$pipErrors$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Requires Android 8.0 or newer'
+	String get androidVersion => 'Requires Android 8.0 or newer';
+
+	/// en: 'Requires iOS 15.0 or newer'
+	String get iosVersion => 'Requires iOS 15.0 or newer';
+
+	/// en: 'Picture-in-picture is disabled. Enable it in system settings.'
+	String get permissionDisabled => 'Picture-in-picture is disabled. Enable it in system settings.';
+
+	/// en: 'Device doesn't support picture-in-picture mode'
+	String get notSupported => 'Device doesn\'t support picture-in-picture mode';
+
+	/// en: 'Failed to switch video output for picture-in-picture'
+	String get voSwitchFailed => 'Failed to switch video output for picture-in-picture';
+
+	/// en: 'Picture-in-picture failed to start'
+	String get failed => 'Picture-in-picture failed to start';
+
+	/// en: 'Picture-in-picture could not be prepared'
+	String get prepareFailed => 'Picture-in-picture could not be prepared';
+
+	/// en: 'An error occurred: ${error}'
+	String unknown({required Object error}) => 'An error occurred: ${error}';
 }
 
 // Path: videoControls.clip
@@ -6048,180 +6153,6 @@ class Translations$videoControls$clip$en {
 
 	/// en: 'HEVC HDR'
 	String get formatHevcHdr => 'HEVC HDR';
-}
-
-// Path: videoControls.pipErrors
-class Translations$videoControls$pipErrors$en {
-	Translations$videoControls$pipErrors$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// en: 'Requires Android 8.0 or newer'
-	String get androidVersion => 'Requires Android 8.0 or newer';
-
-	/// en: 'Requires iOS 15.0 or newer'
-	String get iosVersion => 'Requires iOS 15.0 or newer';
-
-	/// en: 'Picture-in-picture is disabled. Enable it in system settings.'
-	String get permissionDisabled => 'Picture-in-picture is disabled. Enable it in system settings.';
-
-	/// en: 'Device doesn't support picture-in-picture mode'
-	String get notSupported => 'Device doesn\'t support picture-in-picture mode';
-
-	/// en: 'Failed to switch video output for picture-in-picture'
-	String get voSwitchFailed => 'Failed to switch video output for picture-in-picture';
-
-	/// en: 'Picture-in-picture failed to start'
-	String get failed => 'Picture-in-picture failed to start';
-
-	/// en: 'Picture-in-picture could not be prepared'
-	String get prepareFailed => 'Picture-in-picture could not be prepared';
-
-	/// en: 'An error occurred: ${error}'
-	String unknown({required Object error}) => 'An error occurred: ${error}';
-}
-
-// Path: accountPreferences.groups
-class Translations$accountPreferences$groups$en {
-	Translations$accountPreferences$groups$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// en: 'Audio & subtitles'
-	String get audioAndSubtitles => 'Audio & subtitles';
-
-	/// en: 'Library'
-	String get libraryDisplay => 'Library';
-
-	/// en: 'Personal media'
-	String get personalMedia => 'Personal media';
-}
-
-// Path: accountPreferences.subtitleModes
-class Translations$accountPreferences$subtitleModes$en {
-	Translations$accountPreferences$subtitleModes$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// en: 'Manually selected'
-	String get none => 'Manually selected';
-
-	/// en: 'Never turn subtitles on by itself.'
-	String get noneDescription => 'Never turn subtitles on by itself.';
-
-	/// en: 'Follow the track flags'
-	String get defaultMode => 'Follow the track flags';
-
-	/// en: 'Use the default and forced flags stored on each subtitle track.'
-	String get defaultModeDescription => 'Use the default and forced flags stored on each subtitle track.';
-
-	/// en: 'Always enabled'
-	String get always => 'Always enabled';
-
-	/// en: 'Turn on a subtitle track in the preferred language whenever one exists.'
-	String get alwaysDescription => 'Turn on a subtitle track in the preferred language whenever one exists.';
-
-	/// en: 'Only forced subtitles'
-	String get onlyForced => 'Only forced subtitles';
-
-	/// en: 'Load only the tracks marked as forced.'
-	String get onlyForcedDescription => 'Load only the tracks marked as forced.';
-
-	/// en: 'Shown with foreign audio'
-	String get smart => 'Shown with foreign audio';
-
-	/// en: 'Turn subtitles on only when the audio is in another language.'
-	String get smartDescription => 'Turn subtitles on only when the audio is in another language.';
-}
-
-// Path: accountPreferences.subtitleAccessibilityOptions
-class Translations$accountPreferences$subtitleAccessibilityOptions$en {
-	Translations$accountPreferences$subtitleAccessibilityOptions$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// en: 'Prefer non-SDH subtitles'
-	String get preferNonSdh => 'Prefer non-SDH subtitles';
-
-	/// en: 'Prefer SDH subtitles'
-	String get preferSdh => 'Prefer SDH subtitles';
-
-	/// en: 'Only SDH subtitles'
-	String get onlySdh => 'Only SDH subtitles';
-
-	/// en: 'Only non-SDH subtitles'
-	String get onlyNonSdh => 'Only non-SDH subtitles';
-}
-
-// Path: accountPreferences.forcedSubtitleOptions
-class Translations$accountPreferences$forcedSubtitleOptions$en {
-	Translations$accountPreferences$forcedSubtitleOptions$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// en: 'Prefer non-forced subtitles'
-	String get preferNonForced => 'Prefer non-forced subtitles';
-
-	/// en: 'Prefer forced subtitles'
-	String get preferForced => 'Prefer forced subtitles';
-
-	/// en: 'Only forced subtitles'
-	String get onlyForced => 'Only forced subtitles';
-
-	/// en: 'Only non-forced subtitles'
-	String get onlyNonForced => 'Only non-forced subtitles';
-}
-
-// Path: accountPreferences.watchedIndicatorOptions
-class Translations$accountPreferences$watchedIndicatorOptions$en {
-	Translations$accountPreferences$watchedIndicatorOptions$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// en: 'Never'
-	String get none => 'Never';
-
-	/// en: 'Movies and TV shows'
-	String get moviesAndShows => 'Movies and TV shows';
-
-	/// en: 'Movies only'
-	String get movies => 'Movies only';
-
-	/// en: 'TV shows only'
-	String get shows => 'TV shows only';
-}
-
-// Path: accountPreferences.mediaReviewsOptions
-class Translations$accountPreferences$mediaReviewsOptions$en {
-	Translations$accountPreferences$mediaReviewsOptions$en.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// en: 'Users and critics'
-	String get usersAndCritics => 'Users and critics';
-
-	/// en: 'Users only'
-	String get usersOnly => 'Users only';
-
-	/// en: 'Critics only'
-	String get criticsOnly => 'Critics only';
-
-	/// en: 'Hidden'
-	String get nobody => 'Hidden';
 }
 
 // Path: libraries.tabs
@@ -7463,6 +7394,147 @@ class Translations$services$libraryFilter$en {
 	String get noLibraries => 'No libraries available';
 }
 
+// Path: accountPreferences.groups
+class Translations$accountPreferences$groups$en {
+	Translations$accountPreferences$groups$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Audio & subtitles'
+	String get audioAndSubtitles => 'Audio & subtitles';
+
+	/// en: 'Library'
+	String get libraryDisplay => 'Library';
+
+	/// en: 'Personal media'
+	String get personalMedia => 'Personal media';
+}
+
+// Path: accountPreferences.subtitleModes
+class Translations$accountPreferences$subtitleModes$en {
+	Translations$accountPreferences$subtitleModes$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Manually selected'
+	String get none => 'Manually selected';
+
+	/// en: 'Never turn subtitles on by itself.'
+	String get noneDescription => 'Never turn subtitles on by itself.';
+
+	/// en: 'Follow the track flags'
+	String get defaultMode => 'Follow the track flags';
+
+	/// en: 'Use the default and forced flags stored on each subtitle track.'
+	String get defaultModeDescription => 'Use the default and forced flags stored on each subtitle track.';
+
+	/// en: 'Always enabled'
+	String get always => 'Always enabled';
+
+	/// en: 'Turn on a subtitle track in the preferred language whenever one exists.'
+	String get alwaysDescription => 'Turn on a subtitle track in the preferred language whenever one exists.';
+
+	/// en: 'Only forced subtitles'
+	String get onlyForced => 'Only forced subtitles';
+
+	/// en: 'Load only the tracks marked as forced.'
+	String get onlyForcedDescription => 'Load only the tracks marked as forced.';
+
+	/// en: 'Shown with foreign audio'
+	String get smart => 'Shown with foreign audio';
+
+	/// en: 'Turn subtitles on only when the audio is in another language.'
+	String get smartDescription => 'Turn subtitles on only when the audio is in another language.';
+}
+
+// Path: accountPreferences.subtitleAccessibilityOptions
+class Translations$accountPreferences$subtitleAccessibilityOptions$en {
+	Translations$accountPreferences$subtitleAccessibilityOptions$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Prefer non-SDH subtitles'
+	String get preferNonSdh => 'Prefer non-SDH subtitles';
+
+	/// en: 'Prefer SDH subtitles'
+	String get preferSdh => 'Prefer SDH subtitles';
+
+	/// en: 'Only SDH subtitles'
+	String get onlySdh => 'Only SDH subtitles';
+
+	/// en: 'Only non-SDH subtitles'
+	String get onlyNonSdh => 'Only non-SDH subtitles';
+}
+
+// Path: accountPreferences.forcedSubtitleOptions
+class Translations$accountPreferences$forcedSubtitleOptions$en {
+	Translations$accountPreferences$forcedSubtitleOptions$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Prefer non-forced subtitles'
+	String get preferNonForced => 'Prefer non-forced subtitles';
+
+	/// en: 'Prefer forced subtitles'
+	String get preferForced => 'Prefer forced subtitles';
+
+	/// en: 'Only forced subtitles'
+	String get onlyForced => 'Only forced subtitles';
+
+	/// en: 'Only non-forced subtitles'
+	String get onlyNonForced => 'Only non-forced subtitles';
+}
+
+// Path: accountPreferences.watchedIndicatorOptions
+class Translations$accountPreferences$watchedIndicatorOptions$en {
+	Translations$accountPreferences$watchedIndicatorOptions$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Never'
+	String get none => 'Never';
+
+	/// en: 'Movies and TV shows'
+	String get moviesAndShows => 'Movies and TV shows';
+
+	/// en: 'Movies only'
+	String get movies => 'Movies only';
+
+	/// en: 'TV shows only'
+	String get shows => 'TV shows only';
+}
+
+// Path: accountPreferences.mediaReviewsOptions
+class Translations$accountPreferences$mediaReviewsOptions$en {
+	Translations$accountPreferences$mediaReviewsOptions$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Users and critics'
+	String get usersAndCritics => 'Users and critics';
+
+	/// en: 'Users only'
+	String get usersOnly => 'Users only';
+
+	/// en: 'Critics only'
+	String get criticsOnly => 'Critics only';
+
+	/// en: 'Hidden'
+	String get nobody => 'Hidden';
+}
+
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -7471,7 +7543,7 @@ class Translations$services$libraryFilter$en {
 extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Sign in with Plex',
 			'auth.showQRCode' => 'Show QR Code',
 			'auth.authenticate' => 'Authenticate',
@@ -7573,6 +7645,14 @@ extension on Translations {
 			'update.viewRelease' => 'View Release',
 			'update.latestVersion' => 'You are on the latest version',
 			'update.checkFailed' => 'Failed to check for updates',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Settings',
 			'settings.supportDeveloper' => 'Support Plezy',
 			'settings.supportDeveloperDescription' => 'Donate via Liberapay to fund development',
@@ -7771,17 +7851,6 @@ extension on Translations {
 			'settings.downloadLocationReset' => 'Download location reset to default',
 			'settings.downloadLocationInvalid' => 'Selected folder is not writable',
 			'settings.downloadLocationPickerUnavailable' => 'Folder selection is not available on this device',
-			'settings.downloadLocationSelectError' => 'Failed to select folder',
-			'settings.mediaCapture' => 'Media Capture',
-			'settings.clips' => 'Clips',
-			'settings.screenshots' => 'Screenshots',
-			'settings.captureLocationTitle' => ({required Object title}) => '${title} Location',
-			'settings.clipLocationDescription' => 'Choose where clips are saved.',
-			'settings.screenshotLocationDescription' => 'Choose where screenshots are saved.',
-			'settings.clipLocationChanged' => 'Clip location changed',
-			'settings.screenshotLocationChanged' => 'Screenshot location changed',
-			'settings.clipLocationReset' => 'Clip location reset to Desktop',
-			'settings.screenshotLocationReset' => 'Screenshot location reset to Desktop',
 			'settings.downloadOnWifiOnly' => 'Download on Wi-Fi only',
 			'settings.downloadOnWifiOnlyDescription' => 'Prevent downloads when on cellular data',
 			'settings.autoRemoveWatchedDownloads' => 'Auto-remove watched downloads',
@@ -7905,6 +7974,24 @@ extension on Translations {
 			'settings.playerScopeLibrary' => 'Per library',
 			'settings.playerScopeTitle' => 'Per show or movie',
 			'settings.exportDialogTitle' => 'Export Plezy settings',
+			'settings.downloadLocationSelectError' => 'Failed to select folder',
+			'settings.mediaCapture' => 'Media Capture',
+			'settings.clips' => 'Clips',
+			'settings.screenshots' => 'Screenshots',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Location',
+			'settings.clipLocationDescription' => 'Choose where clips are saved.',
+			'settings.screenshotLocationDescription' => 'Choose where screenshots are saved.',
+			'settings.clipLocationChanged' => 'Clip location changed',
+			'settings.screenshotLocationChanged' => 'Screenshot location changed',
+			'settings.clipLocationReset' => 'Clip location reset to Desktop',
+			'settings.screenshotLocationReset' => 'Screenshot location reset to Desktop',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'search.hint' => 'Search movies, shows, music...',
 			'search.tryDifferentTerm' => 'Try a different search term',
 			'search.searchYourMedia' => 'Search your media',
@@ -7941,6 +8028,8 @@ extension on Translations {
 			'hotkeys.actions.shaderToggle' => 'Toggle Shaders',
 			'hotkeys.actions.skipMarker' => 'Skip Intro/Credits',
 			'hotkeys.actions.screenshot' => 'Take Screenshot',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'File Info',
 			'fileInfo.overview' => 'Overview',
 			'fileInfo.video' => 'Video',
@@ -7966,6 +8055,8 @@ extension on Translations {
 			'fileInfo.rotation' => 'Rotation',
 			'fileInfo.comment' => 'Comment',
 			'fileInfo.audioDescription' => 'Audio Description',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.headerCompression' => 'Header Compression',
 			'fileInfo.sidecarFile' => 'Sidecar File',
 			'fileInfo.transportTimestamp' => 'Transport Timestamp',
@@ -7983,8 +8074,6 @@ extension on Translations {
 			'fileInfo.colorPrimaries' => 'Color Primaries',
 			'fileInfo.colorTransfer' => 'Color Transfer',
 			'fileInfo.chromaSubsampling' => 'Chroma Subsampling',
-			_ => null,
-		} ?? switch (path) {
 			'fileInfo.chromaLocation' => 'Chroma Location',
 			'fileInfo.scanType' => 'Scan Type',
 			'fileInfo.interlaced' => 'Interlaced',
@@ -8190,6 +8279,39 @@ extension on Translations {
 			'videoControls.pipActive' => 'Playing in Picture-in-Picture',
 			'videoControls.pipFailed' => 'Picture-in-picture failed to start',
 			'videoControls.screenshotSaved' => 'Screenshot saved',
+			'videoControls.zoomPercent' => ({required Object percent}) => 'Zoom ${percent}%',
+			'videoControls.pipErrors.androidVersion' => 'Requires Android 8.0 or newer',
+			'videoControls.pipErrors.iosVersion' => 'Requires iOS 15.0 or newer',
+			'videoControls.pipErrors.permissionDisabled' => 'Picture-in-picture is disabled. Enable it in system settings.',
+			'videoControls.pipErrors.notSupported' => 'Device doesn\'t support picture-in-picture mode',
+			'videoControls.pipErrors.voSwitchFailed' => 'Failed to switch video output for picture-in-picture',
+			'videoControls.pipErrors.failed' => 'Picture-in-picture failed to start',
+			'videoControls.pipErrors.prepareFailed' => 'Picture-in-picture could not be prepared',
+			'videoControls.pipErrors.unknown' => ({required Object error}) => 'An error occurred: ${error}',
+			'videoControls.chapters' => 'Chapters',
+			'videoControls.noChaptersAvailable' => 'No chapters available',
+			'videoControls.queue' => 'Queue',
+			'videoControls.noQueueItems' => 'No items in queue',
+			'videoControls.noAudioDevicesAvailable' => 'No audio devices available',
+			'videoControls.searchSubtitles' => 'Search Subtitles',
+			'videoControls.language' => 'Language',
+			'videoControls.noSubtitlesFound' => 'No subtitles found',
+			'videoControls.subtitleDownloaded' => 'Subtitle downloaded',
+			'videoControls.subtitleDownloadedNotApplied' => 'Subtitle downloaded, but it could not be selected',
+			'videoControls.subtitleDownloadFailed' => 'Failed to download subtitle',
+			'videoControls.searchLanguages' => 'Search languages...',
+			'videoControls.skipIntro' => 'Skip Intro',
+			'videoControls.skipCredits' => 'Skip Credits',
+			'videoControls.nextEpisode' => 'Next Episode',
+			'videoControls.subtitleTrack' => ({required Object n}) => 'Track ${n}',
+			'videoControls.subtitleFile' => ({required Object name}) => 'Subtitle ${name}',
+			'videoControls.forcedTrack' => ({required Object label}) => '${label} (Forced)',
+			'videoControls.osdSubtitlesOff' => 'Subtitles: Off',
+			'videoControls.osdSubtitles' => ({required Object track}) => 'Subtitles: ${track}',
+			'videoControls.osdAudio' => ({required Object track}) => 'Audio: ${track}',
+			'videoControls.volumePercent' => ({required Object percent}) => 'Volume ${percent}%',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.clip.fineAdjust' => 'Fine adjust',
 			'videoControls.clip.title' => 'Clip',
 			'videoControls.clip.vodOnly' => 'Clips are available for on-demand video playback.',
@@ -8227,37 +8349,6 @@ extension on Translations {
 			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
 			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
 			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
-			'videoControls.zoomPercent' => ({required Object percent}) => 'Zoom ${percent}%',
-			'videoControls.volumePercent' => ({required Object percent}) => 'Volume ${percent}%',
-			'videoControls.pipErrors.androidVersion' => 'Requires Android 8.0 or newer',
-			'videoControls.pipErrors.iosVersion' => 'Requires iOS 15.0 or newer',
-			'videoControls.pipErrors.permissionDisabled' => 'Picture-in-picture is disabled. Enable it in system settings.',
-			'videoControls.pipErrors.notSupported' => 'Device doesn\'t support picture-in-picture mode',
-			'videoControls.pipErrors.voSwitchFailed' => 'Failed to switch video output for picture-in-picture',
-			'videoControls.pipErrors.failed' => 'Picture-in-picture failed to start',
-			'videoControls.pipErrors.prepareFailed' => 'Picture-in-picture could not be prepared',
-			'videoControls.pipErrors.unknown' => ({required Object error}) => 'An error occurred: ${error}',
-			'videoControls.chapters' => 'Chapters',
-			'videoControls.noChaptersAvailable' => 'No chapters available',
-			'videoControls.queue' => 'Queue',
-			'videoControls.noQueueItems' => 'No items in queue',
-			'videoControls.noAudioDevicesAvailable' => 'No audio devices available',
-			'videoControls.searchSubtitles' => 'Search Subtitles',
-			'videoControls.language' => 'Language',
-			'videoControls.noSubtitlesFound' => 'No subtitles found',
-			'videoControls.subtitleDownloaded' => 'Subtitle downloaded',
-			'videoControls.subtitleDownloadedNotApplied' => 'Subtitle downloaded, but it could not be selected',
-			'videoControls.subtitleDownloadFailed' => 'Failed to download subtitle',
-			'videoControls.searchLanguages' => 'Search languages...',
-			'videoControls.skipIntro' => 'Skip Intro',
-			'videoControls.skipCredits' => 'Skip Credits',
-			'videoControls.nextEpisode' => 'Next Episode',
-			'videoControls.subtitleTrack' => ({required Object n}) => 'Track ${n}',
-			'videoControls.subtitleFile' => ({required Object name}) => 'Subtitle ${name}',
-			'videoControls.forcedTrack' => ({required Object label}) => '${label} (Forced)',
-			'videoControls.osdSubtitlesOff' => 'Subtitles: Off',
-			'videoControls.osdSubtitles' => ({required Object track}) => 'Subtitles: ${track}',
-			'videoControls.osdAudio' => ({required Object track}) => 'Audio: ${track}',
 			'messages.markedAsWatched' => 'Marked as watched',
 			'messages.markedAsUnwatched' => 'Marked as unwatched',
 			'messages.markedAsWatchedOffline' => 'Marked as watched (will sync when online)',
@@ -8445,65 +8536,6 @@ extension on Translations {
 			'connections.signInAgain' => 'Sign in again',
 			'connections.editMediaBrowserTitle' => ({required Object product}) => 'Edit ${product} connection',
 			'connections.editMediaBrowserIntro' => ({required Object serverName}) => 'Add or remove URLs for ${serverName}. Plezy will use the reachable URL with the lowest latency.',
-			'accountPreferences.sectionTitle' => 'Account preferences',
-			'accountPreferences.hubSubtitleSingle' => ({required Object account}) => 'Audio, subtitle and library options saved on ${account}',
-			'accountPreferences.hubSubtitleMultiple' => ({required Object count}) => 'Audio, subtitle and library options saved on ${count} accounts',
-			'accountPreferences.pickAccount' => 'Every account stores its own preferences. Pick the one to edit.',
-			'accountPreferences.storedOnAccount' => 'These options are saved on the account itself, so every app signed in to it uses them — including Plezy on your other devices.',
-			'accountPreferences.noAccounts' => 'No accounts to configure',
-			'accountPreferences.noAccountsHint' => 'Sign in to Plex, or connect a Jellyfin or Emby server, and the preferences stored on that account show up here.',
-			'accountPreferences.unavailable' => 'Can\'t reach this account',
-			'accountPreferences.loadFailed' => 'Couldn\'t load these preferences',
-			'accountPreferences.noPreference' => 'No preference',
-			'accountPreferences.notSet' => 'Not set',
-			'accountPreferences.groups.audioAndSubtitles' => 'Audio & subtitles',
-			'accountPreferences.groups.libraryDisplay' => 'Library',
-			'accountPreferences.groups.personalMedia' => 'Personal media',
-			'accountPreferences.preferredAudioLanguage' => 'Preferred audio language',
-			'accountPreferences.autoSelectAudio' => 'Choose audio by language',
-			'accountPreferences.autoSelectAudioDescription' => 'Off keeps whatever audio track the file marks as default.',
-			'accountPreferences.preferredSubtitleLanguage' => 'Preferred subtitle language',
-			'accountPreferences.subtitleMode' => 'Turn subtitles on',
-			'accountPreferences.subtitleModes.none' => 'Manually selected',
-			'accountPreferences.subtitleModes.noneDescription' => 'Never turn subtitles on by itself.',
-			'accountPreferences.subtitleModes.defaultMode' => 'Follow the track flags',
-			'accountPreferences.subtitleModes.defaultModeDescription' => 'Use the default and forced flags stored on each subtitle track.',
-			'accountPreferences.subtitleModes.always' => 'Always enabled',
-			'accountPreferences.subtitleModes.alwaysDescription' => 'Turn on a subtitle track in the preferred language whenever one exists.',
-			'accountPreferences.subtitleModes.onlyForced' => 'Only forced subtitles',
-			'accountPreferences.subtitleModes.onlyForcedDescription' => 'Load only the tracks marked as forced.',
-			'accountPreferences.subtitleModes.smart' => 'Shown with foreign audio',
-			'accountPreferences.subtitleModes.smartDescription' => 'Turn subtitles on only when the audio is in another language.',
-			'accountPreferences.subtitleAccessibility' => 'SDH subtitles',
-			'accountPreferences.subtitleAccessibilityOptions.preferNonSdh' => 'Prefer non-SDH subtitles',
-			'accountPreferences.subtitleAccessibilityOptions.preferSdh' => 'Prefer SDH subtitles',
-			'accountPreferences.subtitleAccessibilityOptions.onlySdh' => 'Only SDH subtitles',
-			'accountPreferences.subtitleAccessibilityOptions.onlyNonSdh' => 'Only non-SDH subtitles',
-			'accountPreferences.forcedSubtitles' => 'Forced subtitles',
-			'accountPreferences.forcedSubtitleOptions.preferNonForced' => 'Prefer non-forced subtitles',
-			'accountPreferences.forcedSubtitleOptions.preferForced' => 'Prefer forced subtitles',
-			'accountPreferences.forcedSubtitleOptions.onlyForced' => 'Only forced subtitles',
-			'accountPreferences.forcedSubtitleOptions.onlyNonForced' => 'Only non-forced subtitles',
-			'accountPreferences.displayMissingEpisodes' => 'Show missing episodes',
-			'accountPreferences.displayMissingEpisodesDescription' => 'List episodes the server knows about but has no file for.',
-			'accountPreferences.hidePlayedInLatest' => 'Hide watched items in Latest',
-			'accountPreferences.hidePlayedInLatestDescription' => 'Leave items you have already watched out of the server\'s Latest rows.',
-			'accountPreferences.displayCollectionsView' => 'Show the Collections view',
-			'accountPreferences.displayCollectionsViewDescription' => 'Offer the server\'s Collections view alongside your libraries.',
-			'accountPreferences.rewatchingInNextUp' => 'Keep rewatched shows in Next Up',
-			'accountPreferences.rewatchingInNextUpDescription' => 'Once you finish a show, start it again and Next Up follows the rewatch instead of dropping the show.',
-			'accountPreferences.watchedIndicator' => 'Watched indicators',
-			'accountPreferences.watchedIndicatorOptions.none' => 'Never',
-			'accountPreferences.watchedIndicatorOptions.moviesAndShows' => 'Movies and TV shows',
-			'accountPreferences.watchedIndicatorOptions.movies' => 'Movies only',
-			'accountPreferences.watchedIndicatorOptions.shows' => 'TV shows only',
-			_ => null,
-		} ?? switch (path) {
-			'accountPreferences.mediaReviewsVisibility' => 'Ratings & reviews',
-			'accountPreferences.mediaReviewsOptions.usersAndCritics' => 'Users and critics',
-			'accountPreferences.mediaReviewsOptions.usersOnly' => 'Users only',
-			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Critics only',
-			'accountPreferences.mediaReviewsOptions.nobody' => 'Hidden',
 			'discover.title' => 'Discover',
 			'discover.noContentAvailable' => 'No content available',
 			'discover.addMediaToLibraries' => 'Add some media to your libraries',
@@ -8537,6 +8569,8 @@ extension on Translations {
 			'errors.noClientAvailable' => 'No client available',
 			'errors.pleaseEnterToken' => 'Please enter a token',
 			'errors.invalidToken' => 'Invalid token',
+			_ => null,
+		} ?? switch (path) {
 			'errors.failedToVerifyToken' => ({required Object error}) => 'Failed to verify token: ${error}',
 			'errors.failedToSwitchProfile' => ({required Object displayName}) => 'Failed to switch to ${displayName}',
 			'errors.failedToDeleteProfile' => ({required Object displayName}) => 'Failed to delete ${displayName}',
@@ -8665,6 +8699,9 @@ extension on Translations {
 			'about.versionLabel' => ({required Object version}) => 'Version ${version}',
 			'about.appDescription' => 'A beautiful Plex, Jellyfin, and Emby client for Flutter',
 			'about.viewLicensesDescription' => 'View licenses of third-party libraries',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'No servers found for ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Failed to load servers: ${error}',
 			'serverSelection.noValidServers' => 'No usable servers were found on this account',
@@ -8743,6 +8780,7 @@ extension on Translations {
 			'explore.removedFromWatchlist' => 'Removed from watchlist',
 			'explore.watchlistUpdateFailed' => 'Couldn\'t update watchlist',
 			'explore.watchlistNoMatch' => 'Couldn\'t match this item to a watchlist',
+			'explore.openInLibrary' => 'Open in library',
 			'explore.notInLibrary' => 'Not in your library',
 			'explore.inTheseLibraries' => 'In these libraries',
 			'explore.checkingLibrary' => 'Checking your library...',
@@ -9011,8 +9049,6 @@ extension on Translations {
 			'music.noLyrics' => 'No lyrics available',
 			'music.sleepTimer' => 'Sleep timer',
 			'music.sleepTimerEndOfTrack' => 'End of track',
-			_ => null,
-		} ?? switch (path) {
 			'music.sleepTimerMinutes' => ({required Object n}) => '${n} minutes',
 			'music.stopPlayback' => 'Stop playback',
 			'music.previousTrack' => 'Previous track',
@@ -9047,6 +9083,8 @@ extension on Translations {
 			'watchTogether.hostControls' => 'Host controls',
 			'watchTogether.anyoneControls' => 'Anyone controls',
 			'watchTogether.participants' => 'Participants',
+			_ => null,
+		} ?? switch (path) {
 			'watchTogether.host' => 'Host',
 			'watchTogether.hostBadge' => 'HOST',
 			'watchTogether.youAreHost' => 'You are the host',
@@ -9525,8 +9563,6 @@ extension on Translations {
 			'seerr.requestsLoadFailed' => 'Couldn\'t load request options',
 			'seerr.nothingToRequest' => 'Everything is already available or requested.',
 			'seerr.statusAvailable' => 'Available',
-			_ => null,
-		} ?? switch (path) {
 			'seerr.statusPartiallyAvailable' => 'Partially available',
 			'seerr.statusRequested' => 'Requested',
 			'seerr.statusProcessing' => 'Processing',
@@ -9561,6 +9597,8 @@ extension on Translations {
 			'services.names.simkl' => 'Simkl',
 			'services.names.seerr' => 'Seerr',
 			'services.names.mdblist' => 'MDBList',
+			_ => null,
+		} ?? switch (path) {
 			'services.deviceCode.title' => ({required Object service}) => 'Activate Plezy on ${service}',
 			'services.deviceCode.instructions' => 'Scan the QR code, or visit the address below and enter this code:',
 			'services.deviceCode.openToActivate' => ({required Object service}) => 'Open ${service} to activate',
@@ -9631,6 +9669,63 @@ extension on Translations {
 			'addServer.redirectDifferentHost' => ({required Object product}) => 'The server redirected to a different host. Enter the final ${product} URL directly.',
 			'addServer.redirectInsecure' => 'The server redirected from HTTPS to an insecure URL',
 			'addServer.redirectUnsupportedEnterFinal' => ({required Object product}) => 'The server redirected to an unsupported URL. Enter the final ${product} URL directly.',
+			'accountPreferences.sectionTitle' => 'Account preferences',
+			'accountPreferences.hubSubtitleSingle' => ({required Object account}) => 'Audio, subtitle and library options saved on ${account}',
+			'accountPreferences.hubSubtitleMultiple' => ({required Object count}) => 'Audio, subtitle and library options saved on ${count} accounts',
+			'accountPreferences.pickAccount' => 'Every account stores its own preferences. Pick the one to edit.',
+			'accountPreferences.storedOnAccount' => 'These options are saved on the account itself, so every app signed in to it uses them — including Plezy on your other devices.',
+			'accountPreferences.noAccounts' => 'No accounts to configure',
+			'accountPreferences.noAccountsHint' => 'Sign in to Plex, or connect a Jellyfin or Emby server, and the preferences stored on that account show up here.',
+			'accountPreferences.unavailable' => 'Can\'t reach this account',
+			'accountPreferences.loadFailed' => 'Couldn\'t load these preferences',
+			'accountPreferences.noPreference' => 'No preference',
+			'accountPreferences.notSet' => 'Not set',
+			'accountPreferences.groups.audioAndSubtitles' => 'Audio & subtitles',
+			'accountPreferences.groups.libraryDisplay' => 'Library',
+			'accountPreferences.groups.personalMedia' => 'Personal media',
+			'accountPreferences.preferredAudioLanguage' => 'Preferred audio language',
+			'accountPreferences.autoSelectAudio' => 'Choose audio by language',
+			'accountPreferences.autoSelectAudioDescription' => 'Off keeps whatever audio track the file marks as default.',
+			'accountPreferences.preferredSubtitleLanguage' => 'Preferred subtitle language',
+			'accountPreferences.subtitleMode' => 'Turn subtitles on',
+			'accountPreferences.subtitleModes.none' => 'Manually selected',
+			'accountPreferences.subtitleModes.noneDescription' => 'Never turn subtitles on by itself.',
+			'accountPreferences.subtitleModes.defaultMode' => 'Follow the track flags',
+			'accountPreferences.subtitleModes.defaultModeDescription' => 'Use the default and forced flags stored on each subtitle track.',
+			'accountPreferences.subtitleModes.always' => 'Always enabled',
+			'accountPreferences.subtitleModes.alwaysDescription' => 'Turn on a subtitle track in the preferred language whenever one exists.',
+			'accountPreferences.subtitleModes.onlyForced' => 'Only forced subtitles',
+			'accountPreferences.subtitleModes.onlyForcedDescription' => 'Load only the tracks marked as forced.',
+			'accountPreferences.subtitleModes.smart' => 'Shown with foreign audio',
+			'accountPreferences.subtitleModes.smartDescription' => 'Turn subtitles on only when the audio is in another language.',
+			'accountPreferences.subtitleAccessibility' => 'SDH subtitles',
+			'accountPreferences.subtitleAccessibilityOptions.preferNonSdh' => 'Prefer non-SDH subtitles',
+			'accountPreferences.subtitleAccessibilityOptions.preferSdh' => 'Prefer SDH subtitles',
+			'accountPreferences.subtitleAccessibilityOptions.onlySdh' => 'Only SDH subtitles',
+			'accountPreferences.subtitleAccessibilityOptions.onlyNonSdh' => 'Only non-SDH subtitles',
+			'accountPreferences.forcedSubtitles' => 'Forced subtitles',
+			'accountPreferences.forcedSubtitleOptions.preferNonForced' => 'Prefer non-forced subtitles',
+			'accountPreferences.forcedSubtitleOptions.preferForced' => 'Prefer forced subtitles',
+			'accountPreferences.forcedSubtitleOptions.onlyForced' => 'Only forced subtitles',
+			'accountPreferences.forcedSubtitleOptions.onlyNonForced' => 'Only non-forced subtitles',
+			'accountPreferences.displayMissingEpisodes' => 'Show missing episodes',
+			'accountPreferences.displayMissingEpisodesDescription' => 'List episodes the server knows about but has no file for.',
+			'accountPreferences.hidePlayedInLatest' => 'Hide watched items in Latest',
+			'accountPreferences.hidePlayedInLatestDescription' => 'Leave items you have already watched out of the server\'s Latest rows.',
+			'accountPreferences.displayCollectionsView' => 'Show the Collections view',
+			'accountPreferences.displayCollectionsViewDescription' => 'Offer the server\'s Collections view alongside your libraries.',
+			'accountPreferences.rewatchingInNextUp' => 'Keep rewatched shows in Next Up',
+			'accountPreferences.rewatchingInNextUpDescription' => 'Once you finish a show, start it again and Next Up follows the rewatch instead of dropping the show.',
+			'accountPreferences.watchedIndicator' => 'Watched indicators',
+			'accountPreferences.watchedIndicatorOptions.none' => 'Never',
+			'accountPreferences.watchedIndicatorOptions.moviesAndShows' => 'Movies and TV shows',
+			'accountPreferences.watchedIndicatorOptions.movies' => 'Movies only',
+			'accountPreferences.watchedIndicatorOptions.shows' => 'TV shows only',
+			'accountPreferences.mediaReviewsVisibility' => 'Ratings & reviews',
+			'accountPreferences.mediaReviewsOptions.usersAndCritics' => 'Users and critics',
+			'accountPreferences.mediaReviewsOptions.usersOnly' => 'Users only',
+			'accountPreferences.mediaReviewsOptions.criticsOnly' => 'Critics only',
+			'accountPreferences.mediaReviewsOptions.nobody' => 'Hidden',
 			_ => null,
 		};
 	}
