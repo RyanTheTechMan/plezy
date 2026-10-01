@@ -39,9 +39,7 @@ import 'package:plezy/widgets/video_controls/video_control_button.dart';
 import 'package:plezy/widgets/app_bar_back_button.dart';
 import 'package:plezy/widgets/system_clock.dart';
 import 'package:plezy/widgets/video_controls/widgets/video_timeline_bar.dart';
-import 'package:provider/provider.dart';
 
-import '../test_helpers/prefs.dart';
 import '../test_helpers/watch_together_fakes.dart';
 import '../test_helpers/media_items.dart';
 import '../test_helpers/prefs.dart';
@@ -2371,6 +2369,8 @@ void main() {
 
       final player = FakeSyncPlayer(duration: Duration.zero);
       addTearDown(player.dispose);
+      final volume = VideoVolumeController(player: player, settings: SettingsService.instance, initialVolume: 100);
+      addTearDown(volume.dispose);
 
       await tester.pumpWidget(
         ChangeNotifierProvider(
@@ -2380,6 +2380,8 @@ void main() {
             home: Scaffold(
               body: DesktopVideoControls(
                 player: player,
+                volumeController: volume,
+                onPlayPause: () {},
                 metadata: MediaItem(
                   id: 'video',
                   backend: MediaBackend.plex,
