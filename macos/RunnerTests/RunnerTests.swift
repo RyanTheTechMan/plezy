@@ -1,3 +1,4 @@
+import Cocoa
 import Libmpv
 import FlutterMacOS
 import XCTest
@@ -186,6 +187,32 @@ final class MpvPlayerContractTests: XCTestCase {
     }
 
     XCTAssertEqual(try awaitGetProperty(core, name: "options/ao").get(), "coreaudio,avfoundation")
+  }
+
+  @MainActor
+  func testClipPreviewKeepsAVFoundationAudioPolicyAndItsOwnFrame() throws {
+    let window = NSWindow(
+      contentRect: NSRect(x: 0, y: 0, width: 640, height: 480),
+      styleMask: [.titled], backing: .buffered, defer: false)
+    let core = MpvPlayerCore()
+    defer {
+      core.dispose()
+      core.queue.sync {}
+      window.close()
+    }
+    XCTAssertTrue(core.initialize(in: window, overlay: true, initialOptions: ["mute": "yes"]))
+    XCTAssertEqual(try awaitGetProperty(core, name: "options/vo").get(), "avfoundation")
+    XCTAssertEqual(try awaitGetProperty(core, name: "options/ao").get(), "coreaudio,avfoundation")
+    XCTAssertEqual(try awaitGetProperty(core, name: "mute").get(), "yes")
+
+    let previewFrame = CGRect(x: 20, y: 30, width: 320, height: 180)
+    core.updateFrame(previewFrame)
+    core.setVisible(true)
+    let previewLayer = try XCTUnwrap(window.contentView?.layer?.sublayers?.first)
+    XCTAssertEqual(previewLayer.frame, previewFrame)
+    core.setVisible(false)
+    core.setVisible(true)
+    XCTAssertEqual(previewLayer.frame, previewFrame)
   }
 
   func testPauseIntentUpdatesCacheBeforeAsyncWriteCompletes() {
