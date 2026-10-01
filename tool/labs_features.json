@@ -1,0 +1,192 @@
+{
+  "schema_version": 2,
+  "upstream_updates": [
+    {
+      "status": "not_planned",
+      "description": "Desktop chapter selector mouse controls were closed upstream and are not planned for Plezy; they remain available in Labs",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1574"
+    },
+    {
+      "status": "merged",
+      "description": "Original bitrate in quality controls was merged into Plezy 2.20.0",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1534"
+    },
+    {
+      "status": "merged",
+      "description": "Solo Watch Together playback now resumes on the first Play press in Plezy 2.21.0",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/2379"
+    },
+    {
+      "status": "merged",
+      "description": "Muting and unmuting now restores the previous volume in Plezy 2.21.0",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1532"
+    },
+    {
+      "status": "merged",
+      "description": "Keeping player controls visible while holding a mouse button is included in Plezy 2.22.0 via the upstream replacement PR #2436",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/2432"
+    }
+  ],
+  "features": [
+    {
+      "id": "clips",
+      "enabled": true,
+      "source_ref": "feature/clips",
+      "commits": [
+        "b46efc3e8fd5fb67d4bdd8991b5dc8cdd776f024",
+        "e3227dc92f94386d4fb7a27ed434f1076ab11d90",
+        "c536aaf3d59dc50eafd12c45f75db99d5e8f48cb",
+        "471ded1c510202836f97ee3f7634091721622130",
+        "626109b1c302b7ad5b0b4dc91f12730465612e68"
+      ],
+      "description": "Add local video clip export with GIFs on macOS and Windows, subtitles, preview, screenshots, configurable capture locations, and frame-accurate fine adjustment",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1586"
+    },
+    {
+      "id": "macos-volume",
+      "enabled": true,
+      "source_ref": "fix/macos-volume",
+      "commits": [
+        "2a7ab549adf769bc071da3a20e129a9fd1f56311",
+        "13a8947a2d63d629c77f1b48bd1192e085714574",
+        "c7b123e99bad455eb763514c66ce448b7d24223d"
+      ],
+      "description": "Fix macOS volume control and stale restore behavior",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1515"
+    },
+    {
+      "id": "media-count",
+      "enabled": true,
+      "source_ref": "feature/media-count",
+      "commits": [
+        "b404d2c5b772798cc6eb644ca923f817d78bccf8",
+        "07b4cb40716d21376bca1e8ce3fbca48a2f88fd0"
+      ],
+      "description": "Show item count in the library browse toolbar",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1516"
+    },
+    {
+      "id": "flatpak",
+      "enabled": true,
+      "source_ref": "upstream/main",
+      "commits": [
+        "06619d61c1a37501a95af04f18cde3fb8dfd8b02"
+      ],
+      "description": "Build self-distributed x64 and arm64 Flatpak bundles for GitHub Releases"
+    },
+    {
+      "id": "chapter-select",
+      "enabled": true,
+      "source_ref": "fix/chapter-select",
+      "commits": [
+        "12dbc1e8c8c3686d4676a239d69fc02a7251342b",
+        "0764cccad29e9c968501f18b98d1f2a184928a48"
+      ],
+      "description": "Make the desktop chapter selector interactive",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1574"
+    },
+    {
+      "id": "pull-to-refresh",
+      "enabled": true,
+      "source_ref": "feature/pull-to-refresh",
+      "commits": [
+        "95dd89e190c611c3d8befef75ab2cbbf8af7f258",
+        "3c3db771e1449b67b4453808c98e7d14a833f71b",
+        "797a7f34fe973e5a01e535ad3f67143dda6eb8df"
+      ],
+      "description": "Add pull-to-refresh to Discover and Library Browse",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1528"
+    },
+    {
+      "id": "frame-by-frame-navigation",
+      "enabled": true,
+      "source_ref": "feature/frame-by-frame-navigation",
+      "commits": [
+        "45fb1049847f6543710a26f5fb60dbd442e2985f",
+        "c83ecd408a70fa3b7b935bf01ae5140bf9886ec4"
+      ],
+      "description": "Add customizable frame-by-frame navigation while paused",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/1584"
+    },
+    {
+      "id": "support-3d",
+      "enabled": true,
+      "source_ref": "feature/support-3d",
+      "commits": [
+        "a3074058479eae9e5e60d0af1613d51e00f30ca8",
+        "38a5e7e9e72ba91c1b9451ce7052556e34b854fd",
+        "799312395439726d6697e9c653e5bf864efcc3b2"
+      ],
+      "description": "Preserve the correct aspect ratio for packed stereoscopic video playback",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/2145"
+    },
+    {
+      "id": "3d-playback-ui",
+      "enabled": true,
+      "source_ref": "feature/3d-playback-ui",
+      "commits": [
+        "d761aabb59e94c814d85e76b595bfcbd1f0c35b6",
+        "8b8464306bc27aba01bc193453d1a5cccf03eec0",
+        "236c30f8401f605be860b6eb9ce2ec2e07f28107",
+        "cfa5d59b2d01db07c9f01d2f9bdfebaa6b1f0384",
+        "05a4518b9bc00159a27d66e23afca4f435fe9b62",
+        "ace7153b05ffaed085ecd421ac1d65e97d37f337"
+      ],
+      "description": "Add packed 3D playback controls and stereoscopic player UI",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/2146"
+    },
+    {
+      "id": "library-item-from-explore",
+      "enabled": true,
+      "source_ref": "feature/library-item-from-explore",
+      "commits": [
+        "f93b079d5b6c4a27934cdcd27573e3545fa8f4c7",
+        "e1c3944dba5d9ed2eca36d990f47c93c1fc7c5e3",
+        "154aa0056f736636c63b8391db20d9267c3f7edd"
+      ],
+      "description": "Open matched Explore items directly from your library",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/2165"
+    },
+    {
+      "id": "macos-window-resize-lag",
+      "enabled": true,
+      "source_ref": "fix/macos-window-resize-lag",
+      "commits": [
+        "5123fe88a9c6e9efbb1367e8cc783ff8fd12f8ac",
+        "01cd83658c50ab72e91b4d9b10b57b80a3856ec7"
+      ],
+      "description": "Avoid macOS player window resize stalls",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/2219"
+    },
+    {
+      "id": "background-downloader-repin",
+      "enabled": true,
+      "source_ref": "upstream/main",
+      "commits": [
+        "cffb9ce9572af6b8fd315a99323fc49b732dd361"
+      ],
+      "description": "Repin background_downloader after the upstream fork rebase so clean CI dependency resolution works"
+    },
+    {
+      "id": "watch-together-solo-resume",
+      "enabled": true,
+      "source_ref": "fix/watch-together-solo-resume",
+      "commits": [
+        "450a51e06614f11a2ccea56376f4f2d70eaabbaa"
+      ],
+      "description": "Resume solo Watch Together playback on the first Play press",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/2379"
+    },
+    {
+      "id": "player-controls-hold-2x",
+      "enabled": true,
+      "source_ref": "fix/player-controls-hold-2x",
+      "commits": [
+        "c4f05d27ebd40ffbd81c8989c99a989ded873d80",
+        "166dde724dcd2ef1ed71188c0ca22775da92e2ea"
+      ],
+      "description": "Prevent hold-to-2x gestures from activating on desktop player controls",
+      "upstream_pr": "https://github.com/edde746/plezy/pull/2433"
+    }
+  ]
+}
