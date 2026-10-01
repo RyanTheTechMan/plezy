@@ -443,9 +443,10 @@ class MpvPlayerCore: MpvPlayerCoreBase {
       let targetIndex: UInt32
       if overlayMode {
         // Preview video stays above the main player's container, below Flutter.
-        targetIndex = UInt32(superlayer.sublayers?.filter {
-          $0 !== containerLayer && $0 is MpvVideoContainerLayer
-        }.count ?? 0)
+        targetIndex = UInt32(
+          superlayer.sublayers?.filter {
+            $0 !== containerLayer && $0 is MpvVideoContainerLayer
+          }.count ?? 0)
       } else {
         superlayer.backgroundColor = NSColor.black.cgColor
         superlayer.isOpaque = true
