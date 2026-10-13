@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Plezy Labs Updates</title>
+    <item>
+      <title>Plezy Labs 2.23.0 r1</title>
+      <sparkle:version>10025</sparkle:version>
+      <sparkle:shortVersionString>2.23.0</sparkle:shortVersionString>
+      <sparkle:releaseNotesLink>https://github.com/RyanTheTechMan/plezy/releases/tag/labs-v2.23.0-r1</sparkle:releaseNotesLink>
+      <enclosure url="https://github.com/RyanTheTechMan/plezy/releases/download/labs-v2.23.0-r1/plezy-macos.dmg"
+       length="74044918" type="application/octet-stream"
+       sparkle:edSignature="9SjbdZsgSDZ0DNKl/51JiVpCy5wYHYWKd8a0iyeH7owkq17/P22w4+8wtfVwamqM62ybYbmDpDnPe1dAZFvLAA=="
+       sparkle:os="macos" />
+      <enclosure url="https://github.com/RyanTheTechMan/plezy/releases/download/labs-v2.23.0-r1/plezy-windows-installer.exe"
+       length="105300363" type="application/octet-stream"
+       sparkle:edSignature="1RMQ7I3JaAHiBK6ijGU6HQLmAxv2xmcNRL4P9Hy0wXFMPDtBlvavvIyrhKhoWgKDl09AoAmSQO8NEM0PIILDCQ=="
+       sparkle:installerArguments="/SILENT /SP-"
+       sparkle:os="windows" />
+    </item>
+  </channel>
+</rss>
