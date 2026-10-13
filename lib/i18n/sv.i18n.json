@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Logga in med Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Hoppa över denna version",
     "viewRelease": "Visa versionsinformation",
     "latestVersion": "Du har den senaste versionen",
-    "checkFailed": "Det gick inte att söka efter uppdateringar"
+    "checkFailed": "Det gick inte att söka efter uppdateringar",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Inställningar",
@@ -262,7 +270,7 @@
     "importSettingsInvalidFile": "Filen är inte en giltig export av Plezy-inställningar",
     "importSettingsNoUser": "Logga in innan du importerar inställningar",
     "shortcutsReset": "Genvägarna har återställts till standard",
-    "resetShortcutsConfirm": "",
+    "resetShortcutsConfirm": "This will replace your custom shortcuts with the defaults. Continue?",
     "about": "Om",
     "aboutDescription": "Appinformation och licenser",
     "updates": "Uppdateringar",
@@ -348,14 +356,14 @@
     "audioPassthroughDescription": "Skicka Dolby-/DTS-ljud till receivern eller TV:n utan omkodning så att surroundljudet bevaras. Stäng av om inget ljud hörs.",
     "audioPassthroughDescriptionAppleTv": "Använd Apples inbyggda Dolby-avkodare för Dolby Digital Plus, inklusive Atmos. DTS och TrueHD spelas fortfarande upp som flerkanaligt PCM-ljud. Stäng av om inget ljud hörs.",
     "audioPassthroughOverriddenByNormalization": "Av medan ljudstyrkenormalisering är på",
-    "audioChannelLimit": "",
-    "audioChannelLimitDescription": "",
-    "audioChannelLimitOriginal": "",
-    "audioChannelLimitOriginalDescription": "",
-    "audioChannelLimitSurround51": "",
-    "audioChannelLimitSurround51Description": "",
-    "audioChannelLimitStereo": "",
-    "audioChannelLimitStereoDescription": "",
+    "audioChannelLimit": "Audio Channels",
+    "audioChannelLimitDescription": "Mix decoded audio down for speakers, headphones, or HDMI setups that cannot play every channel",
+    "audioChannelLimitOriginal": "Original",
+    "audioChannelLimitOriginalDescription": "Play every channel in the track",
+    "audioChannelLimitSurround51": "Up to 5.1",
+    "audioChannelLimitSurround51Description": "Mix 7.1 down to 5.1 for TVs and receivers that only take 5.1 PCM. Passthrough is unaffected.",
+    "audioChannelLimitStereo": "Stereo",
+    "audioChannelLimitStereoDescription": "Mix down to two channels for stereo speakers or headphones. Turns passthrough off.",
     "downmixCenterBoost": "Förstärkning av centerkanal",
     "downmixCenterBoostValue": "${db} dB",
     "downmixCenterBoostLabel": "Förstärkning (dB)",
@@ -450,6 +458,12 @@
     "screenshotLocationReset": "Skärmdumpens plats återställd till skrivbordet",
     "disableDolbyVision": "Inaktivera Dolby Vision",
     "disableDolbyVisionDescription": "Spela upp filens HDR10- eller HLG-lager i stället för Dolby Vision när det finns",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "search": {
@@ -457,7 +471,7 @@
     "tryDifferentTerm": "Prova en annan sökterm",
     "searchYourMedia": "Sök i dina media",
     "enterTitleActorOrKeyword": "Ange en titel, skådespelare eller nyckelord",
-    "people": ""
+    "people": "People"
   },
   "hotkeys": {
     "setShortcutFor": "Sätt genväg för ${actionName}",
@@ -491,7 +505,9 @@
       "subSeekPrev": "Hoppa till föregående undertext",
       "shaderToggle": "Växla shaders",
       "skipMarker": "Hoppa över intro/eftertexter",
-      "screenshot": "Ta skärmbild"
+      "screenshot": "Ta skärmbild",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -797,6 +813,10 @@
     "osdAudio": "Ljud: ${track}",
     "volumePercent": "Volym ${percent}%",
     "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "Finjustering",
       "title": "Klämma",
@@ -971,8 +991,8 @@
     "signOut": "Logga ut",
     "signOutPlexTitle": "Logga ut från Plex?",
     "signOutPlexMessage": "Ta bort ${displayName} och alla Plex Home-användare? Du kan logga in igen när som helst.",
-    "signOutPlexDeleteDownloads": "",
-    "signOutPlexDeleteDownloadsDescription": "",
+    "signOutPlexDeleteDownloads": "Also delete downloads",
+    "signOutPlexDeleteDownloadsDescription": "Otherwise they stay on this device and come back when you sign back in to this account.",
     "signedOutPlex": "Utloggad från Plex.",
     "signOutFailed": "Utloggningen misslyckades.",
     "sectionTitle": "Profiler",
@@ -1159,7 +1179,7 @@
       "unwatched": "Osedda",
       "unplayed": "Ospelat",
       "favorites": "Favoriter",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "Titel",
@@ -1187,32 +1207,32 @@
       "library": "Bibliotek"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1220,7 +1240,10 @@
     "openSourceLicenses": "Licenser för öppen källkod",
     "versionLabel": "Version ${version}",
     "appDescription": "En vacker Plex-, Jellyfin- och Emby-klient för Flutter",
-    "viewLicensesDescription": "Visa licenser för tredjepartsbibliotek"
+    "viewLicensesDescription": "Visa licenser för tredjepartsbibliotek",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Inga servrar hittades för ${username} (${email})",
@@ -1406,7 +1429,7 @@
       "otherMedia": "Annat"
     },
     "creditRole": {
-      "actor": "",
+      "actor": "Actor",
       "director": "Regissör",
       "writer": "Författare",
       "producer": "Producent",
@@ -1750,9 +1773,9 @@
     "episodesQueued": "${count} avsnitt köade för nedladdning",
     "downloadDeleted": "Nedladdning borttagen",
     "deleteConfirm": "Ta bort \"${title}\" från den här enheten?",
-    "deleteCollectionDownloads": "",
-    "deleteCollectionDownloadsConfirm": "",
-    "collectionDownloadsDeleted": "",
+    "deleteCollectionDownloads": "Delete downloads",
+    "deleteCollectionDownloadsConfirm": "Delete every download in \"${title}\" from this device?",
+    "collectionDownloadsDeleted": "Downloads deleted",
     "cancelledDownloadTitle": "Avbruten nedladdning",
     "cancelledDownloadMessage": "Den här nedladdningen avbröts. Vad vill du göra?",
     "allEpisodesAlreadyDownloaded": "Alla avsnitt är redan nedladdade",
@@ -1770,8 +1793,8 @@
     "noDownloadsTree": "Inga nedladdningar",
     "pauseAll": "Pausa alla",
     "resumeAll": "Återuppta alla",
-    "retryAll": "",
-    "retryFailed": "",
+    "retryAll": "Retry all",
+    "retryFailed": "Retry failed downloads",
     "deleteAll": "Ta bort alla",
     "selectVersion": "Välj version",
     "allEpisodes": "Alla avsnitt",
@@ -1843,7 +1866,7 @@
     "options": "Alternativ för nedladdningar",
     "groupings": {
       "library": "Bibliotek",
-      "collections": ""
+      "collections": "Collections"
     },
     "unknownLibrary": "Okänt bibliotek",
     "unknownShow": "Okänd serie",
@@ -1996,13 +2019,13 @@
     "rotation": "Rotation",
     "dvSource": "DV-källa",
     "dvPath": "DV-sökväg",
-    "dvRouteDecoder": "",
-    "dvRouteDecoderP81": "",
-    "dvRouteBaseLayer": "",
-    "dvRouteBaseLayerHdr10": "",
-    "dvRouteBaseLayerHlg": "",
-    "dvRouteBaseLayerSdr": "",
-    "dvRouteReshaped": "",
+    "dvRouteDecoder": "Dolby Vision decoder",
+    "dvRouteDecoderP81": "Dolby Vision decoder (P7→8.1)",
+    "dvRouteBaseLayer": "Base layer",
+    "dvRouteBaseLayerHdr10": "HDR10 base layer",
+    "dvRouteBaseLayerHlg": "HLG base layer",
+    "dvRouteBaseLayerSdr": "SDR base layer",
+    "dvRouteReshaped": "RPU reshaped (gpu-next)",
     "p7Conversion": "P7-konv.",
     "sampleRate": "Samplingsfrekvens",
     "pixelFormat": "Pixelformat",
@@ -2234,8 +2257,8 @@
       "mdblist": "MDBList"
     },
     "simklReconnect": {
-      "title": "",
-      "subtitle": ""
+      "title": "Reconnect Simkl",
+      "subtitle": "Simkl is retiring the sign-in method this connection uses. Reconnecting opens simkl.com to approve Plezy — Plezy never sees your password. Your watch history stays on Simkl."
     },
     "deviceCode": {
       "title": "Aktivera Plezy på ${service}",

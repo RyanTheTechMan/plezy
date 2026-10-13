@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Plex ilə daxil ol",
@@ -113,7 +113,15 @@
     "skipVersion": "Bu versiyanı ötür",
     "viewRelease": "Buraxılışa bax",
     "latestVersion": "Siz ən son versiyadasınız",
-    "checkFailed": "Yenilənmələr yoxlanıla bilmədi"
+    "checkFailed": "Yenilənmələr yoxlanıla bilmədi",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Tənzimləmələr",
@@ -262,7 +270,7 @@
     "importSettingsInvalidFile": "Bu fayl düzgün Plezy tənzimləmələr faylı deyil",
     "importSettingsNoUser": "Tənzimləmələri idxal etməzdən əvvəl daxil olun",
     "shortcutsReset": "Qısayollar defolt vəziyyətə sıfırlandı",
-    "resetShortcutsConfirm": "",
+    "resetShortcutsConfirm": "This will replace your custom shortcuts with the defaults. Continue?",
     "about": "Haqqında",
     "aboutDescription": "Tətbiq məlumatı və lisenziyalar",
     "updates": "Yenilənmələr",
@@ -348,14 +356,14 @@
     "audioPassthroughDescription": "Dolby/DTS səslərini yenidən kodlamadan TV və ya resiverə göndərir. Səs gəlmirsə söndürün.",
     "audioPassthroughDescriptionAppleTv": "Atmos daxil olmaqla Dolby Digital Plus üçün Apple-ın daxili dekoderini istifadə edin. DTS və TrueHD yenə də çoxkanallı PCM kimi oynadılır. Səs gəlmirsə söndürün.",
     "audioPassthroughOverriddenByNormalization": "Səsin gurluğunu normallaşdırma aktivkən söndürülüb",
-    "audioChannelLimit": "",
-    "audioChannelLimitDescription": "",
-    "audioChannelLimitOriginal": "",
-    "audioChannelLimitOriginalDescription": "",
-    "audioChannelLimitSurround51": "",
-    "audioChannelLimitSurround51Description": "",
-    "audioChannelLimitStereo": "",
-    "audioChannelLimitStereoDescription": "",
+    "audioChannelLimit": "Audio Channels",
+    "audioChannelLimitDescription": "Mix decoded audio down for speakers, headphones, or HDMI setups that cannot play every channel",
+    "audioChannelLimitOriginal": "Original",
+    "audioChannelLimitOriginalDescription": "Play every channel in the track",
+    "audioChannelLimitSurround51": "Up to 5.1",
+    "audioChannelLimitSurround51Description": "Mix 7.1 down to 5.1 for TVs and receivers that only take 5.1 PCM. Passthrough is unaffected.",
+    "audioChannelLimitStereo": "Stereo",
+    "audioChannelLimitStereoDescription": "Mix down to two channels for stereo speakers or headphones. Turns passthrough off.",
     "downmixCenterBoost": "Mərkəz kanal gücləndirilməsi",
     "downmixCenterBoostValue": "${db} dB",
     "downmixCenterBoostLabel": "Gücləndirmə (dB)",
@@ -450,6 +458,12 @@
     "screenshotLocationReset": "Ekran şəkillərinin saxlama yeri İş masasına qaytarıldı",
     "disableDolbyVision": "Dolby Vision-u söndür",
     "disableDolbyVisionDescription": "Faylda varsa, Dolby Vision əvəzinə HDR10 və ya HLG təbəqəsini oynat",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "search": {
@@ -457,7 +471,7 @@
     "tryDifferentTerm": "Fərqli axtarış sözü cəhd edin",
     "searchYourMedia": "Mediyanızda axtarın",
     "enterTitleActorOrKeyword": "Ad, aktyor və ya açar söz daxil edin",
-    "people": ""
+    "people": "People"
   },
   "hotkeys": {
     "setShortcutFor": "${actionName} üçün qısayol təyin et",
@@ -491,7 +505,9 @@
       "subSeekPrev": "Əvvəlki altyazıya sar",
       "shaderToggle": "Şeyderləri aç/bağla",
       "skipMarker": "Girişi/Titrləri ötür",
-      "screenshot": "Ekran şəkli çək"
+      "screenshot": "Ekran şəkli çək",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -797,6 +813,10 @@
     "osdAudio": "Səs: ${track}",
     "volumePercent": "Səs ${percent}%",
     "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "Dəqiq tənzimləmə",
       "title": "Klip",
@@ -971,8 +991,8 @@
     "signOut": "Çıxış et",
     "signOutPlexTitle": "Plex-dən çıxılsın?",
     "signOutPlexMessage": "${displayName} və bütün Plex Home istifadəçiləri silinsin? İstənilən vaxt yenidən daxil ola bilərsiniz.",
-    "signOutPlexDeleteDownloads": "",
-    "signOutPlexDeleteDownloadsDescription": "",
+    "signOutPlexDeleteDownloads": "Also delete downloads",
+    "signOutPlexDeleteDownloadsDescription": "Otherwise they stay on this device and come back when you sign back in to this account.",
     "signedOutPlex": "Plex-dən çıxıldı.",
     "signOutFailed": "Çıxış uğursuz oldu.",
     "sectionTitle": "Profillər",
@@ -1159,7 +1179,7 @@
       "unwatched": "Baxılmayıb",
       "unplayed": "Oynadılmayıb",
       "favorites": "Sevimlilər",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "Ad",
@@ -1187,32 +1207,32 @@
       "library": "Kitabxana"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1220,7 +1240,10 @@
     "openSourceLicenses": "Açıq mənbə lisenziyaları",
     "versionLabel": "Versiya ${version}",
     "appDescription": "Flutter üçün gözəl bir Plex, Jellyfin və Emby klienti",
-    "viewLicensesDescription": "Üçüncü tərəf kitabxanalarının lisenziyalarına baxın"
+    "viewLicensesDescription": "Üçüncü tərəf kitabxanalarının lisenziyalarına baxın",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email}) üçün server tapılmadı",
@@ -1406,7 +1429,7 @@
       "otherMedia": "Digər"
     },
     "creditRole": {
-      "actor": "",
+      "actor": "Actor",
       "director": "Rejissor",
       "writer": "Ssenarist",
       "producer": "Prodüser",
@@ -1750,9 +1773,9 @@
     "episodesQueued": "Yükləmə üçün ${count} seriya növbəyə alındı",
     "downloadDeleted": "Yükləmə silindi",
     "deleteConfirm": "\"${title}\" bu cihazdan silinsin?",
-    "deleteCollectionDownloads": "",
-    "deleteCollectionDownloadsConfirm": "",
-    "collectionDownloadsDeleted": "",
+    "deleteCollectionDownloads": "Delete downloads",
+    "deleteCollectionDownloadsConfirm": "Delete every download in \"${title}\" from this device?",
+    "collectionDownloadsDeleted": "Downloads deleted",
     "cancelledDownloadTitle": "Ləğv edilmiş yükləmə",
     "cancelledDownloadMessage": "Bu yükləmə ləğv edildi. Nə etmək istərdiniz?",
     "allEpisodesAlreadyDownloaded": "Bütün seriyalar artıq yüklənib",
@@ -1770,8 +1793,8 @@
     "noDownloadsTree": "Yükləmə yoxdur",
     "pauseAll": "Hamısını fasilə et",
     "resumeAll": "Hamısını davam etdir",
-    "retryAll": "",
-    "retryFailed": "",
+    "retryAll": "Retry all",
+    "retryFailed": "Retry failed downloads",
     "deleteAll": "Hamısını sil",
     "selectVersion": "Versiya seç",
     "allEpisodes": "Bütün seriyalar",
@@ -1843,7 +1866,7 @@
     "options": "Yükləmə seçimləri",
     "groupings": {
       "library": "Kitabxana",
-      "collections": ""
+      "collections": "Collections"
     },
     "unknownLibrary": "Məlum olmayan kitabxana",
     "unknownShow": "Məlum olmayan serial",
@@ -1996,13 +2019,13 @@
     "rotation": "Dönmə",
     "dvSource": "DV mənbəyi",
     "dvPath": "DV yolu",
-    "dvRouteDecoder": "",
-    "dvRouteDecoderP81": "",
-    "dvRouteBaseLayer": "",
-    "dvRouteBaseLayerHdr10": "",
-    "dvRouteBaseLayerHlg": "",
-    "dvRouteBaseLayerSdr": "",
-    "dvRouteReshaped": "",
+    "dvRouteDecoder": "Dolby Vision decoder",
+    "dvRouteDecoderP81": "Dolby Vision decoder (P7→8.1)",
+    "dvRouteBaseLayer": "Base layer",
+    "dvRouteBaseLayerHdr10": "HDR10 base layer",
+    "dvRouteBaseLayerHlg": "HLG base layer",
+    "dvRouteBaseLayerSdr": "SDR base layer",
+    "dvRouteReshaped": "RPU reshaped (gpu-next)",
     "p7Conversion": "P7 çevrilməsi",
     "sampleRate": "Diskretləşdirmə tezliyi",
     "pixelFormat": "Piksel formatı",
@@ -2234,8 +2257,8 @@
       "mdblist": "MDBList"
     },
     "simklReconnect": {
-      "title": "",
-      "subtitle": ""
+      "title": "Reconnect Simkl",
+      "subtitle": "Simkl is retiring the sign-in method this connection uses. Reconnecting opens simkl.com to approve Plezy — Plezy never sees your password. Your watch history stays on Simkl."
     },
     "deviceCode": {
       "title": "Plezy-ni ${service} üzərində aktivləşdirin",

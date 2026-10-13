@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Log ind med Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Spring denne version over",
     "viewRelease": "Vis udgivelse",
     "latestVersion": "Du har den nyeste version",
-    "checkFailed": "Kunne ikke søge efter opdateringer"
+    "checkFailed": "Kunne ikke søge efter opdateringer",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Indstillinger",
@@ -262,7 +270,7 @@
     "importSettingsInvalidFile": "Denne fil er ikke en gyldig eksport af Plezy-indstillinger",
     "importSettingsNoUser": "Log ind før import af indstillinger",
     "shortcutsReset": "Genveje nulstillet til standard",
-    "resetShortcutsConfirm": "",
+    "resetShortcutsConfirm": "This will replace your custom shortcuts with the defaults. Continue?",
     "about": "Om",
     "aboutDescription": "App-information og licenser",
     "updates": "Opdateringer",
@@ -348,14 +356,14 @@
     "audioPassthroughDescription": "Send Dolby/DTS-lyd til din receiver eller dit TV uden genkodning, så surroundlyd bevares. Slå fra, hvis du ikke har lyd.",
     "audioPassthroughDescriptionAppleTv": "Brug Apples indbyggede Dolby-dekoder til Dolby Digital Plus, inklusive Atmos. DTS og TrueHD afspilles stadig som flerkanals-PCM. Slå fra, hvis du ikke har lyd.",
     "audioPassthroughOverriddenByNormalization": "Fra, mens lydstyrkenormalisering er slået til",
-    "audioChannelLimit": "",
-    "audioChannelLimitDescription": "",
-    "audioChannelLimitOriginal": "",
-    "audioChannelLimitOriginalDescription": "",
-    "audioChannelLimitSurround51": "",
-    "audioChannelLimitSurround51Description": "",
-    "audioChannelLimitStereo": "",
-    "audioChannelLimitStereoDescription": "",
+    "audioChannelLimit": "Audio Channels",
+    "audioChannelLimitDescription": "Mix decoded audio down for speakers, headphones, or HDMI setups that cannot play every channel",
+    "audioChannelLimitOriginal": "Original",
+    "audioChannelLimitOriginalDescription": "Play every channel in the track",
+    "audioChannelLimitSurround51": "Up to 5.1",
+    "audioChannelLimitSurround51Description": "Mix 7.1 down to 5.1 for TVs and receivers that only take 5.1 PCM. Passthrough is unaffected.",
+    "audioChannelLimitStereo": "Stereo",
+    "audioChannelLimitStereoDescription": "Mix down to two channels for stereo speakers or headphones. Turns passthrough off.",
     "downmixCenterBoost": "Forstærkning af centerkanal",
     "downmixCenterBoostValue": "${db} dB",
     "downmixCenterBoostLabel": "Forstærkning (dB)",
@@ -450,6 +458,12 @@
     "screenshotLocationReset": "Skærmbilledets placering nulstillet til skrivebordet",
     "disableDolbyVision": "Deaktiver Dolby Vision",
     "disableDolbyVisionDescription": "Afspil filens HDR10- eller HLG-lag i stedet for Dolby Vision, når det findes",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "search": {
@@ -457,7 +471,7 @@
     "tryDifferentTerm": "Prøv en anden søgning",
     "searchYourMedia": "Søg i dine medier",
     "enterTitleActorOrKeyword": "Indtast titel, skuespiller eller nøgleord",
-    "people": ""
+    "people": "People"
   },
   "hotkeys": {
     "setShortcutFor": "Indstil genvej for ${actionName}",
@@ -491,7 +505,9 @@
       "subSeekPrev": "Søg til forrige undertekst",
       "shaderToggle": "Slå shadere til/fra",
       "skipMarker": "Spring intro/rulletekster over",
-      "screenshot": "Tag skærmbillede"
+      "screenshot": "Tag skærmbillede",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -797,6 +813,10 @@
     "osdAudio": "Lyd: ${track}",
     "volumePercent": "Lydstyrke ${percent}%",
     "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "Finjustering",
       "title": "Klip",
@@ -971,8 +991,8 @@
     "signOut": "Log ud",
     "signOutPlexTitle": "Log ud af Plex?",
     "signOutPlexMessage": "Fjern ${displayName} og alle Plex Home-brugere? Du kan altid logge ind igen.",
-    "signOutPlexDeleteDownloads": "",
-    "signOutPlexDeleteDownloadsDescription": "",
+    "signOutPlexDeleteDownloads": "Also delete downloads",
+    "signOutPlexDeleteDownloadsDescription": "Otherwise they stay on this device and come back when you sign back in to this account.",
     "signedOutPlex": "Logget ud af Plex.",
     "signOutFailed": "Kunne ikke logge ud.",
     "sectionTitle": "Profiler",
@@ -1159,7 +1179,7 @@
       "unwatched": "Usete",
       "unplayed": "Ikke afspillet",
       "favorites": "Favoritter",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "Titel",
@@ -1187,32 +1207,32 @@
       "library": "Bibliotek"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1220,7 +1240,10 @@
     "openSourceLicenses": "Open source-licenser",
     "versionLabel": "Version ${version}",
     "appDescription": "En smuk Plex-, Jellyfin- og Emby-klient bygget med Flutter",
-    "viewLicensesDescription": "Se licenser for tredjepartsbiblioteker"
+    "viewLicensesDescription": "Se licenser for tredjepartsbiblioteker",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Ingen servere fundet for ${username} (${email})",
@@ -1406,7 +1429,7 @@
       "otherMedia": "Andet"
     },
     "creditRole": {
-      "actor": "",
+      "actor": "Actor",
       "director": "Instruktør",
       "writer": "Forfatter",
       "producer": "Producer",
@@ -1750,9 +1773,9 @@
     "episodesQueued": "${count} episoder i downloadkø",
     "downloadDeleted": "Download slettet",
     "deleteConfirm": "Slet \"${title}\" fra denne enhed?",
-    "deleteCollectionDownloads": "",
-    "deleteCollectionDownloadsConfirm": "",
-    "collectionDownloadsDeleted": "",
+    "deleteCollectionDownloads": "Delete downloads",
+    "deleteCollectionDownloadsConfirm": "Delete every download in \"${title}\" from this device?",
+    "collectionDownloadsDeleted": "Downloads deleted",
     "cancelledDownloadTitle": "Annulleret download",
     "cancelledDownloadMessage": "Denne download blev annulleret. Hvad vil du gøre?",
     "allEpisodesAlreadyDownloaded": "Alle episoder er allerede downloadet",
@@ -1770,8 +1793,8 @@
     "noDownloadsTree": "Ingen downloads",
     "pauseAll": "Sæt alle på pause",
     "resumeAll": "Genoptag alle",
-    "retryAll": "",
-    "retryFailed": "",
+    "retryAll": "Retry all",
+    "retryFailed": "Retry failed downloads",
     "deleteAll": "Slet alle",
     "selectVersion": "Vælg version",
     "allEpisodes": "Alle episoder",
@@ -1843,7 +1866,7 @@
     "options": "Valgmuligheder for downloads",
     "groupings": {
       "library": "Bibliotek",
-      "collections": ""
+      "collections": "Collections"
     },
     "unknownLibrary": "Ukendt bibliotek",
     "unknownShow": "Ukendt serie",
@@ -1996,13 +2019,13 @@
     "rotation": "Rotation",
     "dvSource": "DV-kilde",
     "dvPath": "DV-sti",
-    "dvRouteDecoder": "",
-    "dvRouteDecoderP81": "",
-    "dvRouteBaseLayer": "",
-    "dvRouteBaseLayerHdr10": "",
-    "dvRouteBaseLayerHlg": "",
-    "dvRouteBaseLayerSdr": "",
-    "dvRouteReshaped": "",
+    "dvRouteDecoder": "Dolby Vision decoder",
+    "dvRouteDecoderP81": "Dolby Vision decoder (P7→8.1)",
+    "dvRouteBaseLayer": "Base layer",
+    "dvRouteBaseLayerHdr10": "HDR10 base layer",
+    "dvRouteBaseLayerHlg": "HLG base layer",
+    "dvRouteBaseLayerSdr": "SDR base layer",
+    "dvRouteReshaped": "RPU reshaped (gpu-next)",
     "p7Conversion": "P7-konv.",
     "sampleRate": "Samplingsrate",
     "pixelFormat": "Pixelformat",
@@ -2234,8 +2257,8 @@
       "mdblist": "MDBList"
     },
     "simklReconnect": {
-      "title": "",
-      "subtitle": ""
+      "title": "Reconnect Simkl",
+      "subtitle": "Simkl is retiring the sign-in method this connection uses. Reconnecting opens simkl.com to approve Plezy — Plezy never sees your password. Your watch history stays on Simkl."
     },
     "deviceCode": {
       "title": "Aktiver Plezy på ${service}",

@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "使用 Plex 登入",
@@ -113,7 +113,15 @@
     "skipVersion": "跳過此版本",
     "viewRelease": "查看版本詳情",
     "latestVersion": "已安裝的版本為最新版本",
-    "checkFailed": "無法檢查更新"
+    "checkFailed": "無法檢查更新",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "設定",
@@ -262,7 +270,7 @@
     "importSettingsInvalidFile": "此檔案不是有效的 Plezy 設定匯出檔",
     "importSettingsNoUser": "匯入設定前請先登入",
     "shortcutsReset": "快速鍵已重設為預設值",
-    "resetShortcutsConfirm": "",
+    "resetShortcutsConfirm": "This will replace your custom shortcuts with the defaults. Continue?",
     "about": "關於",
     "aboutDescription": "應用程式資訊與授權條款",
     "updates": "更新",
@@ -348,14 +356,14 @@
     "audioPassthroughDescription": "將 Dolby/DTS 音訊不經重新編碼，直接傳送至擴大機或電視以保留環繞音效。若播放無聲，請關閉此設定。",
     "audioPassthroughDescriptionAppleTv": "使用 Apple 原生 Dolby 解碼器處理 Dolby Digital Plus（包括 Atmos）。DTS 與 TrueHD 仍以多聲道 PCM 播放。若沒有聲音，請關閉此設定。",
     "audioPassthroughOverriddenByNormalization": "音量標準化開啟時停用",
-    "audioChannelLimit": "",
-    "audioChannelLimitDescription": "",
-    "audioChannelLimitOriginal": "",
-    "audioChannelLimitOriginalDescription": "",
-    "audioChannelLimitSurround51": "",
-    "audioChannelLimitSurround51Description": "",
-    "audioChannelLimitStereo": "",
-    "audioChannelLimitStereoDescription": "",
+    "audioChannelLimit": "Audio Channels",
+    "audioChannelLimitDescription": "Mix decoded audio down for speakers, headphones, or HDMI setups that cannot play every channel",
+    "audioChannelLimitOriginal": "Original",
+    "audioChannelLimitOriginalDescription": "Play every channel in the track",
+    "audioChannelLimitSurround51": "Up to 5.1",
+    "audioChannelLimitSurround51Description": "Mix 7.1 down to 5.1 for TVs and receivers that only take 5.1 PCM. Passthrough is unaffected.",
+    "audioChannelLimitStereo": "Stereo",
+    "audioChannelLimitStereoDescription": "Mix down to two channels for stereo speakers or headphones. Turns passthrough off.",
     "downmixCenterBoost": "中置聲道增強",
     "downmixCenterBoostValue": "${db} dB",
     "downmixCenterBoostLabel": "增強（dB）",
@@ -450,6 +458,12 @@
     "screenshotLocationReset": "螢幕截圖儲存位置已重設為桌面",
     "disableDolbyVision": "停用 Dolby Vision",
     "disableDolbyVisionDescription": "檔案包含 HDR10 或 HLG 層時，改為播放該層而非 Dolby Vision",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "search": {
@@ -457,7 +471,7 @@
     "tryDifferentTerm": "嘗試不同的關鍵字",
     "searchYourMedia": "搜尋媒體庫",
     "enterTitleActorOrKeyword": "輸入標題、演員或關鍵字",
-    "people": ""
+    "people": "People"
   },
   "hotkeys": {
     "setShortcutFor": "為 ${actionName} 設定快速鍵",
@@ -491,7 +505,9 @@
       "subSeekPrev": "跳轉至上一句字幕",
       "shaderToggle": "切換著色器",
       "skipMarker": "跳過片頭/片尾",
-      "screenshot": "螢幕截圖"
+      "screenshot": "螢幕截圖",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -636,12 +652,15 @@
     "confirmDeleteTarget": "確定要從您的伺服器永久刪除「${title}」嗎？",
     "deleteMultipleWarning": "這將會刪除所有單集及其檔案。",
     "deleteEpisodeCountWarning": {
+      "one": "This deletes all ${n} episode in it, and its file.",
       "other": "這會刪除其中全部 ${n} 集及其檔案。"
     },
     "deleteMultiPartWarning": {
+      "one": "This item is stored as ${n} file, which will be deleted.",
       "other": "此項目分散儲存於 ${n} 個檔案中，且全部都會被刪除。"
     },
     "deleteSharedFileHeading": {
+      "one": "${n} other episode is stored in the same file and will be deleted too:",
       "other": "另有 ${n} 集儲存在同一檔案中，也會一併被刪除："
     },
     "deleteScopeUnverifiedProbeFailed": "Plezy 無法確認此操作會刪除哪些檔案，因此刪除範圍可能超出上方所列的項目。請取消後重試，或仍要刪除。",
@@ -794,6 +813,10 @@
     "osdAudio": "音訊：${track}",
     "volumePercent": "音量 ${percent}%",
     "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "微調",
       "title": "短片",
@@ -842,6 +865,7 @@
     "markedAsUnwatchedOffline": "已標記為未觀看（將在連線時同步）",
     "autoRemovedWatchedDownload": "已自動移除：${title}",
     "autoRemovedWatchedDownloads": {
+      "one": "Auto-removed ${n} watched download",
       "other": "已自動移除 ${n} 個已觀看的下載內容"
     },
     "removedFromContinueWatching": "已從「繼續觀看」中移除",
@@ -967,8 +991,8 @@
     "signOut": "登出",
     "signOutPlexTitle": "登出 Plex？",
     "signOutPlexMessage": "確定要移除 ${displayName} 與所有 Plex Home 使用者嗎？您可以隨時重新登入。",
-    "signOutPlexDeleteDownloads": "",
-    "signOutPlexDeleteDownloadsDescription": "",
+    "signOutPlexDeleteDownloads": "Also delete downloads",
+    "signOutPlexDeleteDownloadsDescription": "Otherwise they stay on this device and come back when you sign back in to this account.",
     "signedOutPlex": "已登出 Plex。",
     "signOutFailed": "登出失敗。",
     "sectionTitle": "使用者設定檔",
@@ -1062,6 +1086,7 @@
     "minutesLeft": "剩餘 ${minutes} 分鐘",
     "moreLikeThis": "更多類似內容",
     "titleCount": {
+      "one": "${n} title",
       "other": "${n} 部作品"
     }
   },
@@ -1154,7 +1179,7 @@
       "unwatched": "未觀看",
       "unplayed": "未播放",
       "favorites": "我的最愛",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "標題",
@@ -1182,32 +1207,32 @@
       "library": "媒體庫"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1215,7 +1240,10 @@
     "openSourceLicenses": "開源授權條款",
     "versionLabel": "版本 ${version}",
     "appDescription": "一款精美的 Plex、Jellyfin 與 Emby Flutter 用戶端",
-    "viewLicensesDescription": "查看第三方套件的授權條款"
+    "viewLicensesDescription": "查看第三方套件的授權條款",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "找不到 ${username}（${email}） 的伺服器",
@@ -1304,6 +1332,7 @@
       "upcoming": "即將上線"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n} 集"
     },
     "cast": "演員陣容",
@@ -1319,6 +1348,7 @@
     "inTheseLibraries": "在這些媒體庫中",
     "checkingLibrary": "正在檢查您的媒體庫…",
     "libraryCheckFailed": {
+      "one": "Couldn't check ${n} server",
       "other": "無法檢查 ${n} 台伺服器"
     },
     "emptyTitle": "這裡還沒有任何內容",
@@ -1361,6 +1391,7 @@
       "favorited": "${n} 人收藏",
       "dropRate": "${percent} 的人棄番",
       "comments": {
+        "one": "${n} comment",
         "other": "${n} 則留言"
       },
       "votes": "${n} 票",
@@ -1398,7 +1429,7 @@
       "otherMedia": "其他"
     },
     "creditRole": {
-      "actor": "",
+      "actor": "Actor",
       "director": "導演",
       "writer": "編劇",
       "producer": "製作人",
@@ -1442,6 +1473,7 @@
       "ratings": "評分",
       "schedule": "播出時間",
       "recommendedByUsers": {
+        "one": "Recommended by ${n} user",
         "other": "${n} 位使用者推薦"
       },
       "recommendedBy": "由 ${who} 推薦",
@@ -1452,6 +1484,7 @@
       "background": "背景介紹"
     },
     "totalResults": {
+      "one": "${n} result",
       "other": "${n} 筆結果"
     }
   },
@@ -1609,6 +1642,7 @@
     "addToQueue": "新增至佇列",
     "discNumber": "CD ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n} 首"
     },
     "nowPlaying": "正在播放",
@@ -1739,9 +1773,9 @@
     "episodesQueued": "已將 ${count} 集影片加入下載佇列",
     "downloadDeleted": "下載內容已刪除",
     "deleteConfirm": "確定要從此裝置刪除「${title}」嗎？",
-    "deleteCollectionDownloads": "",
-    "deleteCollectionDownloadsConfirm": "",
-    "collectionDownloadsDeleted": "",
+    "deleteCollectionDownloads": "Delete downloads",
+    "deleteCollectionDownloadsConfirm": "Delete every download in \"${title}\" from this device?",
+    "collectionDownloadsDeleted": "Downloads deleted",
     "cancelledDownloadTitle": "已取消的下載",
     "cancelledDownloadMessage": "此下載已取消。您想要如何處理？",
     "allEpisodesAlreadyDownloaded": "所有單集都已下載完成",
@@ -1759,8 +1793,8 @@
     "noDownloadsTree": "目前沒有下載內容",
     "pauseAll": "全部暫停",
     "resumeAll": "全部繼續",
-    "retryAll": "",
-    "retryFailed": "",
+    "retryAll": "Retry all",
+    "retryFailed": "Retry failed downloads",
     "deleteAll": "全部刪除",
     "selectVersion": "選擇版本",
     "allEpisodes": "所有單集",
@@ -1832,7 +1866,7 @@
     "options": "下載選項",
     "groupings": {
       "library": "媒體庫",
-      "collections": ""
+      "collections": "Collections"
     },
     "unknownLibrary": "未知媒體庫",
     "unknownShow": "未知節目",
@@ -1985,13 +2019,13 @@
     "rotation": "旋轉角度",
     "dvSource": "DV 來源",
     "dvPath": "DV 路徑",
-    "dvRouteDecoder": "",
-    "dvRouteDecoderP81": "",
-    "dvRouteBaseLayer": "",
-    "dvRouteBaseLayerHdr10": "",
-    "dvRouteBaseLayerHlg": "",
-    "dvRouteBaseLayerSdr": "",
-    "dvRouteReshaped": "",
+    "dvRouteDecoder": "Dolby Vision decoder",
+    "dvRouteDecoderP81": "Dolby Vision decoder (P7→8.1)",
+    "dvRouteBaseLayer": "Base layer",
+    "dvRouteBaseLayerHdr10": "HDR10 base layer",
+    "dvRouteBaseLayerHlg": "HLG base layer",
+    "dvRouteBaseLayerSdr": "SDR base layer",
+    "dvRouteReshaped": "RPU reshaped (gpu-next)",
     "p7Conversion": "P7 轉換",
     "sampleRate": "取樣率",
     "pixelFormat": "像素格式",
@@ -2223,8 +2257,8 @@
       "mdblist": "MDBList"
     },
     "simklReconnect": {
-      "title": "",
-      "subtitle": ""
+      "title": "Reconnect Simkl",
+      "subtitle": "Simkl is retiring the sign-in method this connection uses. Reconnecting opens simkl.com to approve Plezy — Plezy never sees your password. Your watch history stays on Simkl."
     },
     "deviceCode": {
       "title": "在 ${service} 啟用 Plezy",

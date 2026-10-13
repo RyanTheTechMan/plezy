@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Войти через Plex",
@@ -113,7 +113,15 @@
     "skipVersion": "Пропустить эту версию",
     "viewRelease": "Посмотреть релиз",
     "latestVersion": "У вас последняя версия",
-    "checkFailed": "Не удалось проверить обновления"
+    "checkFailed": "Не удалось проверить обновления",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Настройки",
@@ -262,7 +270,7 @@
     "importSettingsInvalidFile": "Этот файл не является действительным экспортом настроек Plezy",
     "importSettingsNoUser": "Войдите в систему перед импортом настроек",
     "shortcutsReset": "Горячие клавиши сброшены по умолчанию",
-    "resetShortcutsConfirm": "",
+    "resetShortcutsConfirm": "This will replace your custom shortcuts with the defaults. Continue?",
     "about": "О приложении",
     "aboutDescription": "Информация о приложении и лицензии",
     "updates": "Обновления",
@@ -348,14 +356,14 @@
     "audioPassthroughDescription": "Передавать звук Dolby/DTS на ресивер или телевизор без перекодирования, сохраняя объёмный звук. Отключите, если нет звука.",
     "audioPassthroughDescriptionAppleTv": "Использовать встроенный декодер Dolby от Apple для Dolby Digital Plus, включая Atmos. DTS и TrueHD по-прежнему воспроизводятся как многоканальный PCM. Отключите, если звук отсутствует.",
     "audioPassthroughOverriddenByNormalization": "Отключено при включённой нормализации громкости",
-    "audioChannelLimit": "",
-    "audioChannelLimitDescription": "",
-    "audioChannelLimitOriginal": "",
-    "audioChannelLimitOriginalDescription": "",
-    "audioChannelLimitSurround51": "",
-    "audioChannelLimitSurround51Description": "",
-    "audioChannelLimitStereo": "",
-    "audioChannelLimitStereoDescription": "",
+    "audioChannelLimit": "Audio Channels",
+    "audioChannelLimitDescription": "Mix decoded audio down for speakers, headphones, or HDMI setups that cannot play every channel",
+    "audioChannelLimitOriginal": "Original",
+    "audioChannelLimitOriginalDescription": "Play every channel in the track",
+    "audioChannelLimitSurround51": "Up to 5.1",
+    "audioChannelLimitSurround51Description": "Mix 7.1 down to 5.1 for TVs and receivers that only take 5.1 PCM. Passthrough is unaffected.",
+    "audioChannelLimitStereo": "Stereo",
+    "audioChannelLimitStereoDescription": "Mix down to two channels for stereo speakers or headphones. Turns passthrough off.",
     "downmixCenterBoost": "Усиление центрального канала",
     "downmixCenterBoostValue": "${db} дБ",
     "downmixCenterBoostLabel": "Усиление (дБ)",
@@ -450,6 +458,12 @@
     "screenshotLocationReset": "Сброс местоположения скриншота на рабочий стол",
     "disableDolbyVision": "Отключить Dolby Vision",
     "disableDolbyVisionDescription": "Воспроизводить слой HDR10 или HLG из файла вместо Dolby Vision, если он есть",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "search": {
@@ -457,7 +471,7 @@
     "tryDifferentTerm": "Попробуйте другой запрос",
     "searchYourMedia": "Поиск в вашей медиатеке",
     "enterTitleActorOrKeyword": "Введите название, актёра или ключевое слово",
-    "people": ""
+    "people": "People"
   },
   "hotkeys": {
     "setShortcutFor": "Назначить клавишу для ${actionName}",
@@ -491,7 +505,9 @@
       "subSeekPrev": "К предыдущему субтитру",
       "shaderToggle": "Вкл./выкл. шейдеры",
       "skipMarker": "Пропустить вступление/титры",
-      "screenshot": "Сделать снимок экрана"
+      "screenshot": "Сделать снимок экрана",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -803,6 +819,12 @@
     "osdAudio": "Аудио: ${track}",
     "volumePercent": "Громкость ${percent}%",
     "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "frameCount": {
+      "one": "${n} frame",
+      "few": "",
+      "many": "",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "Точная настройка",
       "title": "Клип",
@@ -979,8 +1001,8 @@
     "signOut": "Выйти",
     "signOutPlexTitle": "Выйти из Plex?",
     "signOutPlexMessage": "Удалить ${displayName} и всех пользователей Plex Home? Вы сможете войти снова в любое время.",
-    "signOutPlexDeleteDownloads": "",
-    "signOutPlexDeleteDownloadsDescription": "",
+    "signOutPlexDeleteDownloads": "Also delete downloads",
+    "signOutPlexDeleteDownloadsDescription": "Otherwise they stay on this device and come back when you sign back in to this account.",
     "signedOutPlex": "Вы вышли из Plex.",
     "signOutFailed": "Не удалось выйти.",
     "sectionTitle": "Профили",
@@ -1169,7 +1191,7 @@
       "unwatched": "Непросмотренные",
       "unplayed": "Не прослушано",
       "favorites": "Избранное",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "Название",
@@ -1197,32 +1219,32 @@
       "library": "Библиотека"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1230,7 +1252,10 @@
     "openSourceLicenses": "Лицензии открытого ПО",
     "versionLabel": "Версия ${version}",
     "appDescription": "Красивый клиент Plex, Jellyfin и Emby на Flutter",
-    "viewLicensesDescription": "Просмотр лицензий сторонних библиотек"
+    "viewLicensesDescription": "Просмотр лицензий сторонних библиотек",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Серверы не найдены для ${username} (${email})",
@@ -1422,7 +1447,7 @@
       "otherMedia": "Другое"
     },
     "creditRole": {
-      "actor": "",
+      "actor": "Actor",
       "director": "Режиссёр",
       "writer": "Сценарист",
       "producer": "Продюсер",
@@ -1772,9 +1797,9 @@
     "episodesQueued": "${count} эпизодов поставлено в очередь загрузки",
     "downloadDeleted": "Загрузка удалена",
     "deleteConfirm": "Удалить \"${title}\" с этого устройства?",
-    "deleteCollectionDownloads": "",
-    "deleteCollectionDownloadsConfirm": "",
-    "collectionDownloadsDeleted": "",
+    "deleteCollectionDownloads": "Delete downloads",
+    "deleteCollectionDownloadsConfirm": "Delete every download in \"${title}\" from this device?",
+    "collectionDownloadsDeleted": "Downloads deleted",
     "cancelledDownloadTitle": "Загрузка отменена",
     "cancelledDownloadMessage": "Эта загрузка была отменена. Что вы хотите сделать?",
     "allEpisodesAlreadyDownloaded": "Все эпизоды уже загружены",
@@ -1792,8 +1817,8 @@
     "noDownloadsTree": "Нет загрузок",
     "pauseAll": "Приостановить все",
     "resumeAll": "Возобновить все",
-    "retryAll": "",
-    "retryFailed": "",
+    "retryAll": "Retry all",
+    "retryFailed": "Retry failed downloads",
     "deleteAll": "Удалить все",
     "selectVersion": "Выбрать версию",
     "allEpisodes": "Все эпизоды",
@@ -1865,7 +1890,7 @@
     "options": "Параметры загрузок",
     "groupings": {
       "library": "Библиотека",
-      "collections": ""
+      "collections": "Collections"
     },
     "unknownLibrary": "Неизвестная библиотека",
     "unknownShow": "Неизвестный сериал",
@@ -2018,13 +2043,13 @@
     "rotation": "Поворот",
     "dvSource": "Источник DV",
     "dvPath": "Путь DV",
-    "dvRouteDecoder": "",
-    "dvRouteDecoderP81": "",
-    "dvRouteBaseLayer": "",
-    "dvRouteBaseLayerHdr10": "",
-    "dvRouteBaseLayerHlg": "",
-    "dvRouteBaseLayerSdr": "",
-    "dvRouteReshaped": "",
+    "dvRouteDecoder": "Dolby Vision decoder",
+    "dvRouteDecoderP81": "Dolby Vision decoder (P7→8.1)",
+    "dvRouteBaseLayer": "Base layer",
+    "dvRouteBaseLayerHdr10": "HDR10 base layer",
+    "dvRouteBaseLayerHlg": "HLG base layer",
+    "dvRouteBaseLayerSdr": "SDR base layer",
+    "dvRouteReshaped": "RPU reshaped (gpu-next)",
     "p7Conversion": "Конв. P7",
     "sampleRate": "Частота дискр.",
     "pixelFormat": "Формат пикселей",
@@ -2256,8 +2281,8 @@
       "mdblist": "MDBList"
     },
     "simklReconnect": {
-      "title": "",
-      "subtitle": ""
+      "title": "Reconnect Simkl",
+      "subtitle": "Simkl is retiring the sign-in method this connection uses. Reconnecting opens simkl.com to approve Plezy — Plezy never sees your password. Your watch history stays on Simkl."
     },
     "deviceCode": {
       "title": "Активируйте Plezy в ${service}",

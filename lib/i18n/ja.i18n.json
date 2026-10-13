@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Plexでサインイン",
@@ -113,7 +113,15 @@
     "skipVersion": "このバージョンをスキップ",
     "viewRelease": "リリースを表示",
     "latestVersion": "最新バージョンです",
-    "checkFailed": "アップデートの確認に失敗しました"
+    "checkFailed": "アップデートの確認に失敗しました",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "設定",
@@ -262,7 +270,7 @@
     "importSettingsInvalidFile": "このファイルは有効なPlezyの設定エクスポートではありません",
     "importSettingsNoUser": "設定をインポートする前にサインインしてください",
     "shortcutsReset": "ショートカットをデフォルトにリセットしました",
-    "resetShortcutsConfirm": "",
+    "resetShortcutsConfirm": "This will replace your custom shortcuts with the defaults. Continue?",
     "about": "アプリについて",
     "aboutDescription": "アプリ情報とライセンス",
     "updates": "アップデート",
@@ -348,14 +356,14 @@
     "audioPassthroughDescription": "Dolby/DTS音声を再エンコードせずにレシーバーやテレビに送り、サラウンドを維持します。音が出ない場合は無効にしてください。",
     "audioPassthroughDescriptionAppleTv": "Dolby Atmosを含むDolby Digital PlusにはApple標準のDolbyデコーダーを使用します。DTSとTrueHDは引き続きマルチチャンネルPCMで再生されます。音が出ない場合は無効にしてください。",
     "audioPassthroughOverriddenByNormalization": "ラウドネス正規化がオンの間はオフ",
-    "audioChannelLimit": "",
-    "audioChannelLimitDescription": "",
-    "audioChannelLimitOriginal": "",
-    "audioChannelLimitOriginalDescription": "",
-    "audioChannelLimitSurround51": "",
-    "audioChannelLimitSurround51Description": "",
-    "audioChannelLimitStereo": "",
-    "audioChannelLimitStereoDescription": "",
+    "audioChannelLimit": "Audio Channels",
+    "audioChannelLimitDescription": "Mix decoded audio down for speakers, headphones, or HDMI setups that cannot play every channel",
+    "audioChannelLimitOriginal": "Original",
+    "audioChannelLimitOriginalDescription": "Play every channel in the track",
+    "audioChannelLimitSurround51": "Up to 5.1",
+    "audioChannelLimitSurround51Description": "Mix 7.1 down to 5.1 for TVs and receivers that only take 5.1 PCM. Passthrough is unaffected.",
+    "audioChannelLimitStereo": "Stereo",
+    "audioChannelLimitStereoDescription": "Mix down to two channels for stereo speakers or headphones. Turns passthrough off.",
     "downmixCenterBoost": "センターチャンネルブースト",
     "downmixCenterBoostValue": "${db} dB",
     "downmixCenterBoostLabel": "ブースト (dB)",
@@ -450,6 +458,12 @@
     "screenshotLocationReset": "スクリーンショットの場所がデスクトップにリセットされました",
     "disableDolbyVision": "Dolby Vision を無効にする",
     "disableDolbyVisionDescription": "ファイルに HDR10 または HLG レイヤーがある場合は、Dolby Vision の代わりにそれを再生します",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "search": {
@@ -457,7 +471,7 @@
     "tryDifferentTerm": "別の検索語をお試しください",
     "searchYourMedia": "メディアを検索",
     "enterTitleActorOrKeyword": "タイトル、俳優、またはキーワードを入力",
-    "people": ""
+    "people": "People"
   },
   "hotkeys": {
     "setShortcutFor": "${actionName}のショートカットを設定",
@@ -491,7 +505,9 @@
       "subSeekPrev": "前の字幕にシーク",
       "shaderToggle": "シェーダー切替",
       "skipMarker": "イントロ/クレジットをスキップ",
-      "screenshot": "スクリーンショットを撮る"
+      "screenshot": "スクリーンショットを撮る",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -636,12 +652,15 @@
     "confirmDeleteTarget": "サーバーから「${title}」を完全に削除しますか？",
     "deleteMultipleWarning": "すべてのエピソードとそのファイルが含まれます。",
     "deleteEpisodeCountWarning": {
+      "one": "This deletes all ${n} episode in it, and its file.",
       "other": "中の全${n}エピソードとそのファイルが削除されます。"
     },
     "deleteMultiPartWarning": {
+      "one": "This item is stored as ${n} file, which will be deleted.",
       "other": "このアイテムは${n}個のファイルにまたがって保存されており、すべて削除されます。"
     },
     "deleteSharedFileHeading": {
+      "one": "${n} other episode is stored in the same file and will be deleted too:",
       "other": "同じファイルに保存されている他の${n}エピソードも削除されます："
     },
     "deleteScopeUnverifiedProbeFailed": "Plezyは削除対象のファイルを確認できなかったため、上記のアイテム以上に削除される可能性があります。キャンセルして再試行するか、それでも削除してください。",
@@ -794,6 +813,10 @@
     "osdAudio": "音声: ${track}",
     "volumePercent": "音量 ${percent}%",
     "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "微調整",
       "title": "クリップ",
@@ -842,6 +865,7 @@
     "markedAsUnwatchedOffline": "未視聴にしました（オンライン時に同期）",
     "autoRemovedWatchedDownload": "自動削除: ${title}",
     "autoRemovedWatchedDownloads": {
+      "one": "Auto-removed ${n} watched download",
       "other": "視聴済みダウンロードを${n}件自動削除しました"
     },
     "removedFromContinueWatching": "視聴中から削除しました",
@@ -967,8 +991,8 @@
     "signOut": "サインアウト",
     "signOutPlexTitle": "Plexからサインアウトしますか？",
     "signOutPlexMessage": "${displayName}とすべてのPlex Homeユーザーを削除しますか？いつでも再度サインインできます。",
-    "signOutPlexDeleteDownloads": "",
-    "signOutPlexDeleteDownloadsDescription": "",
+    "signOutPlexDeleteDownloads": "Also delete downloads",
+    "signOutPlexDeleteDownloadsDescription": "Otherwise they stay on this device and come back when you sign back in to this account.",
     "signedOutPlex": "Plexからサインアウトしました。",
     "signOutFailed": "サインアウトに失敗しました。",
     "sectionTitle": "プロフィール",
@@ -1062,6 +1086,7 @@
     "minutesLeft": "残り${minutes}分",
     "moreLikeThis": "似ている作品",
     "titleCount": {
+      "one": "${n} title",
       "other": "${n}作品"
     }
   },
@@ -1154,7 +1179,7 @@
       "unwatched": "未視聴",
       "unplayed": "未再生",
       "favorites": "お気に入り",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "タイトル",
@@ -1182,32 +1207,32 @@
       "library": "ライブラリ"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1215,7 +1240,10 @@
     "openSourceLicenses": "オープンソースライセンス",
     "versionLabel": "バージョン ${version}",
     "appDescription": "Flutter製の美しいPlex・Jellyfin・Embyクライアント",
-    "viewLicensesDescription": "サードパーティライブラリのライセンスを表示"
+    "viewLicensesDescription": "サードパーティライブラリのライセンスを表示",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email})のサーバーが見つかりません",
@@ -1304,6 +1332,7 @@
       "upcoming": "放送予定"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n}話"
     },
     "cast": "キャスト",
@@ -1319,6 +1348,7 @@
     "inTheseLibraries": "これらのライブラリにあります",
     "checkingLibrary": "ライブラリを確認中…",
     "libraryCheckFailed": {
+      "one": "Couldn't check ${n} server",
       "other": "${n}台のサーバーを確認できませんでした"
     },
     "emptyTitle": "まだ何もありません",
@@ -1361,6 +1391,7 @@
       "favorited": "お気に入り ${n}件",
       "dropRate": "${percent}が視聴中止",
       "comments": {
+        "one": "${n} comment",
         "other": "コメント ${n}件"
       },
       "votes": "投票 ${n}件",
@@ -1398,7 +1429,7 @@
       "otherMedia": "その他"
     },
     "creditRole": {
-      "actor": "",
+      "actor": "Actor",
       "director": "監督",
       "writer": "脚本",
       "producer": "プロデューサー",
@@ -1442,6 +1473,7 @@
       "ratings": "評価",
       "schedule": "放送予定",
       "recommendedByUsers": {
+        "one": "Recommended by ${n} user",
         "other": "${n}人のユーザーがおすすめ"
       },
       "recommendedBy": "${who}がおすすめ",
@@ -1452,6 +1484,7 @@
       "background": "背景"
     },
     "totalResults": {
+      "one": "${n} result",
       "other": "${n}件の結果"
     }
   },
@@ -1609,6 +1642,7 @@
     "addToQueue": "キューに追加",
     "discNumber": "ディスク ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n}曲"
     },
     "nowPlaying": "再生中",
@@ -1739,9 +1773,9 @@
     "episodesQueued": "${count}エピソードをダウンロードキューに追加しました",
     "downloadDeleted": "ダウンロードを削除しました",
     "deleteConfirm": "このデバイスから「${title}」を削除しますか？",
-    "deleteCollectionDownloads": "",
-    "deleteCollectionDownloadsConfirm": "",
-    "collectionDownloadsDeleted": "",
+    "deleteCollectionDownloads": "Delete downloads",
+    "deleteCollectionDownloadsConfirm": "Delete every download in \"${title}\" from this device?",
+    "collectionDownloadsDeleted": "Downloads deleted",
     "cancelledDownloadTitle": "キャンセル済みのダウンロード",
     "cancelledDownloadMessage": "このダウンロードはキャンセルされました。どうしますか？",
     "allEpisodesAlreadyDownloaded": "すべてのエピソードはすでにダウンロード済みです",
@@ -1759,8 +1793,8 @@
     "noDownloadsTree": "ダウンロードなし",
     "pauseAll": "すべて一時停止",
     "resumeAll": "すべて再開",
-    "retryAll": "",
-    "retryFailed": "",
+    "retryAll": "Retry all",
+    "retryFailed": "Retry failed downloads",
     "deleteAll": "すべて削除",
     "selectVersion": "バージョンを選択",
     "allEpisodes": "すべてのエピソード",
@@ -1832,7 +1866,7 @@
     "options": "ダウンロードのオプション",
     "groupings": {
       "library": "ライブラリ",
-      "collections": ""
+      "collections": "Collections"
     },
     "unknownLibrary": "不明なライブラリ",
     "unknownShow": "不明な番組",
@@ -1985,13 +2019,13 @@
     "rotation": "回転",
     "dvSource": "DV ソース",
     "dvPath": "DV パス",
-    "dvRouteDecoder": "",
-    "dvRouteDecoderP81": "",
-    "dvRouteBaseLayer": "",
-    "dvRouteBaseLayerHdr10": "",
-    "dvRouteBaseLayerHlg": "",
-    "dvRouteBaseLayerSdr": "",
-    "dvRouteReshaped": "",
+    "dvRouteDecoder": "Dolby Vision decoder",
+    "dvRouteDecoderP81": "Dolby Vision decoder (P7→8.1)",
+    "dvRouteBaseLayer": "Base layer",
+    "dvRouteBaseLayerHdr10": "HDR10 base layer",
+    "dvRouteBaseLayerHlg": "HLG base layer",
+    "dvRouteBaseLayerSdr": "SDR base layer",
+    "dvRouteReshaped": "RPU reshaped (gpu-next)",
     "p7Conversion": "P7 変換",
     "sampleRate": "サンプルレート",
     "pixelFormat": "ピクセル形式",
@@ -2223,8 +2257,8 @@
       "mdblist": "MDBList"
     },
     "simklReconnect": {
-      "title": "",
-      "subtitle": ""
+      "title": "Reconnect Simkl",
+      "subtitle": "Simkl is retiring the sign-in method this connection uses. Reconnecting opens simkl.com to approve Plezy — Plezy never sees your password. Your watch history stays on Simkl."
     },
     "deviceCode": {
       "title": "${service} で Plezy を有効化",

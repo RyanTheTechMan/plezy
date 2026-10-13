@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Plex арқылы кіру",
@@ -113,7 +113,15 @@
     "skipVersion": "Бұл нұсқаны өткізіп жіберу",
     "viewRelease": "Релизді көру",
     "latestVersion": "Сізде ең соңғы нұсқа орнатылған",
-    "checkFailed": "Жаңартуларды тексеру мүмкін болмады"
+    "checkFailed": "Жаңартуларды тексеру мүмкін болмады",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Баптаулар",
@@ -262,7 +270,7 @@
     "importSettingsInvalidFile": "Бұл файл дұрыс Plezy баптаулар файлы емес",
     "importSettingsNoUser": "Баптауларды импорттау алдында жүйеге кіріңіз",
     "shortcutsReset": "Пернелер тіркесі әдепкі күйге қайтарылды",
-    "resetShortcutsConfirm": "",
+    "resetShortcutsConfirm": "This will replace your custom shortcuts with the defaults. Continue?",
     "about": "Қолданба туралы",
     "aboutDescription": "Қолданба туралы ақпарат пен лицензиялар",
     "updates": "Жаңартулар",
@@ -348,14 +356,14 @@
     "audioPassthroughDescription": "Dolby/DTS дыбысын қайта кодтамай, көлемдік дыбысты сақтап ресиверге немесе теледидарға жіберу. Дыбыс болмаса, өшіріңіз.",
     "audioPassthroughDescriptionAppleTv": "Dolby Digital Plus, соның ішінде Atmos үшін Apple-дың өз Dolby декодерін пайдалану. DTS және TrueHD бұрынғыша көпарналы PCM ретінде ойнатылады. Дыбыс болмаса, өшіріңіз.",
     "audioPassthroughOverriddenByNormalization": "Дыбыс деңгейін нормалау қосулы кезде өшірулі",
-    "audioChannelLimit": "",
-    "audioChannelLimitDescription": "",
-    "audioChannelLimitOriginal": "",
-    "audioChannelLimitOriginalDescription": "",
-    "audioChannelLimitSurround51": "",
-    "audioChannelLimitSurround51Description": "",
-    "audioChannelLimitStereo": "",
-    "audioChannelLimitStereoDescription": "",
+    "audioChannelLimit": "Audio Channels",
+    "audioChannelLimitDescription": "Mix decoded audio down for speakers, headphones, or HDMI setups that cannot play every channel",
+    "audioChannelLimitOriginal": "Original",
+    "audioChannelLimitOriginalDescription": "Play every channel in the track",
+    "audioChannelLimitSurround51": "Up to 5.1",
+    "audioChannelLimitSurround51Description": "Mix 7.1 down to 5.1 for TVs and receivers that only take 5.1 PCM. Passthrough is unaffected.",
+    "audioChannelLimitStereo": "Stereo",
+    "audioChannelLimitStereoDescription": "Mix down to two channels for stereo speakers or headphones. Turns passthrough off.",
     "downmixCenterBoost": "Орталық арнаны күшейту",
     "downmixCenterBoostValue": "${db} дБ",
     "downmixCenterBoostLabel": "Күшейту (дБ)",
@@ -450,6 +458,12 @@
     "screenshotLocationReset": "Экран суреттерін сақтау орны Жұмыс үстеліне қайтарылды",
     "disableDolbyVision": "Dolby Vision-ды өшіру",
     "disableDolbyVisionDescription": "Файлда бар болса, Dolby Vision орнына HDR10 немесе HLG қабатын ойнату",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "search": {
@@ -457,7 +471,7 @@
     "tryDifferentTerm": "Басқа іздеу сөзін байқап көріңіз",
     "searchYourMedia": "Медиафайлдардан іздеу",
     "enterTitleActorOrKeyword": "Атауын, актерді немесе кілт сөзді енгізіңіз",
-    "people": ""
+    "people": "People"
   },
   "hotkeys": {
     "setShortcutFor": "${actionName} үшін пернелер тіркесін орнату",
@@ -491,7 +505,9 @@
       "subSeekPrev": "Алдыңғы субтитрге өту",
       "shaderToggle": "Шейдерлерді қосу/өшіру",
       "skipMarker": "Интро/Титрді өткізу",
-      "screenshot": "Экран суретін түсіру"
+      "screenshot": "Экран суретін түсіру",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -797,6 +813,10 @@
     "osdAudio": "Дыбыс: ${track}",
     "volumePercent": "Дыбыс ${percent}%",
     "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "Дәл реттеу",
       "title": "Клип",
@@ -971,8 +991,8 @@
     "signOut": "Шығу",
     "signOutPlexTitle": "Plex-тен шығу?",
     "signOutPlexMessage": "${displayName} мен барлық Plex Home пайдаланушылары өшірілсін бе? Кез келген уақытта қайта кіре аласыз.",
-    "signOutPlexDeleteDownloads": "",
-    "signOutPlexDeleteDownloadsDescription": "",
+    "signOutPlexDeleteDownloads": "Also delete downloads",
+    "signOutPlexDeleteDownloadsDescription": "Otherwise they stay on this device and come back when you sign back in to this account.",
     "signedOutPlex": "Plex-тен шықтыңыз.",
     "signOutFailed": "Шығу мүмкін болмады.",
     "sectionTitle": "Профильдер",
@@ -1159,7 +1179,7 @@
       "unwatched": "Көрілмеген",
       "unplayed": "Ойнатылмаған",
       "favorites": "Таңдаулылар",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "Атауы",
@@ -1187,32 +1207,32 @@
       "library": "Кітапхана"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1220,7 +1240,10 @@
     "openSourceLicenses": "Ашық бастапқы код лицензиялары",
     "versionLabel": "Нұсқа ${version}",
     "appDescription": "Flutter негізіндегі ыңғайлы Plex, Jellyfin және Emby клиенті",
-    "viewLicensesDescription": "Үшінші тарап кітапханаларының лицензияларын көру"
+    "viewLicensesDescription": "Үшінші тарап кітапханаларының лицензияларын көру",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email}) үшін серверлер табылмады",
@@ -1406,7 +1429,7 @@
       "otherMedia": "Басқа"
     },
     "creditRole": {
-      "actor": "",
+      "actor": "Actor",
       "director": "Режиссер",
       "writer": "Сценарист",
       "producer": "Продюсер",
@@ -1750,9 +1773,9 @@
     "episodesQueued": "${count} бөлім жүктеу кезегіне қосылды",
     "downloadDeleted": "Жүктеу өшірілді",
     "deleteConfirm": "\"${title}\" осы құрылғыдан өшірілсін бе?",
-    "deleteCollectionDownloads": "",
-    "deleteCollectionDownloadsConfirm": "",
-    "collectionDownloadsDeleted": "",
+    "deleteCollectionDownloads": "Delete downloads",
+    "deleteCollectionDownloadsConfirm": "Delete every download in \"${title}\" from this device?",
+    "collectionDownloadsDeleted": "Downloads deleted",
     "cancelledDownloadTitle": "Тоқтатылған жүктеу",
     "cancelledDownloadMessage": "Бұл жүктеу тоқтатылды. Не істегіңіз келеді?",
     "allEpisodesAlreadyDownloaded": "Барлық бөлімдер бұрыннан жүктелген",
@@ -1770,8 +1793,8 @@
     "noDownloadsTree": "Жүктеулер жоқ",
     "pauseAll": "Барлығын кідірту",
     "resumeAll": "Барлығын жалғастыру",
-    "retryAll": "",
-    "retryFailed": "",
+    "retryAll": "Retry all",
+    "retryFailed": "Retry failed downloads",
     "deleteAll": "Барлығын өшіру",
     "selectVersion": "Нұсқаны таңдау",
     "allEpisodes": "Барлық бөлімдер",
@@ -1843,7 +1866,7 @@
     "options": "Жүктеулер параметрлері",
     "groupings": {
       "library": "Кітапхана",
-      "collections": ""
+      "collections": "Collections"
     },
     "unknownLibrary": "Белгісіз кітапхана",
     "unknownShow": "Белгісіз телешоу",
@@ -1996,13 +2019,13 @@
     "rotation": "Бұрылыс",
     "dvSource": "DV дереккөзі",
     "dvPath": "DV жолы",
-    "dvRouteDecoder": "",
-    "dvRouteDecoderP81": "",
-    "dvRouteBaseLayer": "",
-    "dvRouteBaseLayerHdr10": "",
-    "dvRouteBaseLayerHlg": "",
-    "dvRouteBaseLayerSdr": "",
-    "dvRouteReshaped": "",
+    "dvRouteDecoder": "Dolby Vision decoder",
+    "dvRouteDecoderP81": "Dolby Vision decoder (P7→8.1)",
+    "dvRouteBaseLayer": "Base layer",
+    "dvRouteBaseLayerHdr10": "HDR10 base layer",
+    "dvRouteBaseLayerHlg": "HLG base layer",
+    "dvRouteBaseLayerSdr": "SDR base layer",
+    "dvRouteReshaped": "RPU reshaped (gpu-next)",
     "p7Conversion": "P7 түрлендіруі",
     "sampleRate": "Дискретизация жиілігі",
     "pixelFormat": "Пиксель форматы",
@@ -2234,8 +2257,8 @@
       "mdblist": "MDBList"
     },
     "simklReconnect": {
-      "title": "",
-      "subtitle": ""
+      "title": "Reconnect Simkl",
+      "subtitle": "Simkl is retiring the sign-in method this connection uses. Reconnecting opens simkl.com to approve Plezy — Plezy never sees your password. Your watch history stays on Simkl."
     },
     "deviceCode": {
       "title": "Plezy-ді ${service} қызметінде белсендіру",

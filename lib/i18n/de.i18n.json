@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Mit Plex anmelden",
@@ -113,7 +113,15 @@
     "skipVersion": "Diese Version überspringen",
     "viewRelease": "Versionshinweise anzeigen",
     "latestVersion": "Aktuellste Version installiert",
-    "checkFailed": "Fehler bei der Updateprüfung"
+    "checkFailed": "Fehler bei der Updateprüfung",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Einstellungen",
@@ -262,7 +270,7 @@
     "importSettingsInvalidFile": "Diese Datei ist kein gültiger Plezy-Einstellungsexport",
     "importSettingsNoUser": "Vor dem Import bitte anmelden",
     "shortcutsReset": "Tastenkürzel auf Standard zurückgesetzt",
-    "resetShortcutsConfirm": "",
+    "resetShortcutsConfirm": "This will replace your custom shortcuts with the defaults. Continue?",
     "about": "Über",
     "aboutDescription": "App-Informationen und Lizenzen",
     "updates": "Updates",
@@ -348,14 +356,14 @@
     "audioPassthroughDescription": "Dolby/DTS-Audio ohne Neukodierung an deinen Receiver oder Fernseher senden und Surround-Sound erhalten. Deaktivieren, wenn kein Ton zu hören ist.",
     "audioPassthroughDescriptionAppleTv": "Apples nativen Dolby-Decoder für Dolby Digital Plus einschließlich Atmos verwenden. DTS und TrueHD werden weiterhin als Mehrkanal-PCM wiedergegeben. Deaktivieren, wenn kein Ton zu hören ist.",
     "audioPassthroughOverriddenByNormalization": "Aus, solange die Lautstärkenormalisierung aktiv ist",
-    "audioChannelLimit": "",
-    "audioChannelLimitDescription": "",
-    "audioChannelLimitOriginal": "",
-    "audioChannelLimitOriginalDescription": "",
-    "audioChannelLimitSurround51": "",
-    "audioChannelLimitSurround51Description": "",
-    "audioChannelLimitStereo": "",
-    "audioChannelLimitStereoDescription": "",
+    "audioChannelLimit": "Audio Channels",
+    "audioChannelLimitDescription": "Mix decoded audio down for speakers, headphones, or HDMI setups that cannot play every channel",
+    "audioChannelLimitOriginal": "Original",
+    "audioChannelLimitOriginalDescription": "Play every channel in the track",
+    "audioChannelLimitSurround51": "Up to 5.1",
+    "audioChannelLimitSurround51Description": "Mix 7.1 down to 5.1 for TVs and receivers that only take 5.1 PCM. Passthrough is unaffected.",
+    "audioChannelLimitStereo": "Stereo",
+    "audioChannelLimitStereoDescription": "Mix down to two channels for stereo speakers or headphones. Turns passthrough off.",
     "downmixCenterBoost": "Verstärkung des Center-Kanals",
     "downmixCenterBoostValue": "${db} dB",
     "downmixCenterBoostLabel": "Verstärkung (dB)",
@@ -450,6 +458,12 @@
     "screenshotLocationReset": "Screenshot-Speicherort auf Desktop zurückgesetzt",
     "disableDolbyVision": "Dolby Vision deaktivieren",
     "disableDolbyVisionDescription": "Statt Dolby Vision die HDR10- oder HLG-Ebene der Datei abspielen, sofern vorhanden",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "search": {
@@ -457,7 +471,7 @@
     "tryDifferentTerm": "Anderen Suchbegriff versuchen",
     "searchYourMedia": "In den eigenen Medien suchen",
     "enterTitleActorOrKeyword": "Titel, Schauspieler oder Stichwort eingeben",
-    "people": ""
+    "people": "People"
   },
   "hotkeys": {
     "setShortcutFor": "Tastenkürzel festlegen für ${actionName}",
@@ -491,7 +505,9 @@
       "subSeekPrev": "Zum vorherigen Untertitel springen",
       "shaderToggle": "Shader umschalten",
       "skipMarker": "Intro/Abspann überspringen",
-      "screenshot": "Screenshot aufnehmen"
+      "screenshot": "Screenshot aufnehmen",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -797,6 +813,10 @@
     "osdAudio": "Audio: ${track}",
     "volumePercent": "Lautstärke ${percent}%",
     "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "Feinjustierung",
       "title": "Clip",
@@ -971,8 +991,8 @@
     "signOut": "Abmelden",
     "signOutPlexTitle": "Von Plex abmelden?",
     "signOutPlexMessage": "${displayName} und alle Plex Home-Benutzer entfernen? Du kannst dich jederzeit wieder anmelden.",
-    "signOutPlexDeleteDownloads": "",
-    "signOutPlexDeleteDownloadsDescription": "",
+    "signOutPlexDeleteDownloads": "Also delete downloads",
+    "signOutPlexDeleteDownloadsDescription": "Otherwise they stay on this device and come back when you sign back in to this account.",
     "signedOutPlex": "Von Plex abgemeldet.",
     "signOutFailed": "Abmeldung fehlgeschlagen.",
     "sectionTitle": "Profile",
@@ -1159,7 +1179,7 @@
       "unwatched": "Ungesehene",
       "unplayed": "Nicht abgespielt",
       "favorites": "Favoriten",
-      "filePath": ""
+      "filePath": "File Path"
     },
     "sortLabels": {
       "title": "Titel",
@@ -1187,32 +1207,32 @@
       "library": "Mediathek"
     },
     "advancedFilters": {
-      "include": "",
-      "exclude": "",
-      "any": "",
-      "yes": "",
-      "no": "",
-      "not": "",
-      "valueCount": "",
-      "valueCountExcluded": "",
-      "searchValues": "",
-      "noValues": "",
-      "matchContains": "",
-      "matchNotContains": "",
-      "matchIs": "",
-      "matchIsNot": "",
-      "matchBeginsWith": "",
-      "matchEndsWith": "",
-      "textHint": "",
-      "from": "",
-      "to": "",
-      "range": "",
-      "atLeast": "",
-      "atMost": "",
-      "dateLastDays": "",
-      "dateLastYear": "",
-      "dateOlderThanDays": "",
-      "dateOlderThanYear": ""
+      "include": "Include",
+      "exclude": "Exclude",
+      "any": "Any",
+      "yes": "Yes",
+      "no": "No",
+      "not": "Not ${value}",
+      "valueCount": "${count} selected",
+      "valueCountExcluded": "${count} excluded",
+      "searchValues": "Search values",
+      "noValues": "No values",
+      "matchContains": "Contains",
+      "matchNotContains": "Does not contain",
+      "matchIs": "Is",
+      "matchIsNot": "Is not",
+      "matchBeginsWith": "Begins with",
+      "matchEndsWith": "Ends with",
+      "textHint": "Type to match",
+      "from": "From",
+      "to": "To",
+      "range": "${from} to ${to}",
+      "atLeast": "${value} and up",
+      "atMost": "Up to ${value}",
+      "dateLastDays": "Last ${count} days",
+      "dateLastYear": "Past year",
+      "dateOlderThanDays": "Older than ${count} days",
+      "dateOlderThanYear": "Older than a year"
     }
   },
   "about": {
@@ -1220,7 +1240,10 @@
     "openSourceLicenses": "Open-Source-Lizenzen",
     "versionLabel": "Version ${version}",
     "appDescription": "Ein schöner, mit Flutter entwickelter Plex-, Jellyfin- und Emby-Client",
-    "viewLicensesDescription": "Lizenzen von Drittanbieter-Bibliotheken anzeigen"
+    "viewLicensesDescription": "Lizenzen von Drittanbieter-Bibliotheken anzeigen",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Keine Server gefunden für ${username} (${email})",
@@ -1406,7 +1429,7 @@
       "otherMedia": "Sonstiges"
     },
     "creditRole": {
-      "actor": "",
+      "actor": "Actor",
       "director": "Regisseur",
       "writer": "Autor",
       "producer": "Produzent",
@@ -1750,9 +1773,9 @@
     "episodesQueued": "${count} Episoden zum Download hinzugefügt",
     "downloadDeleted": "Download gelöscht",
     "deleteConfirm": "\"${title}\" von diesem Gerät löschen?",
-    "deleteCollectionDownloads": "",
-    "deleteCollectionDownloadsConfirm": "",
-    "collectionDownloadsDeleted": "",
+    "deleteCollectionDownloads": "Delete downloads",
+    "deleteCollectionDownloadsConfirm": "Delete every download in \"${title}\" from this device?",
+    "collectionDownloadsDeleted": "Downloads deleted",
     "cancelledDownloadTitle": "Abgebrochener Download",
     "cancelledDownloadMessage": "Dieser Download wurde abgebrochen. Was möchtest du tun?",
     "allEpisodesAlreadyDownloaded": "Alle Episoden sind bereits heruntergeladen",
@@ -1770,8 +1793,8 @@
     "noDownloadsTree": "Keine Downloads",
     "pauseAll": "Alle pausieren",
     "resumeAll": "Alle fortsetzen",
-    "retryAll": "",
-    "retryFailed": "",
+    "retryAll": "Retry all",
+    "retryFailed": "Retry failed downloads",
     "deleteAll": "Alle löschen",
     "selectVersion": "Version auswählen",
     "allEpisodes": "Alle Episoden",
@@ -1843,7 +1866,7 @@
     "options": "Download-Optionen",
     "groupings": {
       "library": "Mediathek",
-      "collections": ""
+      "collections": "Collections"
     },
     "unknownLibrary": "Unbekannte Mediathek",
     "unknownShow": "Unbekannte Serie",
@@ -1996,13 +2019,13 @@
     "rotation": "Drehung",
     "dvSource": "DV-Quelle",
     "dvPath": "DV-Pfad",
-    "dvRouteDecoder": "",
-    "dvRouteDecoderP81": "",
-    "dvRouteBaseLayer": "",
-    "dvRouteBaseLayerHdr10": "",
-    "dvRouteBaseLayerHlg": "",
-    "dvRouteBaseLayerSdr": "",
-    "dvRouteReshaped": "",
+    "dvRouteDecoder": "Dolby Vision decoder",
+    "dvRouteDecoderP81": "Dolby Vision decoder (P7→8.1)",
+    "dvRouteBaseLayer": "Base layer",
+    "dvRouteBaseLayerHdr10": "HDR10 base layer",
+    "dvRouteBaseLayerHlg": "HLG base layer",
+    "dvRouteBaseLayerSdr": "SDR base layer",
+    "dvRouteReshaped": "RPU reshaped (gpu-next)",
     "p7Conversion": "P7-Konv.",
     "sampleRate": "Abtastrate",
     "pixelFormat": "Pixelformat",
@@ -2234,8 +2257,8 @@
       "mdblist": "MDBList"
     },
     "simklReconnect": {
-      "title": "",
-      "subtitle": ""
+      "title": "Reconnect Simkl",
+      "subtitle": "Simkl is retiring the sign-in method this connection uses. Reconnecting opens simkl.com to approve Plezy — Plezy never sees your password. Your watch history stays on Simkl."
     },
     "deviceCode": {
       "title": "Plezy auf ${service} aktivieren",
