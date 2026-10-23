@@ -98,7 +98,7 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
-        theme: monoTheme(dark: true),
+        theme: monoTheme(MonoPalette.dark),
         home: Scaffold(
           body: Center(
             child: SizedBox(
@@ -250,7 +250,7 @@ class _TrimFixture {
   Future<void> mount(WidgetTester tester) async {
     addTearDown(preview.dispose);
     addTearDown(export.dispose);
-    final theme = monoTheme(dark: true);
+    final theme = monoTheme(MonoPalette.dark);
     await tester.pumpWidget(
       MaterialApp(
         theme: defaultTrack
