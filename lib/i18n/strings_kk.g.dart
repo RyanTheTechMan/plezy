@@ -40,14 +40,11 @@ class TranslationsKk extends Translations with BaseTranslations<AppLocale, Trans
 
 	// Translations
 	@override late final _Translations$app$kk app = _Translations$app$kk._(_root);
-	@override late final _Translations$appIcon$kk appIcon = _Translations$appIcon$kk._(_root);
 	@override late final _Translations$auth$kk auth = _Translations$auth$kk._(_root);
 	@override late final _Translations$common$kk common = _Translations$common$kk._(_root);
 	@override late final _Translations$screens$kk screens = _Translations$screens$kk._(_root);
 	@override late final _Translations$update$kk update = _Translations$update$kk._(_root);
-	@override late final _Translations$supporter$kk supporter = _Translations$supporter$kk._(_root);
 	@override late final _Translations$settings$kk settings = _Translations$settings$kk._(_root);
-	@override late final _Translations$themeEditor$kk themeEditor = _Translations$themeEditor$kk._(_root);
 	@override late final _Translations$search$kk search = _Translations$search$kk._(_root);
 	@override late final _Translations$hotkeys$kk hotkeys = _Translations$hotkeys$kk._(_root);
 	@override late final _Translations$fileInfo$kk fileInfo = _Translations$fileInfo$kk._(_root);
@@ -93,6 +90,10 @@ class TranslationsKk extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$seerr$kk seerr = _Translations$seerr$kk._(_root);
 	@override late final _Translations$services$kk services = _Translations$services$kk._(_root);
 	@override late final _Translations$addServer$kk addServer = _Translations$addServer$kk._(_root);
+	@override late final _Translations$appIcon$kk appIcon = _Translations$appIcon$kk._(_root);
+	@override late final _Translations$supporter$kk supporter = _Translations$supporter$kk._(_root);
+	@override late final _Translations$themeEditor$kk themeEditor = _Translations$themeEditor$kk._(_root);
+	@override late final _Translations$deepLinks$kk deepLinks = _Translations$deepLinks$kk._(_root);
 }
 
 // Path: app
@@ -102,25 +103,7 @@ class _Translations$app$kk extends Translations$app$en {
 	final TranslationsKk _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
-}
-
-// Path: appIcon
-class _Translations$appIcon$kk extends Translations$appIcon$en {
-	_Translations$appIcon$kk._(TranslationsKk root) : this._root = root, super.internal(root);
-
-	final TranslationsKk _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Қолданба белгішесі';
-	@override String get defaultIcon => 'Әдепкі';
-	@override String get current => 'Ағымдағы белгіше';
-	@override String get locked => 'Supporter артықшылығы';
-	@override String get lockedHint => 'Балама белгішелер — Supporter артықшылығы.';
-	@override String get changeFailed => 'Қолданба белгішесін өзгерту мүмкін болмады';
-	@override String get launcherHint => 'Plezy-ден шыққаннан кейін жаңа белгіше басты экранда пайда болады.';
-	@override String get tvLauncherHint => 'Plezy-ден шыққаннан кейін жаңа баннер пайда болады. Android TV теледидар қайта іске қосылғанша ескісін көрсете беруі мүмкін.';
-	@override late final _Translations$appIcon$names$kk names = _Translations$appIcon$names$kk._(_root);
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -237,33 +220,14 @@ class _Translations$update$kk extends Translations$update$en {
 	@override String get viewRelease => 'Релизді көру';
 	@override String get latestVersion => 'Сізде ең соңғы нұсқа орнатылған';
 	@override String get checkFailed => 'Жаңартуларды тексеру мүмкін болмады';
-}
-
-// Path: supporter
-class _Translations$supporter$kk extends Translations$supporter$en {
-	_Translations$supporter$kk._(TranslationsKk root) : this._root = root, super.internal(root);
-
-	final TranslationsKk _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Plezy Supporter';
-	@override String get intro => 'Plezy-дің дамуына қолдау көрсетіп, безендіру мүмкіндіктерін ашатын бір реттік сатып алу:';
-	@override String get presetThemes => 'Дайын тақырыптар';
-	@override String get presetThemesDescription => 'Шоқ, Мұздық, Орман, Алхоры және Қағаз';
-	@override String get customTheme => 'Жеке тақырып';
-	@override String get customThemeDescription => 'Әр түсті өзіңіз таңдаңыз';
-	@override String get appIcons => 'Қолданба белгішелері';
-	@override String get appIconsDescription => 'Plezy-дің балама белгішесін таңдаңыз';
-	@override String buy({required Object price}) => '${price} бағасына сатып алу';
-	@override String get loadingPrice => 'Баға жүктелуде...';
-	@override String get restore => 'Сатып алуларды қалпына келтіру';
-	@override String get pending => 'Сатып алуыңыз төлемді немесе растауды күтуде. Дүкен оны аяқтаған бойда қосымша мүмкіндіктер ашылады.';
-	@override String get thankYouTitle => 'Plezy-ді қолдағаныңыз үшін рахмет';
-	@override String get thankYouBody => 'Supporter мүмкіндіктеріңіз ашылды.';
-	@override String get tileSubtitle => 'Тақырыптар мен қолданба белгішелерін бір реттік сатып алумен ашыңыз';
-	@override String get tileSubtitleThemesOnly => 'Тақырыптарды бір реттік сатып алумен ашыңыз';
-	@override String get tileUnlocked => 'Қолдауыңыз үшін рахмет';
-	@override late final _Translations$supporter$errors$kk errors = _Translations$supporter$errors$kk._(_root);
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -608,42 +572,24 @@ class _Translations$settings$kk extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Кітапхана бойынша';
 	@override String get playerScopeTitle => 'Сериал немесе фильм бойынша';
 	@override String get exportDialogTitle => 'Plezy параметрлерін экспорттау';
-}
-
-// Path: themeEditor
-class _Translations$themeEditor$kk extends Translations$themeEditor$en {
-	_Translations$themeEditor$kk._(TranslationsKk root) : this._root = root, super.internal(root);
-
-	final TranslationsKk _root; // ignore: unused_field
-
-	// Translations
-	@override String get builtIn => 'Кірістірілген';
-	@override String get presets => 'Дайын тақырыптар';
-	@override String get custom => 'Жеке';
-	@override String get customEmpty => 'Әлі жасалмаған';
-	@override String get editCustom => 'Жеке тақырыпты өңдеу';
-	@override String get editCustomDescription => 'Әр түсті өзіңіз таңдаңыз';
-	@override String get locked => 'Supporter арқылы ашу';
-	@override String get savedLocked => 'Сақталды — Supporter арқылы ашылады';
-	@override String get title => 'Жеке тақырып';
-	@override String get startFrom => 'Негізге алу';
-	@override String get startFromDescription => 'Барлық түстерді басқа тақырыптан көшіру';
-	@override String get colors => 'Түстер';
-	@override String get preview => 'Алдын ала қарау';
-	@override late final _Translations$themeEditor$slots$kk slots = _Translations$themeEditor$slots$kk._(_root);
-	@override String get opacity => 'Мөлдірлік';
-	@override String get hexHint => '#RRGGBB немесе #AARRGGBB';
-	@override String get fromOtherThemes => 'Басқа тақырыптардан';
-	@override String swatchLabel({required Object theme, required Object color}) => '${theme}: ${color}';
-	@override late final _Translations$themeEditor$contrast$kk contrast = _Translations$themeEditor$contrast$kk._(_root);
-	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, ұсынылған ${minimum}:1 мәнінен төмен';
-	@override String get discardTitle => 'Өзгерістер жойылсын ба?';
-	@override String get discardMessage => 'Сақталмаған түс өзгерістері жоғалады.';
-	@override String get discard => 'Жою';
-	@override String previewCardTitle({required Object number}) => '${number}-бөлім';
-	@override String previewCardSubtitle({required Object minutes}) => '${minutes} мин қалды';
-	@override String get previewSwitch => 'Автоойнату';
-	@override String get previewMutedText => 'Қосалқы мәтін осылай көрінеді';
+	@override String get downloadLocationSelectError => 'Қапшықты таңдау мүмкін болмады';
+	@override String get mediaCapture => 'Медианы түсіру';
+	@override String get clips => 'Клиптер';
+	@override String get screenshots => 'Экран суреттері';
+	@override String captureLocationTitle({required Object title}) => '${title} сақтау орны';
+	@override String get clipLocationDescription => 'Клиптер сақталатын орынды таңдаңыз.';
+	@override String get screenshotLocationDescription => 'Экран суреттері сақталатын орынды таңдаңыз.';
+	@override String get clipLocationChanged => 'Клиптерді сақтау орны өзгертілді';
+	@override String get screenshotLocationChanged => 'Экран суреттерін сақтау орны өзгертілді';
+	@override String get clipLocationReset => 'Клиптерді сақтау орны Жұмыс үстеліне қайтарылды';
+	@override String get screenshotLocationReset => 'Экран суреттерін сақтау орны Жұмыс үстеліне қайтарылды';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
+	@override String get packedStereoUi => '3D Playback UI';
 }
 
 // Path: search
@@ -993,7 +939,6 @@ class _Translations$videoControls$kk extends Translations$videoControls$en {
 	@override String get pipActive => 'Суреттегі сурет режимінде ойнатылуда';
 	@override String get pipFailed => 'PiP режимін іске қосу қатесі';
 	@override String get screenshotSaved => 'Экран суреті сақталды';
-	@override String get screenshotFailed => 'Экран суретін түсіру мүмкін болмады';
 	@override String zoomPercent({required Object percent}) => 'Масштаб %${percent}';
 	@override String volumePercent({required Object percent}) => 'Дыбыс ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$kk pipErrors = _Translations$videoControls$pipErrors$kk._(_root);
@@ -1018,6 +963,13 @@ class _Translations$videoControls$kk extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Субтитр: өшірулі';
 	@override String osdSubtitles({required Object track}) => 'Субтитр: ${track}';
 	@override String osdAudio({required Object track}) => 'Дыбыс: ${track}';
+	@override String get screenshotFailed => 'Экран суретін түсіру мүмкін болмады';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('kk'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
+	@override late final _Translations$videoControls$clip$kk clip = _Translations$videoControls$clip$kk._(_root);
 }
 
 // Path: messages
@@ -1440,6 +1392,9 @@ class _Translations$about$kk extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Нұсқа ${version}';
 	@override String get appDescription => 'Flutter негізіндегі ыңғайлы Plex, Jellyfin және Emby клиенті';
 	@override String get viewLicensesDescription => 'Үшінші тарап кітапханаларының лицензияларын көру';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1568,6 +1523,7 @@ class _Translations$explore$kk extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Көру тізімінен алынды';
 	@override String get watchlistUpdateFailed => 'Көру тізімін жаңарту мүмкін болмады';
 	@override String get watchlistNoMatch => 'Бұл элементті көру тізімімен сәйкестендіру мүмкін болмады';
+	@override String get openInLibrary => 'Кітапханада ашу';
 	@override String get notInLibrary => 'Кітапханаңызда жоқ';
 	@override String get inTheseLibraries => 'Осы кітапханаларда бар';
 	@override String get checkingLibrary => 'Кітапхана тексерілуде...';
@@ -1618,6 +1574,7 @@ class _Translations$liveTv$kk extends Translations$liveTv$en {
 	@override String channelNumber({required Object number}) => '${number}-арна';
 	@override String get unknownChannel => 'Белгісіз арна';
 	@override String get live => 'ТІКЕЛЕЙ ЭФИР';
+	@override String get premiereBadge => 'NEW';
 	@override String get reloadGuide => 'Бағдарламаны жаңарту';
 	@override String get searchGuide => 'Телебағдарламадан іздеу';
 	@override String get searchHint => 'Арналар мен бағдарламаларды іздеу';
@@ -2144,6 +2101,7 @@ class _Translations$performanceOverlay$kk extends Translations$performanceOverla
 	@override String get cacheLimit => 'Кэш шегі';
 	@override String get speed => 'Жылдамдық';
 	@override String get player => 'Ойнатқыш';
+	@override String get playMethod => 'Play Method';
 	@override String get memory => 'Жады';
 	@override String get uiFps => 'Интерфейс (UI) FPS';
 	@override String get fps => 'FPS';
@@ -2458,36 +2416,111 @@ class _Translations$addServer$kk extends Translations$addServer$en {
 	@override String redirectUnsupportedEnterFinal({required Object product}) => 'Сервер қолдау көрсетілмейтін URL-ге қайта бағыттады. Соңғы ${product} URL-ін тікелей енгізіңіз.';
 }
 
-// Path: appIcon.names
-class _Translations$appIcon$names$kk extends Translations$appIcon$names$en {
-	_Translations$appIcon$names$kk._(TranslationsKk root) : this._root = root, super.internal(root);
+// Path: appIcon
+class _Translations$appIcon$kk extends Translations$appIcon$en {
+	_Translations$appIcon$kk._(TranslationsKk root) : this._root = root, super.internal(root);
 
 	final TranslationsKk _root; // ignore: unused_field
 
 	// Translations
-	@override String get midnight => 'Түн ортасы';
-	@override String get ember => 'Шоқ';
-	@override String get paper => 'Қағаз';
-	@override String get oled => 'OLED';
-	@override String get line => 'Сызық';
-	@override String get ocean => 'Мұхит';
-	@override String get ultraviolet => 'Ультракүлгін';
-	@override String get matcha => 'Матча';
-	@override String get sunset => 'Күн батуы';
-	@override String get gold => 'Алтын';
-	@override String get titanium => 'Титан';
-	@override String get glass => 'Шыны';
-	@override String get crt => 'CRT';
-	@override String get vhs => 'VHS';
-	@override String get synthwave => 'Synthwave';
-	@override String get pixel => 'Пиксель';
-	@override String get neon => 'Неон';
-	@override String get sticker => 'Стикер';
-	@override String get ticket => 'Билет';
-	@override String get pop => 'Поп';
-	@override String get strata => 'Қабаттар';
-	@override String get facet => 'Қырлы';
-	@override String get tilde => 'Тильда';
+	@override String get title => 'Қолданба белгішесі';
+	@override String get defaultIcon => 'Әдепкі';
+	@override String get current => 'Ағымдағы белгіше';
+	@override String get locked => 'Supporter артықшылығы';
+	@override String get lockedHint => 'Балама белгішелер — Supporter артықшылығы.';
+	@override String get changeFailed => 'Қолданба белгішесін өзгерту мүмкін болмады';
+	@override String get launcherHint => 'Plezy-ден шыққаннан кейін жаңа белгіше басты экранда пайда болады.';
+	@override String get tvLauncherHint => 'Plezy-ден шыққаннан кейін жаңа баннер пайда болады. Android TV теледидар қайта іске қосылғанша ескісін көрсете беруі мүмкін.';
+	@override late final _Translations$appIcon$names$kk names = _Translations$appIcon$names$kk._(_root);
+}
+
+// Path: supporter
+class _Translations$supporter$kk extends Translations$supporter$en {
+	_Translations$supporter$kk._(TranslationsKk root) : this._root = root, super.internal(root);
+
+	final TranslationsKk _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Plezy Supporter';
+	@override String get intro => 'Plezy-дің дамуына қолдау көрсетіп, безендіру мүмкіндіктерін ашатын бір реттік сатып алу:';
+	@override String get presetThemes => 'Дайын тақырыптар';
+	@override String get presetThemesDescription => 'Шоқ, Мұздық, Орман, Алхоры және Қағаз';
+	@override String get customTheme => 'Жеке тақырып';
+	@override String get customThemeDescription => 'Әр түсті өзіңіз таңдаңыз';
+	@override String get appIcons => 'Қолданба белгішелері';
+	@override String get appIconsDescription => 'Plezy-дің балама белгішесін таңдаңыз';
+	@override String buy({required Object price}) => '${price} бағасына сатып алу';
+	@override String get loadingPrice => 'Баға жүктелуде...';
+	@override String get restore => 'Сатып алуларды қалпына келтіру';
+	@override String get pending => 'Сатып алуыңыз төлемді немесе растауды күтуде. Дүкен оны аяқтаған бойда қосымша мүмкіндіктер ашылады.';
+	@override String get thankYouTitle => 'Plezy-ді қолдағаныңыз үшін рахмет';
+	@override String get thankYouBody => 'Supporter мүмкіндіктеріңіз ашылды.';
+	@override String get tileSubtitle => 'Тақырыптар мен қолданба белгішелерін бір реттік сатып алумен ашыңыз';
+	@override String get tileSubtitleThemesOnly => 'Тақырыптарды бір реттік сатып алумен ашыңыз';
+	@override String get tileUnlocked => 'Қолдауыңыз үшін рахмет';
+	@override late final _Translations$supporter$errors$kk errors = _Translations$supporter$errors$kk._(_root);
+}
+
+// Path: themeEditor
+class _Translations$themeEditor$kk extends Translations$themeEditor$en {
+	_Translations$themeEditor$kk._(TranslationsKk root) : this._root = root, super.internal(root);
+
+	final TranslationsKk _root; // ignore: unused_field
+
+	// Translations
+	@override String get builtIn => 'Кірістірілген';
+	@override String get presets => 'Дайын тақырыптар';
+	@override String get custom => 'Жеке';
+	@override String get customEmpty => 'Әлі жасалмаған';
+	@override String get editCustom => 'Жеке тақырыпты өңдеу';
+	@override String get editCustomDescription => 'Әр түсті өзіңіз таңдаңыз';
+	@override String get locked => 'Supporter арқылы ашу';
+	@override String get savedLocked => 'Сақталды — Supporter арқылы ашылады';
+	@override String get title => 'Жеке тақырып';
+	@override String get startFrom => 'Негізге алу';
+	@override String get startFromDescription => 'Барлық түстерді басқа тақырыптан көшіру';
+	@override String get colors => 'Түстер';
+	@override String get preview => 'Алдын ала қарау';
+	@override late final _Translations$themeEditor$slots$kk slots = _Translations$themeEditor$slots$kk._(_root);
+	@override String get opacity => 'Мөлдірлік';
+	@override String get hexHint => '#RRGGBB немесе #AARRGGBB';
+	@override String get fromOtherThemes => 'Басқа тақырыптардан';
+	@override String swatchLabel({required Object theme, required Object color}) => '${theme}: ${color}';
+	@override late final _Translations$themeEditor$contrast$kk contrast = _Translations$themeEditor$contrast$kk._(_root);
+	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, ұсынылған ${minimum}:1 мәнінен төмен';
+	@override String get discardTitle => 'Өзгерістер жойылсын ба?';
+	@override String get discardMessage => 'Сақталмаған түс өзгерістері жоғалады.';
+	@override String get discard => 'Жою';
+	@override String previewCardTitle({required Object number}) => '${number}-бөлім';
+	@override String previewCardSubtitle({required Object minutes}) => '${minutes} мин қалды';
+	@override String get previewSwitch => 'Автоойнату';
+	@override String get previewMutedText => 'Қосалқы мәтін осылай көрінеді';
+}
+
+// Path: deepLinks
+class _Translations$deepLinks$kk extends Translations$deepLinks$en {
+	_Translations$deepLinks$kk._(TranslationsKk root) : this._root = root, super.internal(root);
+
+	final TranslationsKk _root; // ignore: unused_field
+
+	// Translations
+	@override String get invalid => 'This Plezy link isn\'t valid.';
+	@override String profileNotFound({required Object profile}) => 'No profile matches "${profile}".';
+	@override String get serverUnavailable => 'Couldn\'t reach the server for this link.';
+	@override String get notFound => 'Couldn\'t find this title in your libraries.';
+	@override String get unsupportedItem => 'This link can\'t be played.';
+	@override String get noLiveTv => 'No Live TV server is available for this link.';
+	@override String channelNotFound({required Object channel}) => 'Couldn\'t find channel "${channel}".';
+	@override String get showLink => 'Show link';
+	@override String get showProfileLink => 'Show profile link';
+	@override String get dialogTitle => 'Link';
+	@override String get showHint => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.';
+	@override String get movieHint => 'Opening this link plays the movie.';
+	@override String get episodeHint => 'Opening this link plays this episode.';
+	@override String get profileHint => 'Opening this link switches to this profile.';
+	@override String openAsProfile({required Object name}) => 'Open as ${name}';
+	@override String get copy => 'Copy';
+	@override String get copied => 'Link copied';
 }
 
 // Path: common.ratingSource
@@ -2533,52 +2566,6 @@ class _Translations$common$mediaKind$kk extends Translations$common$mediaKind$en
 	@override String get folder => 'Қалта';
 }
 
-// Path: supporter.errors
-class _Translations$supporter$errors$kk extends Translations$supporter$errors$en {
-	_Translations$supporter$errors$kk._(TranslationsKk root) : this._root = root, super.internal(root);
-
-	final TranslationsKk _root; // ignore: unused_field
-
-	// Translations
-	@override String get storeUnavailable => 'Сатып алу қолжетімсіз. Дүкенге кіргеніңізді және осы құрылғыда сатып алуға рұқсат етілгенін тексеріңіз.';
-	@override String get productNotFound => 'Supporter сатып алуы қазір дүкеніңізде қолжетімсіз.';
-	@override String get productQueryFailed => 'Бағаны жүктеу мүмкін болмады. Қосылымды тексеріп, қайтадан байқап көріңіз.';
-	@override String get purchaseFailed => 'Сатып алу орындалмады. Қайтадан байқап көріңіз.';
-	@override String get restoreFailed => 'Сатып алуды қалпына келтіру үшін дүкенге қосылу мүмкін болмады. Қайтадан байқап көріңіз.';
-	@override String get nothingToRestore => 'Осы дүкен тіркелгісінде Supporter сатып алуы табылмады.';
-}
-
-// Path: themeEditor.slots
-class _Translations$themeEditor$slots$kk extends Translations$themeEditor$slots$en {
-	_Translations$themeEditor$slots$kk._(TranslationsKk root) : this._root = root, super.internal(root);
-
-	final TranslationsKk _root; // ignore: unused_field
-
-	// Translations
-	@override String get bg => 'Фон';
-	@override String get surface => 'Беткі қабат';
-	@override String get outline => 'Контур';
-	@override String get text => 'Мәтін';
-	@override String get textMuted => 'Қосалқы мәтін';
-	@override String get accent => 'Акцент';
-}
-
-// Path: themeEditor.contrast
-class _Translations$themeEditor$contrast$kk extends Translations$themeEditor$contrast$en {
-	_Translations$themeEditor$contrast$kk._(TranslationsKk root) : this._root = root, super.internal(root);
-
-	final TranslationsKk _root; // ignore: unused_field
-
-	// Translations
-	@override String get textOnBg => 'Фондағы мәтін';
-	@override String get textOnSurface => 'Беткі қабаттағы мәтін';
-	@override String get textMutedOnBg => 'Фондағы қосалқы мәтін';
-	@override String get textMutedOnSurface => 'Беткі қабаттағы қосалқы мәтін';
-	@override String get accentOnBg => 'Фондағы акцент';
-	@override String get accentOnSurface => 'Беткі қабаттағы акцент';
-	@override String get labelOnAccent => 'Акценттегі түйме мәтіні';
-}
-
 // Path: hotkeys.actions
 class _Translations$hotkeys$actions$kk extends Translations$hotkeys$actions$en {
 	_Translations$hotkeys$actions$kk._(TranslationsKk root) : this._root = root, super.internal(root);
@@ -2611,6 +2598,8 @@ class _Translations$hotkeys$actions$kk extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Шейдерлерді қосу/өшіру';
 	@override String get skipMarker => 'Интро/Титрді өткізу';
 	@override String get screenshot => 'Экран суретін түсіру';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2628,6 +2617,52 @@ class _Translations$videoControls$pipErrors$kk extends Translations$videoControl
 	@override String get failed => 'PiP режимін іске қосу қатесі';
 	@override String get prepareFailed => 'PiP режимін дайындау мүмкін болмады';
 	@override String unknown({required Object error}) => 'Қате орын алды: ${error}';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$kk extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$kk._(TranslationsKk root) : this._root = root, super.internal(root);
+
+	final TranslationsKk _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Дәл реттеу';
+	@override String get title => 'Клип';
+	@override String get vodOnly => 'Клиптер сұрау бойынша бейне ойнату кезінде қолжетімді.';
+	@override String get sourceUnavailable => 'Бұл ойнату сеансы үшін клип көзі қолжетімсіз.';
+	@override String get playAtLeastOneSecond => 'Клип жасамас бұрын кемінде 1 секунд ойнатыңыз.';
+	@override String get startBeforeBeginning => 'Клиптің басы бейненің басынан бұрын болмауы керек.';
+	@override String get endAfterStart => 'Клиптің соңы оның басынан кейін болуы керек.';
+	@override String get minimumDuration => 'Клиптің ұзақтығы кемінде 1 секунд болуы керек.';
+	@override String get endPastVideo => 'Клиптің соңы бейненің соңынан асып кетеді.';
+	@override String get exportCanceled => 'Клипті экспорттау тоқтатылды.';
+	@override String get cacheUnavailable => 'Түпнұсқа форматында экспорттау үшін таңдалған аралықты толық кэштеу мүмкін болмады. Қысқарақ клипті таңдаңыз немесе сақтамас бұрын алдын ала қарауды бір рет ойнатыңыз.';
+	@override String get sourceCopyNoEncoder => 'Көзді көшіру арқылы экспорттау кезінде кодтаушы қолданылмайды.';
+	@override String get encodingDesktopOnly => 'Клиптерді H.264 және HEVC форматтарында кодтау қазір macOS пен Windows жүйелерінде қолжетімді.';
+	@override String get hdrRequiresSource => 'HDR экспортына тікелей ойнатылатын, HDR10 немесе HLG пішімімен үйлесімді көз қажет.';
+	@override String get transcodeStartUnavailable => 'Бұл клип белсенді қайта кодталған ағыннан бұрын басталады. Ертерек уақытқа өтіп, клип өңдегішін қайта ашыңыз немесе түпнұсқа сапасына ауысыңыз.';
+	@override String get previewRequired => 'Клипті сақтау үшін алдын ала қараудың жүктелуі аяқталуы керек.';
+	@override String get h264Failed => 'Бұл көзді H.264 SDR MP4 форматына кодтау мүмкін болмады.';
+	@override String get hevcSdrFailed => 'Бұл көзді HEVC SDR MP4 форматына кодтау мүмкін болмады.';
+	@override String get hevcHdrFailed => 'Бұл көзді HEVC HDR MP4 форматына кодтау мүмкін болмады.';
+	@override String get gifFailed => 'Бұл көзді GIF форматына кодтау мүмкін болмады.';
+	@override String get originalFailed => 'Бұл көзді mpv кэшінен көшіру мүмкін болмады.';
+	@override String get previewUnavailable => 'Бұл нұсқада клипті алдын ала ойнату қолжетімсіз.';
+	@override String get previewFailed => 'Клипті алдын ала ойнату сәтсіз аяқталды.';
+	@override String get previewLoadingScreenshot => 'Экран суретін түсірмес бұрын клипті алдын ала қараудың жүктелуі аяқталуы керек.';
+	@override String get screenshotInProgress => 'Экран суреті сақталып жатыр.';
+	@override String get saveAsDialog => 'Клипті басқаша сақтау';
+	@override String savedTo({required Object fileName}) => '${fileName} файлына сақталды';
+	@override String get openFolder => 'Қапшықты ашу';
+	@override String get saveAs => 'Басқаша сақтау';
+	@override String get cancelExport => 'Экспорттауды тоқтату';
+	@override String get saving => 'Сақталуда...';
+	@override String savingProgress({required Object percent}) => 'Сақталуда: ${percent}%';
+	@override String get mutePreview => 'Алдын ала қараудың дыбысын өшіру';
+	@override String get unmutePreview => 'Алдын ала қараудың дыбысын қосу';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: accountPreferences.groups
@@ -3387,6 +3422,84 @@ class _Translations$services$libraryFilter$kk extends Translations$services$libr
 	@override String get noLibraries => 'Кітапханалар жоқ';
 }
 
+// Path: appIcon.names
+class _Translations$appIcon$names$kk extends Translations$appIcon$names$en {
+	_Translations$appIcon$names$kk._(TranslationsKk root) : this._root = root, super.internal(root);
+
+	final TranslationsKk _root; // ignore: unused_field
+
+	// Translations
+	@override String get midnight => 'Түн ортасы';
+	@override String get ember => 'Шоқ';
+	@override String get paper => 'Қағаз';
+	@override String get oled => 'OLED';
+	@override String get line => 'Сызық';
+	@override String get ocean => 'Мұхит';
+	@override String get ultraviolet => 'Ультракүлгін';
+	@override String get matcha => 'Матча';
+	@override String get sunset => 'Күн батуы';
+	@override String get gold => 'Алтын';
+	@override String get titanium => 'Титан';
+	@override String get glass => 'Шыны';
+	@override String get crt => 'CRT';
+	@override String get vhs => 'VHS';
+	@override String get synthwave => 'Synthwave';
+	@override String get pixel => 'Пиксель';
+	@override String get neon => 'Неон';
+	@override String get sticker => 'Стикер';
+	@override String get ticket => 'Билет';
+	@override String get pop => 'Поп';
+	@override String get strata => 'Қабаттар';
+	@override String get facet => 'Қырлы';
+	@override String get tilde => 'Тильда';
+}
+
+// Path: supporter.errors
+class _Translations$supporter$errors$kk extends Translations$supporter$errors$en {
+	_Translations$supporter$errors$kk._(TranslationsKk root) : this._root = root, super.internal(root);
+
+	final TranslationsKk _root; // ignore: unused_field
+
+	// Translations
+	@override String get storeUnavailable => 'Сатып алу қолжетімсіз. Дүкенге кіргеніңізді және осы құрылғыда сатып алуға рұқсат етілгенін тексеріңіз.';
+	@override String get productNotFound => 'Supporter сатып алуы қазір дүкеніңізде қолжетімсіз.';
+	@override String get productQueryFailed => 'Бағаны жүктеу мүмкін болмады. Қосылымды тексеріп, қайтадан байқап көріңіз.';
+	@override String get purchaseFailed => 'Сатып алу орындалмады. Қайтадан байқап көріңіз.';
+	@override String get restoreFailed => 'Сатып алуды қалпына келтіру үшін дүкенге қосылу мүмкін болмады. Қайтадан байқап көріңіз.';
+	@override String get nothingToRestore => 'Осы дүкен тіркелгісінде Supporter сатып алуы табылмады.';
+}
+
+// Path: themeEditor.slots
+class _Translations$themeEditor$slots$kk extends Translations$themeEditor$slots$en {
+	_Translations$themeEditor$slots$kk._(TranslationsKk root) : this._root = root, super.internal(root);
+
+	final TranslationsKk _root; // ignore: unused_field
+
+	// Translations
+	@override String get bg => 'Фон';
+	@override String get surface => 'Беткі қабат';
+	@override String get outline => 'Контур';
+	@override String get text => 'Мәтін';
+	@override String get textMuted => 'Қосалқы мәтін';
+	@override String get accent => 'Акцент';
+}
+
+// Path: themeEditor.contrast
+class _Translations$themeEditor$contrast$kk extends Translations$themeEditor$contrast$en {
+	_Translations$themeEditor$contrast$kk._(TranslationsKk root) : this._root = root, super.internal(root);
+
+	final TranslationsKk _root; // ignore: unused_field
+
+	// Translations
+	@override String get textOnBg => 'Фондағы мәтін';
+	@override String get textOnSurface => 'Беткі қабаттағы мәтін';
+	@override String get textMutedOnBg => 'Фондағы қосалқы мәтін';
+	@override String get textMutedOnSurface => 'Беткі қабаттағы қосалқы мәтін';
+	@override String get accentOnBg => 'Фондағы акцент';
+	@override String get accentOnSurface => 'Беткі қабаттағы акцент';
+	@override String get labelOnAccent => 'Акценттегі түйме мәтіні';
+}
+
 /// The flat map containing all translations for locale <kk>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -3395,38 +3508,7 @@ class _Translations$services$libraryFilter$kk extends Translations$services$libr
 extension on TranslationsKk {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
-			'appIcon.title' => 'Қолданба белгішесі',
-			'appIcon.defaultIcon' => 'Әдепкі',
-			'appIcon.current' => 'Ағымдағы белгіше',
-			'appIcon.locked' => 'Supporter артықшылығы',
-			'appIcon.lockedHint' => 'Балама белгішелер — Supporter артықшылығы.',
-			'appIcon.changeFailed' => 'Қолданба белгішесін өзгерту мүмкін болмады',
-			'appIcon.launcherHint' => 'Plezy-ден шыққаннан кейін жаңа белгіше басты экранда пайда болады.',
-			'appIcon.tvLauncherHint' => 'Plezy-ден шыққаннан кейін жаңа баннер пайда болады. Android TV теледидар қайта іске қосылғанша ескісін көрсете беруі мүмкін.',
-			'appIcon.names.midnight' => 'Түн ортасы',
-			'appIcon.names.ember' => 'Шоқ',
-			'appIcon.names.paper' => 'Қағаз',
-			'appIcon.names.oled' => 'OLED',
-			'appIcon.names.line' => 'Сызық',
-			'appIcon.names.ocean' => 'Мұхит',
-			'appIcon.names.ultraviolet' => 'Ультракүлгін',
-			'appIcon.names.matcha' => 'Матча',
-			'appIcon.names.sunset' => 'Күн батуы',
-			'appIcon.names.gold' => 'Алтын',
-			'appIcon.names.titanium' => 'Титан',
-			'appIcon.names.glass' => 'Шыны',
-			'appIcon.names.crt' => 'CRT',
-			'appIcon.names.vhs' => 'VHS',
-			'appIcon.names.synthwave' => 'Synthwave',
-			'appIcon.names.pixel' => 'Пиксель',
-			'appIcon.names.neon' => 'Неон',
-			'appIcon.names.sticker' => 'Стикер',
-			'appIcon.names.ticket' => 'Билет',
-			'appIcon.names.pop' => 'Поп',
-			'appIcon.names.strata' => 'Қабаттар',
-			'appIcon.names.facet' => 'Қырлы',
-			'appIcon.names.tilde' => 'Тильда',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Plex арқылы кіру',
 			'auth.showQRCode' => 'QR кодты көрсету',
 			'auth.authenticate' => 'Растау',
@@ -3530,29 +3612,14 @@ extension on TranslationsKk {
 			'update.viewRelease' => 'Релизді көру',
 			'update.latestVersion' => 'Сізде ең соңғы нұсқа орнатылған',
 			'update.checkFailed' => 'Жаңартуларды тексеру мүмкін болмады',
-			'supporter.title' => 'Plezy Supporter',
-			'supporter.intro' => 'Plezy-дің дамуына қолдау көрсетіп, безендіру мүмкіндіктерін ашатын бір реттік сатып алу:',
-			'supporter.presetThemes' => 'Дайын тақырыптар',
-			'supporter.presetThemesDescription' => 'Шоқ, Мұздық, Орман, Алхоры және Қағаз',
-			'supporter.customTheme' => 'Жеке тақырып',
-			'supporter.customThemeDescription' => 'Әр түсті өзіңіз таңдаңыз',
-			'supporter.appIcons' => 'Қолданба белгішелері',
-			'supporter.appIconsDescription' => 'Plezy-дің балама белгішесін таңдаңыз',
-			'supporter.buy' => ({required Object price}) => '${price} бағасына сатып алу',
-			'supporter.loadingPrice' => 'Баға жүктелуде...',
-			'supporter.restore' => 'Сатып алуларды қалпына келтіру',
-			'supporter.pending' => 'Сатып алуыңыз төлемді немесе растауды күтуде. Дүкен оны аяқтаған бойда қосымша мүмкіндіктер ашылады.',
-			'supporter.thankYouTitle' => 'Plezy-ді қолдағаныңыз үшін рахмет',
-			'supporter.thankYouBody' => 'Supporter мүмкіндіктеріңіз ашылды.',
-			'supporter.tileSubtitle' => 'Тақырыптар мен қолданба белгішелерін бір реттік сатып алумен ашыңыз',
-			'supporter.tileSubtitleThemesOnly' => 'Тақырыптарды бір реттік сатып алумен ашыңыз',
-			'supporter.tileUnlocked' => 'Қолдауыңыз үшін рахмет',
-			'supporter.errors.storeUnavailable' => 'Сатып алу қолжетімсіз. Дүкенге кіргеніңізді және осы құрылғыда сатып алуға рұқсат етілгенін тексеріңіз.',
-			'supporter.errors.productNotFound' => 'Supporter сатып алуы қазір дүкеніңізде қолжетімсіз.',
-			'supporter.errors.productQueryFailed' => 'Бағаны жүктеу мүмкін болмады. Қосылымды тексеріп, қайтадан байқап көріңіз.',
-			'supporter.errors.purchaseFailed' => 'Сатып алу орындалмады. Қайтадан байқап көріңіз.',
-			'supporter.errors.restoreFailed' => 'Сатып алуды қалпына келтіру үшін дүкенге қосылу мүмкін болмады. Қайтадан байқап көріңіз.',
-			'supporter.errors.nothingToRestore' => 'Осы дүкен тіркелгісінде Supporter сатып алуы табылмады.',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Баптаулар',
 			'settings.supportDeveloper' => 'Plezy жобасын қолдау',
 			'settings.supportDeveloperDescription' => 'Дамытуды қаржыландыру үшін Liberapay арқылы демеушілік жасаңыз',
@@ -3888,46 +3955,24 @@ extension on TranslationsKk {
 			'settings.playerScopeLibrary' => 'Кітапхана бойынша',
 			'settings.playerScopeTitle' => 'Сериал немесе фильм бойынша',
 			'settings.exportDialogTitle' => 'Plezy параметрлерін экспорттау',
-			'themeEditor.builtIn' => 'Кірістірілген',
-			'themeEditor.presets' => 'Дайын тақырыптар',
-			'themeEditor.custom' => 'Жеке',
-			'themeEditor.customEmpty' => 'Әлі жасалмаған',
-			'themeEditor.editCustom' => 'Жеке тақырыпты өңдеу',
-			'themeEditor.editCustomDescription' => 'Әр түсті өзіңіз таңдаңыз',
-			'themeEditor.locked' => 'Supporter арқылы ашу',
-			'themeEditor.savedLocked' => 'Сақталды — Supporter арқылы ашылады',
-			'themeEditor.title' => 'Жеке тақырып',
-			'themeEditor.startFrom' => 'Негізге алу',
-			'themeEditor.startFromDescription' => 'Барлық түстерді басқа тақырыптан көшіру',
-			'themeEditor.colors' => 'Түстер',
-			'themeEditor.preview' => 'Алдын ала қарау',
-			'themeEditor.slots.bg' => 'Фон',
-			'themeEditor.slots.surface' => 'Беткі қабат',
-			'themeEditor.slots.outline' => 'Контур',
-			'themeEditor.slots.text' => 'Мәтін',
-			'themeEditor.slots.textMuted' => 'Қосалқы мәтін',
-			'themeEditor.slots.accent' => 'Акцент',
-			_ => null,
-		} ?? switch (path) {
-			'themeEditor.opacity' => 'Мөлдірлік',
-			'themeEditor.hexHint' => '#RRGGBB немесе #AARRGGBB',
-			'themeEditor.fromOtherThemes' => 'Басқа тақырыптардан',
-			'themeEditor.swatchLabel' => ({required Object theme, required Object color}) => '${theme}: ${color}',
-			'themeEditor.contrast.textOnBg' => 'Фондағы мәтін',
-			'themeEditor.contrast.textOnSurface' => 'Беткі қабаттағы мәтін',
-			'themeEditor.contrast.textMutedOnBg' => 'Фондағы қосалқы мәтін',
-			'themeEditor.contrast.textMutedOnSurface' => 'Беткі қабаттағы қосалқы мәтін',
-			'themeEditor.contrast.accentOnBg' => 'Фондағы акцент',
-			'themeEditor.contrast.accentOnSurface' => 'Беткі қабаттағы акцент',
-			'themeEditor.contrast.labelOnAccent' => 'Акценттегі түйме мәтіні',
-			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, ұсынылған ${minimum}:1 мәнінен төмен',
-			'themeEditor.discardTitle' => 'Өзгерістер жойылсын ба?',
-			'themeEditor.discardMessage' => 'Сақталмаған түс өзгерістері жоғалады.',
-			'themeEditor.discard' => 'Жою',
-			'themeEditor.previewCardTitle' => ({required Object number}) => '${number}-бөлім',
-			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '${minutes} мин қалды',
-			'themeEditor.previewSwitch' => 'Автоойнату',
-			'themeEditor.previewMutedText' => 'Қосалқы мәтін осылай көрінеді',
+			'settings.downloadLocationSelectError' => 'Қапшықты таңдау мүмкін болмады',
+			'settings.mediaCapture' => 'Медианы түсіру',
+			'settings.clips' => 'Клиптер',
+			'settings.screenshots' => 'Экран суреттері',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} сақтау орны',
+			'settings.clipLocationDescription' => 'Клиптер сақталатын орынды таңдаңыз.',
+			'settings.screenshotLocationDescription' => 'Экран суреттері сақталатын орынды таңдаңыз.',
+			'settings.clipLocationChanged' => 'Клиптерді сақтау орны өзгертілді',
+			'settings.screenshotLocationChanged' => 'Экран суреттерін сақтау орны өзгертілді',
+			'settings.clipLocationReset' => 'Клиптерді сақтау орны Жұмыс үстеліне қайтарылды',
+			'settings.screenshotLocationReset' => 'Экран суреттерін сақтау орны Жұмыс үстеліне қайтарылды',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'search.hint' => 'Фильмдер, сериалдар, музыка іздеу...',
 			'search.tryDifferentTerm' => 'Басқа іздеу сөзін байқап көріңіз',
 			'search.searchYourMedia' => 'Медиафайлдардан іздеу',
@@ -3964,6 +4009,8 @@ extension on TranslationsKk {
 			'hotkeys.actions.shaderToggle' => 'Шейдерлерді қосу/өшіру',
 			'hotkeys.actions.skipMarker' => 'Интро/Титрді өткізу',
 			'hotkeys.actions.screenshot' => 'Экран суретін түсіру',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Файл туралы ақпарат',
 			'fileInfo.overview' => 'Шолу',
 			'fileInfo.video' => 'Видео',
@@ -3973,6 +4020,8 @@ extension on TranslationsKk {
 			'fileInfo.dataStreams' => 'Деректер ағындары',
 			'fileInfo.lyrics' => 'Ән мәтіні',
 			'fileInfo.file' => 'Файл',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.attachments' => 'Тіркемелер',
 			'fileInfo.delivery' => 'Жеткізу',
 			'fileInfo.versionCounter' => ({required Object index, required Object count}) => 'Нұсқа ${index} / ${count}',
@@ -4211,7 +4260,6 @@ extension on TranslationsKk {
 			'videoControls.pipActive' => 'Суреттегі сурет режимінде ойнатылуда',
 			'videoControls.pipFailed' => 'PiP режимін іске қосу қатесі',
 			'videoControls.screenshotSaved' => 'Экран суреті сақталды',
-			'videoControls.screenshotFailed' => 'Экран суретін түсіру мүмкін болмады',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Масштаб %${percent}',
 			'videoControls.volumePercent' => ({required Object percent}) => 'Дыбыс ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0 немесе жаңалауы қажет',
@@ -4243,6 +4291,46 @@ extension on TranslationsKk {
 			'videoControls.osdSubtitlesOff' => 'Субтитр: өшірулі',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Субтитр: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Дыбыс: ${track}',
+			'videoControls.screenshotFailed' => 'Экран суретін түсіру мүмкін болмады',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('kk'))(n, one: '${n} frame', other: '${n} frames', ), 
+			'videoControls.clip.fineAdjust' => 'Дәл реттеу',
+			'videoControls.clip.title' => 'Клип',
+			'videoControls.clip.vodOnly' => 'Клиптер сұрау бойынша бейне ойнату кезінде қолжетімді.',
+			'videoControls.clip.sourceUnavailable' => 'Бұл ойнату сеансы үшін клип көзі қолжетімсіз.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Клип жасамас бұрын кемінде 1 секунд ойнатыңыз.',
+			'videoControls.clip.startBeforeBeginning' => 'Клиптің басы бейненің басынан бұрын болмауы керек.',
+			'videoControls.clip.endAfterStart' => 'Клиптің соңы оның басынан кейін болуы керек.',
+			'videoControls.clip.minimumDuration' => 'Клиптің ұзақтығы кемінде 1 секунд болуы керек.',
+			'videoControls.clip.endPastVideo' => 'Клиптің соңы бейненің соңынан асып кетеді.',
+			'videoControls.clip.exportCanceled' => 'Клипті экспорттау тоқтатылды.',
+			'videoControls.clip.cacheUnavailable' => 'Түпнұсқа форматында экспорттау үшін таңдалған аралықты толық кэштеу мүмкін болмады. Қысқарақ клипті таңдаңыз немесе сақтамас бұрын алдын ала қарауды бір рет ойнатыңыз.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Көзді көшіру арқылы экспорттау кезінде кодтаушы қолданылмайды.',
+			'videoControls.clip.encodingDesktopOnly' => 'Клиптерді H.264 және HEVC форматтарында кодтау қазір macOS пен Windows жүйелерінде қолжетімді.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR экспортына тікелей ойнатылатын, HDR10 немесе HLG пішімімен үйлесімді көз қажет.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Бұл клип белсенді қайта кодталған ағыннан бұрын басталады. Ертерек уақытқа өтіп, клип өңдегішін қайта ашыңыз немесе түпнұсқа сапасына ауысыңыз.',
+			'videoControls.clip.previewRequired' => 'Клипті сақтау үшін алдын ала қараудың жүктелуі аяқталуы керек.',
+			'videoControls.clip.h264Failed' => 'Бұл көзді H.264 SDR MP4 форматына кодтау мүмкін болмады.',
+			'videoControls.clip.hevcSdrFailed' => 'Бұл көзді HEVC SDR MP4 форматына кодтау мүмкін болмады.',
+			'videoControls.clip.hevcHdrFailed' => 'Бұл көзді HEVC HDR MP4 форматына кодтау мүмкін болмады.',
+			'videoControls.clip.gifFailed' => 'Бұл көзді GIF форматына кодтау мүмкін болмады.',
+			'videoControls.clip.originalFailed' => 'Бұл көзді mpv кэшінен көшіру мүмкін болмады.',
+			'videoControls.clip.previewUnavailable' => 'Бұл нұсқада клипті алдын ала ойнату қолжетімсіз.',
+			'videoControls.clip.previewFailed' => 'Клипті алдын ала ойнату сәтсіз аяқталды.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Экран суретін түсірмес бұрын клипті алдын ала қараудың жүктелуі аяқталуы керек.',
+			'videoControls.clip.screenshotInProgress' => 'Экран суреті сақталып жатыр.',
+			'videoControls.clip.saveAsDialog' => 'Клипті басқаша сақтау',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => '${fileName} файлына сақталды',
+			'videoControls.clip.openFolder' => 'Қапшықты ашу',
+			'videoControls.clip.saveAs' => 'Басқаша сақтау',
+			'videoControls.clip.cancelExport' => 'Экспорттауды тоқтату',
+			'videoControls.clip.saving' => 'Сақталуда...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Сақталуда: ${percent}%',
+			'videoControls.clip.mutePreview' => 'Алдын ала қараудың дыбысын өшіру',
+			'videoControls.clip.unmutePreview' => 'Алдын ала қараудың дыбысын қосу',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'Көрілді деп белгіленді',
 			'messages.markedAsUnwatched' => 'Көрілмеді деп белгіленді',
 			'messages.markedAsWatchedOffline' => 'Көрілді деп белгіленді (онлайн болғанда синхрондалады)',
@@ -4421,8 +4509,6 @@ extension on TranslationsKk {
 			'profiles.tokenIdentityMismatch' => 'Plex профилінің токені күтілмеген серверді анықтады',
 			'connections.sectionTitle' => 'Қосылымдар',
 			'connections.addConnection' => 'Қосылым қосу',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnectionSubtitleNoProfile' => 'Plex арқылы кіріңіз немесе Jellyfin не Emby серверіне қосылыңыз',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => '${displayName} профиліне қосу: Plex, Jellyfin, Emby немесе басқа қосылым',
 			'connections.sessionExpiredOne' => ({required Object name}) => '${name} үшін сеанс мерзімі өтті',
@@ -4448,6 +4534,8 @@ extension on TranslationsKk {
 			'accountPreferences.groups.personalMedia' => 'Жеке медиа',
 			'accountPreferences.preferredAudioLanguage' => 'Қалаулы аудио тілі',
 			'accountPreferences.autoSelectAudio' => 'Аудионы тілі бойынша таңдау',
+			_ => null,
+		} ?? switch (path) {
 			'accountPreferences.autoSelectAudioDescription' => 'Өшірулі күйде файл әдепкі деп белгілеген аудио трек қолданылады.',
 			'accountPreferences.preferredSubtitleLanguage' => 'Қалаулы субтитр тілі',
 			'accountPreferences.subtitleMode' => 'Субтитрлерді қосу',
@@ -4655,6 +4743,9 @@ extension on TranslationsKk {
 			'about.versionLabel' => ({required Object version}) => 'Нұсқа ${version}',
 			'about.appDescription' => 'Flutter негізіндегі ыңғайлы Plex, Jellyfin және Emby клиенті',
 			'about.viewLicensesDescription' => 'Үшінші тарап кітапханаларының лицензияларын көру',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email}) үшін серверлер табылмады',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Серверлерді жүктеу қатесі: ${error}',
 			'serverSelection.noValidServers' => 'Бұл тіркелгіде жарамды сервер табылмады',
@@ -4733,6 +4824,7 @@ extension on TranslationsKk {
 			'explore.removedFromWatchlist' => 'Көру тізімінен алынды',
 			'explore.watchlistUpdateFailed' => 'Көру тізімін жаңарту мүмкін болмады',
 			'explore.watchlistNoMatch' => 'Бұл элементті көру тізімімен сәйкестендіру мүмкін болмады',
+			'explore.openInLibrary' => 'Кітапханада ашу',
 			'explore.notInLibrary' => 'Кітапханаңызда жоқ',
 			'explore.inTheseLibraries' => 'Осы кітапханаларда бар',
 			'explore.checkingLibrary' => 'Кітапхана тексерілуде...',
@@ -4862,6 +4954,7 @@ extension on TranslationsKk {
 			'liveTv.channelNumber' => ({required Object number}) => '${number}-арна',
 			'liveTv.unknownChannel' => 'Белгісіз арна',
 			'liveTv.live' => 'ТІКЕЛЕЙ ЭФИР',
+			'liveTv.premiereBadge' => 'NEW',
 			'liveTv.reloadGuide' => 'Бағдарламаны жаңарту',
 			'liveTv.searchGuide' => 'Телебағдарламадан іздеу',
 			'liveTv.searchHint' => 'Арналар мен бағдарламаларды іздеу',
@@ -4935,8 +5028,6 @@ extension on TranslationsKk {
 			'liveTv.recordSettings.keepUpToHint' => '0 барлық эпизодты сақтайды',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes} мин кейін басталады',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day}, ${time}',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.invalidPlaybackData' => ({required Object product}) => '${product} жарамсыз тікелей TV ойнату деректерін қайтарды',
 			'liveTv.failedToStartChannel' => 'Тікелей эфир арнасын іске қосу мүмкін болмады',
 			'liveTv.failedToBuildStreamUrl' => 'Ағын URL-ін құру мүмкін болмады',
@@ -4957,6 +5048,8 @@ extension on TranslationsKk {
 			'collections.errorAddingToCollection' => 'Топтамаға қосу мүмкін болмады',
 			'collections.created' => 'Топтама жасалды',
 			'collections.removeFromCollection' => 'Топтамадан өшіру',
+			_ => null,
+		} ?? switch (path) {
 			'collections.removeFromCollectionConfirm' => ({required Object title}) => '"${title}" осы топтамадан өшірілсін бе?',
 			'collections.removedFromCollection' => 'Топтамадан өшірілді',
 			'collections.removeFromCollectionFailed' => 'Топтамадан өшіру мүмкін болмады',
@@ -5437,6 +5530,7 @@ extension on TranslationsKk {
 			'performanceOverlay.cacheLimit' => 'Кэш шегі',
 			'performanceOverlay.speed' => 'Жылдамдық',
 			'performanceOverlay.player' => 'Ойнатқыш',
+			'performanceOverlay.playMethod' => 'Play Method',
 			'performanceOverlay.memory' => 'Жады',
 			'performanceOverlay.uiFps' => 'Интерфейс (UI) FPS',
 			'performanceOverlay.fps' => 'FPS',
@@ -5449,8 +5543,6 @@ extension on TranslationsKk {
 			'performanceOverlay.decoderHardware' => 'Аппараттық',
 			'performanceOverlay.tunnelingActive' => 'Белсенді',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} сәтсіз аяқталды)',
-			_ => null,
-		} ?? switch (path) {
 			'externalPlayer.title' => 'Сыртқы ойнатқыш',
 			'externalPlayer.useExternalPlayer' => 'Сыртқы ойнатқышты пайдалану',
 			'externalPlayer.useExternalPlayerDescription' => 'Видеоларды басқа қолданбада ашу',
@@ -5470,6 +5562,8 @@ extension on TranslationsKk {
 			'metadataEdit.editMetadata' => 'Өңдеу...',
 			'metadataEdit.screenTitle' => 'Метадеректерді өңдеу',
 			'metadataEdit.basicInfo' => 'Негізгі ақпарат',
+			_ => null,
+		} ?? switch (path) {
 			'metadataEdit.artwork' => 'Суреттер/Постерлер',
 			'metadataEdit.advancedSettings' => 'Кеңейтілген баптаулар',
 			'metadataEdit.title' => 'Атауы',
@@ -5703,6 +5797,115 @@ extension on TranslationsKk {
 			'addServer.redirectDifferentHost' => ({required Object product}) => 'Сервер басқа хостқа қайта бағыттады. Соңғы ${product} URL-ін тікелей енгізіңіз.',
 			'addServer.redirectInsecure' => 'Сервер HTTPS мекенжайынан қауіпсіз емес URL-ге қайта бағыттады',
 			'addServer.redirectUnsupportedEnterFinal' => ({required Object product}) => 'Сервер қолдау көрсетілмейтін URL-ге қайта бағыттады. Соңғы ${product} URL-ін тікелей енгізіңіз.',
+			'appIcon.title' => 'Қолданба белгішесі',
+			'appIcon.defaultIcon' => 'Әдепкі',
+			'appIcon.current' => 'Ағымдағы белгіше',
+			'appIcon.locked' => 'Supporter артықшылығы',
+			'appIcon.lockedHint' => 'Балама белгішелер — Supporter артықшылығы.',
+			'appIcon.changeFailed' => 'Қолданба белгішесін өзгерту мүмкін болмады',
+			'appIcon.launcherHint' => 'Plezy-ден шыққаннан кейін жаңа белгіше басты экранда пайда болады.',
+			'appIcon.tvLauncherHint' => 'Plezy-ден шыққаннан кейін жаңа баннер пайда болады. Android TV теледидар қайта іске қосылғанша ескісін көрсете беруі мүмкін.',
+			'appIcon.names.midnight' => 'Түн ортасы',
+			'appIcon.names.ember' => 'Шоқ',
+			'appIcon.names.paper' => 'Қағаз',
+			'appIcon.names.oled' => 'OLED',
+			'appIcon.names.line' => 'Сызық',
+			'appIcon.names.ocean' => 'Мұхит',
+			'appIcon.names.ultraviolet' => 'Ультракүлгін',
+			'appIcon.names.matcha' => 'Матча',
+			'appIcon.names.sunset' => 'Күн батуы',
+			'appIcon.names.gold' => 'Алтын',
+			'appIcon.names.titanium' => 'Титан',
+			'appIcon.names.glass' => 'Шыны',
+			'appIcon.names.crt' => 'CRT',
+			'appIcon.names.vhs' => 'VHS',
+			'appIcon.names.synthwave' => 'Synthwave',
+			'appIcon.names.pixel' => 'Пиксель',
+			'appIcon.names.neon' => 'Неон',
+			'appIcon.names.sticker' => 'Стикер',
+			'appIcon.names.ticket' => 'Билет',
+			'appIcon.names.pop' => 'Поп',
+			'appIcon.names.strata' => 'Қабаттар',
+			'appIcon.names.facet' => 'Қырлы',
+			'appIcon.names.tilde' => 'Тильда',
+			'supporter.title' => 'Plezy Supporter',
+			'supporter.intro' => 'Plezy-дің дамуына қолдау көрсетіп, безендіру мүмкіндіктерін ашатын бір реттік сатып алу:',
+			'supporter.presetThemes' => 'Дайын тақырыптар',
+			'supporter.presetThemesDescription' => 'Шоқ, Мұздық, Орман, Алхоры және Қағаз',
+			'supporter.customTheme' => 'Жеке тақырып',
+			'supporter.customThemeDescription' => 'Әр түсті өзіңіз таңдаңыз',
+			'supporter.appIcons' => 'Қолданба белгішелері',
+			'supporter.appIconsDescription' => 'Plezy-дің балама белгішесін таңдаңыз',
+			'supporter.buy' => ({required Object price}) => '${price} бағасына сатып алу',
+			'supporter.loadingPrice' => 'Баға жүктелуде...',
+			'supporter.restore' => 'Сатып алуларды қалпына келтіру',
+			'supporter.pending' => 'Сатып алуыңыз төлемді немесе растауды күтуде. Дүкен оны аяқтаған бойда қосымша мүмкіндіктер ашылады.',
+			'supporter.thankYouTitle' => 'Plezy-ді қолдағаныңыз үшін рахмет',
+			'supporter.thankYouBody' => 'Supporter мүмкіндіктеріңіз ашылды.',
+			'supporter.tileSubtitle' => 'Тақырыптар мен қолданба белгішелерін бір реттік сатып алумен ашыңыз',
+			'supporter.tileSubtitleThemesOnly' => 'Тақырыптарды бір реттік сатып алумен ашыңыз',
+			'supporter.tileUnlocked' => 'Қолдауыңыз үшін рахмет',
+			'supporter.errors.storeUnavailable' => 'Сатып алу қолжетімсіз. Дүкенге кіргеніңізді және осы құрылғыда сатып алуға рұқсат етілгенін тексеріңіз.',
+			'supporter.errors.productNotFound' => 'Supporter сатып алуы қазір дүкеніңізде қолжетімсіз.',
+			'supporter.errors.productQueryFailed' => 'Бағаны жүктеу мүмкін болмады. Қосылымды тексеріп, қайтадан байқап көріңіз.',
+			'supporter.errors.purchaseFailed' => 'Сатып алу орындалмады. Қайтадан байқап көріңіз.',
+			'supporter.errors.restoreFailed' => 'Сатып алуды қалпына келтіру үшін дүкенге қосылу мүмкін болмады. Қайтадан байқап көріңіз.',
+			'supporter.errors.nothingToRestore' => 'Осы дүкен тіркелгісінде Supporter сатып алуы табылмады.',
+			'themeEditor.builtIn' => 'Кірістірілген',
+			'themeEditor.presets' => 'Дайын тақырыптар',
+			'themeEditor.custom' => 'Жеке',
+			'themeEditor.customEmpty' => 'Әлі жасалмаған',
+			'themeEditor.editCustom' => 'Жеке тақырыпты өңдеу',
+			'themeEditor.editCustomDescription' => 'Әр түсті өзіңіз таңдаңыз',
+			'themeEditor.locked' => 'Supporter арқылы ашу',
+			'themeEditor.savedLocked' => 'Сақталды — Supporter арқылы ашылады',
+			'themeEditor.title' => 'Жеке тақырып',
+			'themeEditor.startFrom' => 'Негізге алу',
+			'themeEditor.startFromDescription' => 'Барлық түстерді басқа тақырыптан көшіру',
+			'themeEditor.colors' => 'Түстер',
+			'themeEditor.preview' => 'Алдын ала қарау',
+			'themeEditor.slots.bg' => 'Фон',
+			'themeEditor.slots.surface' => 'Беткі қабат',
+			'themeEditor.slots.outline' => 'Контур',
+			'themeEditor.slots.text' => 'Мәтін',
+			'themeEditor.slots.textMuted' => 'Қосалқы мәтін',
+			'themeEditor.slots.accent' => 'Акцент',
+			'themeEditor.opacity' => 'Мөлдірлік',
+			'themeEditor.hexHint' => '#RRGGBB немесе #AARRGGBB',
+			'themeEditor.fromOtherThemes' => 'Басқа тақырыптардан',
+			'themeEditor.swatchLabel' => ({required Object theme, required Object color}) => '${theme}: ${color}',
+			'themeEditor.contrast.textOnBg' => 'Фондағы мәтін',
+			'themeEditor.contrast.textOnSurface' => 'Беткі қабаттағы мәтін',
+			'themeEditor.contrast.textMutedOnBg' => 'Фондағы қосалқы мәтін',
+			'themeEditor.contrast.textMutedOnSurface' => 'Беткі қабаттағы қосалқы мәтін',
+			'themeEditor.contrast.accentOnBg' => 'Фондағы акцент',
+			'themeEditor.contrast.accentOnSurface' => 'Беткі қабаттағы акцент',
+			'themeEditor.contrast.labelOnAccent' => 'Акценттегі түйме мәтіні',
+			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, ұсынылған ${minimum}:1 мәнінен төмен',
+			'themeEditor.discardTitle' => 'Өзгерістер жойылсын ба?',
+			'themeEditor.discardMessage' => 'Сақталмаған түс өзгерістері жоғалады.',
+			'themeEditor.discard' => 'Жою',
+			'themeEditor.previewCardTitle' => ({required Object number}) => '${number}-бөлім',
+			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '${minutes} мин қалды',
+			'themeEditor.previewSwitch' => 'Автоойнату',
+			'themeEditor.previewMutedText' => 'Қосалқы мәтін осылай көрінеді',
+			'deepLinks.invalid' => 'This Plezy link isn\'t valid.',
+			'deepLinks.profileNotFound' => ({required Object profile}) => 'No profile matches "${profile}".',
+			'deepLinks.serverUnavailable' => 'Couldn\'t reach the server for this link.',
+			'deepLinks.notFound' => 'Couldn\'t find this title in your libraries.',
+			'deepLinks.unsupportedItem' => 'This link can\'t be played.',
+			'deepLinks.noLiveTv' => 'No Live TV server is available for this link.',
+			'deepLinks.channelNotFound' => ({required Object channel}) => 'Couldn\'t find channel "${channel}".',
+			'deepLinks.showLink' => 'Show link',
+			'deepLinks.showProfileLink' => 'Show profile link',
+			'deepLinks.dialogTitle' => 'Link',
+			'deepLinks.showHint' => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.',
+			'deepLinks.movieHint' => 'Opening this link plays the movie.',
+			'deepLinks.episodeHint' => 'Opening this link plays this episode.',
+			'deepLinks.profileHint' => 'Opening this link switches to this profile.',
+			'deepLinks.openAsProfile' => ({required Object name}) => 'Open as ${name}',
+			'deepLinks.copy' => 'Copy',
+			'deepLinks.copied' => 'Link copied',
 			_ => null,
 		};
 	}

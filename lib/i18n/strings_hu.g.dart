@@ -40,14 +40,11 @@ class TranslationsHu extends Translations with BaseTranslations<AppLocale, Trans
 
 	// Translations
 	@override late final _Translations$app$hu app = _Translations$app$hu._(_root);
-	@override late final _Translations$appIcon$hu appIcon = _Translations$appIcon$hu._(_root);
 	@override late final _Translations$auth$hu auth = _Translations$auth$hu._(_root);
 	@override late final _Translations$common$hu common = _Translations$common$hu._(_root);
 	@override late final _Translations$screens$hu screens = _Translations$screens$hu._(_root);
 	@override late final _Translations$update$hu update = _Translations$update$hu._(_root);
-	@override late final _Translations$supporter$hu supporter = _Translations$supporter$hu._(_root);
 	@override late final _Translations$settings$hu settings = _Translations$settings$hu._(_root);
-	@override late final _Translations$themeEditor$hu themeEditor = _Translations$themeEditor$hu._(_root);
 	@override late final _Translations$search$hu search = _Translations$search$hu._(_root);
 	@override late final _Translations$hotkeys$hu hotkeys = _Translations$hotkeys$hu._(_root);
 	@override late final _Translations$fileInfo$hu fileInfo = _Translations$fileInfo$hu._(_root);
@@ -93,6 +90,10 @@ class TranslationsHu extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$seerr$hu seerr = _Translations$seerr$hu._(_root);
 	@override late final _Translations$services$hu services = _Translations$services$hu._(_root);
 	@override late final _Translations$addServer$hu addServer = _Translations$addServer$hu._(_root);
+	@override late final _Translations$appIcon$hu appIcon = _Translations$appIcon$hu._(_root);
+	@override late final _Translations$supporter$hu supporter = _Translations$supporter$hu._(_root);
+	@override late final _Translations$themeEditor$hu themeEditor = _Translations$themeEditor$hu._(_root);
+	@override late final _Translations$deepLinks$hu deepLinks = _Translations$deepLinks$hu._(_root);
 }
 
 // Path: app
@@ -102,25 +103,7 @@ class _Translations$app$hu extends Translations$app$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
-}
-
-// Path: appIcon
-class _Translations$appIcon$hu extends Translations$appIcon$en {
-	_Translations$appIcon$hu._(TranslationsHu root) : this._root = root, super.internal(root);
-
-	final TranslationsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Alkalmazásikon';
-	@override String get defaultIcon => 'Alapértelmezett';
-	@override String get current => 'Jelenlegi ikon';
-	@override String get locked => 'Supporter-előny';
-	@override String get lockedHint => 'Az alternatív ikonok a Supporter-előnyök közé tartoznak.';
-	@override String get changeFailed => 'Nem sikerült módosítani az alkalmazásikont';
-	@override String get launcherHint => 'Az új ikon azután jelenik meg a kezdőképernyőn, hogy kiléptél a Plezyből.';
-	@override String get tvLauncherHint => 'Az új banner azután jelenik meg, hogy kiléptél a Plezyből. Az Android TV a TV újraindításáig még a régit is mutathatja.';
-	@override late final _Translations$appIcon$names$hu names = _Translations$appIcon$names$hu._(_root);
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -237,33 +220,14 @@ class _Translations$update$hu extends Translations$update$en {
 	@override String get viewRelease => 'Kiadási megjegyzések';
 	@override String get latestVersion => 'A legújabb verziót használod';
 	@override String get checkFailed => 'Nem sikerült az újabb frissítések ellenőrzése';
-}
-
-// Path: supporter
-class _Translations$supporter$hu extends Translations$supporter$en {
-	_Translations$supporter$hu._(TranslationsHu root) : this._root = root, super.internal(root);
-
-	final TranslationsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Plezy Supporter';
-	@override String get intro => 'Egyszeri vásárlás, amely a Plezy fejlesztését támogatja, és kozmetikai extrákat old fel:';
-	@override String get presetThemes => 'Előre beállított témák';
-	@override String get presetThemesDescription => 'Parázs, Gleccser, Erdő, Szilva és Papír';
-	@override String get customTheme => 'Egyéni téma';
-	@override String get customThemeDescription => 'Minden színt te választasz ki';
-	@override String get appIcons => 'Alkalmazásikonok';
-	@override String get appIconsDescription => 'Válassz egy alternatív Plezy-ikont';
-	@override String buy({required Object price}) => 'Megvásárlás: ${price}';
-	@override String get loadingPrice => 'Ár betöltése...';
-	@override String get restore => 'Vásárlások visszaállítása';
-	@override String get pending => 'A vásárlásod fizetésre vagy jóváhagyásra vár. Az extrák azonnal feloldódnak, amint az áruház lezárja a folyamatot.';
-	@override String get thankYouTitle => 'Köszönjük, hogy támogatod a Plezyt';
-	@override String get thankYouBody => 'A Supporter-extráid fel vannak oldva.';
-	@override String get tileSubtitle => 'Témák és alkalmazásikonok feloldása egyszeri vásárlással';
-	@override String get tileSubtitleThemesOnly => 'Témák feloldása egyszeri vásárlással';
-	@override String get tileUnlocked => 'Köszönjük a támogatásodat';
-	@override late final _Translations$supporter$errors$hu errors = _Translations$supporter$errors$hu._(_root);
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -608,42 +572,24 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Könyvtáronként';
 	@override String get playerScopeTitle => 'Sorozatonként vagy filmenként';
 	@override String get exportDialogTitle => 'Plezy-beállítások exportálása';
-}
-
-// Path: themeEditor
-class _Translations$themeEditor$hu extends Translations$themeEditor$en {
-	_Translations$themeEditor$hu._(TranslationsHu root) : this._root = root, super.internal(root);
-
-	final TranslationsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get builtIn => 'Beépített';
-	@override String get presets => 'Előre beállított';
-	@override String get custom => 'Egyéni';
-	@override String get customEmpty => 'Még nincs létrehozva';
-	@override String get editCustom => 'Egyéni téma szerkesztése';
-	@override String get editCustomDescription => 'Válaszd ki magad az összes színt';
-	@override String get locked => 'Supporterrel oldható fel';
-	@override String get savedLocked => 'Mentve — Supporterrel oldható fel';
-	@override String get title => 'Egyéni téma';
-	@override String get startFrom => 'Kiindulási téma';
-	@override String get startFromDescription => 'Az összes szín átmásolása egy másik témából';
-	@override String get colors => 'Színek';
-	@override String get preview => 'Előnézet';
-	@override late final _Translations$themeEditor$slots$hu slots = _Translations$themeEditor$slots$hu._(_root);
-	@override String get opacity => 'Átlátszatlanság';
-	@override String get hexHint => '#RRGGBB vagy #AARRGGBB';
-	@override String get fromOtherThemes => 'Más témákból';
-	@override String swatchLabel({required Object theme, required Object color}) => '${theme} – ${color}';
-	@override late final _Translations$themeEditor$contrast$hu contrast = _Translations$themeEditor$contrast$hu._(_root);
-	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, az ajánlott ${minimum}:1 alatt';
-	@override String get discardTitle => 'Elveted a módosításokat?';
-	@override String get discardMessage => 'A nem mentett színmódosítások elvesznek.';
-	@override String get discard => 'Elvetés';
-	@override String previewCardTitle({required Object number}) => '${number}. epizód';
-	@override String previewCardSubtitle({required Object minutes}) => '${minutes} perc van hátra';
-	@override String get previewSwitch => 'Automatikus lejátszás';
-	@override String get previewMutedText => 'Így néz ki a másodlagos szöveg';
+	@override String get downloadLocationSelectError => 'Nem sikerült kiválasztani a mappát';
+	@override String get mediaCapture => 'Médiarögzítés';
+	@override String get clips => 'Klipek';
+	@override String get screenshots => 'Képernyőképek';
+	@override String captureLocationTitle({required Object title}) => '${title} mentési helye';
+	@override String get clipLocationDescription => 'Válaszd ki a klipek mentési helyét.';
+	@override String get screenshotLocationDescription => 'Válaszd ki a képernyőképek mentési helyét.';
+	@override String get clipLocationChanged => 'A klipek mentési helye megváltozott';
+	@override String get screenshotLocationChanged => 'A képernyőképek mentési helye megváltozott';
+	@override String get clipLocationReset => 'A klipek mentési helye visszaállt az Asztalra';
+	@override String get screenshotLocationReset => 'A képernyőképek mentési helye visszaállt az Asztalra';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
+	@override String get packedStereoUi => '3D Playback UI';
 }
 
 // Path: search
@@ -993,7 +939,6 @@ class _Translations$videoControls$hu extends Translations$videoControls$en {
 	@override String get pipActive => 'Lejátszás kép a képben módban';
 	@override String get pipFailed => 'Nem sikerült elindítani a kép a képben módot';
 	@override String get screenshotSaved => 'Képernyőkép elmentve';
-	@override String get screenshotFailed => 'Nem sikerült képernyőképet készíteni';
 	@override String zoomPercent({required Object percent}) => 'Nagyítás ${percent}%';
 	@override String volumePercent({required Object percent}) => 'Hangerő ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$hu pipErrors = _Translations$videoControls$pipErrors$hu._(_root);
@@ -1018,6 +963,13 @@ class _Translations$videoControls$hu extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Feliratok: ki';
 	@override String osdSubtitles({required Object track}) => 'Feliratok: ${track}';
 	@override String osdAudio({required Object track}) => 'Hang: ${track}';
+	@override String get screenshotFailed => 'Nem sikerült képernyőképet készíteni';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
+	@override late final _Translations$videoControls$clip$hu clip = _Translations$videoControls$clip$hu._(_root);
 }
 
 // Path: messages
@@ -1440,6 +1392,9 @@ class _Translations$about$hu extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Verzió: ${version}';
 	@override String get appDescription => 'Gyönyörű Flutter-kliens a Plexhez, a Jellyfinhez és az Embyhez';
 	@override String get viewLicensesDescription => 'Külső fejlesztésű programkönyvtárak licenceinek megtekintése';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1568,6 +1523,7 @@ class _Translations$explore$hu extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Eltávolítva a figyelőlistáról';
 	@override String get watchlistUpdateFailed => 'Nem sikerült a Néznivalók frissítése';
 	@override String get watchlistNoMatch => 'Nem sikerült ezt az elemet figyelőlistához társítani';
+	@override String get openInLibrary => 'Megnyitás a könyvtárban';
 	@override String get notInLibrary => 'Nincs a könyvtáradban';
 	@override String get inTheseLibraries => 'Ezekben a könyvtárakban';
 	@override String get checkingLibrary => 'Könyvtár ellenőrzése...';
@@ -1618,6 +1574,7 @@ class _Translations$liveTv$hu extends Translations$liveTv$en {
 	@override String channelNumber({required Object number}) => '${number}. csatorna';
 	@override String get unknownChannel => 'Ismeretlen csatorna';
 	@override String get live => 'ÉLŐ';
+	@override String get premiereBadge => 'NEW';
 	@override String get reloadGuide => 'Műsorújság újratöltése';
 	@override String get searchGuide => 'Keresés a műsorújságban';
 	@override String get searchHint => 'Csatornák és műsorok keresése';
@@ -2144,6 +2101,7 @@ class _Translations$performanceOverlay$hu extends Translations$performanceOverla
 	@override String get cacheLimit => 'Gyorsítótár korlátja';
 	@override String get speed => 'Sebesség';
 	@override String get player => 'Lejátszó';
+	@override String get playMethod => 'Play Method';
 	@override String get memory => 'Memória';
 	@override String get uiFps => 'Felület-FPS';
 	@override String get fps => 'FPS';
@@ -2458,36 +2416,111 @@ class _Translations$addServer$hu extends Translations$addServer$en {
 	@override String redirectUnsupportedEnterFinal({required Object product}) => 'A szerver nem támogatott URL-re irányított át. Add meg közvetlenül a végleges ${product} URL-t.';
 }
 
-// Path: appIcon.names
-class _Translations$appIcon$names$hu extends Translations$appIcon$names$en {
-	_Translations$appIcon$names$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+// Path: appIcon
+class _Translations$appIcon$hu extends Translations$appIcon$en {
+	_Translations$appIcon$hu._(TranslationsHu root) : this._root = root, super.internal(root);
 
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get midnight => 'Éjfél';
-	@override String get ember => 'Parázs';
-	@override String get paper => 'Papír';
-	@override String get oled => 'OLED';
-	@override String get line => 'Vonal';
-	@override String get ocean => 'Óceán';
-	@override String get ultraviolet => 'Ultraibolya';
-	@override String get matcha => 'Matcha';
-	@override String get sunset => 'Naplemente';
-	@override String get gold => 'Arany';
-	@override String get titanium => 'Titán';
-	@override String get glass => 'Üveg';
-	@override String get crt => 'CRT';
-	@override String get vhs => 'VHS';
-	@override String get synthwave => 'Synthwave';
-	@override String get pixel => 'Pixel';
-	@override String get neon => 'Neon';
-	@override String get sticker => 'Matrica';
-	@override String get ticket => 'Jegy';
-	@override String get pop => 'Pop';
-	@override String get strata => 'Rétegek';
-	@override String get facet => 'Fazetta';
-	@override String get tilde => 'Tilde';
+	@override String get title => 'Alkalmazásikon';
+	@override String get defaultIcon => 'Alapértelmezett';
+	@override String get current => 'Jelenlegi ikon';
+	@override String get locked => 'Supporter-előny';
+	@override String get lockedHint => 'Az alternatív ikonok a Supporter-előnyök közé tartoznak.';
+	@override String get changeFailed => 'Nem sikerült módosítani az alkalmazásikont';
+	@override String get launcherHint => 'Az új ikon azután jelenik meg a kezdőképernyőn, hogy kiléptél a Plezyből.';
+	@override String get tvLauncherHint => 'Az új banner azután jelenik meg, hogy kiléptél a Plezyből. Az Android TV a TV újraindításáig még a régit is mutathatja.';
+	@override late final _Translations$appIcon$names$hu names = _Translations$appIcon$names$hu._(_root);
+}
+
+// Path: supporter
+class _Translations$supporter$hu extends Translations$supporter$en {
+	_Translations$supporter$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Plezy Supporter';
+	@override String get intro => 'Egyszeri vásárlás, amely a Plezy fejlesztését támogatja, és kozmetikai extrákat old fel:';
+	@override String get presetThemes => 'Előre beállított témák';
+	@override String get presetThemesDescription => 'Parázs, Gleccser, Erdő, Szilva és Papír';
+	@override String get customTheme => 'Egyéni téma';
+	@override String get customThemeDescription => 'Minden színt te választasz ki';
+	@override String get appIcons => 'Alkalmazásikonok';
+	@override String get appIconsDescription => 'Válassz egy alternatív Plezy-ikont';
+	@override String buy({required Object price}) => 'Megvásárlás: ${price}';
+	@override String get loadingPrice => 'Ár betöltése...';
+	@override String get restore => 'Vásárlások visszaállítása';
+	@override String get pending => 'A vásárlásod fizetésre vagy jóváhagyásra vár. Az extrák azonnal feloldódnak, amint az áruház lezárja a folyamatot.';
+	@override String get thankYouTitle => 'Köszönjük, hogy támogatod a Plezyt';
+	@override String get thankYouBody => 'A Supporter-extráid fel vannak oldva.';
+	@override String get tileSubtitle => 'Témák és alkalmazásikonok feloldása egyszeri vásárlással';
+	@override String get tileSubtitleThemesOnly => 'Témák feloldása egyszeri vásárlással';
+	@override String get tileUnlocked => 'Köszönjük a támogatásodat';
+	@override late final _Translations$supporter$errors$hu errors = _Translations$supporter$errors$hu._(_root);
+}
+
+// Path: themeEditor
+class _Translations$themeEditor$hu extends Translations$themeEditor$en {
+	_Translations$themeEditor$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get builtIn => 'Beépített';
+	@override String get presets => 'Előre beállított';
+	@override String get custom => 'Egyéni';
+	@override String get customEmpty => 'Még nincs létrehozva';
+	@override String get editCustom => 'Egyéni téma szerkesztése';
+	@override String get editCustomDescription => 'Válaszd ki magad az összes színt';
+	@override String get locked => 'Supporterrel oldható fel';
+	@override String get savedLocked => 'Mentve — Supporterrel oldható fel';
+	@override String get title => 'Egyéni téma';
+	@override String get startFrom => 'Kiindulási téma';
+	@override String get startFromDescription => 'Az összes szín átmásolása egy másik témából';
+	@override String get colors => 'Színek';
+	@override String get preview => 'Előnézet';
+	@override late final _Translations$themeEditor$slots$hu slots = _Translations$themeEditor$slots$hu._(_root);
+	@override String get opacity => 'Átlátszatlanság';
+	@override String get hexHint => '#RRGGBB vagy #AARRGGBB';
+	@override String get fromOtherThemes => 'Más témákból';
+	@override String swatchLabel({required Object theme, required Object color}) => '${theme} – ${color}';
+	@override late final _Translations$themeEditor$contrast$hu contrast = _Translations$themeEditor$contrast$hu._(_root);
+	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, az ajánlott ${minimum}:1 alatt';
+	@override String get discardTitle => 'Elveted a módosításokat?';
+	@override String get discardMessage => 'A nem mentett színmódosítások elvesznek.';
+	@override String get discard => 'Elvetés';
+	@override String previewCardTitle({required Object number}) => '${number}. epizód';
+	@override String previewCardSubtitle({required Object minutes}) => '${minutes} perc van hátra';
+	@override String get previewSwitch => 'Automatikus lejátszás';
+	@override String get previewMutedText => 'Így néz ki a másodlagos szöveg';
+}
+
+// Path: deepLinks
+class _Translations$deepLinks$hu extends Translations$deepLinks$en {
+	_Translations$deepLinks$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get invalid => 'This Plezy link isn\'t valid.';
+	@override String profileNotFound({required Object profile}) => 'No profile matches "${profile}".';
+	@override String get serverUnavailable => 'Couldn\'t reach the server for this link.';
+	@override String get notFound => 'Couldn\'t find this title in your libraries.';
+	@override String get unsupportedItem => 'This link can\'t be played.';
+	@override String get noLiveTv => 'No Live TV server is available for this link.';
+	@override String channelNotFound({required Object channel}) => 'Couldn\'t find channel "${channel}".';
+	@override String get showLink => 'Show link';
+	@override String get showProfileLink => 'Show profile link';
+	@override String get dialogTitle => 'Link';
+	@override String get showHint => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.';
+	@override String get movieHint => 'Opening this link plays the movie.';
+	@override String get episodeHint => 'Opening this link plays this episode.';
+	@override String get profileHint => 'Opening this link switches to this profile.';
+	@override String openAsProfile({required Object name}) => 'Open as ${name}';
+	@override String get copy => 'Copy';
+	@override String get copied => 'Link copied';
 }
 
 // Path: common.ratingSource
@@ -2533,52 +2566,6 @@ class _Translations$common$mediaKind$hu extends Translations$common$mediaKind$en
 	@override String get folder => 'Mappa';
 }
 
-// Path: supporter.errors
-class _Translations$supporter$errors$hu extends Translations$supporter$errors$en {
-	_Translations$supporter$errors$hu._(TranslationsHu root) : this._root = root, super.internal(root);
-
-	final TranslationsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get storeUnavailable => 'A vásárlás nem érhető el. Ellenőrizd, hogy be vagy-e jelentkezve az áruházba, és engedélyezett-e a vásárlás ezen az eszközön.';
-	@override String get productNotFound => 'A Supporter-vásárlás jelenleg nem érhető el az áruházadban.';
-	@override String get productQueryFailed => 'Nem sikerült betölteni az árat. Ellenőrizd a kapcsolatot, majd próbáld újra.';
-	@override String get purchaseFailed => 'A vásárlás nem sikerült. Próbáld újra.';
-	@override String get restoreFailed => 'Nem sikerült elérni az áruházat a vásárlás visszaállításához. Próbáld újra.';
-	@override String get nothingToRestore => 'Ehhez az áruházfiókhoz nem található Supporter-vásárlás.';
-}
-
-// Path: themeEditor.slots
-class _Translations$themeEditor$slots$hu extends Translations$themeEditor$slots$en {
-	_Translations$themeEditor$slots$hu._(TranslationsHu root) : this._root = root, super.internal(root);
-
-	final TranslationsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get bg => 'Háttér';
-	@override String get surface => 'Felület';
-	@override String get outline => 'Körvonal';
-	@override String get text => 'Szöveg';
-	@override String get textMuted => 'Másodlagos szöveg';
-	@override String get accent => 'Kiemelőszín';
-}
-
-// Path: themeEditor.contrast
-class _Translations$themeEditor$contrast$hu extends Translations$themeEditor$contrast$en {
-	_Translations$themeEditor$contrast$hu._(TranslationsHu root) : this._root = root, super.internal(root);
-
-	final TranslationsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get textOnBg => 'Szöveg a háttéren';
-	@override String get textOnSurface => 'Szöveg a felületen';
-	@override String get textMutedOnBg => 'Másodlagos szöveg a háttéren';
-	@override String get textMutedOnSurface => 'Másodlagos szöveg a felületen';
-	@override String get accentOnBg => 'Kiemelőszín a háttéren';
-	@override String get accentOnSurface => 'Kiemelőszín a felületen';
-	@override String get labelOnAccent => 'Gombfelirat a kiemelőszínen';
-}
-
 // Path: hotkeys.actions
 class _Translations$hotkeys$actions$hu extends Translations$hotkeys$actions$en {
 	_Translations$hotkeys$actions$hu._(TranslationsHu root) : this._root = root, super.internal(root);
@@ -2611,6 +2598,8 @@ class _Translations$hotkeys$actions$hu extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Shaderek be- és kikapcsolása';
 	@override String get skipMarker => 'Intró/stáblista átugrása';
 	@override String get screenshot => 'Képernyőkép készítése';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2628,6 +2617,52 @@ class _Translations$videoControls$pipErrors$hu extends Translations$videoControl
 	@override String get failed => 'Nem sikerült elindítani a kép a képben módot';
 	@override String get prepareFailed => 'Nem sikerült előkészíteni a kép a képben módot';
 	@override String unknown({required Object error}) => 'Hiba történt: ${error}';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$hu extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Finomhangolás';
+	@override String get title => 'Klip';
+	@override String get vodOnly => 'Klipek igény szerinti videólejátszásból készíthetők.';
+	@override String get sourceUnavailable => 'A klip forrása nem érhető el ebben a lejátszási munkamenetben.';
+	@override String get playAtLeastOneSecond => 'Klip készítése előtt játssz le legalább 1 másodpercet.';
+	@override String get startBeforeBeginning => 'A klip kezdete nem lehet a videó kezdete előtt.';
+	@override String get endAfterStart => 'A klip végének a kezdete után kell lennie.';
+	@override String get minimumDuration => 'A klipnek legalább 1 másodperc hosszúnak kell lennie.';
+	@override String get endPastVideo => 'A klip vége túlnyúlik a videó végén.';
+	@override String get exportCanceled => 'A klip exportálása megszakítva.';
+	@override String get cacheUnavailable => 'A kijelölt tartományt nem sikerült teljesen gyorsítótárazni az Eredeti formátumú exportáláshoz. Próbálj rövidebb klipet, vagy mentés előtt játszd le egyszer az előnézetet.';
+	@override String get sourceCopyNoEncoder => 'A forrásmásolással történő exportálás nem használ kódolót.';
+	@override String get encodingDesktopOnly => 'A klipek H.264 és HEVC kódolása jelenleg macOS és Windows rendszeren érhető el.';
+	@override String get hdrRequiresSource => 'A HDR-exportáláshoz közvetlenül lejátszható, HDR10- vagy HLG-kompatibilis forrás szükséges.';
+	@override String get transcodeStartUnavailable => 'Ez a klip az aktív átkódolt adatfolyam előtt kezdődik. Tekerj korábbra, és nyisd meg újra a klipszerkesztőt, vagy válts eredeti minőségre.';
+	@override String get previewRequired => 'A klip mentéséhez meg kell várni az előnézet betöltődését.';
+	@override String get h264Failed => 'Ezt a forrást nem sikerült H.264 SDR MP4 formátumba kódolni.';
+	@override String get hevcSdrFailed => 'Ezt a forrást nem sikerült HEVC SDR MP4 formátumba kódolni.';
+	@override String get hevcHdrFailed => 'Ezt a forrást nem sikerült HEVC HDR MP4 formátumba kódolni.';
+	@override String get gifFailed => 'Ezt a forrást nem sikerült GIF formátumba kódolni.';
+	@override String get originalFailed => 'Ezt a forrást nem sikerült másolni az mpv gyorsítótárából.';
+	@override String get previewUnavailable => 'A klipelőnézet lejátszása nem érhető el ebben a verzióban.';
+	@override String get previewFailed => 'A klipelőnézet lejátszása sikertelen.';
+	@override String get previewLoadingScreenshot => 'Képernyőkép készítése előtt meg kell várni a klipelőnézet betöltődését.';
+	@override String get screenshotInProgress => 'Egy képernyőkép mentése már folyamatban van.';
+	@override String get saveAsDialog => 'Klip mentése másként';
+	@override String savedTo({required Object fileName}) => 'Mentve ide: ${fileName}';
+	@override String get openFolder => 'Mappa megnyitása';
+	@override String get saveAs => 'Mentés másként';
+	@override String get cancelExport => 'Exportálás megszakítása';
+	@override String get saving => 'Mentés...';
+	@override String savingProgress({required Object percent}) => 'Mentés: ${percent}%';
+	@override String get mutePreview => 'Előnézet némítása';
+	@override String get unmutePreview => 'Előnézet némításának feloldása';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: accountPreferences.groups
@@ -3387,6 +3422,84 @@ class _Translations$services$libraryFilter$hu extends Translations$services$libr
 	@override String get noLibraries => 'Nincsenek elérhető könyvtárak';
 }
 
+// Path: appIcon.names
+class _Translations$appIcon$names$hu extends Translations$appIcon$names$en {
+	_Translations$appIcon$names$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get midnight => 'Éjfél';
+	@override String get ember => 'Parázs';
+	@override String get paper => 'Papír';
+	@override String get oled => 'OLED';
+	@override String get line => 'Vonal';
+	@override String get ocean => 'Óceán';
+	@override String get ultraviolet => 'Ultraibolya';
+	@override String get matcha => 'Matcha';
+	@override String get sunset => 'Naplemente';
+	@override String get gold => 'Arany';
+	@override String get titanium => 'Titán';
+	@override String get glass => 'Üveg';
+	@override String get crt => 'CRT';
+	@override String get vhs => 'VHS';
+	@override String get synthwave => 'Synthwave';
+	@override String get pixel => 'Pixel';
+	@override String get neon => 'Neon';
+	@override String get sticker => 'Matrica';
+	@override String get ticket => 'Jegy';
+	@override String get pop => 'Pop';
+	@override String get strata => 'Rétegek';
+	@override String get facet => 'Fazetta';
+	@override String get tilde => 'Tilde';
+}
+
+// Path: supporter.errors
+class _Translations$supporter$errors$hu extends Translations$supporter$errors$en {
+	_Translations$supporter$errors$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get storeUnavailable => 'A vásárlás nem érhető el. Ellenőrizd, hogy be vagy-e jelentkezve az áruházba, és engedélyezett-e a vásárlás ezen az eszközön.';
+	@override String get productNotFound => 'A Supporter-vásárlás jelenleg nem érhető el az áruházadban.';
+	@override String get productQueryFailed => 'Nem sikerült betölteni az árat. Ellenőrizd a kapcsolatot, majd próbáld újra.';
+	@override String get purchaseFailed => 'A vásárlás nem sikerült. Próbáld újra.';
+	@override String get restoreFailed => 'Nem sikerült elérni az áruházat a vásárlás visszaállításához. Próbáld újra.';
+	@override String get nothingToRestore => 'Ehhez az áruházfiókhoz nem található Supporter-vásárlás.';
+}
+
+// Path: themeEditor.slots
+class _Translations$themeEditor$slots$hu extends Translations$themeEditor$slots$en {
+	_Translations$themeEditor$slots$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get bg => 'Háttér';
+	@override String get surface => 'Felület';
+	@override String get outline => 'Körvonal';
+	@override String get text => 'Szöveg';
+	@override String get textMuted => 'Másodlagos szöveg';
+	@override String get accent => 'Kiemelőszín';
+}
+
+// Path: themeEditor.contrast
+class _Translations$themeEditor$contrast$hu extends Translations$themeEditor$contrast$en {
+	_Translations$themeEditor$contrast$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get textOnBg => 'Szöveg a háttéren';
+	@override String get textOnSurface => 'Szöveg a felületen';
+	@override String get textMutedOnBg => 'Másodlagos szöveg a háttéren';
+	@override String get textMutedOnSurface => 'Másodlagos szöveg a felületen';
+	@override String get accentOnBg => 'Kiemelőszín a háttéren';
+	@override String get accentOnSurface => 'Kiemelőszín a felületen';
+	@override String get labelOnAccent => 'Gombfelirat a kiemelőszínen';
+}
+
 /// The flat map containing all translations for locale <hu>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -3395,38 +3508,7 @@ class _Translations$services$libraryFilter$hu extends Translations$services$libr
 extension on TranslationsHu {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
-			'appIcon.title' => 'Alkalmazásikon',
-			'appIcon.defaultIcon' => 'Alapértelmezett',
-			'appIcon.current' => 'Jelenlegi ikon',
-			'appIcon.locked' => 'Supporter-előny',
-			'appIcon.lockedHint' => 'Az alternatív ikonok a Supporter-előnyök közé tartoznak.',
-			'appIcon.changeFailed' => 'Nem sikerült módosítani az alkalmazásikont',
-			'appIcon.launcherHint' => 'Az új ikon azután jelenik meg a kezdőképernyőn, hogy kiléptél a Plezyből.',
-			'appIcon.tvLauncherHint' => 'Az új banner azután jelenik meg, hogy kiléptél a Plezyből. Az Android TV a TV újraindításáig még a régit is mutathatja.',
-			'appIcon.names.midnight' => 'Éjfél',
-			'appIcon.names.ember' => 'Parázs',
-			'appIcon.names.paper' => 'Papír',
-			'appIcon.names.oled' => 'OLED',
-			'appIcon.names.line' => 'Vonal',
-			'appIcon.names.ocean' => 'Óceán',
-			'appIcon.names.ultraviolet' => 'Ultraibolya',
-			'appIcon.names.matcha' => 'Matcha',
-			'appIcon.names.sunset' => 'Naplemente',
-			'appIcon.names.gold' => 'Arany',
-			'appIcon.names.titanium' => 'Titán',
-			'appIcon.names.glass' => 'Üveg',
-			'appIcon.names.crt' => 'CRT',
-			'appIcon.names.vhs' => 'VHS',
-			'appIcon.names.synthwave' => 'Synthwave',
-			'appIcon.names.pixel' => 'Pixel',
-			'appIcon.names.neon' => 'Neon',
-			'appIcon.names.sticker' => 'Matrica',
-			'appIcon.names.ticket' => 'Jegy',
-			'appIcon.names.pop' => 'Pop',
-			'appIcon.names.strata' => 'Rétegek',
-			'appIcon.names.facet' => 'Fazetta',
-			'appIcon.names.tilde' => 'Tilde',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Bejelentkezés Plexszel',
 			'auth.showQRCode' => 'QR-kód megjelenítése',
 			'auth.authenticate' => 'Hitelesítés',
@@ -3530,29 +3612,14 @@ extension on TranslationsHu {
 			'update.viewRelease' => 'Kiadási megjegyzések',
 			'update.latestVersion' => 'A legújabb verziót használod',
 			'update.checkFailed' => 'Nem sikerült az újabb frissítések ellenőrzése',
-			'supporter.title' => 'Plezy Supporter',
-			'supporter.intro' => 'Egyszeri vásárlás, amely a Plezy fejlesztését támogatja, és kozmetikai extrákat old fel:',
-			'supporter.presetThemes' => 'Előre beállított témák',
-			'supporter.presetThemesDescription' => 'Parázs, Gleccser, Erdő, Szilva és Papír',
-			'supporter.customTheme' => 'Egyéni téma',
-			'supporter.customThemeDescription' => 'Minden színt te választasz ki',
-			'supporter.appIcons' => 'Alkalmazásikonok',
-			'supporter.appIconsDescription' => 'Válassz egy alternatív Plezy-ikont',
-			'supporter.buy' => ({required Object price}) => 'Megvásárlás: ${price}',
-			'supporter.loadingPrice' => 'Ár betöltése...',
-			'supporter.restore' => 'Vásárlások visszaállítása',
-			'supporter.pending' => 'A vásárlásod fizetésre vagy jóváhagyásra vár. Az extrák azonnal feloldódnak, amint az áruház lezárja a folyamatot.',
-			'supporter.thankYouTitle' => 'Köszönjük, hogy támogatod a Plezyt',
-			'supporter.thankYouBody' => 'A Supporter-extráid fel vannak oldva.',
-			'supporter.tileSubtitle' => 'Témák és alkalmazásikonok feloldása egyszeri vásárlással',
-			'supporter.tileSubtitleThemesOnly' => 'Témák feloldása egyszeri vásárlással',
-			'supporter.tileUnlocked' => 'Köszönjük a támogatásodat',
-			'supporter.errors.storeUnavailable' => 'A vásárlás nem érhető el. Ellenőrizd, hogy be vagy-e jelentkezve az áruházba, és engedélyezett-e a vásárlás ezen az eszközön.',
-			'supporter.errors.productNotFound' => 'A Supporter-vásárlás jelenleg nem érhető el az áruházadban.',
-			'supporter.errors.productQueryFailed' => 'Nem sikerült betölteni az árat. Ellenőrizd a kapcsolatot, majd próbáld újra.',
-			'supporter.errors.purchaseFailed' => 'A vásárlás nem sikerült. Próbáld újra.',
-			'supporter.errors.restoreFailed' => 'Nem sikerült elérni az áruházat a vásárlás visszaállításához. Próbáld újra.',
-			'supporter.errors.nothingToRestore' => 'Ehhez az áruházfiókhoz nem található Supporter-vásárlás.',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Beállítások',
 			'settings.supportDeveloper' => 'Plezy támogatása',
 			'settings.supportDeveloperDescription' => 'A fejlesztés támogatása Liberapay-en keresztül',
@@ -3888,46 +3955,24 @@ extension on TranslationsHu {
 			'settings.playerScopeLibrary' => 'Könyvtáronként',
 			'settings.playerScopeTitle' => 'Sorozatonként vagy filmenként',
 			'settings.exportDialogTitle' => 'Plezy-beállítások exportálása',
-			'themeEditor.builtIn' => 'Beépített',
-			'themeEditor.presets' => 'Előre beállított',
-			'themeEditor.custom' => 'Egyéni',
-			'themeEditor.customEmpty' => 'Még nincs létrehozva',
-			'themeEditor.editCustom' => 'Egyéni téma szerkesztése',
-			'themeEditor.editCustomDescription' => 'Válaszd ki magad az összes színt',
-			'themeEditor.locked' => 'Supporterrel oldható fel',
-			'themeEditor.savedLocked' => 'Mentve — Supporterrel oldható fel',
-			'themeEditor.title' => 'Egyéni téma',
-			'themeEditor.startFrom' => 'Kiindulási téma',
-			'themeEditor.startFromDescription' => 'Az összes szín átmásolása egy másik témából',
-			'themeEditor.colors' => 'Színek',
-			'themeEditor.preview' => 'Előnézet',
-			'themeEditor.slots.bg' => 'Háttér',
-			'themeEditor.slots.surface' => 'Felület',
-			'themeEditor.slots.outline' => 'Körvonal',
-			'themeEditor.slots.text' => 'Szöveg',
-			'themeEditor.slots.textMuted' => 'Másodlagos szöveg',
-			'themeEditor.slots.accent' => 'Kiemelőszín',
-			_ => null,
-		} ?? switch (path) {
-			'themeEditor.opacity' => 'Átlátszatlanság',
-			'themeEditor.hexHint' => '#RRGGBB vagy #AARRGGBB',
-			'themeEditor.fromOtherThemes' => 'Más témákból',
-			'themeEditor.swatchLabel' => ({required Object theme, required Object color}) => '${theme} – ${color}',
-			'themeEditor.contrast.textOnBg' => 'Szöveg a háttéren',
-			'themeEditor.contrast.textOnSurface' => 'Szöveg a felületen',
-			'themeEditor.contrast.textMutedOnBg' => 'Másodlagos szöveg a háttéren',
-			'themeEditor.contrast.textMutedOnSurface' => 'Másodlagos szöveg a felületen',
-			'themeEditor.contrast.accentOnBg' => 'Kiemelőszín a háttéren',
-			'themeEditor.contrast.accentOnSurface' => 'Kiemelőszín a felületen',
-			'themeEditor.contrast.labelOnAccent' => 'Gombfelirat a kiemelőszínen',
-			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, az ajánlott ${minimum}:1 alatt',
-			'themeEditor.discardTitle' => 'Elveted a módosításokat?',
-			'themeEditor.discardMessage' => 'A nem mentett színmódosítások elvesznek.',
-			'themeEditor.discard' => 'Elvetés',
-			'themeEditor.previewCardTitle' => ({required Object number}) => '${number}. epizód',
-			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '${minutes} perc van hátra',
-			'themeEditor.previewSwitch' => 'Automatikus lejátszás',
-			'themeEditor.previewMutedText' => 'Így néz ki a másodlagos szöveg',
+			'settings.downloadLocationSelectError' => 'Nem sikerült kiválasztani a mappát',
+			'settings.mediaCapture' => 'Médiarögzítés',
+			'settings.clips' => 'Klipek',
+			'settings.screenshots' => 'Képernyőképek',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} mentési helye',
+			'settings.clipLocationDescription' => 'Válaszd ki a klipek mentési helyét.',
+			'settings.screenshotLocationDescription' => 'Válaszd ki a képernyőképek mentési helyét.',
+			'settings.clipLocationChanged' => 'A klipek mentési helye megváltozott',
+			'settings.screenshotLocationChanged' => 'A képernyőképek mentési helye megváltozott',
+			'settings.clipLocationReset' => 'A klipek mentési helye visszaállt az Asztalra',
+			'settings.screenshotLocationReset' => 'A képernyőképek mentési helye visszaállt az Asztalra',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'search.hint' => 'Keresés filmek, sorozatok és zenék között...',
 			'search.tryDifferentTerm' => 'Próbálj másik keresési kifejezést',
 			'search.searchYourMedia' => 'Keresés a saját médiatartalmak között',
@@ -3964,6 +4009,8 @@ extension on TranslationsHu {
 			'hotkeys.actions.shaderToggle' => 'Shaderek be- és kikapcsolása',
 			'hotkeys.actions.skipMarker' => 'Intró/stáblista átugrása',
 			'hotkeys.actions.screenshot' => 'Képernyőkép készítése',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Fájlinformáció',
 			'fileInfo.overview' => 'Áttekintés',
 			'fileInfo.video' => 'Videó',
@@ -3973,6 +4020,8 @@ extension on TranslationsHu {
 			'fileInfo.dataStreams' => 'Adatfolyamok',
 			'fileInfo.lyrics' => 'Dalszövegek',
 			'fileInfo.file' => 'Fájl',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.attachments' => 'Mellékletek',
 			'fileInfo.delivery' => 'Kézbesítés',
 			'fileInfo.versionCounter' => ({required Object index, required Object count}) => '${index}. verzió a(z) ${count} közül',
@@ -4211,7 +4260,6 @@ extension on TranslationsHu {
 			'videoControls.pipActive' => 'Lejátszás kép a képben módban',
 			'videoControls.pipFailed' => 'Nem sikerült elindítani a kép a képben módot',
 			'videoControls.screenshotSaved' => 'Képernyőkép elmentve',
-			'videoControls.screenshotFailed' => 'Nem sikerült képernyőképet készíteni',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Nagyítás ${percent}%',
 			'videoControls.volumePercent' => ({required Object percent}) => 'Hangerő ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0 vagy újabb szükséges',
@@ -4243,6 +4291,46 @@ extension on TranslationsHu {
 			'videoControls.osdSubtitlesOff' => 'Feliratok: ki',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Feliratok: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Hang: ${track}',
+			'videoControls.screenshotFailed' => 'Nem sikerült képernyőképet készíteni',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n, one: '${n} frame', other: '${n} frames', ), 
+			'videoControls.clip.fineAdjust' => 'Finomhangolás',
+			'videoControls.clip.title' => 'Klip',
+			'videoControls.clip.vodOnly' => 'Klipek igény szerinti videólejátszásból készíthetők.',
+			'videoControls.clip.sourceUnavailable' => 'A klip forrása nem érhető el ebben a lejátszási munkamenetben.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Klip készítése előtt játssz le legalább 1 másodpercet.',
+			'videoControls.clip.startBeforeBeginning' => 'A klip kezdete nem lehet a videó kezdete előtt.',
+			'videoControls.clip.endAfterStart' => 'A klip végének a kezdete után kell lennie.',
+			'videoControls.clip.minimumDuration' => 'A klipnek legalább 1 másodperc hosszúnak kell lennie.',
+			'videoControls.clip.endPastVideo' => 'A klip vége túlnyúlik a videó végén.',
+			'videoControls.clip.exportCanceled' => 'A klip exportálása megszakítva.',
+			'videoControls.clip.cacheUnavailable' => 'A kijelölt tartományt nem sikerült teljesen gyorsítótárazni az Eredeti formátumú exportáláshoz. Próbálj rövidebb klipet, vagy mentés előtt játszd le egyszer az előnézetet.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'A forrásmásolással történő exportálás nem használ kódolót.',
+			'videoControls.clip.encodingDesktopOnly' => 'A klipek H.264 és HEVC kódolása jelenleg macOS és Windows rendszeren érhető el.',
+			'videoControls.clip.hdrRequiresSource' => 'A HDR-exportáláshoz közvetlenül lejátszható, HDR10- vagy HLG-kompatibilis forrás szükséges.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Ez a klip az aktív átkódolt adatfolyam előtt kezdődik. Tekerj korábbra, és nyisd meg újra a klipszerkesztőt, vagy válts eredeti minőségre.',
+			'videoControls.clip.previewRequired' => 'A klip mentéséhez meg kell várni az előnézet betöltődését.',
+			'videoControls.clip.h264Failed' => 'Ezt a forrást nem sikerült H.264 SDR MP4 formátumba kódolni.',
+			'videoControls.clip.hevcSdrFailed' => 'Ezt a forrást nem sikerült HEVC SDR MP4 formátumba kódolni.',
+			'videoControls.clip.hevcHdrFailed' => 'Ezt a forrást nem sikerült HEVC HDR MP4 formátumba kódolni.',
+			'videoControls.clip.gifFailed' => 'Ezt a forrást nem sikerült GIF formátumba kódolni.',
+			'videoControls.clip.originalFailed' => 'Ezt a forrást nem sikerült másolni az mpv gyorsítótárából.',
+			'videoControls.clip.previewUnavailable' => 'A klipelőnézet lejátszása nem érhető el ebben a verzióban.',
+			'videoControls.clip.previewFailed' => 'A klipelőnézet lejátszása sikertelen.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Képernyőkép készítése előtt meg kell várni a klipelőnézet betöltődését.',
+			'videoControls.clip.screenshotInProgress' => 'Egy képernyőkép mentése már folyamatban van.',
+			'videoControls.clip.saveAsDialog' => 'Klip mentése másként',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Mentve ide: ${fileName}',
+			'videoControls.clip.openFolder' => 'Mappa megnyitása',
+			'videoControls.clip.saveAs' => 'Mentés másként',
+			'videoControls.clip.cancelExport' => 'Exportálás megszakítása',
+			'videoControls.clip.saving' => 'Mentés...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Mentés: ${percent}%',
+			'videoControls.clip.mutePreview' => 'Előnézet némítása',
+			'videoControls.clip.unmutePreview' => 'Előnézet némításának feloldása',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'Megjelölve megtekintettként',
 			'messages.markedAsUnwatched' => 'Megjelölve nem megtekintettként',
 			'messages.markedAsWatchedOffline' => 'Megjelölve megtekintettként (szinkronizálás online állapotban)',
@@ -4421,8 +4509,6 @@ extension on TranslationsHu {
 			'profiles.tokenIdentityMismatch' => 'A Plex-profil tokenje nem a várt szerverhez tartozik',
 			'connections.sectionTitle' => 'Kapcsolatok',
 			'connections.addConnection' => 'Kapcsolat hozzáadása',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnectionSubtitleNoProfile' => 'Jelentkezz be Plexszel, vagy csatlakoztass egy Jellyfin- vagy Emby-szervert',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => 'Hozzáadás a következőhöz (${displayName}): Plex, Jellyfin, Emby vagy más profilkapcsolat',
 			'connections.sessionExpiredOne' => ({required Object name}) => 'A(z) ${name} munkamenete lejárt',
@@ -4448,6 +4534,8 @@ extension on TranslationsHu {
 			'accountPreferences.groups.personalMedia' => 'Személyes média',
 			'accountPreferences.preferredAudioLanguage' => 'Elsődleges hangnyelv',
 			'accountPreferences.autoSelectAudio' => 'Hangsáv kiválasztása nyelv alapján',
+			_ => null,
+		} ?? switch (path) {
 			'accountPreferences.autoSelectAudioDescription' => 'Ki kapcsolásnál a fájl által alapértelmezettként megjelölt hangsáv marad.',
 			'accountPreferences.preferredSubtitleLanguage' => 'Elsődleges feliratnyelv',
 			'accountPreferences.subtitleMode' => 'Feliratok bekapcsolása',
@@ -4655,6 +4743,9 @@ extension on TranslationsHu {
 			'about.versionLabel' => ({required Object version}) => 'Verzió: ${version}',
 			'about.appDescription' => 'Gyönyörű Flutter-kliens a Plexhez, a Jellyfinhez és az Embyhez',
 			'about.viewLicensesDescription' => 'Külső fejlesztésű programkönyvtárak licenceinek megtekintése',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Nem találhatók szerverek ehhez a fiókhoz: ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Nem sikerült a szerverek betöltése: ${error}',
 			'serverSelection.noValidServers' => 'Nem található használható szerver ehhez a fiókhoz',
@@ -4733,6 +4824,7 @@ extension on TranslationsHu {
 			'explore.removedFromWatchlist' => 'Eltávolítva a figyelőlistáról',
 			'explore.watchlistUpdateFailed' => 'Nem sikerült a Néznivalók frissítése',
 			'explore.watchlistNoMatch' => 'Nem sikerült ezt az elemet figyelőlistához társítani',
+			'explore.openInLibrary' => 'Megnyitás a könyvtárban',
 			'explore.notInLibrary' => 'Nincs a könyvtáradban',
 			'explore.inTheseLibraries' => 'Ezekben a könyvtárakban',
 			'explore.checkingLibrary' => 'Könyvtár ellenőrzése...',
@@ -4862,6 +4954,7 @@ extension on TranslationsHu {
 			'liveTv.channelNumber' => ({required Object number}) => '${number}. csatorna',
 			'liveTv.unknownChannel' => 'Ismeretlen csatorna',
 			'liveTv.live' => 'ÉLŐ',
+			'liveTv.premiereBadge' => 'NEW',
 			'liveTv.reloadGuide' => 'Műsorújság újratöltése',
 			'liveTv.searchGuide' => 'Keresés a műsorújságban',
 			'liveTv.searchHint' => 'Csatornák és műsorok keresése',
@@ -4935,8 +5028,6 @@ extension on TranslationsHu {
 			'liveTv.recordSettings.keepUpToHint' => 'A 0 minden epizódot megtart',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes} perc múlva kezdődik',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day}, ${time}',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.invalidPlaybackData' => ({required Object product}) => 'A(z) ${product} érvénytelen Élő TV-lejátszási adatokat adott vissza',
 			'liveTv.failedToStartChannel' => 'Nem sikerült elindítani az élő csatornát',
 			'liveTv.failedToBuildStreamUrl' => 'Nem sikerült összeállítani a stream URL-címét',
@@ -4957,6 +5048,8 @@ extension on TranslationsHu {
 			'collections.errorAddingToCollection' => 'Nem sikerült a gyűjteményhez adni',
 			'collections.created' => 'Gyűjtemény létrehozva',
 			'collections.removeFromCollection' => 'Eltávolítás a gyűjteményből',
+			_ => null,
+		} ?? switch (path) {
 			'collections.removeFromCollectionConfirm' => ({required Object title}) => 'Eltávolítod a következőt: "${title}" ebből a gyűjteményből?',
 			'collections.removedFromCollection' => 'Eltávolítva a gyűjteményből',
 			'collections.removeFromCollectionFailed' => 'Nem sikerült az eltávolítás a gyűjteményből',
@@ -5437,6 +5530,7 @@ extension on TranslationsHu {
 			'performanceOverlay.cacheLimit' => 'Gyorsítótár korlátja',
 			'performanceOverlay.speed' => 'Sebesség',
 			'performanceOverlay.player' => 'Lejátszó',
+			'performanceOverlay.playMethod' => 'Play Method',
 			'performanceOverlay.memory' => 'Memória',
 			'performanceOverlay.uiFps' => 'Felület-FPS',
 			'performanceOverlay.fps' => 'FPS',
@@ -5449,8 +5543,6 @@ extension on TranslationsHu {
 			'performanceOverlay.decoderHardware' => 'Hardveres',
 			'performanceOverlay.tunnelingActive' => 'Aktív',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} sikertelen)',
-			_ => null,
-		} ?? switch (path) {
 			'externalPlayer.title' => 'Külső lejátszó',
 			'externalPlayer.useExternalPlayer' => 'Külső lejátszó használata',
 			'externalPlayer.useExternalPlayerDescription' => 'Videók megnyitása egy másik alkalmazásban',
@@ -5470,6 +5562,8 @@ extension on TranslationsHu {
 			'metadataEdit.editMetadata' => 'Szerkesztés...',
 			'metadataEdit.screenTitle' => 'Metaadatok szerkesztése',
 			'metadataEdit.basicInfo' => 'Alapinformációk',
+			_ => null,
+		} ?? switch (path) {
 			'metadataEdit.artwork' => 'Borítók és képek',
 			'metadataEdit.advancedSettings' => 'Haladó beállítások',
 			'metadataEdit.title' => 'Cím',
@@ -5703,6 +5797,115 @@ extension on TranslationsHu {
 			'addServer.redirectDifferentHost' => ({required Object product}) => 'A szerver egy másik gazdagépre irányított át. Add meg közvetlenül a végleges ${product} URL-t.',
 			'addServer.redirectInsecure' => 'A szerver HTTPS-ről nem biztonságos URL-re irányított át',
 			'addServer.redirectUnsupportedEnterFinal' => ({required Object product}) => 'A szerver nem támogatott URL-re irányított át. Add meg közvetlenül a végleges ${product} URL-t.',
+			'appIcon.title' => 'Alkalmazásikon',
+			'appIcon.defaultIcon' => 'Alapértelmezett',
+			'appIcon.current' => 'Jelenlegi ikon',
+			'appIcon.locked' => 'Supporter-előny',
+			'appIcon.lockedHint' => 'Az alternatív ikonok a Supporter-előnyök közé tartoznak.',
+			'appIcon.changeFailed' => 'Nem sikerült módosítani az alkalmazásikont',
+			'appIcon.launcherHint' => 'Az új ikon azután jelenik meg a kezdőképernyőn, hogy kiléptél a Plezyből.',
+			'appIcon.tvLauncherHint' => 'Az új banner azután jelenik meg, hogy kiléptél a Plezyből. Az Android TV a TV újraindításáig még a régit is mutathatja.',
+			'appIcon.names.midnight' => 'Éjfél',
+			'appIcon.names.ember' => 'Parázs',
+			'appIcon.names.paper' => 'Papír',
+			'appIcon.names.oled' => 'OLED',
+			'appIcon.names.line' => 'Vonal',
+			'appIcon.names.ocean' => 'Óceán',
+			'appIcon.names.ultraviolet' => 'Ultraibolya',
+			'appIcon.names.matcha' => 'Matcha',
+			'appIcon.names.sunset' => 'Naplemente',
+			'appIcon.names.gold' => 'Arany',
+			'appIcon.names.titanium' => 'Titán',
+			'appIcon.names.glass' => 'Üveg',
+			'appIcon.names.crt' => 'CRT',
+			'appIcon.names.vhs' => 'VHS',
+			'appIcon.names.synthwave' => 'Synthwave',
+			'appIcon.names.pixel' => 'Pixel',
+			'appIcon.names.neon' => 'Neon',
+			'appIcon.names.sticker' => 'Matrica',
+			'appIcon.names.ticket' => 'Jegy',
+			'appIcon.names.pop' => 'Pop',
+			'appIcon.names.strata' => 'Rétegek',
+			'appIcon.names.facet' => 'Fazetta',
+			'appIcon.names.tilde' => 'Tilde',
+			'supporter.title' => 'Plezy Supporter',
+			'supporter.intro' => 'Egyszeri vásárlás, amely a Plezy fejlesztését támogatja, és kozmetikai extrákat old fel:',
+			'supporter.presetThemes' => 'Előre beállított témák',
+			'supporter.presetThemesDescription' => 'Parázs, Gleccser, Erdő, Szilva és Papír',
+			'supporter.customTheme' => 'Egyéni téma',
+			'supporter.customThemeDescription' => 'Minden színt te választasz ki',
+			'supporter.appIcons' => 'Alkalmazásikonok',
+			'supporter.appIconsDescription' => 'Válassz egy alternatív Plezy-ikont',
+			'supporter.buy' => ({required Object price}) => 'Megvásárlás: ${price}',
+			'supporter.loadingPrice' => 'Ár betöltése...',
+			'supporter.restore' => 'Vásárlások visszaállítása',
+			'supporter.pending' => 'A vásárlásod fizetésre vagy jóváhagyásra vár. Az extrák azonnal feloldódnak, amint az áruház lezárja a folyamatot.',
+			'supporter.thankYouTitle' => 'Köszönjük, hogy támogatod a Plezyt',
+			'supporter.thankYouBody' => 'A Supporter-extráid fel vannak oldva.',
+			'supporter.tileSubtitle' => 'Témák és alkalmazásikonok feloldása egyszeri vásárlással',
+			'supporter.tileSubtitleThemesOnly' => 'Témák feloldása egyszeri vásárlással',
+			'supporter.tileUnlocked' => 'Köszönjük a támogatásodat',
+			'supporter.errors.storeUnavailable' => 'A vásárlás nem érhető el. Ellenőrizd, hogy be vagy-e jelentkezve az áruházba, és engedélyezett-e a vásárlás ezen az eszközön.',
+			'supporter.errors.productNotFound' => 'A Supporter-vásárlás jelenleg nem érhető el az áruházadban.',
+			'supporter.errors.productQueryFailed' => 'Nem sikerült betölteni az árat. Ellenőrizd a kapcsolatot, majd próbáld újra.',
+			'supporter.errors.purchaseFailed' => 'A vásárlás nem sikerült. Próbáld újra.',
+			'supporter.errors.restoreFailed' => 'Nem sikerült elérni az áruházat a vásárlás visszaállításához. Próbáld újra.',
+			'supporter.errors.nothingToRestore' => 'Ehhez az áruházfiókhoz nem található Supporter-vásárlás.',
+			'themeEditor.builtIn' => 'Beépített',
+			'themeEditor.presets' => 'Előre beállított',
+			'themeEditor.custom' => 'Egyéni',
+			'themeEditor.customEmpty' => 'Még nincs létrehozva',
+			'themeEditor.editCustom' => 'Egyéni téma szerkesztése',
+			'themeEditor.editCustomDescription' => 'Válaszd ki magad az összes színt',
+			'themeEditor.locked' => 'Supporterrel oldható fel',
+			'themeEditor.savedLocked' => 'Mentve — Supporterrel oldható fel',
+			'themeEditor.title' => 'Egyéni téma',
+			'themeEditor.startFrom' => 'Kiindulási téma',
+			'themeEditor.startFromDescription' => 'Az összes szín átmásolása egy másik témából',
+			'themeEditor.colors' => 'Színek',
+			'themeEditor.preview' => 'Előnézet',
+			'themeEditor.slots.bg' => 'Háttér',
+			'themeEditor.slots.surface' => 'Felület',
+			'themeEditor.slots.outline' => 'Körvonal',
+			'themeEditor.slots.text' => 'Szöveg',
+			'themeEditor.slots.textMuted' => 'Másodlagos szöveg',
+			'themeEditor.slots.accent' => 'Kiemelőszín',
+			'themeEditor.opacity' => 'Átlátszatlanság',
+			'themeEditor.hexHint' => '#RRGGBB vagy #AARRGGBB',
+			'themeEditor.fromOtherThemes' => 'Más témákból',
+			'themeEditor.swatchLabel' => ({required Object theme, required Object color}) => '${theme} – ${color}',
+			'themeEditor.contrast.textOnBg' => 'Szöveg a háttéren',
+			'themeEditor.contrast.textOnSurface' => 'Szöveg a felületen',
+			'themeEditor.contrast.textMutedOnBg' => 'Másodlagos szöveg a háttéren',
+			'themeEditor.contrast.textMutedOnSurface' => 'Másodlagos szöveg a felületen',
+			'themeEditor.contrast.accentOnBg' => 'Kiemelőszín a háttéren',
+			'themeEditor.contrast.accentOnSurface' => 'Kiemelőszín a felületen',
+			'themeEditor.contrast.labelOnAccent' => 'Gombfelirat a kiemelőszínen',
+			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, az ajánlott ${minimum}:1 alatt',
+			'themeEditor.discardTitle' => 'Elveted a módosításokat?',
+			'themeEditor.discardMessage' => 'A nem mentett színmódosítások elvesznek.',
+			'themeEditor.discard' => 'Elvetés',
+			'themeEditor.previewCardTitle' => ({required Object number}) => '${number}. epizód',
+			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '${minutes} perc van hátra',
+			'themeEditor.previewSwitch' => 'Automatikus lejátszás',
+			'themeEditor.previewMutedText' => 'Így néz ki a másodlagos szöveg',
+			'deepLinks.invalid' => 'This Plezy link isn\'t valid.',
+			'deepLinks.profileNotFound' => ({required Object profile}) => 'No profile matches "${profile}".',
+			'deepLinks.serverUnavailable' => 'Couldn\'t reach the server for this link.',
+			'deepLinks.notFound' => 'Couldn\'t find this title in your libraries.',
+			'deepLinks.unsupportedItem' => 'This link can\'t be played.',
+			'deepLinks.noLiveTv' => 'No Live TV server is available for this link.',
+			'deepLinks.channelNotFound' => ({required Object channel}) => 'Couldn\'t find channel "${channel}".',
+			'deepLinks.showLink' => 'Show link',
+			'deepLinks.showProfileLink' => 'Show profile link',
+			'deepLinks.dialogTitle' => 'Link',
+			'deepLinks.showHint' => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.',
+			'deepLinks.movieHint' => 'Opening this link plays the movie.',
+			'deepLinks.episodeHint' => 'Opening this link plays this episode.',
+			'deepLinks.profileHint' => 'Opening this link switches to this profile.',
+			'deepLinks.openAsProfile' => ({required Object name}) => 'Open as ${name}',
+			'deepLinks.copy' => 'Copy',
+			'deepLinks.copied' => 'Link copied',
 			_ => null,
 		};
 	}

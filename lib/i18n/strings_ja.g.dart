@@ -40,14 +40,11 @@ class TranslationsJa extends Translations with BaseTranslations<AppLocale, Trans
 
 	// Translations
 	@override late final _Translations$app$ja app = _Translations$app$ja._(_root);
-	@override late final _Translations$appIcon$ja appIcon = _Translations$appIcon$ja._(_root);
 	@override late final _Translations$auth$ja auth = _Translations$auth$ja._(_root);
 	@override late final _Translations$common$ja common = _Translations$common$ja._(_root);
 	@override late final _Translations$screens$ja screens = _Translations$screens$ja._(_root);
 	@override late final _Translations$update$ja update = _Translations$update$ja._(_root);
-	@override late final _Translations$supporter$ja supporter = _Translations$supporter$ja._(_root);
 	@override late final _Translations$settings$ja settings = _Translations$settings$ja._(_root);
-	@override late final _Translations$themeEditor$ja themeEditor = _Translations$themeEditor$ja._(_root);
 	@override late final _Translations$search$ja search = _Translations$search$ja._(_root);
 	@override late final _Translations$hotkeys$ja hotkeys = _Translations$hotkeys$ja._(_root);
 	@override late final _Translations$fileInfo$ja fileInfo = _Translations$fileInfo$ja._(_root);
@@ -93,6 +90,10 @@ class TranslationsJa extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$seerr$ja seerr = _Translations$seerr$ja._(_root);
 	@override late final _Translations$services$ja services = _Translations$services$ja._(_root);
 	@override late final _Translations$addServer$ja addServer = _Translations$addServer$ja._(_root);
+	@override late final _Translations$appIcon$ja appIcon = _Translations$appIcon$ja._(_root);
+	@override late final _Translations$supporter$ja supporter = _Translations$supporter$ja._(_root);
+	@override late final _Translations$themeEditor$ja themeEditor = _Translations$themeEditor$ja._(_root);
+	@override late final _Translations$deepLinks$ja deepLinks = _Translations$deepLinks$ja._(_root);
 }
 
 // Path: app
@@ -102,25 +103,7 @@ class _Translations$app$ja extends Translations$app$en {
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
-}
-
-// Path: appIcon
-class _Translations$appIcon$ja extends Translations$appIcon$en {
-	_Translations$appIcon$ja._(TranslationsJa root) : this._root = root, super.internal(root);
-
-	final TranslationsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'アプリアイコン';
-	@override String get defaultIcon => 'デフォルト';
-	@override String get current => '現在のアイコン';
-	@override String get locked => 'Supporter特典';
-	@override String get lockedHint => '別のアイコンはSupporter特典です。';
-	@override String get changeFailed => 'アプリアイコンを変更できませんでした';
-	@override String get launcherHint => 'Plezyを離れると、ホーム画面に新しいアイコンが表示されます。';
-	@override String get tvLauncherHint => 'Plezyを離れると、新しいバナーが表示されます。Android TVでは、テレビを再起動するまで古いバナーが表示され続ける場合があります。';
-	@override late final _Translations$appIcon$names$ja names = _Translations$appIcon$names$ja._(_root);
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -237,33 +220,14 @@ class _Translations$update$ja extends Translations$update$en {
 	@override String get viewRelease => 'リリースを表示';
 	@override String get latestVersion => '最新バージョンです';
 	@override String get checkFailed => 'アップデートの確認に失敗しました';
-}
-
-// Path: supporter
-class _Translations$supporter$ja extends Translations$supporter$en {
-	_Translations$supporter$ja._(TranslationsJa root) : this._root = root, super.internal(root);
-
-	final TranslationsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Plezy Supporter';
-	@override String get intro => '1回限りの購入でPlezyの開発を支援し、次の見た目の特典をご利用いただけます：';
-	@override String get presetThemes => 'プリセットテーマ';
-	@override String get presetThemesDescription => '残り火、氷河、森、プラム、ペーパー';
-	@override String get customTheme => 'カスタムテーマ';
-	@override String get customThemeDescription => 'すべての色を自分で選択';
-	@override String get appIcons => 'アプリアイコン';
-	@override String get appIconsDescription => 'Plezyの別のアイコンを選択';
-	@override String buy({required Object price}) => '${price}で購入';
-	@override String get loadingPrice => '価格を読み込み中…';
-	@override String get restore => '購入を復元';
-	@override String get pending => '購入は支払いまたは承認を待っています。ストアでの処理が完了すると、すぐに特典のロックが解除されます。';
-	@override String get thankYouTitle => 'Plezyをご支援いただきありがとうございます';
-	@override String get thankYouBody => 'Supporter特典のロックが解除されました。';
-	@override String get tileSubtitle => '1回限りの購入でテーマとアプリアイコンのロックを解除';
-	@override String get tileSubtitleThemesOnly => '1回限りの購入でテーマのロックを解除';
-	@override String get tileUnlocked => 'ご支援ありがとうございます';
-	@override late final _Translations$supporter$errors$ja errors = _Translations$supporter$errors$ja._(_root);
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -608,42 +572,24 @@ class _Translations$settings$ja extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'ライブラリごと';
 	@override String get playerScopeTitle => '作品ごと';
 	@override String get exportDialogTitle => 'Plezyの設定をエクスポート';
-}
-
-// Path: themeEditor
-class _Translations$themeEditor$ja extends Translations$themeEditor$en {
-	_Translations$themeEditor$ja._(TranslationsJa root) : this._root = root, super.internal(root);
-
-	final TranslationsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get builtIn => '標準';
-	@override String get presets => 'プリセット';
-	@override String get custom => 'カスタム';
-	@override String get customEmpty => '未作成';
-	@override String get editCustom => 'カスタムテーマを編集';
-	@override String get editCustomDescription => 'すべての色を自分で選択';
-	@override String get locked => 'Supporterでロック解除';
-	@override String get savedLocked => '保存済み — Supporterでロック解除';
-	@override String get title => 'カスタムテーマ';
-	@override String get startFrom => '元にするテーマ';
-	@override String get startFromDescription => '別のテーマからすべての色をコピー';
-	@override String get colors => '色';
-	@override String get preview => 'プレビュー';
-	@override late final _Translations$themeEditor$slots$ja slots = _Translations$themeEditor$slots$ja._(_root);
-	@override String get opacity => '不透明度';
-	@override String get hexHint => '#RRGGBB または #AARRGGBB';
-	@override String get fromOtherThemes => '他のテーマから';
-	@override String swatchLabel({required Object theme, required Object color}) => '${theme}の${color}';
-	@override late final _Translations$themeEditor$contrast$ja contrast = _Translations$themeEditor$contrast$ja._(_root);
-	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1（推奨値の${minimum}:1未満）';
-	@override String get discardTitle => '変更を破棄しますか？';
-	@override String get discardMessage => '保存されていない色の変更は失われます。';
-	@override String get discard => '破棄';
-	@override String previewCardTitle({required Object number}) => 'エピソード${number}';
-	@override String previewCardSubtitle({required Object minutes}) => '残り${minutes}分';
-	@override String get previewSwitch => '自動再生';
-	@override String get previewMutedText => '補助テキストはこのように表示されます';
+	@override String get downloadLocationSelectError => 'フォルダの選択に失敗しました';
+	@override String get mediaCapture => 'メディアキャプチャ';
+	@override String get clips => 'クリップ';
+	@override String get screenshots => 'スクリーンショット';
+	@override String captureLocationTitle({required Object title}) => '${title} 場所';
+	@override String get clipLocationDescription => 'クリップの保存場所を選択します。';
+	@override String get screenshotLocationDescription => 'スクリーンショットの保存場所を選択します。';
+	@override String get clipLocationChanged => 'クリップの位置が変更されました';
+	@override String get screenshotLocationChanged => 'スクリーンショットの場所が変更されました';
+	@override String get clipLocationReset => 'クリップの場所をデスクトップにリセット';
+	@override String get screenshotLocationReset => 'スクリーンショットの場所がデスクトップにリセットされました';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
+	@override String get packedStereoUi => '3D Playback UI';
 }
 
 // Path: search
@@ -831,12 +777,15 @@ class _Translations$mediaMenu$ja extends Translations$mediaMenu$en {
 	@override String confirmDeleteTarget({required Object title}) => 'サーバーから「${title}」を完全に削除しますか？';
 	@override String get deleteMultipleWarning => 'すべてのエピソードとそのファイルが含まれます。';
 	@override String deleteEpisodeCountWarning({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: 'This deletes all ${n} episode in it, and its file.',
 		other: '中の全${n}エピソードとそのファイルが削除されます。',
 	);
 	@override String deleteMultiPartWarning({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: 'This item is stored as ${n} file, which will be deleted.',
 		other: 'このアイテムは${n}個のファイルにまたがって保存されており、すべて削除されます。',
 	);
 	@override String deleteSharedFileHeading({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: '${n} other episode is stored in the same file and will be deleted too:',
 		other: '同じファイルに保存されている他の${n}エピソードも削除されます：',
 	);
 	@override String get deleteScopeUnverifiedProbeFailed => 'Plezyは削除対象のファイルを確認できなかったため、上記のアイテム以上に削除される可能性があります。キャンセルして再試行するか、それでも削除してください。';
@@ -990,7 +939,6 @@ class _Translations$videoControls$ja extends Translations$videoControls$en {
 	@override String get pipActive => 'ピクチャーインピクチャーで再生中';
 	@override String get pipFailed => 'ピクチャーインピクチャーの開始に失敗しました';
 	@override String get screenshotSaved => 'スクリーンショットを保存しました';
-	@override String get screenshotFailed => 'スクリーンショットを撮影できませんでした';
 	@override String zoomPercent({required Object percent}) => 'ズーム ${percent}%';
 	@override String volumePercent({required Object percent}) => '音量 ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$ja pipErrors = _Translations$videoControls$pipErrors$ja._(_root);
@@ -1015,6 +963,13 @@ class _Translations$videoControls$ja extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => '字幕: オフ';
 	@override String osdSubtitles({required Object track}) => '字幕: ${track}';
 	@override String osdAudio({required Object track}) => '音声: ${track}';
+	@override String get screenshotFailed => 'スクリーンショットを撮影できませんでした';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
+	@override late final _Translations$videoControls$clip$ja clip = _Translations$videoControls$clip$ja._(_root);
 }
 
 // Path: messages
@@ -1030,6 +985,7 @@ class _Translations$messages$ja extends Translations$messages$en {
 	@override String get markedAsUnwatchedOffline => '未視聴にしました（オンライン時に同期）';
 	@override String autoRemovedWatchedDownload({required Object title}) => '自動削除: ${title}';
 	@override String autoRemovedWatchedDownloads({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: 'Auto-removed ${n} watched download',
 		other: '視聴済みダウンロードを${n}件自動削除しました',
 	);
 	@override String get removedFromContinueWatching => '視聴中から削除しました';
@@ -1335,6 +1291,7 @@ class _Translations$discover$ja extends Translations$discover$en {
 	@override String minutesLeft({required Object minutes}) => '残り${minutes}分';
 	@override String get moreLikeThis => '似ている作品';
 	@override String titleCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: '${n} title',
 		other: '${n}作品',
 	);
 	@override late final _Translations$discover$person$ja person = _Translations$discover$person$ja._(_root);
@@ -1435,6 +1392,9 @@ class _Translations$about$ja extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'バージョン ${version}';
 	@override String get appDescription => 'Flutter製の美しいPlex・Jellyfin・Embyクライアント';
 	@override String get viewLicensesDescription => 'サードパーティライブラリのライセンスを表示';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1552,6 +1512,7 @@ class _Translations$explore$ja extends Translations$explore$en {
 	@override late final _Translations$explore$rows$ja rows = _Translations$explore$rows$ja._(_root);
 	@override late final _Translations$explore$status$ja status = _Translations$explore$status$ja._(_root);
 	@override String episodeCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: '${n} episode',
 		other: '${n}話',
 	);
 	@override String get cast => 'キャスト';
@@ -1562,10 +1523,12 @@ class _Translations$explore$ja extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'ウォッチリストから削除しました';
 	@override String get watchlistUpdateFailed => 'ウォッチリストを更新できませんでした';
 	@override String get watchlistNoMatch => 'このアイテムに一致するウォッチリスト項目が見つかりませんでした';
+	@override String get openInLibrary => 'ライブラリで開く';
 	@override String get notInLibrary => 'ライブラリにありません';
 	@override String get inTheseLibraries => 'これらのライブラリにあります';
 	@override String get checkingLibrary => 'ライブラリを確認中…';
 	@override String libraryCheckFailed({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: 'Couldn\'t check ${n} server',
 		other: '${n}台のサーバーを確認できませんでした',
 	);
 	@override String get emptyTitle => 'まだ何もありません';
@@ -1585,6 +1548,7 @@ class _Translations$explore$ja extends Translations$explore$en {
 	@override String broadcastWithZone({required Object day, required Object time, required Object timezone}) => '${day} ${time}（${timezone}）に放送';
 	@override late final _Translations$explore$detail$ja detail = _Translations$explore$detail$ja._(_root);
 	@override String totalResults({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: '${n} result',
 		other: '${n}件の結果',
 	);
 }
@@ -1610,6 +1574,7 @@ class _Translations$liveTv$ja extends Translations$liveTv$en {
 	@override String channelNumber({required Object number}) => 'チャンネル ${number}';
 	@override String get unknownChannel => '不明なチャンネル';
 	@override String get live => 'ライブ';
+	@override String get premiereBadge => 'NEW';
 	@override String get reloadGuide => '番組表を再読み込み';
 	@override String get searchGuide => '番組表を検索';
 	@override String get searchHint => 'チャンネル・番組を検索';
@@ -1761,6 +1726,7 @@ class _Translations$music$ja extends Translations$music$en {
 	@override String get addToQueue => 'キューに追加';
 	@override String discNumber({required Object n}) => 'ディスク ${n}';
 	@override String trackCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: '${n} track',
 		other: '${n}曲',
 	);
 	@override String get nowPlaying => '再生中';
@@ -1861,6 +1827,7 @@ class _Translations$watchTogether$ja extends Translations$watchTogether$en {
 	@override String get offsetPlusSecond => '+1秒';
 	@override String get participants => '参加者';
 	@override String participantCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: '${n} participant',
 		other: '参加者${n}人',
 	);
 	@override String get hostBadge => 'ホスト';
@@ -2134,6 +2101,7 @@ class _Translations$performanceOverlay$ja extends Translations$performanceOverla
 	@override String get cacheLimit => 'キャッシュ上限';
 	@override String get speed => '速度';
 	@override String get player => 'プレーヤー';
+	@override String get playMethod => 'Play Method';
 	@override String get memory => 'メモリ';
 	@override String get uiFps => 'UI FPS';
 	@override String get fps => 'FPS';
@@ -2448,36 +2416,111 @@ class _Translations$addServer$ja extends Translations$addServer$en {
 	@override String redirectUnsupportedEnterFinal({required Object product}) => 'サーバーからサポートされていないURLにリダイレクトされました。最終的な${product}のURLを直接入力してください。';
 }
 
-// Path: appIcon.names
-class _Translations$appIcon$names$ja extends Translations$appIcon$names$en {
-	_Translations$appIcon$names$ja._(TranslationsJa root) : this._root = root, super.internal(root);
+// Path: appIcon
+class _Translations$appIcon$ja extends Translations$appIcon$en {
+	_Translations$appIcon$ja._(TranslationsJa root) : this._root = root, super.internal(root);
 
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get midnight => 'ミッドナイト';
-	@override String get ember => '残り火';
-	@override String get paper => 'ペーパー';
-	@override String get oled => 'OLED';
-	@override String get line => 'ライン';
-	@override String get ocean => 'オーシャン';
-	@override String get ultraviolet => 'ウルトラバイオレット';
-	@override String get matcha => '抹茶';
-	@override String get sunset => 'サンセット';
-	@override String get gold => 'ゴールド';
-	@override String get titanium => 'チタニウム';
-	@override String get glass => 'ガラス';
-	@override String get crt => 'CRT';
-	@override String get vhs => 'VHS';
-	@override String get synthwave => 'シンセウェイブ';
-	@override String get pixel => 'ピクセル';
-	@override String get neon => 'ネオン';
-	@override String get sticker => 'ステッカー';
-	@override String get ticket => 'チケット';
-	@override String get pop => 'ポップ';
-	@override String get strata => '地層';
-	@override String get facet => 'ファセット';
-	@override String get tilde => 'チルダ';
+	@override String get title => 'アプリアイコン';
+	@override String get defaultIcon => 'デフォルト';
+	@override String get current => '現在のアイコン';
+	@override String get locked => 'Supporter特典';
+	@override String get lockedHint => '別のアイコンはSupporter特典です。';
+	@override String get changeFailed => 'アプリアイコンを変更できませんでした';
+	@override String get launcherHint => 'Plezyを離れると、ホーム画面に新しいアイコンが表示されます。';
+	@override String get tvLauncherHint => 'Plezyを離れると、新しいバナーが表示されます。Android TVでは、テレビを再起動するまで古いバナーが表示され続ける場合があります。';
+	@override late final _Translations$appIcon$names$ja names = _Translations$appIcon$names$ja._(_root);
+}
+
+// Path: supporter
+class _Translations$supporter$ja extends Translations$supporter$en {
+	_Translations$supporter$ja._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Plezy Supporter';
+	@override String get intro => '1回限りの購入でPlezyの開発を支援し、次の見た目の特典をご利用いただけます：';
+	@override String get presetThemes => 'プリセットテーマ';
+	@override String get presetThemesDescription => '残り火、氷河、森、プラム、ペーパー';
+	@override String get customTheme => 'カスタムテーマ';
+	@override String get customThemeDescription => 'すべての色を自分で選択';
+	@override String get appIcons => 'アプリアイコン';
+	@override String get appIconsDescription => 'Plezyの別のアイコンを選択';
+	@override String buy({required Object price}) => '${price}で購入';
+	@override String get loadingPrice => '価格を読み込み中…';
+	@override String get restore => '購入を復元';
+	@override String get pending => '購入は支払いまたは承認を待っています。ストアでの処理が完了すると、すぐに特典のロックが解除されます。';
+	@override String get thankYouTitle => 'Plezyをご支援いただきありがとうございます';
+	@override String get thankYouBody => 'Supporter特典のロックが解除されました。';
+	@override String get tileSubtitle => '1回限りの購入でテーマとアプリアイコンのロックを解除';
+	@override String get tileSubtitleThemesOnly => '1回限りの購入でテーマのロックを解除';
+	@override String get tileUnlocked => 'ご支援ありがとうございます';
+	@override late final _Translations$supporter$errors$ja errors = _Translations$supporter$errors$ja._(_root);
+}
+
+// Path: themeEditor
+class _Translations$themeEditor$ja extends Translations$themeEditor$en {
+	_Translations$themeEditor$ja._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get builtIn => '標準';
+	@override String get presets => 'プリセット';
+	@override String get custom => 'カスタム';
+	@override String get customEmpty => '未作成';
+	@override String get editCustom => 'カスタムテーマを編集';
+	@override String get editCustomDescription => 'すべての色を自分で選択';
+	@override String get locked => 'Supporterでロック解除';
+	@override String get savedLocked => '保存済み — Supporterでロック解除';
+	@override String get title => 'カスタムテーマ';
+	@override String get startFrom => '元にするテーマ';
+	@override String get startFromDescription => '別のテーマからすべての色をコピー';
+	@override String get colors => '色';
+	@override String get preview => 'プレビュー';
+	@override late final _Translations$themeEditor$slots$ja slots = _Translations$themeEditor$slots$ja._(_root);
+	@override String get opacity => '不透明度';
+	@override String get hexHint => '#RRGGBB または #AARRGGBB';
+	@override String get fromOtherThemes => '他のテーマから';
+	@override String swatchLabel({required Object theme, required Object color}) => '${theme}の${color}';
+	@override late final _Translations$themeEditor$contrast$ja contrast = _Translations$themeEditor$contrast$ja._(_root);
+	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1（推奨値の${minimum}:1未満）';
+	@override String get discardTitle => '変更を破棄しますか？';
+	@override String get discardMessage => '保存されていない色の変更は失われます。';
+	@override String get discard => '破棄';
+	@override String previewCardTitle({required Object number}) => 'エピソード${number}';
+	@override String previewCardSubtitle({required Object minutes}) => '残り${minutes}分';
+	@override String get previewSwitch => '自動再生';
+	@override String get previewMutedText => '補助テキストはこのように表示されます';
+}
+
+// Path: deepLinks
+class _Translations$deepLinks$ja extends Translations$deepLinks$en {
+	_Translations$deepLinks$ja._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get invalid => 'This Plezy link isn\'t valid.';
+	@override String profileNotFound({required Object profile}) => 'No profile matches "${profile}".';
+	@override String get serverUnavailable => 'Couldn\'t reach the server for this link.';
+	@override String get notFound => 'Couldn\'t find this title in your libraries.';
+	@override String get unsupportedItem => 'This link can\'t be played.';
+	@override String get noLiveTv => 'No Live TV server is available for this link.';
+	@override String channelNotFound({required Object channel}) => 'Couldn\'t find channel "${channel}".';
+	@override String get showLink => 'Show link';
+	@override String get showProfileLink => 'Show profile link';
+	@override String get dialogTitle => 'Link';
+	@override String get showHint => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.';
+	@override String get movieHint => 'Opening this link plays the movie.';
+	@override String get episodeHint => 'Opening this link plays this episode.';
+	@override String get profileHint => 'Opening this link switches to this profile.';
+	@override String openAsProfile({required Object name}) => 'Open as ${name}';
+	@override String get copy => 'Copy';
+	@override String get copied => 'Link copied';
 }
 
 // Path: common.ratingSource
@@ -2523,52 +2566,6 @@ class _Translations$common$mediaKind$ja extends Translations$common$mediaKind$en
 	@override String get folder => 'フォルダ';
 }
 
-// Path: supporter.errors
-class _Translations$supporter$errors$ja extends Translations$supporter$errors$en {
-	_Translations$supporter$errors$ja._(TranslationsJa root) : this._root = root, super.internal(root);
-
-	final TranslationsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get storeUnavailable => '購入を利用できません。ストアにサインインしていること、およびこのデバイスで購入が許可されていることを確認してください。';
-	@override String get productNotFound => '現在、お使いのストアではSupporterを購入できません。';
-	@override String get productQueryFailed => '価格を読み込めませんでした。接続を確認してもう一度お試しください。';
-	@override String get purchaseFailed => '購入を完了できませんでした。もう一度お試しください。';
-	@override String get restoreFailed => '購入を復元するためにストアに接続できませんでした。もう一度お試しください。';
-	@override String get nothingToRestore => 'このストアアカウントではSupporterの購入が見つかりませんでした。';
-}
-
-// Path: themeEditor.slots
-class _Translations$themeEditor$slots$ja extends Translations$themeEditor$slots$en {
-	_Translations$themeEditor$slots$ja._(TranslationsJa root) : this._root = root, super.internal(root);
-
-	final TranslationsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get bg => '背景';
-	@override String get surface => 'サーフェス';
-	@override String get outline => '枠線';
-	@override String get text => 'テキスト';
-	@override String get textMuted => '補助テキスト';
-	@override String get accent => 'アクセント';
-}
-
-// Path: themeEditor.contrast
-class _Translations$themeEditor$contrast$ja extends Translations$themeEditor$contrast$en {
-	_Translations$themeEditor$contrast$ja._(TranslationsJa root) : this._root = root, super.internal(root);
-
-	final TranslationsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get textOnBg => '背景上のテキスト';
-	@override String get textOnSurface => 'サーフェス上のテキスト';
-	@override String get textMutedOnBg => '背景上の補助テキスト';
-	@override String get textMutedOnSurface => 'サーフェス上の補助テキスト';
-	@override String get accentOnBg => '背景上のアクセント';
-	@override String get accentOnSurface => 'サーフェス上のアクセント';
-	@override String get labelOnAccent => 'アクセント上のボタンラベル';
-}
-
 // Path: hotkeys.actions
 class _Translations$hotkeys$actions$ja extends Translations$hotkeys$actions$en {
 	_Translations$hotkeys$actions$ja._(TranslationsJa root) : this._root = root, super.internal(root);
@@ -2601,6 +2598,8 @@ class _Translations$hotkeys$actions$ja extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'シェーダー切替';
 	@override String get skipMarker => 'イントロ/クレジットをスキップ';
 	@override String get screenshot => 'スクリーンショットを撮る';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2618,6 +2617,52 @@ class _Translations$videoControls$pipErrors$ja extends Translations$videoControl
 	@override String get failed => 'ピクチャーインピクチャーの開始に失敗しました';
 	@override String get prepareFailed => 'ピクチャーインピクチャーを準備できませんでした';
 	@override String unknown({required Object error}) => 'エラーが発生しました: ${error}';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$ja extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$ja._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => '微調整';
+	@override String get title => 'クリップ';
+	@override String get vodOnly => 'クリップはオンデマンドのビデオ再生に利用できます。';
+	@override String get sourceUnavailable => 'クリップ ソースはこの再生セッションでは使用できません。';
+	@override String get playAtLeastOneSecond => 'クリップする前に少なくとも 1 秒間再生してください。';
+	@override String get startBeforeBeginning => 'クリップの開始をビデオの先頭より前にすることはできません。';
+	@override String get endAfterStart => 'クリップの終了は開始より後でなければなりません。';
+	@override String get minimumDuration => 'クリップの長さは少なくとも 1 秒である必要があります。';
+	@override String get endPastVideo => 'クリップの終わりがビデオの終わりを超えています。';
+	@override String get exportCanceled => 'クリップのエクスポートがキャンセルされました。';
+	@override String get cacheUnavailable => '選択した範囲を元のエクスポート用に完全にキャッシュできませんでした。短いクリップを試すか、保存する前にプレビューを一度再生してください。';
+	@override String get sourceCopyNoEncoder => 'ソースコピーのエクスポートではエンコーダーは使用されません。';
+	@override String get encodingDesktopOnly => 'H.264 および HEVC クリップ エンコーディングは現在、macOS と Windows で利用できます。';
+	@override String get hdrRequiresSource => 'HDR エクスポートには、直接再生 HDR10 または HLG 互換のソースが必要です。';
+	@override String get transcodeStartUnavailable => 'このクリップは、アクティブなトランスコードされたストリームの前から始まります。早めにシークしてクリッピングを再開するか、元の品質に切り替えてください。';
+	@override String get previewRequired => 'クリップ プレビューは、保存する前に読み込みを完了する必要があります。';
+	@override String get h264Failed => 'このソースは H.264 SDR MP4 としてエンコードできませんでした。';
+	@override String get hevcSdrFailed => 'このソースは HEVC SDR MP4 としてエンコードできませんでした。';
+	@override String get hevcHdrFailed => 'このソースは HEVC HDR MP4 としてエンコードできませんでした。';
+	@override String get gifFailed => 'このソースをGIFとしてエンコードできませんでした。';
+	@override String get originalFailed => 'このソースは mpv キャッシュからコピーできませんでした。';
+	@override String get previewUnavailable => 'このビルドではクリップ プレビュー再生は利用できません。';
+	@override String get previewFailed => 'クリップのプレビュー再生に失敗しました。';
+	@override String get previewLoadingScreenshot => 'スクリーンショットを撮る前に、クリップ プレビューの読み込みを完了する必要があります。';
+	@override String get screenshotInProgress => 'スクリーンショットはすでに保存されています。';
+	@override String get saveAsDialog => 'クリップに名前を付けて保存';
+	@override String savedTo({required Object fileName}) => '${fileName}に保存されました';
+	@override String get openFolder => 'フォルダーを開く';
+	@override String get saveAs => '名前を付けて保存';
+	@override String get cancelExport => 'エクスポートのキャンセル';
+	@override String get saving => '保存中...';
+	@override String savingProgress({required Object percent}) => '${percent}% を節約';
+	@override String get mutePreview => 'プレビューをミュートする';
+	@override String get unmutePreview => 'プレビューのミュートを解除する';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: accountPreferences.groups
@@ -2916,6 +2961,7 @@ class _Translations$explore$stats$ja extends Translations$explore$stats$en {
 	@override String favorited({required Object n}) => 'お気に入り ${n}件';
 	@override String dropRate({required Object percent}) => '${percent}が視聴中止';
 	@override String comments({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: '${n} comment',
 		other: 'コメント ${n}件',
 	);
 	@override String votes({required Object n}) => '投票 ${n}件';
@@ -3037,6 +3083,7 @@ class _Translations$explore$detail$ja extends Translations$explore$detail$en {
 	@override String get ratings => '評価';
 	@override String get schedule => '放送予定';
 	@override String recommendedByUsers({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: 'Recommended by ${n} user',
 		other: '${n}人のユーザーがおすすめ',
 	);
 	@override String recommendedBy({required Object who}) => '${who}がおすすめ';
@@ -3375,6 +3422,84 @@ class _Translations$services$libraryFilter$ja extends Translations$services$libr
 	@override String get noLibraries => '利用できるライブラリがありません';
 }
 
+// Path: appIcon.names
+class _Translations$appIcon$names$ja extends Translations$appIcon$names$en {
+	_Translations$appIcon$names$ja._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get midnight => 'ミッドナイト';
+	@override String get ember => '残り火';
+	@override String get paper => 'ペーパー';
+	@override String get oled => 'OLED';
+	@override String get line => 'ライン';
+	@override String get ocean => 'オーシャン';
+	@override String get ultraviolet => 'ウルトラバイオレット';
+	@override String get matcha => '抹茶';
+	@override String get sunset => 'サンセット';
+	@override String get gold => 'ゴールド';
+	@override String get titanium => 'チタニウム';
+	@override String get glass => 'ガラス';
+	@override String get crt => 'CRT';
+	@override String get vhs => 'VHS';
+	@override String get synthwave => 'シンセウェイブ';
+	@override String get pixel => 'ピクセル';
+	@override String get neon => 'ネオン';
+	@override String get sticker => 'ステッカー';
+	@override String get ticket => 'チケット';
+	@override String get pop => 'ポップ';
+	@override String get strata => '地層';
+	@override String get facet => 'ファセット';
+	@override String get tilde => 'チルダ';
+}
+
+// Path: supporter.errors
+class _Translations$supporter$errors$ja extends Translations$supporter$errors$en {
+	_Translations$supporter$errors$ja._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get storeUnavailable => '購入を利用できません。ストアにサインインしていること、およびこのデバイスで購入が許可されていることを確認してください。';
+	@override String get productNotFound => '現在、お使いのストアではSupporterを購入できません。';
+	@override String get productQueryFailed => '価格を読み込めませんでした。接続を確認してもう一度お試しください。';
+	@override String get purchaseFailed => '購入を完了できませんでした。もう一度お試しください。';
+	@override String get restoreFailed => '購入を復元するためにストアに接続できませんでした。もう一度お試しください。';
+	@override String get nothingToRestore => 'このストアアカウントではSupporterの購入が見つかりませんでした。';
+}
+
+// Path: themeEditor.slots
+class _Translations$themeEditor$slots$ja extends Translations$themeEditor$slots$en {
+	_Translations$themeEditor$slots$ja._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get bg => '背景';
+	@override String get surface => 'サーフェス';
+	@override String get outline => '枠線';
+	@override String get text => 'テキスト';
+	@override String get textMuted => '補助テキスト';
+	@override String get accent => 'アクセント';
+}
+
+// Path: themeEditor.contrast
+class _Translations$themeEditor$contrast$ja extends Translations$themeEditor$contrast$en {
+	_Translations$themeEditor$contrast$ja._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get textOnBg => '背景上のテキスト';
+	@override String get textOnSurface => 'サーフェス上のテキスト';
+	@override String get textMutedOnBg => '背景上の補助テキスト';
+	@override String get textMutedOnSurface => 'サーフェス上の補助テキスト';
+	@override String get accentOnBg => '背景上のアクセント';
+	@override String get accentOnSurface => 'サーフェス上のアクセント';
+	@override String get labelOnAccent => 'アクセント上のボタンラベル';
+}
+
 /// The flat map containing all translations for locale <ja>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -3383,38 +3508,7 @@ class _Translations$services$libraryFilter$ja extends Translations$services$libr
 extension on TranslationsJa {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
-			'appIcon.title' => 'アプリアイコン',
-			'appIcon.defaultIcon' => 'デフォルト',
-			'appIcon.current' => '現在のアイコン',
-			'appIcon.locked' => 'Supporter特典',
-			'appIcon.lockedHint' => '別のアイコンはSupporter特典です。',
-			'appIcon.changeFailed' => 'アプリアイコンを変更できませんでした',
-			'appIcon.launcherHint' => 'Plezyを離れると、ホーム画面に新しいアイコンが表示されます。',
-			'appIcon.tvLauncherHint' => 'Plezyを離れると、新しいバナーが表示されます。Android TVでは、テレビを再起動するまで古いバナーが表示され続ける場合があります。',
-			'appIcon.names.midnight' => 'ミッドナイト',
-			'appIcon.names.ember' => '残り火',
-			'appIcon.names.paper' => 'ペーパー',
-			'appIcon.names.oled' => 'OLED',
-			'appIcon.names.line' => 'ライン',
-			'appIcon.names.ocean' => 'オーシャン',
-			'appIcon.names.ultraviolet' => 'ウルトラバイオレット',
-			'appIcon.names.matcha' => '抹茶',
-			'appIcon.names.sunset' => 'サンセット',
-			'appIcon.names.gold' => 'ゴールド',
-			'appIcon.names.titanium' => 'チタニウム',
-			'appIcon.names.glass' => 'ガラス',
-			'appIcon.names.crt' => 'CRT',
-			'appIcon.names.vhs' => 'VHS',
-			'appIcon.names.synthwave' => 'シンセウェイブ',
-			'appIcon.names.pixel' => 'ピクセル',
-			'appIcon.names.neon' => 'ネオン',
-			'appIcon.names.sticker' => 'ステッカー',
-			'appIcon.names.ticket' => 'チケット',
-			'appIcon.names.pop' => 'ポップ',
-			'appIcon.names.strata' => '地層',
-			'appIcon.names.facet' => 'ファセット',
-			'appIcon.names.tilde' => 'チルダ',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Plexでサインイン',
 			'auth.showQRCode' => 'QRコードを表示',
 			'auth.authenticate' => '認証',
@@ -3518,29 +3612,14 @@ extension on TranslationsJa {
 			'update.viewRelease' => 'リリースを表示',
 			'update.latestVersion' => '最新バージョンです',
 			'update.checkFailed' => 'アップデートの確認に失敗しました',
-			'supporter.title' => 'Plezy Supporter',
-			'supporter.intro' => '1回限りの購入でPlezyの開発を支援し、次の見た目の特典をご利用いただけます：',
-			'supporter.presetThemes' => 'プリセットテーマ',
-			'supporter.presetThemesDescription' => '残り火、氷河、森、プラム、ペーパー',
-			'supporter.customTheme' => 'カスタムテーマ',
-			'supporter.customThemeDescription' => 'すべての色を自分で選択',
-			'supporter.appIcons' => 'アプリアイコン',
-			'supporter.appIconsDescription' => 'Plezyの別のアイコンを選択',
-			'supporter.buy' => ({required Object price}) => '${price}で購入',
-			'supporter.loadingPrice' => '価格を読み込み中…',
-			'supporter.restore' => '購入を復元',
-			'supporter.pending' => '購入は支払いまたは承認を待っています。ストアでの処理が完了すると、すぐに特典のロックが解除されます。',
-			'supporter.thankYouTitle' => 'Plezyをご支援いただきありがとうございます',
-			'supporter.thankYouBody' => 'Supporter特典のロックが解除されました。',
-			'supporter.tileSubtitle' => '1回限りの購入でテーマとアプリアイコンのロックを解除',
-			'supporter.tileSubtitleThemesOnly' => '1回限りの購入でテーマのロックを解除',
-			'supporter.tileUnlocked' => 'ご支援ありがとうございます',
-			'supporter.errors.storeUnavailable' => '購入を利用できません。ストアにサインインしていること、およびこのデバイスで購入が許可されていることを確認してください。',
-			'supporter.errors.productNotFound' => '現在、お使いのストアではSupporterを購入できません。',
-			'supporter.errors.productQueryFailed' => '価格を読み込めませんでした。接続を確認してもう一度お試しください。',
-			'supporter.errors.purchaseFailed' => '購入を完了できませんでした。もう一度お試しください。',
-			'supporter.errors.restoreFailed' => '購入を復元するためにストアに接続できませんでした。もう一度お試しください。',
-			'supporter.errors.nothingToRestore' => 'このストアアカウントではSupporterの購入が見つかりませんでした。',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => '設定',
 			'settings.supportDeveloper' => 'Plezyを支援',
 			'settings.supportDeveloperDescription' => 'Liberapayで寄付して開発を支援',
@@ -3876,46 +3955,24 @@ extension on TranslationsJa {
 			'settings.playerScopeLibrary' => 'ライブラリごと',
 			'settings.playerScopeTitle' => '作品ごと',
 			'settings.exportDialogTitle' => 'Plezyの設定をエクスポート',
-			'themeEditor.builtIn' => '標準',
-			'themeEditor.presets' => 'プリセット',
-			'themeEditor.custom' => 'カスタム',
-			'themeEditor.customEmpty' => '未作成',
-			'themeEditor.editCustom' => 'カスタムテーマを編集',
-			'themeEditor.editCustomDescription' => 'すべての色を自分で選択',
-			'themeEditor.locked' => 'Supporterでロック解除',
-			'themeEditor.savedLocked' => '保存済み — Supporterでロック解除',
-			'themeEditor.title' => 'カスタムテーマ',
-			'themeEditor.startFrom' => '元にするテーマ',
-			'themeEditor.startFromDescription' => '別のテーマからすべての色をコピー',
-			'themeEditor.colors' => '色',
-			'themeEditor.preview' => 'プレビュー',
-			'themeEditor.slots.bg' => '背景',
-			'themeEditor.slots.surface' => 'サーフェス',
-			'themeEditor.slots.outline' => '枠線',
-			'themeEditor.slots.text' => 'テキスト',
-			'themeEditor.slots.textMuted' => '補助テキスト',
-			'themeEditor.slots.accent' => 'アクセント',
-			_ => null,
-		} ?? switch (path) {
-			'themeEditor.opacity' => '不透明度',
-			'themeEditor.hexHint' => '#RRGGBB または #AARRGGBB',
-			'themeEditor.fromOtherThemes' => '他のテーマから',
-			'themeEditor.swatchLabel' => ({required Object theme, required Object color}) => '${theme}の${color}',
-			'themeEditor.contrast.textOnBg' => '背景上のテキスト',
-			'themeEditor.contrast.textOnSurface' => 'サーフェス上のテキスト',
-			'themeEditor.contrast.textMutedOnBg' => '背景上の補助テキスト',
-			'themeEditor.contrast.textMutedOnSurface' => 'サーフェス上の補助テキスト',
-			'themeEditor.contrast.accentOnBg' => '背景上のアクセント',
-			'themeEditor.contrast.accentOnSurface' => 'サーフェス上のアクセント',
-			'themeEditor.contrast.labelOnAccent' => 'アクセント上のボタンラベル',
-			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1（推奨値の${minimum}:1未満）',
-			'themeEditor.discardTitle' => '変更を破棄しますか？',
-			'themeEditor.discardMessage' => '保存されていない色の変更は失われます。',
-			'themeEditor.discard' => '破棄',
-			'themeEditor.previewCardTitle' => ({required Object number}) => 'エピソード${number}',
-			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '残り${minutes}分',
-			'themeEditor.previewSwitch' => '自動再生',
-			'themeEditor.previewMutedText' => '補助テキストはこのように表示されます',
+			'settings.downloadLocationSelectError' => 'フォルダの選択に失敗しました',
+			'settings.mediaCapture' => 'メディアキャプチャ',
+			'settings.clips' => 'クリップ',
+			'settings.screenshots' => 'スクリーンショット',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} 場所',
+			'settings.clipLocationDescription' => 'クリップの保存場所を選択します。',
+			'settings.screenshotLocationDescription' => 'スクリーンショットの保存場所を選択します。',
+			'settings.clipLocationChanged' => 'クリップの位置が変更されました',
+			'settings.screenshotLocationChanged' => 'スクリーンショットの場所が変更されました',
+			'settings.clipLocationReset' => 'クリップの場所をデスクトップにリセット',
+			'settings.screenshotLocationReset' => 'スクリーンショットの場所がデスクトップにリセットされました',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'search.hint' => '映画、番組、音楽を検索…',
 			'search.tryDifferentTerm' => '別の検索語をお試しください',
 			'search.searchYourMedia' => 'メディアを検索',
@@ -3952,6 +4009,8 @@ extension on TranslationsJa {
 			'hotkeys.actions.shaderToggle' => 'シェーダー切替',
 			'hotkeys.actions.skipMarker' => 'イントロ/クレジットをスキップ',
 			'hotkeys.actions.screenshot' => 'スクリーンショットを撮る',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'ファイル情報',
 			'fileInfo.overview' => '概要',
 			'fileInfo.video' => '映像',
@@ -3961,6 +4020,8 @@ extension on TranslationsJa {
 			'fileInfo.dataStreams' => 'データストリーム',
 			'fileInfo.lyrics' => '歌詞',
 			'fileInfo.file' => 'ファイル',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.attachments' => '添付ファイル',
 			'fileInfo.delivery' => '配信',
 			'fileInfo.versionCounter' => ({required Object index, required Object count}) => 'バージョン ${index} / ${count}',
@@ -4090,9 +4151,9 @@ extension on TranslationsJa {
 			'mediaMenu.deleteAnyway' => 'それでも削除',
 			'mediaMenu.confirmDeleteTarget' => ({required Object title}) => 'サーバーから「${title}」を完全に削除しますか？',
 			'mediaMenu.deleteMultipleWarning' => 'すべてのエピソードとそのファイルが含まれます。',
-			'mediaMenu.deleteEpisodeCountWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: '中の全${n}エピソードとそのファイルが削除されます。', ), 
-			'mediaMenu.deleteMultiPartWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: 'このアイテムは${n}個のファイルにまたがって保存されており、すべて削除されます。', ), 
-			'mediaMenu.deleteSharedFileHeading' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: '同じファイルに保存されている他の${n}エピソードも削除されます：', ), 
+			'mediaMenu.deleteEpisodeCountWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: 'This deletes all ${n} episode in it, and its file.', other: '中の全${n}エピソードとそのファイルが削除されます。', ), 
+			'mediaMenu.deleteMultiPartWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: 'This item is stored as ${n} file, which will be deleted.', other: 'このアイテムは${n}個のファイルにまたがって保存されており、すべて削除されます。', ), 
+			'mediaMenu.deleteSharedFileHeading' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: '${n} other episode is stored in the same file and will be deleted too:', other: '同じファイルに保存されている他の${n}エピソードも削除されます：', ), 
 			'mediaMenu.deleteScopeUnverifiedProbeFailed' => 'Plezyは削除対象のファイルを確認できなかったため、上記のアイテム以上に削除される可能性があります。キャンセルして再試行するか、それでも削除してください。',
 			'mediaMenu.deleteScopeUnverifiedNoFileInfo' => 'サーバーがこのアイテムのファイル情報を提供しなかったため、Plezyは削除対象のファイルを確認できません。上記のアイテム以上に削除される可能性があります。',
 			'mediaMenu.mediaDeletedSuccessfully' => 'メディアアイテムを正常に削除しました',
@@ -4199,7 +4260,6 @@ extension on TranslationsJa {
 			'videoControls.pipActive' => 'ピクチャーインピクチャーで再生中',
 			'videoControls.pipFailed' => 'ピクチャーインピクチャーの開始に失敗しました',
 			'videoControls.screenshotSaved' => 'スクリーンショットを保存しました',
-			'videoControls.screenshotFailed' => 'スクリーンショットを撮影できませんでした',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'ズーム ${percent}%',
 			'videoControls.volumePercent' => ({required Object percent}) => '音量 ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0以降が必要です',
@@ -4231,12 +4291,52 @@ extension on TranslationsJa {
 			'videoControls.osdSubtitlesOff' => '字幕: オフ',
 			'videoControls.osdSubtitles' => ({required Object track}) => '字幕: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => '音声: ${track}',
+			'videoControls.screenshotFailed' => 'スクリーンショットを撮影できませんでした',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: '${n} frame', other: '${n} frames', ), 
+			'videoControls.clip.fineAdjust' => '微調整',
+			'videoControls.clip.title' => 'クリップ',
+			'videoControls.clip.vodOnly' => 'クリップはオンデマンドのビデオ再生に利用できます。',
+			'videoControls.clip.sourceUnavailable' => 'クリップ ソースはこの再生セッションでは使用できません。',
+			'videoControls.clip.playAtLeastOneSecond' => 'クリップする前に少なくとも 1 秒間再生してください。',
+			'videoControls.clip.startBeforeBeginning' => 'クリップの開始をビデオの先頭より前にすることはできません。',
+			'videoControls.clip.endAfterStart' => 'クリップの終了は開始より後でなければなりません。',
+			'videoControls.clip.minimumDuration' => 'クリップの長さは少なくとも 1 秒である必要があります。',
+			'videoControls.clip.endPastVideo' => 'クリップの終わりがビデオの終わりを超えています。',
+			'videoControls.clip.exportCanceled' => 'クリップのエクスポートがキャンセルされました。',
+			'videoControls.clip.cacheUnavailable' => '選択した範囲を元のエクスポート用に完全にキャッシュできませんでした。短いクリップを試すか、保存する前にプレビューを一度再生してください。',
+			'videoControls.clip.sourceCopyNoEncoder' => 'ソースコピーのエクスポートではエンコーダーは使用されません。',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 および HEVC クリップ エンコーディングは現在、macOS と Windows で利用できます。',
+			'videoControls.clip.hdrRequiresSource' => 'HDR エクスポートには、直接再生 HDR10 または HLG 互換のソースが必要です。',
+			'videoControls.clip.transcodeStartUnavailable' => 'このクリップは、アクティブなトランスコードされたストリームの前から始まります。早めにシークしてクリッピングを再開するか、元の品質に切り替えてください。',
+			'videoControls.clip.previewRequired' => 'クリップ プレビューは、保存する前に読み込みを完了する必要があります。',
+			'videoControls.clip.h264Failed' => 'このソースは H.264 SDR MP4 としてエンコードできませんでした。',
+			'videoControls.clip.hevcSdrFailed' => 'このソースは HEVC SDR MP4 としてエンコードできませんでした。',
+			'videoControls.clip.hevcHdrFailed' => 'このソースは HEVC HDR MP4 としてエンコードできませんでした。',
+			'videoControls.clip.gifFailed' => 'このソースをGIFとしてエンコードできませんでした。',
+			'videoControls.clip.originalFailed' => 'このソースは mpv キャッシュからコピーできませんでした。',
+			'videoControls.clip.previewUnavailable' => 'このビルドではクリップ プレビュー再生は利用できません。',
+			'videoControls.clip.previewFailed' => 'クリップのプレビュー再生に失敗しました。',
+			'videoControls.clip.previewLoadingScreenshot' => 'スクリーンショットを撮る前に、クリップ プレビューの読み込みを完了する必要があります。',
+			'videoControls.clip.screenshotInProgress' => 'スクリーンショットはすでに保存されています。',
+			'videoControls.clip.saveAsDialog' => 'クリップに名前を付けて保存',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => '${fileName}に保存されました',
+			'videoControls.clip.openFolder' => 'フォルダーを開く',
+			'videoControls.clip.saveAs' => '名前を付けて保存',
+			'videoControls.clip.cancelExport' => 'エクスポートのキャンセル',
+			'videoControls.clip.saving' => '保存中...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => '${percent}% を節約',
+			'videoControls.clip.mutePreview' => 'プレビューをミュートする',
+			'videoControls.clip.unmutePreview' => 'プレビューのミュートを解除する',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => '視聴済みにしました',
 			'messages.markedAsUnwatched' => '未視聴にしました',
 			'messages.markedAsWatchedOffline' => '視聴済みにしました（オンライン時に同期）',
 			'messages.markedAsUnwatchedOffline' => '未視聴にしました（オンライン時に同期）',
 			'messages.autoRemovedWatchedDownload' => ({required Object title}) => '自動削除: ${title}',
-			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: '視聴済みダウンロードを${n}件自動削除しました', ), 
+			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: 'Auto-removed ${n} watched download', other: '視聴済みダウンロードを${n}件自動削除しました', ), 
 			'messages.removedFromContinueWatching' => '視聴中から削除しました',
 			'messages.errorLoading' => ({required Object error}) => 'エラー: ${error}',
 			'messages.searchPartialResults' => '一部のメディアサーバーを検索できませんでした。利用可能な結果を表示しています。',
@@ -4409,8 +4509,6 @@ extension on TranslationsJa {
 			'profiles.tokenIdentityMismatch' => 'Plexプロフィールのトークンから予期しないサーバーが特定されました',
 			'connections.sectionTitle' => '接続',
 			'connections.addConnection' => '接続を追加',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnectionSubtitleNoProfile' => 'Plexでサインインするか、JellyfinまたはEmbyサーバーに接続',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => '${displayName}に追加：Plex、Jellyfin、Emby、または別のプロフィールの接続',
 			'connections.sessionExpiredOne' => ({required Object name}) => '${name} のセッションの有効期限が切れました',
@@ -4436,6 +4534,8 @@ extension on TranslationsJa {
 			'accountPreferences.groups.personalMedia' => '個人メディア',
 			'accountPreferences.preferredAudioLanguage' => '優先音声言語',
 			'accountPreferences.autoSelectAudio' => '言語で音声を選択',
+			_ => null,
+		} ?? switch (path) {
 			'accountPreferences.autoSelectAudioDescription' => 'オフにすると、ファイルでデフォルトとマークされた音声トラックがそのまま使われます。',
 			'accountPreferences.preferredSubtitleLanguage' => '優先字幕言語',
 			'accountPreferences.subtitleMode' => '字幕の自動表示',
@@ -4501,7 +4601,7 @@ extension on TranslationsJa {
 			'discover.tvShow' => 'テレビ番組',
 			'discover.minutesLeft' => ({required Object minutes}) => '残り${minutes}分',
 			'discover.moreLikeThis' => '似ている作品',
-			'discover.titleCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: '${n}作品', ), 
+			'discover.titleCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: '${n} title', other: '${n}作品', ), 
 			'discover.person.born' => '生年月日',
 			'discover.person.died' => '没年月日',
 			'discover.person.birthplace' => '出生地',
@@ -4643,6 +4743,9 @@ extension on TranslationsJa {
 			'about.versionLabel' => ({required Object version}) => 'バージョン ${version}',
 			'about.appDescription' => 'Flutter製の美しいPlex・Jellyfin・Embyクライアント',
 			'about.viewLicensesDescription' => 'サードパーティライブラリのライセンスを表示',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email})のサーバーが見つかりません',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'サーバーの読み込みに失敗しました: ${error}',
 			'serverSelection.noValidServers' => 'このアカウントで利用可能なサーバーが見つかりませんでした',
@@ -4712,7 +4815,7 @@ extension on TranslationsJa {
 			'explore.status.ended' => '放送終了',
 			'explore.status.canceled' => '打ち切り',
 			'explore.status.upcoming' => '放送予定',
-			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: '${n}話', ), 
+			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: '${n} episode', other: '${n}話', ), 
 			'explore.cast' => 'キャスト',
 			'explore.characters' => 'キャラクター',
 			'explore.addToWatchlist' => 'ウォッチリストに追加',
@@ -4721,10 +4824,11 @@ extension on TranslationsJa {
 			'explore.removedFromWatchlist' => 'ウォッチリストから削除しました',
 			'explore.watchlistUpdateFailed' => 'ウォッチリストを更新できませんでした',
 			'explore.watchlistNoMatch' => 'このアイテムに一致するウォッチリスト項目が見つかりませんでした',
+			'explore.openInLibrary' => 'ライブラリで開く',
 			'explore.notInLibrary' => 'ライブラリにありません',
 			'explore.inTheseLibraries' => 'これらのライブラリにあります',
 			'explore.checkingLibrary' => 'ライブラリを確認中…',
-			'explore.libraryCheckFailed' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: '${n}台のサーバーを確認できませんでした', ), 
+			'explore.libraryCheckFailed' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: 'Couldn\'t check ${n} server', other: '${n}台のサーバーを確認できませんでした', ), 
 			'explore.emptyTitle' => 'まだ何もありません',
 			'explore.emptyMessage' => ({required Object source}) => '${source}にコンテンツが追加されると、ここに表示されます。',
 			'explore.searchHint' => ({required Object source}) => '${source}を検索',
@@ -4761,7 +4865,7 @@ extension on TranslationsJa {
 			'explore.stats.planning' => ({required Object n}) => '${n}人が視聴予定',
 			'explore.stats.favorited' => ({required Object n}) => 'お気に入り ${n}件',
 			'explore.stats.dropRate' => ({required Object percent}) => '${percent}が視聴中止',
-			'explore.stats.comments' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: 'コメント ${n}件', ), 
+			'explore.stats.comments' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: '${n} comment', other: 'コメント ${n}件', ), 
 			'explore.stats.votes' => ({required Object n}) => '投票 ${n}件',
 			'explore.stats.watching' => ({required Object n}) => '${n}人が視聴中',
 			'explore.stats.completed' => ({required Object n}) => '${n}人が視聴済み',
@@ -4828,14 +4932,14 @@ extension on TranslationsJa {
 			'explore.detail.crew' => 'スタッフ',
 			'explore.detail.ratings' => '評価',
 			'explore.detail.schedule' => '放送予定',
-			'explore.detail.recommendedByUsers' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: '${n}人のユーザーがおすすめ', ), 
+			'explore.detail.recommendedByUsers' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: 'Recommended by ${n} user', other: '${n}人のユーザーがおすすめ', ), 
 			'explore.detail.recommendedBy' => ({required Object who}) => '${who}がおすすめ',
 			'explore.detail.favoritedBy' => ({required Object who}) => '${who}がお気に入り登録',
 			'explore.detail.unairedEpisodes' => ({required Object n}) => '未放送 ${n}話',
 			'explore.detail.recommendedByPercent' => ({required Object percent}) => '視聴者の${percent}がおすすめ',
 			'explore.detail.relatedTitles' => '関連作品',
 			'explore.detail.background' => '背景',
-			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: '${n}件の結果', ), 
+			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: '${n} result', other: '${n}件の結果', ), 
 			'liveTv.title' => 'ライブTV',
 			'liveTv.guide' => '番組表',
 			'liveTv.noChannels' => 'チャンネルがありません',
@@ -4850,6 +4954,7 @@ extension on TranslationsJa {
 			'liveTv.channelNumber' => ({required Object number}) => 'チャンネル ${number}',
 			'liveTv.unknownChannel' => '不明なチャンネル',
 			'liveTv.live' => 'ライブ',
+			'liveTv.premiereBadge' => 'NEW',
 			'liveTv.reloadGuide' => '番組表を再読み込み',
 			'liveTv.searchGuide' => '番組表を検索',
 			'liveTv.searchHint' => 'チャンネル・番組を検索',
@@ -4923,8 +5028,6 @@ extension on TranslationsJa {
 			'liveTv.recordSettings.keepUpToHint' => '0 ですべてのエピソードを保持',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes}分後に開始',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} ${time}',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.invalidPlaybackData' => ({required Object product}) => '${product}から無効なライブTV再生データが返されました',
 			'liveTv.failedToStartChannel' => 'ライブチャンネルを開始できませんでした',
 			'liveTv.failedToBuildStreamUrl' => 'ストリームURLを生成できませんでした',
@@ -4945,6 +5048,8 @@ extension on TranslationsJa {
 			'collections.errorAddingToCollection' => 'コレクションへの追加に失敗しました',
 			'collections.created' => 'コレクションを作成しました',
 			'collections.removeFromCollection' => 'コレクションから削除',
+			_ => null,
+		} ?? switch (path) {
 			'collections.removeFromCollectionConfirm' => ({required Object title}) => '「${title}」をこのコレクションから削除しますか？',
 			'collections.removedFromCollection' => 'コレクションから削除しました',
 			'collections.removeFromCollectionFailed' => 'コレクションからの削除に失敗しました',
@@ -4982,7 +5087,7 @@ extension on TranslationsJa {
 			'music.playNext' => '次に再生',
 			'music.addToQueue' => 'キューに追加',
 			'music.discNumber' => ({required Object n}) => 'ディスク ${n}',
-			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: '${n}曲', ), 
+			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: '${n} track', other: '${n}曲', ), 
 			'music.nowPlaying' => '再生中',
 			'music.playingFrom' => ({required Object title}) => '${title}から再生',
 			'music.queue' => '再生キュー',
@@ -5073,7 +5178,7 @@ extension on TranslationsJa {
 			'watchTogether.offsetPlusTenth' => '+100ms',
 			'watchTogether.offsetPlusSecond' => '+1秒',
 			'watchTogether.participants' => '参加者',
-			'watchTogether.participantCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, other: '参加者${n}人', ), 
+			'watchTogether.participantCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n, one: '${n} participant', other: '参加者${n}人', ), 
 			'watchTogether.hostBadge' => 'ホスト',
 			'watchTogether.nameYou' => ({required Object name}) => '${name}（あなた）',
 			'watchTogether.playerIdle' => '待機中',
@@ -5425,6 +5530,7 @@ extension on TranslationsJa {
 			'performanceOverlay.cacheLimit' => 'キャッシュ上限',
 			'performanceOverlay.speed' => '速度',
 			'performanceOverlay.player' => 'プレーヤー',
+			'performanceOverlay.playMethod' => 'Play Method',
 			'performanceOverlay.memory' => 'メモリ',
 			'performanceOverlay.uiFps' => 'UI FPS',
 			'performanceOverlay.fps' => 'FPS',
@@ -5437,8 +5543,6 @@ extension on TranslationsJa {
 			'performanceOverlay.decoderHardware' => 'ハードウェア',
 			'performanceOverlay.tunnelingActive' => '有効',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted}（${failures}件失敗）',
-			_ => null,
-		} ?? switch (path) {
 			'externalPlayer.title' => '外部プレーヤー',
 			'externalPlayer.useExternalPlayer' => '外部プレーヤーを使用',
 			'externalPlayer.useExternalPlayerDescription' => '動画を別のアプリで開きます',
@@ -5458,6 +5562,8 @@ extension on TranslationsJa {
 			'metadataEdit.editMetadata' => '編集…',
 			'metadataEdit.screenTitle' => 'メタデータを編集',
 			'metadataEdit.basicInfo' => '基本情報',
+			_ => null,
+		} ?? switch (path) {
 			'metadataEdit.artwork' => 'アートワーク',
 			'metadataEdit.advancedSettings' => '詳細設定',
 			'metadataEdit.title' => 'タイトル',
@@ -5691,6 +5797,115 @@ extension on TranslationsJa {
 			'addServer.redirectDifferentHost' => ({required Object product}) => 'サーバーから別のホストにリダイレクトされました。最終的な${product}のURLを直接入力してください。',
 			'addServer.redirectInsecure' => 'サーバーからHTTPSではない安全でないURLにリダイレクトされました',
 			'addServer.redirectUnsupportedEnterFinal' => ({required Object product}) => 'サーバーからサポートされていないURLにリダイレクトされました。最終的な${product}のURLを直接入力してください。',
+			'appIcon.title' => 'アプリアイコン',
+			'appIcon.defaultIcon' => 'デフォルト',
+			'appIcon.current' => '現在のアイコン',
+			'appIcon.locked' => 'Supporter特典',
+			'appIcon.lockedHint' => '別のアイコンはSupporter特典です。',
+			'appIcon.changeFailed' => 'アプリアイコンを変更できませんでした',
+			'appIcon.launcherHint' => 'Plezyを離れると、ホーム画面に新しいアイコンが表示されます。',
+			'appIcon.tvLauncherHint' => 'Plezyを離れると、新しいバナーが表示されます。Android TVでは、テレビを再起動するまで古いバナーが表示され続ける場合があります。',
+			'appIcon.names.midnight' => 'ミッドナイト',
+			'appIcon.names.ember' => '残り火',
+			'appIcon.names.paper' => 'ペーパー',
+			'appIcon.names.oled' => 'OLED',
+			'appIcon.names.line' => 'ライン',
+			'appIcon.names.ocean' => 'オーシャン',
+			'appIcon.names.ultraviolet' => 'ウルトラバイオレット',
+			'appIcon.names.matcha' => '抹茶',
+			'appIcon.names.sunset' => 'サンセット',
+			'appIcon.names.gold' => 'ゴールド',
+			'appIcon.names.titanium' => 'チタニウム',
+			'appIcon.names.glass' => 'ガラス',
+			'appIcon.names.crt' => 'CRT',
+			'appIcon.names.vhs' => 'VHS',
+			'appIcon.names.synthwave' => 'シンセウェイブ',
+			'appIcon.names.pixel' => 'ピクセル',
+			'appIcon.names.neon' => 'ネオン',
+			'appIcon.names.sticker' => 'ステッカー',
+			'appIcon.names.ticket' => 'チケット',
+			'appIcon.names.pop' => 'ポップ',
+			'appIcon.names.strata' => '地層',
+			'appIcon.names.facet' => 'ファセット',
+			'appIcon.names.tilde' => 'チルダ',
+			'supporter.title' => 'Plezy Supporter',
+			'supporter.intro' => '1回限りの購入でPlezyの開発を支援し、次の見た目の特典をご利用いただけます：',
+			'supporter.presetThemes' => 'プリセットテーマ',
+			'supporter.presetThemesDescription' => '残り火、氷河、森、プラム、ペーパー',
+			'supporter.customTheme' => 'カスタムテーマ',
+			'supporter.customThemeDescription' => 'すべての色を自分で選択',
+			'supporter.appIcons' => 'アプリアイコン',
+			'supporter.appIconsDescription' => 'Plezyの別のアイコンを選択',
+			'supporter.buy' => ({required Object price}) => '${price}で購入',
+			'supporter.loadingPrice' => '価格を読み込み中…',
+			'supporter.restore' => '購入を復元',
+			'supporter.pending' => '購入は支払いまたは承認を待っています。ストアでの処理が完了すると、すぐに特典のロックが解除されます。',
+			'supporter.thankYouTitle' => 'Plezyをご支援いただきありがとうございます',
+			'supporter.thankYouBody' => 'Supporter特典のロックが解除されました。',
+			'supporter.tileSubtitle' => '1回限りの購入でテーマとアプリアイコンのロックを解除',
+			'supporter.tileSubtitleThemesOnly' => '1回限りの購入でテーマのロックを解除',
+			'supporter.tileUnlocked' => 'ご支援ありがとうございます',
+			'supporter.errors.storeUnavailable' => '購入を利用できません。ストアにサインインしていること、およびこのデバイスで購入が許可されていることを確認してください。',
+			'supporter.errors.productNotFound' => '現在、お使いのストアではSupporterを購入できません。',
+			'supporter.errors.productQueryFailed' => '価格を読み込めませんでした。接続を確認してもう一度お試しください。',
+			'supporter.errors.purchaseFailed' => '購入を完了できませんでした。もう一度お試しください。',
+			'supporter.errors.restoreFailed' => '購入を復元するためにストアに接続できませんでした。もう一度お試しください。',
+			'supporter.errors.nothingToRestore' => 'このストアアカウントではSupporterの購入が見つかりませんでした。',
+			'themeEditor.builtIn' => '標準',
+			'themeEditor.presets' => 'プリセット',
+			'themeEditor.custom' => 'カスタム',
+			'themeEditor.customEmpty' => '未作成',
+			'themeEditor.editCustom' => 'カスタムテーマを編集',
+			'themeEditor.editCustomDescription' => 'すべての色を自分で選択',
+			'themeEditor.locked' => 'Supporterでロック解除',
+			'themeEditor.savedLocked' => '保存済み — Supporterでロック解除',
+			'themeEditor.title' => 'カスタムテーマ',
+			'themeEditor.startFrom' => '元にするテーマ',
+			'themeEditor.startFromDescription' => '別のテーマからすべての色をコピー',
+			'themeEditor.colors' => '色',
+			'themeEditor.preview' => 'プレビュー',
+			'themeEditor.slots.bg' => '背景',
+			'themeEditor.slots.surface' => 'サーフェス',
+			'themeEditor.slots.outline' => '枠線',
+			'themeEditor.slots.text' => 'テキスト',
+			'themeEditor.slots.textMuted' => '補助テキスト',
+			'themeEditor.slots.accent' => 'アクセント',
+			'themeEditor.opacity' => '不透明度',
+			'themeEditor.hexHint' => '#RRGGBB または #AARRGGBB',
+			'themeEditor.fromOtherThemes' => '他のテーマから',
+			'themeEditor.swatchLabel' => ({required Object theme, required Object color}) => '${theme}の${color}',
+			'themeEditor.contrast.textOnBg' => '背景上のテキスト',
+			'themeEditor.contrast.textOnSurface' => 'サーフェス上のテキスト',
+			'themeEditor.contrast.textMutedOnBg' => '背景上の補助テキスト',
+			'themeEditor.contrast.textMutedOnSurface' => 'サーフェス上の補助テキスト',
+			'themeEditor.contrast.accentOnBg' => '背景上のアクセント',
+			'themeEditor.contrast.accentOnSurface' => 'サーフェス上のアクセント',
+			'themeEditor.contrast.labelOnAccent' => 'アクセント上のボタンラベル',
+			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1（推奨値の${minimum}:1未満）',
+			'themeEditor.discardTitle' => '変更を破棄しますか？',
+			'themeEditor.discardMessage' => '保存されていない色の変更は失われます。',
+			'themeEditor.discard' => '破棄',
+			'themeEditor.previewCardTitle' => ({required Object number}) => 'エピソード${number}',
+			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '残り${minutes}分',
+			'themeEditor.previewSwitch' => '自動再生',
+			'themeEditor.previewMutedText' => '補助テキストはこのように表示されます',
+			'deepLinks.invalid' => 'This Plezy link isn\'t valid.',
+			'deepLinks.profileNotFound' => ({required Object profile}) => 'No profile matches "${profile}".',
+			'deepLinks.serverUnavailable' => 'Couldn\'t reach the server for this link.',
+			'deepLinks.notFound' => 'Couldn\'t find this title in your libraries.',
+			'deepLinks.unsupportedItem' => 'This link can\'t be played.',
+			'deepLinks.noLiveTv' => 'No Live TV server is available for this link.',
+			'deepLinks.channelNotFound' => ({required Object channel}) => 'Couldn\'t find channel "${channel}".',
+			'deepLinks.showLink' => 'Show link',
+			'deepLinks.showProfileLink' => 'Show profile link',
+			'deepLinks.dialogTitle' => 'Link',
+			'deepLinks.showHint' => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.',
+			'deepLinks.movieHint' => 'Opening this link plays the movie.',
+			'deepLinks.episodeHint' => 'Opening this link plays this episode.',
+			'deepLinks.profileHint' => 'Opening this link switches to this profile.',
+			'deepLinks.openAsProfile' => ({required Object name}) => 'Open as ${name}',
+			'deepLinks.copy' => 'Copy',
+			'deepLinks.copied' => 'Link copied',
 			_ => null,
 		};
 	}

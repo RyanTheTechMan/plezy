@@ -40,14 +40,11 @@ class TranslationsNb extends Translations with BaseTranslations<AppLocale, Trans
 
 	// Translations
 	@override late final _Translations$app$nb app = _Translations$app$nb._(_root);
-	@override late final _Translations$appIcon$nb appIcon = _Translations$appIcon$nb._(_root);
 	@override late final _Translations$auth$nb auth = _Translations$auth$nb._(_root);
 	@override late final _Translations$common$nb common = _Translations$common$nb._(_root);
 	@override late final _Translations$screens$nb screens = _Translations$screens$nb._(_root);
 	@override late final _Translations$update$nb update = _Translations$update$nb._(_root);
-	@override late final _Translations$supporter$nb supporter = _Translations$supporter$nb._(_root);
 	@override late final _Translations$settings$nb settings = _Translations$settings$nb._(_root);
-	@override late final _Translations$themeEditor$nb themeEditor = _Translations$themeEditor$nb._(_root);
 	@override late final _Translations$search$nb search = _Translations$search$nb._(_root);
 	@override late final _Translations$hotkeys$nb hotkeys = _Translations$hotkeys$nb._(_root);
 	@override late final _Translations$fileInfo$nb fileInfo = _Translations$fileInfo$nb._(_root);
@@ -93,6 +90,10 @@ class TranslationsNb extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$seerr$nb seerr = _Translations$seerr$nb._(_root);
 	@override late final _Translations$services$nb services = _Translations$services$nb._(_root);
 	@override late final _Translations$addServer$nb addServer = _Translations$addServer$nb._(_root);
+	@override late final _Translations$appIcon$nb appIcon = _Translations$appIcon$nb._(_root);
+	@override late final _Translations$supporter$nb supporter = _Translations$supporter$nb._(_root);
+	@override late final _Translations$themeEditor$nb themeEditor = _Translations$themeEditor$nb._(_root);
+	@override late final _Translations$deepLinks$nb deepLinks = _Translations$deepLinks$nb._(_root);
 }
 
 // Path: app
@@ -102,25 +103,7 @@ class _Translations$app$nb extends Translations$app$en {
 	final TranslationsNb _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
-}
-
-// Path: appIcon
-class _Translations$appIcon$nb extends Translations$appIcon$en {
-	_Translations$appIcon$nb._(TranslationsNb root) : this._root = root, super.internal(root);
-
-	final TranslationsNb _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Appikon';
-	@override String get defaultIcon => 'Standard';
-	@override String get current => 'Gjeldende ikon';
-	@override String get locked => 'Supporter-fordel';
-	@override String get lockedHint => 'Alternative ikoner er en Supporter-fordel.';
-	@override String get changeFailed => 'Kunne ikke endre appikonet';
-	@override String get launcherHint => 'Det nye ikonet vises på startskjermen når du forlater Plezy.';
-	@override String get tvLauncherHint => 'Det nye banneret vises når du forlater Plezy. Android TV kan fortsette å vise det gamle til TV-en startes på nytt.';
-	@override late final _Translations$appIcon$names$nb names = _Translations$appIcon$names$nb._(_root);
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -237,33 +220,14 @@ class _Translations$update$nb extends Translations$update$en {
 	@override String get viewRelease => 'Vis utgivelse';
 	@override String get latestVersion => 'Du har den nyeste versjonen';
 	@override String get checkFailed => 'Kunne ikke se etter oppdateringer';
-}
-
-// Path: supporter
-class _Translations$supporter$nb extends Translations$supporter$en {
-	_Translations$supporter$nb._(TranslationsNb root) : this._root = root, super.internal(root);
-
-	final TranslationsNb _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Plezy Supporter';
-	@override String get intro => 'Et engangskjøp som støtter utviklingen av Plezy og låser opp kosmetiske tillegg:';
-	@override String get presetThemes => 'Forhåndsinnstilte temaer';
-	@override String get presetThemesDescription => 'Glød, Isbre, Skog, Plomme og Papir';
-	@override String get customTheme => 'Egendefinert tema';
-	@override String get customThemeDescription => 'Velg alle fargene selv';
-	@override String get appIcons => 'Appikoner';
-	@override String get appIconsDescription => 'Velg et alternativt Plezy-ikon';
-	@override String buy({required Object price}) => 'Kjøp for ${price}';
-	@override String get loadingPrice => 'Laster pris...';
-	@override String get restore => 'Gjenopprett kjøp';
-	@override String get pending => 'Kjøpet ditt venter på betaling eller godkjenning. Tilleggene låses opp så snart butikken har fullført kjøpet.';
-	@override String get thankYouTitle => 'Takk for at du støtter Plezy';
-	@override String get thankYouBody => 'Supporter-tilleggene dine er låst opp.';
-	@override String get tileSubtitle => 'Lås opp temaer og appikoner med et engangskjøp';
-	@override String get tileSubtitleThemesOnly => 'Lås opp temaer med et engangskjøp';
-	@override String get tileUnlocked => 'Takk for støtten';
-	@override late final _Translations$supporter$errors$nb errors = _Translations$supporter$errors$nb._(_root);
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -608,42 +572,24 @@ class _Translations$settings$nb extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Per bibliotek';
 	@override String get playerScopeTitle => 'Per serie eller film';
 	@override String get exportDialogTitle => 'Eksporter Plezy-innstillinger';
-}
-
-// Path: themeEditor
-class _Translations$themeEditor$nb extends Translations$themeEditor$en {
-	_Translations$themeEditor$nb._(TranslationsNb root) : this._root = root, super.internal(root);
-
-	final TranslationsNb _root; // ignore: unused_field
-
-	// Translations
-	@override String get builtIn => 'Innebygde';
-	@override String get presets => 'Forhåndsinnstillinger';
-	@override String get custom => 'Egendefinert';
-	@override String get customEmpty => 'Ikke opprettet ennå';
-	@override String get editCustom => 'Rediger egendefinert tema';
-	@override String get editCustomDescription => 'Velg alle fargene selv';
-	@override String get locked => 'Lås opp med Supporter';
-	@override String get savedLocked => 'Lagret – låses opp med Supporter';
-	@override String get title => 'Egendefinert tema';
-	@override String get startFrom => 'Start fra';
-	@override String get startFromDescription => 'Kopier alle fargene fra et annet tema';
-	@override String get colors => 'Farger';
-	@override String get preview => 'Forhåndsvisning';
-	@override late final _Translations$themeEditor$slots$nb slots = _Translations$themeEditor$slots$nb._(_root);
-	@override String get opacity => 'Opasitet';
-	@override String get hexHint => '#RRGGBB eller #AARRGGBB';
-	@override String get fromOtherThemes => 'Fra andre temaer';
-	@override String swatchLabel({required Object color, required Object theme}) => '${color} (${theme})';
-	@override late final _Translations$themeEditor$contrast$nb contrast = _Translations$themeEditor$contrast$nb._(_root);
-	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, under anbefalt minimum på ${minimum}:1';
-	@override String get discardTitle => 'Forkaste endringene?';
-	@override String get discardMessage => 'Ulagrede fargeendringer går tapt.';
-	@override String get discard => 'Forkast';
-	@override String previewCardTitle({required Object number}) => 'Episode ${number}';
-	@override String previewCardSubtitle({required Object minutes}) => '${minutes} min igjen';
-	@override String get previewSwitch => 'Autospill';
-	@override String get previewMutedText => 'Sekundærtekst ser slik ut';
+	@override String get downloadLocationSelectError => 'Kunne ikke velge mappe';
+	@override String get mediaCapture => 'Mediefangst';
+	@override String get clips => 'Klipp';
+	@override String get screenshots => 'Skjermbilder';
+	@override String captureLocationTitle({required Object title}) => '${title} Beliggenhet';
+	@override String get clipLocationDescription => 'Velg hvor klippene skal lagres.';
+	@override String get screenshotLocationDescription => 'Velg hvor skjermbilder skal lagres.';
+	@override String get clipLocationChanged => 'Plasseringen av klippet er endret';
+	@override String get screenshotLocationChanged => 'Plassering av skjermbilde endret';
+	@override String get clipLocationReset => 'Klippplassering tilbakestilt til skrivebord';
+	@override String get screenshotLocationReset => 'Skjermbildeplassering tilbakestilt til skrivebord';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
+	@override String get packedStereoUi => '3D Playback UI';
 }
 
 // Path: search
@@ -993,7 +939,6 @@ class _Translations$videoControls$nb extends Translations$videoControls$en {
 	@override String get pipActive => 'Spiller i bilde-i-bilde';
 	@override String get pipFailed => 'Bilde-i-bilde kunne ikke starte';
 	@override String get screenshotSaved => 'Skjermbilde lagret';
-	@override String get screenshotFailed => 'Kunne ikke ta skjermbilde';
 	@override String zoomPercent({required Object percent}) => 'Zoom ${percent} %';
 	@override String volumePercent({required Object percent}) => 'Volum ${percent} %';
 	@override late final _Translations$videoControls$pipErrors$nb pipErrors = _Translations$videoControls$pipErrors$nb._(_root);
@@ -1018,6 +963,13 @@ class _Translations$videoControls$nb extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Undertekster: Av';
 	@override String osdSubtitles({required Object track}) => 'Undertekster: ${track}';
 	@override String osdAudio({required Object track}) => 'Lyd: ${track}';
+	@override String get screenshotFailed => 'Kunne ikke ta skjermbilde';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('nb'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
+	@override late final _Translations$videoControls$clip$nb clip = _Translations$videoControls$clip$nb._(_root);
 }
 
 // Path: messages
@@ -1440,6 +1392,9 @@ class _Translations$about$nb extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Versjon ${version}';
 	@override String get appDescription => 'En vakker Plex-, Jellyfin- og Emby-klient for Flutter';
 	@override String get viewLicensesDescription => 'Vis lisenser for tredjepartsbiblioteker';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1568,6 +1523,7 @@ class _Translations$explore$nb extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Fjernet fra overvåkningslisten';
 	@override String get watchlistUpdateFailed => 'Kunne ikke oppdatere ønskelisten';
 	@override String get watchlistNoMatch => 'Kunne ikke koble dette elementet til en overvåkningsliste';
+	@override String get openInLibrary => 'Åpne i bibliotek';
 	@override String get notInLibrary => 'Ikke i biblioteket ditt';
 	@override String get inTheseLibraries => 'I disse bibliotekene';
 	@override String get checkingLibrary => 'Sjekker biblioteket ditt...';
@@ -1618,6 +1574,7 @@ class _Translations$liveTv$nb extends Translations$liveTv$en {
 	@override String channelNumber({required Object number}) => 'Kanal ${number}';
 	@override String get unknownChannel => 'Ukjent kanal';
 	@override String get live => 'DIREKTE';
+	@override String get premiereBadge => 'NEW';
 	@override String get reloadGuide => 'Last inn programguide på nytt';
 	@override String get searchGuide => 'Søk i programguiden';
 	@override String get searchHint => 'Søk etter kanaler og programmer';
@@ -2144,6 +2101,7 @@ class _Translations$performanceOverlay$nb extends Translations$performanceOverla
 	@override String get cacheLimit => 'Grense for hurtigbuffer';
 	@override String get speed => 'Hastighet';
 	@override String get player => 'Spiller';
+	@override String get playMethod => 'Play Method';
 	@override String get memory => 'Minne';
 	@override String get uiFps => 'UI FPS';
 	@override String get fps => 'FPS';
@@ -2458,36 +2416,111 @@ class _Translations$addServer$nb extends Translations$addServer$en {
 	@override String redirectUnsupportedEnterFinal({required Object product}) => 'Serveren omdirigerte til en URL som ikke støttes. Angi den endelige ${product}-URL-en direkte.';
 }
 
-// Path: appIcon.names
-class _Translations$appIcon$names$nb extends Translations$appIcon$names$en {
-	_Translations$appIcon$names$nb._(TranslationsNb root) : this._root = root, super.internal(root);
+// Path: appIcon
+class _Translations$appIcon$nb extends Translations$appIcon$en {
+	_Translations$appIcon$nb._(TranslationsNb root) : this._root = root, super.internal(root);
 
 	final TranslationsNb _root; // ignore: unused_field
 
 	// Translations
-	@override String get midnight => 'Midnatt';
-	@override String get ember => 'Glød';
-	@override String get paper => 'Papir';
-	@override String get oled => 'OLED';
-	@override String get line => 'Strek';
-	@override String get ocean => 'Hav';
-	@override String get ultraviolet => 'Ultrafiolett';
-	@override String get matcha => 'Matcha';
-	@override String get sunset => 'Solnedgang';
-	@override String get gold => 'Gull';
-	@override String get titanium => 'Titan';
-	@override String get glass => 'Glass';
-	@override String get crt => 'CRT';
-	@override String get vhs => 'VHS';
-	@override String get synthwave => 'Synthwave';
-	@override String get pixel => 'Piksel';
-	@override String get neon => 'Neon';
-	@override String get sticker => 'Klistremerke';
-	@override String get ticket => 'Billett';
-	@override String get pop => 'Pop';
-	@override String get strata => 'Sjikt';
-	@override String get facet => 'Fasett';
-	@override String get tilde => 'Tilde';
+	@override String get title => 'Appikon';
+	@override String get defaultIcon => 'Standard';
+	@override String get current => 'Gjeldende ikon';
+	@override String get locked => 'Supporter-fordel';
+	@override String get lockedHint => 'Alternative ikoner er en Supporter-fordel.';
+	@override String get changeFailed => 'Kunne ikke endre appikonet';
+	@override String get launcherHint => 'Det nye ikonet vises på startskjermen når du forlater Plezy.';
+	@override String get tvLauncherHint => 'Det nye banneret vises når du forlater Plezy. Android TV kan fortsette å vise det gamle til TV-en startes på nytt.';
+	@override late final _Translations$appIcon$names$nb names = _Translations$appIcon$names$nb._(_root);
+}
+
+// Path: supporter
+class _Translations$supporter$nb extends Translations$supporter$en {
+	_Translations$supporter$nb._(TranslationsNb root) : this._root = root, super.internal(root);
+
+	final TranslationsNb _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Plezy Supporter';
+	@override String get intro => 'Et engangskjøp som støtter utviklingen av Plezy og låser opp kosmetiske tillegg:';
+	@override String get presetThemes => 'Forhåndsinnstilte temaer';
+	@override String get presetThemesDescription => 'Glød, Isbre, Skog, Plomme og Papir';
+	@override String get customTheme => 'Egendefinert tema';
+	@override String get customThemeDescription => 'Velg alle fargene selv';
+	@override String get appIcons => 'Appikoner';
+	@override String get appIconsDescription => 'Velg et alternativt Plezy-ikon';
+	@override String buy({required Object price}) => 'Kjøp for ${price}';
+	@override String get loadingPrice => 'Laster pris...';
+	@override String get restore => 'Gjenopprett kjøp';
+	@override String get pending => 'Kjøpet ditt venter på betaling eller godkjenning. Tilleggene låses opp så snart butikken har fullført kjøpet.';
+	@override String get thankYouTitle => 'Takk for at du støtter Plezy';
+	@override String get thankYouBody => 'Supporter-tilleggene dine er låst opp.';
+	@override String get tileSubtitle => 'Lås opp temaer og appikoner med et engangskjøp';
+	@override String get tileSubtitleThemesOnly => 'Lås opp temaer med et engangskjøp';
+	@override String get tileUnlocked => 'Takk for støtten';
+	@override late final _Translations$supporter$errors$nb errors = _Translations$supporter$errors$nb._(_root);
+}
+
+// Path: themeEditor
+class _Translations$themeEditor$nb extends Translations$themeEditor$en {
+	_Translations$themeEditor$nb._(TranslationsNb root) : this._root = root, super.internal(root);
+
+	final TranslationsNb _root; // ignore: unused_field
+
+	// Translations
+	@override String get builtIn => 'Innebygde';
+	@override String get presets => 'Forhåndsinnstillinger';
+	@override String get custom => 'Egendefinert';
+	@override String get customEmpty => 'Ikke opprettet ennå';
+	@override String get editCustom => 'Rediger egendefinert tema';
+	@override String get editCustomDescription => 'Velg alle fargene selv';
+	@override String get locked => 'Lås opp med Supporter';
+	@override String get savedLocked => 'Lagret – låses opp med Supporter';
+	@override String get title => 'Egendefinert tema';
+	@override String get startFrom => 'Start fra';
+	@override String get startFromDescription => 'Kopier alle fargene fra et annet tema';
+	@override String get colors => 'Farger';
+	@override String get preview => 'Forhåndsvisning';
+	@override late final _Translations$themeEditor$slots$nb slots = _Translations$themeEditor$slots$nb._(_root);
+	@override String get opacity => 'Opasitet';
+	@override String get hexHint => '#RRGGBB eller #AARRGGBB';
+	@override String get fromOtherThemes => 'Fra andre temaer';
+	@override String swatchLabel({required Object color, required Object theme}) => '${color} (${theme})';
+	@override late final _Translations$themeEditor$contrast$nb contrast = _Translations$themeEditor$contrast$nb._(_root);
+	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, under anbefalt minimum på ${minimum}:1';
+	@override String get discardTitle => 'Forkaste endringene?';
+	@override String get discardMessage => 'Ulagrede fargeendringer går tapt.';
+	@override String get discard => 'Forkast';
+	@override String previewCardTitle({required Object number}) => 'Episode ${number}';
+	@override String previewCardSubtitle({required Object minutes}) => '${minutes} min igjen';
+	@override String get previewSwitch => 'Autospill';
+	@override String get previewMutedText => 'Sekundærtekst ser slik ut';
+}
+
+// Path: deepLinks
+class _Translations$deepLinks$nb extends Translations$deepLinks$en {
+	_Translations$deepLinks$nb._(TranslationsNb root) : this._root = root, super.internal(root);
+
+	final TranslationsNb _root; // ignore: unused_field
+
+	// Translations
+	@override String get invalid => 'This Plezy link isn\'t valid.';
+	@override String profileNotFound({required Object profile}) => 'No profile matches "${profile}".';
+	@override String get serverUnavailable => 'Couldn\'t reach the server for this link.';
+	@override String get notFound => 'Couldn\'t find this title in your libraries.';
+	@override String get unsupportedItem => 'This link can\'t be played.';
+	@override String get noLiveTv => 'No Live TV server is available for this link.';
+	@override String channelNotFound({required Object channel}) => 'Couldn\'t find channel "${channel}".';
+	@override String get showLink => 'Show link';
+	@override String get showProfileLink => 'Show profile link';
+	@override String get dialogTitle => 'Link';
+	@override String get showHint => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.';
+	@override String get movieHint => 'Opening this link plays the movie.';
+	@override String get episodeHint => 'Opening this link plays this episode.';
+	@override String get profileHint => 'Opening this link switches to this profile.';
+	@override String openAsProfile({required Object name}) => 'Open as ${name}';
+	@override String get copy => 'Copy';
+	@override String get copied => 'Link copied';
 }
 
 // Path: common.ratingSource
@@ -2533,52 +2566,6 @@ class _Translations$common$mediaKind$nb extends Translations$common$mediaKind$en
 	@override String get folder => 'Mappe';
 }
 
-// Path: supporter.errors
-class _Translations$supporter$errors$nb extends Translations$supporter$errors$en {
-	_Translations$supporter$errors$nb._(TranslationsNb root) : this._root = root, super.internal(root);
-
-	final TranslationsNb _root; // ignore: unused_field
-
-	// Translations
-	@override String get storeUnavailable => 'Kjøp er ikke tilgjengelig. Sjekk at du er logget inn i butikken, og at kjøp er tillatt på denne enheten.';
-	@override String get productNotFound => 'Supporter-kjøpet er ikke tilgjengelig i butikken din akkurat nå.';
-	@override String get productQueryFailed => 'Kunne ikke laste inn prisen. Sjekk tilkoblingen og prøv igjen.';
-	@override String get purchaseFailed => 'Kjøpet gikk ikke gjennom. Prøv igjen.';
-	@override String get restoreFailed => 'Kunne ikke nå butikken for å gjenopprette kjøpet. Prøv igjen.';
-	@override String get nothingToRestore => 'Fant ikke noe Supporter-kjøp for denne butikkontoen.';
-}
-
-// Path: themeEditor.slots
-class _Translations$themeEditor$slots$nb extends Translations$themeEditor$slots$en {
-	_Translations$themeEditor$slots$nb._(TranslationsNb root) : this._root = root, super.internal(root);
-
-	final TranslationsNb _root; // ignore: unused_field
-
-	// Translations
-	@override String get bg => 'Bakgrunn';
-	@override String get surface => 'Overflate';
-	@override String get outline => 'Kontur';
-	@override String get text => 'Tekst';
-	@override String get textMuted => 'Sekundærtekst';
-	@override String get accent => 'Aksent';
-}
-
-// Path: themeEditor.contrast
-class _Translations$themeEditor$contrast$nb extends Translations$themeEditor$contrast$en {
-	_Translations$themeEditor$contrast$nb._(TranslationsNb root) : this._root = root, super.internal(root);
-
-	final TranslationsNb _root; // ignore: unused_field
-
-	// Translations
-	@override String get textOnBg => 'Tekst på bakgrunn';
-	@override String get textOnSurface => 'Tekst på overflate';
-	@override String get textMutedOnBg => 'Sekundærtekst på bakgrunn';
-	@override String get textMutedOnSurface => 'Sekundærtekst på overflate';
-	@override String get accentOnBg => 'Aksent på bakgrunn';
-	@override String get accentOnSurface => 'Aksent på overflate';
-	@override String get labelOnAccent => 'Knappetekst på aksent';
-}
-
 // Path: hotkeys.actions
 class _Translations$hotkeys$actions$nb extends Translations$hotkeys$actions$en {
 	_Translations$hotkeys$actions$nb._(TranslationsNb root) : this._root = root, super.internal(root);
@@ -2611,6 +2598,8 @@ class _Translations$hotkeys$actions$nb extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Slå shadere av/på';
 	@override String get skipMarker => 'Hopp over intro/rulletekst';
 	@override String get screenshot => 'Ta skjermbilde';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2628,6 +2617,52 @@ class _Translations$videoControls$pipErrors$nb extends Translations$videoControl
 	@override String get failed => 'Bilde-i-bilde kunne ikke starte';
 	@override String get prepareFailed => 'Bilde-i-bilde kunne ikke forberedes';
 	@override String unknown({required Object error}) => 'En feil oppstod: ${error}';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$nb extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$nb._(TranslationsNb root) : this._root = root, super.internal(root);
+
+	final TranslationsNb _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Finjustering';
+	@override String get title => 'Klipp';
+	@override String get vodOnly => 'Klipp er tilgjengelig for videoavspilling på forespørsel.';
+	@override String get sourceUnavailable => 'Klippkilden er ikke tilgjengelig for denne avspillingsøkten.';
+	@override String get playAtLeastOneSecond => 'Spill minst 1 sekund før klipping.';
+	@override String get startBeforeBeginning => 'Klippstart kan ikke være før begynnelsen av videoen.';
+	@override String get endAfterStart => 'Klippslutt må være etter starten.';
+	@override String get minimumDuration => 'Klippene må være minst 1 sekund lange.';
+	@override String get endPastVideo => 'Slutten av klippet er forbi slutten av videoen.';
+	@override String get exportCanceled => 'Klippeksporten ble avbrutt.';
+	@override String get cacheUnavailable => 'Det valgte området kunne ikke bufres fullstendig for originaleksport. Prøv et kortere klipp eller spill av forhåndsvisningen én gang før du lagrer.';
+	@override String get sourceCopyNoEncoder => 'Kildekopieksport bruker ikke en koder.';
+	@override String get encodingDesktopOnly => 'H.264- og HEVC-klippkoding er for øyeblikket tilgjengelig på macOS og Windows.';
+	@override String get hdrRequiresSource => 'HDR-eksport krever en direkteavspilling HDR10 eller HLG-kompatibel kilde.';
+	@override String get transcodeStartUnavailable => 'Dette klippet starter før den aktive transkodede strømmen. Søk tidligere og åpne klipping på nytt, eller bytt til original kvalitet.';
+	@override String get previewRequired => 'Forhåndsvisning av klipp må fullføres innlasting før den kan lagres.';
+	@override String get h264Failed => 'Denne kilden kunne ikke kodes som en H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'Denne kilden kunne ikke kodes som en HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'Denne kilden kunne ikke kodes som en HEVC HDR MP4.';
+	@override String get gifFailed => 'Denne kilden kunne ikke kodes som en GIF.';
+	@override String get originalFailed => 'Denne kilden kunne ikke kopieres fra mpv-bufferen.';
+	@override String get previewUnavailable => 'Forhåndsvisning av klipp er ikke tilgjengelig i denne versjonen.';
+	@override String get previewFailed => 'Forhåndsvisning av klipp mislyktes.';
+	@override String get previewLoadingScreenshot => 'Forhåndsvisningen av klippet må fullføres innlasting før du tar et skjermbilde.';
+	@override String get screenshotInProgress => 'Et skjermbilde lagres allerede.';
+	@override String get saveAsDialog => 'Lagre klipp som';
+	@override String savedTo({required Object fileName}) => 'Lagret i ${fileName}';
+	@override String get openFolder => 'Åpne mappe';
+	@override String get saveAs => 'Lagre som';
+	@override String get cancelExport => 'Avbryt eksport';
+	@override String get saving => 'Lagrer...';
+	@override String savingProgress({required Object percent}) => 'Sparer ${percent} %';
+	@override String get mutePreview => 'Demp forhåndsvisning';
+	@override String get unmutePreview => 'Slå på lyden for forhåndsvisning';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: accountPreferences.groups
@@ -3387,6 +3422,84 @@ class _Translations$services$libraryFilter$nb extends Translations$services$libr
 	@override String get noLibraries => 'Ingen biblioteker tilgjengelige';
 }
 
+// Path: appIcon.names
+class _Translations$appIcon$names$nb extends Translations$appIcon$names$en {
+	_Translations$appIcon$names$nb._(TranslationsNb root) : this._root = root, super.internal(root);
+
+	final TranslationsNb _root; // ignore: unused_field
+
+	// Translations
+	@override String get midnight => 'Midnatt';
+	@override String get ember => 'Glød';
+	@override String get paper => 'Papir';
+	@override String get oled => 'OLED';
+	@override String get line => 'Strek';
+	@override String get ocean => 'Hav';
+	@override String get ultraviolet => 'Ultrafiolett';
+	@override String get matcha => 'Matcha';
+	@override String get sunset => 'Solnedgang';
+	@override String get gold => 'Gull';
+	@override String get titanium => 'Titan';
+	@override String get glass => 'Glass';
+	@override String get crt => 'CRT';
+	@override String get vhs => 'VHS';
+	@override String get synthwave => 'Synthwave';
+	@override String get pixel => 'Piksel';
+	@override String get neon => 'Neon';
+	@override String get sticker => 'Klistremerke';
+	@override String get ticket => 'Billett';
+	@override String get pop => 'Pop';
+	@override String get strata => 'Sjikt';
+	@override String get facet => 'Fasett';
+	@override String get tilde => 'Tilde';
+}
+
+// Path: supporter.errors
+class _Translations$supporter$errors$nb extends Translations$supporter$errors$en {
+	_Translations$supporter$errors$nb._(TranslationsNb root) : this._root = root, super.internal(root);
+
+	final TranslationsNb _root; // ignore: unused_field
+
+	// Translations
+	@override String get storeUnavailable => 'Kjøp er ikke tilgjengelig. Sjekk at du er logget inn i butikken, og at kjøp er tillatt på denne enheten.';
+	@override String get productNotFound => 'Supporter-kjøpet er ikke tilgjengelig i butikken din akkurat nå.';
+	@override String get productQueryFailed => 'Kunne ikke laste inn prisen. Sjekk tilkoblingen og prøv igjen.';
+	@override String get purchaseFailed => 'Kjøpet gikk ikke gjennom. Prøv igjen.';
+	@override String get restoreFailed => 'Kunne ikke nå butikken for å gjenopprette kjøpet. Prøv igjen.';
+	@override String get nothingToRestore => 'Fant ikke noe Supporter-kjøp for denne butikkontoen.';
+}
+
+// Path: themeEditor.slots
+class _Translations$themeEditor$slots$nb extends Translations$themeEditor$slots$en {
+	_Translations$themeEditor$slots$nb._(TranslationsNb root) : this._root = root, super.internal(root);
+
+	final TranslationsNb _root; // ignore: unused_field
+
+	// Translations
+	@override String get bg => 'Bakgrunn';
+	@override String get surface => 'Overflate';
+	@override String get outline => 'Kontur';
+	@override String get text => 'Tekst';
+	@override String get textMuted => 'Sekundærtekst';
+	@override String get accent => 'Aksent';
+}
+
+// Path: themeEditor.contrast
+class _Translations$themeEditor$contrast$nb extends Translations$themeEditor$contrast$en {
+	_Translations$themeEditor$contrast$nb._(TranslationsNb root) : this._root = root, super.internal(root);
+
+	final TranslationsNb _root; // ignore: unused_field
+
+	// Translations
+	@override String get textOnBg => 'Tekst på bakgrunn';
+	@override String get textOnSurface => 'Tekst på overflate';
+	@override String get textMutedOnBg => 'Sekundærtekst på bakgrunn';
+	@override String get textMutedOnSurface => 'Sekundærtekst på overflate';
+	@override String get accentOnBg => 'Aksent på bakgrunn';
+	@override String get accentOnSurface => 'Aksent på overflate';
+	@override String get labelOnAccent => 'Knappetekst på aksent';
+}
+
 /// The flat map containing all translations for locale <nb>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -3395,38 +3508,7 @@ class _Translations$services$libraryFilter$nb extends Translations$services$libr
 extension on TranslationsNb {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
-			'appIcon.title' => 'Appikon',
-			'appIcon.defaultIcon' => 'Standard',
-			'appIcon.current' => 'Gjeldende ikon',
-			'appIcon.locked' => 'Supporter-fordel',
-			'appIcon.lockedHint' => 'Alternative ikoner er en Supporter-fordel.',
-			'appIcon.changeFailed' => 'Kunne ikke endre appikonet',
-			'appIcon.launcherHint' => 'Det nye ikonet vises på startskjermen når du forlater Plezy.',
-			'appIcon.tvLauncherHint' => 'Det nye banneret vises når du forlater Plezy. Android TV kan fortsette å vise det gamle til TV-en startes på nytt.',
-			'appIcon.names.midnight' => 'Midnatt',
-			'appIcon.names.ember' => 'Glød',
-			'appIcon.names.paper' => 'Papir',
-			'appIcon.names.oled' => 'OLED',
-			'appIcon.names.line' => 'Strek',
-			'appIcon.names.ocean' => 'Hav',
-			'appIcon.names.ultraviolet' => 'Ultrafiolett',
-			'appIcon.names.matcha' => 'Matcha',
-			'appIcon.names.sunset' => 'Solnedgang',
-			'appIcon.names.gold' => 'Gull',
-			'appIcon.names.titanium' => 'Titan',
-			'appIcon.names.glass' => 'Glass',
-			'appIcon.names.crt' => 'CRT',
-			'appIcon.names.vhs' => 'VHS',
-			'appIcon.names.synthwave' => 'Synthwave',
-			'appIcon.names.pixel' => 'Piksel',
-			'appIcon.names.neon' => 'Neon',
-			'appIcon.names.sticker' => 'Klistremerke',
-			'appIcon.names.ticket' => 'Billett',
-			'appIcon.names.pop' => 'Pop',
-			'appIcon.names.strata' => 'Sjikt',
-			'appIcon.names.facet' => 'Fasett',
-			'appIcon.names.tilde' => 'Tilde',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Logg inn med Plex',
 			'auth.showQRCode' => 'Vis QR-kode',
 			'auth.authenticate' => 'Autentiser',
@@ -3530,29 +3612,14 @@ extension on TranslationsNb {
 			'update.viewRelease' => 'Vis utgivelse',
 			'update.latestVersion' => 'Du har den nyeste versjonen',
 			'update.checkFailed' => 'Kunne ikke se etter oppdateringer',
-			'supporter.title' => 'Plezy Supporter',
-			'supporter.intro' => 'Et engangskjøp som støtter utviklingen av Plezy og låser opp kosmetiske tillegg:',
-			'supporter.presetThemes' => 'Forhåndsinnstilte temaer',
-			'supporter.presetThemesDescription' => 'Glød, Isbre, Skog, Plomme og Papir',
-			'supporter.customTheme' => 'Egendefinert tema',
-			'supporter.customThemeDescription' => 'Velg alle fargene selv',
-			'supporter.appIcons' => 'Appikoner',
-			'supporter.appIconsDescription' => 'Velg et alternativt Plezy-ikon',
-			'supporter.buy' => ({required Object price}) => 'Kjøp for ${price}',
-			'supporter.loadingPrice' => 'Laster pris...',
-			'supporter.restore' => 'Gjenopprett kjøp',
-			'supporter.pending' => 'Kjøpet ditt venter på betaling eller godkjenning. Tilleggene låses opp så snart butikken har fullført kjøpet.',
-			'supporter.thankYouTitle' => 'Takk for at du støtter Plezy',
-			'supporter.thankYouBody' => 'Supporter-tilleggene dine er låst opp.',
-			'supporter.tileSubtitle' => 'Lås opp temaer og appikoner med et engangskjøp',
-			'supporter.tileSubtitleThemesOnly' => 'Lås opp temaer med et engangskjøp',
-			'supporter.tileUnlocked' => 'Takk for støtten',
-			'supporter.errors.storeUnavailable' => 'Kjøp er ikke tilgjengelig. Sjekk at du er logget inn i butikken, og at kjøp er tillatt på denne enheten.',
-			'supporter.errors.productNotFound' => 'Supporter-kjøpet er ikke tilgjengelig i butikken din akkurat nå.',
-			'supporter.errors.productQueryFailed' => 'Kunne ikke laste inn prisen. Sjekk tilkoblingen og prøv igjen.',
-			'supporter.errors.purchaseFailed' => 'Kjøpet gikk ikke gjennom. Prøv igjen.',
-			'supporter.errors.restoreFailed' => 'Kunne ikke nå butikken for å gjenopprette kjøpet. Prøv igjen.',
-			'supporter.errors.nothingToRestore' => 'Fant ikke noe Supporter-kjøp for denne butikkontoen.',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Innstillinger',
 			'settings.supportDeveloper' => 'Støtt Plezy',
 			'settings.supportDeveloperDescription' => 'Doner via Liberapay for å finansiere utviklingen',
@@ -3888,46 +3955,24 @@ extension on TranslationsNb {
 			'settings.playerScopeLibrary' => 'Per bibliotek',
 			'settings.playerScopeTitle' => 'Per serie eller film',
 			'settings.exportDialogTitle' => 'Eksporter Plezy-innstillinger',
-			'themeEditor.builtIn' => 'Innebygde',
-			'themeEditor.presets' => 'Forhåndsinnstillinger',
-			'themeEditor.custom' => 'Egendefinert',
-			'themeEditor.customEmpty' => 'Ikke opprettet ennå',
-			'themeEditor.editCustom' => 'Rediger egendefinert tema',
-			'themeEditor.editCustomDescription' => 'Velg alle fargene selv',
-			'themeEditor.locked' => 'Lås opp med Supporter',
-			'themeEditor.savedLocked' => 'Lagret – låses opp med Supporter',
-			'themeEditor.title' => 'Egendefinert tema',
-			'themeEditor.startFrom' => 'Start fra',
-			'themeEditor.startFromDescription' => 'Kopier alle fargene fra et annet tema',
-			'themeEditor.colors' => 'Farger',
-			'themeEditor.preview' => 'Forhåndsvisning',
-			'themeEditor.slots.bg' => 'Bakgrunn',
-			'themeEditor.slots.surface' => 'Overflate',
-			'themeEditor.slots.outline' => 'Kontur',
-			'themeEditor.slots.text' => 'Tekst',
-			'themeEditor.slots.textMuted' => 'Sekundærtekst',
-			'themeEditor.slots.accent' => 'Aksent',
-			_ => null,
-		} ?? switch (path) {
-			'themeEditor.opacity' => 'Opasitet',
-			'themeEditor.hexHint' => '#RRGGBB eller #AARRGGBB',
-			'themeEditor.fromOtherThemes' => 'Fra andre temaer',
-			'themeEditor.swatchLabel' => ({required Object color, required Object theme}) => '${color} (${theme})',
-			'themeEditor.contrast.textOnBg' => 'Tekst på bakgrunn',
-			'themeEditor.contrast.textOnSurface' => 'Tekst på overflate',
-			'themeEditor.contrast.textMutedOnBg' => 'Sekundærtekst på bakgrunn',
-			'themeEditor.contrast.textMutedOnSurface' => 'Sekundærtekst på overflate',
-			'themeEditor.contrast.accentOnBg' => 'Aksent på bakgrunn',
-			'themeEditor.contrast.accentOnSurface' => 'Aksent på overflate',
-			'themeEditor.contrast.labelOnAccent' => 'Knappetekst på aksent',
-			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, under anbefalt minimum på ${minimum}:1',
-			'themeEditor.discardTitle' => 'Forkaste endringene?',
-			'themeEditor.discardMessage' => 'Ulagrede fargeendringer går tapt.',
-			'themeEditor.discard' => 'Forkast',
-			'themeEditor.previewCardTitle' => ({required Object number}) => 'Episode ${number}',
-			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '${minutes} min igjen',
-			'themeEditor.previewSwitch' => 'Autospill',
-			'themeEditor.previewMutedText' => 'Sekundærtekst ser slik ut',
+			'settings.downloadLocationSelectError' => 'Kunne ikke velge mappe',
+			'settings.mediaCapture' => 'Mediefangst',
+			'settings.clips' => 'Klipp',
+			'settings.screenshots' => 'Skjermbilder',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Beliggenhet',
+			'settings.clipLocationDescription' => 'Velg hvor klippene skal lagres.',
+			'settings.screenshotLocationDescription' => 'Velg hvor skjermbilder skal lagres.',
+			'settings.clipLocationChanged' => 'Plasseringen av klippet er endret',
+			'settings.screenshotLocationChanged' => 'Plassering av skjermbilde endret',
+			'settings.clipLocationReset' => 'Klippplassering tilbakestilt til skrivebord',
+			'settings.screenshotLocationReset' => 'Skjermbildeplassering tilbakestilt til skrivebord',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'search.hint' => 'Søk i filmer, serier, musikk...',
 			'search.tryDifferentTerm' => 'Prøv et annet søkeord',
 			'search.searchYourMedia' => 'Søk i mediene dine',
@@ -3964,6 +4009,8 @@ extension on TranslationsNb {
 			'hotkeys.actions.shaderToggle' => 'Slå shadere av/på',
 			'hotkeys.actions.skipMarker' => 'Hopp over intro/rulletekst',
 			'hotkeys.actions.screenshot' => 'Ta skjermbilde',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Filinformasjon',
 			'fileInfo.overview' => 'Oversikt',
 			'fileInfo.video' => 'Video',
@@ -3973,6 +4020,8 @@ extension on TranslationsNb {
 			'fileInfo.dataStreams' => 'Datastrømmer',
 			'fileInfo.lyrics' => 'Sangtekster',
 			'fileInfo.file' => 'Fil',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.attachments' => 'Vedlegg',
 			'fileInfo.delivery' => 'Levering',
 			'fileInfo.versionCounter' => ({required Object index, required Object count}) => 'Versjon ${index} av ${count}',
@@ -4211,7 +4260,6 @@ extension on TranslationsNb {
 			'videoControls.pipActive' => 'Spiller i bilde-i-bilde',
 			'videoControls.pipFailed' => 'Bilde-i-bilde kunne ikke starte',
 			'videoControls.screenshotSaved' => 'Skjermbilde lagret',
-			'videoControls.screenshotFailed' => 'Kunne ikke ta skjermbilde',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Zoom ${percent} %',
 			'videoControls.volumePercent' => ({required Object percent}) => 'Volum ${percent} %',
 			'videoControls.pipErrors.androidVersion' => 'Krever Android 8.0 eller nyere',
@@ -4243,6 +4291,46 @@ extension on TranslationsNb {
 			'videoControls.osdSubtitlesOff' => 'Undertekster: Av',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Undertekster: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Lyd: ${track}',
+			'videoControls.screenshotFailed' => 'Kunne ikke ta skjermbilde',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('nb'))(n, one: '${n} frame', other: '${n} frames', ), 
+			'videoControls.clip.fineAdjust' => 'Finjustering',
+			'videoControls.clip.title' => 'Klipp',
+			'videoControls.clip.vodOnly' => 'Klipp er tilgjengelig for videoavspilling på forespørsel.',
+			'videoControls.clip.sourceUnavailable' => 'Klippkilden er ikke tilgjengelig for denne avspillingsøkten.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Spill minst 1 sekund før klipping.',
+			'videoControls.clip.startBeforeBeginning' => 'Klippstart kan ikke være før begynnelsen av videoen.',
+			'videoControls.clip.endAfterStart' => 'Klippslutt må være etter starten.',
+			'videoControls.clip.minimumDuration' => 'Klippene må være minst 1 sekund lange.',
+			'videoControls.clip.endPastVideo' => 'Slutten av klippet er forbi slutten av videoen.',
+			'videoControls.clip.exportCanceled' => 'Klippeksporten ble avbrutt.',
+			'videoControls.clip.cacheUnavailable' => 'Det valgte området kunne ikke bufres fullstendig for originaleksport. Prøv et kortere klipp eller spill av forhåndsvisningen én gang før du lagrer.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Kildekopieksport bruker ikke en koder.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264- og HEVC-klippkoding er for øyeblikket tilgjengelig på macOS og Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR-eksport krever en direkteavspilling HDR10 eller HLG-kompatibel kilde.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Dette klippet starter før den aktive transkodede strømmen. Søk tidligere og åpne klipping på nytt, eller bytt til original kvalitet.',
+			'videoControls.clip.previewRequired' => 'Forhåndsvisning av klipp må fullføres innlasting før den kan lagres.',
+			'videoControls.clip.h264Failed' => 'Denne kilden kunne ikke kodes som en H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'Denne kilden kunne ikke kodes som en HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'Denne kilden kunne ikke kodes som en HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Denne kilden kunne ikke kodes som en GIF.',
+			'videoControls.clip.originalFailed' => 'Denne kilden kunne ikke kopieres fra mpv-bufferen.',
+			'videoControls.clip.previewUnavailable' => 'Forhåndsvisning av klipp er ikke tilgjengelig i denne versjonen.',
+			'videoControls.clip.previewFailed' => 'Forhåndsvisning av klipp mislyktes.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Forhåndsvisningen av klippet må fullføres innlasting før du tar et skjermbilde.',
+			'videoControls.clip.screenshotInProgress' => 'Et skjermbilde lagres allerede.',
+			'videoControls.clip.saveAsDialog' => 'Lagre klipp som',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Lagret i ${fileName}',
+			'videoControls.clip.openFolder' => 'Åpne mappe',
+			'videoControls.clip.saveAs' => 'Lagre som',
+			'videoControls.clip.cancelExport' => 'Avbryt eksport',
+			'videoControls.clip.saving' => 'Lagrer...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Sparer ${percent} %',
+			'videoControls.clip.mutePreview' => 'Demp forhåndsvisning',
+			'videoControls.clip.unmutePreview' => 'Slå på lyden for forhåndsvisning',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'Merket som sett',
 			'messages.markedAsUnwatched' => 'Merket som usett',
 			'messages.markedAsWatchedOffline' => 'Merket som sett (synkroniseres når tilkoblet)',
@@ -4421,8 +4509,6 @@ extension on TranslationsNb {
 			'profiles.tokenIdentityMismatch' => 'Plex-profiltokenet ble knyttet til en uventet server',
 			'connections.sectionTitle' => 'Tilkoblinger',
 			'connections.addConnection' => 'Legg til tilkobling',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnectionSubtitleNoProfile' => 'Logg inn med Plex eller koble til en Jellyfin- eller Emby-server',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => 'Legg til for ${displayName}: Plex, Jellyfin, Emby eller en annen profiltilkobling',
 			'connections.sessionExpiredOne' => ({required Object name}) => 'Økten er utløpt for ${name}',
@@ -4448,6 +4534,8 @@ extension on TranslationsNb {
 			'accountPreferences.groups.personalMedia' => 'Personlige medier',
 			'accountPreferences.preferredAudioLanguage' => 'Foretrukket lydspråk',
 			'accountPreferences.autoSelectAudio' => 'Velg lyd etter språk',
+			_ => null,
+		} ?? switch (path) {
 			'accountPreferences.autoSelectAudioDescription' => 'Av beholder det lydsporet filen markerer som standard.',
 			'accountPreferences.preferredSubtitleLanguage' => 'Foretrukket undertekstspråk',
 			'accountPreferences.subtitleMode' => 'Slå på undertekster',
@@ -4655,6 +4743,9 @@ extension on TranslationsNb {
 			'about.versionLabel' => ({required Object version}) => 'Versjon ${version}',
 			'about.appDescription' => 'En vakker Plex-, Jellyfin- og Emby-klient for Flutter',
 			'about.viewLicensesDescription' => 'Vis lisenser for tredjepartsbiblioteker',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Ingen servere funnet for ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Kunne ikke laste servere: ${error}',
 			'serverSelection.noValidServers' => 'Fant ingen brukbare servere på denne kontoen',
@@ -4733,6 +4824,7 @@ extension on TranslationsNb {
 			'explore.removedFromWatchlist' => 'Fjernet fra overvåkningslisten',
 			'explore.watchlistUpdateFailed' => 'Kunne ikke oppdatere ønskelisten',
 			'explore.watchlistNoMatch' => 'Kunne ikke koble dette elementet til en overvåkningsliste',
+			'explore.openInLibrary' => 'Åpne i bibliotek',
 			'explore.notInLibrary' => 'Ikke i biblioteket ditt',
 			'explore.inTheseLibraries' => 'I disse bibliotekene',
 			'explore.checkingLibrary' => 'Sjekker biblioteket ditt...',
@@ -4862,6 +4954,7 @@ extension on TranslationsNb {
 			'liveTv.channelNumber' => ({required Object number}) => 'Kanal ${number}',
 			'liveTv.unknownChannel' => 'Ukjent kanal',
 			'liveTv.live' => 'DIREKTE',
+			'liveTv.premiereBadge' => 'NEW',
 			'liveTv.reloadGuide' => 'Last inn programguide på nytt',
 			'liveTv.searchGuide' => 'Søk i programguiden',
 			'liveTv.searchHint' => 'Søk etter kanaler og programmer',
@@ -4935,8 +5028,6 @@ extension on TranslationsNb {
 			'liveTv.recordSettings.keepUpToHint' => '0 beholder alle episoder',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => 'Starter om ${minutes} min',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} kl. ${time}',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.invalidPlaybackData' => ({required Object product}) => '${product} returnerte ugyldige avspillingsdata for direkte-TV',
 			'liveTv.failedToStartChannel' => 'Kunne ikke starte direktekanalen',
 			'liveTv.failedToBuildStreamUrl' => 'Kunne ikke opprette strømme-URL-en',
@@ -4957,6 +5048,8 @@ extension on TranslationsNb {
 			'collections.errorAddingToCollection' => 'Kunne ikke legge til i samling',
 			'collections.created' => 'Samling opprettet',
 			'collections.removeFromCollection' => 'Fjern fra samling',
+			_ => null,
+		} ?? switch (path) {
 			'collections.removeFromCollectionConfirm' => ({required Object title}) => 'Fjerne "${title}" fra denne samlingen?',
 			'collections.removedFromCollection' => 'Fjernet fra samling',
 			'collections.removeFromCollectionFailed' => 'Kunne ikke fjerne fra samling',
@@ -5437,6 +5530,7 @@ extension on TranslationsNb {
 			'performanceOverlay.cacheLimit' => 'Grense for hurtigbuffer',
 			'performanceOverlay.speed' => 'Hastighet',
 			'performanceOverlay.player' => 'Spiller',
+			'performanceOverlay.playMethod' => 'Play Method',
 			'performanceOverlay.memory' => 'Minne',
 			'performanceOverlay.uiFps' => 'UI FPS',
 			'performanceOverlay.fps' => 'FPS',
@@ -5449,8 +5543,6 @@ extension on TranslationsNb {
 			'performanceOverlay.decoderHardware' => 'Maskinvare',
 			'performanceOverlay.tunnelingActive' => 'Aktiv',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} mislyktes)',
-			_ => null,
-		} ?? switch (path) {
 			'externalPlayer.title' => 'Ekstern spiller',
 			'externalPlayer.useExternalPlayer' => 'Bruk ekstern spiller',
 			'externalPlayer.useExternalPlayerDescription' => 'Åpne videoer i en annen app',
@@ -5470,6 +5562,8 @@ extension on TranslationsNb {
 			'metadataEdit.editMetadata' => 'Rediger...',
 			'metadataEdit.screenTitle' => 'Rediger metadata',
 			'metadataEdit.basicInfo' => 'Grunnleggende informasjon',
+			_ => null,
+		} ?? switch (path) {
 			'metadataEdit.artwork' => 'Grafikk',
 			'metadataEdit.advancedSettings' => 'Avanserte innstillinger',
 			'metadataEdit.title' => 'Tittel',
@@ -5703,6 +5797,115 @@ extension on TranslationsNb {
 			'addServer.redirectDifferentHost' => ({required Object product}) => 'Serveren omdirigerte til en annen vert. Angi den endelige ${product}-URL-en direkte.',
 			'addServer.redirectInsecure' => 'Serveren omdirigerte fra HTTPS til en usikker URL',
 			'addServer.redirectUnsupportedEnterFinal' => ({required Object product}) => 'Serveren omdirigerte til en URL som ikke støttes. Angi den endelige ${product}-URL-en direkte.',
+			'appIcon.title' => 'Appikon',
+			'appIcon.defaultIcon' => 'Standard',
+			'appIcon.current' => 'Gjeldende ikon',
+			'appIcon.locked' => 'Supporter-fordel',
+			'appIcon.lockedHint' => 'Alternative ikoner er en Supporter-fordel.',
+			'appIcon.changeFailed' => 'Kunne ikke endre appikonet',
+			'appIcon.launcherHint' => 'Det nye ikonet vises på startskjermen når du forlater Plezy.',
+			'appIcon.tvLauncherHint' => 'Det nye banneret vises når du forlater Plezy. Android TV kan fortsette å vise det gamle til TV-en startes på nytt.',
+			'appIcon.names.midnight' => 'Midnatt',
+			'appIcon.names.ember' => 'Glød',
+			'appIcon.names.paper' => 'Papir',
+			'appIcon.names.oled' => 'OLED',
+			'appIcon.names.line' => 'Strek',
+			'appIcon.names.ocean' => 'Hav',
+			'appIcon.names.ultraviolet' => 'Ultrafiolett',
+			'appIcon.names.matcha' => 'Matcha',
+			'appIcon.names.sunset' => 'Solnedgang',
+			'appIcon.names.gold' => 'Gull',
+			'appIcon.names.titanium' => 'Titan',
+			'appIcon.names.glass' => 'Glass',
+			'appIcon.names.crt' => 'CRT',
+			'appIcon.names.vhs' => 'VHS',
+			'appIcon.names.synthwave' => 'Synthwave',
+			'appIcon.names.pixel' => 'Piksel',
+			'appIcon.names.neon' => 'Neon',
+			'appIcon.names.sticker' => 'Klistremerke',
+			'appIcon.names.ticket' => 'Billett',
+			'appIcon.names.pop' => 'Pop',
+			'appIcon.names.strata' => 'Sjikt',
+			'appIcon.names.facet' => 'Fasett',
+			'appIcon.names.tilde' => 'Tilde',
+			'supporter.title' => 'Plezy Supporter',
+			'supporter.intro' => 'Et engangskjøp som støtter utviklingen av Plezy og låser opp kosmetiske tillegg:',
+			'supporter.presetThemes' => 'Forhåndsinnstilte temaer',
+			'supporter.presetThemesDescription' => 'Glød, Isbre, Skog, Plomme og Papir',
+			'supporter.customTheme' => 'Egendefinert tema',
+			'supporter.customThemeDescription' => 'Velg alle fargene selv',
+			'supporter.appIcons' => 'Appikoner',
+			'supporter.appIconsDescription' => 'Velg et alternativt Plezy-ikon',
+			'supporter.buy' => ({required Object price}) => 'Kjøp for ${price}',
+			'supporter.loadingPrice' => 'Laster pris...',
+			'supporter.restore' => 'Gjenopprett kjøp',
+			'supporter.pending' => 'Kjøpet ditt venter på betaling eller godkjenning. Tilleggene låses opp så snart butikken har fullført kjøpet.',
+			'supporter.thankYouTitle' => 'Takk for at du støtter Plezy',
+			'supporter.thankYouBody' => 'Supporter-tilleggene dine er låst opp.',
+			'supporter.tileSubtitle' => 'Lås opp temaer og appikoner med et engangskjøp',
+			'supporter.tileSubtitleThemesOnly' => 'Lås opp temaer med et engangskjøp',
+			'supporter.tileUnlocked' => 'Takk for støtten',
+			'supporter.errors.storeUnavailable' => 'Kjøp er ikke tilgjengelig. Sjekk at du er logget inn i butikken, og at kjøp er tillatt på denne enheten.',
+			'supporter.errors.productNotFound' => 'Supporter-kjøpet er ikke tilgjengelig i butikken din akkurat nå.',
+			'supporter.errors.productQueryFailed' => 'Kunne ikke laste inn prisen. Sjekk tilkoblingen og prøv igjen.',
+			'supporter.errors.purchaseFailed' => 'Kjøpet gikk ikke gjennom. Prøv igjen.',
+			'supporter.errors.restoreFailed' => 'Kunne ikke nå butikken for å gjenopprette kjøpet. Prøv igjen.',
+			'supporter.errors.nothingToRestore' => 'Fant ikke noe Supporter-kjøp for denne butikkontoen.',
+			'themeEditor.builtIn' => 'Innebygde',
+			'themeEditor.presets' => 'Forhåndsinnstillinger',
+			'themeEditor.custom' => 'Egendefinert',
+			'themeEditor.customEmpty' => 'Ikke opprettet ennå',
+			'themeEditor.editCustom' => 'Rediger egendefinert tema',
+			'themeEditor.editCustomDescription' => 'Velg alle fargene selv',
+			'themeEditor.locked' => 'Lås opp med Supporter',
+			'themeEditor.savedLocked' => 'Lagret – låses opp med Supporter',
+			'themeEditor.title' => 'Egendefinert tema',
+			'themeEditor.startFrom' => 'Start fra',
+			'themeEditor.startFromDescription' => 'Kopier alle fargene fra et annet tema',
+			'themeEditor.colors' => 'Farger',
+			'themeEditor.preview' => 'Forhåndsvisning',
+			'themeEditor.slots.bg' => 'Bakgrunn',
+			'themeEditor.slots.surface' => 'Overflate',
+			'themeEditor.slots.outline' => 'Kontur',
+			'themeEditor.slots.text' => 'Tekst',
+			'themeEditor.slots.textMuted' => 'Sekundærtekst',
+			'themeEditor.slots.accent' => 'Aksent',
+			'themeEditor.opacity' => 'Opasitet',
+			'themeEditor.hexHint' => '#RRGGBB eller #AARRGGBB',
+			'themeEditor.fromOtherThemes' => 'Fra andre temaer',
+			'themeEditor.swatchLabel' => ({required Object color, required Object theme}) => '${color} (${theme})',
+			'themeEditor.contrast.textOnBg' => 'Tekst på bakgrunn',
+			'themeEditor.contrast.textOnSurface' => 'Tekst på overflate',
+			'themeEditor.contrast.textMutedOnBg' => 'Sekundærtekst på bakgrunn',
+			'themeEditor.contrast.textMutedOnSurface' => 'Sekundærtekst på overflate',
+			'themeEditor.contrast.accentOnBg' => 'Aksent på bakgrunn',
+			'themeEditor.contrast.accentOnSurface' => 'Aksent på overflate',
+			'themeEditor.contrast.labelOnAccent' => 'Knappetekst på aksent',
+			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, under anbefalt minimum på ${minimum}:1',
+			'themeEditor.discardTitle' => 'Forkaste endringene?',
+			'themeEditor.discardMessage' => 'Ulagrede fargeendringer går tapt.',
+			'themeEditor.discard' => 'Forkast',
+			'themeEditor.previewCardTitle' => ({required Object number}) => 'Episode ${number}',
+			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '${minutes} min igjen',
+			'themeEditor.previewSwitch' => 'Autospill',
+			'themeEditor.previewMutedText' => 'Sekundærtekst ser slik ut',
+			'deepLinks.invalid' => 'This Plezy link isn\'t valid.',
+			'deepLinks.profileNotFound' => ({required Object profile}) => 'No profile matches "${profile}".',
+			'deepLinks.serverUnavailable' => 'Couldn\'t reach the server for this link.',
+			'deepLinks.notFound' => 'Couldn\'t find this title in your libraries.',
+			'deepLinks.unsupportedItem' => 'This link can\'t be played.',
+			'deepLinks.noLiveTv' => 'No Live TV server is available for this link.',
+			'deepLinks.channelNotFound' => ({required Object channel}) => 'Couldn\'t find channel "${channel}".',
+			'deepLinks.showLink' => 'Show link',
+			'deepLinks.showProfileLink' => 'Show profile link',
+			'deepLinks.dialogTitle' => 'Link',
+			'deepLinks.showHint' => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.',
+			'deepLinks.movieHint' => 'Opening this link plays the movie.',
+			'deepLinks.episodeHint' => 'Opening this link plays this episode.',
+			'deepLinks.profileHint' => 'Opening this link switches to this profile.',
+			'deepLinks.openAsProfile' => ({required Object name}) => 'Open as ${name}',
+			'deepLinks.copy' => 'Copy',
+			'deepLinks.copied' => 'Link copied',
 			_ => null,
 		};
 	}

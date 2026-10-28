@@ -41,14 +41,11 @@ class TranslationsZhHant extends TranslationsZh with BaseTranslations<AppLocale,
 
 	// Translations
 	@override late final _Translations$app$zh_Hant app = _Translations$app$zh_Hant._(_root);
-	@override late final _Translations$appIcon$zh_Hant appIcon = _Translations$appIcon$zh_Hant._(_root);
 	@override late final _Translations$auth$zh_Hant auth = _Translations$auth$zh_Hant._(_root);
 	@override late final _Translations$common$zh_Hant common = _Translations$common$zh_Hant._(_root);
 	@override late final _Translations$screens$zh_Hant screens = _Translations$screens$zh_Hant._(_root);
 	@override late final _Translations$update$zh_Hant update = _Translations$update$zh_Hant._(_root);
-	@override late final _Translations$supporter$zh_Hant supporter = _Translations$supporter$zh_Hant._(_root);
 	@override late final _Translations$settings$zh_Hant settings = _Translations$settings$zh_Hant._(_root);
-	@override late final _Translations$themeEditor$zh_Hant themeEditor = _Translations$themeEditor$zh_Hant._(_root);
 	@override late final _Translations$search$zh_Hant search = _Translations$search$zh_Hant._(_root);
 	@override late final _Translations$hotkeys$zh_Hant hotkeys = _Translations$hotkeys$zh_Hant._(_root);
 	@override late final _Translations$fileInfo$zh_Hant fileInfo = _Translations$fileInfo$zh_Hant._(_root);
@@ -94,6 +91,10 @@ class TranslationsZhHant extends TranslationsZh with BaseTranslations<AppLocale,
 	@override late final _Translations$seerr$zh_Hant seerr = _Translations$seerr$zh_Hant._(_root);
 	@override late final _Translations$services$zh_Hant services = _Translations$services$zh_Hant._(_root);
 	@override late final _Translations$addServer$zh_Hant addServer = _Translations$addServer$zh_Hant._(_root);
+	@override late final _Translations$appIcon$zh_Hant appIcon = _Translations$appIcon$zh_Hant._(_root);
+	@override late final _Translations$supporter$zh_Hant supporter = _Translations$supporter$zh_Hant._(_root);
+	@override late final _Translations$themeEditor$zh_Hant themeEditor = _Translations$themeEditor$zh_Hant._(_root);
+	@override late final _Translations$deepLinks$zh_Hant deepLinks = _Translations$deepLinks$zh_Hant._(_root);
 }
 
 // Path: app
@@ -103,25 +104,7 @@ class _Translations$app$zh_Hant extends Translations$app$zh {
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
-}
-
-// Path: appIcon
-class _Translations$appIcon$zh_Hant extends Translations$appIcon$zh {
-	_Translations$appIcon$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
-
-	final TranslationsZhHant _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => '應用程式圖示';
-	@override String get defaultIcon => '預設';
-	@override String get current => '目前圖示';
-	@override String get locked => 'Supporter 專屬';
-	@override String get lockedHint => '其他圖示為 Supporter 專屬福利。';
-	@override String get changeFailed => '無法變更應用程式圖示';
-	@override String get launcherHint => '離開 Plezy 後，新圖示就會出現在主畫面上。';
-	@override String get tvLauncherHint => '離開 Plezy 後就會顯示新橫幅。在電視重新啟動前，Android TV 可能仍會顯示舊橫幅。';
-	@override late final _Translations$appIcon$names$zh_Hant names = _Translations$appIcon$names$zh_Hant._(_root);
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -238,33 +221,14 @@ class _Translations$update$zh_Hant extends Translations$update$zh {
 	@override String get viewRelease => '查看版本詳情';
 	@override String get latestVersion => '已安裝的版本為最新版本';
 	@override String get checkFailed => '無法檢查更新';
-}
-
-// Path: supporter
-class _Translations$supporter$zh_Hant extends Translations$supporter$zh {
-	_Translations$supporter$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
-
-	final TranslationsZhHant _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Plezy Supporter';
-	@override String get intro => '一次性購買，支持 Plezy 的開發並解鎖外觀加值項目：';
-	@override String get presetThemes => '精選主題';
-	@override String get presetThemesDescription => '餘燼、冰河、森林、李子與紙張';
-	@override String get customTheme => '自訂主題';
-	@override String get customThemeDescription => '自行挑選每一種顏色';
-	@override String get appIcons => '應用程式圖示';
-	@override String get appIconsDescription => '選擇其他 Plezy 圖示';
-	@override String buy({required Object price}) => '以 ${price} 購買';
-	@override String get loadingPrice => '正在載入價格…';
-	@override String get restore => '恢復購買';
-	@override String get pending => '您的購買正在等待付款或核准。商店完成交易後，加值項目就會立即解鎖。';
-	@override String get thankYouTitle => '感謝您支持 Plezy';
-	@override String get thankYouBody => '您的 Supporter 加值項目已解鎖。';
-	@override String get tileSubtitle => '一次性購買即可解鎖主題與應用程式圖示';
-	@override String get tileSubtitleThemesOnly => '一次性購買即可解鎖主題';
-	@override String get tileUnlocked => '感謝您的支持';
-	@override late final _Translations$supporter$errors$zh_Hant errors = _Translations$supporter$errors$zh_Hant._(_root);
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -609,42 +573,24 @@ class _Translations$settings$zh_Hant extends Translations$settings$zh {
 	@override String get playerScopeLibrary => '依媒體庫';
 	@override String get playerScopeTitle => '依影集或電影';
 	@override String get exportDialogTitle => '匯出 Plezy 設定';
-}
-
-// Path: themeEditor
-class _Translations$themeEditor$zh_Hant extends Translations$themeEditor$zh {
-	_Translations$themeEditor$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
-
-	final TranslationsZhHant _root; // ignore: unused_field
-
-	// Translations
-	@override String get builtIn => '內建';
-	@override String get presets => '精選';
-	@override String get custom => '自訂';
-	@override String get customEmpty => '尚未建立';
-	@override String get editCustom => '編輯自訂主題';
-	@override String get editCustomDescription => '自行選擇每一種顏色';
-	@override String get locked => '透過 Supporter 解鎖';
-	@override String get savedLocked => '已儲存 — 透過 Supporter 解鎖';
-	@override String get title => '自訂主題';
-	@override String get startFrom => '從現有主題開始';
-	@override String get startFromDescription => '從其他主題複製所有顏色';
-	@override String get colors => '顏色';
-	@override String get preview => '預覽';
-	@override late final _Translations$themeEditor$slots$zh_Hant slots = _Translations$themeEditor$slots$zh_Hant._(_root);
-	@override String get opacity => '不透明度';
-	@override String get hexHint => '#RRGGBB 或 #AARRGGBB';
-	@override String get fromOtherThemes => '來自其他主題';
-	@override String swatchLabel({required Object theme, required Object color}) => '${theme} ${color}';
-	@override late final _Translations$themeEditor$contrast$zh_Hant contrast = _Translations$themeEditor$contrast$zh_Hant._(_root);
-	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}：${ratio}:1，低於建議的 ${minimum}:1';
-	@override String get discardTitle => '要捨棄變更嗎？';
-	@override String get discardMessage => '您尚未儲存的顏色變更將會遺失。';
-	@override String get discard => '捨棄';
-	@override String previewCardTitle({required Object number}) => '第 ${number} 集';
-	@override String previewCardSubtitle({required Object minutes}) => '剩餘 ${minutes} 分鐘';
-	@override String get previewSwitch => '自動播放';
-	@override String get previewMutedText => '次要文字看起來像這樣';
+	@override String get downloadLocationSelectError => '無法選擇資料夾';
+	@override String get mediaCapture => '媒體擷取';
+	@override String get clips => '短片';
+	@override String get screenshots => '螢幕截圖';
+	@override String captureLocationTitle({required Object title}) => '${title}位置';
+	@override String get clipLocationDescription => '選擇短片的儲存位置。';
+	@override String get screenshotLocationDescription => '選擇螢幕截圖的儲存位置。';
+	@override String get clipLocationChanged => '短片儲存位置已變更';
+	@override String get screenshotLocationChanged => '螢幕截圖儲存位置已變更';
+	@override String get clipLocationReset => '短片儲存位置已重設為桌面';
+	@override String get screenshotLocationReset => '螢幕截圖儲存位置已重設為桌面';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
+	@override String get packedStereoUi => '3D Playback UI';
 }
 
 // Path: search
@@ -832,12 +778,15 @@ class _Translations$mediaMenu$zh_Hant extends Translations$mediaMenu$zh {
 	@override String confirmDeleteTarget({required Object title}) => '確定要從您的伺服器永久刪除「${title}」嗎？';
 	@override String get deleteMultipleWarning => '這將會刪除所有單集及其檔案。';
 	@override String deleteEpisodeCountWarning({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: 'This deletes all ${n} episode in it, and its file.',
 		other: '這會刪除其中全部 ${n} 集及其檔案。',
 	);
 	@override String deleteMultiPartWarning({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: 'This item is stored as ${n} file, which will be deleted.',
 		other: '此項目分散儲存於 ${n} 個檔案中，且全部都會被刪除。',
 	);
 	@override String deleteSharedFileHeading({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} other episode is stored in the same file and will be deleted too:',
 		other: '另有 ${n} 集儲存在同一檔案中，也會一併被刪除：',
 	);
 	@override String get deleteScopeUnverifiedProbeFailed => 'Plezy 無法確認此操作會刪除哪些檔案，因此刪除範圍可能超出上方所列的項目。請取消後重試，或仍要刪除。';
@@ -991,7 +940,6 @@ class _Translations$videoControls$zh_Hant extends Translations$videoControls$zh 
 	@override String get pipActive => '正在以子母畫面模式播放';
 	@override String get pipFailed => '啟動子母畫面失敗';
 	@override String get screenshotSaved => '螢幕截圖已儲存';
-	@override String get screenshotFailed => '無法擷取螢幕截圖';
 	@override String zoomPercent({required Object percent}) => '縮放 ${percent}%';
 	@override String volumePercent({required Object percent}) => '音量 ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$zh_Hant pipErrors = _Translations$videoControls$pipErrors$zh_Hant._(_root);
@@ -1016,6 +964,13 @@ class _Translations$videoControls$zh_Hant extends Translations$videoControls$zh 
 	@override String get osdSubtitlesOff => '字幕：關閉';
 	@override String osdSubtitles({required Object track}) => '字幕：${track}';
 	@override String osdAudio({required Object track}) => '音訊：${track}';
+	@override String get screenshotFailed => '無法擷取螢幕截圖';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
+	@override late final _Translations$videoControls$clip$zh_Hant clip = _Translations$videoControls$clip$zh_Hant._(_root);
 }
 
 // Path: messages
@@ -1031,6 +986,7 @@ class _Translations$messages$zh_Hant extends Translations$messages$zh {
 	@override String get markedAsUnwatchedOffline => '已標記為未觀看（將在連線時同步）';
 	@override String autoRemovedWatchedDownload({required Object title}) => '已自動移除：${title}';
 	@override String autoRemovedWatchedDownloads({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: 'Auto-removed ${n} watched download',
 		other: '已自動移除 ${n} 個已觀看的下載內容',
 	);
 	@override String get removedFromContinueWatching => '已從「繼續觀看」中移除';
@@ -1336,6 +1292,7 @@ class _Translations$discover$zh_Hant extends Translations$discover$zh {
 	@override String minutesLeft({required Object minutes}) => '剩餘 ${minutes} 分鐘';
 	@override String get moreLikeThis => '更多類似內容';
 	@override String titleCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} title',
 		other: '${n} 部作品',
 	);
 	@override late final _Translations$discover$person$zh_Hant person = _Translations$discover$person$zh_Hant._(_root);
@@ -1436,6 +1393,9 @@ class _Translations$about$zh_Hant extends Translations$about$zh {
 	@override String versionLabel({required Object version}) => '版本 ${version}';
 	@override String get appDescription => '一款精美的 Plex、Jellyfin 與 Emby Flutter 用戶端';
 	@override String get viewLicensesDescription => '查看第三方套件的授權條款';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1553,6 +1513,7 @@ class _Translations$explore$zh_Hant extends Translations$explore$zh {
 	@override late final _Translations$explore$rows$zh_Hant rows = _Translations$explore$rows$zh_Hant._(_root);
 	@override late final _Translations$explore$status$zh_Hant status = _Translations$explore$status$zh_Hant._(_root);
 	@override String episodeCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} episode',
 		other: '${n} 集',
 	);
 	@override String get cast => '演員陣容';
@@ -1563,10 +1524,12 @@ class _Translations$explore$zh_Hant extends Translations$explore$zh {
 	@override String get removedFromWatchlist => '已從待看清單移除';
 	@override String get watchlistUpdateFailed => '無法更新待看清單';
 	@override String get watchlistNoMatch => '無法將此項目與待看清單配對';
+	@override String get openInLibrary => '在媒體庫中開啟';
 	@override String get notInLibrary => '不在您的媒體庫中';
 	@override String get inTheseLibraries => '在這些媒體庫中';
 	@override String get checkingLibrary => '正在檢查您的媒體庫…';
 	@override String libraryCheckFailed({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: 'Couldn\'t check ${n} server',
 		other: '無法檢查 ${n} 台伺服器',
 	);
 	@override String get emptyTitle => '這裡還沒有任何內容';
@@ -1586,6 +1549,7 @@ class _Translations$explore$zh_Hant extends Translations$explore$zh {
 	@override String broadcastWithZone({required Object day, required Object time, required Object timezone}) => '${day} ${time} ${timezone} 播出';
 	@override late final _Translations$explore$detail$zh_Hant detail = _Translations$explore$detail$zh_Hant._(_root);
 	@override String totalResults({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} result',
 		other: '${n} 筆結果',
 	);
 }
@@ -1611,6 +1575,7 @@ class _Translations$liveTv$zh_Hant extends Translations$liveTv$zh {
 	@override String channelNumber({required Object number}) => '頻道 ${number}';
 	@override String get unknownChannel => '未知頻道';
 	@override String get live => '直播';
+	@override String get premiereBadge => 'NEW';
 	@override String get reloadGuide => '重新載入節目表指南';
 	@override String get searchGuide => '搜尋節目表';
 	@override String get searchHint => '搜尋頻道和節目';
@@ -1762,6 +1727,7 @@ class _Translations$music$zh_Hant extends Translations$music$zh {
 	@override String get addToQueue => '新增至佇列';
 	@override String discNumber({required Object n}) => 'CD ${n}';
 	@override String trackCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} track',
 		other: '${n} 首',
 	);
 	@override String get nowPlaying => '正在播放';
@@ -1862,6 +1828,7 @@ class _Translations$watchTogether$zh_Hant extends Translations$watchTogether$zh 
 	@override String get offsetPlusSecond => '+1 秒';
 	@override String get participants => '參與者';
 	@override String participantCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} participant',
 		other: '${n} 位參與者',
 	);
 	@override String get hostBadge => '主持人';
@@ -2135,6 +2102,7 @@ class _Translations$performanceOverlay$zh_Hant extends Translations$performanceO
 	@override String get cacheLimit => '快取上限';
 	@override String get speed => '速度';
 	@override String get player => '播放器';
+	@override String get playMethod => 'Play Method';
 	@override String get memory => '記憶體';
 	@override String get uiFps => '介面 FPS';
 	@override String get fps => 'FPS';
@@ -2449,36 +2417,111 @@ class _Translations$addServer$zh_Hant extends Translations$addServer$zh {
 	@override String redirectUnsupportedEnterFinal({required Object product}) => '伺服器重新導向至不支援的 URL。請直接輸入最終的 ${product} URL。';
 }
 
-// Path: appIcon.names
-class _Translations$appIcon$names$zh_Hant extends Translations$appIcon$names$zh {
-	_Translations$appIcon$names$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+// Path: appIcon
+class _Translations$appIcon$zh_Hant extends Translations$appIcon$zh {
+	_Translations$appIcon$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHant _root; // ignore: unused_field
 
 	// Translations
-	@override String get midnight => '午夜';
-	@override String get ember => '餘燼';
-	@override String get paper => '紙張';
-	@override String get oled => 'OLED';
-	@override String get line => '線條';
-	@override String get ocean => '海洋';
-	@override String get ultraviolet => '紫外線';
-	@override String get matcha => '抹茶';
-	@override String get sunset => '日落';
-	@override String get gold => '金色';
-	@override String get titanium => '鈦金屬';
-	@override String get glass => '玻璃';
-	@override String get crt => 'CRT';
-	@override String get vhs => 'VHS';
-	@override String get synthwave => 'Synthwave';
-	@override String get pixel => '像素';
-	@override String get neon => '霓虹';
-	@override String get sticker => '貼紙';
-	@override String get ticket => '票券';
-	@override String get pop => '普普風';
-	@override String get strata => '層疊';
-	@override String get facet => '切面';
-	@override String get tilde => '波浪號';
+	@override String get title => '應用程式圖示';
+	@override String get defaultIcon => '預設';
+	@override String get current => '目前圖示';
+	@override String get locked => 'Supporter 專屬';
+	@override String get lockedHint => '其他圖示為 Supporter 專屬福利。';
+	@override String get changeFailed => '無法變更應用程式圖示';
+	@override String get launcherHint => '離開 Plezy 後，新圖示就會出現在主畫面上。';
+	@override String get tvLauncherHint => '離開 Plezy 後就會顯示新橫幅。在電視重新啟動前，Android TV 可能仍會顯示舊橫幅。';
+	@override late final _Translations$appIcon$names$zh_Hant names = _Translations$appIcon$names$zh_Hant._(_root);
+}
+
+// Path: supporter
+class _Translations$supporter$zh_Hant extends Translations$supporter$zh {
+	_Translations$supporter$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Plezy Supporter';
+	@override String get intro => '一次性購買，支持 Plezy 的開發並解鎖外觀加值項目：';
+	@override String get presetThemes => '精選主題';
+	@override String get presetThemesDescription => '餘燼、冰河、森林、李子與紙張';
+	@override String get customTheme => '自訂主題';
+	@override String get customThemeDescription => '自行挑選每一種顏色';
+	@override String get appIcons => '應用程式圖示';
+	@override String get appIconsDescription => '選擇其他 Plezy 圖示';
+	@override String buy({required Object price}) => '以 ${price} 購買';
+	@override String get loadingPrice => '正在載入價格…';
+	@override String get restore => '恢復購買';
+	@override String get pending => '您的購買正在等待付款或核准。商店完成交易後，加值項目就會立即解鎖。';
+	@override String get thankYouTitle => '感謝您支持 Plezy';
+	@override String get thankYouBody => '您的 Supporter 加值項目已解鎖。';
+	@override String get tileSubtitle => '一次性購買即可解鎖主題與應用程式圖示';
+	@override String get tileSubtitleThemesOnly => '一次性購買即可解鎖主題';
+	@override String get tileUnlocked => '感謝您的支持';
+	@override late final _Translations$supporter$errors$zh_Hant errors = _Translations$supporter$errors$zh_Hant._(_root);
+}
+
+// Path: themeEditor
+class _Translations$themeEditor$zh_Hant extends Translations$themeEditor$zh {
+	_Translations$themeEditor$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get builtIn => '內建';
+	@override String get presets => '精選';
+	@override String get custom => '自訂';
+	@override String get customEmpty => '尚未建立';
+	@override String get editCustom => '編輯自訂主題';
+	@override String get editCustomDescription => '自行選擇每一種顏色';
+	@override String get locked => '透過 Supporter 解鎖';
+	@override String get savedLocked => '已儲存 — 透過 Supporter 解鎖';
+	@override String get title => '自訂主題';
+	@override String get startFrom => '從現有主題開始';
+	@override String get startFromDescription => '從其他主題複製所有顏色';
+	@override String get colors => '顏色';
+	@override String get preview => '預覽';
+	@override late final _Translations$themeEditor$slots$zh_Hant slots = _Translations$themeEditor$slots$zh_Hant._(_root);
+	@override String get opacity => '不透明度';
+	@override String get hexHint => '#RRGGBB 或 #AARRGGBB';
+	@override String get fromOtherThemes => '來自其他主題';
+	@override String swatchLabel({required Object theme, required Object color}) => '${theme} ${color}';
+	@override late final _Translations$themeEditor$contrast$zh_Hant contrast = _Translations$themeEditor$contrast$zh_Hant._(_root);
+	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}：${ratio}:1，低於建議的 ${minimum}:1';
+	@override String get discardTitle => '要捨棄變更嗎？';
+	@override String get discardMessage => '您尚未儲存的顏色變更將會遺失。';
+	@override String get discard => '捨棄';
+	@override String previewCardTitle({required Object number}) => '第 ${number} 集';
+	@override String previewCardSubtitle({required Object minutes}) => '剩餘 ${minutes} 分鐘';
+	@override String get previewSwitch => '自動播放';
+	@override String get previewMutedText => '次要文字看起來像這樣';
+}
+
+// Path: deepLinks
+class _Translations$deepLinks$zh_Hant extends Translations$deepLinks$zh {
+	_Translations$deepLinks$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get invalid => 'This Plezy link isn\'t valid.';
+	@override String profileNotFound({required Object profile}) => 'No profile matches "${profile}".';
+	@override String get serverUnavailable => 'Couldn\'t reach the server for this link.';
+	@override String get notFound => 'Couldn\'t find this title in your libraries.';
+	@override String get unsupportedItem => 'This link can\'t be played.';
+	@override String get noLiveTv => 'No Live TV server is available for this link.';
+	@override String channelNotFound({required Object channel}) => 'Couldn\'t find channel "${channel}".';
+	@override String get showLink => 'Show link';
+	@override String get showProfileLink => 'Show profile link';
+	@override String get dialogTitle => 'Link';
+	@override String get showHint => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.';
+	@override String get movieHint => 'Opening this link plays the movie.';
+	@override String get episodeHint => 'Opening this link plays this episode.';
+	@override String get profileHint => 'Opening this link switches to this profile.';
+	@override String openAsProfile({required Object name}) => 'Open as ${name}';
+	@override String get copy => 'Copy';
+	@override String get copied => 'Link copied';
 }
 
 // Path: common.ratingSource
@@ -2524,52 +2567,6 @@ class _Translations$common$mediaKind$zh_Hant extends Translations$common$mediaKi
 	@override String get folder => '資料夾';
 }
 
-// Path: supporter.errors
-class _Translations$supporter$errors$zh_Hant extends Translations$supporter$errors$zh {
-	_Translations$supporter$errors$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
-
-	final TranslationsZhHant _root; // ignore: unused_field
-
-	// Translations
-	@override String get storeUnavailable => '目前無法購買。請確認您已登入商店，且此裝置允許購買。';
-	@override String get productNotFound => '您的商店目前無法購買 Supporter。';
-	@override String get productQueryFailed => '無法載入價格。請檢查網路連線後重試。';
-	@override String get purchaseFailed => '購買未完成。請重試。';
-	@override String get restoreFailed => '無法連線至商店以恢復您的購買。請重試。';
-	@override String get nothingToRestore => '此商店帳號找不到 Supporter 購買紀錄。';
-}
-
-// Path: themeEditor.slots
-class _Translations$themeEditor$slots$zh_Hant extends Translations$themeEditor$slots$zh {
-	_Translations$themeEditor$slots$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
-
-	final TranslationsZhHant _root; // ignore: unused_field
-
-	// Translations
-	@override String get bg => '背景';
-	@override String get surface => '面板';
-	@override String get outline => '外框';
-	@override String get text => '文字';
-	@override String get textMuted => '次要文字';
-	@override String get accent => '強調色';
-}
-
-// Path: themeEditor.contrast
-class _Translations$themeEditor$contrast$zh_Hant extends Translations$themeEditor$contrast$zh {
-	_Translations$themeEditor$contrast$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
-
-	final TranslationsZhHant _root; // ignore: unused_field
-
-	// Translations
-	@override String get textOnBg => '背景上的文字';
-	@override String get textOnSurface => '面板上的文字';
-	@override String get textMutedOnBg => '背景上的次要文字';
-	@override String get textMutedOnSurface => '面板上的次要文字';
-	@override String get accentOnBg => '背景上的強調色';
-	@override String get accentOnSurface => '面板上的強調色';
-	@override String get labelOnAccent => '強調色上的按鈕文字';
-}
-
 // Path: hotkeys.actions
 class _Translations$hotkeys$actions$zh_Hant extends Translations$hotkeys$actions$zh {
 	_Translations$hotkeys$actions$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
@@ -2602,6 +2599,8 @@ class _Translations$hotkeys$actions$zh_Hant extends Translations$hotkeys$actions
 	@override String get shaderToggle => '切換著色器';
 	@override String get skipMarker => '跳過片頭/片尾';
 	@override String get screenshot => '螢幕截圖';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2619,6 +2618,52 @@ class _Translations$videoControls$pipErrors$zh_Hant extends Translations$videoCo
 	@override String get failed => '啟動子母畫面失敗';
 	@override String get prepareFailed => '無法準備子母畫面';
 	@override String unknown({required Object error}) => '發生錯誤：${error}';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$zh_Hant extends Translations$videoControls$clip$zh {
+	_Translations$videoControls$clip$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => '微調';
+	@override String get title => '短片';
+	@override String get vodOnly => '僅可在播放隨選影片時建立短片。';
+	@override String get sourceUnavailable => '此播放工作階段無法取得短片來源。';
+	@override String get playAtLeastOneSecond => '請先播放至少 1 秒再擷取短片。';
+	@override String get startBeforeBeginning => '短片開始時間不能早於影片起點。';
+	@override String get endAfterStart => '短片結束時間必須晚於開始時間。';
+	@override String get minimumDuration => '短片長度必須至少為 1 秒。';
+	@override String get endPastVideo => '短片結束時間超出影片長度。';
+	@override String get exportCanceled => '已取消匯出短片。';
+	@override String get cacheUnavailable => '無法完整快取所選範圍以匯出原始畫質。請嘗試縮短短片，或先播放一次預覽再儲存。';
+	@override String get sourceCopyNoEncoder => '直接複製來源的匯出方式不使用編碼器。';
+	@override String get encodingDesktopOnly => '目前僅 macOS 和 Windows 支援 H.264 與 HEVC 短片編碼。';
+	@override String get hdrRequiresSource => '匯出 HDR 需要可直接播放且相容於 HDR10 或 HLG 的來源。';
+	@override String get transcodeStartUnavailable => '此短片的開始時間早於目前的轉碼串流。請跳至更早的時間並重新開啟短片編輯器，或切換為原始畫質。';
+	@override String get previewRequired => '短片預覽必須載入完成才能儲存。';
+	@override String get h264Failed => '無法將此來源編碼為 H.264 SDR MP4。';
+	@override String get hevcSdrFailed => '無法將此來源編碼為 HEVC SDR MP4。';
+	@override String get hevcHdrFailed => '無法將此來源編碼為 HEVC HDR MP4。';
+	@override String get gifFailed => '無法將此來源編碼為 GIF。';
+	@override String get originalFailed => '無法從 mpv 快取複製此來源。';
+	@override String get previewUnavailable => '此版本不支援短片預覽播放。';
+	@override String get previewFailed => '短片預覽播放失敗。';
+	@override String get previewLoadingScreenshot => '短片預覽必須載入完成才能擷取螢幕截圖。';
+	@override String get screenshotInProgress => '正在儲存另一張螢幕截圖。';
+	@override String get saveAsDialog => '將短片另存為';
+	@override String savedTo({required Object fileName}) => '已儲存至 ${fileName}';
+	@override String get openFolder => '開啟資料夾';
+	@override String get saveAs => '另存為';
+	@override String get cancelExport => '取消匯出';
+	@override String get saving => '儲存中...';
+	@override String savingProgress({required Object percent}) => '儲存中 ${percent}%';
+	@override String get mutePreview => '將預覽靜音';
+	@override String get unmutePreview => '取消預覽靜音';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: accountPreferences.groups
@@ -2917,6 +2962,7 @@ class _Translations$explore$stats$zh_Hant extends Translations$explore$stats$zh 
 	@override String favorited({required Object n}) => '${n} 人收藏';
 	@override String dropRate({required Object percent}) => '${percent} 的人棄番';
 	@override String comments({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '${n} comment',
 		other: '${n} 則留言',
 	);
 	@override String votes({required Object n}) => '${n} 票';
@@ -3038,6 +3084,7 @@ class _Translations$explore$detail$zh_Hant extends Translations$explore$detail$z
 	@override String get ratings => '評分';
 	@override String get schedule => '播出時間';
 	@override String recommendedByUsers({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: 'Recommended by ${n} user',
 		other: '${n} 位使用者推薦',
 	);
 	@override String recommendedBy({required Object who}) => '由 ${who} 推薦';
@@ -3376,6 +3423,84 @@ class _Translations$services$libraryFilter$zh_Hant extends Translations$services
 	@override String get noLibraries => '沒有可用的媒體庫';
 }
 
+// Path: appIcon.names
+class _Translations$appIcon$names$zh_Hant extends Translations$appIcon$names$zh {
+	_Translations$appIcon$names$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get midnight => '午夜';
+	@override String get ember => '餘燼';
+	@override String get paper => '紙張';
+	@override String get oled => 'OLED';
+	@override String get line => '線條';
+	@override String get ocean => '海洋';
+	@override String get ultraviolet => '紫外線';
+	@override String get matcha => '抹茶';
+	@override String get sunset => '日落';
+	@override String get gold => '金色';
+	@override String get titanium => '鈦金屬';
+	@override String get glass => '玻璃';
+	@override String get crt => 'CRT';
+	@override String get vhs => 'VHS';
+	@override String get synthwave => 'Synthwave';
+	@override String get pixel => '像素';
+	@override String get neon => '霓虹';
+	@override String get sticker => '貼紙';
+	@override String get ticket => '票券';
+	@override String get pop => '普普風';
+	@override String get strata => '層疊';
+	@override String get facet => '切面';
+	@override String get tilde => '波浪號';
+}
+
+// Path: supporter.errors
+class _Translations$supporter$errors$zh_Hant extends Translations$supporter$errors$zh {
+	_Translations$supporter$errors$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get storeUnavailable => '目前無法購買。請確認您已登入商店，且此裝置允許購買。';
+	@override String get productNotFound => '您的商店目前無法購買 Supporter。';
+	@override String get productQueryFailed => '無法載入價格。請檢查網路連線後重試。';
+	@override String get purchaseFailed => '購買未完成。請重試。';
+	@override String get restoreFailed => '無法連線至商店以恢復您的購買。請重試。';
+	@override String get nothingToRestore => '此商店帳號找不到 Supporter 購買紀錄。';
+}
+
+// Path: themeEditor.slots
+class _Translations$themeEditor$slots$zh_Hant extends Translations$themeEditor$slots$zh {
+	_Translations$themeEditor$slots$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get bg => '背景';
+	@override String get surface => '面板';
+	@override String get outline => '外框';
+	@override String get text => '文字';
+	@override String get textMuted => '次要文字';
+	@override String get accent => '強調色';
+}
+
+// Path: themeEditor.contrast
+class _Translations$themeEditor$contrast$zh_Hant extends Translations$themeEditor$contrast$zh {
+	_Translations$themeEditor$contrast$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get textOnBg => '背景上的文字';
+	@override String get textOnSurface => '面板上的文字';
+	@override String get textMutedOnBg => '背景上的次要文字';
+	@override String get textMutedOnSurface => '面板上的次要文字';
+	@override String get accentOnBg => '背景上的強調色';
+	@override String get accentOnSurface => '面板上的強調色';
+	@override String get labelOnAccent => '強調色上的按鈕文字';
+}
+
 /// The flat map containing all translations for locale <zh-Hant>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -3384,38 +3509,7 @@ class _Translations$services$libraryFilter$zh_Hant extends Translations$services
 extension on TranslationsZhHant {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
-			'appIcon.title' => '應用程式圖示',
-			'appIcon.defaultIcon' => '預設',
-			'appIcon.current' => '目前圖示',
-			'appIcon.locked' => 'Supporter 專屬',
-			'appIcon.lockedHint' => '其他圖示為 Supporter 專屬福利。',
-			'appIcon.changeFailed' => '無法變更應用程式圖示',
-			'appIcon.launcherHint' => '離開 Plezy 後，新圖示就會出現在主畫面上。',
-			'appIcon.tvLauncherHint' => '離開 Plezy 後就會顯示新橫幅。在電視重新啟動前，Android TV 可能仍會顯示舊橫幅。',
-			'appIcon.names.midnight' => '午夜',
-			'appIcon.names.ember' => '餘燼',
-			'appIcon.names.paper' => '紙張',
-			'appIcon.names.oled' => 'OLED',
-			'appIcon.names.line' => '線條',
-			'appIcon.names.ocean' => '海洋',
-			'appIcon.names.ultraviolet' => '紫外線',
-			'appIcon.names.matcha' => '抹茶',
-			'appIcon.names.sunset' => '日落',
-			'appIcon.names.gold' => '金色',
-			'appIcon.names.titanium' => '鈦金屬',
-			'appIcon.names.glass' => '玻璃',
-			'appIcon.names.crt' => 'CRT',
-			'appIcon.names.vhs' => 'VHS',
-			'appIcon.names.synthwave' => 'Synthwave',
-			'appIcon.names.pixel' => '像素',
-			'appIcon.names.neon' => '霓虹',
-			'appIcon.names.sticker' => '貼紙',
-			'appIcon.names.ticket' => '票券',
-			'appIcon.names.pop' => '普普風',
-			'appIcon.names.strata' => '層疊',
-			'appIcon.names.facet' => '切面',
-			'appIcon.names.tilde' => '波浪號',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => '使用 Plex 登入',
 			'auth.showQRCode' => '顯示 QR 碼',
 			'auth.authenticate' => '驗證',
@@ -3519,29 +3613,14 @@ extension on TranslationsZhHant {
 			'update.viewRelease' => '查看版本詳情',
 			'update.latestVersion' => '已安裝的版本為最新版本',
 			'update.checkFailed' => '無法檢查更新',
-			'supporter.title' => 'Plezy Supporter',
-			'supporter.intro' => '一次性購買，支持 Plezy 的開發並解鎖外觀加值項目：',
-			'supporter.presetThemes' => '精選主題',
-			'supporter.presetThemesDescription' => '餘燼、冰河、森林、李子與紙張',
-			'supporter.customTheme' => '自訂主題',
-			'supporter.customThemeDescription' => '自行挑選每一種顏色',
-			'supporter.appIcons' => '應用程式圖示',
-			'supporter.appIconsDescription' => '選擇其他 Plezy 圖示',
-			'supporter.buy' => ({required Object price}) => '以 ${price} 購買',
-			'supporter.loadingPrice' => '正在載入價格…',
-			'supporter.restore' => '恢復購買',
-			'supporter.pending' => '您的購買正在等待付款或核准。商店完成交易後，加值項目就會立即解鎖。',
-			'supporter.thankYouTitle' => '感謝您支持 Plezy',
-			'supporter.thankYouBody' => '您的 Supporter 加值項目已解鎖。',
-			'supporter.tileSubtitle' => '一次性購買即可解鎖主題與應用程式圖示',
-			'supporter.tileSubtitleThemesOnly' => '一次性購買即可解鎖主題',
-			'supporter.tileUnlocked' => '感謝您的支持',
-			'supporter.errors.storeUnavailable' => '目前無法購買。請確認您已登入商店，且此裝置允許購買。',
-			'supporter.errors.productNotFound' => '您的商店目前無法購買 Supporter。',
-			'supporter.errors.productQueryFailed' => '無法載入價格。請檢查網路連線後重試。',
-			'supporter.errors.purchaseFailed' => '購買未完成。請重試。',
-			'supporter.errors.restoreFailed' => '無法連線至商店以恢復您的購買。請重試。',
-			'supporter.errors.nothingToRestore' => '此商店帳號找不到 Supporter 購買紀錄。',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => '設定',
 			'settings.supportDeveloper' => '贊助 Plezy',
 			'settings.supportDeveloperDescription' => '透過 Liberapay 捐款支持開發者',
@@ -3877,46 +3956,24 @@ extension on TranslationsZhHant {
 			'settings.playerScopeLibrary' => '依媒體庫',
 			'settings.playerScopeTitle' => '依影集或電影',
 			'settings.exportDialogTitle' => '匯出 Plezy 設定',
-			'themeEditor.builtIn' => '內建',
-			'themeEditor.presets' => '精選',
-			'themeEditor.custom' => '自訂',
-			'themeEditor.customEmpty' => '尚未建立',
-			'themeEditor.editCustom' => '編輯自訂主題',
-			'themeEditor.editCustomDescription' => '自行選擇每一種顏色',
-			'themeEditor.locked' => '透過 Supporter 解鎖',
-			'themeEditor.savedLocked' => '已儲存 — 透過 Supporter 解鎖',
-			'themeEditor.title' => '自訂主題',
-			'themeEditor.startFrom' => '從現有主題開始',
-			'themeEditor.startFromDescription' => '從其他主題複製所有顏色',
-			'themeEditor.colors' => '顏色',
-			'themeEditor.preview' => '預覽',
-			'themeEditor.slots.bg' => '背景',
-			'themeEditor.slots.surface' => '面板',
-			'themeEditor.slots.outline' => '外框',
-			'themeEditor.slots.text' => '文字',
-			'themeEditor.slots.textMuted' => '次要文字',
-			'themeEditor.slots.accent' => '強調色',
-			_ => null,
-		} ?? switch (path) {
-			'themeEditor.opacity' => '不透明度',
-			'themeEditor.hexHint' => '#RRGGBB 或 #AARRGGBB',
-			'themeEditor.fromOtherThemes' => '來自其他主題',
-			'themeEditor.swatchLabel' => ({required Object theme, required Object color}) => '${theme} ${color}',
-			'themeEditor.contrast.textOnBg' => '背景上的文字',
-			'themeEditor.contrast.textOnSurface' => '面板上的文字',
-			'themeEditor.contrast.textMutedOnBg' => '背景上的次要文字',
-			'themeEditor.contrast.textMutedOnSurface' => '面板上的次要文字',
-			'themeEditor.contrast.accentOnBg' => '背景上的強調色',
-			'themeEditor.contrast.accentOnSurface' => '面板上的強調色',
-			'themeEditor.contrast.labelOnAccent' => '強調色上的按鈕文字',
-			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}：${ratio}:1，低於建議的 ${minimum}:1',
-			'themeEditor.discardTitle' => '要捨棄變更嗎？',
-			'themeEditor.discardMessage' => '您尚未儲存的顏色變更將會遺失。',
-			'themeEditor.discard' => '捨棄',
-			'themeEditor.previewCardTitle' => ({required Object number}) => '第 ${number} 集',
-			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '剩餘 ${minutes} 分鐘',
-			'themeEditor.previewSwitch' => '自動播放',
-			'themeEditor.previewMutedText' => '次要文字看起來像這樣',
+			'settings.downloadLocationSelectError' => '無法選擇資料夾',
+			'settings.mediaCapture' => '媒體擷取',
+			'settings.clips' => '短片',
+			'settings.screenshots' => '螢幕截圖',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title}位置',
+			'settings.clipLocationDescription' => '選擇短片的儲存位置。',
+			'settings.screenshotLocationDescription' => '選擇螢幕截圖的儲存位置。',
+			'settings.clipLocationChanged' => '短片儲存位置已變更',
+			'settings.screenshotLocationChanged' => '螢幕截圖儲存位置已變更',
+			'settings.clipLocationReset' => '短片儲存位置已重設為桌面',
+			'settings.screenshotLocationReset' => '螢幕截圖儲存位置已重設為桌面',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'search.hint' => '搜尋電影、影集、音樂…',
 			'search.tryDifferentTerm' => '嘗試不同的關鍵字',
 			'search.searchYourMedia' => '搜尋媒體庫',
@@ -3953,6 +4010,8 @@ extension on TranslationsZhHant {
 			'hotkeys.actions.shaderToggle' => '切換著色器',
 			'hotkeys.actions.skipMarker' => '跳過片頭/片尾',
 			'hotkeys.actions.screenshot' => '螢幕截圖',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => '檔案資訊',
 			'fileInfo.overview' => '概述',
 			'fileInfo.video' => '影片',
@@ -3962,6 +4021,8 @@ extension on TranslationsZhHant {
 			'fileInfo.dataStreams' => '資料串流',
 			'fileInfo.lyrics' => '歌詞',
 			'fileInfo.file' => '檔案',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.attachments' => '附件',
 			'fileInfo.delivery' => '傳輸方式',
 			'fileInfo.versionCounter' => ({required Object index, required Object count}) => '第 ${index} 個版本，共 ${count} 個',
@@ -4091,9 +4152,9 @@ extension on TranslationsZhHant {
 			'mediaMenu.deleteAnyway' => '仍要刪除',
 			'mediaMenu.confirmDeleteTarget' => ({required Object title}) => '確定要從您的伺服器永久刪除「${title}」嗎？',
 			'mediaMenu.deleteMultipleWarning' => '這將會刪除所有單集及其檔案。',
-			'mediaMenu.deleteEpisodeCountWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '這會刪除其中全部 ${n} 集及其檔案。', ), 
-			'mediaMenu.deleteMultiPartWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '此項目分散儲存於 ${n} 個檔案中，且全部都會被刪除。', ), 
-			'mediaMenu.deleteSharedFileHeading' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '另有 ${n} 集儲存在同一檔案中，也會一併被刪除：', ), 
+			'mediaMenu.deleteEpisodeCountWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: 'This deletes all ${n} episode in it, and its file.', other: '這會刪除其中全部 ${n} 集及其檔案。', ), 
+			'mediaMenu.deleteMultiPartWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: 'This item is stored as ${n} file, which will be deleted.', other: '此項目分散儲存於 ${n} 個檔案中，且全部都會被刪除。', ), 
+			'mediaMenu.deleteSharedFileHeading' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} other episode is stored in the same file and will be deleted too:', other: '另有 ${n} 集儲存在同一檔案中，也會一併被刪除：', ), 
 			'mediaMenu.deleteScopeUnverifiedProbeFailed' => 'Plezy 無法確認此操作會刪除哪些檔案，因此刪除範圍可能超出上方所列的項目。請取消後重試，或仍要刪除。',
 			'mediaMenu.deleteScopeUnverifiedNoFileInfo' => '您的伺服器未提供此項目的檔案資訊，因此 Plezy 無法確認此操作會刪除哪些檔案。刪除範圍可能超出上方所列的項目。',
 			'mediaMenu.mediaDeletedSuccessfully' => '媒體已成功刪除',
@@ -4200,7 +4261,6 @@ extension on TranslationsZhHant {
 			'videoControls.pipActive' => '正在以子母畫面模式播放',
 			'videoControls.pipFailed' => '啟動子母畫面失敗',
 			'videoControls.screenshotSaved' => '螢幕截圖已儲存',
-			'videoControls.screenshotFailed' => '無法擷取螢幕截圖',
 			'videoControls.zoomPercent' => ({required Object percent}) => '縮放 ${percent}%',
 			'videoControls.volumePercent' => ({required Object percent}) => '音量 ${percent}%',
 			'videoControls.pipErrors.androidVersion' => '需要 Android 8.0 或更高版本',
@@ -4232,12 +4292,52 @@ extension on TranslationsZhHant {
 			'videoControls.osdSubtitlesOff' => '字幕：關閉',
 			'videoControls.osdSubtitles' => ({required Object track}) => '字幕：${track}',
 			'videoControls.osdAudio' => ({required Object track}) => '音訊：${track}',
+			'videoControls.screenshotFailed' => '無法擷取螢幕截圖',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} frame', other: '${n} frames', ), 
+			'videoControls.clip.fineAdjust' => '微調',
+			'videoControls.clip.title' => '短片',
+			'videoControls.clip.vodOnly' => '僅可在播放隨選影片時建立短片。',
+			'videoControls.clip.sourceUnavailable' => '此播放工作階段無法取得短片來源。',
+			'videoControls.clip.playAtLeastOneSecond' => '請先播放至少 1 秒再擷取短片。',
+			'videoControls.clip.startBeforeBeginning' => '短片開始時間不能早於影片起點。',
+			'videoControls.clip.endAfterStart' => '短片結束時間必須晚於開始時間。',
+			'videoControls.clip.minimumDuration' => '短片長度必須至少為 1 秒。',
+			'videoControls.clip.endPastVideo' => '短片結束時間超出影片長度。',
+			'videoControls.clip.exportCanceled' => '已取消匯出短片。',
+			'videoControls.clip.cacheUnavailable' => '無法完整快取所選範圍以匯出原始畫質。請嘗試縮短短片，或先播放一次預覽再儲存。',
+			'videoControls.clip.sourceCopyNoEncoder' => '直接複製來源的匯出方式不使用編碼器。',
+			'videoControls.clip.encodingDesktopOnly' => '目前僅 macOS 和 Windows 支援 H.264 與 HEVC 短片編碼。',
+			'videoControls.clip.hdrRequiresSource' => '匯出 HDR 需要可直接播放且相容於 HDR10 或 HLG 的來源。',
+			'videoControls.clip.transcodeStartUnavailable' => '此短片的開始時間早於目前的轉碼串流。請跳至更早的時間並重新開啟短片編輯器，或切換為原始畫質。',
+			'videoControls.clip.previewRequired' => '短片預覽必須載入完成才能儲存。',
+			'videoControls.clip.h264Failed' => '無法將此來源編碼為 H.264 SDR MP4。',
+			'videoControls.clip.hevcSdrFailed' => '無法將此來源編碼為 HEVC SDR MP4。',
+			'videoControls.clip.hevcHdrFailed' => '無法將此來源編碼為 HEVC HDR MP4。',
+			'videoControls.clip.gifFailed' => '無法將此來源編碼為 GIF。',
+			'videoControls.clip.originalFailed' => '無法從 mpv 快取複製此來源。',
+			'videoControls.clip.previewUnavailable' => '此版本不支援短片預覽播放。',
+			'videoControls.clip.previewFailed' => '短片預覽播放失敗。',
+			'videoControls.clip.previewLoadingScreenshot' => '短片預覽必須載入完成才能擷取螢幕截圖。',
+			'videoControls.clip.screenshotInProgress' => '正在儲存另一張螢幕截圖。',
+			'videoControls.clip.saveAsDialog' => '將短片另存為',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => '已儲存至 ${fileName}',
+			'videoControls.clip.openFolder' => '開啟資料夾',
+			'videoControls.clip.saveAs' => '另存為',
+			'videoControls.clip.cancelExport' => '取消匯出',
+			'videoControls.clip.saving' => '儲存中...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => '儲存中 ${percent}%',
+			'videoControls.clip.mutePreview' => '將預覽靜音',
+			'videoControls.clip.unmutePreview' => '取消預覽靜音',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => '已標記為已觀看',
 			'messages.markedAsUnwatched' => '已標記為未觀看',
 			'messages.markedAsWatchedOffline' => '已標記為已觀看（將在連線時同步）',
 			'messages.markedAsUnwatchedOffline' => '已標記為未觀看（將在連線時同步）',
 			'messages.autoRemovedWatchedDownload' => ({required Object title}) => '已自動移除：${title}',
-			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '已自動移除 ${n} 個已觀看的下載內容', ), 
+			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: 'Auto-removed ${n} watched download', other: '已自動移除 ${n} 個已觀看的下載內容', ), 
 			'messages.removedFromContinueWatching' => '已從「繼續觀看」中移除',
 			'messages.errorLoading' => ({required Object error}) => '錯誤：${error}',
 			'messages.searchPartialResults' => '部分媒體伺服器無法搜尋。目前顯示可取得的結果。',
@@ -4410,8 +4510,6 @@ extension on TranslationsZhHant {
 			'profiles.tokenIdentityMismatch' => 'Plex 使用者設定檔權杖解析到非預期的伺服器',
 			'connections.sectionTitle' => '連線',
 			'connections.addConnection' => '新增連線',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnectionSubtitleNoProfile' => '使用 Plex 登入或連線至 Jellyfin 或 Emby 伺服器',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => '新增至 ${displayName}：Plex、Jellyfin、Emby 或其他設定檔連線',
 			'connections.sessionExpiredOne' => ({required Object name}) => '${name} 的工作階段已過期',
@@ -4437,6 +4535,8 @@ extension on TranslationsZhHant {
 			'accountPreferences.groups.personalMedia' => '個人媒體',
 			'accountPreferences.preferredAudioLanguage' => '偏好音訊語言',
 			'accountPreferences.autoSelectAudio' => '依語言選擇音訊',
+			_ => null,
+		} ?? switch (path) {
 			'accountPreferences.autoSelectAudioDescription' => '關閉時會使用檔案標記為預設的音訊軌。',
 			'accountPreferences.preferredSubtitleLanguage' => '偏好字幕語言',
 			'accountPreferences.subtitleMode' => '自動開啟字幕',
@@ -4502,7 +4602,7 @@ extension on TranslationsZhHant {
 			'discover.tvShow' => '影集',
 			'discover.minutesLeft' => ({required Object minutes}) => '剩餘 ${minutes} 分鐘',
 			'discover.moreLikeThis' => '更多類似內容',
-			'discover.titleCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 部作品', ), 
+			'discover.titleCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} title', other: '${n} 部作品', ), 
 			'discover.person.born' => '出生',
 			'discover.person.died' => '逝世',
 			'discover.person.birthplace' => '出生地',
@@ -4644,6 +4744,9 @@ extension on TranslationsZhHant {
 			'about.versionLabel' => ({required Object version}) => '版本 ${version}',
 			'about.appDescription' => '一款精美的 Plex、Jellyfin 與 Emby Flutter 用戶端',
 			'about.viewLicensesDescription' => '查看第三方套件的授權條款',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '找不到 ${username}（${email}） 的伺服器',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => '無法載入伺服器：${error}',
 			'serverSelection.noValidServers' => '此帳號中找不到可用的伺服器',
@@ -4713,7 +4816,7 @@ extension on TranslationsZhHant {
 			'explore.status.ended' => '已完結',
 			'explore.status.canceled' => '已取消',
 			'explore.status.upcoming' => '即將上線',
-			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 集', ), 
+			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} episode', other: '${n} 集', ), 
 			'explore.cast' => '演員陣容',
 			'explore.characters' => '角色',
 			'explore.addToWatchlist' => '新增至待看清單',
@@ -4722,10 +4825,11 @@ extension on TranslationsZhHant {
 			'explore.removedFromWatchlist' => '已從待看清單移除',
 			'explore.watchlistUpdateFailed' => '無法更新待看清單',
 			'explore.watchlistNoMatch' => '無法將此項目與待看清單配對',
+			'explore.openInLibrary' => '在媒體庫中開啟',
 			'explore.notInLibrary' => '不在您的媒體庫中',
 			'explore.inTheseLibraries' => '在這些媒體庫中',
 			'explore.checkingLibrary' => '正在檢查您的媒體庫…',
-			'explore.libraryCheckFailed' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '無法檢查 ${n} 台伺服器', ), 
+			'explore.libraryCheckFailed' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: 'Couldn\'t check ${n} server', other: '無法檢查 ${n} 台伺服器', ), 
 			'explore.emptyTitle' => '這裡還沒有任何內容',
 			'explore.emptyMessage' => ({required Object source}) => '當 ${source} 有內容時，相關資訊將顯示在此處。',
 			'explore.searchHint' => ({required Object source}) => '搜尋 ${source}',
@@ -4762,7 +4866,7 @@ extension on TranslationsZhHant {
 			'explore.stats.planning' => ({required Object n}) => '${n} 人打算觀看',
 			'explore.stats.favorited' => ({required Object n}) => '${n} 人收藏',
 			'explore.stats.dropRate' => ({required Object percent}) => '${percent} 的人棄番',
-			'explore.stats.comments' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 則留言', ), 
+			'explore.stats.comments' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} comment', other: '${n} 則留言', ), 
 			'explore.stats.votes' => ({required Object n}) => '${n} 票',
 			'explore.stats.watching' => ({required Object n}) => '${n} 人正在觀看',
 			'explore.stats.completed' => ({required Object n}) => '${n} 人已看完',
@@ -4829,14 +4933,14 @@ extension on TranslationsZhHant {
 			'explore.detail.crew' => '幕後團隊',
 			'explore.detail.ratings' => '評分',
 			'explore.detail.schedule' => '播出時間',
-			'explore.detail.recommendedByUsers' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 位使用者推薦', ), 
+			'explore.detail.recommendedByUsers' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: 'Recommended by ${n} user', other: '${n} 位使用者推薦', ), 
 			'explore.detail.recommendedBy' => ({required Object who}) => '由 ${who} 推薦',
 			'explore.detail.favoritedBy' => ({required Object who}) => '由 ${who} 收藏',
 			'explore.detail.unairedEpisodes' => ({required Object n}) => '尚有 ${n} 集未播出',
 			'explore.detail.recommendedByPercent' => ({required Object percent}) => '${percent} 的觀眾推薦',
 			'explore.detail.relatedTitles' => '相關作品',
 			'explore.detail.background' => '背景介紹',
-			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 筆結果', ), 
+			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} result', other: '${n} 筆結果', ), 
 			'liveTv.title' => '直播電視',
 			'liveTv.guide' => '節目表指南',
 			'liveTv.noChannels' => '沒有可用的頻道',
@@ -4851,6 +4955,7 @@ extension on TranslationsZhHant {
 			'liveTv.channelNumber' => ({required Object number}) => '頻道 ${number}',
 			'liveTv.unknownChannel' => '未知頻道',
 			'liveTv.live' => '直播',
+			'liveTv.premiereBadge' => 'NEW',
 			'liveTv.reloadGuide' => '重新載入節目表指南',
 			'liveTv.searchGuide' => '搜尋節目表',
 			'liveTv.searchHint' => '搜尋頻道和節目',
@@ -4924,8 +5029,6 @@ extension on TranslationsZhHant {
 			'liveTv.recordSettings.keepUpToHint' => '0 表示保留所有劇集',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes} 分鐘後開始',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} ${time}',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.invalidPlaybackData' => ({required Object product}) => '${product} 傳回了無效的直播電視播放資料',
 			'liveTv.failedToStartChannel' => '無法啟動直播頻道',
 			'liveTv.failedToBuildStreamUrl' => '無法建立串流 URL',
@@ -4946,6 +5049,8 @@ extension on TranslationsZhHant {
 			'collections.errorAddingToCollection' => '新增至收藏集失敗',
 			'collections.created' => '已建立收藏集',
 			'collections.removeFromCollection' => '從收藏集移除',
+			_ => null,
+		} ?? switch (path) {
 			'collections.removeFromCollectionConfirm' => ({required Object title}) => '將「${title}」從此收藏集移除？',
 			'collections.removedFromCollection' => '已從收藏集移除',
 			'collections.removeFromCollectionFailed' => '從收藏集移除失敗',
@@ -4983,7 +5088,7 @@ extension on TranslationsZhHant {
 			'music.playNext' => '下一首播放',
 			'music.addToQueue' => '新增至佇列',
 			'music.discNumber' => ({required Object n}) => 'CD ${n}',
-			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 首', ), 
+			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} track', other: '${n} 首', ), 
 			'music.nowPlaying' => '正在播放',
 			'music.playingFrom' => ({required Object title}) => '來自 ${title}',
 			'music.queue' => '播放佇列',
@@ -5074,7 +5179,7 @@ extension on TranslationsZhHant {
 			'watchTogether.offsetPlusTenth' => '+100 毫秒',
 			'watchTogether.offsetPlusSecond' => '+1 秒',
 			'watchTogether.participants' => '參與者',
-			'watchTogether.participantCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 位參與者', ), 
+			'watchTogether.participantCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, one: '${n} participant', other: '${n} 位參與者', ), 
 			'watchTogether.hostBadge' => '主持人',
 			'watchTogether.nameYou' => ({required Object name}) => '${name}（您）',
 			'watchTogether.playerIdle' => '閒置',
@@ -5426,6 +5531,7 @@ extension on TranslationsZhHant {
 			'performanceOverlay.cacheLimit' => '快取上限',
 			'performanceOverlay.speed' => '速度',
 			'performanceOverlay.player' => '播放器',
+			'performanceOverlay.playMethod' => 'Play Method',
 			'performanceOverlay.memory' => '記憶體',
 			'performanceOverlay.uiFps' => '介面 FPS',
 			'performanceOverlay.fps' => 'FPS',
@@ -5438,8 +5544,6 @@ extension on TranslationsZhHant {
 			'performanceOverlay.decoderHardware' => '硬體',
 			'performanceOverlay.tunnelingActive' => '已啟用',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted}（${failures} 個失敗）',
-			_ => null,
-		} ?? switch (path) {
 			'externalPlayer.title' => '外部播放器',
 			'externalPlayer.useExternalPlayer' => '使用外部播放器',
 			'externalPlayer.useExternalPlayerDescription' => '在其他應用程式中開啟影片',
@@ -5459,6 +5563,8 @@ extension on TranslationsZhHant {
 			'metadataEdit.editMetadata' => '編輯…',
 			'metadataEdit.screenTitle' => '編輯中繼資料',
 			'metadataEdit.basicInfo' => '基本資訊',
+			_ => null,
+		} ?? switch (path) {
 			'metadataEdit.artwork' => '海報與背景',
 			'metadataEdit.advancedSettings' => '進階設定',
 			'metadataEdit.title' => '標題',
@@ -5692,6 +5798,115 @@ extension on TranslationsZhHant {
 			'addServer.redirectDifferentHost' => ({required Object product}) => '伺服器重新導向至不同的主機。請直接輸入最終的 ${product} URL。',
 			'addServer.redirectInsecure' => '伺服器從 HTTPS 重新導向至不安全的 URL',
 			'addServer.redirectUnsupportedEnterFinal' => ({required Object product}) => '伺服器重新導向至不支援的 URL。請直接輸入最終的 ${product} URL。',
+			'appIcon.title' => '應用程式圖示',
+			'appIcon.defaultIcon' => '預設',
+			'appIcon.current' => '目前圖示',
+			'appIcon.locked' => 'Supporter 專屬',
+			'appIcon.lockedHint' => '其他圖示為 Supporter 專屬福利。',
+			'appIcon.changeFailed' => '無法變更應用程式圖示',
+			'appIcon.launcherHint' => '離開 Plezy 後，新圖示就會出現在主畫面上。',
+			'appIcon.tvLauncherHint' => '離開 Plezy 後就會顯示新橫幅。在電視重新啟動前，Android TV 可能仍會顯示舊橫幅。',
+			'appIcon.names.midnight' => '午夜',
+			'appIcon.names.ember' => '餘燼',
+			'appIcon.names.paper' => '紙張',
+			'appIcon.names.oled' => 'OLED',
+			'appIcon.names.line' => '線條',
+			'appIcon.names.ocean' => '海洋',
+			'appIcon.names.ultraviolet' => '紫外線',
+			'appIcon.names.matcha' => '抹茶',
+			'appIcon.names.sunset' => '日落',
+			'appIcon.names.gold' => '金色',
+			'appIcon.names.titanium' => '鈦金屬',
+			'appIcon.names.glass' => '玻璃',
+			'appIcon.names.crt' => 'CRT',
+			'appIcon.names.vhs' => 'VHS',
+			'appIcon.names.synthwave' => 'Synthwave',
+			'appIcon.names.pixel' => '像素',
+			'appIcon.names.neon' => '霓虹',
+			'appIcon.names.sticker' => '貼紙',
+			'appIcon.names.ticket' => '票券',
+			'appIcon.names.pop' => '普普風',
+			'appIcon.names.strata' => '層疊',
+			'appIcon.names.facet' => '切面',
+			'appIcon.names.tilde' => '波浪號',
+			'supporter.title' => 'Plezy Supporter',
+			'supporter.intro' => '一次性購買，支持 Plezy 的開發並解鎖外觀加值項目：',
+			'supporter.presetThemes' => '精選主題',
+			'supporter.presetThemesDescription' => '餘燼、冰河、森林、李子與紙張',
+			'supporter.customTheme' => '自訂主題',
+			'supporter.customThemeDescription' => '自行挑選每一種顏色',
+			'supporter.appIcons' => '應用程式圖示',
+			'supporter.appIconsDescription' => '選擇其他 Plezy 圖示',
+			'supporter.buy' => ({required Object price}) => '以 ${price} 購買',
+			'supporter.loadingPrice' => '正在載入價格…',
+			'supporter.restore' => '恢復購買',
+			'supporter.pending' => '您的購買正在等待付款或核准。商店完成交易後，加值項目就會立即解鎖。',
+			'supporter.thankYouTitle' => '感謝您支持 Plezy',
+			'supporter.thankYouBody' => '您的 Supporter 加值項目已解鎖。',
+			'supporter.tileSubtitle' => '一次性購買即可解鎖主題與應用程式圖示',
+			'supporter.tileSubtitleThemesOnly' => '一次性購買即可解鎖主題',
+			'supporter.tileUnlocked' => '感謝您的支持',
+			'supporter.errors.storeUnavailable' => '目前無法購買。請確認您已登入商店，且此裝置允許購買。',
+			'supporter.errors.productNotFound' => '您的商店目前無法購買 Supporter。',
+			'supporter.errors.productQueryFailed' => '無法載入價格。請檢查網路連線後重試。',
+			'supporter.errors.purchaseFailed' => '購買未完成。請重試。',
+			'supporter.errors.restoreFailed' => '無法連線至商店以恢復您的購買。請重試。',
+			'supporter.errors.nothingToRestore' => '此商店帳號找不到 Supporter 購買紀錄。',
+			'themeEditor.builtIn' => '內建',
+			'themeEditor.presets' => '精選',
+			'themeEditor.custom' => '自訂',
+			'themeEditor.customEmpty' => '尚未建立',
+			'themeEditor.editCustom' => '編輯自訂主題',
+			'themeEditor.editCustomDescription' => '自行選擇每一種顏色',
+			'themeEditor.locked' => '透過 Supporter 解鎖',
+			'themeEditor.savedLocked' => '已儲存 — 透過 Supporter 解鎖',
+			'themeEditor.title' => '自訂主題',
+			'themeEditor.startFrom' => '從現有主題開始',
+			'themeEditor.startFromDescription' => '從其他主題複製所有顏色',
+			'themeEditor.colors' => '顏色',
+			'themeEditor.preview' => '預覽',
+			'themeEditor.slots.bg' => '背景',
+			'themeEditor.slots.surface' => '面板',
+			'themeEditor.slots.outline' => '外框',
+			'themeEditor.slots.text' => '文字',
+			'themeEditor.slots.textMuted' => '次要文字',
+			'themeEditor.slots.accent' => '強調色',
+			'themeEditor.opacity' => '不透明度',
+			'themeEditor.hexHint' => '#RRGGBB 或 #AARRGGBB',
+			'themeEditor.fromOtherThemes' => '來自其他主題',
+			'themeEditor.swatchLabel' => ({required Object theme, required Object color}) => '${theme} ${color}',
+			'themeEditor.contrast.textOnBg' => '背景上的文字',
+			'themeEditor.contrast.textOnSurface' => '面板上的文字',
+			'themeEditor.contrast.textMutedOnBg' => '背景上的次要文字',
+			'themeEditor.contrast.textMutedOnSurface' => '面板上的次要文字',
+			'themeEditor.contrast.accentOnBg' => '背景上的強調色',
+			'themeEditor.contrast.accentOnSurface' => '面板上的強調色',
+			'themeEditor.contrast.labelOnAccent' => '強調色上的按鈕文字',
+			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}：${ratio}:1，低於建議的 ${minimum}:1',
+			'themeEditor.discardTitle' => '要捨棄變更嗎？',
+			'themeEditor.discardMessage' => '您尚未儲存的顏色變更將會遺失。',
+			'themeEditor.discard' => '捨棄',
+			'themeEditor.previewCardTitle' => ({required Object number}) => '第 ${number} 集',
+			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '剩餘 ${minutes} 分鐘',
+			'themeEditor.previewSwitch' => '自動播放',
+			'themeEditor.previewMutedText' => '次要文字看起來像這樣',
+			'deepLinks.invalid' => 'This Plezy link isn\'t valid.',
+			'deepLinks.profileNotFound' => ({required Object profile}) => 'No profile matches "${profile}".',
+			'deepLinks.serverUnavailable' => 'Couldn\'t reach the server for this link.',
+			'deepLinks.notFound' => 'Couldn\'t find this title in your libraries.',
+			'deepLinks.unsupportedItem' => 'This link can\'t be played.',
+			'deepLinks.noLiveTv' => 'No Live TV server is available for this link.',
+			'deepLinks.channelNotFound' => ({required Object channel}) => 'Couldn\'t find channel "${channel}".',
+			'deepLinks.showLink' => 'Show link',
+			'deepLinks.showProfileLink' => 'Show profile link',
+			'deepLinks.dialogTitle' => 'Link',
+			'deepLinks.showHint' => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.',
+			'deepLinks.movieHint' => 'Opening this link plays the movie.',
+			'deepLinks.episodeHint' => 'Opening this link plays this episode.',
+			'deepLinks.profileHint' => 'Opening this link switches to this profile.',
+			'deepLinks.openAsProfile' => ({required Object name}) => 'Open as ${name}',
+			'deepLinks.copy' => 'Copy',
+			'deepLinks.copied' => 'Link copied',
 			_ => null,
 		};
 	}

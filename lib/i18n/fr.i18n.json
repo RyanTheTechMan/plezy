@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "auth": {
     "signInWithPlex": "Se connecter avec Plex",
@@ -115,7 +115,15 @@
     "skipVersion": "Ignorer cette version",
     "viewRelease": "Voir les notes de version",
     "latestVersion": "Vous utilisez la dernière version",
-    "checkFailed": "Échec de la vérification des mises à jour"
+    "checkFailed": "Échec de la vérification des mises à jour",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "settings": {
     "title": "Paramètres",
@@ -464,6 +472,12 @@
     "screenshotLocationChanged": "Emplacement de la capture d'écran modifié",
     "clipLocationReset": "Emplacement du clip réinitialisé sur le bureau",
     "screenshotLocationReset": "Emplacement de la capture d'écran réinitialisé sur le bureau",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "search": {
@@ -505,7 +519,9 @@
       "subSeekPrev": "Rechercher le sous-titre précédent",
       "shaderToggle": "Activer/désactiver les shaders",
       "skipMarker": "Passer l'intro/le générique",
-      "screenshot": "Prendre une capture d'écran"
+      "screenshot": "Prendre une capture d'écran",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -812,6 +828,10 @@
     "osdAudio": "Audio : ${track}",
     "screenshotFailed": "Impossible de prendre une capture d’écran",
     "packedStereoSizingLocked": "Cannot change while playing 3D source",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "Réglage fin",
       "title": "Agrafe",
@@ -1313,7 +1333,10 @@
     "openSourceLicenses": "Licences libres",
     "versionLabel": "Version ${version}",
     "appDescription": "Un magnifique client Plex, Jellyfin et Emby pour Flutter",
-    "viewLicensesDescription": "Afficher les licences des bibliothèques tierces"
+    "viewLicensesDescription": "Afficher les licences des bibliothèques tierces",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Aucun serveur trouvé pour ${username} (${email})",
@@ -1573,7 +1596,7 @@
     "channelNumber": "Chaîne ${number}",
     "unknownChannel": "Chaîne inconnue",
     "live": "EN DIRECT",
-    "premiereBadge": "",
+    "premiereBadge": "NEW",
     "reloadGuide": "Recharger le guide",
     "searchGuide": "Rechercher dans le guide",
     "searchHint": "Rechercher des chaînes et des programmes",
@@ -2193,7 +2216,7 @@
     "cacheLimit": "Limite du cache",
     "speed": "Vitesse",
     "player": "Lecteur",
-    "playMethod": "",
+    "playMethod": "Play Method",
     "memory": "Mémoire",
     "uiFps": "FPS UI",
     "fps": "FPS",
@@ -2594,22 +2617,22 @@
     "previewMutedText": "Voici à quoi ressemble le texte secondaire"
   },
   "deepLinks": {
-    "invalid": "",
-    "profileNotFound": "",
-    "serverUnavailable": "",
-    "notFound": "",
-    "unsupportedItem": "",
-    "noLiveTv": "",
-    "channelNotFound": "",
-    "showLink": "",
-    "showProfileLink": "",
-    "dialogTitle": "",
-    "showHint": "",
-    "movieHint": "",
-    "episodeHint": "",
-    "profileHint": "",
-    "openAsProfile": "",
-    "copy": "",
-    "copied": ""
+    "invalid": "This Plezy link isn't valid.",
+    "profileNotFound": "No profile matches \"${profile}\".",
+    "serverUnavailable": "Couldn't reach the server for this link.",
+    "notFound": "Couldn't find this title in your libraries.",
+    "unsupportedItem": "This link can't be played.",
+    "noLiveTv": "No Live TV server is available for this link.",
+    "channelNotFound": "Couldn't find channel \"${channel}\".",
+    "showLink": "Show link",
+    "showProfileLink": "Show profile link",
+    "dialogTitle": "Link",
+    "showHint": "Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.",
+    "movieHint": "Opening this link plays the movie.",
+    "episodeHint": "Opening this link plays this episode.",
+    "profileHint": "Opening this link switches to this profile.",
+    "openAsProfile": "Open as ${name}",
+    "copy": "Copy",
+    "copied": "Link copied"
   }
 }

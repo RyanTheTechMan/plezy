@@ -40,14 +40,11 @@ class TranslationsRu extends Translations with BaseTranslations<AppLocale, Trans
 
 	// Translations
 	@override late final _Translations$app$ru app = _Translations$app$ru._(_root);
-	@override late final _Translations$appIcon$ru appIcon = _Translations$appIcon$ru._(_root);
 	@override late final _Translations$auth$ru auth = _Translations$auth$ru._(_root);
 	@override late final _Translations$common$ru common = _Translations$common$ru._(_root);
 	@override late final _Translations$screens$ru screens = _Translations$screens$ru._(_root);
 	@override late final _Translations$update$ru update = _Translations$update$ru._(_root);
-	@override late final _Translations$supporter$ru supporter = _Translations$supporter$ru._(_root);
 	@override late final _Translations$settings$ru settings = _Translations$settings$ru._(_root);
-	@override late final _Translations$themeEditor$ru themeEditor = _Translations$themeEditor$ru._(_root);
 	@override late final _Translations$search$ru search = _Translations$search$ru._(_root);
 	@override late final _Translations$hotkeys$ru hotkeys = _Translations$hotkeys$ru._(_root);
 	@override late final _Translations$fileInfo$ru fileInfo = _Translations$fileInfo$ru._(_root);
@@ -93,6 +90,10 @@ class TranslationsRu extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$seerr$ru seerr = _Translations$seerr$ru._(_root);
 	@override late final _Translations$services$ru services = _Translations$services$ru._(_root);
 	@override late final _Translations$addServer$ru addServer = _Translations$addServer$ru._(_root);
+	@override late final _Translations$appIcon$ru appIcon = _Translations$appIcon$ru._(_root);
+	@override late final _Translations$supporter$ru supporter = _Translations$supporter$ru._(_root);
+	@override late final _Translations$themeEditor$ru themeEditor = _Translations$themeEditor$ru._(_root);
+	@override late final _Translations$deepLinks$ru deepLinks = _Translations$deepLinks$ru._(_root);
 }
 
 // Path: app
@@ -102,25 +103,7 @@ class _Translations$app$ru extends Translations$app$en {
 	final TranslationsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
-}
-
-// Path: appIcon
-class _Translations$appIcon$ru extends Translations$appIcon$en {
-	_Translations$appIcon$ru._(TranslationsRu root) : this._root = root, super.internal(root);
-
-	final TranslationsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Значок приложения';
-	@override String get defaultIcon => 'Стандартный';
-	@override String get current => 'Текущий значок';
-	@override String get locked => 'Бонус Supporter';
-	@override String get lockedHint => 'Альтернативные значки — бонус Supporter.';
-	@override String get changeFailed => 'Не удалось сменить значок приложения';
-	@override String get launcherHint => 'Новый значок появится на главном экране, когда вы выйдете из Plezy.';
-	@override String get tvLauncherHint => 'Новый баннер появится, когда вы выйдете из Plezy. Android TV может показывать старый до перезапуска телевизора.';
-	@override late final _Translations$appIcon$names$ru names = _Translations$appIcon$names$ru._(_root);
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -237,33 +220,14 @@ class _Translations$update$ru extends Translations$update$en {
 	@override String get viewRelease => 'Посмотреть релиз';
 	@override String get latestVersion => 'У вас последняя версия';
 	@override String get checkFailed => 'Не удалось проверить обновления';
-}
-
-// Path: supporter
-class _Translations$supporter$ru extends Translations$supporter$en {
-	_Translations$supporter$ru._(TranslationsRu root) : this._root = root, super.internal(root);
-
-	final TranslationsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Plezy Supporter';
-	@override String get intro => 'Разовая покупка, которая поддерживает разработку Plezy и открывает косметические дополнения:';
-	@override String get presetThemes => 'Готовые темы';
-	@override String get presetThemesDescription => 'Уголёк, Ледник, Лес, Слива и Бумага';
-	@override String get customTheme => 'Своя тема';
-	@override String get customThemeDescription => 'Выберите каждый цвет сами';
-	@override String get appIcons => 'Значки приложения';
-	@override String get appIconsDescription => 'Выберите альтернативный значок Plezy';
-	@override String buy({required Object price}) => 'Купить за ${price}';
-	@override String get loadingPrice => 'Загрузка цены...';
-	@override String get restore => 'Восстановить покупки';
-	@override String get pending => 'Покупка ожидает оплаты или подтверждения. Дополнения откроются, как только магазин её завершит.';
-	@override String get thankYouTitle => 'Спасибо за поддержку Plezy';
-	@override String get thankYouBody => 'Дополнения Supporter разблокированы.';
-	@override String get tileSubtitle => 'Откройте темы и значки приложения разовой покупкой';
-	@override String get tileSubtitleThemesOnly => 'Откройте темы разовой покупкой';
-	@override String get tileUnlocked => 'Спасибо за вашу поддержку';
-	@override late final _Translations$supporter$errors$ru errors = _Translations$supporter$errors$ru._(_root);
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -608,42 +572,24 @@ class _Translations$settings$ru extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Для библиотеки';
 	@override String get playerScopeTitle => 'Для сериала или фильма';
 	@override String get exportDialogTitle => 'Экспорт настроек Plezy';
-}
-
-// Path: themeEditor
-class _Translations$themeEditor$ru extends Translations$themeEditor$en {
-	_Translations$themeEditor$ru._(TranslationsRu root) : this._root = root, super.internal(root);
-
-	final TranslationsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get builtIn => 'Встроенные';
-	@override String get presets => 'Готовые';
-	@override String get custom => 'Своя';
-	@override String get customEmpty => 'Ещё не создана';
-	@override String get editCustom => 'Изменить свою тему';
-	@override String get editCustomDescription => 'Выберите каждый цвет сами';
-	@override String get locked => 'Доступно с Supporter';
-	@override String get savedLocked => 'Сохранено — станет доступно с Supporter';
-	@override String get title => 'Своя тема';
-	@override String get startFrom => 'Взять за основу';
-	@override String get startFromDescription => 'Скопировать все цвета из другой темы';
-	@override String get colors => 'Цвета';
-	@override String get preview => 'Предпросмотр';
-	@override late final _Translations$themeEditor$slots$ru slots = _Translations$themeEditor$slots$ru._(_root);
-	@override String get opacity => 'Непрозрачность';
-	@override String get hexHint => '#RRGGBB или #AARRGGBB';
-	@override String get fromOtherThemes => 'Из других тем';
-	@override String swatchLabel({required Object color, required Object theme}) => '${color} темы «${theme}»';
-	@override late final _Translations$themeEditor$contrast$ru contrast = _Translations$themeEditor$contrast$ru._(_root);
-	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, ниже рекомендуемых ${minimum}:1';
-	@override String get discardTitle => 'Не сохранять изменения?';
-	@override String get discardMessage => 'Несохранённые изменения цветов будут потеряны.';
-	@override String get discard => 'Не сохранять';
-	@override String previewCardTitle({required Object number}) => 'Эпизод ${number}';
-	@override String previewCardSubtitle({required Object minutes}) => 'Осталось ${minutes} мин';
-	@override String get previewSwitch => 'Автовоспроизведение';
-	@override String get previewMutedText => 'Так выглядит второстепенный текст';
+	@override String get downloadLocationSelectError => 'Не удалось выбрать папку';
+	@override String get mediaCapture => 'Медиа-захват';
+	@override String get clips => 'Клипы';
+	@override String get screenshots => 'Скриншоты';
+	@override String captureLocationTitle({required Object title}) => '${title} Местоположение';
+	@override String get clipLocationDescription => 'Выберите, где будут сохраняться клипы.';
+	@override String get screenshotLocationDescription => 'Выберите, где будут сохраняться снимки экрана.';
+	@override String get clipLocationChanged => 'Местоположение клипа изменено';
+	@override String get screenshotLocationChanged => 'Местоположение скриншота изменено';
+	@override String get clipLocationReset => 'Сброс местоположения клипа на рабочий стол';
+	@override String get screenshotLocationReset => 'Сброс местоположения скриншота на рабочий стол';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
+	@override String get packedStereoUi => '3D Playback UI';
 }
 
 // Path: search
@@ -999,7 +945,6 @@ class _Translations$videoControls$ru extends Translations$videoControls$en {
 	@override String get pipActive => 'Воспроизводится в режиме «картинка в картинке»';
 	@override String get pipFailed => 'Не удалось запустить режим «картинка в картинке»';
 	@override String get screenshotSaved => 'Снимок экрана сохранён';
-	@override String get screenshotFailed => 'Не удалось сделать снимок экрана';
 	@override String zoomPercent({required Object percent}) => 'Масштаб ${percent}%';
 	@override String volumePercent({required Object percent}) => 'Громкость ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$ru pipErrors = _Translations$videoControls$pipErrors$ru._(_root);
@@ -1024,6 +969,13 @@ class _Translations$videoControls$ru extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Субтитры: выкл.';
 	@override String osdSubtitles({required Object track}) => 'Субтитры: ${track}';
 	@override String osdAudio({required Object track}) => 'Аудио: ${track}';
+	@override String get screenshotFailed => 'Не удалось сделать снимок экрана';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ru'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
+	@override late final _Translations$videoControls$clip$ru clip = _Translations$videoControls$clip$ru._(_root);
 }
 
 // Path: messages
@@ -1450,6 +1402,9 @@ class _Translations$about$ru extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Версия ${version}';
 	@override String get appDescription => 'Красивый клиент Plex, Jellyfin и Emby на Flutter';
 	@override String get viewLicensesDescription => 'Просмотр лицензий сторонних библиотек';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1580,6 +1535,7 @@ class _Translations$explore$ru extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Удалено из списка просмотра';
 	@override String get watchlistUpdateFailed => 'Не удалось обновить список для просмотра';
 	@override String get watchlistNoMatch => 'Не удалось сопоставить этот элемент со списком просмотра';
+	@override String get openInLibrary => 'Открыть в библиотеке';
 	@override String get notInLibrary => 'Нет в вашей библиотеке';
 	@override String get inTheseLibraries => 'В этих библиотеках';
 	@override String get checkingLibrary => 'Проверка вашей библиотеки...';
@@ -1634,6 +1590,7 @@ class _Translations$liveTv$ru extends Translations$liveTv$en {
 	@override String channelNumber({required Object number}) => 'Канал ${number}';
 	@override String get unknownChannel => 'Неизвестный канал';
 	@override String get live => 'ЭФИР';
+	@override String get premiereBadge => 'NEW';
 	@override String get reloadGuide => 'Перезагрузить программу';
 	@override String get searchGuide => 'Поиск в программе';
 	@override String get searchHint => 'Поиск каналов и программ';
@@ -2164,6 +2121,7 @@ class _Translations$performanceOverlay$ru extends Translations$performanceOverla
 	@override String get cacheLimit => 'Лимит кэша';
 	@override String get speed => 'Скорость';
 	@override String get player => 'Плеер';
+	@override String get playMethod => 'Play Method';
 	@override String get memory => 'Память';
 	@override String get uiFps => 'FPS интерфейса';
 	@override String get fps => 'FPS';
@@ -2478,36 +2436,111 @@ class _Translations$addServer$ru extends Translations$addServer$en {
 	@override String redirectUnsupportedEnterFinal({required Object product}) => 'Сервер перенаправил на неподдерживаемый URL. Введите конечный URL ${product} напрямую.';
 }
 
-// Path: appIcon.names
-class _Translations$appIcon$names$ru extends Translations$appIcon$names$en {
-	_Translations$appIcon$names$ru._(TranslationsRu root) : this._root = root, super.internal(root);
+// Path: appIcon
+class _Translations$appIcon$ru extends Translations$appIcon$en {
+	_Translations$appIcon$ru._(TranslationsRu root) : this._root = root, super.internal(root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get midnight => 'Полночь';
-	@override String get ember => 'Уголёк';
-	@override String get paper => 'Бумага';
-	@override String get oled => 'OLED';
-	@override String get line => 'Контур';
-	@override String get ocean => 'Океан';
-	@override String get ultraviolet => 'Ультрафиолет';
-	@override String get matcha => 'Матча';
-	@override String get sunset => 'Закат';
-	@override String get gold => 'Золото';
-	@override String get titanium => 'Титан';
-	@override String get glass => 'Стекло';
-	@override String get crt => 'CRT';
-	@override String get vhs => 'VHS';
-	@override String get synthwave => 'Synthwave';
-	@override String get pixel => 'Пиксель';
-	@override String get neon => 'Неон';
-	@override String get sticker => 'Наклейка';
-	@override String get ticket => 'Билет';
-	@override String get pop => 'Поп-арт';
-	@override String get strata => 'Слои';
-	@override String get facet => 'Грани';
-	@override String get tilde => 'Тильда';
+	@override String get title => 'Значок приложения';
+	@override String get defaultIcon => 'Стандартный';
+	@override String get current => 'Текущий значок';
+	@override String get locked => 'Бонус Supporter';
+	@override String get lockedHint => 'Альтернативные значки — бонус Supporter.';
+	@override String get changeFailed => 'Не удалось сменить значок приложения';
+	@override String get launcherHint => 'Новый значок появится на главном экране, когда вы выйдете из Plezy.';
+	@override String get tvLauncherHint => 'Новый баннер появится, когда вы выйдете из Plezy. Android TV может показывать старый до перезапуска телевизора.';
+	@override late final _Translations$appIcon$names$ru names = _Translations$appIcon$names$ru._(_root);
+}
+
+// Path: supporter
+class _Translations$supporter$ru extends Translations$supporter$en {
+	_Translations$supporter$ru._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Plezy Supporter';
+	@override String get intro => 'Разовая покупка, которая поддерживает разработку Plezy и открывает косметические дополнения:';
+	@override String get presetThemes => 'Готовые темы';
+	@override String get presetThemesDescription => 'Уголёк, Ледник, Лес, Слива и Бумага';
+	@override String get customTheme => 'Своя тема';
+	@override String get customThemeDescription => 'Выберите каждый цвет сами';
+	@override String get appIcons => 'Значки приложения';
+	@override String get appIconsDescription => 'Выберите альтернативный значок Plezy';
+	@override String buy({required Object price}) => 'Купить за ${price}';
+	@override String get loadingPrice => 'Загрузка цены...';
+	@override String get restore => 'Восстановить покупки';
+	@override String get pending => 'Покупка ожидает оплаты или подтверждения. Дополнения откроются, как только магазин её завершит.';
+	@override String get thankYouTitle => 'Спасибо за поддержку Plezy';
+	@override String get thankYouBody => 'Дополнения Supporter разблокированы.';
+	@override String get tileSubtitle => 'Откройте темы и значки приложения разовой покупкой';
+	@override String get tileSubtitleThemesOnly => 'Откройте темы разовой покупкой';
+	@override String get tileUnlocked => 'Спасибо за вашу поддержку';
+	@override late final _Translations$supporter$errors$ru errors = _Translations$supporter$errors$ru._(_root);
+}
+
+// Path: themeEditor
+class _Translations$themeEditor$ru extends Translations$themeEditor$en {
+	_Translations$themeEditor$ru._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get builtIn => 'Встроенные';
+	@override String get presets => 'Готовые';
+	@override String get custom => 'Своя';
+	@override String get customEmpty => 'Ещё не создана';
+	@override String get editCustom => 'Изменить свою тему';
+	@override String get editCustomDescription => 'Выберите каждый цвет сами';
+	@override String get locked => 'Доступно с Supporter';
+	@override String get savedLocked => 'Сохранено — станет доступно с Supporter';
+	@override String get title => 'Своя тема';
+	@override String get startFrom => 'Взять за основу';
+	@override String get startFromDescription => 'Скопировать все цвета из другой темы';
+	@override String get colors => 'Цвета';
+	@override String get preview => 'Предпросмотр';
+	@override late final _Translations$themeEditor$slots$ru slots = _Translations$themeEditor$slots$ru._(_root);
+	@override String get opacity => 'Непрозрачность';
+	@override String get hexHint => '#RRGGBB или #AARRGGBB';
+	@override String get fromOtherThemes => 'Из других тем';
+	@override String swatchLabel({required Object color, required Object theme}) => '${color} темы «${theme}»';
+	@override late final _Translations$themeEditor$contrast$ru contrast = _Translations$themeEditor$contrast$ru._(_root);
+	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, ниже рекомендуемых ${minimum}:1';
+	@override String get discardTitle => 'Не сохранять изменения?';
+	@override String get discardMessage => 'Несохранённые изменения цветов будут потеряны.';
+	@override String get discard => 'Не сохранять';
+	@override String previewCardTitle({required Object number}) => 'Эпизод ${number}';
+	@override String previewCardSubtitle({required Object minutes}) => 'Осталось ${minutes} мин';
+	@override String get previewSwitch => 'Автовоспроизведение';
+	@override String get previewMutedText => 'Так выглядит второстепенный текст';
+}
+
+// Path: deepLinks
+class _Translations$deepLinks$ru extends Translations$deepLinks$en {
+	_Translations$deepLinks$ru._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get invalid => 'This Plezy link isn\'t valid.';
+	@override String profileNotFound({required Object profile}) => 'No profile matches "${profile}".';
+	@override String get serverUnavailable => 'Couldn\'t reach the server for this link.';
+	@override String get notFound => 'Couldn\'t find this title in your libraries.';
+	@override String get unsupportedItem => 'This link can\'t be played.';
+	@override String get noLiveTv => 'No Live TV server is available for this link.';
+	@override String channelNotFound({required Object channel}) => 'Couldn\'t find channel "${channel}".';
+	@override String get showLink => 'Show link';
+	@override String get showProfileLink => 'Show profile link';
+	@override String get dialogTitle => 'Link';
+	@override String get showHint => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.';
+	@override String get movieHint => 'Opening this link plays the movie.';
+	@override String get episodeHint => 'Opening this link plays this episode.';
+	@override String get profileHint => 'Opening this link switches to this profile.';
+	@override String openAsProfile({required Object name}) => 'Open as ${name}';
+	@override String get copy => 'Copy';
+	@override String get copied => 'Link copied';
 }
 
 // Path: common.ratingSource
@@ -2553,52 +2586,6 @@ class _Translations$common$mediaKind$ru extends Translations$common$mediaKind$en
 	@override String get folder => 'Папка';
 }
 
-// Path: supporter.errors
-class _Translations$supporter$errors$ru extends Translations$supporter$errors$en {
-	_Translations$supporter$errors$ru._(TranslationsRu root) : this._root = root, super.internal(root);
-
-	final TranslationsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get storeUnavailable => 'Покупки недоступны. Убедитесь, что вы вошли в магазин и покупки разрешены на этом устройстве.';
-	@override String get productNotFound => 'Покупка Supporter сейчас недоступна в вашем магазине.';
-	@override String get productQueryFailed => 'Не удалось загрузить цену. Проверьте подключение и попробуйте снова.';
-	@override String get purchaseFailed => 'Покупка не прошла. Попробуйте снова.';
-	@override String get restoreFailed => 'Не удалось связаться с магазином для восстановления покупки. Попробуйте снова.';
-	@override String get nothingToRestore => 'Для этой учётной записи магазина покупка Supporter не найдена.';
-}
-
-// Path: themeEditor.slots
-class _Translations$themeEditor$slots$ru extends Translations$themeEditor$slots$en {
-	_Translations$themeEditor$slots$ru._(TranslationsRu root) : this._root = root, super.internal(root);
-
-	final TranslationsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get bg => 'Фон';
-	@override String get surface => 'Поверхность';
-	@override String get outline => 'Обводка';
-	@override String get text => 'Текст';
-	@override String get textMuted => 'Второстепенный текст';
-	@override String get accent => 'Акцент';
-}
-
-// Path: themeEditor.contrast
-class _Translations$themeEditor$contrast$ru extends Translations$themeEditor$contrast$en {
-	_Translations$themeEditor$contrast$ru._(TranslationsRu root) : this._root = root, super.internal(root);
-
-	final TranslationsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get textOnBg => 'Текст на фоне';
-	@override String get textOnSurface => 'Текст на поверхности';
-	@override String get textMutedOnBg => 'Второстепенный текст на фоне';
-	@override String get textMutedOnSurface => 'Второстепенный текст на поверхности';
-	@override String get accentOnBg => 'Акцент на фоне';
-	@override String get accentOnSurface => 'Акцент на поверхности';
-	@override String get labelOnAccent => 'Надпись кнопки на акценте';
-}
-
 // Path: hotkeys.actions
 class _Translations$hotkeys$actions$ru extends Translations$hotkeys$actions$en {
 	_Translations$hotkeys$actions$ru._(TranslationsRu root) : this._root = root, super.internal(root);
@@ -2631,6 +2618,8 @@ class _Translations$hotkeys$actions$ru extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Вкл./выкл. шейдеры';
 	@override String get skipMarker => 'Пропустить вступление/титры';
 	@override String get screenshot => 'Сделать снимок экрана';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2648,6 +2637,52 @@ class _Translations$videoControls$pipErrors$ru extends Translations$videoControl
 	@override String get failed => 'Не удалось запустить режим «картинка в картинке»';
 	@override String get prepareFailed => 'Не удалось подготовить режим «картинка в картинке»';
 	@override String unknown({required Object error}) => 'Произошла ошибка: ${error}';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$ru extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$ru._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Точная настройка';
+	@override String get title => 'Клип';
+	@override String get vodOnly => 'Клипы доступны для воспроизведения видео по требованию.';
+	@override String get sourceUnavailable => 'Источник клипа недоступен для этого сеанса воспроизведения.';
+	@override String get playAtLeastOneSecond => 'Воспроизведите хотя бы 1 секунду перед обрезкой.';
+	@override String get startBeforeBeginning => 'Начало клипа не может быть раньше начала видео.';
+	@override String get endAfterStart => 'Конец клипа должен быть после начала.';
+	@override String get minimumDuration => 'Ролики должны длиться не менее 1 секунды.';
+	@override String get endPastVideo => 'Конец клипа находится за концом видео.';
+	@override String get exportCanceled => 'Экспорт клипа отменен.';
+	@override String get cacheUnavailable => 'Выбранный диапазон не удалось полностью кэшировать для исходного экспорта. Попробуйте более короткий клип или воспроизведите предварительный просмотр один раз перед сохранением.';
+	@override String get sourceCopyNoEncoder => 'Экспорт исходной копии не использует кодировщик.';
+	@override String get encodingDesktopOnly => 'Кодирование клипов H.264 и HEVC в настоящее время доступно в macOS и Windows.';
+	@override String get hdrRequiresSource => 'Для экспорта HDR требуется источник с прямым воспроизведением HDR10 или HLG.';
+	@override String get transcodeStartUnavailable => 'Этот клип начинается перед активным транскодированным потоком. Найдите более ранний фрагмент и снова откройте вырезку или переключитесь на исходное качество.';
+	@override String get previewRequired => 'Предварительный просмотр клипа должен завершить загрузку, прежде чем его можно будет сохранить.';
+	@override String get h264Failed => 'Этот источник не удалось закодировать как H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'Этот источник не удалось закодировать как HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'Этот источник не удалось закодировать как HEVC HDR MP4.';
+	@override String get gifFailed => 'Не удалось закодировать этот источник в GIF.';
+	@override String get originalFailed => 'Этот источник не удалось скопировать из кэша mpv.';
+	@override String get previewUnavailable => 'Предварительный просмотр клипа недоступен в этой сборке.';
+	@override String get previewFailed => 'Не удалось воспроизвести предварительный просмотр клипа.';
+	@override String get previewLoadingScreenshot => 'Прежде чем сделать снимок экрана, предварительный просмотр клипа должен завершить загрузку.';
+	@override String get screenshotInProgress => 'Скриншот уже сохраняется.';
+	@override String get saveAsDialog => 'Сохранить клип как';
+	@override String savedTo({required Object fileName}) => 'Сохранено в ${fileName}.';
+	@override String get openFolder => 'Открыть папку';
+	@override String get saveAs => 'Сохранить как';
+	@override String get cancelExport => 'Отменить экспорт';
+	@override String get saving => 'Сохранение...';
+	@override String savingProgress({required Object percent}) => 'Экономия ${percent}%';
+	@override String get mutePreview => 'Отключить предварительный просмотр';
+	@override String get unmutePreview => 'Включить предварительный просмотр';
+	@override String get formatHevcSdr => 'HEVC СДР';
+	@override String get formatH264Sdr => 'H.264 СДР';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: accountPreferences.groups
@@ -3411,6 +3446,84 @@ class _Translations$services$libraryFilter$ru extends Translations$services$libr
 	@override String get noLibraries => 'Библиотеки недоступны';
 }
 
+// Path: appIcon.names
+class _Translations$appIcon$names$ru extends Translations$appIcon$names$en {
+	_Translations$appIcon$names$ru._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get midnight => 'Полночь';
+	@override String get ember => 'Уголёк';
+	@override String get paper => 'Бумага';
+	@override String get oled => 'OLED';
+	@override String get line => 'Контур';
+	@override String get ocean => 'Океан';
+	@override String get ultraviolet => 'Ультрафиолет';
+	@override String get matcha => 'Матча';
+	@override String get sunset => 'Закат';
+	@override String get gold => 'Золото';
+	@override String get titanium => 'Титан';
+	@override String get glass => 'Стекло';
+	@override String get crt => 'CRT';
+	@override String get vhs => 'VHS';
+	@override String get synthwave => 'Synthwave';
+	@override String get pixel => 'Пиксель';
+	@override String get neon => 'Неон';
+	@override String get sticker => 'Наклейка';
+	@override String get ticket => 'Билет';
+	@override String get pop => 'Поп-арт';
+	@override String get strata => 'Слои';
+	@override String get facet => 'Грани';
+	@override String get tilde => 'Тильда';
+}
+
+// Path: supporter.errors
+class _Translations$supporter$errors$ru extends Translations$supporter$errors$en {
+	_Translations$supporter$errors$ru._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get storeUnavailable => 'Покупки недоступны. Убедитесь, что вы вошли в магазин и покупки разрешены на этом устройстве.';
+	@override String get productNotFound => 'Покупка Supporter сейчас недоступна в вашем магазине.';
+	@override String get productQueryFailed => 'Не удалось загрузить цену. Проверьте подключение и попробуйте снова.';
+	@override String get purchaseFailed => 'Покупка не прошла. Попробуйте снова.';
+	@override String get restoreFailed => 'Не удалось связаться с магазином для восстановления покупки. Попробуйте снова.';
+	@override String get nothingToRestore => 'Для этой учётной записи магазина покупка Supporter не найдена.';
+}
+
+// Path: themeEditor.slots
+class _Translations$themeEditor$slots$ru extends Translations$themeEditor$slots$en {
+	_Translations$themeEditor$slots$ru._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get bg => 'Фон';
+	@override String get surface => 'Поверхность';
+	@override String get outline => 'Обводка';
+	@override String get text => 'Текст';
+	@override String get textMuted => 'Второстепенный текст';
+	@override String get accent => 'Акцент';
+}
+
+// Path: themeEditor.contrast
+class _Translations$themeEditor$contrast$ru extends Translations$themeEditor$contrast$en {
+	_Translations$themeEditor$contrast$ru._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get textOnBg => 'Текст на фоне';
+	@override String get textOnSurface => 'Текст на поверхности';
+	@override String get textMutedOnBg => 'Второстепенный текст на фоне';
+	@override String get textMutedOnSurface => 'Второстепенный текст на поверхности';
+	@override String get accentOnBg => 'Акцент на фоне';
+	@override String get accentOnSurface => 'Акцент на поверхности';
+	@override String get labelOnAccent => 'Надпись кнопки на акценте';
+}
+
 /// The flat map containing all translations for locale <ru>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -3419,38 +3532,7 @@ class _Translations$services$libraryFilter$ru extends Translations$services$libr
 extension on TranslationsRu {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
-			'appIcon.title' => 'Значок приложения',
-			'appIcon.defaultIcon' => 'Стандартный',
-			'appIcon.current' => 'Текущий значок',
-			'appIcon.locked' => 'Бонус Supporter',
-			'appIcon.lockedHint' => 'Альтернативные значки — бонус Supporter.',
-			'appIcon.changeFailed' => 'Не удалось сменить значок приложения',
-			'appIcon.launcherHint' => 'Новый значок появится на главном экране, когда вы выйдете из Plezy.',
-			'appIcon.tvLauncherHint' => 'Новый баннер появится, когда вы выйдете из Plezy. Android TV может показывать старый до перезапуска телевизора.',
-			'appIcon.names.midnight' => 'Полночь',
-			'appIcon.names.ember' => 'Уголёк',
-			'appIcon.names.paper' => 'Бумага',
-			'appIcon.names.oled' => 'OLED',
-			'appIcon.names.line' => 'Контур',
-			'appIcon.names.ocean' => 'Океан',
-			'appIcon.names.ultraviolet' => 'Ультрафиолет',
-			'appIcon.names.matcha' => 'Матча',
-			'appIcon.names.sunset' => 'Закат',
-			'appIcon.names.gold' => 'Золото',
-			'appIcon.names.titanium' => 'Титан',
-			'appIcon.names.glass' => 'Стекло',
-			'appIcon.names.crt' => 'CRT',
-			'appIcon.names.vhs' => 'VHS',
-			'appIcon.names.synthwave' => 'Synthwave',
-			'appIcon.names.pixel' => 'Пиксель',
-			'appIcon.names.neon' => 'Неон',
-			'appIcon.names.sticker' => 'Наклейка',
-			'appIcon.names.ticket' => 'Билет',
-			'appIcon.names.pop' => 'Поп-арт',
-			'appIcon.names.strata' => 'Слои',
-			'appIcon.names.facet' => 'Грани',
-			'appIcon.names.tilde' => 'Тильда',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Войти через Plex',
 			'auth.showQRCode' => 'Показать QR-код',
 			'auth.authenticate' => 'Войти',
@@ -3554,29 +3636,14 @@ extension on TranslationsRu {
 			'update.viewRelease' => 'Посмотреть релиз',
 			'update.latestVersion' => 'У вас последняя версия',
 			'update.checkFailed' => 'Не удалось проверить обновления',
-			'supporter.title' => 'Plezy Supporter',
-			'supporter.intro' => 'Разовая покупка, которая поддерживает разработку Plezy и открывает косметические дополнения:',
-			'supporter.presetThemes' => 'Готовые темы',
-			'supporter.presetThemesDescription' => 'Уголёк, Ледник, Лес, Слива и Бумага',
-			'supporter.customTheme' => 'Своя тема',
-			'supporter.customThemeDescription' => 'Выберите каждый цвет сами',
-			'supporter.appIcons' => 'Значки приложения',
-			'supporter.appIconsDescription' => 'Выберите альтернативный значок Plezy',
-			'supporter.buy' => ({required Object price}) => 'Купить за ${price}',
-			'supporter.loadingPrice' => 'Загрузка цены...',
-			'supporter.restore' => 'Восстановить покупки',
-			'supporter.pending' => 'Покупка ожидает оплаты или подтверждения. Дополнения откроются, как только магазин её завершит.',
-			'supporter.thankYouTitle' => 'Спасибо за поддержку Plezy',
-			'supporter.thankYouBody' => 'Дополнения Supporter разблокированы.',
-			'supporter.tileSubtitle' => 'Откройте темы и значки приложения разовой покупкой',
-			'supporter.tileSubtitleThemesOnly' => 'Откройте темы разовой покупкой',
-			'supporter.tileUnlocked' => 'Спасибо за вашу поддержку',
-			'supporter.errors.storeUnavailable' => 'Покупки недоступны. Убедитесь, что вы вошли в магазин и покупки разрешены на этом устройстве.',
-			'supporter.errors.productNotFound' => 'Покупка Supporter сейчас недоступна в вашем магазине.',
-			'supporter.errors.productQueryFailed' => 'Не удалось загрузить цену. Проверьте подключение и попробуйте снова.',
-			'supporter.errors.purchaseFailed' => 'Покупка не прошла. Попробуйте снова.',
-			'supporter.errors.restoreFailed' => 'Не удалось связаться с магазином для восстановления покупки. Попробуйте снова.',
-			'supporter.errors.nothingToRestore' => 'Для этой учётной записи магазина покупка Supporter не найдена.',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Настройки',
 			'settings.supportDeveloper' => 'Поддержать Plezy',
 			'settings.supportDeveloperDescription' => 'Пожертвуйте через Liberapay на развитие',
@@ -3912,46 +3979,24 @@ extension on TranslationsRu {
 			'settings.playerScopeLibrary' => 'Для библиотеки',
 			'settings.playerScopeTitle' => 'Для сериала или фильма',
 			'settings.exportDialogTitle' => 'Экспорт настроек Plezy',
-			'themeEditor.builtIn' => 'Встроенные',
-			'themeEditor.presets' => 'Готовые',
-			'themeEditor.custom' => 'Своя',
-			'themeEditor.customEmpty' => 'Ещё не создана',
-			'themeEditor.editCustom' => 'Изменить свою тему',
-			'themeEditor.editCustomDescription' => 'Выберите каждый цвет сами',
-			'themeEditor.locked' => 'Доступно с Supporter',
-			'themeEditor.savedLocked' => 'Сохранено — станет доступно с Supporter',
-			'themeEditor.title' => 'Своя тема',
-			'themeEditor.startFrom' => 'Взять за основу',
-			'themeEditor.startFromDescription' => 'Скопировать все цвета из другой темы',
-			'themeEditor.colors' => 'Цвета',
-			'themeEditor.preview' => 'Предпросмотр',
-			'themeEditor.slots.bg' => 'Фон',
-			'themeEditor.slots.surface' => 'Поверхность',
-			'themeEditor.slots.outline' => 'Обводка',
-			'themeEditor.slots.text' => 'Текст',
-			'themeEditor.slots.textMuted' => 'Второстепенный текст',
-			'themeEditor.slots.accent' => 'Акцент',
-			_ => null,
-		} ?? switch (path) {
-			'themeEditor.opacity' => 'Непрозрачность',
-			'themeEditor.hexHint' => '#RRGGBB или #AARRGGBB',
-			'themeEditor.fromOtherThemes' => 'Из других тем',
-			'themeEditor.swatchLabel' => ({required Object color, required Object theme}) => '${color} темы «${theme}»',
-			'themeEditor.contrast.textOnBg' => 'Текст на фоне',
-			'themeEditor.contrast.textOnSurface' => 'Текст на поверхности',
-			'themeEditor.contrast.textMutedOnBg' => 'Второстепенный текст на фоне',
-			'themeEditor.contrast.textMutedOnSurface' => 'Второстепенный текст на поверхности',
-			'themeEditor.contrast.accentOnBg' => 'Акцент на фоне',
-			'themeEditor.contrast.accentOnSurface' => 'Акцент на поверхности',
-			'themeEditor.contrast.labelOnAccent' => 'Надпись кнопки на акценте',
-			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, ниже рекомендуемых ${minimum}:1',
-			'themeEditor.discardTitle' => 'Не сохранять изменения?',
-			'themeEditor.discardMessage' => 'Несохранённые изменения цветов будут потеряны.',
-			'themeEditor.discard' => 'Не сохранять',
-			'themeEditor.previewCardTitle' => ({required Object number}) => 'Эпизод ${number}',
-			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => 'Осталось ${minutes} мин',
-			'themeEditor.previewSwitch' => 'Автовоспроизведение',
-			'themeEditor.previewMutedText' => 'Так выглядит второстепенный текст',
+			'settings.downloadLocationSelectError' => 'Не удалось выбрать папку',
+			'settings.mediaCapture' => 'Медиа-захват',
+			'settings.clips' => 'Клипы',
+			'settings.screenshots' => 'Скриншоты',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Местоположение',
+			'settings.clipLocationDescription' => 'Выберите, где будут сохраняться клипы.',
+			'settings.screenshotLocationDescription' => 'Выберите, где будут сохраняться снимки экрана.',
+			'settings.clipLocationChanged' => 'Местоположение клипа изменено',
+			'settings.screenshotLocationChanged' => 'Местоположение скриншота изменено',
+			'settings.clipLocationReset' => 'Сброс местоположения клипа на рабочий стол',
+			'settings.screenshotLocationReset' => 'Сброс местоположения скриншота на рабочий стол',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'search.hint' => 'Поиск фильмов, сериалов, музыки...',
 			'search.tryDifferentTerm' => 'Попробуйте другой запрос',
 			'search.searchYourMedia' => 'Поиск в вашей медиатеке',
@@ -3988,6 +4033,8 @@ extension on TranslationsRu {
 			'hotkeys.actions.shaderToggle' => 'Вкл./выкл. шейдеры',
 			'hotkeys.actions.skipMarker' => 'Пропустить вступление/титры',
 			'hotkeys.actions.screenshot' => 'Сделать снимок экрана',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Информация о файле',
 			'fileInfo.overview' => 'Обзор',
 			'fileInfo.video' => 'Видео',
@@ -3997,6 +4044,8 @@ extension on TranslationsRu {
 			'fileInfo.dataStreams' => 'Потоки данных',
 			'fileInfo.lyrics' => 'Текст песни',
 			'fileInfo.file' => 'Файл',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.attachments' => 'Вложения',
 			'fileInfo.delivery' => 'Доставка',
 			'fileInfo.versionCounter' => ({required Object index, required Object count}) => 'Версия ${index} из ${count}',
@@ -4235,7 +4284,6 @@ extension on TranslationsRu {
 			'videoControls.pipActive' => 'Воспроизводится в режиме «картинка в картинке»',
 			'videoControls.pipFailed' => 'Не удалось запустить режим «картинка в картинке»',
 			'videoControls.screenshotSaved' => 'Снимок экрана сохранён',
-			'videoControls.screenshotFailed' => 'Не удалось сделать снимок экрана',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Масштаб ${percent}%',
 			'videoControls.volumePercent' => ({required Object percent}) => 'Громкость ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Требуется Android 8.0 или новее',
@@ -4267,6 +4315,46 @@ extension on TranslationsRu {
 			'videoControls.osdSubtitlesOff' => 'Субтитры: выкл.',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Субтитры: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Аудио: ${track}',
+			'videoControls.screenshotFailed' => 'Не удалось сделать снимок экрана',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ru'))(n, one: '${n} frame', other: '${n} frames', ), 
+			'videoControls.clip.fineAdjust' => 'Точная настройка',
+			'videoControls.clip.title' => 'Клип',
+			'videoControls.clip.vodOnly' => 'Клипы доступны для воспроизведения видео по требованию.',
+			'videoControls.clip.sourceUnavailable' => 'Источник клипа недоступен для этого сеанса воспроизведения.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Воспроизведите хотя бы 1 секунду перед обрезкой.',
+			'videoControls.clip.startBeforeBeginning' => 'Начало клипа не может быть раньше начала видео.',
+			'videoControls.clip.endAfterStart' => 'Конец клипа должен быть после начала.',
+			'videoControls.clip.minimumDuration' => 'Ролики должны длиться не менее 1 секунды.',
+			'videoControls.clip.endPastVideo' => 'Конец клипа находится за концом видео.',
+			'videoControls.clip.exportCanceled' => 'Экспорт клипа отменен.',
+			'videoControls.clip.cacheUnavailable' => 'Выбранный диапазон не удалось полностью кэшировать для исходного экспорта. Попробуйте более короткий клип или воспроизведите предварительный просмотр один раз перед сохранением.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Экспорт исходной копии не использует кодировщик.',
+			'videoControls.clip.encodingDesktopOnly' => 'Кодирование клипов H.264 и HEVC в настоящее время доступно в macOS и Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'Для экспорта HDR требуется источник с прямым воспроизведением HDR10 или HLG.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Этот клип начинается перед активным транскодированным потоком. Найдите более ранний фрагмент и снова откройте вырезку или переключитесь на исходное качество.',
+			'videoControls.clip.previewRequired' => 'Предварительный просмотр клипа должен завершить загрузку, прежде чем его можно будет сохранить.',
+			'videoControls.clip.h264Failed' => 'Этот источник не удалось закодировать как H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'Этот источник не удалось закодировать как HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'Этот источник не удалось закодировать как HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Не удалось закодировать этот источник в GIF.',
+			'videoControls.clip.originalFailed' => 'Этот источник не удалось скопировать из кэша mpv.',
+			'videoControls.clip.previewUnavailable' => 'Предварительный просмотр клипа недоступен в этой сборке.',
+			'videoControls.clip.previewFailed' => 'Не удалось воспроизвести предварительный просмотр клипа.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Прежде чем сделать снимок экрана, предварительный просмотр клипа должен завершить загрузку.',
+			'videoControls.clip.screenshotInProgress' => 'Скриншот уже сохраняется.',
+			'videoControls.clip.saveAsDialog' => 'Сохранить клип как',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Сохранено в ${fileName}.',
+			'videoControls.clip.openFolder' => 'Открыть папку',
+			'videoControls.clip.saveAs' => 'Сохранить как',
+			'videoControls.clip.cancelExport' => 'Отменить экспорт',
+			'videoControls.clip.saving' => 'Сохранение...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Экономия ${percent}%',
+			'videoControls.clip.mutePreview' => 'Отключить предварительный просмотр',
+			'videoControls.clip.unmutePreview' => 'Включить предварительный просмотр',
+			'videoControls.clip.formatHevcSdr' => 'HEVC СДР',
+			'videoControls.clip.formatH264Sdr' => 'H.264 СДР',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'Отмечено как просмотренное',
 			'messages.markedAsUnwatched' => 'Отмечено как непросмотренное',
 			'messages.markedAsWatchedOffline' => 'Отмечено как просмотренное (синхронизируется при подключении)',
@@ -4445,8 +4533,6 @@ extension on TranslationsRu {
 			'profiles.tokenIdentityMismatch' => 'Токен профиля Plex указал на неожиданный сервер',
 			'connections.sectionTitle' => 'Подключения',
 			'connections.addConnection' => 'Добавить подключение',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnectionSubtitleNoProfile' => 'Войдите через Plex или подключите сервер Jellyfin или Emby',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => 'Добавить к ${displayName}: Plex, Jellyfin, Emby или подключение другого профиля',
 			'connections.sessionExpiredOne' => ({required Object name}) => 'Сессия истекла для ${name}',
@@ -4472,6 +4558,8 @@ extension on TranslationsRu {
 			'accountPreferences.groups.personalMedia' => 'Личные медиа',
 			'accountPreferences.preferredAudioLanguage' => 'Предпочитаемый язык аудио',
 			'accountPreferences.autoSelectAudio' => 'Выбирать аудиодорожку по языку',
+			_ => null,
+		} ?? switch (path) {
 			'accountPreferences.autoSelectAudioDescription' => 'В выключенном состоянии используется аудиодорожка, помеченная в файле как дорожка по умолчанию.',
 			'accountPreferences.preferredSubtitleLanguage' => 'Предпочитаемый язык субтитров',
 			'accountPreferences.subtitleMode' => 'Включать субтитры',
@@ -4679,6 +4767,9 @@ extension on TranslationsRu {
 			'about.versionLabel' => ({required Object version}) => 'Версия ${version}',
 			'about.appDescription' => 'Красивый клиент Plex, Jellyfin и Emby на Flutter',
 			'about.viewLicensesDescription' => 'Просмотр лицензий сторонних библиотек',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Серверы не найдены для ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Не удалось загрузить серверы: ${error}',
 			'serverSelection.noValidServers' => 'В этой учётной записи не найдено пригодных серверов',
@@ -4757,6 +4848,7 @@ extension on TranslationsRu {
 			'explore.removedFromWatchlist' => 'Удалено из списка просмотра',
 			'explore.watchlistUpdateFailed' => 'Не удалось обновить список для просмотра',
 			'explore.watchlistNoMatch' => 'Не удалось сопоставить этот элемент со списком просмотра',
+			'explore.openInLibrary' => 'Открыть в библиотеке',
 			'explore.notInLibrary' => 'Нет в вашей библиотеке',
 			'explore.inTheseLibraries' => 'В этих библиотеках',
 			'explore.checkingLibrary' => 'Проверка вашей библиотеки...',
@@ -4886,6 +4978,7 @@ extension on TranslationsRu {
 			'liveTv.channelNumber' => ({required Object number}) => 'Канал ${number}',
 			'liveTv.unknownChannel' => 'Неизвестный канал',
 			'liveTv.live' => 'ЭФИР',
+			'liveTv.premiereBadge' => 'NEW',
 			'liveTv.reloadGuide' => 'Перезагрузить программу',
 			'liveTv.searchGuide' => 'Поиск в программе',
 			'liveTv.searchHint' => 'Поиск каналов и программ',
@@ -4959,8 +5052,6 @@ extension on TranslationsRu {
 			'liveTv.recordSettings.keepUpToHint' => '0 — хранить все эпизоды',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => 'Начало через ${minutes} мин',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} в ${time}',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.invalidPlaybackData' => ({required Object product}) => '${product} вернул некорректные данные для воспроизведения ТВ в прямом эфире',
 			'liveTv.failedToStartChannel' => 'Не удалось запустить канал в прямом эфире',
 			'liveTv.failedToBuildStreamUrl' => 'Не удалось сформировать URL потока',
@@ -4981,6 +5072,8 @@ extension on TranslationsRu {
 			'collections.errorAddingToCollection' => 'Не удалось добавить в коллекцию',
 			'collections.created' => 'Коллекция создана',
 			'collections.removeFromCollection' => 'Удалить из коллекции',
+			_ => null,
+		} ?? switch (path) {
 			'collections.removeFromCollectionConfirm' => ({required Object title}) => 'Удалить "${title}" из этой коллекции?',
 			'collections.removedFromCollection' => 'Удалено из коллекции',
 			'collections.removeFromCollectionFailed' => 'Не удалось удалить из коллекции',
@@ -5461,6 +5554,7 @@ extension on TranslationsRu {
 			'performanceOverlay.cacheLimit' => 'Лимит кэша',
 			'performanceOverlay.speed' => 'Скорость',
 			'performanceOverlay.player' => 'Плеер',
+			'performanceOverlay.playMethod' => 'Play Method',
 			'performanceOverlay.memory' => 'Память',
 			'performanceOverlay.uiFps' => 'FPS интерфейса',
 			'performanceOverlay.fps' => 'FPS',
@@ -5473,8 +5567,6 @@ extension on TranslationsRu {
 			'performanceOverlay.decoderHardware' => 'Аппаратный',
 			'performanceOverlay.tunnelingActive' => 'Активно',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (ошибок: ${failures})',
-			_ => null,
-		} ?? switch (path) {
 			'externalPlayer.title' => 'Внешний плеер',
 			'externalPlayer.useExternalPlayer' => 'Использовать внешний плеер',
 			'externalPlayer.useExternalPlayerDescription' => 'Открывать видео в другом приложении',
@@ -5494,6 +5586,8 @@ extension on TranslationsRu {
 			'metadataEdit.editMetadata' => 'Редактировать...',
 			'metadataEdit.screenTitle' => 'Редактировать метаданные',
 			'metadataEdit.basicInfo' => 'Основная информация',
+			_ => null,
+		} ?? switch (path) {
 			'metadataEdit.artwork' => 'Обложка',
 			'metadataEdit.advancedSettings' => 'Дополнительные настройки',
 			'metadataEdit.title' => 'Название',
@@ -5727,6 +5821,115 @@ extension on TranslationsRu {
 			'addServer.redirectDifferentHost' => ({required Object product}) => 'Сервер перенаправил на другой хост. Введите конечный URL ${product} напрямую.',
 			'addServer.redirectInsecure' => 'Сервер перенаправил с HTTPS на небезопасный URL',
 			'addServer.redirectUnsupportedEnterFinal' => ({required Object product}) => 'Сервер перенаправил на неподдерживаемый URL. Введите конечный URL ${product} напрямую.',
+			'appIcon.title' => 'Значок приложения',
+			'appIcon.defaultIcon' => 'Стандартный',
+			'appIcon.current' => 'Текущий значок',
+			'appIcon.locked' => 'Бонус Supporter',
+			'appIcon.lockedHint' => 'Альтернативные значки — бонус Supporter.',
+			'appIcon.changeFailed' => 'Не удалось сменить значок приложения',
+			'appIcon.launcherHint' => 'Новый значок появится на главном экране, когда вы выйдете из Plezy.',
+			'appIcon.tvLauncherHint' => 'Новый баннер появится, когда вы выйдете из Plezy. Android TV может показывать старый до перезапуска телевизора.',
+			'appIcon.names.midnight' => 'Полночь',
+			'appIcon.names.ember' => 'Уголёк',
+			'appIcon.names.paper' => 'Бумага',
+			'appIcon.names.oled' => 'OLED',
+			'appIcon.names.line' => 'Контур',
+			'appIcon.names.ocean' => 'Океан',
+			'appIcon.names.ultraviolet' => 'Ультрафиолет',
+			'appIcon.names.matcha' => 'Матча',
+			'appIcon.names.sunset' => 'Закат',
+			'appIcon.names.gold' => 'Золото',
+			'appIcon.names.titanium' => 'Титан',
+			'appIcon.names.glass' => 'Стекло',
+			'appIcon.names.crt' => 'CRT',
+			'appIcon.names.vhs' => 'VHS',
+			'appIcon.names.synthwave' => 'Synthwave',
+			'appIcon.names.pixel' => 'Пиксель',
+			'appIcon.names.neon' => 'Неон',
+			'appIcon.names.sticker' => 'Наклейка',
+			'appIcon.names.ticket' => 'Билет',
+			'appIcon.names.pop' => 'Поп-арт',
+			'appIcon.names.strata' => 'Слои',
+			'appIcon.names.facet' => 'Грани',
+			'appIcon.names.tilde' => 'Тильда',
+			'supporter.title' => 'Plezy Supporter',
+			'supporter.intro' => 'Разовая покупка, которая поддерживает разработку Plezy и открывает косметические дополнения:',
+			'supporter.presetThemes' => 'Готовые темы',
+			'supporter.presetThemesDescription' => 'Уголёк, Ледник, Лес, Слива и Бумага',
+			'supporter.customTheme' => 'Своя тема',
+			'supporter.customThemeDescription' => 'Выберите каждый цвет сами',
+			'supporter.appIcons' => 'Значки приложения',
+			'supporter.appIconsDescription' => 'Выберите альтернативный значок Plezy',
+			'supporter.buy' => ({required Object price}) => 'Купить за ${price}',
+			'supporter.loadingPrice' => 'Загрузка цены...',
+			'supporter.restore' => 'Восстановить покупки',
+			'supporter.pending' => 'Покупка ожидает оплаты или подтверждения. Дополнения откроются, как только магазин её завершит.',
+			'supporter.thankYouTitle' => 'Спасибо за поддержку Plezy',
+			'supporter.thankYouBody' => 'Дополнения Supporter разблокированы.',
+			'supporter.tileSubtitle' => 'Откройте темы и значки приложения разовой покупкой',
+			'supporter.tileSubtitleThemesOnly' => 'Откройте темы разовой покупкой',
+			'supporter.tileUnlocked' => 'Спасибо за вашу поддержку',
+			'supporter.errors.storeUnavailable' => 'Покупки недоступны. Убедитесь, что вы вошли в магазин и покупки разрешены на этом устройстве.',
+			'supporter.errors.productNotFound' => 'Покупка Supporter сейчас недоступна в вашем магазине.',
+			'supporter.errors.productQueryFailed' => 'Не удалось загрузить цену. Проверьте подключение и попробуйте снова.',
+			'supporter.errors.purchaseFailed' => 'Покупка не прошла. Попробуйте снова.',
+			'supporter.errors.restoreFailed' => 'Не удалось связаться с магазином для восстановления покупки. Попробуйте снова.',
+			'supporter.errors.nothingToRestore' => 'Для этой учётной записи магазина покупка Supporter не найдена.',
+			'themeEditor.builtIn' => 'Встроенные',
+			'themeEditor.presets' => 'Готовые',
+			'themeEditor.custom' => 'Своя',
+			'themeEditor.customEmpty' => 'Ещё не создана',
+			'themeEditor.editCustom' => 'Изменить свою тему',
+			'themeEditor.editCustomDescription' => 'Выберите каждый цвет сами',
+			'themeEditor.locked' => 'Доступно с Supporter',
+			'themeEditor.savedLocked' => 'Сохранено — станет доступно с Supporter',
+			'themeEditor.title' => 'Своя тема',
+			'themeEditor.startFrom' => 'Взять за основу',
+			'themeEditor.startFromDescription' => 'Скопировать все цвета из другой темы',
+			'themeEditor.colors' => 'Цвета',
+			'themeEditor.preview' => 'Предпросмотр',
+			'themeEditor.slots.bg' => 'Фон',
+			'themeEditor.slots.surface' => 'Поверхность',
+			'themeEditor.slots.outline' => 'Обводка',
+			'themeEditor.slots.text' => 'Текст',
+			'themeEditor.slots.textMuted' => 'Второстепенный текст',
+			'themeEditor.slots.accent' => 'Акцент',
+			'themeEditor.opacity' => 'Непрозрачность',
+			'themeEditor.hexHint' => '#RRGGBB или #AARRGGBB',
+			'themeEditor.fromOtherThemes' => 'Из других тем',
+			'themeEditor.swatchLabel' => ({required Object color, required Object theme}) => '${color} темы «${theme}»',
+			'themeEditor.contrast.textOnBg' => 'Текст на фоне',
+			'themeEditor.contrast.textOnSurface' => 'Текст на поверхности',
+			'themeEditor.contrast.textMutedOnBg' => 'Второстепенный текст на фоне',
+			'themeEditor.contrast.textMutedOnSurface' => 'Второстепенный текст на поверхности',
+			'themeEditor.contrast.accentOnBg' => 'Акцент на фоне',
+			'themeEditor.contrast.accentOnSurface' => 'Акцент на поверхности',
+			'themeEditor.contrast.labelOnAccent' => 'Надпись кнопки на акценте',
+			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, ниже рекомендуемых ${minimum}:1',
+			'themeEditor.discardTitle' => 'Не сохранять изменения?',
+			'themeEditor.discardMessage' => 'Несохранённые изменения цветов будут потеряны.',
+			'themeEditor.discard' => 'Не сохранять',
+			'themeEditor.previewCardTitle' => ({required Object number}) => 'Эпизод ${number}',
+			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => 'Осталось ${minutes} мин',
+			'themeEditor.previewSwitch' => 'Автовоспроизведение',
+			'themeEditor.previewMutedText' => 'Так выглядит второстепенный текст',
+			'deepLinks.invalid' => 'This Plezy link isn\'t valid.',
+			'deepLinks.profileNotFound' => ({required Object profile}) => 'No profile matches "${profile}".',
+			'deepLinks.serverUnavailable' => 'Couldn\'t reach the server for this link.',
+			'deepLinks.notFound' => 'Couldn\'t find this title in your libraries.',
+			'deepLinks.unsupportedItem' => 'This link can\'t be played.',
+			'deepLinks.noLiveTv' => 'No Live TV server is available for this link.',
+			'deepLinks.channelNotFound' => ({required Object channel}) => 'Couldn\'t find channel "${channel}".',
+			'deepLinks.showLink' => 'Show link',
+			'deepLinks.showProfileLink' => 'Show profile link',
+			'deepLinks.dialogTitle' => 'Link',
+			'deepLinks.showHint' => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.',
+			'deepLinks.movieHint' => 'Opening this link plays the movie.',
+			'deepLinks.episodeHint' => 'Opening this link plays this episode.',
+			'deepLinks.profileHint' => 'Opening this link switches to this profile.',
+			'deepLinks.openAsProfile' => ({required Object name}) => 'Open as ${name}',
+			'deepLinks.copy' => 'Copy',
+			'deepLinks.copied' => 'Link copied',
 			_ => null,
 		};
 	}

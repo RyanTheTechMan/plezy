@@ -40,14 +40,11 @@ class TranslationsAz extends Translations with BaseTranslations<AppLocale, Trans
 
 	// Translations
 	@override late final _Translations$app$az app = _Translations$app$az._(_root);
-	@override late final _Translations$appIcon$az appIcon = _Translations$appIcon$az._(_root);
 	@override late final _Translations$auth$az auth = _Translations$auth$az._(_root);
 	@override late final _Translations$common$az common = _Translations$common$az._(_root);
 	@override late final _Translations$screens$az screens = _Translations$screens$az._(_root);
 	@override late final _Translations$update$az update = _Translations$update$az._(_root);
-	@override late final _Translations$supporter$az supporter = _Translations$supporter$az._(_root);
 	@override late final _Translations$settings$az settings = _Translations$settings$az._(_root);
-	@override late final _Translations$themeEditor$az themeEditor = _Translations$themeEditor$az._(_root);
 	@override late final _Translations$search$az search = _Translations$search$az._(_root);
 	@override late final _Translations$hotkeys$az hotkeys = _Translations$hotkeys$az._(_root);
 	@override late final _Translations$fileInfo$az fileInfo = _Translations$fileInfo$az._(_root);
@@ -93,6 +90,10 @@ class TranslationsAz extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$seerr$az seerr = _Translations$seerr$az._(_root);
 	@override late final _Translations$services$az services = _Translations$services$az._(_root);
 	@override late final _Translations$addServer$az addServer = _Translations$addServer$az._(_root);
+	@override late final _Translations$appIcon$az appIcon = _Translations$appIcon$az._(_root);
+	@override late final _Translations$supporter$az supporter = _Translations$supporter$az._(_root);
+	@override late final _Translations$themeEditor$az themeEditor = _Translations$themeEditor$az._(_root);
+	@override late final _Translations$deepLinks$az deepLinks = _Translations$deepLinks$az._(_root);
 }
 
 // Path: app
@@ -102,25 +103,7 @@ class _Translations$app$az extends Translations$app$en {
 	final TranslationsAz _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
-}
-
-// Path: appIcon
-class _Translations$appIcon$az extends Translations$appIcon$en {
-	_Translations$appIcon$az._(TranslationsAz root) : this._root = root, super.internal(root);
-
-	final TranslationsAz _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Tətbiq ikonu';
-	@override String get defaultIcon => 'Defolt';
-	@override String get current => 'Cari ikon';
-	@override String get locked => 'Supporter imtiyazı';
-	@override String get lockedHint => 'Alternativ ikonlar Supporter imtiyazıdır.';
-	@override String get changeFailed => 'Tətbiq ikonu dəyişdirilə bilmədi';
-	@override String get launcherHint => 'Plezy-dən çıxdıqdan sonra yeni ikon ana ekranınızda görünəcək.';
-	@override String get tvLauncherHint => 'Plezy-dən çıxdıqdan sonra yeni banner görünəcək. Android TV televizor yenidən başladılana qədər köhnəsini göstərə bilər.';
-	@override late final _Translations$appIcon$names$az names = _Translations$appIcon$names$az._(_root);
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -237,33 +220,14 @@ class _Translations$update$az extends Translations$update$en {
 	@override String get viewRelease => 'Buraxılışa bax';
 	@override String get latestVersion => 'Siz ən son versiyadasınız';
 	@override String get checkFailed => 'Yenilənmələr yoxlanıla bilmədi';
-}
-
-// Path: supporter
-class _Translations$supporter$az extends Translations$supporter$en {
-	_Translations$supporter$az._(TranslationsAz root) : this._root = root, super.internal(root);
-
-	final TranslationsAz _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Plezy Supporter';
-	@override String get intro => 'Plezy-nin inkişafını dəstəkləyən və kosmetik əlavələri açan birdəfəlik alış:';
-	@override String get presetThemes => 'Hazır mövzular';
-	@override String get presetThemesDescription => 'Köz, Buzlaq, Meşə, Gavalı və Kağız';
-	@override String get customTheme => 'Xüsusi mövzu';
-	@override String get customThemeDescription => 'Bütün rəngləri özünüz seçin';
-	@override String get appIcons => 'Tətbiq ikonları';
-	@override String get appIconsDescription => 'Alternativ Plezy ikonu seçin';
-	@override String buy({required Object price}) => '${price} qiymətinə al';
-	@override String get loadingPrice => 'Qiymət yüklənir...';
-	@override String get restore => 'Alışları bərpa et';
-	@override String get pending => 'Alışınız ödəniş və ya təsdiq gözləyir. Mağaza onu tamamlayan kimi əlavələr açılacaq.';
-	@override String get thankYouTitle => 'Plezy-ni dəstəklədiyiniz üçün təşəkkür edirik';
-	@override String get thankYouBody => 'Supporter əlavələriniz açıldı.';
-	@override String get tileSubtitle => 'Mövzuları və tətbiq ikonlarını birdəfəlik alışla açın';
-	@override String get tileSubtitleThemesOnly => 'Mövzuları birdəfəlik alışla açın';
-	@override String get tileUnlocked => 'Dəstəyiniz üçün təşəkkür edirik';
-	@override late final _Translations$supporter$errors$az errors = _Translations$supporter$errors$az._(_root);
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -608,42 +572,24 @@ class _Translations$settings$az extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Kitabxana üzrə';
 	@override String get playerScopeTitle => 'Serial və ya film üzrə';
 	@override String get exportDialogTitle => 'Plezy tənzimləmələrini ixrac et';
-}
-
-// Path: themeEditor
-class _Translations$themeEditor$az extends Translations$themeEditor$en {
-	_Translations$themeEditor$az._(TranslationsAz root) : this._root = root, super.internal(root);
-
-	final TranslationsAz _root; // ignore: unused_field
-
-	// Translations
-	@override String get builtIn => 'Daxili';
-	@override String get presets => 'Hazır mövzular';
-	@override String get custom => 'Xüsusi';
-	@override String get customEmpty => 'Hələ yaradılmayıb';
-	@override String get editCustom => 'Xüsusi mövzuya düzəliş et';
-	@override String get editCustomDescription => 'Bütün rəngləri özünüz seçin';
-	@override String get locked => 'Supporter ilə açın';
-	@override String get savedLocked => 'Yadda saxlanılıb — Supporter ilə açılır';
-	@override String get title => 'Xüsusi mövzu';
-	@override String get startFrom => 'Başlanğıc mövzu';
-	@override String get startFromDescription => 'Bütün rəngləri başqa mövzudan kopyala';
-	@override String get colors => 'Rənglər';
-	@override String get preview => 'Önizləmə';
-	@override late final _Translations$themeEditor$slots$az slots = _Translations$themeEditor$slots$az._(_root);
-	@override String get opacity => 'Şəffaflıq';
-	@override String get hexHint => '#RRGGBB və ya #AARRGGBB';
-	@override String get fromOtherThemes => 'Digər mövzulardan';
-	@override String swatchLabel({required Object theme, required Object color}) => '${theme}: ${color}';
-	@override late final _Translations$themeEditor$contrast$az contrast = _Translations$themeEditor$contrast$az._(_root);
-	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, tövsiyə olunan ${minimum}:1-dən aşağı';
-	@override String get discardTitle => 'Dəyişikliklərdən imtina edilsin?';
-	@override String get discardMessage => 'Yadda saxlanmamış rəng dəyişiklikləriniz itəcək.';
-	@override String get discard => 'İmtina et';
-	@override String previewCardTitle({required Object number}) => 'Seriya ${number}';
-	@override String previewCardSubtitle({required Object minutes}) => '${minutes} dəq qaldı';
-	@override String get previewSwitch => 'Avtomatik oynatma';
-	@override String get previewMutedText => 'Köməkçi mətn belə görünür';
+	@override String get downloadLocationSelectError => 'Qovluq seçilə bilmədi';
+	@override String get mediaCapture => 'Media qeydi';
+	@override String get clips => 'Kliplər';
+	@override String get screenshots => 'Ekran şəkilləri';
+	@override String captureLocationTitle({required Object title}) => '${title} üçün saxlama yeri';
+	@override String get clipLocationDescription => 'Kliplərin harada saxlanacağını seçin.';
+	@override String get screenshotLocationDescription => 'Ekran şəkillərinin harada saxlanacağını seçin.';
+	@override String get clipLocationChanged => 'Kliplərin saxlama yeri dəyişdirildi';
+	@override String get screenshotLocationChanged => 'Ekran şəkillərinin saxlama yeri dəyişdirildi';
+	@override String get clipLocationReset => 'Kliplərin saxlama yeri İş masasına qaytarıldı';
+	@override String get screenshotLocationReset => 'Ekran şəkillərinin saxlama yeri İş masasına qaytarıldı';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
+	@override String get packedStereoUi => '3D Playback UI';
 }
 
 // Path: search
@@ -993,7 +939,6 @@ class _Translations$videoControls$az extends Translations$videoControls$en {
 	@override String get pipActive => 'Pəncərə daxilində pəncərə rejimində oynadılır';
 	@override String get pipFailed => 'PiP rejimi başladılarkən xəta';
 	@override String get screenshotSaved => 'Ekran şəkli yadda saxlanıldı';
-	@override String get screenshotFailed => 'Ekran şəkli çəkilə bilmədi';
 	@override String zoomPercent({required Object percent}) => 'Miqyas %${percent}';
 	@override String volumePercent({required Object percent}) => 'Səs ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$az pipErrors = _Translations$videoControls$pipErrors$az._(_root);
@@ -1018,6 +963,13 @@ class _Translations$videoControls$az extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Altyazı: Söndürülüb';
 	@override String osdSubtitles({required Object track}) => 'Altyazı: ${track}';
 	@override String osdAudio({required Object track}) => 'Səs: ${track}';
+	@override String get screenshotFailed => 'Ekran şəkli çəkilə bilmədi';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('az'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
+	@override late final _Translations$videoControls$clip$az clip = _Translations$videoControls$clip$az._(_root);
 }
 
 // Path: messages
@@ -1440,6 +1392,9 @@ class _Translations$about$az extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Versiya ${version}';
 	@override String get appDescription => 'Flutter üçün gözəl bir Plex, Jellyfin və Emby klienti';
 	@override String get viewLicensesDescription => 'Üçüncü tərəf kitabxanalarının lisenziyalarına baxın';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1568,6 +1523,7 @@ class _Translations$explore$az extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Baxış siyahısından silindi';
 	@override String get watchlistUpdateFailed => 'İzləmə siyahısı yenilənə bilmədi';
 	@override String get watchlistNoMatch => 'Bu elementi heç bir baxış siyahısı ilə uyğunlaşdırmaq olmadı';
+	@override String get openInLibrary => 'Kitabxanada aç';
 	@override String get notInLibrary => 'Kitabxananızda yoxdur';
 	@override String get inTheseLibraries => 'Bu kitabxanalarda var';
 	@override String get checkingLibrary => 'Kitabxananız yoxlanılır...';
@@ -1618,6 +1574,7 @@ class _Translations$liveTv$az extends Translations$liveTv$en {
 	@override String channelNumber({required Object number}) => 'Kanal ${number}';
 	@override String get unknownChannel => 'Bilinməyən kanal';
 	@override String get live => 'CANLI';
+	@override String get premiereBadge => 'NEW';
 	@override String get reloadGuide => 'Bələdçini yenilə';
 	@override String get searchGuide => 'Bələdçidə axtar';
 	@override String get searchHint => 'Kanal və proqram axtar';
@@ -2144,6 +2101,7 @@ class _Translations$performanceOverlay$az extends Translations$performanceOverla
 	@override String get cacheLimit => 'Keş limiti';
 	@override String get speed => 'Sürət';
 	@override String get player => 'Oynadıcı';
+	@override String get playMethod => 'Play Method';
 	@override String get memory => 'Yaddaş';
 	@override String get uiFps => 'Arayüz (UI) FPS-i';
 	@override String get fps => 'FPS';
@@ -2458,36 +2416,111 @@ class _Translations$addServer$az extends Translations$addServer$en {
 	@override String redirectUnsupportedEnterFinal({required Object product}) => 'Server dəstəklənməyən URL-ə yönləndirdi. Son ${product} URL-ni birbaşa daxil edin.';
 }
 
-// Path: appIcon.names
-class _Translations$appIcon$names$az extends Translations$appIcon$names$en {
-	_Translations$appIcon$names$az._(TranslationsAz root) : this._root = root, super.internal(root);
+// Path: appIcon
+class _Translations$appIcon$az extends Translations$appIcon$en {
+	_Translations$appIcon$az._(TranslationsAz root) : this._root = root, super.internal(root);
 
 	final TranslationsAz _root; // ignore: unused_field
 
 	// Translations
-	@override String get midnight => 'Gecəyarısı';
-	@override String get ember => 'Köz';
-	@override String get paper => 'Kağız';
-	@override String get oled => 'OLED';
-	@override String get line => 'Xətt';
-	@override String get ocean => 'Okean';
-	@override String get ultraviolet => 'Ultrabənövşəyi';
-	@override String get matcha => 'Matça';
-	@override String get sunset => 'Gün batımı';
-	@override String get gold => 'Qızıl';
-	@override String get titanium => 'Titan';
-	@override String get glass => 'Şüşə';
-	@override String get crt => 'CRT';
-	@override String get vhs => 'VHS';
-	@override String get synthwave => 'Synthwave';
-	@override String get pixel => 'Piksel';
-	@override String get neon => 'Neon';
-	@override String get sticker => 'Stiker';
-	@override String get ticket => 'Bilet';
-	@override String get pop => 'Pop';
-	@override String get strata => 'Laylar';
-	@override String get facet => 'Faset';
-	@override String get tilde => 'Tilda';
+	@override String get title => 'Tətbiq ikonu';
+	@override String get defaultIcon => 'Defolt';
+	@override String get current => 'Cari ikon';
+	@override String get locked => 'Supporter imtiyazı';
+	@override String get lockedHint => 'Alternativ ikonlar Supporter imtiyazıdır.';
+	@override String get changeFailed => 'Tətbiq ikonu dəyişdirilə bilmədi';
+	@override String get launcherHint => 'Plezy-dən çıxdıqdan sonra yeni ikon ana ekranınızda görünəcək.';
+	@override String get tvLauncherHint => 'Plezy-dən çıxdıqdan sonra yeni banner görünəcək. Android TV televizor yenidən başladılana qədər köhnəsini göstərə bilər.';
+	@override late final _Translations$appIcon$names$az names = _Translations$appIcon$names$az._(_root);
+}
+
+// Path: supporter
+class _Translations$supporter$az extends Translations$supporter$en {
+	_Translations$supporter$az._(TranslationsAz root) : this._root = root, super.internal(root);
+
+	final TranslationsAz _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Plezy Supporter';
+	@override String get intro => 'Plezy-nin inkişafını dəstəkləyən və kosmetik əlavələri açan birdəfəlik alış:';
+	@override String get presetThemes => 'Hazır mövzular';
+	@override String get presetThemesDescription => 'Köz, Buzlaq, Meşə, Gavalı və Kağız';
+	@override String get customTheme => 'Xüsusi mövzu';
+	@override String get customThemeDescription => 'Bütün rəngləri özünüz seçin';
+	@override String get appIcons => 'Tətbiq ikonları';
+	@override String get appIconsDescription => 'Alternativ Plezy ikonu seçin';
+	@override String buy({required Object price}) => '${price} qiymətinə al';
+	@override String get loadingPrice => 'Qiymət yüklənir...';
+	@override String get restore => 'Alışları bərpa et';
+	@override String get pending => 'Alışınız ödəniş və ya təsdiq gözləyir. Mağaza onu tamamlayan kimi əlavələr açılacaq.';
+	@override String get thankYouTitle => 'Plezy-ni dəstəklədiyiniz üçün təşəkkür edirik';
+	@override String get thankYouBody => 'Supporter əlavələriniz açıldı.';
+	@override String get tileSubtitle => 'Mövzuları və tətbiq ikonlarını birdəfəlik alışla açın';
+	@override String get tileSubtitleThemesOnly => 'Mövzuları birdəfəlik alışla açın';
+	@override String get tileUnlocked => 'Dəstəyiniz üçün təşəkkür edirik';
+	@override late final _Translations$supporter$errors$az errors = _Translations$supporter$errors$az._(_root);
+}
+
+// Path: themeEditor
+class _Translations$themeEditor$az extends Translations$themeEditor$en {
+	_Translations$themeEditor$az._(TranslationsAz root) : this._root = root, super.internal(root);
+
+	final TranslationsAz _root; // ignore: unused_field
+
+	// Translations
+	@override String get builtIn => 'Daxili';
+	@override String get presets => 'Hazır mövzular';
+	@override String get custom => 'Xüsusi';
+	@override String get customEmpty => 'Hələ yaradılmayıb';
+	@override String get editCustom => 'Xüsusi mövzuya düzəliş et';
+	@override String get editCustomDescription => 'Bütün rəngləri özünüz seçin';
+	@override String get locked => 'Supporter ilə açın';
+	@override String get savedLocked => 'Yadda saxlanılıb — Supporter ilə açılır';
+	@override String get title => 'Xüsusi mövzu';
+	@override String get startFrom => 'Başlanğıc mövzu';
+	@override String get startFromDescription => 'Bütün rəngləri başqa mövzudan kopyala';
+	@override String get colors => 'Rənglər';
+	@override String get preview => 'Önizləmə';
+	@override late final _Translations$themeEditor$slots$az slots = _Translations$themeEditor$slots$az._(_root);
+	@override String get opacity => 'Şəffaflıq';
+	@override String get hexHint => '#RRGGBB və ya #AARRGGBB';
+	@override String get fromOtherThemes => 'Digər mövzulardan';
+	@override String swatchLabel({required Object theme, required Object color}) => '${theme}: ${color}';
+	@override late final _Translations$themeEditor$contrast$az contrast = _Translations$themeEditor$contrast$az._(_root);
+	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, tövsiyə olunan ${minimum}:1-dən aşağı';
+	@override String get discardTitle => 'Dəyişikliklərdən imtina edilsin?';
+	@override String get discardMessage => 'Yadda saxlanmamış rəng dəyişiklikləriniz itəcək.';
+	@override String get discard => 'İmtina et';
+	@override String previewCardTitle({required Object number}) => 'Seriya ${number}';
+	@override String previewCardSubtitle({required Object minutes}) => '${minutes} dəq qaldı';
+	@override String get previewSwitch => 'Avtomatik oynatma';
+	@override String get previewMutedText => 'Köməkçi mətn belə görünür';
+}
+
+// Path: deepLinks
+class _Translations$deepLinks$az extends Translations$deepLinks$en {
+	_Translations$deepLinks$az._(TranslationsAz root) : this._root = root, super.internal(root);
+
+	final TranslationsAz _root; // ignore: unused_field
+
+	// Translations
+	@override String get invalid => 'This Plezy link isn\'t valid.';
+	@override String profileNotFound({required Object profile}) => 'No profile matches "${profile}".';
+	@override String get serverUnavailable => 'Couldn\'t reach the server for this link.';
+	@override String get notFound => 'Couldn\'t find this title in your libraries.';
+	@override String get unsupportedItem => 'This link can\'t be played.';
+	@override String get noLiveTv => 'No Live TV server is available for this link.';
+	@override String channelNotFound({required Object channel}) => 'Couldn\'t find channel "${channel}".';
+	@override String get showLink => 'Show link';
+	@override String get showProfileLink => 'Show profile link';
+	@override String get dialogTitle => 'Link';
+	@override String get showHint => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.';
+	@override String get movieHint => 'Opening this link plays the movie.';
+	@override String get episodeHint => 'Opening this link plays this episode.';
+	@override String get profileHint => 'Opening this link switches to this profile.';
+	@override String openAsProfile({required Object name}) => 'Open as ${name}';
+	@override String get copy => 'Copy';
+	@override String get copied => 'Link copied';
 }
 
 // Path: common.ratingSource
@@ -2533,52 +2566,6 @@ class _Translations$common$mediaKind$az extends Translations$common$mediaKind$en
 	@override String get folder => 'Qovluq';
 }
 
-// Path: supporter.errors
-class _Translations$supporter$errors$az extends Translations$supporter$errors$en {
-	_Translations$supporter$errors$az._(TranslationsAz root) : this._root = root, super.internal(root);
-
-	final TranslationsAz _root; // ignore: unused_field
-
-	// Translations
-	@override String get storeUnavailable => 'Alışlar əlçatan deyil. Mağazaya daxil olduğunuzu və bu cihazda alışlara icazə verildiyini yoxlayın.';
-	@override String get productNotFound => 'Supporter alışı hazırda mağazanızda əlçatan deyil.';
-	@override String get productQueryFailed => 'Qiymət yüklənə bilmədi. Bağlantınızı yoxlayın və yenidən cəhd edin.';
-	@override String get purchaseFailed => 'Alış baş tutmadı. Yenidən cəhd edin.';
-	@override String get restoreFailed => 'Alışınızı bərpa etmək üçün mağazaya qoşulmaq mümkün olmadı. Yenidən cəhd edin.';
-	@override String get nothingToRestore => 'Bu mağaza hesabı üçün Supporter alışı tapılmadı.';
-}
-
-// Path: themeEditor.slots
-class _Translations$themeEditor$slots$az extends Translations$themeEditor$slots$en {
-	_Translations$themeEditor$slots$az._(TranslationsAz root) : this._root = root, super.internal(root);
-
-	final TranslationsAz _root; // ignore: unused_field
-
-	// Translations
-	@override String get bg => 'Arxa fon';
-	@override String get surface => 'Səth';
-	@override String get outline => 'Kontur';
-	@override String get text => 'Mətn';
-	@override String get textMuted => 'Köməkçi mətn';
-	@override String get accent => 'Vurğu';
-}
-
-// Path: themeEditor.contrast
-class _Translations$themeEditor$contrast$az extends Translations$themeEditor$contrast$en {
-	_Translations$themeEditor$contrast$az._(TranslationsAz root) : this._root = root, super.internal(root);
-
-	final TranslationsAz _root; // ignore: unused_field
-
-	// Translations
-	@override String get textOnBg => 'Arxa fonda mətn';
-	@override String get textOnSurface => 'Səthdə mətn';
-	@override String get textMutedOnBg => 'Arxa fonda köməkçi mətn';
-	@override String get textMutedOnSurface => 'Səthdə köməkçi mətn';
-	@override String get accentOnBg => 'Arxa fonda vurğu';
-	@override String get accentOnSurface => 'Səthdə vurğu';
-	@override String get labelOnAccent => 'Vurğu üzərində düymə mətni';
-}
-
 // Path: hotkeys.actions
 class _Translations$hotkeys$actions$az extends Translations$hotkeys$actions$en {
 	_Translations$hotkeys$actions$az._(TranslationsAz root) : this._root = root, super.internal(root);
@@ -2611,6 +2598,8 @@ class _Translations$hotkeys$actions$az extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Şeyderləri aç/bağla';
 	@override String get skipMarker => 'Girişi/Titrləri ötür';
 	@override String get screenshot => 'Ekran şəkli çək';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2628,6 +2617,52 @@ class _Translations$videoControls$pipErrors$az extends Translations$videoControl
 	@override String get failed => 'PiP rejimi başladılarkən xəta';
 	@override String get prepareFailed => 'PiP rejimi hazırlana bilmədi';
 	@override String unknown({required Object error}) => 'Xəta baş verdi: ${error}';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$az extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$az._(TranslationsAz root) : this._root = root, super.internal(root);
+
+	final TranslationsAz _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Dəqiq tənzimləmə';
+	@override String get title => 'Klip';
+	@override String get vodOnly => 'Kliplər tələb üzrə video oynatılması üçün əlçatandır.';
+	@override String get sourceUnavailable => 'Bu oynatma sessiyası üçün klip mənbəyi əlçatan deyil.';
+	@override String get playAtLeastOneSecond => 'Klip yaratmazdan əvvəl ən azı 1 saniyə oynadın.';
+	@override String get startBeforeBeginning => 'Klipin başlanğıcı videonun əvvəlindən öncə ola bilməz.';
+	@override String get endAfterStart => 'Klipin sonu başlanğıcından sonra olmalıdır.';
+	@override String get minimumDuration => 'Klipin uzunluğu ən azı 1 saniyə olmalıdır.';
+	@override String get endPastVideo => 'Klipin sonu videonun sonunu keçir.';
+	@override String get exportCanceled => 'Klipin ixracı ləğv edildi.';
+	@override String get cacheUnavailable => 'Orijinal formatda ixrac üçün seçilmiş aralıq tam keşlənə bilmədi. Daha qısa klip seçin və ya yadda saxlamazdan əvvəl önizləməni bir dəfə oynadın.';
+	@override String get sourceCopyNoEncoder => 'Mənbəni kopyalama ilə ixrac zamanı kodlayıcı istifadə edilmir.';
+	@override String get encodingDesktopOnly => 'H.264 və HEVC klip kodlaşdırması hazırda macOS və Windows-da əlçatandır.';
+	@override String get hdrRequiresSource => 'HDR ixracı birbaşa oynadıla bilən HDR10 və ya HLG uyğun mənbə tələb edir.';
+	@override String get transcodeStartUnavailable => 'Bu klip aktiv transkodlaşdırılmış axından əvvəl başlayır. Daha əvvəlki vaxta keçib klip yaratma pəncərəsini yenidən açın və ya orijinal keyfiyyətə keçin.';
+	@override String get previewRequired => 'Klipi yadda saxlamaq üçün önizləmənin yüklənməsi tamamlanmalıdır.';
+	@override String get h264Failed => 'Bu mənbə H.264 SDR MP4 formatında kodlaşdırıla bilmədi.';
+	@override String get hevcSdrFailed => 'Bu mənbə HEVC SDR MP4 formatında kodlaşdırıla bilmədi.';
+	@override String get hevcHdrFailed => 'Bu mənbə HEVC HDR MP4 formatında kodlaşdırıla bilmədi.';
+	@override String get gifFailed => 'Bu mənbə GIF formatında kodlaşdırıla bilmədi.';
+	@override String get originalFailed => 'Bu mənbə mpv keşindən kopyalana bilmədi.';
+	@override String get previewUnavailable => 'Bu versiyada klip önizləməsinin oynadılması əlçatan deyil.';
+	@override String get previewFailed => 'Klip önizləməsinin oynadılması uğursuz oldu.';
+	@override String get previewLoadingScreenshot => 'Ekran şəkli çəkməzdən əvvəl klip önizləməsinin yüklənməsi tamamlanmalıdır.';
+	@override String get screenshotInProgress => 'Ekran şəkli artıq yadda saxlanılır.';
+	@override String get saveAsDialog => 'Klipi fərqli saxla';
+	@override String savedTo({required Object fileName}) => '${fileName} faylına yadda saxlanıldı';
+	@override String get openFolder => 'Qovluğu aç';
+	@override String get saveAs => 'Fərqli saxla';
+	@override String get cancelExport => 'İxracı ləğv et';
+	@override String get saving => 'Yadda saxlanılır...';
+	@override String savingProgress({required Object percent}) => 'Yadda saxlanılır: ${percent}%';
+	@override String get mutePreview => 'Önizləmənin səsini söndür';
+	@override String get unmutePreview => 'Önizləmənin səsini aç';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: accountPreferences.groups
@@ -3387,6 +3422,84 @@ class _Translations$services$libraryFilter$az extends Translations$services$libr
 	@override String get noLibraries => 'Kitabxana yoxdur';
 }
 
+// Path: appIcon.names
+class _Translations$appIcon$names$az extends Translations$appIcon$names$en {
+	_Translations$appIcon$names$az._(TranslationsAz root) : this._root = root, super.internal(root);
+
+	final TranslationsAz _root; // ignore: unused_field
+
+	// Translations
+	@override String get midnight => 'Gecəyarısı';
+	@override String get ember => 'Köz';
+	@override String get paper => 'Kağız';
+	@override String get oled => 'OLED';
+	@override String get line => 'Xətt';
+	@override String get ocean => 'Okean';
+	@override String get ultraviolet => 'Ultrabənövşəyi';
+	@override String get matcha => 'Matça';
+	@override String get sunset => 'Gün batımı';
+	@override String get gold => 'Qızıl';
+	@override String get titanium => 'Titan';
+	@override String get glass => 'Şüşə';
+	@override String get crt => 'CRT';
+	@override String get vhs => 'VHS';
+	@override String get synthwave => 'Synthwave';
+	@override String get pixel => 'Piksel';
+	@override String get neon => 'Neon';
+	@override String get sticker => 'Stiker';
+	@override String get ticket => 'Bilet';
+	@override String get pop => 'Pop';
+	@override String get strata => 'Laylar';
+	@override String get facet => 'Faset';
+	@override String get tilde => 'Tilda';
+}
+
+// Path: supporter.errors
+class _Translations$supporter$errors$az extends Translations$supporter$errors$en {
+	_Translations$supporter$errors$az._(TranslationsAz root) : this._root = root, super.internal(root);
+
+	final TranslationsAz _root; // ignore: unused_field
+
+	// Translations
+	@override String get storeUnavailable => 'Alışlar əlçatan deyil. Mağazaya daxil olduğunuzu və bu cihazda alışlara icazə verildiyini yoxlayın.';
+	@override String get productNotFound => 'Supporter alışı hazırda mağazanızda əlçatan deyil.';
+	@override String get productQueryFailed => 'Qiymət yüklənə bilmədi. Bağlantınızı yoxlayın və yenidən cəhd edin.';
+	@override String get purchaseFailed => 'Alış baş tutmadı. Yenidən cəhd edin.';
+	@override String get restoreFailed => 'Alışınızı bərpa etmək üçün mağazaya qoşulmaq mümkün olmadı. Yenidən cəhd edin.';
+	@override String get nothingToRestore => 'Bu mağaza hesabı üçün Supporter alışı tapılmadı.';
+}
+
+// Path: themeEditor.slots
+class _Translations$themeEditor$slots$az extends Translations$themeEditor$slots$en {
+	_Translations$themeEditor$slots$az._(TranslationsAz root) : this._root = root, super.internal(root);
+
+	final TranslationsAz _root; // ignore: unused_field
+
+	// Translations
+	@override String get bg => 'Arxa fon';
+	@override String get surface => 'Səth';
+	@override String get outline => 'Kontur';
+	@override String get text => 'Mətn';
+	@override String get textMuted => 'Köməkçi mətn';
+	@override String get accent => 'Vurğu';
+}
+
+// Path: themeEditor.contrast
+class _Translations$themeEditor$contrast$az extends Translations$themeEditor$contrast$en {
+	_Translations$themeEditor$contrast$az._(TranslationsAz root) : this._root = root, super.internal(root);
+
+	final TranslationsAz _root; // ignore: unused_field
+
+	// Translations
+	@override String get textOnBg => 'Arxa fonda mətn';
+	@override String get textOnSurface => 'Səthdə mətn';
+	@override String get textMutedOnBg => 'Arxa fonda köməkçi mətn';
+	@override String get textMutedOnSurface => 'Səthdə köməkçi mətn';
+	@override String get accentOnBg => 'Arxa fonda vurğu';
+	@override String get accentOnSurface => 'Səthdə vurğu';
+	@override String get labelOnAccent => 'Vurğu üzərində düymə mətni';
+}
+
 /// The flat map containing all translations for locale <az>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -3395,38 +3508,7 @@ class _Translations$services$libraryFilter$az extends Translations$services$libr
 extension on TranslationsAz {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
-			'appIcon.title' => 'Tətbiq ikonu',
-			'appIcon.defaultIcon' => 'Defolt',
-			'appIcon.current' => 'Cari ikon',
-			'appIcon.locked' => 'Supporter imtiyazı',
-			'appIcon.lockedHint' => 'Alternativ ikonlar Supporter imtiyazıdır.',
-			'appIcon.changeFailed' => 'Tətbiq ikonu dəyişdirilə bilmədi',
-			'appIcon.launcherHint' => 'Plezy-dən çıxdıqdan sonra yeni ikon ana ekranınızda görünəcək.',
-			'appIcon.tvLauncherHint' => 'Plezy-dən çıxdıqdan sonra yeni banner görünəcək. Android TV televizor yenidən başladılana qədər köhnəsini göstərə bilər.',
-			'appIcon.names.midnight' => 'Gecəyarısı',
-			'appIcon.names.ember' => 'Köz',
-			'appIcon.names.paper' => 'Kağız',
-			'appIcon.names.oled' => 'OLED',
-			'appIcon.names.line' => 'Xətt',
-			'appIcon.names.ocean' => 'Okean',
-			'appIcon.names.ultraviolet' => 'Ultrabənövşəyi',
-			'appIcon.names.matcha' => 'Matça',
-			'appIcon.names.sunset' => 'Gün batımı',
-			'appIcon.names.gold' => 'Qızıl',
-			'appIcon.names.titanium' => 'Titan',
-			'appIcon.names.glass' => 'Şüşə',
-			'appIcon.names.crt' => 'CRT',
-			'appIcon.names.vhs' => 'VHS',
-			'appIcon.names.synthwave' => 'Synthwave',
-			'appIcon.names.pixel' => 'Piksel',
-			'appIcon.names.neon' => 'Neon',
-			'appIcon.names.sticker' => 'Stiker',
-			'appIcon.names.ticket' => 'Bilet',
-			'appIcon.names.pop' => 'Pop',
-			'appIcon.names.strata' => 'Laylar',
-			'appIcon.names.facet' => 'Faset',
-			'appIcon.names.tilde' => 'Tilda',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Plex ilə daxil ol',
 			'auth.showQRCode' => 'QR kodu göstər',
 			'auth.authenticate' => 'Təsdiqlə',
@@ -3530,29 +3612,14 @@ extension on TranslationsAz {
 			'update.viewRelease' => 'Buraxılışa bax',
 			'update.latestVersion' => 'Siz ən son versiyadasınız',
 			'update.checkFailed' => 'Yenilənmələr yoxlanıla bilmədi',
-			'supporter.title' => 'Plezy Supporter',
-			'supporter.intro' => 'Plezy-nin inkişafını dəstəkləyən və kosmetik əlavələri açan birdəfəlik alış:',
-			'supporter.presetThemes' => 'Hazır mövzular',
-			'supporter.presetThemesDescription' => 'Köz, Buzlaq, Meşə, Gavalı və Kağız',
-			'supporter.customTheme' => 'Xüsusi mövzu',
-			'supporter.customThemeDescription' => 'Bütün rəngləri özünüz seçin',
-			'supporter.appIcons' => 'Tətbiq ikonları',
-			'supporter.appIconsDescription' => 'Alternativ Plezy ikonu seçin',
-			'supporter.buy' => ({required Object price}) => '${price} qiymətinə al',
-			'supporter.loadingPrice' => 'Qiymət yüklənir...',
-			'supporter.restore' => 'Alışları bərpa et',
-			'supporter.pending' => 'Alışınız ödəniş və ya təsdiq gözləyir. Mağaza onu tamamlayan kimi əlavələr açılacaq.',
-			'supporter.thankYouTitle' => 'Plezy-ni dəstəklədiyiniz üçün təşəkkür edirik',
-			'supporter.thankYouBody' => 'Supporter əlavələriniz açıldı.',
-			'supporter.tileSubtitle' => 'Mövzuları və tətbiq ikonlarını birdəfəlik alışla açın',
-			'supporter.tileSubtitleThemesOnly' => 'Mövzuları birdəfəlik alışla açın',
-			'supporter.tileUnlocked' => 'Dəstəyiniz üçün təşəkkür edirik',
-			'supporter.errors.storeUnavailable' => 'Alışlar əlçatan deyil. Mağazaya daxil olduğunuzu və bu cihazda alışlara icazə verildiyini yoxlayın.',
-			'supporter.errors.productNotFound' => 'Supporter alışı hazırda mağazanızda əlçatan deyil.',
-			'supporter.errors.productQueryFailed' => 'Qiymət yüklənə bilmədi. Bağlantınızı yoxlayın və yenidən cəhd edin.',
-			'supporter.errors.purchaseFailed' => 'Alış baş tutmadı. Yenidən cəhd edin.',
-			'supporter.errors.restoreFailed' => 'Alışınızı bərpa etmək üçün mağazaya qoşulmaq mümkün olmadı. Yenidən cəhd edin.',
-			'supporter.errors.nothingToRestore' => 'Bu mağaza hesabı üçün Supporter alışı tapılmadı.',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Tənzimləmələr',
 			'settings.supportDeveloper' => 'Plezy-yə dəstək ol',
 			'settings.supportDeveloperDescription' => 'İnkişafı maliyyələşdirmək üçün Liberapay vasitəsilə iyanə edin',
@@ -3888,46 +3955,24 @@ extension on TranslationsAz {
 			'settings.playerScopeLibrary' => 'Kitabxana üzrə',
 			'settings.playerScopeTitle' => 'Serial və ya film üzrə',
 			'settings.exportDialogTitle' => 'Plezy tənzimləmələrini ixrac et',
-			'themeEditor.builtIn' => 'Daxili',
-			'themeEditor.presets' => 'Hazır mövzular',
-			'themeEditor.custom' => 'Xüsusi',
-			'themeEditor.customEmpty' => 'Hələ yaradılmayıb',
-			'themeEditor.editCustom' => 'Xüsusi mövzuya düzəliş et',
-			'themeEditor.editCustomDescription' => 'Bütün rəngləri özünüz seçin',
-			'themeEditor.locked' => 'Supporter ilə açın',
-			'themeEditor.savedLocked' => 'Yadda saxlanılıb — Supporter ilə açılır',
-			'themeEditor.title' => 'Xüsusi mövzu',
-			'themeEditor.startFrom' => 'Başlanğıc mövzu',
-			'themeEditor.startFromDescription' => 'Bütün rəngləri başqa mövzudan kopyala',
-			'themeEditor.colors' => 'Rənglər',
-			'themeEditor.preview' => 'Önizləmə',
-			'themeEditor.slots.bg' => 'Arxa fon',
-			'themeEditor.slots.surface' => 'Səth',
-			'themeEditor.slots.outline' => 'Kontur',
-			'themeEditor.slots.text' => 'Mətn',
-			'themeEditor.slots.textMuted' => 'Köməkçi mətn',
-			'themeEditor.slots.accent' => 'Vurğu',
-			_ => null,
-		} ?? switch (path) {
-			'themeEditor.opacity' => 'Şəffaflıq',
-			'themeEditor.hexHint' => '#RRGGBB və ya #AARRGGBB',
-			'themeEditor.fromOtherThemes' => 'Digər mövzulardan',
-			'themeEditor.swatchLabel' => ({required Object theme, required Object color}) => '${theme}: ${color}',
-			'themeEditor.contrast.textOnBg' => 'Arxa fonda mətn',
-			'themeEditor.contrast.textOnSurface' => 'Səthdə mətn',
-			'themeEditor.contrast.textMutedOnBg' => 'Arxa fonda köməkçi mətn',
-			'themeEditor.contrast.textMutedOnSurface' => 'Səthdə köməkçi mətn',
-			'themeEditor.contrast.accentOnBg' => 'Arxa fonda vurğu',
-			'themeEditor.contrast.accentOnSurface' => 'Səthdə vurğu',
-			'themeEditor.contrast.labelOnAccent' => 'Vurğu üzərində düymə mətni',
-			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, tövsiyə olunan ${minimum}:1-dən aşağı',
-			'themeEditor.discardTitle' => 'Dəyişikliklərdən imtina edilsin?',
-			'themeEditor.discardMessage' => 'Yadda saxlanmamış rəng dəyişiklikləriniz itəcək.',
-			'themeEditor.discard' => 'İmtina et',
-			'themeEditor.previewCardTitle' => ({required Object number}) => 'Seriya ${number}',
-			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '${minutes} dəq qaldı',
-			'themeEditor.previewSwitch' => 'Avtomatik oynatma',
-			'themeEditor.previewMutedText' => 'Köməkçi mətn belə görünür',
+			'settings.downloadLocationSelectError' => 'Qovluq seçilə bilmədi',
+			'settings.mediaCapture' => 'Media qeydi',
+			'settings.clips' => 'Kliplər',
+			'settings.screenshots' => 'Ekran şəkilləri',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} üçün saxlama yeri',
+			'settings.clipLocationDescription' => 'Kliplərin harada saxlanacağını seçin.',
+			'settings.screenshotLocationDescription' => 'Ekran şəkillərinin harada saxlanacağını seçin.',
+			'settings.clipLocationChanged' => 'Kliplərin saxlama yeri dəyişdirildi',
+			'settings.screenshotLocationChanged' => 'Ekran şəkillərinin saxlama yeri dəyişdirildi',
+			'settings.clipLocationReset' => 'Kliplərin saxlama yeri İş masasına qaytarıldı',
+			'settings.screenshotLocationReset' => 'Ekran şəkillərinin saxlama yeri İş masasına qaytarıldı',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'search.hint' => 'Kino, serial, musiqi axtar...',
 			'search.tryDifferentTerm' => 'Fərqli axtarış sözü cəhd edin',
 			'search.searchYourMedia' => 'Mediyanızda axtarın',
@@ -3964,6 +4009,8 @@ extension on TranslationsAz {
 			'hotkeys.actions.shaderToggle' => 'Şeyderləri aç/bağla',
 			'hotkeys.actions.skipMarker' => 'Girişi/Titrləri ötür',
 			'hotkeys.actions.screenshot' => 'Ekran şəkli çək',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Fayl məlumatı',
 			'fileInfo.overview' => 'Ümumi baxış',
 			'fileInfo.video' => 'Video',
@@ -3973,6 +4020,8 @@ extension on TranslationsAz {
 			'fileInfo.dataStreams' => 'Məlumat axınları',
 			'fileInfo.lyrics' => 'Mahnı sözləri',
 			'fileInfo.file' => 'Fayl',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.attachments' => 'Əlavələr',
 			'fileInfo.delivery' => 'Çatdırılma',
 			'fileInfo.versionCounter' => ({required Object count, required Object index}) => '${count}-dən ${index} versiya',
@@ -4211,7 +4260,6 @@ extension on TranslationsAz {
 			'videoControls.pipActive' => 'Pəncərə daxilində pəncərə rejimində oynadılır',
 			'videoControls.pipFailed' => 'PiP rejimi başladılarkən xəta',
 			'videoControls.screenshotSaved' => 'Ekran şəkli yadda saxlanıldı',
-			'videoControls.screenshotFailed' => 'Ekran şəkli çəkilə bilmədi',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Miqyas %${percent}',
 			'videoControls.volumePercent' => ({required Object percent}) => 'Səs ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0 və ya daha yenisini tələb edir',
@@ -4243,6 +4291,46 @@ extension on TranslationsAz {
 			'videoControls.osdSubtitlesOff' => 'Altyazı: Söndürülüb',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Altyazı: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Səs: ${track}',
+			'videoControls.screenshotFailed' => 'Ekran şəkli çəkilə bilmədi',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('az'))(n, one: '${n} frame', other: '${n} frames', ), 
+			'videoControls.clip.fineAdjust' => 'Dəqiq tənzimləmə',
+			'videoControls.clip.title' => 'Klip',
+			'videoControls.clip.vodOnly' => 'Kliplər tələb üzrə video oynatılması üçün əlçatandır.',
+			'videoControls.clip.sourceUnavailable' => 'Bu oynatma sessiyası üçün klip mənbəyi əlçatan deyil.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Klip yaratmazdan əvvəl ən azı 1 saniyə oynadın.',
+			'videoControls.clip.startBeforeBeginning' => 'Klipin başlanğıcı videonun əvvəlindən öncə ola bilməz.',
+			'videoControls.clip.endAfterStart' => 'Klipin sonu başlanğıcından sonra olmalıdır.',
+			'videoControls.clip.minimumDuration' => 'Klipin uzunluğu ən azı 1 saniyə olmalıdır.',
+			'videoControls.clip.endPastVideo' => 'Klipin sonu videonun sonunu keçir.',
+			'videoControls.clip.exportCanceled' => 'Klipin ixracı ləğv edildi.',
+			'videoControls.clip.cacheUnavailable' => 'Orijinal formatda ixrac üçün seçilmiş aralıq tam keşlənə bilmədi. Daha qısa klip seçin və ya yadda saxlamazdan əvvəl önizləməni bir dəfə oynadın.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Mənbəni kopyalama ilə ixrac zamanı kodlayıcı istifadə edilmir.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 və HEVC klip kodlaşdırması hazırda macOS və Windows-da əlçatandır.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR ixracı birbaşa oynadıla bilən HDR10 və ya HLG uyğun mənbə tələb edir.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Bu klip aktiv transkodlaşdırılmış axından əvvəl başlayır. Daha əvvəlki vaxta keçib klip yaratma pəncərəsini yenidən açın və ya orijinal keyfiyyətə keçin.',
+			'videoControls.clip.previewRequired' => 'Klipi yadda saxlamaq üçün önizləmənin yüklənməsi tamamlanmalıdır.',
+			'videoControls.clip.h264Failed' => 'Bu mənbə H.264 SDR MP4 formatında kodlaşdırıla bilmədi.',
+			'videoControls.clip.hevcSdrFailed' => 'Bu mənbə HEVC SDR MP4 formatında kodlaşdırıla bilmədi.',
+			'videoControls.clip.hevcHdrFailed' => 'Bu mənbə HEVC HDR MP4 formatında kodlaşdırıla bilmədi.',
+			'videoControls.clip.gifFailed' => 'Bu mənbə GIF formatında kodlaşdırıla bilmədi.',
+			'videoControls.clip.originalFailed' => 'Bu mənbə mpv keşindən kopyalana bilmədi.',
+			'videoControls.clip.previewUnavailable' => 'Bu versiyada klip önizləməsinin oynadılması əlçatan deyil.',
+			'videoControls.clip.previewFailed' => 'Klip önizləməsinin oynadılması uğursuz oldu.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Ekran şəkli çəkməzdən əvvəl klip önizləməsinin yüklənməsi tamamlanmalıdır.',
+			'videoControls.clip.screenshotInProgress' => 'Ekran şəkli artıq yadda saxlanılır.',
+			'videoControls.clip.saveAsDialog' => 'Klipi fərqli saxla',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => '${fileName} faylına yadda saxlanıldı',
+			'videoControls.clip.openFolder' => 'Qovluğu aç',
+			'videoControls.clip.saveAs' => 'Fərqli saxla',
+			'videoControls.clip.cancelExport' => 'İxracı ləğv et',
+			'videoControls.clip.saving' => 'Yadda saxlanılır...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Yadda saxlanılır: ${percent}%',
+			'videoControls.clip.mutePreview' => 'Önizləmənin səsini söndür',
+			'videoControls.clip.unmutePreview' => 'Önizləmənin səsini aç',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'Baxıldı olaraq işarələndi',
 			'messages.markedAsUnwatched' => 'Baxılmadı olaraq işarələndi',
 			'messages.markedAsWatchedOffline' => 'Baxıldı olaraq işarələndi (onlayn olduqda eyniləşdiriləcək)',
@@ -4421,8 +4509,6 @@ extension on TranslationsAz {
 			'profiles.tokenIdentityMismatch' => 'Plex profil tokeni gözlənilməyən serveri müəyyən etdi',
 			'connections.sectionTitle' => 'Qoşulmalar',
 			'connections.addConnection' => 'Qoşulma əlavə et',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnectionSubtitleNoProfile' => 'Plex ilə daxil olun və ya Jellyfin yaxud Emby serverinə qoşulun',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => '${displayName} profilinə əlavə et: Plex, Jellyfin, Emby və ya başqa profil qoşulması',
 			'connections.sessionExpiredOne' => ({required Object name}) => '${name} üçün seansın vaxtı bitdi',
@@ -4448,6 +4534,8 @@ extension on TranslationsAz {
 			'accountPreferences.groups.personalMedia' => 'Şəxsi media',
 			'accountPreferences.preferredAudioLanguage' => 'Üstünlük verilən səs dili',
 			'accountPreferences.autoSelectAudio' => 'Səsi dilə görə seç',
+			_ => null,
+		} ?? switch (path) {
 			'accountPreferences.autoSelectAudioDescription' => 'Söndürüldükdə faylın defolt olaraq işarələdiyi səs treki istifadə olunur.',
 			'accountPreferences.preferredSubtitleLanguage' => 'Üstünlük verilən altyazı dili',
 			'accountPreferences.subtitleMode' => 'Altyazıları aç',
@@ -4655,6 +4743,9 @@ extension on TranslationsAz {
 			'about.versionLabel' => ({required Object version}) => 'Versiya ${version}',
 			'about.appDescription' => 'Flutter üçün gözəl bir Plex, Jellyfin və Emby klienti',
 			'about.viewLicensesDescription' => 'Üçüncü tərəf kitabxanalarının lisenziyalarına baxın',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email}) üçün server tapılmadı',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Serverlər yüklənə bilmədi: ${error}',
 			'serverSelection.noValidServers' => 'Bu hesabda istifadəyə yararlı server tapılmadı',
@@ -4733,6 +4824,7 @@ extension on TranslationsAz {
 			'explore.removedFromWatchlist' => 'Baxış siyahısından silindi',
 			'explore.watchlistUpdateFailed' => 'İzləmə siyahısı yenilənə bilmədi',
 			'explore.watchlistNoMatch' => 'Bu elementi heç bir baxış siyahısı ilə uyğunlaşdırmaq olmadı',
+			'explore.openInLibrary' => 'Kitabxanada aç',
 			'explore.notInLibrary' => 'Kitabxananızda yoxdur',
 			'explore.inTheseLibraries' => 'Bu kitabxanalarda var',
 			'explore.checkingLibrary' => 'Kitabxananız yoxlanılır...',
@@ -4862,6 +4954,7 @@ extension on TranslationsAz {
 			'liveTv.channelNumber' => ({required Object number}) => 'Kanal ${number}',
 			'liveTv.unknownChannel' => 'Bilinməyən kanal',
 			'liveTv.live' => 'CANLI',
+			'liveTv.premiereBadge' => 'NEW',
 			'liveTv.reloadGuide' => 'Bələdçini yenilə',
 			'liveTv.searchGuide' => 'Bələdçidə axtar',
 			'liveTv.searchHint' => 'Kanal və proqram axtar',
@@ -4935,8 +5028,6 @@ extension on TranslationsAz {
 			'liveTv.recordSettings.keepUpToHint' => '0 bütün epizodları saxlayır',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes} dəq sonra başlayır',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day}, saat ${time}',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.invalidPlaybackData' => ({required Object product}) => '${product} etibarsız Canlı TV oynatma məlumatı qaytardı',
 			'liveTv.failedToStartChannel' => 'Canlı kanalı başlatmaq olmadı',
 			'liveTv.failedToBuildStreamUrl' => 'Yayım URL-i yaratmaq olmadı',
@@ -4957,6 +5048,8 @@ extension on TranslationsAz {
 			'collections.errorAddingToCollection' => 'Kolleksiyaya əlavə edilə bilmədi',
 			'collections.created' => 'Kolleksiya yaradıldı',
 			'collections.removeFromCollection' => 'Kolleksiyadan sil',
+			_ => null,
+		} ?? switch (path) {
 			'collections.removeFromCollectionConfirm' => ({required Object title}) => '"${title}" bu kolleksiyadan silinsin?',
 			'collections.removedFromCollection' => 'Kolleksiyadan silindi',
 			'collections.removeFromCollectionFailed' => 'Kolleksiyadan silinə bilmədi',
@@ -5437,6 +5530,7 @@ extension on TranslationsAz {
 			'performanceOverlay.cacheLimit' => 'Keş limiti',
 			'performanceOverlay.speed' => 'Sürət',
 			'performanceOverlay.player' => 'Oynadıcı',
+			'performanceOverlay.playMethod' => 'Play Method',
 			'performanceOverlay.memory' => 'Yaddaş',
 			'performanceOverlay.uiFps' => 'Arayüz (UI) FPS-i',
 			'performanceOverlay.fps' => 'FPS',
@@ -5449,8 +5543,6 @@ extension on TranslationsAz {
 			'performanceOverlay.decoderHardware' => 'Aparat təminatı',
 			'performanceOverlay.tunnelingActive' => 'Aktiv',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} uğursuz)',
-			_ => null,
-		} ?? switch (path) {
 			'externalPlayer.title' => 'Xarici oynadıcı',
 			'externalPlayer.useExternalPlayer' => 'Xarici oynadıcı istifadə et',
 			'externalPlayer.useExternalPlayerDescription' => 'Videoları başqa tətbiqdə açın',
@@ -5470,6 +5562,8 @@ extension on TranslationsAz {
 			'metadataEdit.editMetadata' => 'Düzəliş et...',
 			'metadataEdit.screenTitle' => 'Meta-məlumatlara düzəliş et',
 			'metadataEdit.basicInfo' => 'Əsas məlumatlar',
+			_ => null,
+		} ?? switch (path) {
 			'metadataEdit.artwork' => 'Şəkillər/Posterlər',
 			'metadataEdit.advancedSettings' => 'Təkmilləşdirilmiş tənzimləmələr',
 			'metadataEdit.title' => 'Başlıq',
@@ -5703,6 +5797,115 @@ extension on TranslationsAz {
 			'addServer.redirectDifferentHost' => ({required Object product}) => 'Server başqa hosta yönləndirdi. Son ${product} URL-ni birbaşa daxil edin.',
 			'addServer.redirectInsecure' => 'Server HTTPS-dən təhlükəsiz olmayan URL-ə yönləndirdi',
 			'addServer.redirectUnsupportedEnterFinal' => ({required Object product}) => 'Server dəstəklənməyən URL-ə yönləndirdi. Son ${product} URL-ni birbaşa daxil edin.',
+			'appIcon.title' => 'Tətbiq ikonu',
+			'appIcon.defaultIcon' => 'Defolt',
+			'appIcon.current' => 'Cari ikon',
+			'appIcon.locked' => 'Supporter imtiyazı',
+			'appIcon.lockedHint' => 'Alternativ ikonlar Supporter imtiyazıdır.',
+			'appIcon.changeFailed' => 'Tətbiq ikonu dəyişdirilə bilmədi',
+			'appIcon.launcherHint' => 'Plezy-dən çıxdıqdan sonra yeni ikon ana ekranınızda görünəcək.',
+			'appIcon.tvLauncherHint' => 'Plezy-dən çıxdıqdan sonra yeni banner görünəcək. Android TV televizor yenidən başladılana qədər köhnəsini göstərə bilər.',
+			'appIcon.names.midnight' => 'Gecəyarısı',
+			'appIcon.names.ember' => 'Köz',
+			'appIcon.names.paper' => 'Kağız',
+			'appIcon.names.oled' => 'OLED',
+			'appIcon.names.line' => 'Xətt',
+			'appIcon.names.ocean' => 'Okean',
+			'appIcon.names.ultraviolet' => 'Ultrabənövşəyi',
+			'appIcon.names.matcha' => 'Matça',
+			'appIcon.names.sunset' => 'Gün batımı',
+			'appIcon.names.gold' => 'Qızıl',
+			'appIcon.names.titanium' => 'Titan',
+			'appIcon.names.glass' => 'Şüşə',
+			'appIcon.names.crt' => 'CRT',
+			'appIcon.names.vhs' => 'VHS',
+			'appIcon.names.synthwave' => 'Synthwave',
+			'appIcon.names.pixel' => 'Piksel',
+			'appIcon.names.neon' => 'Neon',
+			'appIcon.names.sticker' => 'Stiker',
+			'appIcon.names.ticket' => 'Bilet',
+			'appIcon.names.pop' => 'Pop',
+			'appIcon.names.strata' => 'Laylar',
+			'appIcon.names.facet' => 'Faset',
+			'appIcon.names.tilde' => 'Tilda',
+			'supporter.title' => 'Plezy Supporter',
+			'supporter.intro' => 'Plezy-nin inkişafını dəstəkləyən və kosmetik əlavələri açan birdəfəlik alış:',
+			'supporter.presetThemes' => 'Hazır mövzular',
+			'supporter.presetThemesDescription' => 'Köz, Buzlaq, Meşə, Gavalı və Kağız',
+			'supporter.customTheme' => 'Xüsusi mövzu',
+			'supporter.customThemeDescription' => 'Bütün rəngləri özünüz seçin',
+			'supporter.appIcons' => 'Tətbiq ikonları',
+			'supporter.appIconsDescription' => 'Alternativ Plezy ikonu seçin',
+			'supporter.buy' => ({required Object price}) => '${price} qiymətinə al',
+			'supporter.loadingPrice' => 'Qiymət yüklənir...',
+			'supporter.restore' => 'Alışları bərpa et',
+			'supporter.pending' => 'Alışınız ödəniş və ya təsdiq gözləyir. Mağaza onu tamamlayan kimi əlavələr açılacaq.',
+			'supporter.thankYouTitle' => 'Plezy-ni dəstəklədiyiniz üçün təşəkkür edirik',
+			'supporter.thankYouBody' => 'Supporter əlavələriniz açıldı.',
+			'supporter.tileSubtitle' => 'Mövzuları və tətbiq ikonlarını birdəfəlik alışla açın',
+			'supporter.tileSubtitleThemesOnly' => 'Mövzuları birdəfəlik alışla açın',
+			'supporter.tileUnlocked' => 'Dəstəyiniz üçün təşəkkür edirik',
+			'supporter.errors.storeUnavailable' => 'Alışlar əlçatan deyil. Mağazaya daxil olduğunuzu və bu cihazda alışlara icazə verildiyini yoxlayın.',
+			'supporter.errors.productNotFound' => 'Supporter alışı hazırda mağazanızda əlçatan deyil.',
+			'supporter.errors.productQueryFailed' => 'Qiymət yüklənə bilmədi. Bağlantınızı yoxlayın və yenidən cəhd edin.',
+			'supporter.errors.purchaseFailed' => 'Alış baş tutmadı. Yenidən cəhd edin.',
+			'supporter.errors.restoreFailed' => 'Alışınızı bərpa etmək üçün mağazaya qoşulmaq mümkün olmadı. Yenidən cəhd edin.',
+			'supporter.errors.nothingToRestore' => 'Bu mağaza hesabı üçün Supporter alışı tapılmadı.',
+			'themeEditor.builtIn' => 'Daxili',
+			'themeEditor.presets' => 'Hazır mövzular',
+			'themeEditor.custom' => 'Xüsusi',
+			'themeEditor.customEmpty' => 'Hələ yaradılmayıb',
+			'themeEditor.editCustom' => 'Xüsusi mövzuya düzəliş et',
+			'themeEditor.editCustomDescription' => 'Bütün rəngləri özünüz seçin',
+			'themeEditor.locked' => 'Supporter ilə açın',
+			'themeEditor.savedLocked' => 'Yadda saxlanılıb — Supporter ilə açılır',
+			'themeEditor.title' => 'Xüsusi mövzu',
+			'themeEditor.startFrom' => 'Başlanğıc mövzu',
+			'themeEditor.startFromDescription' => 'Bütün rəngləri başqa mövzudan kopyala',
+			'themeEditor.colors' => 'Rənglər',
+			'themeEditor.preview' => 'Önizləmə',
+			'themeEditor.slots.bg' => 'Arxa fon',
+			'themeEditor.slots.surface' => 'Səth',
+			'themeEditor.slots.outline' => 'Kontur',
+			'themeEditor.slots.text' => 'Mətn',
+			'themeEditor.slots.textMuted' => 'Köməkçi mətn',
+			'themeEditor.slots.accent' => 'Vurğu',
+			'themeEditor.opacity' => 'Şəffaflıq',
+			'themeEditor.hexHint' => '#RRGGBB və ya #AARRGGBB',
+			'themeEditor.fromOtherThemes' => 'Digər mövzulardan',
+			'themeEditor.swatchLabel' => ({required Object theme, required Object color}) => '${theme}: ${color}',
+			'themeEditor.contrast.textOnBg' => 'Arxa fonda mətn',
+			'themeEditor.contrast.textOnSurface' => 'Səthdə mətn',
+			'themeEditor.contrast.textMutedOnBg' => 'Arxa fonda köməkçi mətn',
+			'themeEditor.contrast.textMutedOnSurface' => 'Səthdə köməkçi mətn',
+			'themeEditor.contrast.accentOnBg' => 'Arxa fonda vurğu',
+			'themeEditor.contrast.accentOnSurface' => 'Səthdə vurğu',
+			'themeEditor.contrast.labelOnAccent' => 'Vurğu üzərində düymə mətni',
+			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, tövsiyə olunan ${minimum}:1-dən aşağı',
+			'themeEditor.discardTitle' => 'Dəyişikliklərdən imtina edilsin?',
+			'themeEditor.discardMessage' => 'Yadda saxlanmamış rəng dəyişiklikləriniz itəcək.',
+			'themeEditor.discard' => 'İmtina et',
+			'themeEditor.previewCardTitle' => ({required Object number}) => 'Seriya ${number}',
+			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '${minutes} dəq qaldı',
+			'themeEditor.previewSwitch' => 'Avtomatik oynatma',
+			'themeEditor.previewMutedText' => 'Köməkçi mətn belə görünür',
+			'deepLinks.invalid' => 'This Plezy link isn\'t valid.',
+			'deepLinks.profileNotFound' => ({required Object profile}) => 'No profile matches "${profile}".',
+			'deepLinks.serverUnavailable' => 'Couldn\'t reach the server for this link.',
+			'deepLinks.notFound' => 'Couldn\'t find this title in your libraries.',
+			'deepLinks.unsupportedItem' => 'This link can\'t be played.',
+			'deepLinks.noLiveTv' => 'No Live TV server is available for this link.',
+			'deepLinks.channelNotFound' => ({required Object channel}) => 'Couldn\'t find channel "${channel}".',
+			'deepLinks.showLink' => 'Show link',
+			'deepLinks.showProfileLink' => 'Show profile link',
+			'deepLinks.dialogTitle' => 'Link',
+			'deepLinks.showHint' => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.',
+			'deepLinks.movieHint' => 'Opening this link plays the movie.',
+			'deepLinks.episodeHint' => 'Opening this link plays this episode.',
+			'deepLinks.profileHint' => 'Opening this link switches to this profile.',
+			'deepLinks.openAsProfile' => ({required Object name}) => 'Open as ${name}',
+			'deepLinks.copy' => 'Copy',
+			'deepLinks.copied' => 'Link copied',
 			_ => null,
 		};
 	}

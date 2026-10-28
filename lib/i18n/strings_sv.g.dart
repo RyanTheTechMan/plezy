@@ -40,14 +40,11 @@ class TranslationsSv extends Translations with BaseTranslations<AppLocale, Trans
 
 	// Translations
 	@override late final _Translations$app$sv app = _Translations$app$sv._(_root);
-	@override late final _Translations$appIcon$sv appIcon = _Translations$appIcon$sv._(_root);
 	@override late final _Translations$auth$sv auth = _Translations$auth$sv._(_root);
 	@override late final _Translations$common$sv common = _Translations$common$sv._(_root);
 	@override late final _Translations$screens$sv screens = _Translations$screens$sv._(_root);
 	@override late final _Translations$update$sv update = _Translations$update$sv._(_root);
-	@override late final _Translations$supporter$sv supporter = _Translations$supporter$sv._(_root);
 	@override late final _Translations$settings$sv settings = _Translations$settings$sv._(_root);
-	@override late final _Translations$themeEditor$sv themeEditor = _Translations$themeEditor$sv._(_root);
 	@override late final _Translations$search$sv search = _Translations$search$sv._(_root);
 	@override late final _Translations$hotkeys$sv hotkeys = _Translations$hotkeys$sv._(_root);
 	@override late final _Translations$fileInfo$sv fileInfo = _Translations$fileInfo$sv._(_root);
@@ -93,6 +90,10 @@ class TranslationsSv extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$seerr$sv seerr = _Translations$seerr$sv._(_root);
 	@override late final _Translations$services$sv services = _Translations$services$sv._(_root);
 	@override late final _Translations$addServer$sv addServer = _Translations$addServer$sv._(_root);
+	@override late final _Translations$appIcon$sv appIcon = _Translations$appIcon$sv._(_root);
+	@override late final _Translations$supporter$sv supporter = _Translations$supporter$sv._(_root);
+	@override late final _Translations$themeEditor$sv themeEditor = _Translations$themeEditor$sv._(_root);
+	@override late final _Translations$deepLinks$sv deepLinks = _Translations$deepLinks$sv._(_root);
 }
 
 // Path: app
@@ -102,25 +103,7 @@ class _Translations$app$sv extends Translations$app$en {
 	final TranslationsSv _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
-}
-
-// Path: appIcon
-class _Translations$appIcon$sv extends Translations$appIcon$en {
-	_Translations$appIcon$sv._(TranslationsSv root) : this._root = root, super.internal(root);
-
-	final TranslationsSv _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Appikon';
-	@override String get defaultIcon => 'Standard';
-	@override String get current => 'Aktuell ikon';
-	@override String get locked => 'Supporter-förmån';
-	@override String get lockedHint => 'Alternativa ikoner är en Supporter-förmån.';
-	@override String get changeFailed => 'Kunde inte byta appikon';
-	@override String get launcherHint => 'Den nya ikonen visas på hemskärmen när du lämnar Plezy.';
-	@override String get tvLauncherHint => 'Den nya bannern visas när du lämnar Plezy. Android TV kan fortsätta visa den gamla tills TV:n startas om.';
-	@override late final _Translations$appIcon$names$sv names = _Translations$appIcon$names$sv._(_root);
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -237,33 +220,14 @@ class _Translations$update$sv extends Translations$update$en {
 	@override String get viewRelease => 'Visa versionsinformation';
 	@override String get latestVersion => 'Du har den senaste versionen';
 	@override String get checkFailed => 'Det gick inte att söka efter uppdateringar';
-}
-
-// Path: supporter
-class _Translations$supporter$sv extends Translations$supporter$en {
-	_Translations$supporter$sv._(TranslationsSv root) : this._root = root, super.internal(root);
-
-	final TranslationsSv _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Plezy Supporter';
-	@override String get intro => 'Ett engångsköp som stöder utvecklingen av Plezy och låser upp kosmetiska extrafunktioner:';
-	@override String get presetThemes => 'Förinställda teman';
-	@override String get presetThemesDescription => 'Glöd, Glaciär, Skog, Plommon och Papper';
-	@override String get customTheme => 'Anpassat tema';
-	@override String get customThemeDescription => 'Välj alla färger själv';
-	@override String get appIcons => 'Appikoner';
-	@override String get appIconsDescription => 'Välj en alternativ Plezy-ikon';
-	@override String buy({required Object price}) => 'Köp för ${price}';
-	@override String get loadingPrice => 'Hämtar pris...';
-	@override String get restore => 'Återställ köp';
-	@override String get pending => 'Ditt köp väntar på betalning eller godkännande. Extrafunktionerna låses upp så snart butiken har slutfört det.';
-	@override String get thankYouTitle => 'Tack för att du stöder Plezy';
-	@override String get thankYouBody => 'Dina Supporter-extrafunktioner är upplåsta.';
-	@override String get tileSubtitle => 'Lås upp teman och appikoner med ett engångsköp';
-	@override String get tileSubtitleThemesOnly => 'Lås upp teman med ett engångsköp';
-	@override String get tileUnlocked => 'Tack för ditt stöd';
-	@override late final _Translations$supporter$errors$sv errors = _Translations$supporter$errors$sv._(_root);
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -608,42 +572,24 @@ class _Translations$settings$sv extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Per bibliotek';
 	@override String get playerScopeTitle => 'Per serie eller film';
 	@override String get exportDialogTitle => 'Exportera Plezy-inställningar';
-}
-
-// Path: themeEditor
-class _Translations$themeEditor$sv extends Translations$themeEditor$en {
-	_Translations$themeEditor$sv._(TranslationsSv root) : this._root = root, super.internal(root);
-
-	final TranslationsSv _root; // ignore: unused_field
-
-	// Translations
-	@override String get builtIn => 'Inbyggda';
-	@override String get presets => 'Förinställda';
-	@override String get custom => 'Anpassat';
-	@override String get customEmpty => 'Inte skapat ännu';
-	@override String get editCustom => 'Redigera anpassat tema';
-	@override String get editCustomDescription => 'Välj alla färger själv';
-	@override String get locked => 'Lås upp med Supporter';
-	@override String get savedLocked => 'Sparat — låses upp med Supporter';
-	@override String get title => 'Anpassat tema';
-	@override String get startFrom => 'Utgå från';
-	@override String get startFromDescription => 'Kopiera alla färger från ett annat tema';
-	@override String get colors => 'Färger';
-	@override String get preview => 'Förhandsgranskning';
-	@override late final _Translations$themeEditor$slots$sv slots = _Translations$themeEditor$slots$sv._(_root);
-	@override String get opacity => 'Opacitet';
-	@override String get hexHint => '#RRGGBB eller #AARRGGBB';
-	@override String get fromOtherThemes => 'Från andra teman';
-	@override String swatchLabel({required Object color, required Object theme}) => '${color} (${theme})';
-	@override late final _Translations$themeEditor$contrast$sv contrast = _Translations$themeEditor$contrast$sv._(_root);
-	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, under det rekommenderade ${minimum}:1';
-	@override String get discardTitle => 'Släng ändringarna?';
-	@override String get discardMessage => 'Dina osparade färgändringar går förlorade.';
-	@override String get discard => 'Släng';
-	@override String previewCardTitle({required Object number}) => 'Avsnitt ${number}';
-	@override String previewCardSubtitle({required Object minutes}) => '${minutes} min kvar';
-	@override String get previewSwitch => 'Autouppspelning';
-	@override String get previewMutedText => 'Sekundär text ser ut så här';
+	@override String get downloadLocationSelectError => 'Kunde inte välja mapp';
+	@override String get mediaCapture => 'Mediafångst';
+	@override String get clips => 'Clips';
+	@override String get screenshots => 'Skärmdumpar';
+	@override String captureLocationTitle({required Object title}) => '${title} Plats';
+	@override String get clipLocationDescription => 'Välj var klipp ska sparas.';
+	@override String get screenshotLocationDescription => 'Välj var skärmdumpar sparas.';
+	@override String get clipLocationChanged => 'Klippets plats har ändrats';
+	@override String get screenshotLocationChanged => 'Plats för skärmdump har ändrats';
+	@override String get clipLocationReset => 'Klippplats återställs till skrivbordet';
+	@override String get screenshotLocationReset => 'Skärmdumpens plats återställd till skrivbordet';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
+	@override String get packedStereoUi => '3D Playback UI';
 }
 
 // Path: search
@@ -993,7 +939,6 @@ class _Translations$videoControls$sv extends Translations$videoControls$en {
 	@override String get pipActive => 'Spelas upp i bild-i-bild';
 	@override String get pipFailed => 'Bild-i-bild kunde inte starta';
 	@override String get screenshotSaved => 'Skärmbild sparad';
-	@override String get screenshotFailed => 'Kunde inte ta skärmbild';
 	@override String zoomPercent({required Object percent}) => 'Zoom ${percent}%';
 	@override String volumePercent({required Object percent}) => 'Volym ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$sv pipErrors = _Translations$videoControls$pipErrors$sv._(_root);
@@ -1018,6 +963,13 @@ class _Translations$videoControls$sv extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Undertexter: Av';
 	@override String osdSubtitles({required Object track}) => 'Undertexter: ${track}';
 	@override String osdAudio({required Object track}) => 'Ljud: ${track}';
+	@override String get screenshotFailed => 'Kunde inte ta skärmbild';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('sv'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
+	@override late final _Translations$videoControls$clip$sv clip = _Translations$videoControls$clip$sv._(_root);
 }
 
 // Path: messages
@@ -1440,6 +1392,9 @@ class _Translations$about$sv extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Version ${version}';
 	@override String get appDescription => 'En vacker Plex-, Jellyfin- och Emby-klient för Flutter';
 	@override String get viewLicensesDescription => 'Visa licenser för tredjepartsbibliotek';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1568,6 +1523,7 @@ class _Translations$explore$sv extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Borttagen från bevakningslistan';
 	@override String get watchlistUpdateFailed => 'Det gick inte att uppdatera bevakningslistan';
 	@override String get watchlistNoMatch => 'Det gick inte att matcha det här objektet mot en bevakningslista';
+	@override String get openInLibrary => 'Öppna i bibliotek';
 	@override String get notInLibrary => 'Finns inte i ditt bibliotek';
 	@override String get inTheseLibraries => 'I dessa bibliotek';
 	@override String get checkingLibrary => 'Kontrollerar ditt bibliotek...';
@@ -1618,6 +1574,7 @@ class _Translations$liveTv$sv extends Translations$liveTv$en {
 	@override String channelNumber({required Object number}) => 'Kanal ${number}';
 	@override String get unknownChannel => 'Okänd kanal';
 	@override String get live => 'LIVE';
+	@override String get premiereBadge => 'NEW';
 	@override String get reloadGuide => 'Ladda om programguide';
 	@override String get searchGuide => 'Sök i programguiden';
 	@override String get searchHint => 'Sök kanaler och program';
@@ -2144,6 +2101,7 @@ class _Translations$performanceOverlay$sv extends Translations$performanceOverla
 	@override String get cacheLimit => 'Cachegräns';
 	@override String get speed => 'Hastighet';
 	@override String get player => 'Spelare';
+	@override String get playMethod => 'Play Method';
 	@override String get memory => 'Minne';
 	@override String get uiFps => 'UI FPS';
 	@override String get fps => 'FPS';
@@ -2458,36 +2416,111 @@ class _Translations$addServer$sv extends Translations$addServer$en {
 	@override String redirectUnsupportedEnterFinal({required Object product}) => 'Servern omdirigerade till en URL som inte stöds. Ange den slutliga URL:en för ${product} direkt.';
 }
 
-// Path: appIcon.names
-class _Translations$appIcon$names$sv extends Translations$appIcon$names$en {
-	_Translations$appIcon$names$sv._(TranslationsSv root) : this._root = root, super.internal(root);
+// Path: appIcon
+class _Translations$appIcon$sv extends Translations$appIcon$en {
+	_Translations$appIcon$sv._(TranslationsSv root) : this._root = root, super.internal(root);
 
 	final TranslationsSv _root; // ignore: unused_field
 
 	// Translations
-	@override String get midnight => 'Midnatt';
-	@override String get ember => 'Glöd';
-	@override String get paper => 'Papper';
-	@override String get oled => 'OLED';
-	@override String get line => 'Linje';
-	@override String get ocean => 'Hav';
-	@override String get ultraviolet => 'Ultraviolett';
-	@override String get matcha => 'Matcha';
-	@override String get sunset => 'Solnedgång';
-	@override String get gold => 'Guld';
-	@override String get titanium => 'Titan';
-	@override String get glass => 'Glas';
-	@override String get crt => 'CRT';
-	@override String get vhs => 'VHS';
-	@override String get synthwave => 'Synthwave';
-	@override String get pixel => 'Pixel';
-	@override String get neon => 'Neon';
-	@override String get sticker => 'Dekal';
-	@override String get ticket => 'Biljett';
-	@override String get pop => 'Pop';
-	@override String get strata => 'Skikt';
-	@override String get facet => 'Fasett';
-	@override String get tilde => 'Tilde';
+	@override String get title => 'Appikon';
+	@override String get defaultIcon => 'Standard';
+	@override String get current => 'Aktuell ikon';
+	@override String get locked => 'Supporter-förmån';
+	@override String get lockedHint => 'Alternativa ikoner är en Supporter-förmån.';
+	@override String get changeFailed => 'Kunde inte byta appikon';
+	@override String get launcherHint => 'Den nya ikonen visas på hemskärmen när du lämnar Plezy.';
+	@override String get tvLauncherHint => 'Den nya bannern visas när du lämnar Plezy. Android TV kan fortsätta visa den gamla tills TV:n startas om.';
+	@override late final _Translations$appIcon$names$sv names = _Translations$appIcon$names$sv._(_root);
+}
+
+// Path: supporter
+class _Translations$supporter$sv extends Translations$supporter$en {
+	_Translations$supporter$sv._(TranslationsSv root) : this._root = root, super.internal(root);
+
+	final TranslationsSv _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Plezy Supporter';
+	@override String get intro => 'Ett engångsköp som stöder utvecklingen av Plezy och låser upp kosmetiska extrafunktioner:';
+	@override String get presetThemes => 'Förinställda teman';
+	@override String get presetThemesDescription => 'Glöd, Glaciär, Skog, Plommon och Papper';
+	@override String get customTheme => 'Anpassat tema';
+	@override String get customThemeDescription => 'Välj alla färger själv';
+	@override String get appIcons => 'Appikoner';
+	@override String get appIconsDescription => 'Välj en alternativ Plezy-ikon';
+	@override String buy({required Object price}) => 'Köp för ${price}';
+	@override String get loadingPrice => 'Hämtar pris...';
+	@override String get restore => 'Återställ köp';
+	@override String get pending => 'Ditt köp väntar på betalning eller godkännande. Extrafunktionerna låses upp så snart butiken har slutfört det.';
+	@override String get thankYouTitle => 'Tack för att du stöder Plezy';
+	@override String get thankYouBody => 'Dina Supporter-extrafunktioner är upplåsta.';
+	@override String get tileSubtitle => 'Lås upp teman och appikoner med ett engångsköp';
+	@override String get tileSubtitleThemesOnly => 'Lås upp teman med ett engångsköp';
+	@override String get tileUnlocked => 'Tack för ditt stöd';
+	@override late final _Translations$supporter$errors$sv errors = _Translations$supporter$errors$sv._(_root);
+}
+
+// Path: themeEditor
+class _Translations$themeEditor$sv extends Translations$themeEditor$en {
+	_Translations$themeEditor$sv._(TranslationsSv root) : this._root = root, super.internal(root);
+
+	final TranslationsSv _root; // ignore: unused_field
+
+	// Translations
+	@override String get builtIn => 'Inbyggda';
+	@override String get presets => 'Förinställda';
+	@override String get custom => 'Anpassat';
+	@override String get customEmpty => 'Inte skapat ännu';
+	@override String get editCustom => 'Redigera anpassat tema';
+	@override String get editCustomDescription => 'Välj alla färger själv';
+	@override String get locked => 'Lås upp med Supporter';
+	@override String get savedLocked => 'Sparat — låses upp med Supporter';
+	@override String get title => 'Anpassat tema';
+	@override String get startFrom => 'Utgå från';
+	@override String get startFromDescription => 'Kopiera alla färger från ett annat tema';
+	@override String get colors => 'Färger';
+	@override String get preview => 'Förhandsgranskning';
+	@override late final _Translations$themeEditor$slots$sv slots = _Translations$themeEditor$slots$sv._(_root);
+	@override String get opacity => 'Opacitet';
+	@override String get hexHint => '#RRGGBB eller #AARRGGBB';
+	@override String get fromOtherThemes => 'Från andra teman';
+	@override String swatchLabel({required Object color, required Object theme}) => '${color} (${theme})';
+	@override late final _Translations$themeEditor$contrast$sv contrast = _Translations$themeEditor$contrast$sv._(_root);
+	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, under det rekommenderade ${minimum}:1';
+	@override String get discardTitle => 'Släng ändringarna?';
+	@override String get discardMessage => 'Dina osparade färgändringar går förlorade.';
+	@override String get discard => 'Släng';
+	@override String previewCardTitle({required Object number}) => 'Avsnitt ${number}';
+	@override String previewCardSubtitle({required Object minutes}) => '${minutes} min kvar';
+	@override String get previewSwitch => 'Autouppspelning';
+	@override String get previewMutedText => 'Sekundär text ser ut så här';
+}
+
+// Path: deepLinks
+class _Translations$deepLinks$sv extends Translations$deepLinks$en {
+	_Translations$deepLinks$sv._(TranslationsSv root) : this._root = root, super.internal(root);
+
+	final TranslationsSv _root; // ignore: unused_field
+
+	// Translations
+	@override String get invalid => 'This Plezy link isn\'t valid.';
+	@override String profileNotFound({required Object profile}) => 'No profile matches "${profile}".';
+	@override String get serverUnavailable => 'Couldn\'t reach the server for this link.';
+	@override String get notFound => 'Couldn\'t find this title in your libraries.';
+	@override String get unsupportedItem => 'This link can\'t be played.';
+	@override String get noLiveTv => 'No Live TV server is available for this link.';
+	@override String channelNotFound({required Object channel}) => 'Couldn\'t find channel "${channel}".';
+	@override String get showLink => 'Show link';
+	@override String get showProfileLink => 'Show profile link';
+	@override String get dialogTitle => 'Link';
+	@override String get showHint => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.';
+	@override String get movieHint => 'Opening this link plays the movie.';
+	@override String get episodeHint => 'Opening this link plays this episode.';
+	@override String get profileHint => 'Opening this link switches to this profile.';
+	@override String openAsProfile({required Object name}) => 'Open as ${name}';
+	@override String get copy => 'Copy';
+	@override String get copied => 'Link copied';
 }
 
 // Path: common.ratingSource
@@ -2533,52 +2566,6 @@ class _Translations$common$mediaKind$sv extends Translations$common$mediaKind$en
 	@override String get folder => 'Mapp';
 }
 
-// Path: supporter.errors
-class _Translations$supporter$errors$sv extends Translations$supporter$errors$en {
-	_Translations$supporter$errors$sv._(TranslationsSv root) : this._root = root, super.internal(root);
-
-	final TranslationsSv _root; // ignore: unused_field
-
-	// Translations
-	@override String get storeUnavailable => 'Köp är inte tillgängliga. Kontrollera att du är inloggad i butiken och att köp är tillåtna på den här enheten.';
-	@override String get productNotFound => 'Supporter-köpet är inte tillgängligt i din butik just nu.';
-	@override String get productQueryFailed => 'Kunde inte hämta priset. Kontrollera anslutningen och försök igen.';
-	@override String get purchaseFailed => 'Köpet gick inte igenom. Försök igen.';
-	@override String get restoreFailed => 'Kunde inte nå butiken för att återställa ditt köp. Försök igen.';
-	@override String get nothingToRestore => 'Inget Supporter-köp hittades för det här butikskontot.';
-}
-
-// Path: themeEditor.slots
-class _Translations$themeEditor$slots$sv extends Translations$themeEditor$slots$en {
-	_Translations$themeEditor$slots$sv._(TranslationsSv root) : this._root = root, super.internal(root);
-
-	final TranslationsSv _root; // ignore: unused_field
-
-	// Translations
-	@override String get bg => 'Bakgrund';
-	@override String get surface => 'Yta';
-	@override String get outline => 'Kontur';
-	@override String get text => 'Text';
-	@override String get textMuted => 'Sekundär text';
-	@override String get accent => 'Accentfärg';
-}
-
-// Path: themeEditor.contrast
-class _Translations$themeEditor$contrast$sv extends Translations$themeEditor$contrast$en {
-	_Translations$themeEditor$contrast$sv._(TranslationsSv root) : this._root = root, super.internal(root);
-
-	final TranslationsSv _root; // ignore: unused_field
-
-	// Translations
-	@override String get textOnBg => 'Text på bakgrund';
-	@override String get textOnSurface => 'Text på yta';
-	@override String get textMutedOnBg => 'Sekundär text på bakgrund';
-	@override String get textMutedOnSurface => 'Sekundär text på yta';
-	@override String get accentOnBg => 'Accentfärg på bakgrund';
-	@override String get accentOnSurface => 'Accentfärg på yta';
-	@override String get labelOnAccent => 'Knapptext på accentfärg';
-}
-
 // Path: hotkeys.actions
 class _Translations$hotkeys$actions$sv extends Translations$hotkeys$actions$en {
 	_Translations$hotkeys$actions$sv._(TranslationsSv root) : this._root = root, super.internal(root);
@@ -2611,6 +2598,8 @@ class _Translations$hotkeys$actions$sv extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Växla shaders';
 	@override String get skipMarker => 'Hoppa över intro/eftertexter';
 	@override String get screenshot => 'Ta skärmbild';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2628,6 +2617,52 @@ class _Translations$videoControls$pipErrors$sv extends Translations$videoControl
 	@override String get failed => 'Bild-i-bild kunde inte starta';
 	@override String get prepareFailed => 'Bild-i-bild kunde inte förberedas';
 	@override String unknown({required Object error}) => 'Ett fel uppstod: ${error}';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$sv extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$sv._(TranslationsSv root) : this._root = root, super.internal(root);
+
+	final TranslationsSv _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Finjustering';
+	@override String get title => 'Klämma';
+	@override String get vodOnly => 'Klipp är tillgängliga för videouppspelning på begäran.';
+	@override String get sourceUnavailable => 'Klippkälla är inte tillgänglig för denna uppspelningssession.';
+	@override String get playAtLeastOneSecond => 'Spela minst 1 sekund innan du klipper.';
+	@override String get startBeforeBeginning => 'Klippstart kan inte ske före början av videon.';
+	@override String get endAfterStart => 'Klippets slut måste vara efter starten.';
+	@override String get minimumDuration => 'Klipp måste vara minst 1 sekund långa.';
+	@override String get endPastVideo => 'Klippets slut är förbi slutet av videon.';
+	@override String get exportCanceled => 'Klippexporten avbröts.';
+	@override String get cacheUnavailable => 'Det valda intervallet kunde inte cachelagras helt för originalexport. Prova ett kortare klipp eller spela upp förhandsvisningen en gång innan du sparar.';
+	@override String get sourceCopyNoEncoder => 'Export av källkopia använder inte en kodare.';
+	@override String get encodingDesktopOnly => 'H.264- och HEVC-klippkodning är för närvarande tillgänglig på macOS och Windows.';
+	@override String get hdrRequiresSource => 'HDR-export kräver en HDR10- eller HLG-kompatibel källa med direktuppspelning.';
+	@override String get transcodeStartUnavailable => 'Det här klippet börjar före den aktiva omkodade strömmen. Sök tidigare och öppna klippning igen, eller byt till originalkvalitet.';
+	@override String get previewRequired => 'Förhandsgranskningen av klipp måste avslutas innan den kan sparas.';
+	@override String get h264Failed => 'Denna källa kunde inte kodas som en H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'Denna källa kunde inte kodas som en HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'Den här källan kunde inte kodas som en HEVC HDR MP4.';
+	@override String get gifFailed => 'Den här källan kunde inte kodas som en GIF.';
+	@override String get originalFailed => 'Den här källan kunde inte kopieras från mpv-cachen.';
+	@override String get previewUnavailable => 'Förhandsvisning av klipp är inte tillgängligt i den här versionen.';
+	@override String get previewFailed => 'Förhandsvisning av klipp misslyckades.';
+	@override String get previewLoadingScreenshot => 'Förhandsgranskningen av klippet måste avslutas innan du tar en skärmdump.';
+	@override String get screenshotInProgress => 'En skärmdump sparas redan.';
+	@override String get saveAsDialog => 'Spara klipp som';
+	@override String savedTo({required Object fileName}) => 'Sparad till ${fileName}';
+	@override String get openFolder => 'Öppna mapp';
+	@override String get saveAs => 'Spara som';
+	@override String get cancelExport => 'Avbryt export';
+	@override String get saving => 'Sparande...';
+	@override String savingProgress({required Object percent}) => 'Sparar ${percent} %';
+	@override String get mutePreview => 'Stäng av förhandsvisning';
+	@override String get unmutePreview => 'Slå på förhandsvisning';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: accountPreferences.groups
@@ -3387,6 +3422,84 @@ class _Translations$services$libraryFilter$sv extends Translations$services$libr
 	@override String get noLibraries => 'Inga bibliotek tillgängliga';
 }
 
+// Path: appIcon.names
+class _Translations$appIcon$names$sv extends Translations$appIcon$names$en {
+	_Translations$appIcon$names$sv._(TranslationsSv root) : this._root = root, super.internal(root);
+
+	final TranslationsSv _root; // ignore: unused_field
+
+	// Translations
+	@override String get midnight => 'Midnatt';
+	@override String get ember => 'Glöd';
+	@override String get paper => 'Papper';
+	@override String get oled => 'OLED';
+	@override String get line => 'Linje';
+	@override String get ocean => 'Hav';
+	@override String get ultraviolet => 'Ultraviolett';
+	@override String get matcha => 'Matcha';
+	@override String get sunset => 'Solnedgång';
+	@override String get gold => 'Guld';
+	@override String get titanium => 'Titan';
+	@override String get glass => 'Glas';
+	@override String get crt => 'CRT';
+	@override String get vhs => 'VHS';
+	@override String get synthwave => 'Synthwave';
+	@override String get pixel => 'Pixel';
+	@override String get neon => 'Neon';
+	@override String get sticker => 'Dekal';
+	@override String get ticket => 'Biljett';
+	@override String get pop => 'Pop';
+	@override String get strata => 'Skikt';
+	@override String get facet => 'Fasett';
+	@override String get tilde => 'Tilde';
+}
+
+// Path: supporter.errors
+class _Translations$supporter$errors$sv extends Translations$supporter$errors$en {
+	_Translations$supporter$errors$sv._(TranslationsSv root) : this._root = root, super.internal(root);
+
+	final TranslationsSv _root; // ignore: unused_field
+
+	// Translations
+	@override String get storeUnavailable => 'Köp är inte tillgängliga. Kontrollera att du är inloggad i butiken och att köp är tillåtna på den här enheten.';
+	@override String get productNotFound => 'Supporter-köpet är inte tillgängligt i din butik just nu.';
+	@override String get productQueryFailed => 'Kunde inte hämta priset. Kontrollera anslutningen och försök igen.';
+	@override String get purchaseFailed => 'Köpet gick inte igenom. Försök igen.';
+	@override String get restoreFailed => 'Kunde inte nå butiken för att återställa ditt köp. Försök igen.';
+	@override String get nothingToRestore => 'Inget Supporter-köp hittades för det här butikskontot.';
+}
+
+// Path: themeEditor.slots
+class _Translations$themeEditor$slots$sv extends Translations$themeEditor$slots$en {
+	_Translations$themeEditor$slots$sv._(TranslationsSv root) : this._root = root, super.internal(root);
+
+	final TranslationsSv _root; // ignore: unused_field
+
+	// Translations
+	@override String get bg => 'Bakgrund';
+	@override String get surface => 'Yta';
+	@override String get outline => 'Kontur';
+	@override String get text => 'Text';
+	@override String get textMuted => 'Sekundär text';
+	@override String get accent => 'Accentfärg';
+}
+
+// Path: themeEditor.contrast
+class _Translations$themeEditor$contrast$sv extends Translations$themeEditor$contrast$en {
+	_Translations$themeEditor$contrast$sv._(TranslationsSv root) : this._root = root, super.internal(root);
+
+	final TranslationsSv _root; // ignore: unused_field
+
+	// Translations
+	@override String get textOnBg => 'Text på bakgrund';
+	@override String get textOnSurface => 'Text på yta';
+	@override String get textMutedOnBg => 'Sekundär text på bakgrund';
+	@override String get textMutedOnSurface => 'Sekundär text på yta';
+	@override String get accentOnBg => 'Accentfärg på bakgrund';
+	@override String get accentOnSurface => 'Accentfärg på yta';
+	@override String get labelOnAccent => 'Knapptext på accentfärg';
+}
+
 /// The flat map containing all translations for locale <sv>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -3395,38 +3508,7 @@ class _Translations$services$libraryFilter$sv extends Translations$services$libr
 extension on TranslationsSv {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
-			'appIcon.title' => 'Appikon',
-			'appIcon.defaultIcon' => 'Standard',
-			'appIcon.current' => 'Aktuell ikon',
-			'appIcon.locked' => 'Supporter-förmån',
-			'appIcon.lockedHint' => 'Alternativa ikoner är en Supporter-förmån.',
-			'appIcon.changeFailed' => 'Kunde inte byta appikon',
-			'appIcon.launcherHint' => 'Den nya ikonen visas på hemskärmen när du lämnar Plezy.',
-			'appIcon.tvLauncherHint' => 'Den nya bannern visas när du lämnar Plezy. Android TV kan fortsätta visa den gamla tills TV:n startas om.',
-			'appIcon.names.midnight' => 'Midnatt',
-			'appIcon.names.ember' => 'Glöd',
-			'appIcon.names.paper' => 'Papper',
-			'appIcon.names.oled' => 'OLED',
-			'appIcon.names.line' => 'Linje',
-			'appIcon.names.ocean' => 'Hav',
-			'appIcon.names.ultraviolet' => 'Ultraviolett',
-			'appIcon.names.matcha' => 'Matcha',
-			'appIcon.names.sunset' => 'Solnedgång',
-			'appIcon.names.gold' => 'Guld',
-			'appIcon.names.titanium' => 'Titan',
-			'appIcon.names.glass' => 'Glas',
-			'appIcon.names.crt' => 'CRT',
-			'appIcon.names.vhs' => 'VHS',
-			'appIcon.names.synthwave' => 'Synthwave',
-			'appIcon.names.pixel' => 'Pixel',
-			'appIcon.names.neon' => 'Neon',
-			'appIcon.names.sticker' => 'Dekal',
-			'appIcon.names.ticket' => 'Biljett',
-			'appIcon.names.pop' => 'Pop',
-			'appIcon.names.strata' => 'Skikt',
-			'appIcon.names.facet' => 'Fasett',
-			'appIcon.names.tilde' => 'Tilde',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Logga in med Plex',
 			'auth.showQRCode' => 'Visa QR-kod',
 			'auth.authenticate' => 'Verifiera',
@@ -3530,29 +3612,14 @@ extension on TranslationsSv {
 			'update.viewRelease' => 'Visa versionsinformation',
 			'update.latestVersion' => 'Du har den senaste versionen',
 			'update.checkFailed' => 'Det gick inte att söka efter uppdateringar',
-			'supporter.title' => 'Plezy Supporter',
-			'supporter.intro' => 'Ett engångsköp som stöder utvecklingen av Plezy och låser upp kosmetiska extrafunktioner:',
-			'supporter.presetThemes' => 'Förinställda teman',
-			'supporter.presetThemesDescription' => 'Glöd, Glaciär, Skog, Plommon och Papper',
-			'supporter.customTheme' => 'Anpassat tema',
-			'supporter.customThemeDescription' => 'Välj alla färger själv',
-			'supporter.appIcons' => 'Appikoner',
-			'supporter.appIconsDescription' => 'Välj en alternativ Plezy-ikon',
-			'supporter.buy' => ({required Object price}) => 'Köp för ${price}',
-			'supporter.loadingPrice' => 'Hämtar pris...',
-			'supporter.restore' => 'Återställ köp',
-			'supporter.pending' => 'Ditt köp väntar på betalning eller godkännande. Extrafunktionerna låses upp så snart butiken har slutfört det.',
-			'supporter.thankYouTitle' => 'Tack för att du stöder Plezy',
-			'supporter.thankYouBody' => 'Dina Supporter-extrafunktioner är upplåsta.',
-			'supporter.tileSubtitle' => 'Lås upp teman och appikoner med ett engångsköp',
-			'supporter.tileSubtitleThemesOnly' => 'Lås upp teman med ett engångsköp',
-			'supporter.tileUnlocked' => 'Tack för ditt stöd',
-			'supporter.errors.storeUnavailable' => 'Köp är inte tillgängliga. Kontrollera att du är inloggad i butiken och att köp är tillåtna på den här enheten.',
-			'supporter.errors.productNotFound' => 'Supporter-köpet är inte tillgängligt i din butik just nu.',
-			'supporter.errors.productQueryFailed' => 'Kunde inte hämta priset. Kontrollera anslutningen och försök igen.',
-			'supporter.errors.purchaseFailed' => 'Köpet gick inte igenom. Försök igen.',
-			'supporter.errors.restoreFailed' => 'Kunde inte nå butiken för att återställa ditt köp. Försök igen.',
-			'supporter.errors.nothingToRestore' => 'Inget Supporter-köp hittades för det här butikskontot.',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Inställningar',
 			'settings.supportDeveloper' => 'Stöd Plezy',
 			'settings.supportDeveloperDescription' => 'Donera via Liberapay för att finansiera utvecklingen',
@@ -3888,46 +3955,24 @@ extension on TranslationsSv {
 			'settings.playerScopeLibrary' => 'Per bibliotek',
 			'settings.playerScopeTitle' => 'Per serie eller film',
 			'settings.exportDialogTitle' => 'Exportera Plezy-inställningar',
-			'themeEditor.builtIn' => 'Inbyggda',
-			'themeEditor.presets' => 'Förinställda',
-			'themeEditor.custom' => 'Anpassat',
-			'themeEditor.customEmpty' => 'Inte skapat ännu',
-			'themeEditor.editCustom' => 'Redigera anpassat tema',
-			'themeEditor.editCustomDescription' => 'Välj alla färger själv',
-			'themeEditor.locked' => 'Lås upp med Supporter',
-			'themeEditor.savedLocked' => 'Sparat — låses upp med Supporter',
-			'themeEditor.title' => 'Anpassat tema',
-			'themeEditor.startFrom' => 'Utgå från',
-			'themeEditor.startFromDescription' => 'Kopiera alla färger från ett annat tema',
-			'themeEditor.colors' => 'Färger',
-			'themeEditor.preview' => 'Förhandsgranskning',
-			'themeEditor.slots.bg' => 'Bakgrund',
-			'themeEditor.slots.surface' => 'Yta',
-			'themeEditor.slots.outline' => 'Kontur',
-			'themeEditor.slots.text' => 'Text',
-			'themeEditor.slots.textMuted' => 'Sekundär text',
-			'themeEditor.slots.accent' => 'Accentfärg',
-			_ => null,
-		} ?? switch (path) {
-			'themeEditor.opacity' => 'Opacitet',
-			'themeEditor.hexHint' => '#RRGGBB eller #AARRGGBB',
-			'themeEditor.fromOtherThemes' => 'Från andra teman',
-			'themeEditor.swatchLabel' => ({required Object color, required Object theme}) => '${color} (${theme})',
-			'themeEditor.contrast.textOnBg' => 'Text på bakgrund',
-			'themeEditor.contrast.textOnSurface' => 'Text på yta',
-			'themeEditor.contrast.textMutedOnBg' => 'Sekundär text på bakgrund',
-			'themeEditor.contrast.textMutedOnSurface' => 'Sekundär text på yta',
-			'themeEditor.contrast.accentOnBg' => 'Accentfärg på bakgrund',
-			'themeEditor.contrast.accentOnSurface' => 'Accentfärg på yta',
-			'themeEditor.contrast.labelOnAccent' => 'Knapptext på accentfärg',
-			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, under det rekommenderade ${minimum}:1',
-			'themeEditor.discardTitle' => 'Släng ändringarna?',
-			'themeEditor.discardMessage' => 'Dina osparade färgändringar går förlorade.',
-			'themeEditor.discard' => 'Släng',
-			'themeEditor.previewCardTitle' => ({required Object number}) => 'Avsnitt ${number}',
-			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '${minutes} min kvar',
-			'themeEditor.previewSwitch' => 'Autouppspelning',
-			'themeEditor.previewMutedText' => 'Sekundär text ser ut så här',
+			'settings.downloadLocationSelectError' => 'Kunde inte välja mapp',
+			'settings.mediaCapture' => 'Mediafångst',
+			'settings.clips' => 'Clips',
+			'settings.screenshots' => 'Skärmdumpar',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Plats',
+			'settings.clipLocationDescription' => 'Välj var klipp ska sparas.',
+			'settings.screenshotLocationDescription' => 'Välj var skärmdumpar sparas.',
+			'settings.clipLocationChanged' => 'Klippets plats har ändrats',
+			'settings.screenshotLocationChanged' => 'Plats för skärmdump har ändrats',
+			'settings.clipLocationReset' => 'Klippplats återställs till skrivbordet',
+			'settings.screenshotLocationReset' => 'Skärmdumpens plats återställd till skrivbordet',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'search.hint' => 'Sök filmer, serier, musik...',
 			'search.tryDifferentTerm' => 'Prova en annan sökterm',
 			'search.searchYourMedia' => 'Sök i dina media',
@@ -3964,6 +4009,8 @@ extension on TranslationsSv {
 			'hotkeys.actions.shaderToggle' => 'Växla shaders',
 			'hotkeys.actions.skipMarker' => 'Hoppa över intro/eftertexter',
 			'hotkeys.actions.screenshot' => 'Ta skärmbild',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Filinformation',
 			'fileInfo.overview' => 'Översikt',
 			'fileInfo.video' => 'Video',
@@ -3973,6 +4020,8 @@ extension on TranslationsSv {
 			'fileInfo.dataStreams' => 'Dataströmmar',
 			'fileInfo.lyrics' => 'Sångtexter',
 			'fileInfo.file' => 'Fil',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.attachments' => 'Bilagor',
 			'fileInfo.delivery' => 'Leverans',
 			'fileInfo.versionCounter' => ({required Object index, required Object count}) => 'Version ${index} av ${count}',
@@ -4211,7 +4260,6 @@ extension on TranslationsSv {
 			'videoControls.pipActive' => 'Spelas upp i bild-i-bild',
 			'videoControls.pipFailed' => 'Bild-i-bild kunde inte starta',
 			'videoControls.screenshotSaved' => 'Skärmbild sparad',
-			'videoControls.screenshotFailed' => 'Kunde inte ta skärmbild',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Zoom ${percent}%',
 			'videoControls.volumePercent' => ({required Object percent}) => 'Volym ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Kräver Android 8.0 eller nyare',
@@ -4243,6 +4291,46 @@ extension on TranslationsSv {
 			'videoControls.osdSubtitlesOff' => 'Undertexter: Av',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Undertexter: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Ljud: ${track}',
+			'videoControls.screenshotFailed' => 'Kunde inte ta skärmbild',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('sv'))(n, one: '${n} frame', other: '${n} frames', ), 
+			'videoControls.clip.fineAdjust' => 'Finjustering',
+			'videoControls.clip.title' => 'Klämma',
+			'videoControls.clip.vodOnly' => 'Klipp är tillgängliga för videouppspelning på begäran.',
+			'videoControls.clip.sourceUnavailable' => 'Klippkälla är inte tillgänglig för denna uppspelningssession.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Spela minst 1 sekund innan du klipper.',
+			'videoControls.clip.startBeforeBeginning' => 'Klippstart kan inte ske före början av videon.',
+			'videoControls.clip.endAfterStart' => 'Klippets slut måste vara efter starten.',
+			'videoControls.clip.minimumDuration' => 'Klipp måste vara minst 1 sekund långa.',
+			'videoControls.clip.endPastVideo' => 'Klippets slut är förbi slutet av videon.',
+			'videoControls.clip.exportCanceled' => 'Klippexporten avbröts.',
+			'videoControls.clip.cacheUnavailable' => 'Det valda intervallet kunde inte cachelagras helt för originalexport. Prova ett kortare klipp eller spela upp förhandsvisningen en gång innan du sparar.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Export av källkopia använder inte en kodare.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264- och HEVC-klippkodning är för närvarande tillgänglig på macOS och Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR-export kräver en HDR10- eller HLG-kompatibel källa med direktuppspelning.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Det här klippet börjar före den aktiva omkodade strömmen. Sök tidigare och öppna klippning igen, eller byt till originalkvalitet.',
+			'videoControls.clip.previewRequired' => 'Förhandsgranskningen av klipp måste avslutas innan den kan sparas.',
+			'videoControls.clip.h264Failed' => 'Denna källa kunde inte kodas som en H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'Denna källa kunde inte kodas som en HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'Den här källan kunde inte kodas som en HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Den här källan kunde inte kodas som en GIF.',
+			'videoControls.clip.originalFailed' => 'Den här källan kunde inte kopieras från mpv-cachen.',
+			'videoControls.clip.previewUnavailable' => 'Förhandsvisning av klipp är inte tillgängligt i den här versionen.',
+			'videoControls.clip.previewFailed' => 'Förhandsvisning av klipp misslyckades.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Förhandsgranskningen av klippet måste avslutas innan du tar en skärmdump.',
+			'videoControls.clip.screenshotInProgress' => 'En skärmdump sparas redan.',
+			'videoControls.clip.saveAsDialog' => 'Spara klipp som',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Sparad till ${fileName}',
+			'videoControls.clip.openFolder' => 'Öppna mapp',
+			'videoControls.clip.saveAs' => 'Spara som',
+			'videoControls.clip.cancelExport' => 'Avbryt export',
+			'videoControls.clip.saving' => 'Sparande...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Sparar ${percent} %',
+			'videoControls.clip.mutePreview' => 'Stäng av förhandsvisning',
+			'videoControls.clip.unmutePreview' => 'Slå på förhandsvisning',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'Markerad som sedd',
 			'messages.markedAsUnwatched' => 'Markerad som osedd',
 			'messages.markedAsWatchedOffline' => 'Markerad som sedd (synkroniseras när online)',
@@ -4421,8 +4509,6 @@ extension on TranslationsSv {
 			'profiles.tokenIdentityMismatch' => 'Plex-profiltoken kopplades till en oväntad server',
 			'connections.sectionTitle' => 'Anslutningar',
 			'connections.addConnection' => 'Lägg till anslutning',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnectionSubtitleNoProfile' => 'Logga in med Plex eller anslut en Jellyfin- eller Emby-server',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => 'Lägg till för ${displayName}: Plex, Jellyfin, Emby eller en annan profilanslutning',
 			'connections.sessionExpiredOne' => ({required Object name}) => 'Sessionen har gått ut för ${name}',
@@ -4448,6 +4534,8 @@ extension on TranslationsSv {
 			'accountPreferences.groups.personalMedia' => 'Personliga media',
 			'accountPreferences.preferredAudioLanguage' => 'Föredraget ljudspråk',
 			'accountPreferences.autoSelectAudio' => 'Välj ljud efter språk',
+			_ => null,
+		} ?? switch (path) {
 			'accountPreferences.autoSelectAudioDescription' => 'Av behåller det ljudspår som filen markerar som standard.',
 			'accountPreferences.preferredSubtitleLanguage' => 'Föredraget undertextspråk',
 			'accountPreferences.subtitleMode' => 'Aktivera undertexter',
@@ -4655,6 +4743,9 @@ extension on TranslationsSv {
 			'about.versionLabel' => ({required Object version}) => 'Version ${version}',
 			'about.appDescription' => 'En vacker Plex-, Jellyfin- och Emby-klient för Flutter',
 			'about.viewLicensesDescription' => 'Visa licenser för tredjepartsbibliotek',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Inga servrar hittades för ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Det gick inte att läsa in servrar: ${error}',
 			'serverSelection.noValidServers' => 'Inga användbara servrar hittades på det här kontot',
@@ -4733,6 +4824,7 @@ extension on TranslationsSv {
 			'explore.removedFromWatchlist' => 'Borttagen från bevakningslistan',
 			'explore.watchlistUpdateFailed' => 'Det gick inte att uppdatera bevakningslistan',
 			'explore.watchlistNoMatch' => 'Det gick inte att matcha det här objektet mot en bevakningslista',
+			'explore.openInLibrary' => 'Öppna i bibliotek',
 			'explore.notInLibrary' => 'Finns inte i ditt bibliotek',
 			'explore.inTheseLibraries' => 'I dessa bibliotek',
 			'explore.checkingLibrary' => 'Kontrollerar ditt bibliotek...',
@@ -4862,6 +4954,7 @@ extension on TranslationsSv {
 			'liveTv.channelNumber' => ({required Object number}) => 'Kanal ${number}',
 			'liveTv.unknownChannel' => 'Okänd kanal',
 			'liveTv.live' => 'LIVE',
+			'liveTv.premiereBadge' => 'NEW',
 			'liveTv.reloadGuide' => 'Ladda om programguide',
 			'liveTv.searchGuide' => 'Sök i programguiden',
 			'liveTv.searchHint' => 'Sök kanaler och program',
@@ -4935,8 +5028,6 @@ extension on TranslationsSv {
 			'liveTv.recordSettings.keepUpToHint' => '0 behåller alla avsnitt',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => 'Börjar om ${minutes} min',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} kl. ${time}',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.invalidPlaybackData' => ({required Object product}) => '${product} returnerade ogiltiga uppspelningsdata för Live-TV',
 			'liveTv.failedToStartChannel' => 'Kunde inte starta livekanalen',
 			'liveTv.failedToBuildStreamUrl' => 'Kunde inte skapa strömmens URL',
@@ -4957,6 +5048,8 @@ extension on TranslationsSv {
 			'collections.errorAddingToCollection' => 'Det gick inte att lägga till objektet i samlingen',
 			'collections.created' => 'Samlingen har skapats',
 			'collections.removeFromCollection' => 'Ta bort från samlingen',
+			_ => null,
+		} ?? switch (path) {
 			'collections.removeFromCollectionConfirm' => ({required Object title}) => 'Ta bort "${title}" från den här samlingen?',
 			'collections.removedFromCollection' => 'Objektet har tagits bort från samlingen',
 			'collections.removeFromCollectionFailed' => 'Det gick inte att ta bort objektet från samlingen',
@@ -5437,6 +5530,7 @@ extension on TranslationsSv {
 			'performanceOverlay.cacheLimit' => 'Cachegräns',
 			'performanceOverlay.speed' => 'Hastighet',
 			'performanceOverlay.player' => 'Spelare',
+			'performanceOverlay.playMethod' => 'Play Method',
 			'performanceOverlay.memory' => 'Minne',
 			'performanceOverlay.uiFps' => 'UI FPS',
 			'performanceOverlay.fps' => 'FPS',
@@ -5449,8 +5543,6 @@ extension on TranslationsSv {
 			'performanceOverlay.decoderHardware' => 'Maskinvara',
 			'performanceOverlay.tunnelingActive' => 'Aktiv',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} misslyckades)',
-			_ => null,
-		} ?? switch (path) {
 			'externalPlayer.title' => 'Extern spelare',
 			'externalPlayer.useExternalPlayer' => 'Använd extern spelare',
 			'externalPlayer.useExternalPlayerDescription' => 'Öppna videor i en annan app',
@@ -5470,6 +5562,8 @@ extension on TranslationsSv {
 			'metadataEdit.editMetadata' => 'Redigera...',
 			'metadataEdit.screenTitle' => 'Redigera metadata',
 			'metadataEdit.basicInfo' => 'Grundläggande information',
+			_ => null,
+		} ?? switch (path) {
 			'metadataEdit.artwork' => 'Bildmaterial',
 			'metadataEdit.advancedSettings' => 'Avancerade inställningar',
 			'metadataEdit.title' => 'Titel',
@@ -5703,6 +5797,115 @@ extension on TranslationsSv {
 			'addServer.redirectDifferentHost' => ({required Object product}) => 'Servern omdirigerade till en annan värd. Ange den slutliga URL:en för ${product} direkt.',
 			'addServer.redirectInsecure' => 'Servern omdirigerade från HTTPS till en osäker URL',
 			'addServer.redirectUnsupportedEnterFinal' => ({required Object product}) => 'Servern omdirigerade till en URL som inte stöds. Ange den slutliga URL:en för ${product} direkt.',
+			'appIcon.title' => 'Appikon',
+			'appIcon.defaultIcon' => 'Standard',
+			'appIcon.current' => 'Aktuell ikon',
+			'appIcon.locked' => 'Supporter-förmån',
+			'appIcon.lockedHint' => 'Alternativa ikoner är en Supporter-förmån.',
+			'appIcon.changeFailed' => 'Kunde inte byta appikon',
+			'appIcon.launcherHint' => 'Den nya ikonen visas på hemskärmen när du lämnar Plezy.',
+			'appIcon.tvLauncherHint' => 'Den nya bannern visas när du lämnar Plezy. Android TV kan fortsätta visa den gamla tills TV:n startas om.',
+			'appIcon.names.midnight' => 'Midnatt',
+			'appIcon.names.ember' => 'Glöd',
+			'appIcon.names.paper' => 'Papper',
+			'appIcon.names.oled' => 'OLED',
+			'appIcon.names.line' => 'Linje',
+			'appIcon.names.ocean' => 'Hav',
+			'appIcon.names.ultraviolet' => 'Ultraviolett',
+			'appIcon.names.matcha' => 'Matcha',
+			'appIcon.names.sunset' => 'Solnedgång',
+			'appIcon.names.gold' => 'Guld',
+			'appIcon.names.titanium' => 'Titan',
+			'appIcon.names.glass' => 'Glas',
+			'appIcon.names.crt' => 'CRT',
+			'appIcon.names.vhs' => 'VHS',
+			'appIcon.names.synthwave' => 'Synthwave',
+			'appIcon.names.pixel' => 'Pixel',
+			'appIcon.names.neon' => 'Neon',
+			'appIcon.names.sticker' => 'Dekal',
+			'appIcon.names.ticket' => 'Biljett',
+			'appIcon.names.pop' => 'Pop',
+			'appIcon.names.strata' => 'Skikt',
+			'appIcon.names.facet' => 'Fasett',
+			'appIcon.names.tilde' => 'Tilde',
+			'supporter.title' => 'Plezy Supporter',
+			'supporter.intro' => 'Ett engångsköp som stöder utvecklingen av Plezy och låser upp kosmetiska extrafunktioner:',
+			'supporter.presetThemes' => 'Förinställda teman',
+			'supporter.presetThemesDescription' => 'Glöd, Glaciär, Skog, Plommon och Papper',
+			'supporter.customTheme' => 'Anpassat tema',
+			'supporter.customThemeDescription' => 'Välj alla färger själv',
+			'supporter.appIcons' => 'Appikoner',
+			'supporter.appIconsDescription' => 'Välj en alternativ Plezy-ikon',
+			'supporter.buy' => ({required Object price}) => 'Köp för ${price}',
+			'supporter.loadingPrice' => 'Hämtar pris...',
+			'supporter.restore' => 'Återställ köp',
+			'supporter.pending' => 'Ditt köp väntar på betalning eller godkännande. Extrafunktionerna låses upp så snart butiken har slutfört det.',
+			'supporter.thankYouTitle' => 'Tack för att du stöder Plezy',
+			'supporter.thankYouBody' => 'Dina Supporter-extrafunktioner är upplåsta.',
+			'supporter.tileSubtitle' => 'Lås upp teman och appikoner med ett engångsköp',
+			'supporter.tileSubtitleThemesOnly' => 'Lås upp teman med ett engångsköp',
+			'supporter.tileUnlocked' => 'Tack för ditt stöd',
+			'supporter.errors.storeUnavailable' => 'Köp är inte tillgängliga. Kontrollera att du är inloggad i butiken och att köp är tillåtna på den här enheten.',
+			'supporter.errors.productNotFound' => 'Supporter-köpet är inte tillgängligt i din butik just nu.',
+			'supporter.errors.productQueryFailed' => 'Kunde inte hämta priset. Kontrollera anslutningen och försök igen.',
+			'supporter.errors.purchaseFailed' => 'Köpet gick inte igenom. Försök igen.',
+			'supporter.errors.restoreFailed' => 'Kunde inte nå butiken för att återställa ditt köp. Försök igen.',
+			'supporter.errors.nothingToRestore' => 'Inget Supporter-köp hittades för det här butikskontot.',
+			'themeEditor.builtIn' => 'Inbyggda',
+			'themeEditor.presets' => 'Förinställda',
+			'themeEditor.custom' => 'Anpassat',
+			'themeEditor.customEmpty' => 'Inte skapat ännu',
+			'themeEditor.editCustom' => 'Redigera anpassat tema',
+			'themeEditor.editCustomDescription' => 'Välj alla färger själv',
+			'themeEditor.locked' => 'Lås upp med Supporter',
+			'themeEditor.savedLocked' => 'Sparat — låses upp med Supporter',
+			'themeEditor.title' => 'Anpassat tema',
+			'themeEditor.startFrom' => 'Utgå från',
+			'themeEditor.startFromDescription' => 'Kopiera alla färger från ett annat tema',
+			'themeEditor.colors' => 'Färger',
+			'themeEditor.preview' => 'Förhandsgranskning',
+			'themeEditor.slots.bg' => 'Bakgrund',
+			'themeEditor.slots.surface' => 'Yta',
+			'themeEditor.slots.outline' => 'Kontur',
+			'themeEditor.slots.text' => 'Text',
+			'themeEditor.slots.textMuted' => 'Sekundär text',
+			'themeEditor.slots.accent' => 'Accentfärg',
+			'themeEditor.opacity' => 'Opacitet',
+			'themeEditor.hexHint' => '#RRGGBB eller #AARRGGBB',
+			'themeEditor.fromOtherThemes' => 'Från andra teman',
+			'themeEditor.swatchLabel' => ({required Object color, required Object theme}) => '${color} (${theme})',
+			'themeEditor.contrast.textOnBg' => 'Text på bakgrund',
+			'themeEditor.contrast.textOnSurface' => 'Text på yta',
+			'themeEditor.contrast.textMutedOnBg' => 'Sekundär text på bakgrund',
+			'themeEditor.contrast.textMutedOnSurface' => 'Sekundär text på yta',
+			'themeEditor.contrast.accentOnBg' => 'Accentfärg på bakgrund',
+			'themeEditor.contrast.accentOnSurface' => 'Accentfärg på yta',
+			'themeEditor.contrast.labelOnAccent' => 'Knapptext på accentfärg',
+			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, under det rekommenderade ${minimum}:1',
+			'themeEditor.discardTitle' => 'Släng ändringarna?',
+			'themeEditor.discardMessage' => 'Dina osparade färgändringar går förlorade.',
+			'themeEditor.discard' => 'Släng',
+			'themeEditor.previewCardTitle' => ({required Object number}) => 'Avsnitt ${number}',
+			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '${minutes} min kvar',
+			'themeEditor.previewSwitch' => 'Autouppspelning',
+			'themeEditor.previewMutedText' => 'Sekundär text ser ut så här',
+			'deepLinks.invalid' => 'This Plezy link isn\'t valid.',
+			'deepLinks.profileNotFound' => ({required Object profile}) => 'No profile matches "${profile}".',
+			'deepLinks.serverUnavailable' => 'Couldn\'t reach the server for this link.',
+			'deepLinks.notFound' => 'Couldn\'t find this title in your libraries.',
+			'deepLinks.unsupportedItem' => 'This link can\'t be played.',
+			'deepLinks.noLiveTv' => 'No Live TV server is available for this link.',
+			'deepLinks.channelNotFound' => ({required Object channel}) => 'Couldn\'t find channel "${channel}".',
+			'deepLinks.showLink' => 'Show link',
+			'deepLinks.showProfileLink' => 'Show profile link',
+			'deepLinks.dialogTitle' => 'Link',
+			'deepLinks.showHint' => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.',
+			'deepLinks.movieHint' => 'Opening this link plays the movie.',
+			'deepLinks.episodeHint' => 'Opening this link plays this episode.',
+			'deepLinks.profileHint' => 'Opening this link switches to this profile.',
+			'deepLinks.openAsProfile' => ({required Object name}) => 'Open as ${name}',
+			'deepLinks.copy' => 'Copy',
+			'deepLinks.copied' => 'Link copied',
 			_ => null,
 		};
 	}

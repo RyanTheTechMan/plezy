@@ -40,14 +40,11 @@ class TranslationsBg extends Translations with BaseTranslations<AppLocale, Trans
 
 	// Translations
 	@override late final _Translations$app$bg app = _Translations$app$bg._(_root);
-	@override late final _Translations$appIcon$bg appIcon = _Translations$appIcon$bg._(_root);
 	@override late final _Translations$auth$bg auth = _Translations$auth$bg._(_root);
 	@override late final _Translations$common$bg common = _Translations$common$bg._(_root);
 	@override late final _Translations$screens$bg screens = _Translations$screens$bg._(_root);
 	@override late final _Translations$update$bg update = _Translations$update$bg._(_root);
-	@override late final _Translations$supporter$bg supporter = _Translations$supporter$bg._(_root);
 	@override late final _Translations$settings$bg settings = _Translations$settings$bg._(_root);
-	@override late final _Translations$themeEditor$bg themeEditor = _Translations$themeEditor$bg._(_root);
 	@override late final _Translations$search$bg search = _Translations$search$bg._(_root);
 	@override late final _Translations$hotkeys$bg hotkeys = _Translations$hotkeys$bg._(_root);
 	@override late final _Translations$fileInfo$bg fileInfo = _Translations$fileInfo$bg._(_root);
@@ -93,6 +90,10 @@ class TranslationsBg extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$seerr$bg seerr = _Translations$seerr$bg._(_root);
 	@override late final _Translations$services$bg services = _Translations$services$bg._(_root);
 	@override late final _Translations$addServer$bg addServer = _Translations$addServer$bg._(_root);
+	@override late final _Translations$appIcon$bg appIcon = _Translations$appIcon$bg._(_root);
+	@override late final _Translations$supporter$bg supporter = _Translations$supporter$bg._(_root);
+	@override late final _Translations$themeEditor$bg themeEditor = _Translations$themeEditor$bg._(_root);
+	@override late final _Translations$deepLinks$bg deepLinks = _Translations$deepLinks$bg._(_root);
 }
 
 // Path: app
@@ -102,25 +103,7 @@ class _Translations$app$bg extends Translations$app$en {
 	final TranslationsBg _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
-}
-
-// Path: appIcon
-class _Translations$appIcon$bg extends Translations$appIcon$en {
-	_Translations$appIcon$bg._(TranslationsBg root) : this._root = root, super.internal(root);
-
-	final TranslationsBg _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Икона на приложението';
-	@override String get defaultIcon => 'По подразбиране';
-	@override String get current => 'Текуща икона';
-	@override String get locked => 'Бонус за Supporter';
-	@override String get lockedHint => 'Алтернативните икони са бонус за Supporter.';
-	@override String get changeFailed => 'Иконата на приложението не можа да бъде сменена';
-	@override String get launcherHint => 'Новата икона ще се появи на началния ви екран, след като излезете от Plezy.';
-	@override String get tvLauncherHint => 'Новият банер ще се появи, след като излезете от Plezy. Android TV може да продължи да показва стария, докато телевизорът не бъде рестартиран.';
-	@override late final _Translations$appIcon$names$bg names = _Translations$appIcon$names$bg._(_root);
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -237,33 +220,14 @@ class _Translations$update$bg extends Translations$update$en {
 	@override String get viewRelease => 'Виж версията';
 	@override String get latestVersion => 'Използвате най-новата версия';
 	@override String get checkFailed => 'Неуспешна проверка за актуализации';
-}
-
-// Path: supporter
-class _Translations$supporter$bg extends Translations$supporter$en {
-	_Translations$supporter$bg._(TranslationsBg root) : this._root = root, super.internal(root);
-
-	final TranslationsBg _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Plezy Supporter';
-	@override String get intro => 'Еднократна покупка, която подкрепя разработката на Plezy и отключва козметични екстри:';
-	@override String get presetThemes => 'Готови теми';
-	@override String get presetThemesDescription => 'Жарава, Ледник, Гора, Слива и Хартия';
-	@override String get customTheme => 'Персонализирана тема';
-	@override String get customThemeDescription => 'Изберете всеки цвят сами';
-	@override String get appIcons => 'Икони на приложението';
-	@override String get appIconsDescription => 'Изберете алтернативна икона на Plezy';
-	@override String buy({required Object price}) => 'Купи за ${price}';
-	@override String get loadingPrice => 'Зареждане на цената...';
-	@override String get restore => 'Възстанови покупките';
-	@override String get pending => 'Покупката ви очаква плащане или одобрение. Екстрите ще се отключат веднага щом магазинът я обработи.';
-	@override String get thankYouTitle => 'Благодарим ви, че подкрепяте Plezy';
-	@override String get thankYouBody => 'Екстрите от Supporter са отключени.';
-	@override String get tileSubtitle => 'Отключете теми и икони на приложението с еднократна покупка';
-	@override String get tileSubtitleThemesOnly => 'Отключете теми с еднократна покупка';
-	@override String get tileUnlocked => 'Благодарим ви за подкрепата';
-	@override late final _Translations$supporter$errors$bg errors = _Translations$supporter$errors$bg._(_root);
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -608,42 +572,24 @@ class _Translations$settings$bg extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'По библиотека';
 	@override String get playerScopeTitle => 'По сериал или филм';
 	@override String get exportDialogTitle => 'Експортиране на настройките на Plezy';
-}
-
-// Path: themeEditor
-class _Translations$themeEditor$bg extends Translations$themeEditor$en {
-	_Translations$themeEditor$bg._(TranslationsBg root) : this._root = root, super.internal(root);
-
-	final TranslationsBg _root; // ignore: unused_field
-
-	// Translations
-	@override String get builtIn => 'Вградени';
-	@override String get presets => 'Готови теми';
-	@override String get custom => 'Персонализирана';
-	@override String get customEmpty => 'Все още не е създадена';
-	@override String get editCustom => 'Редактирай персонализираната тема';
-	@override String get editCustomDescription => 'Изберете всеки цвят сами';
-	@override String get locked => 'Отключва се със Supporter';
-	@override String get savedLocked => 'Запазена — отключва се със Supporter';
-	@override String get title => 'Персонализирана тема';
-	@override String get startFrom => 'Започни от';
-	@override String get startFromDescription => 'Копирай всички цветове от друга тема';
-	@override String get colors => 'Цветове';
-	@override String get preview => 'Визуализация';
-	@override late final _Translations$themeEditor$slots$bg slots = _Translations$themeEditor$slots$bg._(_root);
-	@override String get opacity => 'Непрозрачност';
-	@override String get hexHint => '#RRGGBB или #AARRGGBB';
-	@override String get fromOtherThemes => 'От други теми';
-	@override String swatchLabel({required Object color, required Object theme}) => '${color} (${theme})';
-	@override late final _Translations$themeEditor$contrast$bg contrast = _Translations$themeEditor$contrast$bg._(_root);
-	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, под препоръчителното ${minimum}:1';
-	@override String get discardTitle => 'Да се отхвърлят ли промените?';
-	@override String get discardMessage => 'Незапазените промени в цветовете ще бъдат загубени.';
-	@override String get discard => 'Отхвърли';
-	@override String previewCardTitle({required Object number}) => 'Епизод ${number}';
-	@override String previewCardSubtitle({required Object minutes}) => 'Остават ${minutes} мин';
-	@override String get previewSwitch => 'Автоматично пускане';
-	@override String get previewMutedText => 'Вторичният текст изглежда така';
+	@override String get downloadLocationSelectError => 'Неуспешен избор на папка';
+	@override String get mediaCapture => 'Media Capture';
+	@override String get clips => 'клипове';
+	@override String get screenshots => 'Екранни снимки';
+	@override String captureLocationTitle({required Object title}) => '${title} Местоположение';
+	@override String get clipLocationDescription => 'Изберете къде да се записват клиповете.';
+	@override String get screenshotLocationDescription => 'Изберете къде да се запазват екранните снимки.';
+	@override String get clipLocationChanged => 'Местоположението на клипа е променено';
+	@override String get screenshotLocationChanged => 'Местоположението на екранната снимка е променено';
+	@override String get clipLocationReset => 'Местоположението на клипа се нулира на работния плот';
+	@override String get screenshotLocationReset => 'Местоположението на екранната снимка се нулира на работния плот';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
+	@override String get packedStereoUi => '3D Playback UI';
 }
 
 // Path: search
@@ -993,7 +939,6 @@ class _Translations$videoControls$bg extends Translations$videoControls$en {
 	@override String get pipActive => 'Възпроизвеждане в режим картина в картината';
 	@override String get pipFailed => 'Режимът картина в картината не успя да стартира';
 	@override String get screenshotSaved => 'Екранната снимка е запазена';
-	@override String get screenshotFailed => 'Екранната снимка не можа да бъде направена';
 	@override String zoomPercent({required Object percent}) => 'Мащаб ${percent}%';
 	@override String volumePercent({required Object percent}) => 'Звук ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$bg pipErrors = _Translations$videoControls$pipErrors$bg._(_root);
@@ -1018,6 +963,13 @@ class _Translations$videoControls$bg extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Субтитри: изкл.';
 	@override String osdSubtitles({required Object track}) => 'Субтитри: ${track}';
 	@override String osdAudio({required Object track}) => 'Аудио: ${track}';
+	@override String get screenshotFailed => 'Екранната снимка не можа да бъде направена';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('bg'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
+	@override late final _Translations$videoControls$clip$bg clip = _Translations$videoControls$clip$bg._(_root);
 }
 
 // Path: messages
@@ -1440,6 +1392,9 @@ class _Translations$about$bg extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Версия ${version}';
 	@override String get appDescription => 'Красив клиент за Plex, Jellyfin и Emby, създаден с Flutter';
 	@override String get viewLicensesDescription => 'Виж лицензите на библиотеки на трети страни';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1568,6 +1523,7 @@ class _Translations$explore$bg extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Премахнато от списъка за гледане';
 	@override String get watchlistUpdateFailed => 'Неуспешно обновяване на списъка за гледане';
 	@override String get watchlistNoMatch => 'Този елемент не можа да бъде съпоставен със списък за гледане';
+	@override String get openInLibrary => 'Отвори в библиотеката';
 	@override String get notInLibrary => 'Не е в твоята библиотека';
 	@override String get inTheseLibraries => 'В тези библиотеки';
 	@override String get checkingLibrary => 'Проверка на твоята библиотека...';
@@ -1618,6 +1574,7 @@ class _Translations$liveTv$bg extends Translations$liveTv$en {
 	@override String channelNumber({required Object number}) => 'Канал ${number}';
 	@override String get unknownChannel => 'Неизвестен канал';
 	@override String get live => 'НА ЖИВО';
+	@override String get premiereBadge => 'NEW';
 	@override String get reloadGuide => 'Презареди ТВ програмата';
 	@override String get searchGuide => 'Търсене в програмата';
 	@override String get searchHint => 'Търсене на канали и предавания';
@@ -2144,6 +2101,7 @@ class _Translations$performanceOverlay$bg extends Translations$performanceOverla
 	@override String get cacheLimit => 'Лимит на кеша';
 	@override String get speed => 'Скорост';
 	@override String get player => 'Плеър';
+	@override String get playMethod => 'Play Method';
 	@override String get memory => 'Памет';
 	@override String get uiFps => 'FPS на интерфейса';
 	@override String get fps => 'FPS';
@@ -2458,36 +2416,111 @@ class _Translations$addServer$bg extends Translations$addServer$en {
 	@override String redirectUnsupportedEnterFinal({required Object product}) => 'Сървърът пренасочи към неподдържан URL. Въведете директно крайния URL на ${product}.';
 }
 
-// Path: appIcon.names
-class _Translations$appIcon$names$bg extends Translations$appIcon$names$en {
-	_Translations$appIcon$names$bg._(TranslationsBg root) : this._root = root, super.internal(root);
+// Path: appIcon
+class _Translations$appIcon$bg extends Translations$appIcon$en {
+	_Translations$appIcon$bg._(TranslationsBg root) : this._root = root, super.internal(root);
 
 	final TranslationsBg _root; // ignore: unused_field
 
 	// Translations
-	@override String get midnight => 'Полунощ';
-	@override String get ember => 'Жарава';
-	@override String get paper => 'Хартия';
-	@override String get oled => 'OLED';
-	@override String get line => 'Линия';
-	@override String get ocean => 'Океан';
-	@override String get ultraviolet => 'Ултравиолет';
-	@override String get matcha => 'Матча';
-	@override String get sunset => 'Залез';
-	@override String get gold => 'Злато';
-	@override String get titanium => 'Титан';
-	@override String get glass => 'Стъкло';
-	@override String get crt => 'CRT';
-	@override String get vhs => 'VHS';
-	@override String get synthwave => 'Synthwave';
-	@override String get pixel => 'Пиксел';
-	@override String get neon => 'Неон';
-	@override String get sticker => 'Стикер';
-	@override String get ticket => 'Билет';
-	@override String get pop => 'Поп';
-	@override String get strata => 'Пластове';
-	@override String get facet => 'Фасета';
-	@override String get tilde => 'Тилда';
+	@override String get title => 'Икона на приложението';
+	@override String get defaultIcon => 'По подразбиране';
+	@override String get current => 'Текуща икона';
+	@override String get locked => 'Бонус за Supporter';
+	@override String get lockedHint => 'Алтернативните икони са бонус за Supporter.';
+	@override String get changeFailed => 'Иконата на приложението не можа да бъде сменена';
+	@override String get launcherHint => 'Новата икона ще се появи на началния ви екран, след като излезете от Plezy.';
+	@override String get tvLauncherHint => 'Новият банер ще се появи, след като излезете от Plezy. Android TV може да продължи да показва стария, докато телевизорът не бъде рестартиран.';
+	@override late final _Translations$appIcon$names$bg names = _Translations$appIcon$names$bg._(_root);
+}
+
+// Path: supporter
+class _Translations$supporter$bg extends Translations$supporter$en {
+	_Translations$supporter$bg._(TranslationsBg root) : this._root = root, super.internal(root);
+
+	final TranslationsBg _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Plezy Supporter';
+	@override String get intro => 'Еднократна покупка, която подкрепя разработката на Plezy и отключва козметични екстри:';
+	@override String get presetThemes => 'Готови теми';
+	@override String get presetThemesDescription => 'Жарава, Ледник, Гора, Слива и Хартия';
+	@override String get customTheme => 'Персонализирана тема';
+	@override String get customThemeDescription => 'Изберете всеки цвят сами';
+	@override String get appIcons => 'Икони на приложението';
+	@override String get appIconsDescription => 'Изберете алтернативна икона на Plezy';
+	@override String buy({required Object price}) => 'Купи за ${price}';
+	@override String get loadingPrice => 'Зареждане на цената...';
+	@override String get restore => 'Възстанови покупките';
+	@override String get pending => 'Покупката ви очаква плащане или одобрение. Екстрите ще се отключат веднага щом магазинът я обработи.';
+	@override String get thankYouTitle => 'Благодарим ви, че подкрепяте Plezy';
+	@override String get thankYouBody => 'Екстрите от Supporter са отключени.';
+	@override String get tileSubtitle => 'Отключете теми и икони на приложението с еднократна покупка';
+	@override String get tileSubtitleThemesOnly => 'Отключете теми с еднократна покупка';
+	@override String get tileUnlocked => 'Благодарим ви за подкрепата';
+	@override late final _Translations$supporter$errors$bg errors = _Translations$supporter$errors$bg._(_root);
+}
+
+// Path: themeEditor
+class _Translations$themeEditor$bg extends Translations$themeEditor$en {
+	_Translations$themeEditor$bg._(TranslationsBg root) : this._root = root, super.internal(root);
+
+	final TranslationsBg _root; // ignore: unused_field
+
+	// Translations
+	@override String get builtIn => 'Вградени';
+	@override String get presets => 'Готови теми';
+	@override String get custom => 'Персонализирана';
+	@override String get customEmpty => 'Все още не е създадена';
+	@override String get editCustom => 'Редактирай персонализираната тема';
+	@override String get editCustomDescription => 'Изберете всеки цвят сами';
+	@override String get locked => 'Отключва се със Supporter';
+	@override String get savedLocked => 'Запазена — отключва се със Supporter';
+	@override String get title => 'Персонализирана тема';
+	@override String get startFrom => 'Започни от';
+	@override String get startFromDescription => 'Копирай всички цветове от друга тема';
+	@override String get colors => 'Цветове';
+	@override String get preview => 'Визуализация';
+	@override late final _Translations$themeEditor$slots$bg slots = _Translations$themeEditor$slots$bg._(_root);
+	@override String get opacity => 'Непрозрачност';
+	@override String get hexHint => '#RRGGBB или #AARRGGBB';
+	@override String get fromOtherThemes => 'От други теми';
+	@override String swatchLabel({required Object color, required Object theme}) => '${color} (${theme})';
+	@override late final _Translations$themeEditor$contrast$bg contrast = _Translations$themeEditor$contrast$bg._(_root);
+	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, под препоръчителното ${minimum}:1';
+	@override String get discardTitle => 'Да се отхвърлят ли промените?';
+	@override String get discardMessage => 'Незапазените промени в цветовете ще бъдат загубени.';
+	@override String get discard => 'Отхвърли';
+	@override String previewCardTitle({required Object number}) => 'Епизод ${number}';
+	@override String previewCardSubtitle({required Object minutes}) => 'Остават ${minutes} мин';
+	@override String get previewSwitch => 'Автоматично пускане';
+	@override String get previewMutedText => 'Вторичният текст изглежда така';
+}
+
+// Path: deepLinks
+class _Translations$deepLinks$bg extends Translations$deepLinks$en {
+	_Translations$deepLinks$bg._(TranslationsBg root) : this._root = root, super.internal(root);
+
+	final TranslationsBg _root; // ignore: unused_field
+
+	// Translations
+	@override String get invalid => 'This Plezy link isn\'t valid.';
+	@override String profileNotFound({required Object profile}) => 'No profile matches "${profile}".';
+	@override String get serverUnavailable => 'Couldn\'t reach the server for this link.';
+	@override String get notFound => 'Couldn\'t find this title in your libraries.';
+	@override String get unsupportedItem => 'This link can\'t be played.';
+	@override String get noLiveTv => 'No Live TV server is available for this link.';
+	@override String channelNotFound({required Object channel}) => 'Couldn\'t find channel "${channel}".';
+	@override String get showLink => 'Show link';
+	@override String get showProfileLink => 'Show profile link';
+	@override String get dialogTitle => 'Link';
+	@override String get showHint => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.';
+	@override String get movieHint => 'Opening this link plays the movie.';
+	@override String get episodeHint => 'Opening this link plays this episode.';
+	@override String get profileHint => 'Opening this link switches to this profile.';
+	@override String openAsProfile({required Object name}) => 'Open as ${name}';
+	@override String get copy => 'Copy';
+	@override String get copied => 'Link copied';
 }
 
 // Path: common.ratingSource
@@ -2533,52 +2566,6 @@ class _Translations$common$mediaKind$bg extends Translations$common$mediaKind$en
 	@override String get folder => 'Папка';
 }
 
-// Path: supporter.errors
-class _Translations$supporter$errors$bg extends Translations$supporter$errors$en {
-	_Translations$supporter$errors$bg._(TranslationsBg root) : this._root = root, super.internal(root);
-
-	final TranslationsBg _root; // ignore: unused_field
-
-	// Translations
-	@override String get storeUnavailable => 'Покупките не са налични. Проверете дали сте влезли в магазина и дали покупките са разрешени на това устройство.';
-	@override String get productNotFound => 'Покупката Supporter в момента не е налична във вашия магазин.';
-	@override String get productQueryFailed => 'Цената не можа да бъде заредена. Проверете връзката си и опитайте отново.';
-	@override String get purchaseFailed => 'Покупката не беше осъществена. Опитайте отново.';
-	@override String get restoreFailed => 'Няма връзка с магазина и покупката ви не можа да бъде възстановена. Опитайте отново.';
-	@override String get nothingToRestore => 'Не е намерена покупка на Supporter за този акаунт в магазина.';
-}
-
-// Path: themeEditor.slots
-class _Translations$themeEditor$slots$bg extends Translations$themeEditor$slots$en {
-	_Translations$themeEditor$slots$bg._(TranslationsBg root) : this._root = root, super.internal(root);
-
-	final TranslationsBg _root; // ignore: unused_field
-
-	// Translations
-	@override String get bg => 'Фон';
-	@override String get surface => 'Повърхност';
-	@override String get outline => 'Контур';
-	@override String get text => 'Текст';
-	@override String get textMuted => 'Вторичен текст';
-	@override String get accent => 'Акцент';
-}
-
-// Path: themeEditor.contrast
-class _Translations$themeEditor$contrast$bg extends Translations$themeEditor$contrast$en {
-	_Translations$themeEditor$contrast$bg._(TranslationsBg root) : this._root = root, super.internal(root);
-
-	final TranslationsBg _root; // ignore: unused_field
-
-	// Translations
-	@override String get textOnBg => 'Текст върху фона';
-	@override String get textOnSurface => 'Текст върху повърхността';
-	@override String get textMutedOnBg => 'Вторичен текст върху фона';
-	@override String get textMutedOnSurface => 'Вторичен текст върху повърхността';
-	@override String get accentOnBg => 'Акцент върху фона';
-	@override String get accentOnSurface => 'Акцент върху повърхността';
-	@override String get labelOnAccent => 'Надпис на бутон върху акцента';
-}
-
 // Path: hotkeys.actions
 class _Translations$hotkeys$actions$bg extends Translations$hotkeys$actions$en {
 	_Translations$hotkeys$actions$bg._(TranslationsBg root) : this._root = root, super.internal(root);
@@ -2611,6 +2598,8 @@ class _Translations$hotkeys$actions$bg extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Превключи шейдъри';
 	@override String get skipMarker => 'Прескочи интро/финални надписи';
 	@override String get screenshot => 'Направи екранна снимка';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2628,6 +2617,52 @@ class _Translations$videoControls$pipErrors$bg extends Translations$videoControl
 	@override String get failed => 'Режимът картина в картината не успя да стартира';
 	@override String get prepareFailed => 'Режимът картина в картината не можа да бъде подготвен';
 	@override String unknown({required Object error}) => 'Възникна грешка: ${error}';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$bg extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$bg._(TranslationsBg root) : this._root = root, super.internal(root);
+
+	final TranslationsBg _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Фина настройка';
+	@override String get title => 'Клип';
+	@override String get vodOnly => 'Налични са клипове за възпроизвеждане на видео при поискване.';
+	@override String get sourceUnavailable => 'Източникът на клип не е наличен за тази сесия на възпроизвеждане.';
+	@override String get playAtLeastOneSecond => 'Пуснете поне 1 секунда преди изрязване.';
+	@override String get startBeforeBeginning => 'Началото на клипа не може да бъде преди началото на видеоклипа.';
+	@override String get endAfterStart => 'Краят на клипа трябва да е след началото.';
+	@override String get minimumDuration => 'Клиповете трябва да са с дължина поне 1 секунда.';
+	@override String get endPastVideo => 'Краят на клипа е след края на видеоклипа.';
+	@override String get exportCanceled => 'Експортирането на клип е анулирано.';
+	@override String get cacheUnavailable => 'Избраният диапазон не може да бъде напълно кеширан за първоначално експортиране. Опитайте с по-кратък клип или пуснете визуализацията веднъж, преди да запазите.';
+	@override String get sourceCopyNoEncoder => 'Експортирането на изходно копие не използва енкодер.';
+	@override String get encodingDesktopOnly => 'H.264 и HEVC кодирането на клипове в момента е налично в macOS и Windows.';
+	@override String get hdrRequiresSource => 'HDR експортирането изисква HDR10 или HLG-съвместим източник за директно възпроизвеждане.';
+	@override String get transcodeStartUnavailable => 'Този клип започва преди активния транскодиран поток. Търсете по-рано и отворете отново изрезката или превключете към оригинално качество.';
+	@override String get previewRequired => 'Визуализацията на клип трябва да завърши зареждането, преди да може да бъде запазена.';
+	@override String get h264Failed => 'Този източник не може да бъде кодиран като H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'Този източник не може да бъде кодиран като HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'Този източник не можа да бъде кодиран като HEVC HDR MP4.';
+	@override String get gifFailed => 'Този източник не можа да бъде кодиран като GIF.';
+	@override String get originalFailed => 'Този източник не можа да бъде копиран от mpv кеша.';
+	@override String get previewUnavailable => 'Възпроизвеждането на предварителен преглед на клип не е налично в тази компилация.';
+	@override String get previewFailed => 'Неуспешно възпроизвеждане на визуализация на клип.';
+	@override String get previewLoadingScreenshot => 'Визуализацията на клипа трябва да завърши зареждането, преди да направите екранна снимка.';
+	@override String get screenshotInProgress => 'Вече се запазва екранна снимка.';
+	@override String get saveAsDialog => 'Запазване на клипа като';
+	@override String savedTo({required Object fileName}) => 'Запазено в ${fileName}';
+	@override String get openFolder => 'Отворете папката';
+	@override String get saveAs => 'Запиши като';
+	@override String get cancelExport => 'Отказ от експортиране';
+	@override String get saving => 'Запазва се...';
+	@override String savingProgress({required Object percent}) => 'Спестяване на ${percent}%';
+	@override String get mutePreview => 'Визуализация без звук';
+	@override String get unmutePreview => 'Включване на звука предварителен преглед';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: accountPreferences.groups
@@ -3387,6 +3422,84 @@ class _Translations$services$libraryFilter$bg extends Translations$services$libr
 	@override String get noLibraries => 'Няма налични библиотеки';
 }
 
+// Path: appIcon.names
+class _Translations$appIcon$names$bg extends Translations$appIcon$names$en {
+	_Translations$appIcon$names$bg._(TranslationsBg root) : this._root = root, super.internal(root);
+
+	final TranslationsBg _root; // ignore: unused_field
+
+	// Translations
+	@override String get midnight => 'Полунощ';
+	@override String get ember => 'Жарава';
+	@override String get paper => 'Хартия';
+	@override String get oled => 'OLED';
+	@override String get line => 'Линия';
+	@override String get ocean => 'Океан';
+	@override String get ultraviolet => 'Ултравиолет';
+	@override String get matcha => 'Матча';
+	@override String get sunset => 'Залез';
+	@override String get gold => 'Злато';
+	@override String get titanium => 'Титан';
+	@override String get glass => 'Стъкло';
+	@override String get crt => 'CRT';
+	@override String get vhs => 'VHS';
+	@override String get synthwave => 'Synthwave';
+	@override String get pixel => 'Пиксел';
+	@override String get neon => 'Неон';
+	@override String get sticker => 'Стикер';
+	@override String get ticket => 'Билет';
+	@override String get pop => 'Поп';
+	@override String get strata => 'Пластове';
+	@override String get facet => 'Фасета';
+	@override String get tilde => 'Тилда';
+}
+
+// Path: supporter.errors
+class _Translations$supporter$errors$bg extends Translations$supporter$errors$en {
+	_Translations$supporter$errors$bg._(TranslationsBg root) : this._root = root, super.internal(root);
+
+	final TranslationsBg _root; // ignore: unused_field
+
+	// Translations
+	@override String get storeUnavailable => 'Покупките не са налични. Проверете дали сте влезли в магазина и дали покупките са разрешени на това устройство.';
+	@override String get productNotFound => 'Покупката Supporter в момента не е налична във вашия магазин.';
+	@override String get productQueryFailed => 'Цената не можа да бъде заредена. Проверете връзката си и опитайте отново.';
+	@override String get purchaseFailed => 'Покупката не беше осъществена. Опитайте отново.';
+	@override String get restoreFailed => 'Няма връзка с магазина и покупката ви не можа да бъде възстановена. Опитайте отново.';
+	@override String get nothingToRestore => 'Не е намерена покупка на Supporter за този акаунт в магазина.';
+}
+
+// Path: themeEditor.slots
+class _Translations$themeEditor$slots$bg extends Translations$themeEditor$slots$en {
+	_Translations$themeEditor$slots$bg._(TranslationsBg root) : this._root = root, super.internal(root);
+
+	final TranslationsBg _root; // ignore: unused_field
+
+	// Translations
+	@override String get bg => 'Фон';
+	@override String get surface => 'Повърхност';
+	@override String get outline => 'Контур';
+	@override String get text => 'Текст';
+	@override String get textMuted => 'Вторичен текст';
+	@override String get accent => 'Акцент';
+}
+
+// Path: themeEditor.contrast
+class _Translations$themeEditor$contrast$bg extends Translations$themeEditor$contrast$en {
+	_Translations$themeEditor$contrast$bg._(TranslationsBg root) : this._root = root, super.internal(root);
+
+	final TranslationsBg _root; // ignore: unused_field
+
+	// Translations
+	@override String get textOnBg => 'Текст върху фона';
+	@override String get textOnSurface => 'Текст върху повърхността';
+	@override String get textMutedOnBg => 'Вторичен текст върху фона';
+	@override String get textMutedOnSurface => 'Вторичен текст върху повърхността';
+	@override String get accentOnBg => 'Акцент върху фона';
+	@override String get accentOnSurface => 'Акцент върху повърхността';
+	@override String get labelOnAccent => 'Надпис на бутон върху акцента';
+}
+
 /// The flat map containing all translations for locale <bg>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -3395,38 +3508,7 @@ class _Translations$services$libraryFilter$bg extends Translations$services$libr
 extension on TranslationsBg {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
-			'appIcon.title' => 'Икона на приложението',
-			'appIcon.defaultIcon' => 'По подразбиране',
-			'appIcon.current' => 'Текуща икона',
-			'appIcon.locked' => 'Бонус за Supporter',
-			'appIcon.lockedHint' => 'Алтернативните икони са бонус за Supporter.',
-			'appIcon.changeFailed' => 'Иконата на приложението не можа да бъде сменена',
-			'appIcon.launcherHint' => 'Новата икона ще се появи на началния ви екран, след като излезете от Plezy.',
-			'appIcon.tvLauncherHint' => 'Новият банер ще се появи, след като излезете от Plezy. Android TV може да продължи да показва стария, докато телевизорът не бъде рестартиран.',
-			'appIcon.names.midnight' => 'Полунощ',
-			'appIcon.names.ember' => 'Жарава',
-			'appIcon.names.paper' => 'Хартия',
-			'appIcon.names.oled' => 'OLED',
-			'appIcon.names.line' => 'Линия',
-			'appIcon.names.ocean' => 'Океан',
-			'appIcon.names.ultraviolet' => 'Ултравиолет',
-			'appIcon.names.matcha' => 'Матча',
-			'appIcon.names.sunset' => 'Залез',
-			'appIcon.names.gold' => 'Злато',
-			'appIcon.names.titanium' => 'Титан',
-			'appIcon.names.glass' => 'Стъкло',
-			'appIcon.names.crt' => 'CRT',
-			'appIcon.names.vhs' => 'VHS',
-			'appIcon.names.synthwave' => 'Synthwave',
-			'appIcon.names.pixel' => 'Пиксел',
-			'appIcon.names.neon' => 'Неон',
-			'appIcon.names.sticker' => 'Стикер',
-			'appIcon.names.ticket' => 'Билет',
-			'appIcon.names.pop' => 'Поп',
-			'appIcon.names.strata' => 'Пластове',
-			'appIcon.names.facet' => 'Фасета',
-			'appIcon.names.tilde' => 'Тилда',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Вход с Plex',
 			'auth.showQRCode' => 'Покажи QR код',
 			'auth.authenticate' => 'Удостовери се',
@@ -3530,29 +3612,14 @@ extension on TranslationsBg {
 			'update.viewRelease' => 'Виж версията',
 			'update.latestVersion' => 'Използвате най-новата версия',
 			'update.checkFailed' => 'Неуспешна проверка за актуализации',
-			'supporter.title' => 'Plezy Supporter',
-			'supporter.intro' => 'Еднократна покупка, която подкрепя разработката на Plezy и отключва козметични екстри:',
-			'supporter.presetThemes' => 'Готови теми',
-			'supporter.presetThemesDescription' => 'Жарава, Ледник, Гора, Слива и Хартия',
-			'supporter.customTheme' => 'Персонализирана тема',
-			'supporter.customThemeDescription' => 'Изберете всеки цвят сами',
-			'supporter.appIcons' => 'Икони на приложението',
-			'supporter.appIconsDescription' => 'Изберете алтернативна икона на Plezy',
-			'supporter.buy' => ({required Object price}) => 'Купи за ${price}',
-			'supporter.loadingPrice' => 'Зареждане на цената...',
-			'supporter.restore' => 'Възстанови покупките',
-			'supporter.pending' => 'Покупката ви очаква плащане или одобрение. Екстрите ще се отключат веднага щом магазинът я обработи.',
-			'supporter.thankYouTitle' => 'Благодарим ви, че подкрепяте Plezy',
-			'supporter.thankYouBody' => 'Екстрите от Supporter са отключени.',
-			'supporter.tileSubtitle' => 'Отключете теми и икони на приложението с еднократна покупка',
-			'supporter.tileSubtitleThemesOnly' => 'Отключете теми с еднократна покупка',
-			'supporter.tileUnlocked' => 'Благодарим ви за подкрепата',
-			'supporter.errors.storeUnavailable' => 'Покупките не са налични. Проверете дали сте влезли в магазина и дали покупките са разрешени на това устройство.',
-			'supporter.errors.productNotFound' => 'Покупката Supporter в момента не е налична във вашия магазин.',
-			'supporter.errors.productQueryFailed' => 'Цената не можа да бъде заредена. Проверете връзката си и опитайте отново.',
-			'supporter.errors.purchaseFailed' => 'Покупката не беше осъществена. Опитайте отново.',
-			'supporter.errors.restoreFailed' => 'Няма връзка с магазина и покупката ви не можа да бъде възстановена. Опитайте отново.',
-			'supporter.errors.nothingToRestore' => 'Не е намерена покупка на Supporter за този акаунт в магазина.',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Настройки',
 			'settings.supportDeveloper' => 'Подкрепи Plezy',
 			'settings.supportDeveloperDescription' => 'Дарение чрез Liberapay за финансиране на разработката',
@@ -3888,46 +3955,24 @@ extension on TranslationsBg {
 			'settings.playerScopeLibrary' => 'По библиотека',
 			'settings.playerScopeTitle' => 'По сериал или филм',
 			'settings.exportDialogTitle' => 'Експортиране на настройките на Plezy',
-			'themeEditor.builtIn' => 'Вградени',
-			'themeEditor.presets' => 'Готови теми',
-			'themeEditor.custom' => 'Персонализирана',
-			'themeEditor.customEmpty' => 'Все още не е създадена',
-			'themeEditor.editCustom' => 'Редактирай персонализираната тема',
-			'themeEditor.editCustomDescription' => 'Изберете всеки цвят сами',
-			'themeEditor.locked' => 'Отключва се със Supporter',
-			'themeEditor.savedLocked' => 'Запазена — отключва се със Supporter',
-			'themeEditor.title' => 'Персонализирана тема',
-			'themeEditor.startFrom' => 'Започни от',
-			'themeEditor.startFromDescription' => 'Копирай всички цветове от друга тема',
-			'themeEditor.colors' => 'Цветове',
-			'themeEditor.preview' => 'Визуализация',
-			'themeEditor.slots.bg' => 'Фон',
-			'themeEditor.slots.surface' => 'Повърхност',
-			'themeEditor.slots.outline' => 'Контур',
-			'themeEditor.slots.text' => 'Текст',
-			'themeEditor.slots.textMuted' => 'Вторичен текст',
-			'themeEditor.slots.accent' => 'Акцент',
-			_ => null,
-		} ?? switch (path) {
-			'themeEditor.opacity' => 'Непрозрачност',
-			'themeEditor.hexHint' => '#RRGGBB или #AARRGGBB',
-			'themeEditor.fromOtherThemes' => 'От други теми',
-			'themeEditor.swatchLabel' => ({required Object color, required Object theme}) => '${color} (${theme})',
-			'themeEditor.contrast.textOnBg' => 'Текст върху фона',
-			'themeEditor.contrast.textOnSurface' => 'Текст върху повърхността',
-			'themeEditor.contrast.textMutedOnBg' => 'Вторичен текст върху фона',
-			'themeEditor.contrast.textMutedOnSurface' => 'Вторичен текст върху повърхността',
-			'themeEditor.contrast.accentOnBg' => 'Акцент върху фона',
-			'themeEditor.contrast.accentOnSurface' => 'Акцент върху повърхността',
-			'themeEditor.contrast.labelOnAccent' => 'Надпис на бутон върху акцента',
-			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, под препоръчителното ${minimum}:1',
-			'themeEditor.discardTitle' => 'Да се отхвърлят ли промените?',
-			'themeEditor.discardMessage' => 'Незапазените промени в цветовете ще бъдат загубени.',
-			'themeEditor.discard' => 'Отхвърли',
-			'themeEditor.previewCardTitle' => ({required Object number}) => 'Епизод ${number}',
-			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => 'Остават ${minutes} мин',
-			'themeEditor.previewSwitch' => 'Автоматично пускане',
-			'themeEditor.previewMutedText' => 'Вторичният текст изглежда така',
+			'settings.downloadLocationSelectError' => 'Неуспешен избор на папка',
+			'settings.mediaCapture' => 'Media Capture',
+			'settings.clips' => 'клипове',
+			'settings.screenshots' => 'Екранни снимки',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Местоположение',
+			'settings.clipLocationDescription' => 'Изберете къде да се записват клиповете.',
+			'settings.screenshotLocationDescription' => 'Изберете къде да се запазват екранните снимки.',
+			'settings.clipLocationChanged' => 'Местоположението на клипа е променено',
+			'settings.screenshotLocationChanged' => 'Местоположението на екранната снимка е променено',
+			'settings.clipLocationReset' => 'Местоположението на клипа се нулира на работния плот',
+			'settings.screenshotLocationReset' => 'Местоположението на екранната снимка се нулира на работния плот',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'search.hint' => 'Търсене на филми, сериали, музика...',
 			'search.tryDifferentTerm' => 'Опитайте с различна дума за търсене',
 			'search.searchYourMedia' => 'Търсете в медийното си съдържание',
@@ -3964,6 +4009,8 @@ extension on TranslationsBg {
 			'hotkeys.actions.shaderToggle' => 'Превключи шейдъри',
 			'hotkeys.actions.skipMarker' => 'Прескочи интро/финални надписи',
 			'hotkeys.actions.screenshot' => 'Направи екранна снимка',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Информация за файла',
 			'fileInfo.overview' => 'Общ преглед',
 			'fileInfo.video' => 'Видео',
@@ -3973,6 +4020,8 @@ extension on TranslationsBg {
 			'fileInfo.dataStreams' => 'Потоци от данни',
 			'fileInfo.lyrics' => 'Текстове на песни',
 			'fileInfo.file' => 'Файл',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.attachments' => 'Прикачени файлове',
 			'fileInfo.delivery' => 'Доставка',
 			'fileInfo.versionCounter' => ({required Object index, required Object count}) => 'Версия ${index} от ${count}',
@@ -4211,7 +4260,6 @@ extension on TranslationsBg {
 			'videoControls.pipActive' => 'Възпроизвеждане в режим картина в картината',
 			'videoControls.pipFailed' => 'Режимът картина в картината не успя да стартира',
 			'videoControls.screenshotSaved' => 'Екранната снимка е запазена',
-			'videoControls.screenshotFailed' => 'Екранната снимка не можа да бъде направена',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Мащаб ${percent}%',
 			'videoControls.volumePercent' => ({required Object percent}) => 'Звук ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Изисква Android 8.0 или по-нова версия',
@@ -4243,6 +4291,46 @@ extension on TranslationsBg {
 			'videoControls.osdSubtitlesOff' => 'Субтитри: изкл.',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Субтитри: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Аудио: ${track}',
+			'videoControls.screenshotFailed' => 'Екранната снимка не можа да бъде направена',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('bg'))(n, one: '${n} frame', other: '${n} frames', ), 
+			'videoControls.clip.fineAdjust' => 'Фина настройка',
+			'videoControls.clip.title' => 'Клип',
+			'videoControls.clip.vodOnly' => 'Налични са клипове за възпроизвеждане на видео при поискване.',
+			'videoControls.clip.sourceUnavailable' => 'Източникът на клип не е наличен за тази сесия на възпроизвеждане.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Пуснете поне 1 секунда преди изрязване.',
+			'videoControls.clip.startBeforeBeginning' => 'Началото на клипа не може да бъде преди началото на видеоклипа.',
+			'videoControls.clip.endAfterStart' => 'Краят на клипа трябва да е след началото.',
+			'videoControls.clip.minimumDuration' => 'Клиповете трябва да са с дължина поне 1 секунда.',
+			'videoControls.clip.endPastVideo' => 'Краят на клипа е след края на видеоклипа.',
+			'videoControls.clip.exportCanceled' => 'Експортирането на клип е анулирано.',
+			'videoControls.clip.cacheUnavailable' => 'Избраният диапазон не може да бъде напълно кеширан за първоначално експортиране. Опитайте с по-кратък клип или пуснете визуализацията веднъж, преди да запазите.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Експортирането на изходно копие не използва енкодер.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 и HEVC кодирането на клипове в момента е налично в macOS и Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR експортирането изисква HDR10 или HLG-съвместим източник за директно възпроизвеждане.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Този клип започва преди активния транскодиран поток. Търсете по-рано и отворете отново изрезката или превключете към оригинално качество.',
+			'videoControls.clip.previewRequired' => 'Визуализацията на клип трябва да завърши зареждането, преди да може да бъде запазена.',
+			'videoControls.clip.h264Failed' => 'Този източник не може да бъде кодиран като H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'Този източник не може да бъде кодиран като HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'Този източник не можа да бъде кодиран като HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Този източник не можа да бъде кодиран като GIF.',
+			'videoControls.clip.originalFailed' => 'Този източник не можа да бъде копиран от mpv кеша.',
+			'videoControls.clip.previewUnavailable' => 'Възпроизвеждането на предварителен преглед на клип не е налично в тази компилация.',
+			'videoControls.clip.previewFailed' => 'Неуспешно възпроизвеждане на визуализация на клип.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Визуализацията на клипа трябва да завърши зареждането, преди да направите екранна снимка.',
+			'videoControls.clip.screenshotInProgress' => 'Вече се запазва екранна снимка.',
+			'videoControls.clip.saveAsDialog' => 'Запазване на клипа като',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Запазено в ${fileName}',
+			'videoControls.clip.openFolder' => 'Отворете папката',
+			'videoControls.clip.saveAs' => 'Запиши като',
+			'videoControls.clip.cancelExport' => 'Отказ от експортиране',
+			'videoControls.clip.saving' => 'Запазва се...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Спестяване на ${percent}%',
+			'videoControls.clip.mutePreview' => 'Визуализация без звук',
+			'videoControls.clip.unmutePreview' => 'Включване на звука предварителен преглед',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'Маркирано като гледано',
 			'messages.markedAsUnwatched' => 'Маркирано като негледано',
 			'messages.markedAsWatchedOffline' => 'Маркирано като гледано (ще се синхронизира, когато сте онлайн)',
@@ -4421,8 +4509,6 @@ extension on TranslationsBg {
 			'profiles.tokenIdentityMismatch' => 'Токенът на профила в Plex съответства на неочакван сървър',
 			'connections.sectionTitle' => 'Връзки',
 			'connections.addConnection' => 'Добави връзка',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnectionSubtitleNoProfile' => 'Влезте с Plex или свържете Jellyfin или Emby сървър',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => 'Добави към ${displayName}: Plex, Jellyfin, Emby или връзка от друг профил',
 			'connections.sessionExpiredOne' => ({required Object name}) => 'Сесията за ${name} е изтекла',
@@ -4448,6 +4534,8 @@ extension on TranslationsBg {
 			'accountPreferences.groups.personalMedia' => 'Лична медия',
 			'accountPreferences.preferredAudioLanguage' => 'Предпочитан аудио език',
 			'accountPreferences.autoSelectAudio' => 'Избирай аудио по език',
+			_ => null,
+		} ?? switch (path) {
 			'accountPreferences.autoSelectAudioDescription' => 'При изключено се запазва аудиопътечката, която файлът маркира като подразбираща се.',
 			'accountPreferences.preferredSubtitleLanguage' => 'Предпочитан език за субтитри',
 			'accountPreferences.subtitleMode' => 'Включване на субтитри',
@@ -4655,6 +4743,9 @@ extension on TranslationsBg {
 			'about.versionLabel' => ({required Object version}) => 'Версия ${version}',
 			'about.appDescription' => 'Красив клиент за Plex, Jellyfin и Emby, създаден с Flutter',
 			'about.viewLicensesDescription' => 'Виж лицензите на библиотеки на трети страни',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Не са намерени сървъри за ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Неуспешно зареждане на сървъри: ${error}',
 			'serverSelection.noValidServers' => 'Не бяха намерени използваеми сървъри в този акаунт',
@@ -4733,6 +4824,7 @@ extension on TranslationsBg {
 			'explore.removedFromWatchlist' => 'Премахнато от списъка за гледане',
 			'explore.watchlistUpdateFailed' => 'Неуспешно обновяване на списъка за гледане',
 			'explore.watchlistNoMatch' => 'Този елемент не можа да бъде съпоставен със списък за гледане',
+			'explore.openInLibrary' => 'Отвори в библиотеката',
 			'explore.notInLibrary' => 'Не е в твоята библиотека',
 			'explore.inTheseLibraries' => 'В тези библиотеки',
 			'explore.checkingLibrary' => 'Проверка на твоята библиотека...',
@@ -4862,6 +4954,7 @@ extension on TranslationsBg {
 			'liveTv.channelNumber' => ({required Object number}) => 'Канал ${number}',
 			'liveTv.unknownChannel' => 'Неизвестен канал',
 			'liveTv.live' => 'НА ЖИВО',
+			'liveTv.premiereBadge' => 'NEW',
 			'liveTv.reloadGuide' => 'Презареди ТВ програмата',
 			'liveTv.searchGuide' => 'Търсене в програмата',
 			'liveTv.searchHint' => 'Търсене на канали и предавания',
@@ -4935,8 +5028,6 @@ extension on TranslationsBg {
 			'liveTv.recordSettings.keepUpToHint' => '0 запазва всички епизоди',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => 'Започва след ${minutes} мин',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} в ${time}',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.invalidPlaybackData' => ({required Object product}) => '${product} върна невалидни данни за възпроизвеждане на телевизия на живо',
 			'liveTv.failedToStartChannel' => 'Каналът на живо не можа да бъде пуснат',
 			'liveTv.failedToBuildStreamUrl' => 'URL за потока не можа да бъде създаден',
@@ -4957,6 +5048,8 @@ extension on TranslationsBg {
 			'collections.errorAddingToCollection' => 'Неуспешно добавяне към колекция',
 			'collections.created' => 'Колекцията е създадена',
 			'collections.removeFromCollection' => 'Премахни от колекция',
+			_ => null,
+		} ?? switch (path) {
 			'collections.removeFromCollectionConfirm' => ({required Object title}) => 'Да се премахне ли "${title}" от тази колекция?',
 			'collections.removedFromCollection' => 'Премахнато от колекция',
 			'collections.removeFromCollectionFailed' => 'Неуспешно премахване от колекция',
@@ -5437,6 +5530,7 @@ extension on TranslationsBg {
 			'performanceOverlay.cacheLimit' => 'Лимит на кеша',
 			'performanceOverlay.speed' => 'Скорост',
 			'performanceOverlay.player' => 'Плеър',
+			'performanceOverlay.playMethod' => 'Play Method',
 			'performanceOverlay.memory' => 'Памет',
 			'performanceOverlay.uiFps' => 'FPS на интерфейса',
 			'performanceOverlay.fps' => 'FPS',
@@ -5449,8 +5543,6 @@ extension on TranslationsBg {
 			'performanceOverlay.decoderHardware' => 'Хардуерен',
 			'performanceOverlay.tunnelingActive' => 'Активно',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (неуспешни: ${failures})',
-			_ => null,
-		} ?? switch (path) {
 			'externalPlayer.title' => 'Външен плеър',
 			'externalPlayer.useExternalPlayer' => 'Използвай външен плеър',
 			'externalPlayer.useExternalPlayerDescription' => 'Отваряй видеата в друго приложение',
@@ -5470,6 +5562,8 @@ extension on TranslationsBg {
 			'metadataEdit.editMetadata' => 'Редактирай...',
 			'metadataEdit.screenTitle' => 'Редактиране на метаданни',
 			'metadataEdit.basicInfo' => 'Основна информация',
+			_ => null,
+		} ?? switch (path) {
 			'metadataEdit.artwork' => 'Обложка',
 			'metadataEdit.advancedSettings' => 'Разширени настройки',
 			'metadataEdit.title' => 'Заглавие',
@@ -5703,6 +5797,115 @@ extension on TranslationsBg {
 			'addServer.redirectDifferentHost' => ({required Object product}) => 'Сървърът пренасочи към друг хост. Въведете директно крайния URL на ${product}.',
 			'addServer.redirectInsecure' => 'Сървърът пренасочи от HTTPS към незащитен URL',
 			'addServer.redirectUnsupportedEnterFinal' => ({required Object product}) => 'Сървърът пренасочи към неподдържан URL. Въведете директно крайния URL на ${product}.',
+			'appIcon.title' => 'Икона на приложението',
+			'appIcon.defaultIcon' => 'По подразбиране',
+			'appIcon.current' => 'Текуща икона',
+			'appIcon.locked' => 'Бонус за Supporter',
+			'appIcon.lockedHint' => 'Алтернативните икони са бонус за Supporter.',
+			'appIcon.changeFailed' => 'Иконата на приложението не можа да бъде сменена',
+			'appIcon.launcherHint' => 'Новата икона ще се появи на началния ви екран, след като излезете от Plezy.',
+			'appIcon.tvLauncherHint' => 'Новият банер ще се появи, след като излезете от Plezy. Android TV може да продължи да показва стария, докато телевизорът не бъде рестартиран.',
+			'appIcon.names.midnight' => 'Полунощ',
+			'appIcon.names.ember' => 'Жарава',
+			'appIcon.names.paper' => 'Хартия',
+			'appIcon.names.oled' => 'OLED',
+			'appIcon.names.line' => 'Линия',
+			'appIcon.names.ocean' => 'Океан',
+			'appIcon.names.ultraviolet' => 'Ултравиолет',
+			'appIcon.names.matcha' => 'Матча',
+			'appIcon.names.sunset' => 'Залез',
+			'appIcon.names.gold' => 'Злато',
+			'appIcon.names.titanium' => 'Титан',
+			'appIcon.names.glass' => 'Стъкло',
+			'appIcon.names.crt' => 'CRT',
+			'appIcon.names.vhs' => 'VHS',
+			'appIcon.names.synthwave' => 'Synthwave',
+			'appIcon.names.pixel' => 'Пиксел',
+			'appIcon.names.neon' => 'Неон',
+			'appIcon.names.sticker' => 'Стикер',
+			'appIcon.names.ticket' => 'Билет',
+			'appIcon.names.pop' => 'Поп',
+			'appIcon.names.strata' => 'Пластове',
+			'appIcon.names.facet' => 'Фасета',
+			'appIcon.names.tilde' => 'Тилда',
+			'supporter.title' => 'Plezy Supporter',
+			'supporter.intro' => 'Еднократна покупка, която подкрепя разработката на Plezy и отключва козметични екстри:',
+			'supporter.presetThemes' => 'Готови теми',
+			'supporter.presetThemesDescription' => 'Жарава, Ледник, Гора, Слива и Хартия',
+			'supporter.customTheme' => 'Персонализирана тема',
+			'supporter.customThemeDescription' => 'Изберете всеки цвят сами',
+			'supporter.appIcons' => 'Икони на приложението',
+			'supporter.appIconsDescription' => 'Изберете алтернативна икона на Plezy',
+			'supporter.buy' => ({required Object price}) => 'Купи за ${price}',
+			'supporter.loadingPrice' => 'Зареждане на цената...',
+			'supporter.restore' => 'Възстанови покупките',
+			'supporter.pending' => 'Покупката ви очаква плащане или одобрение. Екстрите ще се отключат веднага щом магазинът я обработи.',
+			'supporter.thankYouTitle' => 'Благодарим ви, че подкрепяте Plezy',
+			'supporter.thankYouBody' => 'Екстрите от Supporter са отключени.',
+			'supporter.tileSubtitle' => 'Отключете теми и икони на приложението с еднократна покупка',
+			'supporter.tileSubtitleThemesOnly' => 'Отключете теми с еднократна покупка',
+			'supporter.tileUnlocked' => 'Благодарим ви за подкрепата',
+			'supporter.errors.storeUnavailable' => 'Покупките не са налични. Проверете дали сте влезли в магазина и дали покупките са разрешени на това устройство.',
+			'supporter.errors.productNotFound' => 'Покупката Supporter в момента не е налична във вашия магазин.',
+			'supporter.errors.productQueryFailed' => 'Цената не можа да бъде заредена. Проверете връзката си и опитайте отново.',
+			'supporter.errors.purchaseFailed' => 'Покупката не беше осъществена. Опитайте отново.',
+			'supporter.errors.restoreFailed' => 'Няма връзка с магазина и покупката ви не можа да бъде възстановена. Опитайте отново.',
+			'supporter.errors.nothingToRestore' => 'Не е намерена покупка на Supporter за този акаунт в магазина.',
+			'themeEditor.builtIn' => 'Вградени',
+			'themeEditor.presets' => 'Готови теми',
+			'themeEditor.custom' => 'Персонализирана',
+			'themeEditor.customEmpty' => 'Все още не е създадена',
+			'themeEditor.editCustom' => 'Редактирай персонализираната тема',
+			'themeEditor.editCustomDescription' => 'Изберете всеки цвят сами',
+			'themeEditor.locked' => 'Отключва се със Supporter',
+			'themeEditor.savedLocked' => 'Запазена — отключва се със Supporter',
+			'themeEditor.title' => 'Персонализирана тема',
+			'themeEditor.startFrom' => 'Започни от',
+			'themeEditor.startFromDescription' => 'Копирай всички цветове от друга тема',
+			'themeEditor.colors' => 'Цветове',
+			'themeEditor.preview' => 'Визуализация',
+			'themeEditor.slots.bg' => 'Фон',
+			'themeEditor.slots.surface' => 'Повърхност',
+			'themeEditor.slots.outline' => 'Контур',
+			'themeEditor.slots.text' => 'Текст',
+			'themeEditor.slots.textMuted' => 'Вторичен текст',
+			'themeEditor.slots.accent' => 'Акцент',
+			'themeEditor.opacity' => 'Непрозрачност',
+			'themeEditor.hexHint' => '#RRGGBB или #AARRGGBB',
+			'themeEditor.fromOtherThemes' => 'От други теми',
+			'themeEditor.swatchLabel' => ({required Object color, required Object theme}) => '${color} (${theme})',
+			'themeEditor.contrast.textOnBg' => 'Текст върху фона',
+			'themeEditor.contrast.textOnSurface' => 'Текст върху повърхността',
+			'themeEditor.contrast.textMutedOnBg' => 'Вторичен текст върху фона',
+			'themeEditor.contrast.textMutedOnSurface' => 'Вторичен текст върху повърхността',
+			'themeEditor.contrast.accentOnBg' => 'Акцент върху фона',
+			'themeEditor.contrast.accentOnSurface' => 'Акцент върху повърхността',
+			'themeEditor.contrast.labelOnAccent' => 'Надпис на бутон върху акцента',
+			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, под препоръчителното ${minimum}:1',
+			'themeEditor.discardTitle' => 'Да се отхвърлят ли промените?',
+			'themeEditor.discardMessage' => 'Незапазените промени в цветовете ще бъдат загубени.',
+			'themeEditor.discard' => 'Отхвърли',
+			'themeEditor.previewCardTitle' => ({required Object number}) => 'Епизод ${number}',
+			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => 'Остават ${minutes} мин',
+			'themeEditor.previewSwitch' => 'Автоматично пускане',
+			'themeEditor.previewMutedText' => 'Вторичният текст изглежда така',
+			'deepLinks.invalid' => 'This Plezy link isn\'t valid.',
+			'deepLinks.profileNotFound' => ({required Object profile}) => 'No profile matches "${profile}".',
+			'deepLinks.serverUnavailable' => 'Couldn\'t reach the server for this link.',
+			'deepLinks.notFound' => 'Couldn\'t find this title in your libraries.',
+			'deepLinks.unsupportedItem' => 'This link can\'t be played.',
+			'deepLinks.noLiveTv' => 'No Live TV server is available for this link.',
+			'deepLinks.channelNotFound' => ({required Object channel}) => 'Couldn\'t find channel "${channel}".',
+			'deepLinks.showLink' => 'Show link',
+			'deepLinks.showProfileLink' => 'Show profile link',
+			'deepLinks.dialogTitle' => 'Link',
+			'deepLinks.showHint' => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.',
+			'deepLinks.movieHint' => 'Opening this link plays the movie.',
+			'deepLinks.episodeHint' => 'Opening this link plays this episode.',
+			'deepLinks.profileHint' => 'Opening this link switches to this profile.',
+			'deepLinks.openAsProfile' => ({required Object name}) => 'Open as ${name}',
+			'deepLinks.copy' => 'Copy',
+			'deepLinks.copied' => 'Link copied',
 			_ => null,
 		};
 	}

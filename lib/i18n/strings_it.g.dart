@@ -40,14 +40,11 @@ class TranslationsIt extends Translations with BaseTranslations<AppLocale, Trans
 
 	// Translations
 	@override late final _Translations$app$it app = _Translations$app$it._(_root);
-	@override late final _Translations$appIcon$it appIcon = _Translations$appIcon$it._(_root);
 	@override late final _Translations$auth$it auth = _Translations$auth$it._(_root);
 	@override late final _Translations$common$it common = _Translations$common$it._(_root);
 	@override late final _Translations$screens$it screens = _Translations$screens$it._(_root);
 	@override late final _Translations$update$it update = _Translations$update$it._(_root);
-	@override late final _Translations$supporter$it supporter = _Translations$supporter$it._(_root);
 	@override late final _Translations$settings$it settings = _Translations$settings$it._(_root);
-	@override late final _Translations$themeEditor$it themeEditor = _Translations$themeEditor$it._(_root);
 	@override late final _Translations$search$it search = _Translations$search$it._(_root);
 	@override late final _Translations$hotkeys$it hotkeys = _Translations$hotkeys$it._(_root);
 	@override late final _Translations$fileInfo$it fileInfo = _Translations$fileInfo$it._(_root);
@@ -93,6 +90,10 @@ class TranslationsIt extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$seerr$it seerr = _Translations$seerr$it._(_root);
 	@override late final _Translations$services$it services = _Translations$services$it._(_root);
 	@override late final _Translations$addServer$it addServer = _Translations$addServer$it._(_root);
+	@override late final _Translations$appIcon$it appIcon = _Translations$appIcon$it._(_root);
+	@override late final _Translations$supporter$it supporter = _Translations$supporter$it._(_root);
+	@override late final _Translations$themeEditor$it themeEditor = _Translations$themeEditor$it._(_root);
+	@override late final _Translations$deepLinks$it deepLinks = _Translations$deepLinks$it._(_root);
 }
 
 // Path: app
@@ -102,25 +103,7 @@ class _Translations$app$it extends Translations$app$en {
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
-}
-
-// Path: appIcon
-class _Translations$appIcon$it extends Translations$appIcon$en {
-	_Translations$appIcon$it._(TranslationsIt root) : this._root = root, super.internal(root);
-
-	final TranslationsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Icona dell\'app';
-	@override String get defaultIcon => 'Predefinita';
-	@override String get current => 'Icona attuale';
-	@override String get locked => 'Vantaggio Supporter';
-	@override String get lockedHint => 'Le icone alternative sono un vantaggio Supporter.';
-	@override String get changeFailed => 'Impossibile cambiare l\'icona dell\'app';
-	@override String get launcherHint => 'La nuova icona appare nella schermata Home quando esci da Plezy.';
-	@override String get tvLauncherHint => 'Il nuovo banner appare quando esci da Plezy. Android TV potrebbe continuare a mostrare quello precedente fino al riavvio del televisore.';
-	@override late final _Translations$appIcon$names$it names = _Translations$appIcon$names$it._(_root);
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -237,33 +220,14 @@ class _Translations$update$it extends Translations$update$en {
 	@override String get viewRelease => 'Visualizza note di rilascio';
 	@override String get latestVersion => 'La versione installata è l\'ultima disponibile';
 	@override String get checkFailed => 'Impossibile controllare gli aggiornamenti';
-}
-
-// Path: supporter
-class _Translations$supporter$it extends Translations$supporter$en {
-	_Translations$supporter$it._(TranslationsIt root) : this._root = root, super.internal(root);
-
-	final TranslationsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Plezy Supporter';
-	@override String get intro => 'Un acquisto una tantum che sostiene lo sviluppo di Plezy e sblocca extra estetici:';
-	@override String get presetThemes => 'Temi preimpostati';
-	@override String get presetThemesDescription => 'Brace, Ghiacciaio, Foresta, Prugna e Carta';
-	@override String get customTheme => 'Tema personalizzato';
-	@override String get customThemeDescription => 'Scegli tu ogni colore';
-	@override String get appIcons => 'Icone dell\'app';
-	@override String get appIconsDescription => 'Scegli un\'icona alternativa per Plezy';
-	@override String buy({required Object price}) => 'Acquista a ${price}';
-	@override String get loadingPrice => 'Caricamento del prezzo...';
-	@override String get restore => 'Ripristina acquisti';
-	@override String get pending => 'Il tuo acquisto è in attesa di pagamento o approvazione. Gli extra verranno sbloccati non appena lo store lo avrà completato.';
-	@override String get thankYouTitle => 'Grazie per sostenere Plezy';
-	@override String get thankYouBody => 'Gli extra di Supporter sono stati sbloccati.';
-	@override String get tileSubtitle => 'Sblocca temi e icone dell\'app con un acquisto una tantum';
-	@override String get tileSubtitleThemesOnly => 'Sblocca i temi con un acquisto una tantum';
-	@override String get tileUnlocked => 'Grazie per il tuo sostegno';
-	@override late final _Translations$supporter$errors$it errors = _Translations$supporter$errors$it._(_root);
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -608,42 +572,24 @@ class _Translations$settings$it extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Per libreria';
 	@override String get playerScopeTitle => 'Per serie o film';
 	@override String get exportDialogTitle => 'Esporta le impostazioni di Plezy';
-}
-
-// Path: themeEditor
-class _Translations$themeEditor$it extends Translations$themeEditor$en {
-	_Translations$themeEditor$it._(TranslationsIt root) : this._root = root, super.internal(root);
-
-	final TranslationsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get builtIn => 'Integrati';
-	@override String get presets => 'Preimpostati';
-	@override String get custom => 'Personalizzato';
-	@override String get customEmpty => 'Non ancora creato';
-	@override String get editCustom => 'Modifica tema personalizzato';
-	@override String get editCustomDescription => 'Scegli tu ogni colore';
-	@override String get locked => 'Sblocca con Supporter';
-	@override String get savedLocked => 'Salvato — si sblocca con Supporter';
-	@override String get title => 'Tema personalizzato';
-	@override String get startFrom => 'Parti da';
-	@override String get startFromDescription => 'Copia tutti i colori da un altro tema';
-	@override String get colors => 'Colori';
-	@override String get preview => 'Anteprima';
-	@override late final _Translations$themeEditor$slots$it slots = _Translations$themeEditor$slots$it._(_root);
-	@override String get opacity => 'Opacità';
-	@override String get hexHint => '#RRGGBB o #AARRGGBB';
-	@override String get fromOtherThemes => 'Da altri temi';
-	@override String swatchLabel({required Object color, required Object theme}) => '${color} ${theme}';
-	@override late final _Translations$themeEditor$contrast$it contrast = _Translations$themeEditor$contrast$it._(_root);
-	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, sotto il valore consigliato di ${minimum}:1';
-	@override String get discardTitle => 'Scartare le modifiche?';
-	@override String get discardMessage => 'Le modifiche ai colori non salvate andranno perse.';
-	@override String get discard => 'Scarta';
-	@override String previewCardTitle({required Object number}) => 'Episodio ${number}';
-	@override String previewCardSubtitle({required Object minutes}) => '${minutes} min rimanenti';
-	@override String get previewSwitch => 'Riproduzione automatica';
-	@override String get previewMutedText => 'Così appare il testo secondario';
+	@override String get downloadLocationSelectError => 'Impossibile selezionare la cartella';
+	@override String get mediaCapture => 'Cattura multimediale';
+	@override String get clips => 'Clip';
+	@override String get screenshots => 'Schermate';
+	@override String captureLocationTitle({required Object title}) => '${title} Posizione';
+	@override String get clipLocationDescription => 'Scegli dove salvare i clip.';
+	@override String get screenshotLocationDescription => 'Scegli dove salvare gli screenshot.';
+	@override String get clipLocationChanged => 'La posizione della clip è cambiata';
+	@override String get screenshotLocationChanged => 'La posizione dello screenshot è cambiata';
+	@override String get clipLocationReset => 'La posizione della clip è stata reimpostata sul desktop';
+	@override String get screenshotLocationReset => 'La posizione dello screenshot è stata reimpostata sul desktop';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
+	@override String get packedStereoUi => '3D Playback UI';
 }
 
 // Path: search
@@ -993,7 +939,6 @@ class _Translations$videoControls$it extends Translations$videoControls$en {
 	@override String get pipActive => 'Riproduzione in Picture-in-Picture';
 	@override String get pipFailed => 'Impossibile avviare la modalità Picture-in-Picture';
 	@override String get screenshotSaved => 'Schermata salvata';
-	@override String get screenshotFailed => 'Impossibile catturare la schermata';
 	@override String zoomPercent({required Object percent}) => 'Zoom ${percent}%';
 	@override String volumePercent({required Object percent}) => 'Volume ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$it pipErrors = _Translations$videoControls$pipErrors$it._(_root);
@@ -1018,6 +963,13 @@ class _Translations$videoControls$it extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Sottotitoli: Disattivati';
 	@override String osdSubtitles({required Object track}) => 'Sottotitoli: ${track}';
 	@override String osdAudio({required Object track}) => 'Audio: ${track}';
+	@override String get screenshotFailed => 'Impossibile catturare la schermata';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('it'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
+	@override late final _Translations$videoControls$clip$it clip = _Translations$videoControls$clip$it._(_root);
 }
 
 // Path: messages
@@ -1440,6 +1392,9 @@ class _Translations$about$it extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Versione ${version}';
 	@override String get appDescription => 'Un elegante client Plex, Jellyfin ed Emby per Flutter';
 	@override String get viewLicensesDescription => 'Visualizza le licenze delle librerie di terze parti';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1568,6 +1523,7 @@ class _Translations$explore$it extends Translations$explore$en {
 	@override String get removedFromWatchlist => 'Rimosso dalla lista titoli';
 	@override String get watchlistUpdateFailed => 'Impossibile aggiornare la lista da guardare';
 	@override String get watchlistNoMatch => 'Impossibile associare questo elemento a una lista titoli';
+	@override String get openInLibrary => 'Apri nella libreria';
 	@override String get notInLibrary => 'Non è nella tua libreria';
 	@override String get inTheseLibraries => 'In queste librerie';
 	@override String get checkingLibrary => 'Ricerca nella tua libreria...';
@@ -1618,6 +1574,7 @@ class _Translations$liveTv$it extends Translations$liveTv$en {
 	@override String channelNumber({required Object number}) => 'Canale ${number}';
 	@override String get unknownChannel => 'Canale sconosciuto';
 	@override String get live => 'IN DIRETTA';
+	@override String get premiereBadge => 'NEW';
 	@override String get reloadGuide => 'Ricarica la guida';
 	@override String get searchGuide => 'Cerca nella guida';
 	@override String get searchHint => 'Cerca canali e programmi';
@@ -2144,6 +2101,7 @@ class _Translations$performanceOverlay$it extends Translations$performanceOverla
 	@override String get cacheLimit => 'Limite cache';
 	@override String get speed => 'Velocità';
 	@override String get player => 'Lettore';
+	@override String get playMethod => 'Play Method';
 	@override String get memory => 'Memoria';
 	@override String get uiFps => 'FPS UI';
 	@override String get fps => 'FPS';
@@ -2458,36 +2416,111 @@ class _Translations$addServer$it extends Translations$addServer$en {
 	@override String redirectUnsupportedEnterFinal({required Object product}) => 'Il server ha reindirizzato a un URL non supportato. Inserisci direttamente l\'URL finale del server ${product}.';
 }
 
-// Path: appIcon.names
-class _Translations$appIcon$names$it extends Translations$appIcon$names$en {
-	_Translations$appIcon$names$it._(TranslationsIt root) : this._root = root, super.internal(root);
+// Path: appIcon
+class _Translations$appIcon$it extends Translations$appIcon$en {
+	_Translations$appIcon$it._(TranslationsIt root) : this._root = root, super.internal(root);
 
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get midnight => 'Mezzanotte';
-	@override String get ember => 'Brace';
-	@override String get paper => 'Carta';
-	@override String get oled => 'OLED';
-	@override String get line => 'Linea';
-	@override String get ocean => 'Oceano';
-	@override String get ultraviolet => 'Ultravioletto';
-	@override String get matcha => 'Matcha';
-	@override String get sunset => 'Tramonto';
-	@override String get gold => 'Oro';
-	@override String get titanium => 'Titanio';
-	@override String get glass => 'Vetro';
-	@override String get crt => 'CRT';
-	@override String get vhs => 'VHS';
-	@override String get synthwave => 'Synthwave';
-	@override String get pixel => 'Pixel';
-	@override String get neon => 'Neon';
-	@override String get sticker => 'Adesivo';
-	@override String get ticket => 'Biglietto';
-	@override String get pop => 'Pop';
-	@override String get strata => 'Strati';
-	@override String get facet => 'Sfaccettature';
-	@override String get tilde => 'Tilde';
+	@override String get title => 'Icona dell\'app';
+	@override String get defaultIcon => 'Predefinita';
+	@override String get current => 'Icona attuale';
+	@override String get locked => 'Vantaggio Supporter';
+	@override String get lockedHint => 'Le icone alternative sono un vantaggio Supporter.';
+	@override String get changeFailed => 'Impossibile cambiare l\'icona dell\'app';
+	@override String get launcherHint => 'La nuova icona appare nella schermata Home quando esci da Plezy.';
+	@override String get tvLauncherHint => 'Il nuovo banner appare quando esci da Plezy. Android TV potrebbe continuare a mostrare quello precedente fino al riavvio del televisore.';
+	@override late final _Translations$appIcon$names$it names = _Translations$appIcon$names$it._(_root);
+}
+
+// Path: supporter
+class _Translations$supporter$it extends Translations$supporter$en {
+	_Translations$supporter$it._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Plezy Supporter';
+	@override String get intro => 'Un acquisto una tantum che sostiene lo sviluppo di Plezy e sblocca extra estetici:';
+	@override String get presetThemes => 'Temi preimpostati';
+	@override String get presetThemesDescription => 'Brace, Ghiacciaio, Foresta, Prugna e Carta';
+	@override String get customTheme => 'Tema personalizzato';
+	@override String get customThemeDescription => 'Scegli tu ogni colore';
+	@override String get appIcons => 'Icone dell\'app';
+	@override String get appIconsDescription => 'Scegli un\'icona alternativa per Plezy';
+	@override String buy({required Object price}) => 'Acquista a ${price}';
+	@override String get loadingPrice => 'Caricamento del prezzo...';
+	@override String get restore => 'Ripristina acquisti';
+	@override String get pending => 'Il tuo acquisto è in attesa di pagamento o approvazione. Gli extra verranno sbloccati non appena lo store lo avrà completato.';
+	@override String get thankYouTitle => 'Grazie per sostenere Plezy';
+	@override String get thankYouBody => 'Gli extra di Supporter sono stati sbloccati.';
+	@override String get tileSubtitle => 'Sblocca temi e icone dell\'app con un acquisto una tantum';
+	@override String get tileSubtitleThemesOnly => 'Sblocca i temi con un acquisto una tantum';
+	@override String get tileUnlocked => 'Grazie per il tuo sostegno';
+	@override late final _Translations$supporter$errors$it errors = _Translations$supporter$errors$it._(_root);
+}
+
+// Path: themeEditor
+class _Translations$themeEditor$it extends Translations$themeEditor$en {
+	_Translations$themeEditor$it._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get builtIn => 'Integrati';
+	@override String get presets => 'Preimpostati';
+	@override String get custom => 'Personalizzato';
+	@override String get customEmpty => 'Non ancora creato';
+	@override String get editCustom => 'Modifica tema personalizzato';
+	@override String get editCustomDescription => 'Scegli tu ogni colore';
+	@override String get locked => 'Sblocca con Supporter';
+	@override String get savedLocked => 'Salvato — si sblocca con Supporter';
+	@override String get title => 'Tema personalizzato';
+	@override String get startFrom => 'Parti da';
+	@override String get startFromDescription => 'Copia tutti i colori da un altro tema';
+	@override String get colors => 'Colori';
+	@override String get preview => 'Anteprima';
+	@override late final _Translations$themeEditor$slots$it slots = _Translations$themeEditor$slots$it._(_root);
+	@override String get opacity => 'Opacità';
+	@override String get hexHint => '#RRGGBB o #AARRGGBB';
+	@override String get fromOtherThemes => 'Da altri temi';
+	@override String swatchLabel({required Object color, required Object theme}) => '${color} ${theme}';
+	@override late final _Translations$themeEditor$contrast$it contrast = _Translations$themeEditor$contrast$it._(_root);
+	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, sotto il valore consigliato di ${minimum}:1';
+	@override String get discardTitle => 'Scartare le modifiche?';
+	@override String get discardMessage => 'Le modifiche ai colori non salvate andranno perse.';
+	@override String get discard => 'Scarta';
+	@override String previewCardTitle({required Object number}) => 'Episodio ${number}';
+	@override String previewCardSubtitle({required Object minutes}) => '${minutes} min rimanenti';
+	@override String get previewSwitch => 'Riproduzione automatica';
+	@override String get previewMutedText => 'Così appare il testo secondario';
+}
+
+// Path: deepLinks
+class _Translations$deepLinks$it extends Translations$deepLinks$en {
+	_Translations$deepLinks$it._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get invalid => 'This Plezy link isn\'t valid.';
+	@override String profileNotFound({required Object profile}) => 'No profile matches "${profile}".';
+	@override String get serverUnavailable => 'Couldn\'t reach the server for this link.';
+	@override String get notFound => 'Couldn\'t find this title in your libraries.';
+	@override String get unsupportedItem => 'This link can\'t be played.';
+	@override String get noLiveTv => 'No Live TV server is available for this link.';
+	@override String channelNotFound({required Object channel}) => 'Couldn\'t find channel "${channel}".';
+	@override String get showLink => 'Show link';
+	@override String get showProfileLink => 'Show profile link';
+	@override String get dialogTitle => 'Link';
+	@override String get showHint => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.';
+	@override String get movieHint => 'Opening this link plays the movie.';
+	@override String get episodeHint => 'Opening this link plays this episode.';
+	@override String get profileHint => 'Opening this link switches to this profile.';
+	@override String openAsProfile({required Object name}) => 'Open as ${name}';
+	@override String get copy => 'Copy';
+	@override String get copied => 'Link copied';
 }
 
 // Path: common.ratingSource
@@ -2533,52 +2566,6 @@ class _Translations$common$mediaKind$it extends Translations$common$mediaKind$en
 	@override String get folder => 'Cartella';
 }
 
-// Path: supporter.errors
-class _Translations$supporter$errors$it extends Translations$supporter$errors$en {
-	_Translations$supporter$errors$it._(TranslationsIt root) : this._root = root, super.internal(root);
-
-	final TranslationsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get storeUnavailable => 'Gli acquisti non sono disponibili. Verifica di aver effettuato l\'accesso allo store e che gli acquisti siano consentiti su questo dispositivo.';
-	@override String get productNotFound => 'L\'acquisto Supporter non è al momento disponibile nel tuo store.';
-	@override String get productQueryFailed => 'Impossibile caricare il prezzo. Controlla la connessione e riprova.';
-	@override String get purchaseFailed => 'L\'acquisto non è andato a buon fine. Riprova.';
-	@override String get restoreFailed => 'Impossibile raggiungere lo store per ripristinare l\'acquisto. Riprova.';
-	@override String get nothingToRestore => 'Nessun acquisto Supporter trovato per questo account dello store.';
-}
-
-// Path: themeEditor.slots
-class _Translations$themeEditor$slots$it extends Translations$themeEditor$slots$en {
-	_Translations$themeEditor$slots$it._(TranslationsIt root) : this._root = root, super.internal(root);
-
-	final TranslationsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get bg => 'Sfondo';
-	@override String get surface => 'Superficie';
-	@override String get outline => 'Contorno';
-	@override String get text => 'Testo';
-	@override String get textMuted => 'Testo secondario';
-	@override String get accent => 'Accento';
-}
-
-// Path: themeEditor.contrast
-class _Translations$themeEditor$contrast$it extends Translations$themeEditor$contrast$en {
-	_Translations$themeEditor$contrast$it._(TranslationsIt root) : this._root = root, super.internal(root);
-
-	final TranslationsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get textOnBg => 'Testo sullo sfondo';
-	@override String get textOnSurface => 'Testo sulla superficie';
-	@override String get textMutedOnBg => 'Testo secondario sullo sfondo';
-	@override String get textMutedOnSurface => 'Testo secondario sulla superficie';
-	@override String get accentOnBg => 'Accento sullo sfondo';
-	@override String get accentOnSurface => 'Accento sulla superficie';
-	@override String get labelOnAccent => 'Etichetta dei pulsanti sull\'accento';
-}
-
 // Path: hotkeys.actions
 class _Translations$hotkeys$actions$it extends Translations$hotkeys$actions$en {
 	_Translations$hotkeys$actions$it._(TranslationsIt root) : this._root = root, super.internal(root);
@@ -2611,6 +2598,8 @@ class _Translations$hotkeys$actions$it extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Attiva/disattiva shader';
 	@override String get skipMarker => 'Salta intro/titoli di coda';
 	@override String get screenshot => 'Cattura schermata';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2628,6 +2617,52 @@ class _Translations$videoControls$pipErrors$it extends Translations$videoControl
 	@override String get failed => 'Impossibile avviare la modalità Picture-in-Picture';
 	@override String get prepareFailed => 'Impossibile preparare la modalità Picture-in-Picture';
 	@override String unknown({required Object error}) => 'Si è verificato un errore: ${error}';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$it extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$it._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Regolazione fine';
+	@override String get title => 'Clip';
+	@override String get vodOnly => 'I clip sono disponibili per la riproduzione video su richiesta.';
+	@override String get sourceUnavailable => 'La sorgente della clip non è disponibile per questa sessione di riproduzione.';
+	@override String get playAtLeastOneSecond => 'Gioca almeno 1 secondo prima del clip.';
+	@override String get startBeforeBeginning => 'L\'inizio della clip non può essere precedente all\'inizio del video.';
+	@override String get endAfterStart => 'La fine della clip deve essere successiva all\'inizio.';
+	@override String get minimumDuration => 'I clip devono durare almeno 1 secondo.';
+	@override String get endPastVideo => 'La fine della clip è oltre la fine del video.';
+	@override String get exportCanceled => 'Esportazione clip annullata.';
+	@override String get cacheUnavailable => 'Non è stato possibile memorizzare completamente nella cache l\'intervallo selezionato per l\'esportazione originale. Prova una clip più breve o riproduci l\'anteprima una volta prima di salvare.';
+	@override String get sourceCopyNoEncoder => 'L\'esportazione della copia di origine non utilizza un codificatore.';
+	@override String get encodingDesktopOnly => 'La codifica clip H.264 e HEVC è attualmente disponibile su macOS e Windows.';
+	@override String get hdrRequiresSource => 'L\'esportazione HDR richiede una sorgente compatibile con HDR10 o HLG a riproduzione diretta.';
+	@override String get transcodeStartUnavailable => 'Questa clip inizia prima del flusso transcodificato attivo. Cerca prima e riapri il ritaglio o passa alla qualità originale.';
+	@override String get previewRequired => 'L\'anteprima della clip deve terminare il caricamento prima di poter essere salvata.';
+	@override String get h264Failed => 'Questa sorgente non può essere codificata come H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'Impossibile codificare questa sorgente come HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'Non è stato possibile codificare questa sorgente come HEVC HDR MP4.';
+	@override String get gifFailed => 'Non è stato possibile codificare questa sorgente come GIF.';
+	@override String get originalFailed => 'Impossibile copiare questa fonte dalla cache mpv.';
+	@override String get previewUnavailable => 'La riproduzione dell\'anteprima della clip non è disponibile in questa build.';
+	@override String get previewFailed => 'La riproduzione dell\'anteprima del clip non è riuscita.';
+	@override String get previewLoadingScreenshot => 'L\'anteprima della clip deve terminare il caricamento prima di acquisire uno screenshot.';
+	@override String get screenshotInProgress => 'Uno screenshot è già stato salvato.';
+	@override String get saveAsDialog => 'Salva clip con nome';
+	@override String savedTo({required Object fileName}) => 'Salvato in ${fileName}';
+	@override String get openFolder => 'Apri cartella';
+	@override String get saveAs => 'Salva con nome';
+	@override String get cancelExport => 'Annulla esportazione';
+	@override String get saving => 'Risparmio...';
+	@override String savingProgress({required Object percent}) => 'Risparmio ${percent}%';
+	@override String get mutePreview => 'Anteprima disattivata';
+	@override String get unmutePreview => 'Anteprima riattiva';
+	@override String get formatHevcSdr => 'HEVC DSP';
+	@override String get formatH264Sdr => 'H.264 DSP';
+	@override String get formatHevcHdr => 'HEVCHDR';
 }
 
 // Path: accountPreferences.groups
@@ -3387,6 +3422,84 @@ class _Translations$services$libraryFilter$it extends Translations$services$libr
 	@override String get noLibraries => 'Nessuna libreria disponibile';
 }
 
+// Path: appIcon.names
+class _Translations$appIcon$names$it extends Translations$appIcon$names$en {
+	_Translations$appIcon$names$it._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get midnight => 'Mezzanotte';
+	@override String get ember => 'Brace';
+	@override String get paper => 'Carta';
+	@override String get oled => 'OLED';
+	@override String get line => 'Linea';
+	@override String get ocean => 'Oceano';
+	@override String get ultraviolet => 'Ultravioletto';
+	@override String get matcha => 'Matcha';
+	@override String get sunset => 'Tramonto';
+	@override String get gold => 'Oro';
+	@override String get titanium => 'Titanio';
+	@override String get glass => 'Vetro';
+	@override String get crt => 'CRT';
+	@override String get vhs => 'VHS';
+	@override String get synthwave => 'Synthwave';
+	@override String get pixel => 'Pixel';
+	@override String get neon => 'Neon';
+	@override String get sticker => 'Adesivo';
+	@override String get ticket => 'Biglietto';
+	@override String get pop => 'Pop';
+	@override String get strata => 'Strati';
+	@override String get facet => 'Sfaccettature';
+	@override String get tilde => 'Tilde';
+}
+
+// Path: supporter.errors
+class _Translations$supporter$errors$it extends Translations$supporter$errors$en {
+	_Translations$supporter$errors$it._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get storeUnavailable => 'Gli acquisti non sono disponibili. Verifica di aver effettuato l\'accesso allo store e che gli acquisti siano consentiti su questo dispositivo.';
+	@override String get productNotFound => 'L\'acquisto Supporter non è al momento disponibile nel tuo store.';
+	@override String get productQueryFailed => 'Impossibile caricare il prezzo. Controlla la connessione e riprova.';
+	@override String get purchaseFailed => 'L\'acquisto non è andato a buon fine. Riprova.';
+	@override String get restoreFailed => 'Impossibile raggiungere lo store per ripristinare l\'acquisto. Riprova.';
+	@override String get nothingToRestore => 'Nessun acquisto Supporter trovato per questo account dello store.';
+}
+
+// Path: themeEditor.slots
+class _Translations$themeEditor$slots$it extends Translations$themeEditor$slots$en {
+	_Translations$themeEditor$slots$it._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get bg => 'Sfondo';
+	@override String get surface => 'Superficie';
+	@override String get outline => 'Contorno';
+	@override String get text => 'Testo';
+	@override String get textMuted => 'Testo secondario';
+	@override String get accent => 'Accento';
+}
+
+// Path: themeEditor.contrast
+class _Translations$themeEditor$contrast$it extends Translations$themeEditor$contrast$en {
+	_Translations$themeEditor$contrast$it._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get textOnBg => 'Testo sullo sfondo';
+	@override String get textOnSurface => 'Testo sulla superficie';
+	@override String get textMutedOnBg => 'Testo secondario sullo sfondo';
+	@override String get textMutedOnSurface => 'Testo secondario sulla superficie';
+	@override String get accentOnBg => 'Accento sullo sfondo';
+	@override String get accentOnSurface => 'Accento sulla superficie';
+	@override String get labelOnAccent => 'Etichetta dei pulsanti sull\'accento';
+}
+
 /// The flat map containing all translations for locale <it>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -3395,38 +3508,7 @@ class _Translations$services$libraryFilter$it extends Translations$services$libr
 extension on TranslationsIt {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
-			'appIcon.title' => 'Icona dell\'app',
-			'appIcon.defaultIcon' => 'Predefinita',
-			'appIcon.current' => 'Icona attuale',
-			'appIcon.locked' => 'Vantaggio Supporter',
-			'appIcon.lockedHint' => 'Le icone alternative sono un vantaggio Supporter.',
-			'appIcon.changeFailed' => 'Impossibile cambiare l\'icona dell\'app',
-			'appIcon.launcherHint' => 'La nuova icona appare nella schermata Home quando esci da Plezy.',
-			'appIcon.tvLauncherHint' => 'Il nuovo banner appare quando esci da Plezy. Android TV potrebbe continuare a mostrare quello precedente fino al riavvio del televisore.',
-			'appIcon.names.midnight' => 'Mezzanotte',
-			'appIcon.names.ember' => 'Brace',
-			'appIcon.names.paper' => 'Carta',
-			'appIcon.names.oled' => 'OLED',
-			'appIcon.names.line' => 'Linea',
-			'appIcon.names.ocean' => 'Oceano',
-			'appIcon.names.ultraviolet' => 'Ultravioletto',
-			'appIcon.names.matcha' => 'Matcha',
-			'appIcon.names.sunset' => 'Tramonto',
-			'appIcon.names.gold' => 'Oro',
-			'appIcon.names.titanium' => 'Titanio',
-			'appIcon.names.glass' => 'Vetro',
-			'appIcon.names.crt' => 'CRT',
-			'appIcon.names.vhs' => 'VHS',
-			'appIcon.names.synthwave' => 'Synthwave',
-			'appIcon.names.pixel' => 'Pixel',
-			'appIcon.names.neon' => 'Neon',
-			'appIcon.names.sticker' => 'Adesivo',
-			'appIcon.names.ticket' => 'Biglietto',
-			'appIcon.names.pop' => 'Pop',
-			'appIcon.names.strata' => 'Strati',
-			'appIcon.names.facet' => 'Sfaccettature',
-			'appIcon.names.tilde' => 'Tilde',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Accedi con Plex',
 			'auth.showQRCode' => 'Mostra codice QR',
 			'auth.authenticate' => 'Autenticati',
@@ -3530,29 +3612,14 @@ extension on TranslationsIt {
 			'update.viewRelease' => 'Visualizza note di rilascio',
 			'update.latestVersion' => 'La versione installata è l\'ultima disponibile',
 			'update.checkFailed' => 'Impossibile controllare gli aggiornamenti',
-			'supporter.title' => 'Plezy Supporter',
-			'supporter.intro' => 'Un acquisto una tantum che sostiene lo sviluppo di Plezy e sblocca extra estetici:',
-			'supporter.presetThemes' => 'Temi preimpostati',
-			'supporter.presetThemesDescription' => 'Brace, Ghiacciaio, Foresta, Prugna e Carta',
-			'supporter.customTheme' => 'Tema personalizzato',
-			'supporter.customThemeDescription' => 'Scegli tu ogni colore',
-			'supporter.appIcons' => 'Icone dell\'app',
-			'supporter.appIconsDescription' => 'Scegli un\'icona alternativa per Plezy',
-			'supporter.buy' => ({required Object price}) => 'Acquista a ${price}',
-			'supporter.loadingPrice' => 'Caricamento del prezzo...',
-			'supporter.restore' => 'Ripristina acquisti',
-			'supporter.pending' => 'Il tuo acquisto è in attesa di pagamento o approvazione. Gli extra verranno sbloccati non appena lo store lo avrà completato.',
-			'supporter.thankYouTitle' => 'Grazie per sostenere Plezy',
-			'supporter.thankYouBody' => 'Gli extra di Supporter sono stati sbloccati.',
-			'supporter.tileSubtitle' => 'Sblocca temi e icone dell\'app con un acquisto una tantum',
-			'supporter.tileSubtitleThemesOnly' => 'Sblocca i temi con un acquisto una tantum',
-			'supporter.tileUnlocked' => 'Grazie per il tuo sostegno',
-			'supporter.errors.storeUnavailable' => 'Gli acquisti non sono disponibili. Verifica di aver effettuato l\'accesso allo store e che gli acquisti siano consentiti su questo dispositivo.',
-			'supporter.errors.productNotFound' => 'L\'acquisto Supporter non è al momento disponibile nel tuo store.',
-			'supporter.errors.productQueryFailed' => 'Impossibile caricare il prezzo. Controlla la connessione e riprova.',
-			'supporter.errors.purchaseFailed' => 'L\'acquisto non è andato a buon fine. Riprova.',
-			'supporter.errors.restoreFailed' => 'Impossibile raggiungere lo store per ripristinare l\'acquisto. Riprova.',
-			'supporter.errors.nothingToRestore' => 'Nessun acquisto Supporter trovato per questo account dello store.',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => 'Impostazioni',
 			'settings.supportDeveloper' => 'Supporta Plezy',
 			'settings.supportDeveloperDescription' => 'Dona tramite Liberapay per finanziare lo sviluppo',
@@ -3888,46 +3955,24 @@ extension on TranslationsIt {
 			'settings.playerScopeLibrary' => 'Per libreria',
 			'settings.playerScopeTitle' => 'Per serie o film',
 			'settings.exportDialogTitle' => 'Esporta le impostazioni di Plezy',
-			'themeEditor.builtIn' => 'Integrati',
-			'themeEditor.presets' => 'Preimpostati',
-			'themeEditor.custom' => 'Personalizzato',
-			'themeEditor.customEmpty' => 'Non ancora creato',
-			'themeEditor.editCustom' => 'Modifica tema personalizzato',
-			'themeEditor.editCustomDescription' => 'Scegli tu ogni colore',
-			'themeEditor.locked' => 'Sblocca con Supporter',
-			'themeEditor.savedLocked' => 'Salvato — si sblocca con Supporter',
-			'themeEditor.title' => 'Tema personalizzato',
-			'themeEditor.startFrom' => 'Parti da',
-			'themeEditor.startFromDescription' => 'Copia tutti i colori da un altro tema',
-			'themeEditor.colors' => 'Colori',
-			'themeEditor.preview' => 'Anteprima',
-			'themeEditor.slots.bg' => 'Sfondo',
-			'themeEditor.slots.surface' => 'Superficie',
-			'themeEditor.slots.outline' => 'Contorno',
-			'themeEditor.slots.text' => 'Testo',
-			'themeEditor.slots.textMuted' => 'Testo secondario',
-			'themeEditor.slots.accent' => 'Accento',
-			_ => null,
-		} ?? switch (path) {
-			'themeEditor.opacity' => 'Opacità',
-			'themeEditor.hexHint' => '#RRGGBB o #AARRGGBB',
-			'themeEditor.fromOtherThemes' => 'Da altri temi',
-			'themeEditor.swatchLabel' => ({required Object color, required Object theme}) => '${color} ${theme}',
-			'themeEditor.contrast.textOnBg' => 'Testo sullo sfondo',
-			'themeEditor.contrast.textOnSurface' => 'Testo sulla superficie',
-			'themeEditor.contrast.textMutedOnBg' => 'Testo secondario sullo sfondo',
-			'themeEditor.contrast.textMutedOnSurface' => 'Testo secondario sulla superficie',
-			'themeEditor.contrast.accentOnBg' => 'Accento sullo sfondo',
-			'themeEditor.contrast.accentOnSurface' => 'Accento sulla superficie',
-			'themeEditor.contrast.labelOnAccent' => 'Etichetta dei pulsanti sull\'accento',
-			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, sotto il valore consigliato di ${minimum}:1',
-			'themeEditor.discardTitle' => 'Scartare le modifiche?',
-			'themeEditor.discardMessage' => 'Le modifiche ai colori non salvate andranno perse.',
-			'themeEditor.discard' => 'Scarta',
-			'themeEditor.previewCardTitle' => ({required Object number}) => 'Episodio ${number}',
-			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '${minutes} min rimanenti',
-			'themeEditor.previewSwitch' => 'Riproduzione automatica',
-			'themeEditor.previewMutedText' => 'Così appare il testo secondario',
+			'settings.downloadLocationSelectError' => 'Impossibile selezionare la cartella',
+			'settings.mediaCapture' => 'Cattura multimediale',
+			'settings.clips' => 'Clip',
+			'settings.screenshots' => 'Schermate',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Posizione',
+			'settings.clipLocationDescription' => 'Scegli dove salvare i clip.',
+			'settings.screenshotLocationDescription' => 'Scegli dove salvare gli screenshot.',
+			'settings.clipLocationChanged' => 'La posizione della clip è cambiata',
+			'settings.screenshotLocationChanged' => 'La posizione dello screenshot è cambiata',
+			'settings.clipLocationReset' => 'La posizione della clip è stata reimpostata sul desktop',
+			'settings.screenshotLocationReset' => 'La posizione dello screenshot è stata reimpostata sul desktop',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'search.hint' => 'Cerca film, serie TV e musica...',
 			'search.tryDifferentTerm' => 'Prova altri termini di ricerca',
 			'search.searchYourMedia' => 'Cerca nei tuoi media',
@@ -3964,6 +4009,8 @@ extension on TranslationsIt {
 			'hotkeys.actions.shaderToggle' => 'Attiva/disattiva shader',
 			'hotkeys.actions.skipMarker' => 'Salta intro/titoli di coda',
 			'hotkeys.actions.screenshot' => 'Cattura schermata',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Info sul file',
 			'fileInfo.overview' => 'Panoramica',
 			'fileInfo.video' => 'Video',
@@ -3973,6 +4020,8 @@ extension on TranslationsIt {
 			'fileInfo.dataStreams' => 'Flussi di dati',
 			'fileInfo.lyrics' => 'Testi',
 			'fileInfo.file' => 'File',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.attachments' => 'Allegati',
 			'fileInfo.delivery' => 'Distribuzione',
 			'fileInfo.versionCounter' => ({required Object index, required Object count}) => 'Versione ${index} di ${count}',
@@ -4211,7 +4260,6 @@ extension on TranslationsIt {
 			'videoControls.pipActive' => 'Riproduzione in Picture-in-Picture',
 			'videoControls.pipFailed' => 'Impossibile avviare la modalità Picture-in-Picture',
 			'videoControls.screenshotSaved' => 'Schermata salvata',
-			'videoControls.screenshotFailed' => 'Impossibile catturare la schermata',
 			'videoControls.zoomPercent' => ({required Object percent}) => 'Zoom ${percent}%',
 			'videoControls.volumePercent' => ({required Object percent}) => 'Volume ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Richiede Android 8.0 o versioni successive',
@@ -4243,6 +4291,46 @@ extension on TranslationsIt {
 			'videoControls.osdSubtitlesOff' => 'Sottotitoli: Disattivati',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Sottotitoli: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Audio: ${track}',
+			'videoControls.screenshotFailed' => 'Impossibile catturare la schermata',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('it'))(n, one: '${n} frame', other: '${n} frames', ), 
+			'videoControls.clip.fineAdjust' => 'Regolazione fine',
+			'videoControls.clip.title' => 'Clip',
+			'videoControls.clip.vodOnly' => 'I clip sono disponibili per la riproduzione video su richiesta.',
+			'videoControls.clip.sourceUnavailable' => 'La sorgente della clip non è disponibile per questa sessione di riproduzione.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Gioca almeno 1 secondo prima del clip.',
+			'videoControls.clip.startBeforeBeginning' => 'L\'inizio della clip non può essere precedente all\'inizio del video.',
+			'videoControls.clip.endAfterStart' => 'La fine della clip deve essere successiva all\'inizio.',
+			'videoControls.clip.minimumDuration' => 'I clip devono durare almeno 1 secondo.',
+			'videoControls.clip.endPastVideo' => 'La fine della clip è oltre la fine del video.',
+			'videoControls.clip.exportCanceled' => 'Esportazione clip annullata.',
+			'videoControls.clip.cacheUnavailable' => 'Non è stato possibile memorizzare completamente nella cache l\'intervallo selezionato per l\'esportazione originale. Prova una clip più breve o riproduci l\'anteprima una volta prima di salvare.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'L\'esportazione della copia di origine non utilizza un codificatore.',
+			'videoControls.clip.encodingDesktopOnly' => 'La codifica clip H.264 e HEVC è attualmente disponibile su macOS e Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'L\'esportazione HDR richiede una sorgente compatibile con HDR10 o HLG a riproduzione diretta.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Questa clip inizia prima del flusso transcodificato attivo. Cerca prima e riapri il ritaglio o passa alla qualità originale.',
+			'videoControls.clip.previewRequired' => 'L\'anteprima della clip deve terminare il caricamento prima di poter essere salvata.',
+			'videoControls.clip.h264Failed' => 'Questa sorgente non può essere codificata come H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'Impossibile codificare questa sorgente come HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'Non è stato possibile codificare questa sorgente come HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Non è stato possibile codificare questa sorgente come GIF.',
+			'videoControls.clip.originalFailed' => 'Impossibile copiare questa fonte dalla cache mpv.',
+			'videoControls.clip.previewUnavailable' => 'La riproduzione dell\'anteprima della clip non è disponibile in questa build.',
+			'videoControls.clip.previewFailed' => 'La riproduzione dell\'anteprima del clip non è riuscita.',
+			'videoControls.clip.previewLoadingScreenshot' => 'L\'anteprima della clip deve terminare il caricamento prima di acquisire uno screenshot.',
+			'videoControls.clip.screenshotInProgress' => 'Uno screenshot è già stato salvato.',
+			'videoControls.clip.saveAsDialog' => 'Salva clip con nome',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Salvato in ${fileName}',
+			'videoControls.clip.openFolder' => 'Apri cartella',
+			'videoControls.clip.saveAs' => 'Salva con nome',
+			'videoControls.clip.cancelExport' => 'Annulla esportazione',
+			'videoControls.clip.saving' => 'Risparmio...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Risparmio ${percent}%',
+			'videoControls.clip.mutePreview' => 'Anteprima disattivata',
+			'videoControls.clip.unmutePreview' => 'Anteprima riattiva',
+			'videoControls.clip.formatHevcSdr' => 'HEVC DSP',
+			'videoControls.clip.formatH264Sdr' => 'H.264 DSP',
+			'videoControls.clip.formatHevcHdr' => 'HEVCHDR',
 			'messages.markedAsWatched' => 'Segnato come visto',
 			'messages.markedAsUnwatched' => 'Segnato come non visto',
 			'messages.markedAsWatchedOffline' => 'Segnato come visto (verrà sincronizzato quando torni online)',
@@ -4421,8 +4509,6 @@ extension on TranslationsIt {
 			'profiles.tokenIdentityMismatch' => 'Il token del profilo Plex è stato associato a un server imprevisto',
 			'connections.sectionTitle' => 'Connessioni',
 			'connections.addConnection' => 'Aggiungi connessione',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnectionSubtitleNoProfile' => 'Accedi con Plex o collega un server Jellyfin o Emby',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => 'Aggiungi a ${displayName}: Plex, Jellyfin, Emby o la connessione di un altro profilo',
 			'connections.sessionExpiredOne' => ({required Object name}) => 'Sessione scaduta per ${name}',
@@ -4448,6 +4534,8 @@ extension on TranslationsIt {
 			'accountPreferences.groups.personalMedia' => 'Media personali',
 			'accountPreferences.preferredAudioLanguage' => 'Lingua audio preferita',
 			'accountPreferences.autoSelectAudio' => 'Scegli l\'audio in base alla lingua',
+			_ => null,
+		} ?? switch (path) {
 			'accountPreferences.autoSelectAudioDescription' => 'Se disattivata, viene mantenuta la traccia audio che il file indica come predefinita.',
 			'accountPreferences.preferredSubtitleLanguage' => 'Lingua dei sottotitoli preferita',
 			'accountPreferences.subtitleMode' => 'Attiva i sottotitoli',
@@ -4655,6 +4743,9 @@ extension on TranslationsIt {
 			'about.versionLabel' => ({required Object version}) => 'Versione ${version}',
 			'about.appDescription' => 'Un elegante client Plex, Jellyfin ed Emby per Flutter',
 			'about.viewLicensesDescription' => 'Visualizza le licenze delle librerie di terze parti',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Nessun server trovato per ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Impossibile caricare i server: ${error}',
 			'serverSelection.noValidServers' => 'Nessun server utilizzabile trovato per questo account',
@@ -4733,6 +4824,7 @@ extension on TranslationsIt {
 			'explore.removedFromWatchlist' => 'Rimosso dalla lista titoli',
 			'explore.watchlistUpdateFailed' => 'Impossibile aggiornare la lista da guardare',
 			'explore.watchlistNoMatch' => 'Impossibile associare questo elemento a una lista titoli',
+			'explore.openInLibrary' => 'Apri nella libreria',
 			'explore.notInLibrary' => 'Non è nella tua libreria',
 			'explore.inTheseLibraries' => 'In queste librerie',
 			'explore.checkingLibrary' => 'Ricerca nella tua libreria...',
@@ -4862,6 +4954,7 @@ extension on TranslationsIt {
 			'liveTv.channelNumber' => ({required Object number}) => 'Canale ${number}',
 			'liveTv.unknownChannel' => 'Canale sconosciuto',
 			'liveTv.live' => 'IN DIRETTA',
+			'liveTv.premiereBadge' => 'NEW',
 			'liveTv.reloadGuide' => 'Ricarica la guida',
 			'liveTv.searchGuide' => 'Cerca nella guida',
 			'liveTv.searchHint' => 'Cerca canali e programmi',
@@ -4935,8 +5028,6 @@ extension on TranslationsIt {
 			'liveTv.recordSettings.keepUpToHint' => '0 conserva tutti gli episodi',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => 'Inizia tra ${minutes} min',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} alle ${time}',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.invalidPlaybackData' => ({required Object product}) => '${product} ha restituito dati di riproduzione della TV in diretta non validi',
 			'liveTv.failedToStartChannel' => 'Impossibile avviare il canale in diretta',
 			'liveTv.failedToBuildStreamUrl' => 'Impossibile creare l\'URL dello stream',
@@ -4957,6 +5048,8 @@ extension on TranslationsIt {
 			'collections.errorAddingToCollection' => 'Impossibile aggiungere l\'elemento alla raccolta',
 			'collections.created' => 'Raccolta creata',
 			'collections.removeFromCollection' => 'Rimuovi dalla raccolta',
+			_ => null,
+		} ?? switch (path) {
 			'collections.removeFromCollectionConfirm' => ({required Object title}) => 'Rimuovere "${title}" da questa raccolta?',
 			'collections.removedFromCollection' => 'Elemento rimosso dalla raccolta',
 			'collections.removeFromCollectionFailed' => 'Impossibile rimuovere dalla raccolta',
@@ -5437,6 +5530,7 @@ extension on TranslationsIt {
 			'performanceOverlay.cacheLimit' => 'Limite cache',
 			'performanceOverlay.speed' => 'Velocità',
 			'performanceOverlay.player' => 'Lettore',
+			'performanceOverlay.playMethod' => 'Play Method',
 			'performanceOverlay.memory' => 'Memoria',
 			'performanceOverlay.uiFps' => 'FPS UI',
 			'performanceOverlay.fps' => 'FPS',
@@ -5449,8 +5543,6 @@ extension on TranslationsIt {
 			'performanceOverlay.decoderHardware' => 'Hardware',
 			'performanceOverlay.tunnelingActive' => 'Attivo',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} errori)',
-			_ => null,
-		} ?? switch (path) {
 			'externalPlayer.title' => 'Lettore esterno',
 			'externalPlayer.useExternalPlayer' => 'Usa un lettore esterno',
 			'externalPlayer.useExternalPlayerDescription' => 'Apri i video in un\'altra app',
@@ -5470,6 +5562,8 @@ extension on TranslationsIt {
 			'metadataEdit.editMetadata' => 'Modifica...',
 			'metadataEdit.screenTitle' => 'Modifica metadati',
 			'metadataEdit.basicInfo' => 'Informazioni di base',
+			_ => null,
+		} ?? switch (path) {
 			'metadataEdit.artwork' => 'Immagini',
 			'metadataEdit.advancedSettings' => 'Impostazioni avanzate',
 			'metadataEdit.title' => 'Titolo',
@@ -5703,6 +5797,115 @@ extension on TranslationsIt {
 			'addServer.redirectDifferentHost' => ({required Object product}) => 'Il server ha reindirizzato a un host diverso. Inserisci direttamente l\'URL finale del server ${product}.',
 			'addServer.redirectInsecure' => 'Il server ha reindirizzato da HTTPS a un URL non sicuro',
 			'addServer.redirectUnsupportedEnterFinal' => ({required Object product}) => 'Il server ha reindirizzato a un URL non supportato. Inserisci direttamente l\'URL finale del server ${product}.',
+			'appIcon.title' => 'Icona dell\'app',
+			'appIcon.defaultIcon' => 'Predefinita',
+			'appIcon.current' => 'Icona attuale',
+			'appIcon.locked' => 'Vantaggio Supporter',
+			'appIcon.lockedHint' => 'Le icone alternative sono un vantaggio Supporter.',
+			'appIcon.changeFailed' => 'Impossibile cambiare l\'icona dell\'app',
+			'appIcon.launcherHint' => 'La nuova icona appare nella schermata Home quando esci da Plezy.',
+			'appIcon.tvLauncherHint' => 'Il nuovo banner appare quando esci da Plezy. Android TV potrebbe continuare a mostrare quello precedente fino al riavvio del televisore.',
+			'appIcon.names.midnight' => 'Mezzanotte',
+			'appIcon.names.ember' => 'Brace',
+			'appIcon.names.paper' => 'Carta',
+			'appIcon.names.oled' => 'OLED',
+			'appIcon.names.line' => 'Linea',
+			'appIcon.names.ocean' => 'Oceano',
+			'appIcon.names.ultraviolet' => 'Ultravioletto',
+			'appIcon.names.matcha' => 'Matcha',
+			'appIcon.names.sunset' => 'Tramonto',
+			'appIcon.names.gold' => 'Oro',
+			'appIcon.names.titanium' => 'Titanio',
+			'appIcon.names.glass' => 'Vetro',
+			'appIcon.names.crt' => 'CRT',
+			'appIcon.names.vhs' => 'VHS',
+			'appIcon.names.synthwave' => 'Synthwave',
+			'appIcon.names.pixel' => 'Pixel',
+			'appIcon.names.neon' => 'Neon',
+			'appIcon.names.sticker' => 'Adesivo',
+			'appIcon.names.ticket' => 'Biglietto',
+			'appIcon.names.pop' => 'Pop',
+			'appIcon.names.strata' => 'Strati',
+			'appIcon.names.facet' => 'Sfaccettature',
+			'appIcon.names.tilde' => 'Tilde',
+			'supporter.title' => 'Plezy Supporter',
+			'supporter.intro' => 'Un acquisto una tantum che sostiene lo sviluppo di Plezy e sblocca extra estetici:',
+			'supporter.presetThemes' => 'Temi preimpostati',
+			'supporter.presetThemesDescription' => 'Brace, Ghiacciaio, Foresta, Prugna e Carta',
+			'supporter.customTheme' => 'Tema personalizzato',
+			'supporter.customThemeDescription' => 'Scegli tu ogni colore',
+			'supporter.appIcons' => 'Icone dell\'app',
+			'supporter.appIconsDescription' => 'Scegli un\'icona alternativa per Plezy',
+			'supporter.buy' => ({required Object price}) => 'Acquista a ${price}',
+			'supporter.loadingPrice' => 'Caricamento del prezzo...',
+			'supporter.restore' => 'Ripristina acquisti',
+			'supporter.pending' => 'Il tuo acquisto è in attesa di pagamento o approvazione. Gli extra verranno sbloccati non appena lo store lo avrà completato.',
+			'supporter.thankYouTitle' => 'Grazie per sostenere Plezy',
+			'supporter.thankYouBody' => 'Gli extra di Supporter sono stati sbloccati.',
+			'supporter.tileSubtitle' => 'Sblocca temi e icone dell\'app con un acquisto una tantum',
+			'supporter.tileSubtitleThemesOnly' => 'Sblocca i temi con un acquisto una tantum',
+			'supporter.tileUnlocked' => 'Grazie per il tuo sostegno',
+			'supporter.errors.storeUnavailable' => 'Gli acquisti non sono disponibili. Verifica di aver effettuato l\'accesso allo store e che gli acquisti siano consentiti su questo dispositivo.',
+			'supporter.errors.productNotFound' => 'L\'acquisto Supporter non è al momento disponibile nel tuo store.',
+			'supporter.errors.productQueryFailed' => 'Impossibile caricare il prezzo. Controlla la connessione e riprova.',
+			'supporter.errors.purchaseFailed' => 'L\'acquisto non è andato a buon fine. Riprova.',
+			'supporter.errors.restoreFailed' => 'Impossibile raggiungere lo store per ripristinare l\'acquisto. Riprova.',
+			'supporter.errors.nothingToRestore' => 'Nessun acquisto Supporter trovato per questo account dello store.',
+			'themeEditor.builtIn' => 'Integrati',
+			'themeEditor.presets' => 'Preimpostati',
+			'themeEditor.custom' => 'Personalizzato',
+			'themeEditor.customEmpty' => 'Non ancora creato',
+			'themeEditor.editCustom' => 'Modifica tema personalizzato',
+			'themeEditor.editCustomDescription' => 'Scegli tu ogni colore',
+			'themeEditor.locked' => 'Sblocca con Supporter',
+			'themeEditor.savedLocked' => 'Salvato — si sblocca con Supporter',
+			'themeEditor.title' => 'Tema personalizzato',
+			'themeEditor.startFrom' => 'Parti da',
+			'themeEditor.startFromDescription' => 'Copia tutti i colori da un altro tema',
+			'themeEditor.colors' => 'Colori',
+			'themeEditor.preview' => 'Anteprima',
+			'themeEditor.slots.bg' => 'Sfondo',
+			'themeEditor.slots.surface' => 'Superficie',
+			'themeEditor.slots.outline' => 'Contorno',
+			'themeEditor.slots.text' => 'Testo',
+			'themeEditor.slots.textMuted' => 'Testo secondario',
+			'themeEditor.slots.accent' => 'Accento',
+			'themeEditor.opacity' => 'Opacità',
+			'themeEditor.hexHint' => '#RRGGBB o #AARRGGBB',
+			'themeEditor.fromOtherThemes' => 'Da altri temi',
+			'themeEditor.swatchLabel' => ({required Object color, required Object theme}) => '${color} ${theme}',
+			'themeEditor.contrast.textOnBg' => 'Testo sullo sfondo',
+			'themeEditor.contrast.textOnSurface' => 'Testo sulla superficie',
+			'themeEditor.contrast.textMutedOnBg' => 'Testo secondario sullo sfondo',
+			'themeEditor.contrast.textMutedOnSurface' => 'Testo secondario sulla superficie',
+			'themeEditor.contrast.accentOnBg' => 'Accento sullo sfondo',
+			'themeEditor.contrast.accentOnSurface' => 'Accento sulla superficie',
+			'themeEditor.contrast.labelOnAccent' => 'Etichetta dei pulsanti sull\'accento',
+			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, sotto il valore consigliato di ${minimum}:1',
+			'themeEditor.discardTitle' => 'Scartare le modifiche?',
+			'themeEditor.discardMessage' => 'Le modifiche ai colori non salvate andranno perse.',
+			'themeEditor.discard' => 'Scarta',
+			'themeEditor.previewCardTitle' => ({required Object number}) => 'Episodio ${number}',
+			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '${minutes} min rimanenti',
+			'themeEditor.previewSwitch' => 'Riproduzione automatica',
+			'themeEditor.previewMutedText' => 'Così appare il testo secondario',
+			'deepLinks.invalid' => 'This Plezy link isn\'t valid.',
+			'deepLinks.profileNotFound' => ({required Object profile}) => 'No profile matches "${profile}".',
+			'deepLinks.serverUnavailable' => 'Couldn\'t reach the server for this link.',
+			'deepLinks.notFound' => 'Couldn\'t find this title in your libraries.',
+			'deepLinks.unsupportedItem' => 'This link can\'t be played.',
+			'deepLinks.noLiveTv' => 'No Live TV server is available for this link.',
+			'deepLinks.channelNotFound' => ({required Object channel}) => 'Couldn\'t find channel "${channel}".',
+			'deepLinks.showLink' => 'Show link',
+			'deepLinks.showProfileLink' => 'Show profile link',
+			'deepLinks.dialogTitle' => 'Link',
+			'deepLinks.showHint' => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.',
+			'deepLinks.movieHint' => 'Opening this link plays the movie.',
+			'deepLinks.episodeHint' => 'Opening this link plays this episode.',
+			'deepLinks.profileHint' => 'Opening this link switches to this profile.',
+			'deepLinks.openAsProfile' => ({required Object name}) => 'Open as ${name}',
+			'deepLinks.copy' => 'Copy',
+			'deepLinks.copied' => 'Link copied',
 			_ => null,
 		};
 	}

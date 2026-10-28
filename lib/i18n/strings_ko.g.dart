@@ -40,14 +40,11 @@ class TranslationsKo extends Translations with BaseTranslations<AppLocale, Trans
 
 	// Translations
 	@override late final _Translations$app$ko app = _Translations$app$ko._(_root);
-	@override late final _Translations$appIcon$ko appIcon = _Translations$appIcon$ko._(_root);
 	@override late final _Translations$auth$ko auth = _Translations$auth$ko._(_root);
 	@override late final _Translations$common$ko common = _Translations$common$ko._(_root);
 	@override late final _Translations$screens$ko screens = _Translations$screens$ko._(_root);
 	@override late final _Translations$update$ko update = _Translations$update$ko._(_root);
-	@override late final _Translations$supporter$ko supporter = _Translations$supporter$ko._(_root);
 	@override late final _Translations$settings$ko settings = _Translations$settings$ko._(_root);
-	@override late final _Translations$themeEditor$ko themeEditor = _Translations$themeEditor$ko._(_root);
 	@override late final _Translations$search$ko search = _Translations$search$ko._(_root);
 	@override late final _Translations$hotkeys$ko hotkeys = _Translations$hotkeys$ko._(_root);
 	@override late final _Translations$fileInfo$ko fileInfo = _Translations$fileInfo$ko._(_root);
@@ -93,6 +90,10 @@ class TranslationsKo extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$seerr$ko seerr = _Translations$seerr$ko._(_root);
 	@override late final _Translations$services$ko services = _Translations$services$ko._(_root);
 	@override late final _Translations$addServer$ko addServer = _Translations$addServer$ko._(_root);
+	@override late final _Translations$appIcon$ko appIcon = _Translations$appIcon$ko._(_root);
+	@override late final _Translations$supporter$ko supporter = _Translations$supporter$ko._(_root);
+	@override late final _Translations$themeEditor$ko themeEditor = _Translations$themeEditor$ko._(_root);
+	@override late final _Translations$deepLinks$ko deepLinks = _Translations$deepLinks$ko._(_root);
 }
 
 // Path: app
@@ -102,25 +103,7 @@ class _Translations$app$ko extends Translations$app$en {
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
-}
-
-// Path: appIcon
-class _Translations$appIcon$ko extends Translations$appIcon$en {
-	_Translations$appIcon$ko._(TranslationsKo root) : this._root = root, super.internal(root);
-
-	final TranslationsKo _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => '앱 아이콘';
-	@override String get defaultIcon => '기본';
-	@override String get current => '현재 아이콘';
-	@override String get locked => 'Supporter 혜택';
-	@override String get lockedHint => '대체 아이콘은 Supporter 혜택입니다.';
-	@override String get changeFailed => '앱 아이콘을 변경하지 못했습니다';
-	@override String get launcherHint => 'Plezy를 나가면 홈 화면에 새 아이콘이 표시됩니다.';
-	@override String get tvLauncherHint => 'Plezy를 나가면 새 배너가 표시됩니다. Android TV에서는 TV를 다시 시작할 때까지 이전 배너가 계속 표시될 수 있습니다.';
-	@override late final _Translations$appIcon$names$ko names = _Translations$appIcon$names$ko._(_root);
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: auth
@@ -237,33 +220,14 @@ class _Translations$update$ko extends Translations$update$en {
 	@override String get viewRelease => '릴리스 정보 보기';
 	@override String get latestVersion => '최신 버전을 사용 중입니다';
 	@override String get checkFailed => '업데이트 확인 실패';
-}
-
-// Path: supporter
-class _Translations$supporter$ko extends Translations$supporter$en {
-	_Translations$supporter$ko._(TranslationsKo root) : this._root = root, super.internal(root);
-
-	final TranslationsKo _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Plezy Supporter';
-	@override String get intro => 'Plezy 개발을 후원하고 외형 꾸미기 기능을 잠금 해제하는 1회성 구매입니다:';
-	@override String get presetThemes => '프리셋 테마';
-	@override String get presetThemesDescription => '불씨, 빙하, 숲, 자두, 종이';
-	@override String get customTheme => '사용자 지정 테마';
-	@override String get customThemeDescription => '모든 색상을 직접 선택';
-	@override String get appIcons => '앱 아이콘';
-	@override String get appIconsDescription => '대체 Plezy 아이콘 선택';
-	@override String buy({required Object price}) => '${price}에 구매';
-	@override String get loadingPrice => '가격 불러오는 중...';
-	@override String get restore => '구매 복원';
-	@override String get pending => '구매가 결제 또는 승인 대기 중입니다. 스토어에서 처리가 완료되는 즉시 추가 기능이 잠금 해제됩니다.';
-	@override String get thankYouTitle => 'Plezy를 후원해 주셔서 감사합니다';
-	@override String get thankYouBody => 'Supporter 추가 기능이 잠금 해제되었습니다.';
-	@override String get tileSubtitle => '1회성 구매로 테마와 앱 아이콘 잠금 해제';
-	@override String get tileSubtitleThemesOnly => '1회성 구매로 테마 잠금 해제';
-	@override String get tileUnlocked => '후원해 주셔서 감사합니다';
-	@override late final _Translations$supporter$errors$ko errors = _Translations$supporter$errors$ko._(_root);
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: settings
@@ -608,42 +572,24 @@ class _Translations$settings$ko extends Translations$settings$en {
 	@override String get playerScopeLibrary => '라이브러리별';
 	@override String get playerScopeTitle => '시리즈 또는 영화별';
 	@override String get exportDialogTitle => 'Plezy 설정 내보내기';
-}
-
-// Path: themeEditor
-class _Translations$themeEditor$ko extends Translations$themeEditor$en {
-	_Translations$themeEditor$ko._(TranslationsKo root) : this._root = root, super.internal(root);
-
-	final TranslationsKo _root; // ignore: unused_field
-
-	// Translations
-	@override String get builtIn => '기본 제공';
-	@override String get presets => '프리셋';
-	@override String get custom => '사용자 지정';
-	@override String get customEmpty => '아직 만들지 않음';
-	@override String get editCustom => '사용자 지정 테마 편집';
-	@override String get editCustomDescription => '모든 색상을 직접 선택';
-	@override String get locked => 'Supporter로 잠금 해제';
-	@override String get savedLocked => '저장됨 — Supporter로 잠금 해제';
-	@override String get title => '사용자 지정 테마';
-	@override String get startFrom => '기반 테마';
-	@override String get startFromDescription => '다른 테마의 모든 색상을 복사합니다';
-	@override String get colors => '색상';
-	@override String get preview => '미리보기';
-	@override late final _Translations$themeEditor$slots$ko slots = _Translations$themeEditor$slots$ko._(_root);
-	@override String get opacity => '불투명도';
-	@override String get hexHint => '#RRGGBB 또는 #AARRGGBB';
-	@override String get fromOtherThemes => '다른 테마에서';
-	@override String swatchLabel({required Object theme, required Object color}) => '${theme} ${color}';
-	@override late final _Translations$themeEditor$contrast$ko contrast = _Translations$themeEditor$contrast$ko._(_root);
-	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, 권장 기준 ${minimum}:1 미만';
-	@override String get discardTitle => '변경 사항을 버리시겠습니까?';
-	@override String get discardMessage => '저장하지 않은 색상 변경 사항이 사라집니다.';
-	@override String get discard => '버리기';
-	@override String previewCardTitle({required Object number}) => '${number}화';
-	@override String previewCardSubtitle({required Object minutes}) => '${minutes}분 남음';
-	@override String get previewSwitch => '자동 재생';
-	@override String get previewMutedText => '보조 텍스트는 이렇게 표시됩니다';
+	@override String get downloadLocationSelectError => '폴더 선택 실패';
+	@override String get mediaCapture => '미디어 캡처';
+	@override String get clips => '클립';
+	@override String get screenshots => '스크린샷';
+	@override String captureLocationTitle({required Object title}) => '${title} 위치';
+	@override String get clipLocationDescription => '클립이 저장되는 위치를 선택하세요.';
+	@override String get screenshotLocationDescription => '스크린샷이 저장되는 위치를 선택하세요.';
+	@override String get clipLocationChanged => '클립 위치가 변경됨';
+	@override String get screenshotLocationChanged => '스크린샷 위치가 변경되었습니다.';
+	@override String get clipLocationReset => '클립 위치가 데스크탑으로 재설정됨';
+	@override String get screenshotLocationReset => '스크린샷 위치가 데스크톱으로 재설정됨';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
+	@override String get packedStereoUi => '3D Playback UI';
 }
 
 // Path: search
@@ -831,12 +777,15 @@ class _Translations$mediaMenu$ko extends Translations$mediaMenu$en {
 	@override String confirmDeleteTarget({required Object title}) => '서버에서 ${title}을(를) 영구 삭제할까요?';
 	@override String get deleteMultipleWarning => '모든 에피소드와 파일이 포함됩니다.';
 	@override String deleteEpisodeCountWarning({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: 'This deletes all ${n} episode in it, and its file.',
 		other: '포함된 에피소드 ${n}개와 해당 파일이 모두 삭제됩니다.',
 	);
 	@override String deleteMultiPartWarning({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: 'This item is stored as ${n} file, which will be deleted.',
 		other: '이 항목은 파일 ${n}개에 걸쳐 저장되어 있으며, 모든 파일이 삭제됩니다.',
 	);
 	@override String deleteSharedFileHeading({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} other episode is stored in the same file and will be deleted too:',
 		other: '같은 파일에 저장된 다른 에피소드 ${n}개도 함께 삭제됩니다:',
 	);
 	@override String get deleteScopeUnverifiedProbeFailed => 'Plezy가 어떤 파일이 삭제될지 확인하지 못해 위 항목보다 더 많은 파일이 삭제될 수 있습니다. 취소하고 다시 시도하거나 그래도 삭제하세요.';
@@ -990,7 +939,6 @@ class _Translations$videoControls$ko extends Translations$videoControls$en {
 	@override String get pipActive => '화면 속 화면으로 재생 중';
 	@override String get pipFailed => '화면 속 화면 모드를 시작할 수 없습니다';
 	@override String get screenshotSaved => '스크린샷 저장됨';
-	@override String get screenshotFailed => '스크린샷을 찍지 못했습니다';
 	@override String zoomPercent({required Object percent}) => '확대/축소 ${percent}%';
 	@override String volumePercent({required Object percent}) => '볼륨 ${percent}%';
 	@override late final _Translations$videoControls$pipErrors$ko pipErrors = _Translations$videoControls$pipErrors$ko._(_root);
@@ -1015,6 +963,13 @@ class _Translations$videoControls$ko extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => '자막: 꺼짐';
 	@override String osdSubtitles({required Object track}) => '자막: ${track}';
 	@override String osdAudio({required Object track}) => '오디오: ${track}';
+	@override String get screenshotFailed => '스크린샷을 찍지 못했습니다';
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
+	@override late final _Translations$videoControls$clip$ko clip = _Translations$videoControls$clip$ko._(_root);
 }
 
 // Path: messages
@@ -1030,6 +985,7 @@ class _Translations$messages$ko extends Translations$messages$en {
 	@override String get markedAsUnwatchedOffline => '미시청으로 표시됨 (연결 시 동기화됨)';
 	@override String autoRemovedWatchedDownload({required Object title}) => '자동 삭제됨: ${title}';
 	@override String autoRemovedWatchedDownloads({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: 'Auto-removed ${n} watched download',
 		other: '시청한 다운로드 ${n}개를 자동 삭제했습니다',
 	);
 	@override String get removedFromContinueWatching => '계속 시청 목록에서 제거됨';
@@ -1335,6 +1291,7 @@ class _Translations$discover$ko extends Translations$discover$en {
 	@override String minutesLeft({required Object minutes}) => '${minutes}분 남음';
 	@override String get moreLikeThis => '비슷한 콘텐츠';
 	@override String titleCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} title',
 		other: '${n}개 타이틀',
 	);
 	@override late final _Translations$discover$person$ko person = _Translations$discover$person$ko._(_root);
@@ -1435,6 +1392,9 @@ class _Translations$about$ko extends Translations$about$en {
 	@override String versionLabel({required Object version}) => '버전 ${version}';
 	@override String get appDescription => 'Flutter로 만든 아름다운 Plex, Jellyfin 및 Emby 클라이언트';
 	@override String get viewLicensesDescription => '타사 라이브러리 라이선스 보기';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1552,6 +1512,7 @@ class _Translations$explore$ko extends Translations$explore$en {
 	@override late final _Translations$explore$rows$ko rows = _Translations$explore$rows$ko._(_root);
 	@override late final _Translations$explore$status$ko status = _Translations$explore$status$ko._(_root);
 	@override String episodeCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} episode',
 		other: '${n}화',
 	);
 	@override String get cast => '출연진';
@@ -1562,10 +1523,12 @@ class _Translations$explore$ko extends Translations$explore$en {
 	@override String get removedFromWatchlist => '관심 목록에서 삭제했습니다';
 	@override String get watchlistUpdateFailed => '관심 목록을 업데이트하지 못했습니다';
 	@override String get watchlistNoMatch => '이 항목을 관심 목록과 연결할 수 없습니다';
+	@override String get openInLibrary => '라이브러리에서 열기';
 	@override String get notInLibrary => '라이브러리에 없음';
 	@override String get inTheseLibraries => '이 라이브러리에 있음';
 	@override String get checkingLibrary => '라이브러리 확인 중...';
 	@override String libraryCheckFailed({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: 'Couldn\'t check ${n} server',
 		other: '서버 ${n}개를 확인할 수 없습니다',
 	);
 	@override String get emptyTitle => '아직 아무것도 없습니다';
@@ -1585,6 +1548,7 @@ class _Translations$explore$ko extends Translations$explore$en {
 	@override String broadcastWithZone({required Object day, required Object time, required Object timezone}) => '${day} ${time} ${timezone} 방영';
 	@override late final _Translations$explore$detail$ko detail = _Translations$explore$detail$ko._(_root);
 	@override String totalResults({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} result',
 		other: '결과 ${n}개',
 	);
 }
@@ -1610,6 +1574,7 @@ class _Translations$liveTv$ko extends Translations$liveTv$en {
 	@override String channelNumber({required Object number}) => '채널 ${number}';
 	@override String get unknownChannel => '알 수 없는 채널';
 	@override String get live => '실시간';
+	@override String get premiereBadge => 'NEW';
 	@override String get reloadGuide => '편성표 새로고침';
 	@override String get searchGuide => '편성표 검색';
 	@override String get searchHint => '채널 및 프로그램 검색';
@@ -1761,6 +1726,7 @@ class _Translations$music$ko extends Translations$music$en {
 	@override String get addToQueue => '대기열에 추가';
 	@override String discNumber({required Object n}) => '디스크 ${n}';
 	@override String trackCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} track',
 		other: '${n}곡',
 	);
 	@override String get nowPlaying => '재생 중';
@@ -1861,6 +1827,7 @@ class _Translations$watchTogether$ko extends Translations$watchTogether$en {
 	@override String get offsetPlusSecond => '+1초';
 	@override String get participants => '참가자';
 	@override String participantCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} participant',
 		other: '참가자 ${n}명',
 	);
 	@override String get hostBadge => '호스트';
@@ -2134,6 +2101,7 @@ class _Translations$performanceOverlay$ko extends Translations$performanceOverla
 	@override String get cacheLimit => '캐시 제한';
 	@override String get speed => '속도';
 	@override String get player => '플레이어';
+	@override String get playMethod => 'Play Method';
 	@override String get memory => '메모리';
 	@override String get uiFps => 'UI FPS';
 	@override String get fps => 'FPS';
@@ -2448,36 +2416,111 @@ class _Translations$addServer$ko extends Translations$addServer$en {
 	@override String redirectUnsupportedEnterFinal({required Object product}) => '서버가 지원되지 않는 URL로 리디렉션했습니다. 최종 ${product} URL을 직접 입력하세요.';
 }
 
-// Path: appIcon.names
-class _Translations$appIcon$names$ko extends Translations$appIcon$names$en {
-	_Translations$appIcon$names$ko._(TranslationsKo root) : this._root = root, super.internal(root);
+// Path: appIcon
+class _Translations$appIcon$ko extends Translations$appIcon$en {
+	_Translations$appIcon$ko._(TranslationsKo root) : this._root = root, super.internal(root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get midnight => '한밤';
-	@override String get ember => '불씨';
-	@override String get paper => '종이';
-	@override String get oled => 'OLED';
-	@override String get line => '라인';
-	@override String get ocean => '바다';
-	@override String get ultraviolet => '자외선';
-	@override String get matcha => '말차';
-	@override String get sunset => '노을';
-	@override String get gold => '골드';
-	@override String get titanium => '티타늄';
-	@override String get glass => '유리';
-	@override String get crt => 'CRT';
-	@override String get vhs => 'VHS';
-	@override String get synthwave => '신스웨이브';
-	@override String get pixel => '픽셀';
-	@override String get neon => '네온';
-	@override String get sticker => '스티커';
-	@override String get ticket => '티켓';
-	@override String get pop => '팝';
-	@override String get strata => '지층';
-	@override String get facet => '패싯';
-	@override String get tilde => '물결';
+	@override String get title => '앱 아이콘';
+	@override String get defaultIcon => '기본';
+	@override String get current => '현재 아이콘';
+	@override String get locked => 'Supporter 혜택';
+	@override String get lockedHint => '대체 아이콘은 Supporter 혜택입니다.';
+	@override String get changeFailed => '앱 아이콘을 변경하지 못했습니다';
+	@override String get launcherHint => 'Plezy를 나가면 홈 화면에 새 아이콘이 표시됩니다.';
+	@override String get tvLauncherHint => 'Plezy를 나가면 새 배너가 표시됩니다. Android TV에서는 TV를 다시 시작할 때까지 이전 배너가 계속 표시될 수 있습니다.';
+	@override late final _Translations$appIcon$names$ko names = _Translations$appIcon$names$ko._(_root);
+}
+
+// Path: supporter
+class _Translations$supporter$ko extends Translations$supporter$en {
+	_Translations$supporter$ko._(TranslationsKo root) : this._root = root, super.internal(root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Plezy Supporter';
+	@override String get intro => 'Plezy 개발을 후원하고 외형 꾸미기 기능을 잠금 해제하는 1회성 구매입니다:';
+	@override String get presetThemes => '프리셋 테마';
+	@override String get presetThemesDescription => '불씨, 빙하, 숲, 자두, 종이';
+	@override String get customTheme => '사용자 지정 테마';
+	@override String get customThemeDescription => '모든 색상을 직접 선택';
+	@override String get appIcons => '앱 아이콘';
+	@override String get appIconsDescription => '대체 Plezy 아이콘 선택';
+	@override String buy({required Object price}) => '${price}에 구매';
+	@override String get loadingPrice => '가격 불러오는 중...';
+	@override String get restore => '구매 복원';
+	@override String get pending => '구매가 결제 또는 승인 대기 중입니다. 스토어에서 처리가 완료되는 즉시 추가 기능이 잠금 해제됩니다.';
+	@override String get thankYouTitle => 'Plezy를 후원해 주셔서 감사합니다';
+	@override String get thankYouBody => 'Supporter 추가 기능이 잠금 해제되었습니다.';
+	@override String get tileSubtitle => '1회성 구매로 테마와 앱 아이콘 잠금 해제';
+	@override String get tileSubtitleThemesOnly => '1회성 구매로 테마 잠금 해제';
+	@override String get tileUnlocked => '후원해 주셔서 감사합니다';
+	@override late final _Translations$supporter$errors$ko errors = _Translations$supporter$errors$ko._(_root);
+}
+
+// Path: themeEditor
+class _Translations$themeEditor$ko extends Translations$themeEditor$en {
+	_Translations$themeEditor$ko._(TranslationsKo root) : this._root = root, super.internal(root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get builtIn => '기본 제공';
+	@override String get presets => '프리셋';
+	@override String get custom => '사용자 지정';
+	@override String get customEmpty => '아직 만들지 않음';
+	@override String get editCustom => '사용자 지정 테마 편집';
+	@override String get editCustomDescription => '모든 색상을 직접 선택';
+	@override String get locked => 'Supporter로 잠금 해제';
+	@override String get savedLocked => '저장됨 — Supporter로 잠금 해제';
+	@override String get title => '사용자 지정 테마';
+	@override String get startFrom => '기반 테마';
+	@override String get startFromDescription => '다른 테마의 모든 색상을 복사합니다';
+	@override String get colors => '색상';
+	@override String get preview => '미리보기';
+	@override late final _Translations$themeEditor$slots$ko slots = _Translations$themeEditor$slots$ko._(_root);
+	@override String get opacity => '불투명도';
+	@override String get hexHint => '#RRGGBB 또는 #AARRGGBB';
+	@override String get fromOtherThemes => '다른 테마에서';
+	@override String swatchLabel({required Object theme, required Object color}) => '${theme} ${color}';
+	@override late final _Translations$themeEditor$contrast$ko contrast = _Translations$themeEditor$contrast$ko._(_root);
+	@override String lowContrast({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, 권장 기준 ${minimum}:1 미만';
+	@override String get discardTitle => '변경 사항을 버리시겠습니까?';
+	@override String get discardMessage => '저장하지 않은 색상 변경 사항이 사라집니다.';
+	@override String get discard => '버리기';
+	@override String previewCardTitle({required Object number}) => '${number}화';
+	@override String previewCardSubtitle({required Object minutes}) => '${minutes}분 남음';
+	@override String get previewSwitch => '자동 재생';
+	@override String get previewMutedText => '보조 텍스트는 이렇게 표시됩니다';
+}
+
+// Path: deepLinks
+class _Translations$deepLinks$ko extends Translations$deepLinks$en {
+	_Translations$deepLinks$ko._(TranslationsKo root) : this._root = root, super.internal(root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get invalid => 'This Plezy link isn\'t valid.';
+	@override String profileNotFound({required Object profile}) => 'No profile matches "${profile}".';
+	@override String get serverUnavailable => 'Couldn\'t reach the server for this link.';
+	@override String get notFound => 'Couldn\'t find this title in your libraries.';
+	@override String get unsupportedItem => 'This link can\'t be played.';
+	@override String get noLiveTv => 'No Live TV server is available for this link.';
+	@override String channelNotFound({required Object channel}) => 'Couldn\'t find channel "${channel}".';
+	@override String get showLink => 'Show link';
+	@override String get showProfileLink => 'Show profile link';
+	@override String get dialogTitle => 'Link';
+	@override String get showHint => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.';
+	@override String get movieHint => 'Opening this link plays the movie.';
+	@override String get episodeHint => 'Opening this link plays this episode.';
+	@override String get profileHint => 'Opening this link switches to this profile.';
+	@override String openAsProfile({required Object name}) => 'Open as ${name}';
+	@override String get copy => 'Copy';
+	@override String get copied => 'Link copied';
 }
 
 // Path: common.ratingSource
@@ -2523,52 +2566,6 @@ class _Translations$common$mediaKind$ko extends Translations$common$mediaKind$en
 	@override String get folder => '폴더';
 }
 
-// Path: supporter.errors
-class _Translations$supporter$errors$ko extends Translations$supporter$errors$en {
-	_Translations$supporter$errors$ko._(TranslationsKo root) : this._root = root, super.internal(root);
-
-	final TranslationsKo _root; // ignore: unused_field
-
-	// Translations
-	@override String get storeUnavailable => '구매를 이용할 수 없습니다. 스토어에 로그인되어 있고 이 기기에서 구매가 허용되어 있는지 확인하세요.';
-	@override String get productNotFound => '현재 스토어에서 Supporter를 구매할 수 없습니다.';
-	@override String get productQueryFailed => '가격을 불러오지 못했습니다. 연결을 확인하고 다시 시도하세요.';
-	@override String get purchaseFailed => '구매가 완료되지 않았습니다. 다시 시도하세요.';
-	@override String get restoreFailed => '구매를 복원하기 위해 스토어에 연결하지 못했습니다. 다시 시도하세요.';
-	@override String get nothingToRestore => '이 스토어 계정에서 Supporter 구매 내역을 찾을 수 없습니다.';
-}
-
-// Path: themeEditor.slots
-class _Translations$themeEditor$slots$ko extends Translations$themeEditor$slots$en {
-	_Translations$themeEditor$slots$ko._(TranslationsKo root) : this._root = root, super.internal(root);
-
-	final TranslationsKo _root; // ignore: unused_field
-
-	// Translations
-	@override String get bg => '배경';
-	@override String get surface => '표면';
-	@override String get outline => '윤곽선';
-	@override String get text => '텍스트';
-	@override String get textMuted => '보조 텍스트';
-	@override String get accent => '강조색';
-}
-
-// Path: themeEditor.contrast
-class _Translations$themeEditor$contrast$ko extends Translations$themeEditor$contrast$en {
-	_Translations$themeEditor$contrast$ko._(TranslationsKo root) : this._root = root, super.internal(root);
-
-	final TranslationsKo _root; // ignore: unused_field
-
-	// Translations
-	@override String get textOnBg => '배경 위 텍스트';
-	@override String get textOnSurface => '표면 위 텍스트';
-	@override String get textMutedOnBg => '배경 위 보조 텍스트';
-	@override String get textMutedOnSurface => '표면 위 보조 텍스트';
-	@override String get accentOnBg => '배경 위 강조색';
-	@override String get accentOnSurface => '표면 위 강조색';
-	@override String get labelOnAccent => '강조색 위 버튼 라벨';
-}
-
 // Path: hotkeys.actions
 class _Translations$hotkeys$actions$ko extends Translations$hotkeys$actions$en {
 	_Translations$hotkeys$actions$ko._(TranslationsKo root) : this._root = root, super.internal(root);
@@ -2601,6 +2598,8 @@ class _Translations$hotkeys$actions$ko extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => '셰이더 전환';
 	@override String get skipMarker => '인트로/크레딧 건너뛰기';
 	@override String get screenshot => '스크린샷 찍기';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2618,6 +2617,52 @@ class _Translations$videoControls$pipErrors$ko extends Translations$videoControl
 	@override String get failed => '화면 속 화면 모드를 시작할 수 없습니다';
 	@override String get prepareFailed => '화면 속 화면을 준비할 수 없습니다';
 	@override String unknown({required Object error}) => '오류가 발생했습니다: ${error}';
+}
+
+// Path: videoControls.clip
+class _Translations$videoControls$clip$ko extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$ko._(TranslationsKo root) : this._root = root, super.internal(root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => '미세 조정';
+	@override String get title => '클립';
+	@override String get vodOnly => '주문형 비디오 재생에 클립을 사용할 수 있습니다.';
+	@override String get sourceUnavailable => '이 재생 세션에는 클립 소스를 사용할 수 없습니다.';
+	@override String get playAtLeastOneSecond => '클리핑하기 최소 1초 전에 재생하세요.';
+	@override String get startBeforeBeginning => '클립 시작은 비디오 시작 이전일 수 없습니다.';
+	@override String get endAfterStart => '클립 끝은 시작보다 뒤에 있어야 합니다.';
+	@override String get minimumDuration => '클립의 길이는 1초 이상이어야 합니다.';
+	@override String get endPastVideo => '클립 끝이 동영상 끝을 지났습니다.';
+	@override String get exportCanceled => '클립 내보내기가 취소되었습니다.';
+	@override String get cacheUnavailable => '원본 내보내기를 위해 선택한 범위를 완전히 캐시할 수 없습니다. 더 짧은 클립을 사용해 보거나 저장하기 전에 미리보기를 한 번 재생해 보세요.';
+	@override String get sourceCopyNoEncoder => '소스 복사본 내보내기에서는 인코더를 사용하지 않습니다.';
+	@override String get encodingDesktopOnly => 'H.264 및 HEVC 클립 인코딩은 현재 macOS 및 Windows에서 사용할 수 있습니다.';
+	@override String get hdrRequiresSource => 'HDR 내보내기에는 직접 재생 HDR10 또는 HLG 호환 소스가 필요합니다.';
+	@override String get transcodeStartUnavailable => '이 클립은 활성 트랜스코딩된 스트림보다 먼저 시작됩니다. 이전에 찾아 클리핑을 다시 열거나 원본 품질로 전환하세요.';
+	@override String get previewRequired => '클립 미리보기는 저장되기 전에 로드를 완료해야 합니다.';
+	@override String get h264Failed => '이 소스는 H.264 SDR MP4로 인코딩할 수 없습니다.';
+	@override String get hevcSdrFailed => '이 소스는 HEVC SDR MP4로 인코딩할 수 없습니다.';
+	@override String get hevcHdrFailed => '이 소스는 HEVC HDR MP4로 인코딩할 수 없습니다.';
+	@override String get gifFailed => '이 소스를 GIF로 인코딩할 수 없습니다.';
+	@override String get originalFailed => '이 소스를 mpv 캐시에서 복사할 수 없습니다.';
+	@override String get previewUnavailable => '이 빌드에서는 클립 미리보기 재생을 사용할 수 없습니다.';
+	@override String get previewFailed => '클립 미리보기 재생에 실패했습니다.';
+	@override String get previewLoadingScreenshot => '스크린샷을 찍기 전에 클립 미리보기 로드가 완료되어야 합니다.';
+	@override String get screenshotInProgress => '스크린샷이 이미 저장되고 있습니다.';
+	@override String get saveAsDialog => '클립을 다른 이름으로 저장';
+	@override String savedTo({required Object fileName}) => '${fileName}에 저장되었습니다.';
+	@override String get openFolder => '폴더 열기';
+	@override String get saveAs => '다른 이름으로 저장';
+	@override String get cancelExport => '내보내기 취소';
+	@override String get saving => '절약...';
+	@override String savingProgress({required Object percent}) => '${percent}% 저장 중';
+	@override String get mutePreview => '미리보기 음소거';
+	@override String get unmutePreview => '미리보기 음소거 해제';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
 }
 
 // Path: accountPreferences.groups
@@ -2916,6 +2961,7 @@ class _Translations$explore$stats$ko extends Translations$explore$stats$en {
 	@override String favorited({required Object n}) => '즐겨찾기 ${n}명';
 	@override String dropRate({required Object percent}) => '${percent} 하차';
 	@override String comments({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: '${n} comment',
 		other: '댓글 ${n}개',
 	);
 	@override String votes({required Object n}) => '투표 ${n}개';
@@ -3037,6 +3083,7 @@ class _Translations$explore$detail$ko extends Translations$explore$detail$en {
 	@override String get ratings => '평점';
 	@override String get schedule => '방영 일정';
 	@override String recommendedByUsers({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n,
+		one: 'Recommended by ${n} user',
 		other: '사용자 ${n}명이 추천',
 	);
 	@override String recommendedBy({required Object who}) => '${who} 추천';
@@ -3375,6 +3422,84 @@ class _Translations$services$libraryFilter$ko extends Translations$services$libr
 	@override String get noLibraries => '사용 가능한 라이브러리가 없습니다';
 }
 
+// Path: appIcon.names
+class _Translations$appIcon$names$ko extends Translations$appIcon$names$en {
+	_Translations$appIcon$names$ko._(TranslationsKo root) : this._root = root, super.internal(root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get midnight => '한밤';
+	@override String get ember => '불씨';
+	@override String get paper => '종이';
+	@override String get oled => 'OLED';
+	@override String get line => '라인';
+	@override String get ocean => '바다';
+	@override String get ultraviolet => '자외선';
+	@override String get matcha => '말차';
+	@override String get sunset => '노을';
+	@override String get gold => '골드';
+	@override String get titanium => '티타늄';
+	@override String get glass => '유리';
+	@override String get crt => 'CRT';
+	@override String get vhs => 'VHS';
+	@override String get synthwave => '신스웨이브';
+	@override String get pixel => '픽셀';
+	@override String get neon => '네온';
+	@override String get sticker => '스티커';
+	@override String get ticket => '티켓';
+	@override String get pop => '팝';
+	@override String get strata => '지층';
+	@override String get facet => '패싯';
+	@override String get tilde => '물결';
+}
+
+// Path: supporter.errors
+class _Translations$supporter$errors$ko extends Translations$supporter$errors$en {
+	_Translations$supporter$errors$ko._(TranslationsKo root) : this._root = root, super.internal(root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get storeUnavailable => '구매를 이용할 수 없습니다. 스토어에 로그인되어 있고 이 기기에서 구매가 허용되어 있는지 확인하세요.';
+	@override String get productNotFound => '현재 스토어에서 Supporter를 구매할 수 없습니다.';
+	@override String get productQueryFailed => '가격을 불러오지 못했습니다. 연결을 확인하고 다시 시도하세요.';
+	@override String get purchaseFailed => '구매가 완료되지 않았습니다. 다시 시도하세요.';
+	@override String get restoreFailed => '구매를 복원하기 위해 스토어에 연결하지 못했습니다. 다시 시도하세요.';
+	@override String get nothingToRestore => '이 스토어 계정에서 Supporter 구매 내역을 찾을 수 없습니다.';
+}
+
+// Path: themeEditor.slots
+class _Translations$themeEditor$slots$ko extends Translations$themeEditor$slots$en {
+	_Translations$themeEditor$slots$ko._(TranslationsKo root) : this._root = root, super.internal(root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get bg => '배경';
+	@override String get surface => '표면';
+	@override String get outline => '윤곽선';
+	@override String get text => '텍스트';
+	@override String get textMuted => '보조 텍스트';
+	@override String get accent => '강조색';
+}
+
+// Path: themeEditor.contrast
+class _Translations$themeEditor$contrast$ko extends Translations$themeEditor$contrast$en {
+	_Translations$themeEditor$contrast$ko._(TranslationsKo root) : this._root = root, super.internal(root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get textOnBg => '배경 위 텍스트';
+	@override String get textOnSurface => '표면 위 텍스트';
+	@override String get textMutedOnBg => '배경 위 보조 텍스트';
+	@override String get textMutedOnSurface => '표면 위 보조 텍스트';
+	@override String get accentOnBg => '배경 위 강조색';
+	@override String get accentOnSurface => '표면 위 강조색';
+	@override String get labelOnAccent => '강조색 위 버튼 라벨';
+}
+
 /// The flat map containing all translations for locale <ko>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -3383,38 +3508,7 @@ class _Translations$services$libraryFilter$ko extends Translations$services$libr
 extension on TranslationsKo {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
-			'appIcon.title' => '앱 아이콘',
-			'appIcon.defaultIcon' => '기본',
-			'appIcon.current' => '현재 아이콘',
-			'appIcon.locked' => 'Supporter 혜택',
-			'appIcon.lockedHint' => '대체 아이콘은 Supporter 혜택입니다.',
-			'appIcon.changeFailed' => '앱 아이콘을 변경하지 못했습니다',
-			'appIcon.launcherHint' => 'Plezy를 나가면 홈 화면에 새 아이콘이 표시됩니다.',
-			'appIcon.tvLauncherHint' => 'Plezy를 나가면 새 배너가 표시됩니다. Android TV에서는 TV를 다시 시작할 때까지 이전 배너가 계속 표시될 수 있습니다.',
-			'appIcon.names.midnight' => '한밤',
-			'appIcon.names.ember' => '불씨',
-			'appIcon.names.paper' => '종이',
-			'appIcon.names.oled' => 'OLED',
-			'appIcon.names.line' => '라인',
-			'appIcon.names.ocean' => '바다',
-			'appIcon.names.ultraviolet' => '자외선',
-			'appIcon.names.matcha' => '말차',
-			'appIcon.names.sunset' => '노을',
-			'appIcon.names.gold' => '골드',
-			'appIcon.names.titanium' => '티타늄',
-			'appIcon.names.glass' => '유리',
-			'appIcon.names.crt' => 'CRT',
-			'appIcon.names.vhs' => 'VHS',
-			'appIcon.names.synthwave' => '신스웨이브',
-			'appIcon.names.pixel' => '픽셀',
-			'appIcon.names.neon' => '네온',
-			'appIcon.names.sticker' => '스티커',
-			'appIcon.names.ticket' => '티켓',
-			'appIcon.names.pop' => '팝',
-			'appIcon.names.strata' => '지층',
-			'appIcon.names.facet' => '패싯',
-			'appIcon.names.tilde' => '물결',
+			'app.title' => 'Plezy Labs',
 			'auth.signInWithPlex' => 'Plex 계정으로 로그인',
 			'auth.showQRCode' => 'QR 코드 표시',
 			'auth.authenticate' => '인증',
@@ -3518,29 +3612,14 @@ extension on TranslationsKo {
 			'update.viewRelease' => '릴리스 정보 보기',
 			'update.latestVersion' => '최신 버전을 사용 중입니다',
 			'update.checkFailed' => '업데이트 확인 실패',
-			'supporter.title' => 'Plezy Supporter',
-			'supporter.intro' => 'Plezy 개발을 후원하고 외형 꾸미기 기능을 잠금 해제하는 1회성 구매입니다:',
-			'supporter.presetThemes' => '프리셋 테마',
-			'supporter.presetThemesDescription' => '불씨, 빙하, 숲, 자두, 종이',
-			'supporter.customTheme' => '사용자 지정 테마',
-			'supporter.customThemeDescription' => '모든 색상을 직접 선택',
-			'supporter.appIcons' => '앱 아이콘',
-			'supporter.appIconsDescription' => '대체 Plezy 아이콘 선택',
-			'supporter.buy' => ({required Object price}) => '${price}에 구매',
-			'supporter.loadingPrice' => '가격 불러오는 중...',
-			'supporter.restore' => '구매 복원',
-			'supporter.pending' => '구매가 결제 또는 승인 대기 중입니다. 스토어에서 처리가 완료되는 즉시 추가 기능이 잠금 해제됩니다.',
-			'supporter.thankYouTitle' => 'Plezy를 후원해 주셔서 감사합니다',
-			'supporter.thankYouBody' => 'Supporter 추가 기능이 잠금 해제되었습니다.',
-			'supporter.tileSubtitle' => '1회성 구매로 테마와 앱 아이콘 잠금 해제',
-			'supporter.tileSubtitleThemesOnly' => '1회성 구매로 테마 잠금 해제',
-			'supporter.tileUnlocked' => '후원해 주셔서 감사합니다',
-			'supporter.errors.storeUnavailable' => '구매를 이용할 수 없습니다. 스토어에 로그인되어 있고 이 기기에서 구매가 허용되어 있는지 확인하세요.',
-			'supporter.errors.productNotFound' => '현재 스토어에서 Supporter를 구매할 수 없습니다.',
-			'supporter.errors.productQueryFailed' => '가격을 불러오지 못했습니다. 연결을 확인하고 다시 시도하세요.',
-			'supporter.errors.purchaseFailed' => '구매가 완료되지 않았습니다. 다시 시도하세요.',
-			'supporter.errors.restoreFailed' => '구매를 복원하기 위해 스토어에 연결하지 못했습니다. 다시 시도하세요.',
-			'supporter.errors.nothingToRestore' => '이 스토어 계정에서 Supporter 구매 내역을 찾을 수 없습니다.',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'settings.title' => '설정',
 			'settings.supportDeveloper' => 'Plezy 후원하기',
 			'settings.supportDeveloperDescription' => 'Liberapay로 후원하여 개발 지원',
@@ -3876,46 +3955,24 @@ extension on TranslationsKo {
 			'settings.playerScopeLibrary' => '라이브러리별',
 			'settings.playerScopeTitle' => '시리즈 또는 영화별',
 			'settings.exportDialogTitle' => 'Plezy 설정 내보내기',
-			'themeEditor.builtIn' => '기본 제공',
-			'themeEditor.presets' => '프리셋',
-			'themeEditor.custom' => '사용자 지정',
-			'themeEditor.customEmpty' => '아직 만들지 않음',
-			'themeEditor.editCustom' => '사용자 지정 테마 편집',
-			'themeEditor.editCustomDescription' => '모든 색상을 직접 선택',
-			'themeEditor.locked' => 'Supporter로 잠금 해제',
-			'themeEditor.savedLocked' => '저장됨 — Supporter로 잠금 해제',
-			'themeEditor.title' => '사용자 지정 테마',
-			'themeEditor.startFrom' => '기반 테마',
-			'themeEditor.startFromDescription' => '다른 테마의 모든 색상을 복사합니다',
-			'themeEditor.colors' => '색상',
-			'themeEditor.preview' => '미리보기',
-			'themeEditor.slots.bg' => '배경',
-			'themeEditor.slots.surface' => '표면',
-			'themeEditor.slots.outline' => '윤곽선',
-			'themeEditor.slots.text' => '텍스트',
-			'themeEditor.slots.textMuted' => '보조 텍스트',
-			'themeEditor.slots.accent' => '강조색',
-			_ => null,
-		} ?? switch (path) {
-			'themeEditor.opacity' => '불투명도',
-			'themeEditor.hexHint' => '#RRGGBB 또는 #AARRGGBB',
-			'themeEditor.fromOtherThemes' => '다른 테마에서',
-			'themeEditor.swatchLabel' => ({required Object theme, required Object color}) => '${theme} ${color}',
-			'themeEditor.contrast.textOnBg' => '배경 위 텍스트',
-			'themeEditor.contrast.textOnSurface' => '표면 위 텍스트',
-			'themeEditor.contrast.textMutedOnBg' => '배경 위 보조 텍스트',
-			'themeEditor.contrast.textMutedOnSurface' => '표면 위 보조 텍스트',
-			'themeEditor.contrast.accentOnBg' => '배경 위 강조색',
-			'themeEditor.contrast.accentOnSurface' => '표면 위 강조색',
-			'themeEditor.contrast.labelOnAccent' => '강조색 위 버튼 라벨',
-			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, 권장 기준 ${minimum}:1 미만',
-			'themeEditor.discardTitle' => '변경 사항을 버리시겠습니까?',
-			'themeEditor.discardMessage' => '저장하지 않은 색상 변경 사항이 사라집니다.',
-			'themeEditor.discard' => '버리기',
-			'themeEditor.previewCardTitle' => ({required Object number}) => '${number}화',
-			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '${minutes}분 남음',
-			'themeEditor.previewSwitch' => '자동 재생',
-			'themeEditor.previewMutedText' => '보조 텍스트는 이렇게 표시됩니다',
+			'settings.downloadLocationSelectError' => '폴더 선택 실패',
+			'settings.mediaCapture' => '미디어 캡처',
+			'settings.clips' => '클립',
+			'settings.screenshots' => '스크린샷',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} 위치',
+			'settings.clipLocationDescription' => '클립이 저장되는 위치를 선택하세요.',
+			'settings.screenshotLocationDescription' => '스크린샷이 저장되는 위치를 선택하세요.',
+			'settings.clipLocationChanged' => '클립 위치가 변경됨',
+			'settings.screenshotLocationChanged' => '스크린샷 위치가 변경되었습니다.',
+			'settings.clipLocationReset' => '클립 위치가 데스크탑으로 재설정됨',
+			'settings.screenshotLocationReset' => '스크린샷 위치가 데스크톱으로 재설정됨',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'search.hint' => '영화, 시리즈, 음악 등을 검색하세요...',
 			'search.tryDifferentTerm' => '다른 검색어를 시도해 보세요',
 			'search.searchYourMedia' => '미디어 검색',
@@ -3952,6 +4009,8 @@ extension on TranslationsKo {
 			'hotkeys.actions.shaderToggle' => '셰이더 전환',
 			'hotkeys.actions.skipMarker' => '인트로/크레딧 건너뛰기',
 			'hotkeys.actions.screenshot' => '스크린샷 찍기',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => '파일 정보',
 			'fileInfo.overview' => '개요',
 			'fileInfo.video' => '비디오',
@@ -3961,6 +4020,8 @@ extension on TranslationsKo {
 			'fileInfo.dataStreams' => '데이터 스트림',
 			'fileInfo.lyrics' => '가사',
 			'fileInfo.file' => '파일',
+			_ => null,
+		} ?? switch (path) {
 			'fileInfo.attachments' => '첨부 파일',
 			'fileInfo.delivery' => '재생 방식',
 			'fileInfo.versionCounter' => ({required Object index, required Object count}) => '버전 ${index} / ${count}',
@@ -4090,9 +4151,9 @@ extension on TranslationsKo {
 			'mediaMenu.deleteAnyway' => '그래도 삭제',
 			'mediaMenu.confirmDeleteTarget' => ({required Object title}) => '서버에서 ${title}을(를) 영구 삭제할까요?',
 			'mediaMenu.deleteMultipleWarning' => '모든 에피소드와 파일이 포함됩니다.',
-			'mediaMenu.deleteEpisodeCountWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '포함된 에피소드 ${n}개와 해당 파일이 모두 삭제됩니다.', ), 
-			'mediaMenu.deleteMultiPartWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '이 항목은 파일 ${n}개에 걸쳐 저장되어 있으며, 모든 파일이 삭제됩니다.', ), 
-			'mediaMenu.deleteSharedFileHeading' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '같은 파일에 저장된 다른 에피소드 ${n}개도 함께 삭제됩니다:', ), 
+			'mediaMenu.deleteEpisodeCountWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: 'This deletes all ${n} episode in it, and its file.', other: '포함된 에피소드 ${n}개와 해당 파일이 모두 삭제됩니다.', ), 
+			'mediaMenu.deleteMultiPartWarning' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: 'This item is stored as ${n} file, which will be deleted.', other: '이 항목은 파일 ${n}개에 걸쳐 저장되어 있으며, 모든 파일이 삭제됩니다.', ), 
+			'mediaMenu.deleteSharedFileHeading' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} other episode is stored in the same file and will be deleted too:', other: '같은 파일에 저장된 다른 에피소드 ${n}개도 함께 삭제됩니다:', ), 
 			'mediaMenu.deleteScopeUnverifiedProbeFailed' => 'Plezy가 어떤 파일이 삭제될지 확인하지 못해 위 항목보다 더 많은 파일이 삭제될 수 있습니다. 취소하고 다시 시도하거나 그래도 삭제하세요.',
 			'mediaMenu.deleteScopeUnverifiedNoFileInfo' => '서버가 이 항목의 파일 정보를 제공하지 않아 Plezy가 어떤 파일이 삭제될지 확인할 수 없습니다. 위 항목보다 더 많은 파일이 삭제될 수 있습니다.',
 			'mediaMenu.mediaDeletedSuccessfully' => '미디어 항목이 성공적으로 삭제되었습니다',
@@ -4199,7 +4260,6 @@ extension on TranslationsKo {
 			'videoControls.pipActive' => '화면 속 화면으로 재생 중',
 			'videoControls.pipFailed' => '화면 속 화면 모드를 시작할 수 없습니다',
 			'videoControls.screenshotSaved' => '스크린샷 저장됨',
-			'videoControls.screenshotFailed' => '스크린샷을 찍지 못했습니다',
 			'videoControls.zoomPercent' => ({required Object percent}) => '확대/축소 ${percent}%',
 			'videoControls.volumePercent' => ({required Object percent}) => '볼륨 ${percent}%',
 			'videoControls.pipErrors.androidVersion' => 'Android 8.0 이상이 필요합니다',
@@ -4231,12 +4291,52 @@ extension on TranslationsKo {
 			'videoControls.osdSubtitlesOff' => '자막: 꺼짐',
 			'videoControls.osdSubtitles' => ({required Object track}) => '자막: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => '오디오: ${track}',
+			'videoControls.screenshotFailed' => '스크린샷을 찍지 못했습니다',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} frame', other: '${n} frames', ), 
+			'videoControls.clip.fineAdjust' => '미세 조정',
+			'videoControls.clip.title' => '클립',
+			'videoControls.clip.vodOnly' => '주문형 비디오 재생에 클립을 사용할 수 있습니다.',
+			'videoControls.clip.sourceUnavailable' => '이 재생 세션에는 클립 소스를 사용할 수 없습니다.',
+			'videoControls.clip.playAtLeastOneSecond' => '클리핑하기 최소 1초 전에 재생하세요.',
+			'videoControls.clip.startBeforeBeginning' => '클립 시작은 비디오 시작 이전일 수 없습니다.',
+			'videoControls.clip.endAfterStart' => '클립 끝은 시작보다 뒤에 있어야 합니다.',
+			'videoControls.clip.minimumDuration' => '클립의 길이는 1초 이상이어야 합니다.',
+			'videoControls.clip.endPastVideo' => '클립 끝이 동영상 끝을 지났습니다.',
+			'videoControls.clip.exportCanceled' => '클립 내보내기가 취소되었습니다.',
+			'videoControls.clip.cacheUnavailable' => '원본 내보내기를 위해 선택한 범위를 완전히 캐시할 수 없습니다. 더 짧은 클립을 사용해 보거나 저장하기 전에 미리보기를 한 번 재생해 보세요.',
+			'videoControls.clip.sourceCopyNoEncoder' => '소스 복사본 내보내기에서는 인코더를 사용하지 않습니다.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 및 HEVC 클립 인코딩은 현재 macOS 및 Windows에서 사용할 수 있습니다.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR 내보내기에는 직접 재생 HDR10 또는 HLG 호환 소스가 필요합니다.',
+			'videoControls.clip.transcodeStartUnavailable' => '이 클립은 활성 트랜스코딩된 스트림보다 먼저 시작됩니다. 이전에 찾아 클리핑을 다시 열거나 원본 품질로 전환하세요.',
+			'videoControls.clip.previewRequired' => '클립 미리보기는 저장되기 전에 로드를 완료해야 합니다.',
+			'videoControls.clip.h264Failed' => '이 소스는 H.264 SDR MP4로 인코딩할 수 없습니다.',
+			'videoControls.clip.hevcSdrFailed' => '이 소스는 HEVC SDR MP4로 인코딩할 수 없습니다.',
+			'videoControls.clip.hevcHdrFailed' => '이 소스는 HEVC HDR MP4로 인코딩할 수 없습니다.',
+			'videoControls.clip.gifFailed' => '이 소스를 GIF로 인코딩할 수 없습니다.',
+			'videoControls.clip.originalFailed' => '이 소스를 mpv 캐시에서 복사할 수 없습니다.',
+			'videoControls.clip.previewUnavailable' => '이 빌드에서는 클립 미리보기 재생을 사용할 수 없습니다.',
+			'videoControls.clip.previewFailed' => '클립 미리보기 재생에 실패했습니다.',
+			'videoControls.clip.previewLoadingScreenshot' => '스크린샷을 찍기 전에 클립 미리보기 로드가 완료되어야 합니다.',
+			'videoControls.clip.screenshotInProgress' => '스크린샷이 이미 저장되고 있습니다.',
+			'videoControls.clip.saveAsDialog' => '클립을 다른 이름으로 저장',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => '${fileName}에 저장되었습니다.',
+			'videoControls.clip.openFolder' => '폴더 열기',
+			'videoControls.clip.saveAs' => '다른 이름으로 저장',
+			'videoControls.clip.cancelExport' => '내보내기 취소',
+			'videoControls.clip.saving' => '절약...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => '${percent}% 저장 중',
+			'videoControls.clip.mutePreview' => '미리보기 음소거',
+			'videoControls.clip.unmutePreview' => '미리보기 음소거 해제',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => '시청 완료로 표시됨',
 			'messages.markedAsUnwatched' => '미시청으로 표시됨',
 			'messages.markedAsWatchedOffline' => '시청 완료로 표시됨 (연결 시 동기화됨)',
 			'messages.markedAsUnwatchedOffline' => '미시청으로 표시됨 (연결 시 동기화됨)',
 			'messages.autoRemovedWatchedDownload' => ({required Object title}) => '자동 삭제됨: ${title}',
-			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '시청한 다운로드 ${n}개를 자동 삭제했습니다', ), 
+			'messages.autoRemovedWatchedDownloads' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: 'Auto-removed ${n} watched download', other: '시청한 다운로드 ${n}개를 자동 삭제했습니다', ), 
 			'messages.removedFromContinueWatching' => '계속 시청 목록에서 제거됨',
 			'messages.errorLoading' => ({required Object error}) => '오류: ${error}',
 			'messages.searchPartialResults' => '일부 미디어 서버를 검색하지 못했습니다. 사용 가능한 결과만 표시합니다.',
@@ -4409,8 +4509,6 @@ extension on TranslationsKo {
 			'profiles.tokenIdentityMismatch' => 'Plex 프로필 토큰이 예상과 다른 서버로 확인되었습니다',
 			'connections.sectionTitle' => '연결',
 			'connections.addConnection' => '연결 추가',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnectionSubtitleNoProfile' => 'Plex로 로그인하거나 Jellyfin 또는 Emby 서버에 연결',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => '${displayName}에 추가: Plex, Jellyfin, Emby 또는 다른 프로필 연결',
 			'connections.sessionExpiredOne' => ({required Object name}) => '${name}의 세션이 만료되었습니다',
@@ -4436,6 +4534,8 @@ extension on TranslationsKo {
 			'accountPreferences.groups.personalMedia' => '개인 미디어',
 			'accountPreferences.preferredAudioLanguage' => '선호 오디오 언어',
 			'accountPreferences.autoSelectAudio' => '언어별로 오디오 선택',
+			_ => null,
+		} ?? switch (path) {
 			'accountPreferences.autoSelectAudioDescription' => '끄면 파일이 기본으로 표시한 오디오 트랙을 유지합니다.',
 			'accountPreferences.preferredSubtitleLanguage' => '선호 자막 언어',
 			'accountPreferences.subtitleMode' => '자막 자동 켜기',
@@ -4501,7 +4601,7 @@ extension on TranslationsKo {
 			'discover.tvShow' => 'TV 시리즈',
 			'discover.minutesLeft' => ({required Object minutes}) => '${minutes}분 남음',
 			'discover.moreLikeThis' => '비슷한 콘텐츠',
-			'discover.titleCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '${n}개 타이틀', ), 
+			'discover.titleCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} title', other: '${n}개 타이틀', ), 
 			'discover.person.born' => '출생',
 			'discover.person.died' => '사망',
 			'discover.person.birthplace' => '출생지',
@@ -4643,6 +4743,9 @@ extension on TranslationsKo {
 			'about.versionLabel' => ({required Object version}) => '버전 ${version}',
 			'about.appDescription' => 'Flutter로 만든 아름다운 Plex, Jellyfin 및 Emby 클라이언트',
 			'about.viewLicensesDescription' => '타사 라이브러리 라이선스 보기',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => '${username} (${email})의 서버를 찾을 수 없습니다.',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => '서버를 로드할 수 없습니다: ${error}',
 			'serverSelection.noValidServers' => '이 계정에서 사용할 수 있는 서버를 찾지 못했습니다',
@@ -4712,7 +4815,7 @@ extension on TranslationsKo {
 			'explore.status.ended' => '종영',
 			'explore.status.canceled' => '취소됨',
 			'explore.status.upcoming' => '방영 예정',
-			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '${n}화', ), 
+			'explore.episodeCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} episode', other: '${n}화', ), 
 			'explore.cast' => '출연진',
 			'explore.characters' => '캐릭터',
 			'explore.addToWatchlist' => '관심 목록에 추가',
@@ -4721,10 +4824,11 @@ extension on TranslationsKo {
 			'explore.removedFromWatchlist' => '관심 목록에서 삭제했습니다',
 			'explore.watchlistUpdateFailed' => '관심 목록을 업데이트하지 못했습니다',
 			'explore.watchlistNoMatch' => '이 항목을 관심 목록과 연결할 수 없습니다',
+			'explore.openInLibrary' => '라이브러리에서 열기',
 			'explore.notInLibrary' => '라이브러리에 없음',
 			'explore.inTheseLibraries' => '이 라이브러리에 있음',
 			'explore.checkingLibrary' => '라이브러리 확인 중...',
-			'explore.libraryCheckFailed' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '서버 ${n}개를 확인할 수 없습니다', ), 
+			'explore.libraryCheckFailed' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: 'Couldn\'t check ${n} server', other: '서버 ${n}개를 확인할 수 없습니다', ), 
 			'explore.emptyTitle' => '아직 아무것도 없습니다',
 			'explore.emptyMessage' => ({required Object source}) => '${source}에 콘텐츠가 추가되면 여기에 표시됩니다.',
 			'explore.searchHint' => ({required Object source}) => '${source}에서 검색',
@@ -4761,7 +4865,7 @@ extension on TranslationsKo {
 			'explore.stats.planning' => ({required Object n}) => '${n}명 볼 예정',
 			'explore.stats.favorited' => ({required Object n}) => '즐겨찾기 ${n}명',
 			'explore.stats.dropRate' => ({required Object percent}) => '${percent} 하차',
-			'explore.stats.comments' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '댓글 ${n}개', ), 
+			'explore.stats.comments' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} comment', other: '댓글 ${n}개', ), 
 			'explore.stats.votes' => ({required Object n}) => '투표 ${n}개',
 			'explore.stats.watching' => ({required Object n}) => '시청 중 ${n}명',
 			'explore.stats.completed' => ({required Object n}) => '완료 ${n}명',
@@ -4828,14 +4932,14 @@ extension on TranslationsKo {
 			'explore.detail.crew' => '제작진',
 			'explore.detail.ratings' => '평점',
 			'explore.detail.schedule' => '방영 일정',
-			'explore.detail.recommendedByUsers' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '사용자 ${n}명이 추천', ), 
+			'explore.detail.recommendedByUsers' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: 'Recommended by ${n} user', other: '사용자 ${n}명이 추천', ), 
 			'explore.detail.recommendedBy' => ({required Object who}) => '${who} 추천',
 			'explore.detail.favoritedBy' => ({required Object who}) => '${who} 즐겨찾기',
 			'explore.detail.unairedEpisodes' => ({required Object n}) => '미방영 ${n}개',
 			'explore.detail.recommendedByPercent' => ({required Object percent}) => '시청자의 ${percent} 추천',
 			'explore.detail.relatedTitles' => '관련 작품',
 			'explore.detail.background' => '배경',
-			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '결과 ${n}개', ), 
+			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} result', other: '결과 ${n}개', ), 
 			'liveTv.title' => '실시간 TV',
 			'liveTv.guide' => '편성표',
 			'liveTv.noChannels' => '사용 가능한 채널이 없습니다',
@@ -4850,6 +4954,7 @@ extension on TranslationsKo {
 			'liveTv.channelNumber' => ({required Object number}) => '채널 ${number}',
 			'liveTv.unknownChannel' => '알 수 없는 채널',
 			'liveTv.live' => '실시간',
+			'liveTv.premiereBadge' => 'NEW',
 			'liveTv.reloadGuide' => '편성표 새로고침',
 			'liveTv.searchGuide' => '편성표 검색',
 			'liveTv.searchHint' => '채널 및 프로그램 검색',
@@ -4923,8 +5028,6 @@ extension on TranslationsKo {
 			'liveTv.recordSettings.keepUpToHint' => '0이면 모든 에피소드 보관',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes}분 후 시작',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} ${time}',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.invalidPlaybackData' => ({required Object product}) => '${product}에서 잘못된 실시간 TV 재생 데이터를 반환했습니다',
 			'liveTv.failedToStartChannel' => '실시간 채널을 시작할 수 없습니다',
 			'liveTv.failedToBuildStreamUrl' => '스트림 URL을 생성할 수 없습니다',
@@ -4945,6 +5048,8 @@ extension on TranslationsKo {
 			'collections.errorAddingToCollection' => '컬렉션에 추가 실패',
 			'collections.created' => '컬렉션 생성됨',
 			'collections.removeFromCollection' => '컬렉션에서 제거',
+			_ => null,
+		} ?? switch (path) {
 			'collections.removeFromCollectionConfirm' => ({required Object title}) => '${title}을(를) 이 컬렉션에서 제거하시겠습니까?',
 			'collections.removedFromCollection' => '컬렉션에서 제거됨',
 			'collections.removeFromCollectionFailed' => '컬렉션에서 제거 실패',
@@ -4982,7 +5087,7 @@ extension on TranslationsKo {
 			'music.playNext' => '다음에 재생',
 			'music.addToQueue' => '대기열에 추가',
 			'music.discNumber' => ({required Object n}) => '디스크 ${n}',
-			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '${n}곡', ), 
+			'music.trackCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} track', other: '${n}곡', ), 
 			'music.nowPlaying' => '재생 중',
 			'music.playingFrom' => ({required Object title}) => '${title}에서 재생 중',
 			'music.queue' => '재생 대기열',
@@ -5073,7 +5178,7 @@ extension on TranslationsKo {
 			'watchTogether.offsetPlusTenth' => '+100ms',
 			'watchTogether.offsetPlusSecond' => '+1초',
 			'watchTogether.participants' => '참가자',
-			'watchTogether.participantCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, other: '참가자 ${n}명', ), 
+			'watchTogether.participantCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ko'))(n, one: '${n} participant', other: '참가자 ${n}명', ), 
 			'watchTogether.hostBadge' => '호스트',
 			'watchTogether.nameYou' => ({required Object name}) => '${name}(나)',
 			'watchTogether.playerIdle' => '대기 중',
@@ -5425,6 +5530,7 @@ extension on TranslationsKo {
 			'performanceOverlay.cacheLimit' => '캐시 제한',
 			'performanceOverlay.speed' => '속도',
 			'performanceOverlay.player' => '플레이어',
+			'performanceOverlay.playMethod' => 'Play Method',
 			'performanceOverlay.memory' => '메모리',
 			'performanceOverlay.uiFps' => 'UI FPS',
 			'performanceOverlay.fps' => 'FPS',
@@ -5437,8 +5543,6 @@ extension on TranslationsKo {
 			'performanceOverlay.decoderHardware' => '하드웨어',
 			'performanceOverlay.tunnelingActive' => '활성',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures}개 실패)',
-			_ => null,
-		} ?? switch (path) {
 			'externalPlayer.title' => '외부 플레이어',
 			'externalPlayer.useExternalPlayer' => '외부 플레이어 사용',
 			'externalPlayer.useExternalPlayerDescription' => '동영상을 다른 앱에서 열기',
@@ -5458,6 +5562,8 @@ extension on TranslationsKo {
 			'metadataEdit.editMetadata' => '편집...',
 			'metadataEdit.screenTitle' => '메타데이터 편집',
 			'metadataEdit.basicInfo' => '기본 정보',
+			_ => null,
+		} ?? switch (path) {
 			'metadataEdit.artwork' => '아트워크',
 			'metadataEdit.advancedSettings' => '고급 설정',
 			'metadataEdit.title' => '제목',
@@ -5691,6 +5797,115 @@ extension on TranslationsKo {
 			'addServer.redirectDifferentHost' => ({required Object product}) => '서버가 다른 호스트로 리디렉션했습니다. 최종 ${product} URL을 직접 입력하세요.',
 			'addServer.redirectInsecure' => '서버가 HTTPS에서 안전하지 않은 URL로 리디렉션했습니다',
 			'addServer.redirectUnsupportedEnterFinal' => ({required Object product}) => '서버가 지원되지 않는 URL로 리디렉션했습니다. 최종 ${product} URL을 직접 입력하세요.',
+			'appIcon.title' => '앱 아이콘',
+			'appIcon.defaultIcon' => '기본',
+			'appIcon.current' => '현재 아이콘',
+			'appIcon.locked' => 'Supporter 혜택',
+			'appIcon.lockedHint' => '대체 아이콘은 Supporter 혜택입니다.',
+			'appIcon.changeFailed' => '앱 아이콘을 변경하지 못했습니다',
+			'appIcon.launcherHint' => 'Plezy를 나가면 홈 화면에 새 아이콘이 표시됩니다.',
+			'appIcon.tvLauncherHint' => 'Plezy를 나가면 새 배너가 표시됩니다. Android TV에서는 TV를 다시 시작할 때까지 이전 배너가 계속 표시될 수 있습니다.',
+			'appIcon.names.midnight' => '한밤',
+			'appIcon.names.ember' => '불씨',
+			'appIcon.names.paper' => '종이',
+			'appIcon.names.oled' => 'OLED',
+			'appIcon.names.line' => '라인',
+			'appIcon.names.ocean' => '바다',
+			'appIcon.names.ultraviolet' => '자외선',
+			'appIcon.names.matcha' => '말차',
+			'appIcon.names.sunset' => '노을',
+			'appIcon.names.gold' => '골드',
+			'appIcon.names.titanium' => '티타늄',
+			'appIcon.names.glass' => '유리',
+			'appIcon.names.crt' => 'CRT',
+			'appIcon.names.vhs' => 'VHS',
+			'appIcon.names.synthwave' => '신스웨이브',
+			'appIcon.names.pixel' => '픽셀',
+			'appIcon.names.neon' => '네온',
+			'appIcon.names.sticker' => '스티커',
+			'appIcon.names.ticket' => '티켓',
+			'appIcon.names.pop' => '팝',
+			'appIcon.names.strata' => '지층',
+			'appIcon.names.facet' => '패싯',
+			'appIcon.names.tilde' => '물결',
+			'supporter.title' => 'Plezy Supporter',
+			'supporter.intro' => 'Plezy 개발을 후원하고 외형 꾸미기 기능을 잠금 해제하는 1회성 구매입니다:',
+			'supporter.presetThemes' => '프리셋 테마',
+			'supporter.presetThemesDescription' => '불씨, 빙하, 숲, 자두, 종이',
+			'supporter.customTheme' => '사용자 지정 테마',
+			'supporter.customThemeDescription' => '모든 색상을 직접 선택',
+			'supporter.appIcons' => '앱 아이콘',
+			'supporter.appIconsDescription' => '대체 Plezy 아이콘 선택',
+			'supporter.buy' => ({required Object price}) => '${price}에 구매',
+			'supporter.loadingPrice' => '가격 불러오는 중...',
+			'supporter.restore' => '구매 복원',
+			'supporter.pending' => '구매가 결제 또는 승인 대기 중입니다. 스토어에서 처리가 완료되는 즉시 추가 기능이 잠금 해제됩니다.',
+			'supporter.thankYouTitle' => 'Plezy를 후원해 주셔서 감사합니다',
+			'supporter.thankYouBody' => 'Supporter 추가 기능이 잠금 해제되었습니다.',
+			'supporter.tileSubtitle' => '1회성 구매로 테마와 앱 아이콘 잠금 해제',
+			'supporter.tileSubtitleThemesOnly' => '1회성 구매로 테마 잠금 해제',
+			'supporter.tileUnlocked' => '후원해 주셔서 감사합니다',
+			'supporter.errors.storeUnavailable' => '구매를 이용할 수 없습니다. 스토어에 로그인되어 있고 이 기기에서 구매가 허용되어 있는지 확인하세요.',
+			'supporter.errors.productNotFound' => '현재 스토어에서 Supporter를 구매할 수 없습니다.',
+			'supporter.errors.productQueryFailed' => '가격을 불러오지 못했습니다. 연결을 확인하고 다시 시도하세요.',
+			'supporter.errors.purchaseFailed' => '구매가 완료되지 않았습니다. 다시 시도하세요.',
+			'supporter.errors.restoreFailed' => '구매를 복원하기 위해 스토어에 연결하지 못했습니다. 다시 시도하세요.',
+			'supporter.errors.nothingToRestore' => '이 스토어 계정에서 Supporter 구매 내역을 찾을 수 없습니다.',
+			'themeEditor.builtIn' => '기본 제공',
+			'themeEditor.presets' => '프리셋',
+			'themeEditor.custom' => '사용자 지정',
+			'themeEditor.customEmpty' => '아직 만들지 않음',
+			'themeEditor.editCustom' => '사용자 지정 테마 편집',
+			'themeEditor.editCustomDescription' => '모든 색상을 직접 선택',
+			'themeEditor.locked' => 'Supporter로 잠금 해제',
+			'themeEditor.savedLocked' => '저장됨 — Supporter로 잠금 해제',
+			'themeEditor.title' => '사용자 지정 테마',
+			'themeEditor.startFrom' => '기반 테마',
+			'themeEditor.startFromDescription' => '다른 테마의 모든 색상을 복사합니다',
+			'themeEditor.colors' => '색상',
+			'themeEditor.preview' => '미리보기',
+			'themeEditor.slots.bg' => '배경',
+			'themeEditor.slots.surface' => '표면',
+			'themeEditor.slots.outline' => '윤곽선',
+			'themeEditor.slots.text' => '텍스트',
+			'themeEditor.slots.textMuted' => '보조 텍스트',
+			'themeEditor.slots.accent' => '강조색',
+			'themeEditor.opacity' => '불투명도',
+			'themeEditor.hexHint' => '#RRGGBB 또는 #AARRGGBB',
+			'themeEditor.fromOtherThemes' => '다른 테마에서',
+			'themeEditor.swatchLabel' => ({required Object theme, required Object color}) => '${theme} ${color}',
+			'themeEditor.contrast.textOnBg' => '배경 위 텍스트',
+			'themeEditor.contrast.textOnSurface' => '표면 위 텍스트',
+			'themeEditor.contrast.textMutedOnBg' => '배경 위 보조 텍스트',
+			'themeEditor.contrast.textMutedOnSurface' => '표면 위 보조 텍스트',
+			'themeEditor.contrast.accentOnBg' => '배경 위 강조색',
+			'themeEditor.contrast.accentOnSurface' => '표면 위 강조색',
+			'themeEditor.contrast.labelOnAccent' => '강조색 위 버튼 라벨',
+			'themeEditor.lowContrast' => ({required Object pair, required Object ratio, required Object minimum}) => '${pair}: ${ratio}:1, 권장 기준 ${minimum}:1 미만',
+			'themeEditor.discardTitle' => '변경 사항을 버리시겠습니까?',
+			'themeEditor.discardMessage' => '저장하지 않은 색상 변경 사항이 사라집니다.',
+			'themeEditor.discard' => '버리기',
+			'themeEditor.previewCardTitle' => ({required Object number}) => '${number}화',
+			'themeEditor.previewCardSubtitle' => ({required Object minutes}) => '${minutes}분 남음',
+			'themeEditor.previewSwitch' => '자동 재생',
+			'themeEditor.previewMutedText' => '보조 텍스트는 이렇게 표시됩니다',
+			'deepLinks.invalid' => 'This Plezy link isn\'t valid.',
+			'deepLinks.profileNotFound' => ({required Object profile}) => 'No profile matches "${profile}".',
+			'deepLinks.serverUnavailable' => 'Couldn\'t reach the server for this link.',
+			'deepLinks.notFound' => 'Couldn\'t find this title in your libraries.',
+			'deepLinks.unsupportedItem' => 'This link can\'t be played.',
+			'deepLinks.noLiveTv' => 'No Live TV server is available for this link.',
+			'deepLinks.channelNotFound' => ({required Object channel}) => 'Couldn\'t find channel "${channel}".',
+			'deepLinks.showLink' => 'Show link',
+			'deepLinks.showProfileLink' => 'Show profile link',
+			'deepLinks.dialogTitle' => 'Link',
+			'deepLinks.showHint' => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.',
+			'deepLinks.movieHint' => 'Opening this link plays the movie.',
+			'deepLinks.episodeHint' => 'Opening this link plays this episode.',
+			'deepLinks.profileHint' => 'Opening this link switches to this profile.',
+			'deepLinks.openAsProfile' => ({required Object name}) => 'Open as ${name}',
+			'deepLinks.copy' => 'Copy',
+			'deepLinks.copied' => 'Link copied',
 			_ => null,
 		};
 	}
