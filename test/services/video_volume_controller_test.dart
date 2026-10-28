@@ -316,21 +316,39 @@ void main() {
     expect(persisted, isEmpty);
   });
 
-  for (final adapter in <({String name, String methodChannel, String eventChannel, Player Function() create})>[
-    (
-      name: 'PlayerNative',
-      methodChannel: 'com.plezy/mpv_player',
-      eventChannel: 'com.plezy/mpv_player/events',
-      create: PlayerNative.new,
-    ),
-    (
-      name: 'PlayerAndroid',
-      methodChannel: 'com.plezy/exo_player',
-      eventChannel: 'com.plezy/exo_player/events',
-      create: PlayerAndroid.new,
-    ),
-  ]) {
+  for (final adapter
+      in <({String name, String methodChannel, String eventChannel, Player Function() create, bool macOSOutput})>[
+        (
+          name: 'PlayerNative',
+          methodChannel: 'com.plezy/mpv_player',
+          eventChannel: 'com.plezy/mpv_player/events',
+          create: PlayerNative.new,
+          macOSOutput: false,
+        ),
+        (
+          name: 'PlayerNative macOS output',
+          methodChannel: 'com.plezy/mpv_player',
+          eventChannel: 'com.plezy/mpv_player/events',
+          create: PlayerNative.new,
+          macOSOutput: true,
+        ),
+        (
+          name: 'PlayerAndroid',
+          methodChannel: 'com.plezy/exo_player',
+          eventChannel: 'com.plezy/exo_player/events',
+          create: PlayerAndroid.new,
+          macOSOutput: false,
+        ),
+      ]) {
     test('${adapter.name} receives one ordered native volume write at a time', () async {
+      PlayerNative.debugMacOSOutputVolumeOverride = adapter.macOSOutput;
+      addTearDown(() => PlayerNative.debugMacOSOutputVolumeOverride = null);
+      double nativeVolume(double value) {
+        if (!adapter.macOSOutput) return value;
+        final normalized = value / 100;
+        return normalized * normalized * normalized * 100;
+      }
+
       final firstWriteStarted = Completer<void>();
       final releaseFirstWrite = Completer<void>();
       final nativeVolumes = <double>[];
@@ -348,7 +366,7 @@ void main() {
             volume = ((call.arguments as Map)['volume'] as num).toDouble();
           } else if (call.method == 'setProperty') {
             final arguments = call.arguments as Map;
-            if (arguments['name'] == 'volume') {
+            if (arguments['name'] == (adapter.macOSOutput ? 'ao-volume' : 'volume')) {
               volume = double.parse(arguments['value'] as String);
             }
           }
@@ -378,18 +396,18 @@ void main() {
             controller.adjust(5);
             controller.adjust(5);
             await firstWriteStarted.future;
-            expect(nativeVolumes, [55]);
+            expect(nativeVolumes, [nativeVolume(55)]);
 
             releaseFirstWrite.complete();
             await controller.idle;
-            expect(nativeVolumes, [55, 65]);
+            expect(nativeVolumes, [nativeVolume(55), nativeVolume(65)]);
             expect(persisted, [65]);
             expect(maxActiveWrites, 1);
             controller.dispose();
             controller.adjust(10);
             controller.toggleMute();
             await _flush();
-            expect(nativeVolumes, [55, 65]);
+            expect(nativeVolumes, [nativeVolume(55), nativeVolume(65)]);
             expect(persisted, [65]);
           } finally {
             if (!releaseFirstWrite.isCompleted) releaseFirstWrite.complete();
