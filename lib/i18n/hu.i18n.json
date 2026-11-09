@@ -515,7 +515,8 @@
     "playerScopeGlobal": "Mindenhol",
     "playerScopeLibrary": "Könyvtáronként",
     "playerScopeTitle": "Sorozatonként vagy filmenként",
-    "exportDialogTitle": "Plezy-beállítások exportálása"
+    "exportDialogTitle": "Plezy-beállítások exportálása",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "Beépített",
@@ -907,7 +908,8 @@
     "forcedTrack": "${label} (kényszerített)",
     "osdSubtitlesOff": "Feliratok: ki",
     "osdSubtitles": "Feliratok: ${track}",
-    "osdAudio": "Hang: ${track}"
+    "osdAudio": "Hang: ${track}",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source"
   },
   "userStatus": {},
   "messages": {

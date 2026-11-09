@@ -515,7 +515,8 @@
     "playerScopeGlobal": "모든 곳",
     "playerScopeLibrary": "라이브러리별",
     "playerScopeTitle": "시리즈 또는 영화별",
-    "exportDialogTitle": "Plezy 설정 내보내기"
+    "exportDialogTitle": "Plezy 설정 내보내기",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "기본 제공",
@@ -904,7 +905,8 @@
     "forcedTrack": "${label} (강제)",
     "osdSubtitlesOff": "자막: 꺼짐",
     "osdSubtitles": "자막: ${track}",
-    "osdAudio": "오디오: ${track}"
+    "osdAudio": "오디오: ${track}",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source"
   },
   "userStatus": {},
   "messages": {

@@ -515,7 +515,8 @@
     "playerScopeGlobal": "所有位置",
     "playerScopeLibrary": "按媒体库",
     "playerScopeTitle": "按剧集或电影",
-    "exportDialogTitle": "导出 Plezy 设置"
+    "exportDialogTitle": "导出 Plezy 设置",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "内置",
@@ -904,7 +905,8 @@
     "forcedTrack": "${label}（强制）",
     "osdSubtitlesOff": "字幕：关闭",
     "osdSubtitles": "字幕：${track}",
-    "osdAudio": "音频：${track}"
+    "osdAudio": "音频：${track}",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source"
   },
   "userStatus": {},
   "messages": {

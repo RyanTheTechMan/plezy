@@ -515,7 +515,8 @@
     "playerScopeGlobal": "すべて",
     "playerScopeLibrary": "ライブラリごと",
     "playerScopeTitle": "作品ごと",
-    "exportDialogTitle": "Plezyの設定をエクスポート"
+    "exportDialogTitle": "Plezyの設定をエクスポート",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "標準",
@@ -904,7 +905,8 @@
     "forcedTrack": "${label}（強制）",
     "osdSubtitlesOff": "字幕: オフ",
     "osdSubtitles": "字幕: ${track}",
-    "osdAudio": "音声: ${track}"
+    "osdAudio": "音声: ${track}",
+    "packedStereoSizingLocked": "Cannot change while playing 3D source"
   },
   "userStatus": {},
   "messages": {
