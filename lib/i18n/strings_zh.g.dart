@@ -1588,6 +1588,7 @@ class Translations$explore$zh extends Translations$explore$en {
 	@override String totalResults({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
 		other: '${n} 条结果',
 	);
+	@override String get openInLibrary => '在媒体库中打开';
 }
 
 // Path: liveTv
@@ -4842,6 +4843,7 @@ extension on TranslationsZh {
 			'explore.detail.relatedTitles' => '相关作品',
 			'explore.detail.background' => '背景',
 			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n, other: '${n} 条结果', ), 
+			'explore.openInLibrary' => '在媒体库中打开',
 			'liveTv.title' => '直播电视',
 			'liveTv.guide' => '节目指南',
 			'liveTv.noChannels' => '没有可用的频道',
@@ -4925,9 +4927,9 @@ extension on TranslationsZh {
 			'liveTv.recordSettings.anyChannel' => '在任意频道录制',
 			'liveTv.recordSettings.anyTime' => '在任意时间录制',
 			'liveTv.recordSettings.skipInLibrary' => '跳过媒体库中已有的剧集',
-			'liveTv.recordSettings.keepUpTo' => '保留的剧集数',
 			_ => null,
 		} ?? switch (path) {
+			'liveTv.recordSettings.keepUpTo' => '保留的剧集数',
 			'liveTv.recordSettings.keepUpToHint' => '0 表示保留全部剧集',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes} 分钟后开始',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} ${time}',
@@ -5439,9 +5441,9 @@ extension on TranslationsZh {
 			'performanceOverlay.decoderQualcommHw' => 'Qualcomm 硬件',
 			'performanceOverlay.decoderMediatekHw' => 'MediaTek 硬件',
 			'performanceOverlay.decoderExynosHw' => 'Exynos 硬件',
-			'performanceOverlay.decoderSoftware' => '软件',
 			_ => null,
 		} ?? switch (path) {
+			'performanceOverlay.decoderSoftware' => '软件',
 			'performanceOverlay.decoderHardware' => '硬件',
 			'performanceOverlay.tunnelingActive' => '已启用',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted}（${failures} 个失败）',

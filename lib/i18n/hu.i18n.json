@@ -1619,7 +1619,8 @@
     "totalResults": {
       "one": "${n} találat",
       "other": "${n} találat"
-    }
+    },
+    "openInLibrary": "Megnyitás a könyvtárban"
   },
   "liveTv": {
     "title": "Élő TV",

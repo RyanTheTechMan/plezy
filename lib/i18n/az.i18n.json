@@ -1619,7 +1619,8 @@
     "totalResults": {
       "one": "${n} nəticə",
       "other": "${n} nəticə"
-    }
+    },
+    "openInLibrary": "Kitabxanada aç"
   },
   "liveTv": {
     "title": "Canlı TV",

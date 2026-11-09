@@ -1619,7 +1619,8 @@
     "totalResults": {
       "one": "${n} resultat",
       "other": "${n} resultater"
-    }
+    },
+    "openInLibrary": "Åbn i bibliotek"
   },
   "liveTv": {
     "title": "Live TV",

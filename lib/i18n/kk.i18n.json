@@ -1619,7 +1619,8 @@
     "totalResults": {
       "one": "${n} нәтиже",
       "other": "${n} нәтиже"
-    }
+    },
+    "openInLibrary": "Кітапханада ашу"
   },
   "liveTv": {
     "title": "Тікелей TV",

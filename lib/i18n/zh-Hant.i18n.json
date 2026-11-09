@@ -1609,7 +1609,8 @@
     },
     "totalResults": {
       "other": "${n} 筆結果"
-    }
+    },
+    "openInLibrary": "在媒體庫中開啟"
   },
   "liveTv": {
     "title": "直播電視",

@@ -1619,7 +1619,8 @@
     "totalResults": {
       "one": "${n} ta natija",
       "other": "${n} ta natija"
-    }
+    },
+    "openInLibrary": "Kutubxonada ochish"
   },
   "liveTv": {
     "title": "Jonli TV",

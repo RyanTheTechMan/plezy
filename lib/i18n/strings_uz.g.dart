@@ -1596,6 +1596,7 @@ class _Translations$explore$uz extends Translations$explore$en {
 		one: '${n} ta natija',
 		other: '${n} ta natija',
 	);
+	@override String get openInLibrary => 'Kutubxonada ochish';
 }
 
 // Path: liveTv
@@ -4854,6 +4855,7 @@ extension on TranslationsUz {
 			'explore.detail.relatedTitles' => 'Bogʻliq nomlar',
 			'explore.detail.background' => 'Orqa fon',
 			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('uz'))(n, one: '${n} ta natija', other: '${n} ta natija', ), 
+			'explore.openInLibrary' => 'Kutubxonada ochish',
 			'liveTv.title' => 'Jonli TV',
 			'liveTv.guide' => 'Dasturlar jadvali',
 			'liveTv.noChannels' => 'Mavjud kanallar yoʻq',
@@ -4937,9 +4939,9 @@ extension on TranslationsUz {
 			'liveTv.recordSettings.anyChannel' => 'Istalgan kanaldan yozib olish',
 			'liveTv.recordSettings.anyTime' => 'Istalgan vaqtda yozib olish',
 			'liveTv.recordSettings.skipInLibrary' => 'Kutubxonada mavjud epizodlarni oʻtkazib yuborish',
-			'liveTv.recordSettings.keepUpTo' => 'Saqlanadigan epizodlar',
 			_ => null,
 		} ?? switch (path) {
+			'liveTv.recordSettings.keepUpTo' => 'Saqlanadigan epizodlar',
 			'liveTv.recordSettings.keepUpToHint' => '0 barcha epizodlarni saqlaydi',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes} daqiqadan keyin boshlanadi',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day}, soat ${time} da',
@@ -5451,9 +5453,9 @@ extension on TranslationsUz {
 			'performanceOverlay.decoderQualcommHw' => 'Qualcomm HW',
 			'performanceOverlay.decoderMediatekHw' => 'MediaTek HW',
 			'performanceOverlay.decoderExynosHw' => 'Exynos HW',
-			'performanceOverlay.decoderSoftware' => 'Dasturiy',
 			_ => null,
 		} ?? switch (path) {
+			'performanceOverlay.decoderSoftware' => 'Dasturiy',
 			'performanceOverlay.decoderHardware' => 'Apparat',
 			'performanceOverlay.tunnelingActive' => 'Faol',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} ta muvaffaqiyatsiz)',

@@ -1596,6 +1596,7 @@ class _Translations$explore$tr extends Translations$explore$en {
 		one: '${n} sonuç',
 		other: '${n} sonuç',
 	);
+	@override String get openInLibrary => 'Kitaplıkta aç';
 }
 
 // Path: liveTv
@@ -4854,6 +4855,7 @@ extension on TranslationsTr {
 			'explore.detail.relatedTitles' => 'İlgili yapımlar',
 			'explore.detail.background' => 'Arka plan',
 			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n, one: '${n} sonuç', other: '${n} sonuç', ), 
+			'explore.openInLibrary' => 'Kitaplıkta aç',
 			'liveTv.title' => 'Canlı TV',
 			'liveTv.guide' => 'Rehber',
 			'liveTv.noChannels' => 'Kullanılabilir kanal yok',
@@ -4937,9 +4939,9 @@ extension on TranslationsTr {
 			'liveTv.recordSettings.anyChannel' => 'Herhangi bir kanalda kaydet',
 			'liveTv.recordSettings.anyTime' => 'Herhangi bir saatte kaydet',
 			'liveTv.recordSettings.skipInLibrary' => 'Kitaplıkta zaten bulunan bölümleri atla',
-			'liveTv.recordSettings.keepUpTo' => 'Saklanacak bölüm sayısı',
 			_ => null,
 		} ?? switch (path) {
+			'liveTv.recordSettings.keepUpTo' => 'Saklanacak bölüm sayısı',
 			'liveTv.recordSettings.keepUpToHint' => '0 tüm bölümleri saklar',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes} dk içinde başlıyor',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} saat ${time}',
@@ -5451,9 +5453,9 @@ extension on TranslationsTr {
 			'performanceOverlay.decoderQualcommHw' => 'Qualcomm Donanım',
 			'performanceOverlay.decoderMediatekHw' => 'MediaTek Donanım',
 			'performanceOverlay.decoderExynosHw' => 'Exynos Donanım',
-			'performanceOverlay.decoderSoftware' => 'Yazılım',
 			_ => null,
 		} ?? switch (path) {
+			'performanceOverlay.decoderSoftware' => 'Yazılım',
 			'performanceOverlay.decoderHardware' => 'Donanım',
 			'performanceOverlay.tunnelingActive' => 'Etkin',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} başarısız)',

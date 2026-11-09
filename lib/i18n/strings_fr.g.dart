@@ -1596,6 +1596,7 @@ class _Translations$explore$fr extends Translations$explore$en {
 		one: '${n} résultat',
 		other: '${n} résultats',
 	);
+	@override String get openInLibrary => 'Ouvrir dans la bibliothèque';
 }
 
 // Path: liveTv
@@ -4854,6 +4855,7 @@ extension on TranslationsFr {
 			'explore.detail.relatedTitles' => 'Titres liés',
 			'explore.detail.background' => 'Contexte',
 			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('fr'))(n, one: '${n} résultat', other: '${n} résultats', ), 
+			'explore.openInLibrary' => 'Ouvrir dans la bibliothèque',
 			'liveTv.title' => 'TV en direct',
 			'liveTv.guide' => 'Guide',
 			'liveTv.noChannels' => 'Aucune chaîne disponible',
@@ -4937,9 +4939,9 @@ extension on TranslationsFr {
 			'liveTv.recordSettings.anyChannel' => 'Enregistrer sur n’importe quelle chaîne',
 			'liveTv.recordSettings.anyTime' => 'Enregistrer à n’importe quelle heure',
 			'liveTv.recordSettings.skipInLibrary' => 'Ignorer les épisodes déjà présents dans la bibliothèque',
-			'liveTv.recordSettings.keepUpTo' => 'Épisodes à conserver',
 			_ => null,
 		} ?? switch (path) {
+			'liveTv.recordSettings.keepUpTo' => 'Épisodes à conserver',
 			'liveTv.recordSettings.keepUpToHint' => '0 conserve tous les épisodes',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => 'Commence dans ${minutes} min',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} à ${time}',
@@ -5451,9 +5453,9 @@ extension on TranslationsFr {
 			'performanceOverlay.decoderQualcommHw' => 'Matériel Qualcomm',
 			'performanceOverlay.decoderMediatekHw' => 'Matériel MediaTek',
 			'performanceOverlay.decoderExynosHw' => 'Matériel Exynos',
-			'performanceOverlay.decoderSoftware' => 'Logiciel',
 			_ => null,
 		} ?? switch (path) {
+			'performanceOverlay.decoderSoftware' => 'Logiciel',
 			'performanceOverlay.decoderHardware' => 'Matériel',
 			'performanceOverlay.tunnelingActive' => 'Actif',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} échecs)',

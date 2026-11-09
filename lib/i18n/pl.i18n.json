@@ -1639,7 +1639,8 @@
       "few": "${n} wyniki",
       "many": "${n} wyników",
       "other": "${n} wyniku"
-    }
+    },
+    "openInLibrary": "Otwórz w bibliotece"
   },
   "liveTv": {
     "title": "TV na żywo",
