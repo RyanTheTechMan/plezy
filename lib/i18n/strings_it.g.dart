@@ -93,6 +93,7 @@ class TranslationsIt extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$seerr$it seerr = _Translations$seerr$it._(_root);
 	@override late final _Translations$services$it services = _Translations$services$it._(_root);
 	@override late final _Translations$addServer$it addServer = _Translations$addServer$it._(_root);
+	@override late final _Translations$deepLinks$it deepLinks = _Translations$deepLinks$it._(_root);
 }
 
 // Path: app
@@ -102,7 +103,7 @@ class _Translations$app$it extends Translations$app$en {
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: appIcon
@@ -237,6 +238,14 @@ class _Translations$update$it extends Translations$update$en {
 	@override String get viewRelease => 'Visualizza note di rilascio';
 	@override String get latestVersion => 'La versione installata è l\'ultima disponibile';
 	@override String get checkFailed => 'Impossibile controllare gli aggiornamenti';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: supporter
@@ -620,6 +629,13 @@ class _Translations$settings$it extends Translations$settings$en {
 	@override String get screenshotLocationChanged => 'La posizione dello screenshot è cambiata';
 	@override String get clipLocationReset => 'La posizione della clip è stata reimpostata sul desktop';
 	@override String get screenshotLocationReset => 'La posizione dello screenshot è stata reimpostata sul desktop';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
+	@override String get packedStereoUi => '3D Playback UI';
 }
 
 // Path: themeEditor
@@ -998,6 +1014,8 @@ class _Translations$videoControls$it extends Translations$videoControls$en {
 	@override String get rotationLockButton => 'Blocco rotazione';
 	@override String get lockScreen => 'Blocca schermo';
 	@override String get screenLockButton => 'Blocco schermo';
+	@override String get tapToUnlock => 'Tap to unlock';
+	@override String get tapAgainToUnlock => 'Tap again to unlock';
 	@override String get timelineSlider => 'Timeline video';
 	@override String get volumeSlider => 'Livello volume';
 	@override String endsAt({required Object time}) => 'Termina alle ${time}';
@@ -1030,7 +1048,12 @@ class _Translations$videoControls$it extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Sottotitoli: Disattivati';
 	@override String osdSubtitles({required Object track}) => 'Sottotitoli: ${track}';
 	@override String osdAudio({required Object track}) => 'Audio: ${track}';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('it'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override late final _Translations$videoControls$clip$it clip = _Translations$videoControls$clip$it._(_root);
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 }
 
 // Path: messages
@@ -1093,6 +1116,7 @@ class _Translations$messages$it extends Translations$messages$en {
 	@override String get switchingToCompatiblePlayer => 'Passaggio al lettore compatibile...';
 	@override String get serverLimitTitle => 'Riproduzione non riuscita';
 	@override String get serverLimitBody => 'Errore del server (HTTP 500). È probabile che un limite di banda o transcodifica abbia impedito questa sessione. Chiedi al proprietario di modificare il limite.';
+	@override String get serverLimitTranscode => 'Try transcoding';
 	@override String get mediaUnreadableTitle => 'File non disponibile';
 	@override String get mediaUnreadableBody => 'Il server ha trovato questo elemento ma non ha potuto leggere il suo file (HTTP 404). Il file è stato probabilmente spostato o eliminato, oppure il suo storage è offline. Chiedi al proprietario del server di controllare il file e di riscansionare la libreria.';
 	@override String get serverBusyTitle => 'Streaming non disponibile';
@@ -1332,6 +1356,7 @@ class _Translations$discover$it extends Translations$discover$en {
 	@override String get addMediaToLibraries => 'Aggiungi contenuti multimediali alle tue librerie';
 	@override String get continueWatching => 'Continua a guardare';
 	@override String continueWatchingIn({required Object library}) => 'Continua a guardare in ${library}';
+	@override String get selectVersion => 'Select Version';
 	@override String get nextUp => 'Prossimi episodi';
 	@override String nextUpIn({required Object library}) => 'Prossimi episodi in ${library}';
 	@override String get recentlyAdded => 'Aggiunti di recente';
@@ -1427,11 +1452,13 @@ class _Translations$libraries$it extends Translations$libraries$en {
 	@override String get showLibrary => 'Mostra libreria';
 	@override String get hideLibrary => 'Nascondi libreria';
 	@override String get libraryOptions => 'Opzioni libreria';
+	@override String get shuffleLibrary => 'Shuffle library';
 	@override String get content => 'contenuto della libreria';
 	@override String get selectLibrary => 'Seleziona libreria';
 	@override String filtersWithCount({required Object count}) => 'Filtri (${count})';
 	@override String get noRecommendations => 'Nessun consiglio disponibile';
 	@override String get noCollections => 'Nessuna raccolta in questa libreria';
+	@override String get noGenres => 'No genres in this library';
 	@override String get noFoldersFound => 'Nessuna cartella trovata';
 	@override String get folders => 'cartelle';
 	@override late final _Translations$libraries$tabs$it tabs = _Translations$libraries$tabs$it._(_root);
@@ -1453,6 +1480,9 @@ class _Translations$about$it extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Versione ${version}';
 	@override String get appDescription => 'Un elegante client Plex, Jellyfin ed Emby per Flutter';
 	@override String get viewLicensesDescription => 'Visualizza le licenze delle librerie di terze parti';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1608,6 +1638,7 @@ class _Translations$explore$it extends Translations$explore$en {
 		one: '${n} risultato',
 		other: '${n} risultati',
 	);
+	@override String get openInLibrary => 'Apri nella libreria';
 }
 
 // Path: liveTv
@@ -1631,6 +1662,7 @@ class _Translations$liveTv$it extends Translations$liveTv$en {
 	@override String channelNumber({required Object number}) => 'Canale ${number}';
 	@override String get unknownChannel => 'Canale sconosciuto';
 	@override String get live => 'IN DIRETTA';
+	@override String get premiereBadge => 'NEW';
 	@override String get reloadGuide => 'Ricarica la guida';
 	@override String get searchGuide => 'Cerca nella guida';
 	@override String get searchHint => 'Cerca canali e programmi';
@@ -2157,6 +2189,7 @@ class _Translations$performanceOverlay$it extends Translations$performanceOverla
 	@override String get cacheLimit => 'Limite cache';
 	@override String get speed => 'Velocità';
 	@override String get player => 'Lettore';
+	@override String get playMethod => 'Play Method';
 	@override String get memory => 'Memoria';
 	@override String get uiFps => 'FPS UI';
 	@override String get fps => 'FPS';
@@ -2471,6 +2504,32 @@ class _Translations$addServer$it extends Translations$addServer$en {
 	@override String redirectUnsupportedEnterFinal({required Object product}) => 'Il server ha reindirizzato a un URL non supportato. Inserisci direttamente l\'URL finale del server ${product}.';
 }
 
+// Path: deepLinks
+class _Translations$deepLinks$it extends Translations$deepLinks$en {
+	_Translations$deepLinks$it._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get invalid => 'This Plezy link isn\'t valid.';
+	@override String profileNotFound({required Object profile}) => 'No profile matches "${profile}".';
+	@override String get serverUnavailable => 'Couldn\'t reach the server for this link.';
+	@override String get notFound => 'Couldn\'t find this title in your libraries.';
+	@override String get unsupportedItem => 'This link can\'t be played.';
+	@override String get noLiveTv => 'No Live TV server is available for this link.';
+	@override String channelNotFound({required Object channel}) => 'Couldn\'t find channel "${channel}".';
+	@override String get showLink => 'Show link';
+	@override String get showProfileLink => 'Show profile link';
+	@override String get dialogTitle => 'Link';
+	@override String get showHint => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.';
+	@override String get movieHint => 'Opening this link plays the movie.';
+	@override String get episodeHint => 'Opening this link plays this episode.';
+	@override String get profileHint => 'Opening this link switches to this profile.';
+	@override String openAsProfile({required Object name}) => 'Open as ${name}';
+	@override String get copy => 'Copy';
+	@override String get copied => 'Link copied';
+}
+
 // Path: appIcon.names
 class _Translations$appIcon$names$it extends Translations$appIcon$names$en {
 	_Translations$appIcon$names$it._(TranslationsIt root) : this._root = root, super.internal(root);
@@ -2624,6 +2683,8 @@ class _Translations$hotkeys$actions$it extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Attiva/disattiva shader';
 	@override String get skipMarker => 'Salta intro/titoli di coda';
 	@override String get screenshot => 'Cattura schermata';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2796,6 +2857,7 @@ class _Translations$libraries$tabs$it extends Translations$libraries$tabs$en {
 	@override String get recommended => 'Consigliati';
 	@override String get browse => 'Esplora';
 	@override String get collections => 'Raccolte';
+	@override String get genres => 'Genres';
 	@override String get playlists => 'Playlist';
 }
 
@@ -3456,7 +3518,7 @@ class _Translations$services$libraryFilter$it extends Translations$services$libr
 extension on TranslationsIt {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'appIcon.title' => 'Icona dell\'app',
 			'appIcon.defaultIcon' => 'Predefinita',
 			'appIcon.current' => 'Icona attuale',
@@ -3591,6 +3653,14 @@ extension on TranslationsIt {
 			'update.viewRelease' => 'Visualizza note di rilascio',
 			'update.latestVersion' => 'La versione installata è l\'ultima disponibile',
 			'update.checkFailed' => 'Impossibile controllare gli aggiornamenti',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'supporter.title' => 'Pacchetto temi e icone',
 			'supporter.intro' => 'Un acquisto una tantum facoltativo che aggiunge extra estetici:',
 			'supporter.presetThemes' => 'Temi preimpostati',
@@ -3960,7 +4030,16 @@ extension on TranslationsIt {
 			'settings.clipLocationChanged' => 'La posizione della clip è cambiata',
 			'settings.screenshotLocationChanged' => 'La posizione dello screenshot è cambiata',
 			'settings.clipLocationReset' => 'La posizione della clip è stata reimpostata sul desktop',
+			_ => null,
+		} ?? switch (path) {
 			'settings.screenshotLocationReset' => 'La posizione dello screenshot è stata reimpostata sul desktop',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'themeEditor.builtIn' => 'Integrati',
 			'themeEditor.presets' => 'Preimpostati',
 			'themeEditor.custom' => 'Personalizzato',
@@ -3968,8 +4047,6 @@ extension on TranslationsIt {
 			'themeEditor.editCustom' => 'Modifica tema personalizzato',
 			'themeEditor.editCustomDescription' => 'Scegli tu ogni colore',
 			'themeEditor.locked' => 'Sblocca con il Pacchetto temi e icone',
-			_ => null,
-		} ?? switch (path) {
 			'themeEditor.savedLocked' => 'Salvato — si sblocca con il Pacchetto temi e icone',
 			'themeEditor.title' => 'Tema personalizzato',
 			'themeEditor.startFrom' => 'Parti da',
@@ -4037,6 +4114,8 @@ extension on TranslationsIt {
 			'hotkeys.actions.shaderToggle' => 'Attiva/disattiva shader',
 			'hotkeys.actions.skipMarker' => 'Salta intro/titoli di coda',
 			'hotkeys.actions.screenshot' => 'Cattura schermata',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Info sul file',
 			'fileInfo.overview' => 'Panoramica',
 			'fileInfo.video' => 'Video',
@@ -4277,6 +4356,8 @@ extension on TranslationsIt {
 			'videoControls.rotationLockButton' => 'Blocco rotazione',
 			'videoControls.lockScreen' => 'Blocca schermo',
 			'videoControls.screenLockButton' => 'Blocco schermo',
+			'videoControls.tapToUnlock' => 'Tap to unlock',
+			'videoControls.tapAgainToUnlock' => 'Tap again to unlock',
 			'videoControls.timelineSlider' => 'Timeline video',
 			'videoControls.volumeSlider' => 'Livello volume',
 			'videoControls.endsAt' => ({required Object time}) => 'Termina alle ${time}',
@@ -4316,6 +4397,7 @@ extension on TranslationsIt {
 			'videoControls.osdSubtitlesOff' => 'Sottotitoli: Disattivati',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Sottotitoli: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Audio: ${track}',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('it'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.clip.fineAdjust' => 'Regolazione fine',
 			'videoControls.clip.title' => 'Clip',
 			'videoControls.clip.vodOnly' => 'I clip sono disponibili per la riproduzione video su richiesta.',
@@ -4353,6 +4435,7 @@ extension on TranslationsIt {
 			'videoControls.clip.formatHevcSdr' => 'HEVC DSP',
 			'videoControls.clip.formatH264Sdr' => 'H.264 DSP',
 			'videoControls.clip.formatHevcHdr' => 'HEVCHDR',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'messages.markedAsWatched' => 'Segnato come visto',
 			'messages.markedAsUnwatched' => 'Segnato come non visto',
 			'messages.markedAsWatchedOffline' => 'Segnato come visto (verrà sincronizzato quando torni online)',
@@ -4403,6 +4486,7 @@ extension on TranslationsIt {
 			'messages.switchingToCompatiblePlayer' => 'Passaggio al lettore compatibile...',
 			'messages.serverLimitTitle' => 'Riproduzione non riuscita',
 			'messages.serverLimitBody' => 'Errore del server (HTTP 500). È probabile che un limite di banda o transcodifica abbia impedito questa sessione. Chiedi al proprietario di modificare il limite.',
+			'messages.serverLimitTranscode' => 'Try transcoding',
 			'messages.mediaUnreadableTitle' => 'File non disponibile',
 			'messages.mediaUnreadableBody' => 'Il server ha trovato questo elemento ma non ha potuto leggere il suo file (HTTP 404). Il file è stato probabilmente spostato o eliminato, oppure il suo storage è offline. Chiedi al proprietario del server di controllare il file e di riscansionare la libreria.',
 			'messages.serverBusyTitle' => 'Streaming non disponibile',
@@ -4460,6 +4544,8 @@ extension on TranslationsIt {
 			'mpvConfig.confirmDeletePreset' => 'Sei sicuro di voler eliminare questo preset?',
 			'mpvConfig.configPlaceholder' => 'gpu-api=vulkan\nhwdec=auto\n# comment',
 			'mpvConfig.lineHint' => 'option=value',
+			_ => null,
+		} ?? switch (path) {
 			'mpvConfig.addLine' => 'Aggiungi riga',
 			'mpvConfig.removeLine' => 'Rimuovi riga',
 			'mpvConfig.embeddedVoHint' => 'vo, gpu-context e gpu-api vengono ignorati su Linux: il video incorporato viene sempre renderizzato tramite vo=libmpv sul piano video e gpu-next (che gli shader di calcolo come ArtCNN richiedono) non può essere eseguito in modalità incorporata.',
@@ -4482,8 +4568,6 @@ extension on TranslationsIt {
 			'profiles.summarySingle' => 'Aggiungi profili per combinare utenti gestiti e identità locali',
 			'profiles.summaryMultipleWithActive' => ({required Object count, required Object activeName}) => '${count} profili · attivo: ${activeName}',
 			'profiles.summaryMultiple' => ({required Object count}) => '${count} profili',
-			_ => null,
-		} ?? switch (path) {
 			'profiles.removeConnectionTitle' => 'Rimuovere la connessione?',
 			'profiles.removeConnectionMessage' => ({required Object displayName, required Object connectionLabel}) => 'Rimuovi da ${displayName} l\'accesso a ${connectionLabel}. Gli altri profili continueranno ad avervi accesso.',
 			'profiles.deleteProfileTitle' => 'Eliminare il profilo?',
@@ -4604,6 +4688,7 @@ extension on TranslationsIt {
 			'discover.addMediaToLibraries' => 'Aggiungi contenuti multimediali alle tue librerie',
 			'discover.continueWatching' => 'Continua a guardare',
 			'discover.continueWatchingIn' => ({required Object library}) => 'Continua a guardare in ${library}',
+			'discover.selectVersion' => 'Select Version',
 			'discover.nextUp' => 'Prossimi episodi',
 			'discover.nextUpIn' => ({required Object library}) => 'Prossimi episodi in ${library}',
 			'discover.recentlyAdded' => 'Aggiunti di recente',
@@ -4682,16 +4767,19 @@ extension on TranslationsIt {
 			'libraries.showLibrary' => 'Mostra libreria',
 			'libraries.hideLibrary' => 'Nascondi libreria',
 			'libraries.libraryOptions' => 'Opzioni libreria',
+			'libraries.shuffleLibrary' => 'Shuffle library',
 			'libraries.content' => 'contenuto della libreria',
 			'libraries.selectLibrary' => 'Seleziona libreria',
 			'libraries.filtersWithCount' => ({required Object count}) => 'Filtri (${count})',
 			'libraries.noRecommendations' => 'Nessun consiglio disponibile',
 			'libraries.noCollections' => 'Nessuna raccolta in questa libreria',
+			'libraries.noGenres' => 'No genres in this library',
 			'libraries.noFoldersFound' => 'Nessuna cartella trovata',
 			'libraries.folders' => 'cartelle',
 			'libraries.tabs.recommended' => 'Consigliati',
 			'libraries.tabs.browse' => 'Esplora',
 			'libraries.tabs.collections' => 'Raccolte',
+			'libraries.tabs.genres' => 'Genres',
 			'libraries.tabs.playlists' => 'Playlist',
 			'libraries.groupings.title' => 'Raggruppa per',
 			'libraries.groupings.all' => 'Tutti',
@@ -4765,6 +4853,9 @@ extension on TranslationsIt {
 			'about.versionLabel' => ({required Object version}) => 'Versione ${version}',
 			'about.appDescription' => 'Un elegante client Plex, Jellyfin ed Emby per Flutter',
 			'about.viewLicensesDescription' => 'Visualizza le licenze delle librerie di terze parti',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Nessun server trovato per ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Impossibile caricare i server: ${error}',
 			'serverSelection.noValidServers' => 'Nessun server utilizzabile trovato per questo account',
@@ -4960,12 +5051,15 @@ extension on TranslationsIt {
 			'explore.detail.relatedTitles' => 'Titoli correlati',
 			'explore.detail.background' => 'Contesto',
 			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('it'))(n, one: '${n} risultato', other: '${n} risultati', ), 
+			'explore.openInLibrary' => 'Apri nella libreria',
 			'liveTv.title' => 'TV in diretta',
 			'liveTv.guide' => 'Guida',
 			'liveTv.noChannels' => 'Nessun canale disponibile',
 			'liveTv.noDvr' => 'Nessun DVR configurato su alcun server',
 			'liveTv.serverUnavailable' => 'Il server TV in diretta non è disponibile.',
 			'liveTv.serverNotConnected' => 'Il server TV in diretta non è connesso.',
+			_ => null,
+		} ?? switch (path) {
 			'liveTv.noPrograms' => 'Nessun dato di programma disponibile',
 			'liveTv.liveStreamFailed' => 'Streaming in diretta non riuscito',
 			'liveTv.unknownProgram' => 'Programma sconosciuto',
@@ -4974,6 +5068,7 @@ extension on TranslationsIt {
 			'liveTv.channelNumber' => ({required Object number}) => 'Canale ${number}',
 			'liveTv.unknownChannel' => 'Canale sconosciuto',
 			'liveTv.live' => 'IN DIRETTA',
+			'liveTv.premiereBadge' => 'NEW',
 			'liveTv.reloadGuide' => 'Ricarica la guida',
 			'liveTv.searchGuide' => 'Cerca nella guida',
 			'liveTv.searchHint' => 'Cerca canali e programmi',
@@ -4996,8 +5091,6 @@ extension on TranslationsIt {
 			'liveTv.noFavoriteChannels' => 'Nessun canale preferito',
 			'liveTv.noFavoriteChannelsHint' => 'Mostra tutti i canali, quindi tieni premuto un canale per aggiungerlo ai preferiti.',
 			'liveTv.showAllChannels' => 'Mostra tutti i canali',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.favoritesLoadFailed' => 'Impossibile caricare i preferiti. Controlla la connessione e riprova.',
 			'liveTv.favoritesUpdateFailed' => 'Impossibile aggiornare i preferiti. Controlla la connessione e riprova.',
 			'liveTv.joinSession' => 'Partecipa alla sessione in corso',
@@ -5479,6 +5572,8 @@ extension on TranslationsIt {
 			'companionRemote.errors.authenticationFailed' => 'Autenticazione non riuscita',
 			'companionRemote.errors.serverStartFailed' => ({required Object error}) => 'Impossibile avviare il server remoto: ${error}',
 			'companionRemote.errors.commandFailed' => ({required Object error}) => 'Impossibile inviare il comando remoto: ${error}',
+			_ => null,
+		} ?? switch (path) {
 			'companionRemote.errors.joinTimedOut' => 'Tempo scaduto durante la partecipazione alla sessione',
 			'companionRemote.errors.failedToConnectAnyAddress' => 'Impossibile connettersi a qualsiasi indirizzo',
 			'companionRemote.errors.connectionLostAfterAttempts' => ({required Object attempts}) => 'Connessione persa dopo ${attempts} tentativi',
@@ -5510,8 +5605,6 @@ extension on TranslationsIt {
 			'videoSettings.audioNormalizationDisablesPassthrough' => 'Decodifica l\'audio in PCM; il passthrough è disattivato mentre questa opzione è attiva',
 			'performanceOverlay.color' => 'Colore',
 			'performanceOverlay.performance' => 'Prestazioni',
-			_ => null,
-		} ?? switch (path) {
 			'performanceOverlay.buffer' => 'Buffer',
 			'performanceOverlay.app' => 'App',
 			'performanceOverlay.decoder' => 'Decoder',
@@ -5551,6 +5644,7 @@ extension on TranslationsIt {
 			'performanceOverlay.cacheLimit' => 'Limite cache',
 			'performanceOverlay.speed' => 'Velocità',
 			'performanceOverlay.player' => 'Lettore',
+			'performanceOverlay.playMethod' => 'Play Method',
 			'performanceOverlay.memory' => 'Memoria',
 			'performanceOverlay.uiFps' => 'FPS UI',
 			'performanceOverlay.fps' => 'FPS',
@@ -5815,6 +5909,23 @@ extension on TranslationsIt {
 			'addServer.redirectDifferentHost' => ({required Object product}) => 'Il server ha reindirizzato a un host diverso. Inserisci direttamente l\'URL finale del server ${product}.',
 			'addServer.redirectInsecure' => 'Il server ha reindirizzato da HTTPS a un URL non sicuro',
 			'addServer.redirectUnsupportedEnterFinal' => ({required Object product}) => 'Il server ha reindirizzato a un URL non supportato. Inserisci direttamente l\'URL finale del server ${product}.',
+			'deepLinks.invalid' => 'This Plezy link isn\'t valid.',
+			'deepLinks.profileNotFound' => ({required Object profile}) => 'No profile matches "${profile}".',
+			'deepLinks.serverUnavailable' => 'Couldn\'t reach the server for this link.',
+			'deepLinks.notFound' => 'Couldn\'t find this title in your libraries.',
+			'deepLinks.unsupportedItem' => 'This link can\'t be played.',
+			'deepLinks.noLiveTv' => 'No Live TV server is available for this link.',
+			'deepLinks.channelNotFound' => ({required Object channel}) => 'Couldn\'t find channel "${channel}".',
+			'deepLinks.showLink' => 'Show link',
+			'deepLinks.showProfileLink' => 'Show profile link',
+			'deepLinks.dialogTitle' => 'Link',
+			'deepLinks.showHint' => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.',
+			'deepLinks.movieHint' => 'Opening this link plays the movie.',
+			'deepLinks.episodeHint' => 'Opening this link plays this episode.',
+			'deepLinks.profileHint' => 'Opening this link switches to this profile.',
+			'deepLinks.openAsProfile' => ({required Object name}) => 'Open as ${name}',
+			'deepLinks.copy' => 'Copy',
+			'deepLinks.copied' => 'Link copied',
 			_ => null,
 		};
 	}

@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "appIcon": {
     "title": "アプリアイコン",
@@ -150,7 +150,15 @@
     "skipVersion": "このバージョンをスキップ",
     "viewRelease": "リリースを表示",
     "latestVersion": "最新バージョンです",
-    "checkFailed": "アップデートの確認に失敗しました"
+    "checkFailed": "アップデートの確認に失敗しました",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "supporter": {
     "title": "テーマ＆アイコンパック",
@@ -527,6 +535,12 @@
     "screenshotLocationChanged": "スクリーンショットの場所が変更されました",
     "clipLocationReset": "クリップの場所をデスクトップにリセット",
     "screenshotLocationReset": "スクリーンショットの場所がデスクトップにリセットされました",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
@@ -612,7 +626,9 @@
       "subSeekPrev": "前の字幕にシーク",
       "shaderToggle": "シェーダー切替",
       "skipMarker": "イントロ/クレジットをスキップ",
-      "screenshot": "スクリーンショットを撮る"
+      "screenshot": "スクリーンショットを撮る",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -757,12 +773,15 @@
     "confirmDeleteTarget": "サーバーから「${title}」を完全に削除しますか？",
     "deleteMultipleWarning": "すべてのエピソードとそのファイルが含まれます。",
     "deleteEpisodeCountWarning": {
+      "one": "This deletes all ${n} episode in it, and its file.",
       "other": "中の全${n}エピソードとそのファイルが削除されます。"
     },
     "deleteMultiPartWarning": {
+      "one": "This item is stored as ${n} file, which will be deleted.",
       "other": "このアイテムは${n}個のファイルにまたがって保存されており、すべて削除されます。"
     },
     "deleteSharedFileHeading": {
+      "one": "${n} other episode is stored in the same file and will be deleted too:",
       "other": "同じファイルに保存されている他の${n}エピソードも削除されます："
     },
     "deleteScopeUnverifiedProbeFailed": "Plezyは削除対象のファイルを確認できなかったため、上記のアイテム以上に削除される可能性があります。キャンセルして再試行するか、それでも削除してください。",
@@ -874,8 +893,8 @@
     "rotationLockButton": "回転ロック",
     "lockScreen": "画面をロック",
     "screenLockButton": "画面ロック",
-    "tapToUnlock": "",
-    "tapAgainToUnlock": "",
+    "tapToUnlock": "Tap to unlock",
+    "tapAgainToUnlock": "Tap again to unlock",
     "timelineSlider": "動画タイムライン",
     "volumeSlider": "音量レベル",
     "endsAt": "${time}に終了",
@@ -917,6 +936,10 @@
     "osdSubtitlesOff": "字幕: オフ",
     "osdSubtitles": "字幕: ${track}",
     "osdAudio": "音声: ${track}",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "微調整",
       "title": "クリップ",
@@ -966,6 +989,7 @@
     "markedAsUnwatchedOffline": "未視聴にしました（オンライン時に同期）",
     "autoRemovedWatchedDownload": "自動削除: ${title}",
     "autoRemovedWatchedDownloads": {
+      "one": "Auto-removed ${n} watched download",
       "other": "視聴済みダウンロードを${n}件自動削除しました"
     },
     "removedFromContinueWatching": "視聴中から削除しました",
@@ -1012,7 +1036,7 @@
     "switchingToCompatiblePlayer": "互換性のあるプレーヤーに切り替え中…",
     "serverLimitTitle": "再生に失敗しました",
     "serverLimitBody": "サーバーエラー（HTTP 500）。帯域幅/トランスコード制限により拒否された可能性があります。所有者に調整を依頼してください。",
-    "serverLimitTranscode": "",
+    "serverLimitTranscode": "Try transcoding",
     "mediaUnreadableTitle": "ファイルを利用できません",
     "mediaUnreadableBody": "サーバーはこのアイテムを見つけましたが、そのファイルを読み取れませんでした（HTTP 404）。ファイルが移動・削除されたか、ストレージがオフラインの可能性があります。サーバーの管理者にファイルの確認とライブラリの再スキャンを依頼してください。",
     "serverBusyTitle": "ストリームを利用できません",
@@ -1238,7 +1262,7 @@
     "addMediaToLibraries": "ライブラリにメディアを追加してください",
     "continueWatching": "視聴を続ける",
     "continueWatchingIn": "${library}の視聴を続ける",
-    "selectVersion": "",
+    "selectVersion": "Select Version",
     "nextUp": "次のエピソード",
     "nextUpIn": "${library}の次のエピソード",
     "recentlyAdded": "最近追加されたコンテンツ",
@@ -1259,6 +1283,7 @@
     "minutesLeft": "残り${minutes}分",
     "moreLikeThis": "似ている作品",
     "titleCount": {
+      "one": "${n} title",
       "other": "${n}作品"
     },
     "person": {
@@ -1325,20 +1350,20 @@
     "showLibrary": "ライブラリを表示",
     "hideLibrary": "ライブラリを非表示",
     "libraryOptions": "ライブラリオプション",
-    "shuffleLibrary": "",
+    "shuffleLibrary": "Shuffle library",
     "content": "ライブラリコンテンツ",
     "selectLibrary": "ライブラリを選択",
     "filtersWithCount": "フィルター (${count})",
     "noRecommendations": "おすすめがありません",
     "noCollections": "このライブラリにコレクションがありません",
-    "noGenres": "",
+    "noGenres": "No genres in this library",
     "noFoldersFound": "フォルダが見つかりません",
     "folders": "フォルダ",
     "tabs": {
       "recommended": "おすすめ",
       "browse": "ブラウズ",
       "collections": "コレクション",
-      "genres": "",
+      "genres": "Genres",
       "playlists": "プレイリスト"
     },
     "groupings": {
@@ -1422,7 +1447,10 @@
     "openSourceLicenses": "オープンソースライセンス",
     "versionLabel": "バージョン ${version}",
     "appDescription": "Flutter製の美しいPlex・Jellyfin・Embyクライアント",
-    "viewLicensesDescription": "サードパーティライブラリのライセンスを表示"
+    "viewLicensesDescription": "サードパーティライブラリのライセンスを表示",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email})のサーバーが見つかりません",
@@ -1511,6 +1539,7 @@
       "upcoming": "放送予定"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n}話"
     },
     "cast": "キャスト",
@@ -1525,6 +1554,7 @@
     "inTheseLibraries": "これらのライブラリにあります",
     "checkingLibrary": "ライブラリを確認中…",
     "libraryCheckFailed": {
+      "one": "Couldn't check ${n} server",
       "other": "${n}台のサーバーを確認できませんでした"
     },
     "emptyTitle": "まだ何もありません",
@@ -1567,6 +1597,7 @@
       "favorited": "お気に入り ${n}件",
       "dropRate": "${percent}が視聴中止",
       "comments": {
+        "one": "${n} comment",
         "other": "コメント ${n}件"
       },
       "votes": "投票 ${n}件",
@@ -1650,6 +1681,7 @@
       "ratings": "評価",
       "schedule": "放送予定",
       "recommendedByUsers": {
+        "one": "Recommended by ${n} user",
         "other": "${n}人のユーザーがおすすめ"
       },
       "recommendedBy": "${who}がおすすめ",
@@ -1660,6 +1692,7 @@
       "background": "背景"
     },
     "totalResults": {
+      "one": "${n} result",
       "other": "${n}件の結果"
     },
     "openInLibrary": "ライブラリで開く"
@@ -1679,7 +1712,7 @@
     "channelNumber": "チャンネル ${number}",
     "unknownChannel": "不明なチャンネル",
     "live": "ライブ",
-    "premiereBadge": "",
+    "premiereBadge": "NEW",
     "reloadGuide": "番組表を再読み込み",
     "searchGuide": "番組表を検索",
     "searchHint": "チャンネル・番組を検索",
@@ -1819,6 +1852,7 @@
     "addToQueue": "キューに追加",
     "discNumber": "ディスク ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n}曲"
     },
     "nowPlaying": "再生中",
@@ -1916,6 +1950,7 @@
     "offsetPlusSecond": "+1秒",
     "participants": "参加者",
     "participantCount": {
+      "one": "${n} participant",
       "other": "参加者${n}人"
     },
     "hostBadge": "ホスト",
@@ -2297,7 +2332,7 @@
     "cacheLimit": "キャッシュ上限",
     "speed": "速度",
     "player": "プレーヤー",
-    "playMethod": "",
+    "playMethod": "Play Method",
     "memory": "メモリ",
     "uiFps": "UI FPS",
     "fps": "FPS",
@@ -2592,22 +2627,22 @@
     "redirectUnsupportedEnterFinal": "サーバーからサポートされていないURLにリダイレクトされました。最終的な${product}のURLを直接入力してください。"
   },
   "deepLinks": {
-    "invalid": "",
-    "profileNotFound": "",
-    "serverUnavailable": "",
-    "notFound": "",
-    "unsupportedItem": "",
-    "noLiveTv": "",
-    "channelNotFound": "",
-    "showLink": "",
-    "showProfileLink": "",
-    "dialogTitle": "",
-    "showHint": "",
-    "movieHint": "",
-    "episodeHint": "",
-    "profileHint": "",
-    "openAsProfile": "",
-    "copy": "",
-    "copied": ""
+    "invalid": "This Plezy link isn't valid.",
+    "profileNotFound": "No profile matches \"${profile}\".",
+    "serverUnavailable": "Couldn't reach the server for this link.",
+    "notFound": "Couldn't find this title in your libraries.",
+    "unsupportedItem": "This link can't be played.",
+    "noLiveTv": "No Live TV server is available for this link.",
+    "channelNotFound": "Couldn't find channel \"${channel}\".",
+    "showLink": "Show link",
+    "showProfileLink": "Show profile link",
+    "dialogTitle": "Link",
+    "showHint": "Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.",
+    "movieHint": "Opening this link plays the movie.",
+    "episodeHint": "Opening this link plays this episode.",
+    "profileHint": "Opening this link switches to this profile.",
+    "openAsProfile": "Open as ${name}",
+    "copy": "Copy",
+    "copied": "Link copied"
   }
 }

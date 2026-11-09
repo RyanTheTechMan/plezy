@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "appIcon": {
     "title": "Appikon",
@@ -150,7 +150,15 @@
     "skipVersion": "Hoppa över denna version",
     "viewRelease": "Visa versionsinformation",
     "latestVersion": "Du har den senaste versionen",
-    "checkFailed": "Det gick inte att söka efter uppdateringar"
+    "checkFailed": "Det gick inte att söka efter uppdateringar",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "supporter": {
     "title": "Tema- och ikonpaket",
@@ -527,6 +535,12 @@
     "screenshotLocationChanged": "Plats för skärmdump har ändrats",
     "clipLocationReset": "Klippplats återställs till skrivbordet",
     "screenshotLocationReset": "Skärmdumpens plats återställd till skrivbordet",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
@@ -612,7 +626,9 @@
       "subSeekPrev": "Hoppa till föregående undertext",
       "shaderToggle": "Växla shaders",
       "skipMarker": "Hoppa över intro/eftertexter",
-      "screenshot": "Ta skärmbild"
+      "screenshot": "Ta skärmbild",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -877,8 +893,8 @@
     "rotationLockButton": "Rotationslås",
     "lockScreen": "Lås skärm",
     "screenLockButton": "Skärmlås",
-    "tapToUnlock": "",
-    "tapAgainToUnlock": "",
+    "tapToUnlock": "Tap to unlock",
+    "tapAgainToUnlock": "Tap again to unlock",
     "timelineSlider": "Videotidslinje",
     "volumeSlider": "Volymnivå",
     "endsAt": "Slutar kl. ${time}",
@@ -920,6 +936,10 @@
     "osdSubtitlesOff": "Undertexter: Av",
     "osdSubtitles": "Undertexter: ${track}",
     "osdAudio": "Ljud: ${track}",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "Finjustering",
       "title": "Klämma",
@@ -1016,7 +1036,7 @@
     "switchingToCompatiblePlayer": "Byter till kompatibel spelare...",
     "serverLimitTitle": "Uppspelningen misslyckades",
     "serverLimitBody": "Serverfel (HTTP 500). En bandbredds-/transkodningsgräns avvisade troligen sessionen. Be ägaren justera den.",
-    "serverLimitTranscode": "",
+    "serverLimitTranscode": "Try transcoding",
     "mediaUnreadableTitle": "Filen är otillgänglig",
     "mediaUnreadableBody": "Servern hittade objektet men kunde inte läsa dess fil (HTTP 404). Filen har troligen flyttats, tagits bort eller så är dess lagring offline. Be serverägaren kontrollera filen och skanna om biblioteket.",
     "serverBusyTitle": "Strömmen är inte tillgänglig",
@@ -1242,7 +1262,7 @@
     "addMediaToLibraries": "Lägg till medieinnehåll i dina bibliotek",
     "continueWatching": "Fortsätt titta",
     "continueWatchingIn": "Fortsätt titta i ${library}",
-    "selectVersion": "",
+    "selectVersion": "Select Version",
     "nextUp": "Nästa",
     "nextUpIn": "Nästa i ${library}",
     "recentlyAdded": "Nyligen tillagda",
@@ -1330,20 +1350,20 @@
     "showLibrary": "Visa bibliotek",
     "hideLibrary": "Dölj bibliotek",
     "libraryOptions": "Biblioteksalternativ",
-    "shuffleLibrary": "",
+    "shuffleLibrary": "Shuffle library",
     "content": "bibliotekets innehåll",
     "selectLibrary": "Välj bibliotek",
     "filtersWithCount": "Filter (${count})",
     "noRecommendations": "Inga rekommendationer tillgängliga",
     "noCollections": "Inga samlingar i det här biblioteket",
-    "noGenres": "",
+    "noGenres": "No genres in this library",
     "noFoldersFound": "Inga mappar hittades",
     "folders": "mappar",
     "tabs": {
       "recommended": "Rekommenderat",
       "browse": "Bläddra",
       "collections": "Samlingar",
-      "genres": "",
+      "genres": "Genres",
       "playlists": "Spellistor"
     },
     "groupings": {
@@ -1427,7 +1447,10 @@
     "openSourceLicenses": "Licenser för öppen källkod",
     "versionLabel": "Version ${version}",
     "appDescription": "En vacker Plex-, Jellyfin- och Emby-klient för Flutter",
-    "viewLicensesDescription": "Visa licenser för tredjepartsbibliotek"
+    "viewLicensesDescription": "Visa licenser för tredjepartsbibliotek",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Inga servrar hittades för ${username} (${email})",
@@ -1689,7 +1712,7 @@
     "channelNumber": "Kanal ${number}",
     "unknownChannel": "Okänd kanal",
     "live": "LIVE",
-    "premiereBadge": "",
+    "premiereBadge": "NEW",
     "reloadGuide": "Ladda om programguide",
     "searchGuide": "Sök i programguiden",
     "searchHint": "Sök kanaler och program",
@@ -2309,7 +2332,7 @@
     "cacheLimit": "Cachegräns",
     "speed": "Hastighet",
     "player": "Spelare",
-    "playMethod": "",
+    "playMethod": "Play Method",
     "memory": "Minne",
     "uiFps": "UI FPS",
     "fps": "FPS",
@@ -2604,22 +2627,22 @@
     "redirectUnsupportedEnterFinal": "Servern omdirigerade till en URL som inte stöds. Ange den slutliga URL:en för ${product} direkt."
   },
   "deepLinks": {
-    "invalid": "",
-    "profileNotFound": "",
-    "serverUnavailable": "",
-    "notFound": "",
-    "unsupportedItem": "",
-    "noLiveTv": "",
-    "channelNotFound": "",
-    "showLink": "",
-    "showProfileLink": "",
-    "dialogTitle": "",
-    "showHint": "",
-    "movieHint": "",
-    "episodeHint": "",
-    "profileHint": "",
-    "openAsProfile": "",
-    "copy": "",
-    "copied": ""
+    "invalid": "This Plezy link isn't valid.",
+    "profileNotFound": "No profile matches \"${profile}\".",
+    "serverUnavailable": "Couldn't reach the server for this link.",
+    "notFound": "Couldn't find this title in your libraries.",
+    "unsupportedItem": "This link can't be played.",
+    "noLiveTv": "No Live TV server is available for this link.",
+    "channelNotFound": "Couldn't find channel \"${channel}\".",
+    "showLink": "Show link",
+    "showProfileLink": "Show profile link",
+    "dialogTitle": "Link",
+    "showHint": "Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.",
+    "movieHint": "Opening this link plays the movie.",
+    "episodeHint": "Opening this link plays this episode.",
+    "profileHint": "Opening this link switches to this profile.",
+    "openAsProfile": "Open as ${name}",
+    "copy": "Copy",
+    "copied": "Link copied"
   }
 }

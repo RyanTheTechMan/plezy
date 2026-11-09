@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "appIcon": {
     "title": "Appikon",
@@ -150,7 +150,15 @@
     "skipVersion": "Spring denne version over",
     "viewRelease": "Vis udgivelse",
     "latestVersion": "Du har den nyeste version",
-    "checkFailed": "Kunne ikke søge efter opdateringer"
+    "checkFailed": "Kunne ikke søge efter opdateringer",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "supporter": {
     "title": "Tema- og ikonpakke",
@@ -527,6 +535,12 @@
     "screenshotLocationChanged": "Skærmbilledets placering ændret",
     "clipLocationReset": "Klipplacering nulstillet til skrivebordet",
     "screenshotLocationReset": "Skærmbilledets placering nulstillet til skrivebordet",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
@@ -612,7 +626,9 @@
       "subSeekPrev": "Søg til forrige undertekst",
       "shaderToggle": "Slå shadere til/fra",
       "skipMarker": "Spring intro/rulletekster over",
-      "screenshot": "Tag skærmbillede"
+      "screenshot": "Tag skærmbillede",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -877,8 +893,8 @@
     "rotationLockButton": "Rotationslås",
     "lockScreen": "Lås skærm",
     "screenLockButton": "Skærmlås",
-    "tapToUnlock": "",
-    "tapAgainToUnlock": "",
+    "tapToUnlock": "Tap to unlock",
+    "tapAgainToUnlock": "Tap again to unlock",
     "timelineSlider": "Videotidslinje",
     "volumeSlider": "Lydstyrkeniveau",
     "endsAt": "Slutter kl. ${time}",
@@ -920,6 +936,10 @@
     "osdSubtitlesOff": "Undertekster: Fra",
     "osdSubtitles": "Undertekster: ${track}",
     "osdAudio": "Lyd: ${track}",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "Finjustering",
       "title": "Klip",
@@ -1016,7 +1036,7 @@
     "switchingToCompatiblePlayer": "Skifter til kompatibel afspiller...",
     "serverLimitTitle": "Afspilning mislykkedes",
     "serverLimitBody": "Serverfejl (HTTP 500). En båndbredde- eller transkodningsgrænse afviste sandsynligvis sessionen. Bed ejeren om at justere den.",
-    "serverLimitTranscode": "",
+    "serverLimitTranscode": "Try transcoding",
     "mediaUnreadableTitle": "Fil utilgængelig",
     "mediaUnreadableBody": "Serveren fandt dette emne, men kunne ikke læse filen (HTTP 404). Filen er sandsynligvis flyttet, slettet, eller dens lager er offline. Bed serverejeren om at kontrollere filen og scanne biblioteket igen.",
     "serverBusyTitle": "Stream er ikke tilgængelig",
@@ -1242,7 +1262,7 @@
     "addMediaToLibraries": "Tilføj medier til dine biblioteker",
     "continueWatching": "Fortsæt med at se",
     "continueWatchingIn": "Fortsæt med at se i ${library}",
-    "selectVersion": "",
+    "selectVersion": "Select Version",
     "nextUp": "Næste afsnit",
     "nextUpIn": "Næste afsnit i ${library}",
     "recentlyAdded": "Nyligt tilføjet",
@@ -1330,20 +1350,20 @@
     "showLibrary": "Vis bibliotek",
     "hideLibrary": "Skjul bibliotek",
     "libraryOptions": "Biblioteksindstillinger",
-    "shuffleLibrary": "",
+    "shuffleLibrary": "Shuffle library",
     "content": "biblioteksindhold",
     "selectLibrary": "Vælg bibliotek",
     "filtersWithCount": "Filtre (${count})",
     "noRecommendations": "Ingen anbefalinger tilgængelige",
     "noCollections": "Ingen samlinger i dette bibliotek",
-    "noGenres": "",
+    "noGenres": "No genres in this library",
     "noFoldersFound": "Ingen mapper fundet",
     "folders": "mapper",
     "tabs": {
       "recommended": "Anbefalet",
       "browse": "Gennemse",
       "collections": "Samlinger",
-      "genres": "",
+      "genres": "Genres",
       "playlists": "Playlister"
     },
     "groupings": {
@@ -1427,7 +1447,10 @@
     "openSourceLicenses": "Open source-licenser",
     "versionLabel": "Version ${version}",
     "appDescription": "En smuk Plex-, Jellyfin- og Emby-klient bygget med Flutter",
-    "viewLicensesDescription": "Se licenser for tredjepartsbiblioteker"
+    "viewLicensesDescription": "Se licenser for tredjepartsbiblioteker",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Ingen servere fundet for ${username} (${email})",
@@ -1689,7 +1712,7 @@
     "channelNumber": "Kanal ${number}",
     "unknownChannel": "Ukendt kanal",
     "live": "LIVE",
-    "premiereBadge": "",
+    "premiereBadge": "NEW",
     "reloadGuide": "Genindlæs guide",
     "searchGuide": "Søg i guiden",
     "searchHint": "Søg efter kanaler og programmer",
@@ -2309,7 +2332,7 @@
     "cacheLimit": "Cachegrænse",
     "speed": "Hastighed",
     "player": "Afspiller",
-    "playMethod": "",
+    "playMethod": "Play Method",
     "memory": "Hukommelse",
     "uiFps": "UI-FPS",
     "fps": "FPS",
@@ -2604,22 +2627,22 @@
     "redirectUnsupportedEnterFinal": "Serveren videresendte til en URL, der ikke understøttes. Indtast den endelige ${product}-URL direkte."
   },
   "deepLinks": {
-    "invalid": "",
-    "profileNotFound": "",
-    "serverUnavailable": "",
-    "notFound": "",
-    "unsupportedItem": "",
-    "noLiveTv": "",
-    "channelNotFound": "",
-    "showLink": "",
-    "showProfileLink": "",
-    "dialogTitle": "",
-    "showHint": "",
-    "movieHint": "",
-    "episodeHint": "",
-    "profileHint": "",
-    "openAsProfile": "",
-    "copy": "",
-    "copied": ""
+    "invalid": "This Plezy link isn't valid.",
+    "profileNotFound": "No profile matches \"${profile}\".",
+    "serverUnavailable": "Couldn't reach the server for this link.",
+    "notFound": "Couldn't find this title in your libraries.",
+    "unsupportedItem": "This link can't be played.",
+    "noLiveTv": "No Live TV server is available for this link.",
+    "channelNotFound": "Couldn't find channel \"${channel}\".",
+    "showLink": "Show link",
+    "showProfileLink": "Show profile link",
+    "dialogTitle": "Link",
+    "showHint": "Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.",
+    "movieHint": "Opening this link plays the movie.",
+    "episodeHint": "Opening this link plays this episode.",
+    "profileHint": "Opening this link switches to this profile.",
+    "openAsProfile": "Open as ${name}",
+    "copy": "Copy",
+    "copied": "Link copied"
   }
 }

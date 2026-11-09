@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "appIcon": {
     "title": "Tətbiq ikonu",
@@ -150,7 +150,15 @@
     "skipVersion": "Bu versiyanı ötür",
     "viewRelease": "Buraxılışa bax",
     "latestVersion": "Siz ən son versiyadasınız",
-    "checkFailed": "Yenilənmələr yoxlanıla bilmədi"
+    "checkFailed": "Yenilənmələr yoxlanıla bilmədi",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "supporter": {
     "title": "Mövzu və ikon paketi",
@@ -527,6 +535,12 @@
     "screenshotLocationChanged": "Ekran şəkillərinin saxlama yeri dəyişdirildi",
     "clipLocationReset": "Kliplərin saxlama yeri İş masasına qaytarıldı",
     "screenshotLocationReset": "Ekran şəkillərinin saxlama yeri İş masasına qaytarıldı",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
@@ -612,7 +626,9 @@
       "subSeekPrev": "Əvvəlki altyazıya sar",
       "shaderToggle": "Şeyderləri aç/bağla",
       "skipMarker": "Girişi/Titrləri ötür",
-      "screenshot": "Ekran şəkli çək"
+      "screenshot": "Ekran şəkli çək",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -877,8 +893,8 @@
     "rotationLockButton": "Dönmə kilidi",
     "lockScreen": "Ekranı kilidlə",
     "screenLockButton": "Ekran kilidi",
-    "tapToUnlock": "",
-    "tapAgainToUnlock": "",
+    "tapToUnlock": "Tap to unlock",
+    "tapAgainToUnlock": "Tap again to unlock",
     "timelineSlider": "Video zaman çubuğu",
     "volumeSlider": "Səs səviyyəsi",
     "endsAt": "Bitiş vaxtı: ${time}",
@@ -920,6 +936,10 @@
     "osdSubtitlesOff": "Altyazı: Söndürülüb",
     "osdSubtitles": "Altyazı: ${track}",
     "osdAudio": "Səs: ${track}",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "Dəqiq tənzimləmə",
       "title": "Klip",
@@ -1016,7 +1036,7 @@
     "switchingToCompatiblePlayer": "Uyğun oynadıcıya keçilir...",
     "serverLimitTitle": "Oynatma uğursuz oldu",
     "serverLimitBody": "Server xətası (HTTP 500). Məhdudiyyət bu seansı rədd etdi.",
-    "serverLimitTranscode": "",
+    "serverLimitTranscode": "Try transcoding",
     "mediaUnreadableTitle": "Fayl əlçatan deyil",
     "mediaUnreadableBody": "Server bu elementi tapdı, lakin onun faylını oxuya bilmədi (HTTP 404). Fayl yəqin ki, köçürülüb, silinib və ya onun saxlanma yeri oflayndır. Server sahibindən faylı yoxlamasını və kitabxananı yenidən skan etməsini xahiş edin.",
     "serverBusyTitle": "Yayım əlçatan deyil",
@@ -1242,7 +1262,7 @@
     "addMediaToLibraries": "Kitabxanalarınıza bir az media əlavə edin",
     "continueWatching": "İzləməyə davam et",
     "continueWatchingIn": "${library} daxilində İzləməyə davam et",
-    "selectVersion": "",
+    "selectVersion": "Select Version",
     "nextUp": "Sırada",
     "nextUpIn": "${library} daxilində Sırada",
     "recentlyAdded": "Son əlavə olunanlar",
@@ -1330,20 +1350,20 @@
     "showLibrary": "Kitabxananı göstər",
     "hideLibrary": "Kitabxananı gizlət",
     "libraryOptions": "Kitabxana seçimləri",
-    "shuffleLibrary": "",
+    "shuffleLibrary": "Shuffle library",
     "content": "kitabxana məzmunu",
     "selectLibrary": "Kitabxana seç",
     "filtersWithCount": "Filtrlər (${count})",
     "noRecommendations": "Tövsiyə yoxdur",
     "noCollections": "Bu kitabxanada kolleksiya yoxdur",
-    "noGenres": "",
+    "noGenres": "No genres in this library",
     "noFoldersFound": "Qovluq tapılmadı",
     "folders": "qovluqlar",
     "tabs": {
       "recommended": "Tövsiyə olunanlar",
       "browse": "Baxış",
       "collections": "Kolleksiyalar",
-      "genres": "",
+      "genres": "Genres",
       "playlists": "Oynatma siyahıları"
     },
     "groupings": {
@@ -1427,7 +1447,10 @@
     "openSourceLicenses": "Açıq mənbə lisenziyaları",
     "versionLabel": "Versiya ${version}",
     "appDescription": "Flutter üçün gözəl bir Plex, Jellyfin və Emby klienti",
-    "viewLicensesDescription": "Üçüncü tərəf kitabxanalarının lisenziyalarına baxın"
+    "viewLicensesDescription": "Üçüncü tərəf kitabxanalarının lisenziyalarına baxın",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "${username} (${email}) üçün server tapılmadı",
@@ -1689,7 +1712,7 @@
     "channelNumber": "Kanal ${number}",
     "unknownChannel": "Bilinməyən kanal",
     "live": "CANLI",
-    "premiereBadge": "",
+    "premiereBadge": "NEW",
     "reloadGuide": "Bələdçini yenilə",
     "searchGuide": "Bələdçidə axtar",
     "searchHint": "Kanal və proqram axtar",
@@ -2309,7 +2332,7 @@
     "cacheLimit": "Keş limiti",
     "speed": "Sürət",
     "player": "Oynadıcı",
-    "playMethod": "",
+    "playMethod": "Play Method",
     "memory": "Yaddaş",
     "uiFps": "Arayüz (UI) FPS-i",
     "fps": "FPS",
@@ -2604,22 +2627,22 @@
     "redirectUnsupportedEnterFinal": "Server dəstəklənməyən URL-ə yönləndirdi. Son ${product} URL-ni birbaşa daxil edin."
   },
   "deepLinks": {
-    "invalid": "",
-    "profileNotFound": "",
-    "serverUnavailable": "",
-    "notFound": "",
-    "unsupportedItem": "",
-    "noLiveTv": "",
-    "channelNotFound": "",
-    "showLink": "",
-    "showProfileLink": "",
-    "dialogTitle": "",
-    "showHint": "",
-    "movieHint": "",
-    "episodeHint": "",
-    "profileHint": "",
-    "openAsProfile": "",
-    "copy": "",
-    "copied": ""
+    "invalid": "This Plezy link isn't valid.",
+    "profileNotFound": "No profile matches \"${profile}\".",
+    "serverUnavailable": "Couldn't reach the server for this link.",
+    "notFound": "Couldn't find this title in your libraries.",
+    "unsupportedItem": "This link can't be played.",
+    "noLiveTv": "No Live TV server is available for this link.",
+    "channelNotFound": "Couldn't find channel \"${channel}\".",
+    "showLink": "Show link",
+    "showProfileLink": "Show profile link",
+    "dialogTitle": "Link",
+    "showHint": "Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.",
+    "movieHint": "Opening this link plays the movie.",
+    "episodeHint": "Opening this link plays this episode.",
+    "profileHint": "Opening this link switches to this profile.",
+    "openAsProfile": "Open as ${name}",
+    "copy": "Copy",
+    "copied": "Link copied"
   }
 }

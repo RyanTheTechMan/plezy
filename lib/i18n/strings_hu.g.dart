@@ -93,6 +93,7 @@ class TranslationsHu extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$seerr$hu seerr = _Translations$seerr$hu._(_root);
 	@override late final _Translations$services$hu services = _Translations$services$hu._(_root);
 	@override late final _Translations$addServer$hu addServer = _Translations$addServer$hu._(_root);
+	@override late final _Translations$deepLinks$hu deepLinks = _Translations$deepLinks$hu._(_root);
 }
 
 // Path: app
@@ -102,7 +103,7 @@ class _Translations$app$hu extends Translations$app$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Plezy';
+	@override String get title => 'Plezy Labs';
 }
 
 // Path: appIcon
@@ -237,6 +238,14 @@ class _Translations$update$hu extends Translations$update$en {
 	@override String get viewRelease => 'Kiadási megjegyzések';
 	@override String get latestVersion => 'A legújabb verziót használod';
 	@override String get checkFailed => 'Nem sikerült az újabb frissítések ellenőrzése';
+	@override String get chooseChannelTitle => 'Choose your update channel';
+	@override String get chooseChannelDescription => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.';
+	@override String get useLabs => 'Use Plezy Labs';
+	@override String get returnToOfficial => 'Return to Official Plezy';
+	@override String get returnToOfficialTitle => 'Leave Plezy Labs?';
+	@override String get returnToOfficialWarning => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.';
+	@override String get openOfficialRelease => 'Open Official Release';
+	@override String get releaseNotes => 'Release notes';
 }
 
 // Path: supporter
@@ -620,6 +629,13 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get screenshotLocationChanged => 'A képernyőképek mentési helye megváltozott';
 	@override String get clipLocationReset => 'A klipek mentési helye visszaállt az Asztalra';
 	@override String get screenshotLocationReset => 'A képernyőképek mentési helye visszaállt az Asztalra';
+	@override String get officialPlezy => 'Official Plezy';
+	@override String get plezyLabs => 'Plezy Labs';
+	@override String labsNotAvailable({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet';
+	@override String latestLabsRelease({required Object version}) => 'Latest Labs release: ${version}';
+	@override String latestOfficialRelease({required Object version}) => 'Latest official release: ${version}';
+	@override String get releaseStatusUnavailable => 'Release status unavailable';
+	@override String get packedStereoUi => '3D Playback UI';
 }
 
 // Path: themeEditor
@@ -998,6 +1014,8 @@ class _Translations$videoControls$hu extends Translations$videoControls$en {
 	@override String get rotationLockButton => 'Elforgatás zárolása';
 	@override String get lockScreen => 'Képernyő zárolása';
 	@override String get screenLockButton => 'Képernyőzár';
+	@override String get tapToUnlock => 'Tap to unlock';
+	@override String get tapAgainToUnlock => 'Tap again to unlock';
 	@override String get timelineSlider => 'Videó idősáv';
 	@override String get volumeSlider => 'Hangerő';
 	@override String endsAt({required Object time}) => 'Vége: ${time}';
@@ -1030,7 +1048,12 @@ class _Translations$videoControls$hu extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Feliratok: ki';
 	@override String osdSubtitles({required Object track}) => 'Feliratok: ${track}';
 	@override String osdAudio({required Object track}) => 'Hang: ${track}';
+	@override String frameCount({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n,
+		one: '${n} frame',
+		other: '${n} frames',
+	);
 	@override late final _Translations$videoControls$clip$hu clip = _Translations$videoControls$clip$hu._(_root);
+	@override String get packedStereoSizingLocked => 'Cannot change while playing 3D source';
 }
 
 // Path: messages
@@ -1093,6 +1116,7 @@ class _Translations$messages$hu extends Translations$messages$en {
 	@override String get switchingToCompatiblePlayer => 'Váltás kompatibilis lejátszóra...';
 	@override String get serverLimitTitle => 'A lejátszás nem sikerült';
 	@override String get serverLimitBody => 'Szerverhiba (HTTP 500). A munkamenetet valószínűleg egy sávszélességi vagy átkódolási korlát utasította el. Kérd meg a tulajdonost a korlát módosítására.';
+	@override String get serverLimitTranscode => 'Try transcoding';
 	@override String get mediaUnreadableTitle => 'A fájl nem érhető el';
 	@override String get mediaUnreadableBody => 'A szerver megtalálta ezt az elemet, de nem tudta beolvasni a fájlját (HTTP 404). A fájl valószínűleg áthelyezésre vagy törlésre került, vagy a tárhelye offline. Kérje meg a szerver tulajdonosát, hogy ellenőrizze a fájlt, és vizsgálja újra a könyvtárat.';
 	@override String get serverBusyTitle => 'A stream nem érhető el';
@@ -1332,6 +1356,7 @@ class _Translations$discover$hu extends Translations$discover$en {
 	@override String get addMediaToLibraries => 'Adj hozzá médiát a könyvtáraidhoz';
 	@override String get continueWatching => 'Folytatás';
 	@override String continueWatchingIn({required Object library}) => 'Folytatás itt: ${library}';
+	@override String get selectVersion => 'Select Version';
 	@override String get nextUp => 'Következik';
 	@override String nextUpIn({required Object library}) => 'Következik itt: ${library}';
 	@override String get recentlyAdded => 'Legutóbb hozzáadva';
@@ -1427,11 +1452,13 @@ class _Translations$libraries$hu extends Translations$libraries$en {
 	@override String get showLibrary => 'Könyvtár megjelenítése';
 	@override String get hideLibrary => 'Könyvtár elrejtése';
 	@override String get libraryOptions => 'Könyvtár beállításai';
+	@override String get shuffleLibrary => 'Shuffle library';
 	@override String get content => 'könyvtár tartalma';
 	@override String get selectLibrary => 'Könyvtár kiválasztása';
 	@override String filtersWithCount({required Object count}) => 'Szűrők (${count})';
 	@override String get noRecommendations => 'Nincsenek elérhető ajánlások';
 	@override String get noCollections => 'Nincsenek gyűjtemények ebben a könyvtárban';
+	@override String get noGenres => 'No genres in this library';
 	@override String get noFoldersFound => 'Nem találhatók mappák';
 	@override String get folders => 'mappák';
 	@override late final _Translations$libraries$tabs$hu tabs = _Translations$libraries$tabs$hu._(_root);
@@ -1453,6 +1480,9 @@ class _Translations$about$hu extends Translations$about$en {
 	@override String versionLabel({required Object version}) => 'Verzió: ${version}';
 	@override String get appDescription => 'Gyönyörű Flutter-kliens a Plexhez, a Jellyfinhez és az Embyhez';
 	@override String get viewLicensesDescription => 'Külső fejlesztésű programkönyvtárak licenceinek megtekintése';
+	@override String get labsDescription => 'An experimental Plezy edition built only on published official releases';
+	@override String get labsModifiedNotice => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.';
+	@override String get labsSource => 'Plezy Labs source code';
 }
 
 // Path: serverSelection
@@ -1608,6 +1638,7 @@ class _Translations$explore$hu extends Translations$explore$en {
 		one: '${n} találat',
 		other: '${n} találat',
 	);
+	@override String get openInLibrary => 'Megnyitás a könyvtárban';
 }
 
 // Path: liveTv
@@ -1631,6 +1662,7 @@ class _Translations$liveTv$hu extends Translations$liveTv$en {
 	@override String channelNumber({required Object number}) => '${number}. csatorna';
 	@override String get unknownChannel => 'Ismeretlen csatorna';
 	@override String get live => 'ÉLŐ';
+	@override String get premiereBadge => 'NEW';
 	@override String get reloadGuide => 'Műsorújság újratöltése';
 	@override String get searchGuide => 'Keresés a műsorújságban';
 	@override String get searchHint => 'Csatornák és műsorok keresése';
@@ -2157,6 +2189,7 @@ class _Translations$performanceOverlay$hu extends Translations$performanceOverla
 	@override String get cacheLimit => 'Gyorsítótár korlátja';
 	@override String get speed => 'Sebesség';
 	@override String get player => 'Lejátszó';
+	@override String get playMethod => 'Play Method';
 	@override String get memory => 'Memória';
 	@override String get uiFps => 'Felület-FPS';
 	@override String get fps => 'FPS';
@@ -2471,6 +2504,32 @@ class _Translations$addServer$hu extends Translations$addServer$en {
 	@override String redirectUnsupportedEnterFinal({required Object product}) => 'A szerver nem támogatott URL-re irányított át. Add meg közvetlenül a végleges ${product} URL-t.';
 }
 
+// Path: deepLinks
+class _Translations$deepLinks$hu extends Translations$deepLinks$en {
+	_Translations$deepLinks$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get invalid => 'This Plezy link isn\'t valid.';
+	@override String profileNotFound({required Object profile}) => 'No profile matches "${profile}".';
+	@override String get serverUnavailable => 'Couldn\'t reach the server for this link.';
+	@override String get notFound => 'Couldn\'t find this title in your libraries.';
+	@override String get unsupportedItem => 'This link can\'t be played.';
+	@override String get noLiveTv => 'No Live TV server is available for this link.';
+	@override String channelNotFound({required Object channel}) => 'Couldn\'t find channel "${channel}".';
+	@override String get showLink => 'Show link';
+	@override String get showProfileLink => 'Show profile link';
+	@override String get dialogTitle => 'Link';
+	@override String get showHint => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.';
+	@override String get movieHint => 'Opening this link plays the movie.';
+	@override String get episodeHint => 'Opening this link plays this episode.';
+	@override String get profileHint => 'Opening this link switches to this profile.';
+	@override String openAsProfile({required Object name}) => 'Open as ${name}';
+	@override String get copy => 'Copy';
+	@override String get copied => 'Link copied';
+}
+
 // Path: appIcon.names
 class _Translations$appIcon$names$hu extends Translations$appIcon$names$en {
 	_Translations$appIcon$names$hu._(TranslationsHu root) : this._root = root, super.internal(root);
@@ -2624,6 +2683,8 @@ class _Translations$hotkeys$actions$hu extends Translations$hotkeys$actions$en {
 	@override String get shaderToggle => 'Shaderek be- és kikapcsolása';
 	@override String get skipMarker => 'Intró/stáblista átugrása';
 	@override String get screenshot => 'Képernyőkép készítése';
+	@override String get framePrevious => 'Previous Frame';
+	@override String get frameNext => 'Next Frame';
 }
 
 // Path: videoControls.pipErrors
@@ -2796,6 +2857,7 @@ class _Translations$libraries$tabs$hu extends Translations$libraries$tabs$en {
 	@override String get recommended => 'Ajánlott';
 	@override String get browse => 'Böngészés';
 	@override String get collections => 'Gyűjtemények';
+	@override String get genres => 'Genres';
 	@override String get playlists => 'Lejátszási listák';
 }
 
@@ -3456,7 +3518,7 @@ class _Translations$services$libraryFilter$hu extends Translations$services$libr
 extension on TranslationsHu {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
-			'app.title' => 'Plezy',
+			'app.title' => 'Plezy Labs',
 			'appIcon.title' => 'Alkalmazásikon',
 			'appIcon.defaultIcon' => 'Alapértelmezett',
 			'appIcon.current' => 'Jelenlegi ikon',
@@ -3591,6 +3653,14 @@ extension on TranslationsHu {
 			'update.viewRelease' => 'Kiadási megjegyzések',
 			'update.latestVersion' => 'A legújabb verziót használod',
 			'update.checkFailed' => 'Nem sikerült az újabb frissítések ellenőrzése',
+			'update.chooseChannelTitle' => 'Choose your update channel',
+			'update.chooseChannelDescription' => 'Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.',
+			'update.useLabs' => 'Use Plezy Labs',
+			'update.returnToOfficial' => 'Return to Official Plezy',
+			'update.returnToOfficialTitle' => 'Leave Plezy Labs?',
+			'update.returnToOfficialWarning' => 'Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.',
+			'update.openOfficialRelease' => 'Open Official Release',
+			'update.releaseNotes' => 'Release notes',
 			'supporter.title' => 'Téma- és ikoncsomag',
 			'supporter.intro' => 'Opcionális, egyszeri vásárlás kozmetikai extrákkal:',
 			'supporter.presetThemes' => 'Előre beállított témák',
@@ -3960,7 +4030,16 @@ extension on TranslationsHu {
 			'settings.clipLocationChanged' => 'A klipek mentési helye megváltozott',
 			'settings.screenshotLocationChanged' => 'A képernyőképek mentési helye megváltozott',
 			'settings.clipLocationReset' => 'A klipek mentési helye visszaállt az Asztalra',
+			_ => null,
+		} ?? switch (path) {
 			'settings.screenshotLocationReset' => 'A képernyőképek mentési helye visszaállt az Asztalra',
+			'settings.officialPlezy' => 'Official Plezy',
+			'settings.plezyLabs' => 'Plezy Labs',
+			'settings.labsNotAvailable' => ({required Object version}) => 'Plezy Labs for Plezy ${version} is not available yet',
+			'settings.latestLabsRelease' => ({required Object version}) => 'Latest Labs release: ${version}',
+			'settings.latestOfficialRelease' => ({required Object version}) => 'Latest official release: ${version}',
+			'settings.releaseStatusUnavailable' => 'Release status unavailable',
+			'settings.packedStereoUi' => '3D Playback UI',
 			'themeEditor.builtIn' => 'Beépített',
 			'themeEditor.presets' => 'Előre beállított',
 			'themeEditor.custom' => 'Egyéni',
@@ -3968,8 +4047,6 @@ extension on TranslationsHu {
 			'themeEditor.editCustom' => 'Egyéni téma szerkesztése',
 			'themeEditor.editCustomDescription' => 'Válaszd ki magad az összes színt',
 			'themeEditor.locked' => 'A Téma- és ikoncsomaggal oldható fel',
-			_ => null,
-		} ?? switch (path) {
 			'themeEditor.savedLocked' => 'Mentve — a Téma- és ikoncsomaggal oldható fel',
 			'themeEditor.title' => 'Egyéni téma',
 			'themeEditor.startFrom' => 'Kiindulási téma',
@@ -4037,6 +4114,8 @@ extension on TranslationsHu {
 			'hotkeys.actions.shaderToggle' => 'Shaderek be- és kikapcsolása',
 			'hotkeys.actions.skipMarker' => 'Intró/stáblista átugrása',
 			'hotkeys.actions.screenshot' => 'Képernyőkép készítése',
+			'hotkeys.actions.framePrevious' => 'Previous Frame',
+			'hotkeys.actions.frameNext' => 'Next Frame',
 			'fileInfo.title' => 'Fájlinformáció',
 			'fileInfo.overview' => 'Áttekintés',
 			'fileInfo.video' => 'Videó',
@@ -4277,6 +4356,8 @@ extension on TranslationsHu {
 			'videoControls.rotationLockButton' => 'Elforgatás zárolása',
 			'videoControls.lockScreen' => 'Képernyő zárolása',
 			'videoControls.screenLockButton' => 'Képernyőzár',
+			'videoControls.tapToUnlock' => 'Tap to unlock',
+			'videoControls.tapAgainToUnlock' => 'Tap again to unlock',
 			'videoControls.timelineSlider' => 'Videó idősáv',
 			'videoControls.volumeSlider' => 'Hangerő',
 			'videoControls.endsAt' => ({required Object time}) => 'Vége: ${time}',
@@ -4316,6 +4397,7 @@ extension on TranslationsHu {
 			'videoControls.osdSubtitlesOff' => 'Feliratok: ki',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Feliratok: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Hang: ${track}',
+			'videoControls.frameCount' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n, one: '${n} frame', other: '${n} frames', ), 
 			'videoControls.clip.fineAdjust' => 'Finomhangolás',
 			'videoControls.clip.title' => 'Klip',
 			'videoControls.clip.vodOnly' => 'Klipek igény szerinti videólejátszásból készíthetők.',
@@ -4353,6 +4435,7 @@ extension on TranslationsHu {
 			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
 			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
 			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
+			'videoControls.packedStereoSizingLocked' => 'Cannot change while playing 3D source',
 			'messages.markedAsWatched' => 'Megjelölve megtekintettként',
 			'messages.markedAsUnwatched' => 'Megjelölve nem megtekintettként',
 			'messages.markedAsWatchedOffline' => 'Megjelölve megtekintettként (szinkronizálás online állapotban)',
@@ -4403,6 +4486,7 @@ extension on TranslationsHu {
 			'messages.switchingToCompatiblePlayer' => 'Váltás kompatibilis lejátszóra...',
 			'messages.serverLimitTitle' => 'A lejátszás nem sikerült',
 			'messages.serverLimitBody' => 'Szerverhiba (HTTP 500). A munkamenetet valószínűleg egy sávszélességi vagy átkódolási korlát utasította el. Kérd meg a tulajdonost a korlát módosítására.',
+			'messages.serverLimitTranscode' => 'Try transcoding',
 			'messages.mediaUnreadableTitle' => 'A fájl nem érhető el',
 			'messages.mediaUnreadableBody' => 'A szerver megtalálta ezt az elemet, de nem tudta beolvasni a fájlját (HTTP 404). A fájl valószínűleg áthelyezésre vagy törlésre került, vagy a tárhelye offline. Kérje meg a szerver tulajdonosát, hogy ellenőrizze a fájlt, és vizsgálja újra a könyvtárat.',
 			'messages.serverBusyTitle' => 'A stream nem érhető el',
@@ -4460,6 +4544,8 @@ extension on TranslationsHu {
 			'mpvConfig.confirmDeletePreset' => 'Biztosan törölni szeretnéd ezt az előbeállítást?',
 			'mpvConfig.configPlaceholder' => 'gpu-api=vulkan\nhwdec=auto\n# megjegyzés',
 			'mpvConfig.lineHint' => 'option=value',
+			_ => null,
+		} ?? switch (path) {
 			'mpvConfig.addLine' => 'Sor hozzáadása',
 			'mpvConfig.removeLine' => 'Sor eltávolítása',
 			'mpvConfig.embeddedVoHint' => 'A vo, gpu-context és gpu-api beállítások Linuxon figyelmen kívül maradnak: a beágyazott videó mindig a vo=libmpv-n keresztül jelenik meg a videósíkon, a gpu-next (amelyre az ArtCNN-hez hasonló compute shadereknek szükségük van) pedig nem futhat beágyazva.',
@@ -4482,8 +4568,6 @@ extension on TranslationsHu {
 			'profiles.summarySingle' => 'Adj hozzá profilokat a kezelt felhasználók és a helyi profilok együttes használatához',
 			'profiles.summaryMultipleWithActive' => ({required Object count, required Object activeName}) => '${count} profil · aktív: ${activeName}',
 			'profiles.summaryMultiple' => ({required Object count}) => '${count} profil',
-			_ => null,
-		} ?? switch (path) {
 			'profiles.removeConnectionTitle' => 'Eltávolítod a kapcsolatot?',
 			'profiles.removeConnectionMessage' => ({required Object displayName, required Object connectionLabel}) => 'Eltávolítod ${displayName} hozzáférését a(z) ${connectionLabel} kapcsolathoz. Más profilok megtartják.',
 			'profiles.deleteProfileTitle' => 'Törlöd a profilt?',
@@ -4604,6 +4688,7 @@ extension on TranslationsHu {
 			'discover.addMediaToLibraries' => 'Adj hozzá médiát a könyvtáraidhoz',
 			'discover.continueWatching' => 'Folytatás',
 			'discover.continueWatchingIn' => ({required Object library}) => 'Folytatás itt: ${library}',
+			'discover.selectVersion' => 'Select Version',
 			'discover.nextUp' => 'Következik',
 			'discover.nextUpIn' => ({required Object library}) => 'Következik itt: ${library}',
 			'discover.recentlyAdded' => 'Legutóbb hozzáadva',
@@ -4682,16 +4767,19 @@ extension on TranslationsHu {
 			'libraries.showLibrary' => 'Könyvtár megjelenítése',
 			'libraries.hideLibrary' => 'Könyvtár elrejtése',
 			'libraries.libraryOptions' => 'Könyvtár beállításai',
+			'libraries.shuffleLibrary' => 'Shuffle library',
 			'libraries.content' => 'könyvtár tartalma',
 			'libraries.selectLibrary' => 'Könyvtár kiválasztása',
 			'libraries.filtersWithCount' => ({required Object count}) => 'Szűrők (${count})',
 			'libraries.noRecommendations' => 'Nincsenek elérhető ajánlások',
 			'libraries.noCollections' => 'Nincsenek gyűjtemények ebben a könyvtárban',
+			'libraries.noGenres' => 'No genres in this library',
 			'libraries.noFoldersFound' => 'Nem találhatók mappák',
 			'libraries.folders' => 'mappák',
 			'libraries.tabs.recommended' => 'Ajánlott',
 			'libraries.tabs.browse' => 'Böngészés',
 			'libraries.tabs.collections' => 'Gyűjtemények',
+			'libraries.tabs.genres' => 'Genres',
 			'libraries.tabs.playlists' => 'Lejátszási listák',
 			'libraries.groupings.title' => 'Csoportosítás',
 			'libraries.groupings.all' => 'Összes',
@@ -4765,6 +4853,9 @@ extension on TranslationsHu {
 			'about.versionLabel' => ({required Object version}) => 'Verzió: ${version}',
 			'about.appDescription' => 'Gyönyörű Flutter-kliens a Plexhez, a Jellyfinhez és az Embyhez',
 			'about.viewLicensesDescription' => 'Külső fejlesztésű programkönyvtárak licenceinek megtekintése',
+			'about.labsDescription' => 'An experimental Plezy edition built only on published official releases',
+			'about.labsModifiedNotice' => 'Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.',
+			'about.labsSource' => 'Plezy Labs source code',
 			'serverSelection.noServersFoundForAccount' => ({required Object username, required Object email}) => 'Nem találhatók szerverek ehhez a fiókhoz: ${username} (${email})',
 			'serverSelection.failedToLoadServers' => ({required Object error}) => 'Nem sikerült a szerverek betöltése: ${error}',
 			'serverSelection.noValidServers' => 'Nem található használható szerver ehhez a fiókhoz',
@@ -4960,12 +5051,15 @@ extension on TranslationsHu {
 			'explore.detail.relatedTitles' => 'Kapcsolódó címek',
 			'explore.detail.background' => 'Háttér',
 			'explore.totalResults' => ({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n, one: '${n} találat', other: '${n} találat', ), 
+			'explore.openInLibrary' => 'Megnyitás a könyvtárban',
 			'liveTv.title' => 'Élő TV',
 			'liveTv.guide' => 'Műsorújság',
 			'liveTv.noChannels' => 'Nincsenek elérhető csatornák',
 			'liveTv.noDvr' => 'Egyik szerveren sincs beállítva DVR',
 			'liveTv.serverUnavailable' => 'Az Élő TV szerver nem érhető el.',
 			'liveTv.serverNotConnected' => 'Az Élő TV szerver nincs csatlakoztatva.',
+			_ => null,
+		} ?? switch (path) {
 			'liveTv.noPrograms' => 'Nincsenek elérhető műsoradatok',
 			'liveTv.liveStreamFailed' => 'Nem sikerült elindítani az élő adást',
 			'liveTv.unknownProgram' => 'Ismeretlen műsor',
@@ -4974,6 +5068,7 @@ extension on TranslationsHu {
 			'liveTv.channelNumber' => ({required Object number}) => '${number}. csatorna',
 			'liveTv.unknownChannel' => 'Ismeretlen csatorna',
 			'liveTv.live' => 'ÉLŐ',
+			'liveTv.premiereBadge' => 'NEW',
 			'liveTv.reloadGuide' => 'Műsorújság újratöltése',
 			'liveTv.searchGuide' => 'Keresés a műsorújságban',
 			'liveTv.searchHint' => 'Csatornák és műsorok keresése',
@@ -4996,8 +5091,6 @@ extension on TranslationsHu {
 			'liveTv.noFavoriteChannels' => 'Nincsenek kedvenc csatornák',
 			'liveTv.noFavoriteChannelsHint' => 'Jelenítsd meg az összes csatornát, majd hosszan nyomj meg egy csatornát, hogy hozzáadd a kedvenceidhez.',
 			'liveTv.showAllChannels' => 'Összes csatorna megjelenítése',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.favoritesLoadFailed' => 'Nem sikerült a kedvencek betöltése. Ellenőrizd a kapcsolatot és próbáld újra.',
 			'liveTv.favoritesUpdateFailed' => 'Nem sikerült frissíteni a kedvenceket. Ellenőrizd a kapcsolatot, majd próbáld újra.',
 			'liveTv.joinSession' => 'Csatlakozás a folyamatban lévő adáshoz',
@@ -5479,6 +5572,8 @@ extension on TranslationsHu {
 			'companionRemote.errors.authenticationFailed' => 'A hitelesítés nem sikerült',
 			'companionRemote.errors.serverStartFailed' => ({required Object error}) => 'Nem sikerült elindítani a távirányító-szervert: ${error}',
 			'companionRemote.errors.commandFailed' => ({required Object error}) => 'Nem sikerült elküldeni a távoli parancsot: ${error}',
+			_ => null,
+		} ?? switch (path) {
 			'companionRemote.errors.joinTimedOut' => 'Időtúllépés a munkamenethez való csatlakozáskor',
 			'companionRemote.errors.failedToConnectAnyAddress' => 'Egyetlen címhez sem sikerült csatlakozni',
 			'companionRemote.errors.connectionLostAfterAttempts' => ({required Object attempts}) => 'A kapcsolat megszakadt ${attempts} próbálkozás után',
@@ -5510,8 +5605,6 @@ extension on TranslationsHu {
 			'videoSettings.audioNormalizationDisablesPassthrough' => 'PCM-mé dekódolja a hangot; a passthrough ki van kapcsolva, amíg ez be van kapcsolva',
 			'performanceOverlay.color' => 'Szín',
 			'performanceOverlay.performance' => 'Teljesítmény',
-			_ => null,
-		} ?? switch (path) {
 			'performanceOverlay.buffer' => 'Puffer',
 			'performanceOverlay.app' => 'Alkalmazás',
 			'performanceOverlay.decoder' => 'Dekóder',
@@ -5551,6 +5644,7 @@ extension on TranslationsHu {
 			'performanceOverlay.cacheLimit' => 'Gyorsítótár korlátja',
 			'performanceOverlay.speed' => 'Sebesség',
 			'performanceOverlay.player' => 'Lejátszó',
+			'performanceOverlay.playMethod' => 'Play Method',
 			'performanceOverlay.memory' => 'Memória',
 			'performanceOverlay.uiFps' => 'Felület-FPS',
 			'performanceOverlay.fps' => 'FPS',
@@ -5815,6 +5909,23 @@ extension on TranslationsHu {
 			'addServer.redirectDifferentHost' => ({required Object product}) => 'A szerver egy másik gazdagépre irányított át. Add meg közvetlenül a végleges ${product} URL-t.',
 			'addServer.redirectInsecure' => 'A szerver HTTPS-ről nem biztonságos URL-re irányított át',
 			'addServer.redirectUnsupportedEnterFinal' => ({required Object product}) => 'A szerver nem támogatott URL-re irányított át. Add meg közvetlenül a végleges ${product} URL-t.',
+			'deepLinks.invalid' => 'This Plezy link isn\'t valid.',
+			'deepLinks.profileNotFound' => ({required Object profile}) => 'No profile matches "${profile}".',
+			'deepLinks.serverUnavailable' => 'Couldn\'t reach the server for this link.',
+			'deepLinks.notFound' => 'Couldn\'t find this title in your libraries.',
+			'deepLinks.unsupportedItem' => 'This link can\'t be played.',
+			'deepLinks.noLiveTv' => 'No Live TV server is available for this link.',
+			'deepLinks.channelNotFound' => ({required Object channel}) => 'Couldn\'t find channel "${channel}".',
+			'deepLinks.showLink' => 'Show link',
+			'deepLinks.showProfileLink' => 'Show profile link',
+			'deepLinks.dialogTitle' => 'Link',
+			'deepLinks.showHint' => 'Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.',
+			'deepLinks.movieHint' => 'Opening this link plays the movie.',
+			'deepLinks.episodeHint' => 'Opening this link plays this episode.',
+			'deepLinks.profileHint' => 'Opening this link switches to this profile.',
+			'deepLinks.openAsProfile' => ({required Object name}) => 'Open as ${name}',
+			'deepLinks.copy' => 'Copy',
+			'deepLinks.copied' => 'Link copied',
 			_ => null,
 		};
 	}

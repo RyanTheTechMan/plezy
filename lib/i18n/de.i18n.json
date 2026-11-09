@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "appIcon": {
     "title": "App-Symbol",
@@ -150,7 +150,15 @@
     "skipVersion": "Diese Version überspringen",
     "viewRelease": "Versionshinweise anzeigen",
     "latestVersion": "Aktuellste Version installiert",
-    "checkFailed": "Fehler bei der Updateprüfung"
+    "checkFailed": "Fehler bei der Updateprüfung",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "supporter": {
     "title": "Design- und Symbolpaket",
@@ -527,6 +535,12 @@
     "screenshotLocationChanged": "Der Speicherort des Screenshots wurde geändert",
     "clipLocationReset": "Clip-Speicherort auf Desktop zurückgesetzt",
     "screenshotLocationReset": "Screenshot-Speicherort auf Desktop zurückgesetzt",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
@@ -612,7 +626,9 @@
       "subSeekPrev": "Zum vorherigen Untertitel springen",
       "shaderToggle": "Shader umschalten",
       "skipMarker": "Intro/Abspann überspringen",
-      "screenshot": "Screenshot aufnehmen"
+      "screenshot": "Screenshot aufnehmen",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -877,8 +893,8 @@
     "rotationLockButton": "Drehsperre",
     "lockScreen": "Bildschirm sperren",
     "screenLockButton": "Bildschirmsperre",
-    "tapToUnlock": "",
-    "tapAgainToUnlock": "",
+    "tapToUnlock": "Tap to unlock",
+    "tapAgainToUnlock": "Tap again to unlock",
     "timelineSlider": "Videozeitleiste",
     "volumeSlider": "Lautstärkepegel",
     "endsAt": "Endet um ${time}",
@@ -920,6 +936,10 @@
     "osdSubtitlesOff": "Untertitel: Aus",
     "osdSubtitles": "Untertitel: ${track}",
     "osdAudio": "Audio: ${track}",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "Feinjustierung",
       "title": "Clip",
@@ -1016,7 +1036,7 @@
     "switchingToCompatiblePlayer": "Wechsel zu einem kompatiblen Player …",
     "serverLimitTitle": "Wiedergabe fehlgeschlagen",
     "serverLimitBody": "Serverfehler (HTTP 500). Vermutlich hat ein Bandbreiten- oder Transkodierungslimit diese Sitzung abgelehnt. Bitte den Besitzer, das Limit anzupassen.",
-    "serverLimitTranscode": "",
+    "serverLimitTranscode": "Try transcoding",
     "mediaUnreadableTitle": "Datei nicht verfügbar",
     "mediaUnreadableBody": "Der Server hat dieses Element gefunden, konnte seine Datei aber nicht lesen (HTTP 404). Die Datei wurde wahrscheinlich verschoben oder gelöscht, oder ihr Speicher ist offline. Bitte den Serverbesitzer, die Datei zu prüfen und die Mediathek neu zu scannen.",
     "serverBusyTitle": "Stream nicht verfügbar",
@@ -1242,7 +1262,7 @@
     "addMediaToLibraries": "Medien zur Mediathek hinzufügen",
     "continueWatching": "Weiterschauen",
     "continueWatchingIn": "Weiterschauen in ${library}",
-    "selectVersion": "",
+    "selectVersion": "Select Version",
     "nextUp": "Als Nächstes",
     "nextUpIn": "Als Nächstes in ${library}",
     "recentlyAdded": "Kürzlich hinzugefügt",
@@ -1330,20 +1350,20 @@
     "showLibrary": "Mediathek anzeigen",
     "hideLibrary": "Mediathek ausblenden",
     "libraryOptions": "Mediatheksoptionen",
-    "shuffleLibrary": "",
+    "shuffleLibrary": "Shuffle library",
     "content": "Mediatheksinhalt",
     "selectLibrary": "Mediathek auswählen",
     "filtersWithCount": "Filter (${count})",
     "noRecommendations": "Keine Empfehlungen verfügbar",
     "noCollections": "Keine Sammlungen in dieser Mediathek",
-    "noGenres": "",
+    "noGenres": "No genres in this library",
     "noFoldersFound": "Keine Ordner gefunden",
     "folders": "Ordner",
     "tabs": {
       "recommended": "Empfohlen",
       "browse": "Durchsuchen",
       "collections": "Sammlungen",
-      "genres": "",
+      "genres": "Genres",
       "playlists": "Wiedergabelisten"
     },
     "groupings": {
@@ -1427,7 +1447,10 @@
     "openSourceLicenses": "Open-Source-Lizenzen",
     "versionLabel": "Version ${version}",
     "appDescription": "Ein schöner, mit Flutter entwickelter Plex-, Jellyfin- und Emby-Client",
-    "viewLicensesDescription": "Lizenzen von Drittanbieter-Bibliotheken anzeigen"
+    "viewLicensesDescription": "Lizenzen von Drittanbieter-Bibliotheken anzeigen",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Keine Server gefunden für ${username} (${email})",
@@ -1689,7 +1712,7 @@
     "channelNumber": "Kanal ${number}",
     "unknownChannel": "Unbekannter Kanal",
     "live": "LIVE",
-    "premiereBadge": "",
+    "premiereBadge": "NEW",
     "reloadGuide": "TV-Programm neu laden",
     "searchGuide": "TV-Programm durchsuchen",
     "searchHint": "Kanäle & Sendungen suchen",
@@ -2309,7 +2332,7 @@
     "cacheLimit": "Cache-Limit",
     "speed": "Geschwindigkeit",
     "player": "Player",
-    "playMethod": "",
+    "playMethod": "Play Method",
     "memory": "Speicher",
     "uiFps": "UI-FPS",
     "fps": "FPS",
@@ -2604,22 +2627,22 @@
     "redirectUnsupportedEnterFinal": "Der Server hat zu einer nicht unterstützten URL weitergeleitet. Gib die endgültige ${product}-URL direkt ein."
   },
   "deepLinks": {
-    "invalid": "",
-    "profileNotFound": "",
-    "serverUnavailable": "",
-    "notFound": "",
-    "unsupportedItem": "",
-    "noLiveTv": "",
-    "channelNotFound": "",
-    "showLink": "",
-    "showProfileLink": "",
-    "dialogTitle": "",
-    "showHint": "",
-    "movieHint": "",
-    "episodeHint": "",
-    "profileHint": "",
-    "openAsProfile": "",
-    "copy": "",
-    "copied": ""
+    "invalid": "This Plezy link isn't valid.",
+    "profileNotFound": "No profile matches \"${profile}\".",
+    "serverUnavailable": "Couldn't reach the server for this link.",
+    "notFound": "Couldn't find this title in your libraries.",
+    "unsupportedItem": "This link can't be played.",
+    "noLiveTv": "No Live TV server is available for this link.",
+    "channelNotFound": "Couldn't find channel \"${channel}\".",
+    "showLink": "Show link",
+    "showProfileLink": "Show profile link",
+    "dialogTitle": "Link",
+    "showHint": "Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.",
+    "movieHint": "Opening this link plays the movie.",
+    "episodeHint": "Opening this link plays this episode.",
+    "profileHint": "Opening this link switches to this profile.",
+    "openAsProfile": "Open as ${name}",
+    "copy": "Copy",
+    "copied": "Link copied"
   }
 }

@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "appIcon": {
     "title": "Значок приложения",
@@ -150,7 +150,15 @@
     "skipVersion": "Пропустить эту версию",
     "viewRelease": "Посмотреть релиз",
     "latestVersion": "У вас последняя версия",
-    "checkFailed": "Не удалось проверить обновления"
+    "checkFailed": "Не удалось проверить обновления",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "supporter": {
     "title": "Набор тем и значков",
@@ -527,6 +535,12 @@
     "screenshotLocationChanged": "Местоположение скриншота изменено",
     "clipLocationReset": "Сброс местоположения клипа на рабочий стол",
     "screenshotLocationReset": "Сброс местоположения скриншота на рабочий стол",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
@@ -612,7 +626,9 @@
       "subSeekPrev": "К предыдущему субтитру",
       "shaderToggle": "Вкл./выкл. шейдеры",
       "skipMarker": "Пропустить вступление/титры",
-      "screenshot": "Сделать снимок экрана"
+      "screenshot": "Сделать снимок экрана",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -883,8 +899,8 @@
     "rotationLockButton": "Блокировка поворота",
     "lockScreen": "Заблокировать экран",
     "screenLockButton": "Блокировка экрана",
-    "tapToUnlock": "",
-    "tapAgainToUnlock": "",
+    "tapToUnlock": "Tap to unlock",
+    "tapAgainToUnlock": "Tap again to unlock",
     "timelineSlider": "Временная шкала",
     "volumeSlider": "Уровень громкости",
     "endsAt": "Закончится в ${time}",
@@ -926,6 +942,12 @@
     "osdSubtitlesOff": "Субтитры: выкл.",
     "osdSubtitles": "Субтитры: ${track}",
     "osdAudio": "Аудио: ${track}",
+    "frameCount": {
+      "one": "${n} frame",
+      "few": "",
+      "many": "",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "Точная настройка",
       "title": "Клип",
@@ -1024,7 +1046,7 @@
     "switchingToCompatiblePlayer": "Переключение на совместимый плеер...",
     "serverLimitTitle": "Ошибка воспроизведения",
     "serverLimitBody": "Ошибка сервера (HTTP 500). Лимит пропускной способности/транскодирования, вероятно, отклонил сессию. Попросите владельца изменить настройки.",
-    "serverLimitTranscode": "",
+    "serverLimitTranscode": "Try transcoding",
     "mediaUnreadableTitle": "Файл недоступен",
     "mediaUnreadableBody": "Сервер нашёл этот элемент, но не смог прочитать его файл (HTTP 404). Вероятно, файл был перемещён, удалён или его хранилище недоступно. Попросите владельца сервера проверить файл и пересканировать библиотеку.",
     "serverBusyTitle": "Поток недоступен",
@@ -1250,7 +1272,7 @@
     "addMediaToLibraries": "Добавьте медиафайлы в ваши библиотеки",
     "continueWatching": "Продолжить просмотр",
     "continueWatchingIn": "Продолжить просмотр в ${library}",
-    "selectVersion": "",
+    "selectVersion": "Select Version",
     "nextUp": "Далее",
     "nextUpIn": "Далее в ${library}",
     "recentlyAdded": "Недавно добавленное",
@@ -1340,20 +1362,20 @@
     "showLibrary": "Показать библиотеку",
     "hideLibrary": "Скрыть библиотеку",
     "libraryOptions": "Параметры библиотеки",
-    "shuffleLibrary": "",
+    "shuffleLibrary": "Shuffle library",
     "content": "содержимое библиотеки",
     "selectLibrary": "Выбрать библиотеку",
     "filtersWithCount": "Фильтры (${count})",
     "noRecommendations": "Рекомендации недоступны",
     "noCollections": "В этой библиотеке нет коллекций",
-    "noGenres": "",
+    "noGenres": "No genres in this library",
     "noFoldersFound": "Папки не найдены",
     "folders": "папки",
     "tabs": {
       "recommended": "Рекомендуемые",
       "browse": "Обзор",
       "collections": "Коллекции",
-      "genres": "",
+      "genres": "Genres",
       "playlists": "Плейлисты"
     },
     "groupings": {
@@ -1437,7 +1459,10 @@
     "openSourceLicenses": "Лицензии открытого ПО",
     "versionLabel": "Версия ${version}",
     "appDescription": "Красивый клиент Plex, Jellyfin и Emby на Flutter",
-    "viewLicensesDescription": "Просмотр лицензий сторонних библиотек"
+    "viewLicensesDescription": "Просмотр лицензий сторонних библиотек",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "Серверы не найдены для ${username} (${email})",
@@ -1709,7 +1734,7 @@
     "channelNumber": "Канал ${number}",
     "unknownChannel": "Неизвестный канал",
     "live": "ЭФИР",
-    "premiereBadge": "",
+    "premiereBadge": "NEW",
     "reloadGuide": "Перезагрузить программу",
     "searchGuide": "Поиск в программе",
     "searchHint": "Поиск каналов и программ",
@@ -2333,7 +2358,7 @@
     "cacheLimit": "Лимит кэша",
     "speed": "Скорость",
     "player": "Плеер",
-    "playMethod": "",
+    "playMethod": "Play Method",
     "memory": "Память",
     "uiFps": "FPS интерфейса",
     "fps": "FPS",
@@ -2628,22 +2653,22 @@
     "redirectUnsupportedEnterFinal": "Сервер перенаправил на неподдерживаемый URL. Введите конечный URL ${product} напрямую."
   },
   "deepLinks": {
-    "invalid": "",
-    "profileNotFound": "",
-    "serverUnavailable": "",
-    "notFound": "",
-    "unsupportedItem": "",
-    "noLiveTv": "",
-    "channelNotFound": "",
-    "showLink": "",
-    "showProfileLink": "",
-    "dialogTitle": "",
-    "showHint": "",
-    "movieHint": "",
-    "episodeHint": "",
-    "profileHint": "",
-    "openAsProfile": "",
-    "copy": "",
-    "copied": ""
+    "invalid": "This Plezy link isn't valid.",
+    "profileNotFound": "No profile matches \"${profile}\".",
+    "serverUnavailable": "Couldn't reach the server for this link.",
+    "notFound": "Couldn't find this title in your libraries.",
+    "unsupportedItem": "This link can't be played.",
+    "noLiveTv": "No Live TV server is available for this link.",
+    "channelNotFound": "Couldn't find channel \"${channel}\".",
+    "showLink": "Show link",
+    "showProfileLink": "Show profile link",
+    "dialogTitle": "Link",
+    "showHint": "Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.",
+    "movieHint": "Opening this link plays the movie.",
+    "episodeHint": "Opening this link plays this episode.",
+    "profileHint": "Opening this link switches to this profile.",
+    "openAsProfile": "Open as ${name}",
+    "copy": "Copy",
+    "copied": "Link copied"
   }
 }

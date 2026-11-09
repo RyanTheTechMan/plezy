@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Plezy"
+    "title": "Plezy Labs"
   },
   "appIcon": {
     "title": "应用图标",
@@ -150,7 +150,15 @@
     "skipVersion": "跳过此版本",
     "viewRelease": "查看发布详情",
     "latestVersion": "当前已是最新版本",
-    "checkFailed": "无法检查更新"
+    "checkFailed": "无法检查更新",
+    "chooseChannelTitle": "Choose your update channel",
+    "chooseChannelDescription": "Plezy Labs adds experimental features on top of published Plezy releases. You can use Labs updates or return to official Plezy.",
+    "useLabs": "Use Plezy Labs",
+    "returnToOfficial": "Return to Official Plezy",
+    "returnToOfficialTitle": "Leave Plezy Labs?",
+    "returnToOfficialWarning": "Labs-only features and preferences may no longer be available. Official Plezy cannot update back to Plezy Labs; reinstall Labs manually if you want to return.",
+    "openOfficialRelease": "Open Official Release",
+    "releaseNotes": "Release notes"
   },
   "supporter": {
     "title": "主题与图标包",
@@ -527,6 +535,12 @@
     "screenshotLocationChanged": "截图位置已更改",
     "clipLocationReset": "剪辑位置重置为桌面",
     "screenshotLocationReset": "屏幕截图位置重置为桌面",
+    "officialPlezy": "Official Plezy",
+    "plezyLabs": "Plezy Labs",
+    "labsNotAvailable": "Plezy Labs for Plezy ${version} is not available yet",
+    "latestLabsRelease": "Latest Labs release: ${version}",
+    "latestOfficialRelease": "Latest official release: ${version}",
+    "releaseStatusUnavailable": "Release status unavailable",
     "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
@@ -612,7 +626,9 @@
       "subSeekPrev": "跳转到上一条字幕",
       "shaderToggle": "切换着色器",
       "skipMarker": "跳过片头/片尾",
-      "screenshot": "截图"
+      "screenshot": "截图",
+      "framePrevious": "Previous Frame",
+      "frameNext": "Next Frame"
     }
   },
   "fileInfo": {
@@ -757,12 +773,15 @@
     "confirmDeleteTarget": "从你的服务器永久删除 ${title}？",
     "deleteMultipleWarning": "这包括所有剧集及其文件。",
     "deleteEpisodeCountWarning": {
+      "one": "This deletes all ${n} episode in it, and its file.",
       "other": "这将删除其中全部 ${n} 集以及它们的文件。"
     },
     "deleteMultiPartWarning": {
+      "one": "This item is stored as ${n} file, which will be deleted.",
       "other": "此项目存储在 ${n} 个文件中，所有这些文件都会被删除。"
     },
     "deleteSharedFileHeading": {
+      "one": "${n} other episode is stored in the same file and will be deleted too:",
       "other": "另外 ${n} 集存储在同一个文件中，也会一并删除："
     },
     "deleteScopeUnverifiedProbeFailed": "Plezy 无法确认此操作会删除哪些文件，因此删除范围可能超出上面提到的项目。请取消后重试，或仍然删除。",
@@ -874,8 +893,8 @@
     "rotationLockButton": "旋转锁定",
     "lockScreen": "锁定屏幕",
     "screenLockButton": "屏幕锁定",
-    "tapToUnlock": "",
-    "tapAgainToUnlock": "",
+    "tapToUnlock": "Tap to unlock",
+    "tapAgainToUnlock": "Tap again to unlock",
     "timelineSlider": "视频时间轴",
     "volumeSlider": "音量滑块",
     "endsAt": "结束时间：${time}",
@@ -917,6 +936,10 @@
     "osdSubtitlesOff": "字幕：关闭",
     "osdSubtitles": "字幕：${track}",
     "osdAudio": "音频：${track}",
+    "frameCount": {
+      "one": "${n} frame",
+      "other": "${n} frames"
+    },
     "clip": {
       "fineAdjust": "微调",
       "title": "夹子",
@@ -966,6 +989,7 @@
     "markedAsUnwatchedOffline": "已标记为未观看（将在联网时同步）",
     "autoRemovedWatchedDownload": "已自动移除：${title}",
     "autoRemovedWatchedDownloads": {
+      "one": "Auto-removed ${n} watched download",
       "other": "已自动移除 ${n} 个看过的下载"
     },
     "removedFromContinueWatching": "已从继续观看中移除",
@@ -1012,7 +1036,7 @@
     "switchingToCompatiblePlayer": "正在切换到兼容的播放器…",
     "serverLimitTitle": "播放失败",
     "serverLimitBody": "服务器错误（HTTP 500）。此次会话可能因带宽或转码限制而被拒绝。请联系服务器所有者调整限制。",
-    "serverLimitTranscode": "",
+    "serverLimitTranscode": "Try transcoding",
     "mediaUnreadableTitle": "文件不可用",
     "mediaUnreadableBody": "服务器找到了此项目，但无法读取其文件（HTTP 404）。文件可能已被移动、删除，或其存储已离线。请联系服务器管理员检查文件并重新扫描媒体库。",
     "serverBusyTitle": "视频流不可用",
@@ -1238,7 +1262,7 @@
     "addMediaToLibraries": "请向你的媒体库添加一些媒体",
     "continueWatching": "继续观看",
     "continueWatchingIn": "${library} 中继续观看",
-    "selectVersion": "",
+    "selectVersion": "Select Version",
     "nextUp": "接下来",
     "nextUpIn": "${library} 中接下来",
     "recentlyAdded": "最近添加",
@@ -1259,6 +1283,7 @@
     "minutesLeft": "剩余 ${minutes} 分钟",
     "moreLikeThis": "更多类似内容",
     "titleCount": {
+      "one": "${n} title",
       "other": "${n} 个标题"
     },
     "person": {
@@ -1325,20 +1350,20 @@
     "showLibrary": "显示媒体库",
     "hideLibrary": "隐藏媒体库",
     "libraryOptions": "媒体库选项",
-    "shuffleLibrary": "",
+    "shuffleLibrary": "Shuffle library",
     "content": "媒体库内容",
     "selectLibrary": "选择媒体库",
     "filtersWithCount": "筛选器（${count}）",
     "noRecommendations": "暂无推荐",
     "noCollections": "此媒体库中没有合集",
-    "noGenres": "",
+    "noGenres": "No genres in this library",
     "noFoldersFound": "未找到文件夹",
     "folders": "文件夹",
     "tabs": {
       "recommended": "推荐",
       "browse": "浏览",
       "collections": "合集",
-      "genres": "",
+      "genres": "Genres",
       "playlists": "播放列表"
     },
     "groupings": {
@@ -1422,7 +1447,10 @@
     "openSourceLicenses": "开源许可证",
     "versionLabel": "版本 ${version}",
     "appDescription": "一款精美的 Flutter Plex、Jellyfin 和 Emby 客户端",
-    "viewLicensesDescription": "查看第三方库的许可证"
+    "viewLicensesDescription": "查看第三方库的许可证",
+    "labsDescription": "An experimental Plezy edition built only on published official releases",
+    "labsModifiedNotice": "Plezy Labs is a modified GPL-3.0 build maintained by RyanTheTechMan, not an official Plezy release.",
+    "labsSource": "Plezy Labs source code"
   },
   "serverSelection": {
     "noServersFoundForAccount": "未找到 ${username}（${email}）的服务器",
@@ -1511,6 +1539,7 @@
       "upcoming": "即将上线"
     },
     "episodeCount": {
+      "one": "${n} episode",
       "other": "${n} 集"
     },
     "cast": "演员表",
@@ -1525,6 +1554,7 @@
     "inTheseLibraries": "在这些媒体库中",
     "checkingLibrary": "正在检查你的媒体库…",
     "libraryCheckFailed": {
+      "one": "Couldn't check ${n} server",
       "other": "无法检查 ${n} 台服务器"
     },
     "emptyTitle": "这里还什么都没有",
@@ -1567,6 +1597,7 @@
       "favorited": "${n} 人收藏",
       "dropRate": "${percent} 弃番",
       "comments": {
+        "one": "${n} comment",
         "other": "${n} 条评论"
       },
       "votes": "${n} 票",
@@ -1650,6 +1681,7 @@
       "ratings": "评分",
       "schedule": "播出时间",
       "recommendedByUsers": {
+        "one": "Recommended by ${n} user",
         "other": "由 ${n} 位用户推荐"
       },
       "recommendedBy": "由 ${who} 推荐",
@@ -1660,6 +1692,7 @@
       "background": "背景"
     },
     "totalResults": {
+      "one": "${n} result",
       "other": "${n} 条结果"
     },
     "openInLibrary": "在媒体库中打开"
@@ -1679,7 +1712,7 @@
     "channelNumber": "频道 ${number}",
     "unknownChannel": "未知频道",
     "live": "直播",
-    "premiereBadge": "",
+    "premiereBadge": "NEW",
     "reloadGuide": "重新加载节目指南",
     "searchGuide": "搜索节目指南",
     "searchHint": "搜索频道和节目",
@@ -1819,6 +1852,7 @@
     "addToQueue": "添加到队列",
     "discNumber": "碟片 ${n}",
     "trackCount": {
+      "one": "${n} track",
       "other": "${n} 首"
     },
     "nowPlaying": "正在播放",
@@ -1916,6 +1950,7 @@
     "offsetPlusSecond": "+1 秒",
     "participants": "参与者",
     "participantCount": {
+      "one": "${n} participant",
       "other": "${n} 位参与者"
     },
     "hostBadge": "主持人",
@@ -2297,7 +2332,7 @@
     "cacheLimit": "缓存限制",
     "speed": "速度",
     "player": "播放器",
-    "playMethod": "",
+    "playMethod": "Play Method",
     "memory": "内存",
     "uiFps": "UI FPS",
     "fps": "FPS",
@@ -2592,22 +2627,22 @@
     "redirectUnsupportedEnterFinal": "服务器重定向到了不受支持的 URL。请直接输入最终的 ${product} URL。"
   },
   "deepLinks": {
-    "invalid": "",
-    "profileNotFound": "",
-    "serverUnavailable": "",
-    "notFound": "",
-    "unsupportedItem": "",
-    "noLiveTv": "",
-    "channelNotFound": "",
-    "showLink": "",
-    "showProfileLink": "",
-    "dialogTitle": "",
-    "showHint": "",
-    "movieHint": "",
-    "episodeHint": "",
-    "profileHint": "",
-    "openAsProfile": "",
-    "copy": "",
-    "copied": ""
+    "invalid": "This Plezy link isn't valid.",
+    "profileNotFound": "No profile matches \"${profile}\".",
+    "serverUnavailable": "Couldn't reach the server for this link.",
+    "notFound": "Couldn't find this title in your libraries.",
+    "unsupportedItem": "This link can't be played.",
+    "noLiveTv": "No Live TV server is available for this link.",
+    "channelNotFound": "Couldn't find channel \"${channel}\".",
+    "showLink": "Show link",
+    "showProfileLink": "Show profile link",
+    "dialogTitle": "Link",
+    "showHint": "Opening this link plays the next episode. Add &mode=shuffle to play the show on shuffle.",
+    "movieHint": "Opening this link plays the movie.",
+    "episodeHint": "Opening this link plays this episode.",
+    "profileHint": "Opening this link switches to this profile.",
+    "openAsProfile": "Open as ${name}",
+    "copy": "Copy",
+    "copied": "Link copied"
   }
 }
