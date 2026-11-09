@@ -1495,6 +1495,39 @@ class Translations$settings$en {
 
 	/// en: 'Export Plezy settings'
 	String get exportDialogTitle => 'Export Plezy settings';
+
+	/// en: 'Failed to select folder'
+	String get downloadLocationSelectError => 'Failed to select folder';
+
+	/// en: 'Media Capture'
+	String get mediaCapture => 'Media Capture';
+
+	/// en: 'Clips'
+	String get clips => 'Clips';
+
+	/// en: 'Screenshots'
+	String get screenshots => 'Screenshots';
+
+	/// en: '${title} Location'
+	String captureLocationTitle({required Object title}) => '${title} Location';
+
+	/// en: 'Choose where clips are saved.'
+	String get clipLocationDescription => 'Choose where clips are saved.';
+
+	/// en: 'Choose where screenshots are saved.'
+	String get screenshotLocationDescription => 'Choose where screenshots are saved.';
+
+	/// en: 'Clip location changed'
+	String get clipLocationChanged => 'Clip location changed';
+
+	/// en: 'Screenshot location changed'
+	String get screenshotLocationChanged => 'Screenshot location changed';
+
+	/// en: 'Clip location reset to Desktop'
+	String get clipLocationReset => 'Clip location reset to Desktop';
+
+	/// en: 'Screenshot location reset to Desktop'
+	String get screenshotLocationReset => 'Screenshot location reset to Desktop';
 }
 
 // Path: themeEditor
@@ -2529,6 +2562,8 @@ class Translations$videoControls$en {
 
 	/// en: 'Audio: ${track}'
 	String osdAudio({required Object track}) => 'Audio: ${track}';
+
+	late final Translations$videoControls$clip$en clip = Translations$videoControls$clip$en.internal(_root);
 }
 
 // Path: messages
@@ -6545,6 +6580,126 @@ class Translations$videoControls$pipErrors$en {
 	String unknown({required Object error}) => 'An error occurred: ${error}';
 }
 
+// Path: videoControls.clip
+class Translations$videoControls$clip$en {
+	Translations$videoControls$clip$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Fine adjust'
+	String get fineAdjust => 'Fine adjust';
+
+	/// en: 'Clip'
+	String get title => 'Clip';
+
+	/// en: 'Clips are available for on-demand video playback.'
+	String get vodOnly => 'Clips are available for on-demand video playback.';
+
+	/// en: 'Clip source is not available for this playback session.'
+	String get sourceUnavailable => 'Clip source is not available for this playback session.';
+
+	/// en: 'Play at least 1 second before clipping.'
+	String get playAtLeastOneSecond => 'Play at least 1 second before clipping.';
+
+	/// en: 'Clip start cannot be before the beginning of the video.'
+	String get startBeforeBeginning => 'Clip start cannot be before the beginning of the video.';
+
+	/// en: 'Clip end must be after the start.'
+	String get endAfterStart => 'Clip end must be after the start.';
+
+	/// en: 'Clips must be at least 1 second long.'
+	String get minimumDuration => 'Clips must be at least 1 second long.';
+
+	/// en: 'Clip end is past the end of the video.'
+	String get endPastVideo => 'Clip end is past the end of the video.';
+
+	/// en: 'Clip export canceled.'
+	String get exportCanceled => 'Clip export canceled.';
+
+	/// en: 'The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.'
+	String get cacheUnavailable => 'The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.';
+
+	/// en: 'Source-copy export does not use an encoder.'
+	String get sourceCopyNoEncoder => 'Source-copy export does not use an encoder.';
+
+	/// en: 'H.264 and HEVC clip encoding is currently available on macOS and Windows.'
+	String get encodingDesktopOnly => 'H.264 and HEVC clip encoding is currently available on macOS and Windows.';
+
+	/// en: 'HDR export requires a direct-play HDR10 or HLG-compatible source.'
+	String get hdrRequiresSource => 'HDR export requires a direct-play HDR10 or HLG-compatible source.';
+
+	/// en: 'This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.'
+	String get transcodeStartUnavailable => 'This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.';
+
+	/// en: 'Clip preview must finish loading before it can be saved.'
+	String get previewRequired => 'Clip preview must finish loading before it can be saved.';
+
+	/// en: 'This source could not be encoded as an H.264 SDR MP4.'
+	String get h264Failed => 'This source could not be encoded as an H.264 SDR MP4.';
+
+	/// en: 'This source could not be encoded as an HEVC SDR MP4.'
+	String get hevcSdrFailed => 'This source could not be encoded as an HEVC SDR MP4.';
+
+	/// en: 'This source could not be encoded as an HEVC HDR MP4.'
+	String get hevcHdrFailed => 'This source could not be encoded as an HEVC HDR MP4.';
+
+	/// en: 'This source could not be encoded as a GIF.'
+	String get gifFailed => 'This source could not be encoded as a GIF.';
+
+	/// en: 'This source could not be copied from the mpv cache.'
+	String get originalFailed => 'This source could not be copied from the mpv cache.';
+
+	/// en: 'Clip preview playback is not available in this build.'
+	String get previewUnavailable => 'Clip preview playback is not available in this build.';
+
+	/// en: 'Clip preview playback failed.'
+	String get previewFailed => 'Clip preview playback failed.';
+
+	/// en: 'The clip preview must finish loading before taking a screenshot.'
+	String get previewLoadingScreenshot => 'The clip preview must finish loading before taking a screenshot.';
+
+	/// en: 'A screenshot is already being saved.'
+	String get screenshotInProgress => 'A screenshot is already being saved.';
+
+	/// en: 'Save Clip As'
+	String get saveAsDialog => 'Save Clip As';
+
+	/// en: 'Saved to ${fileName}'
+	String savedTo({required Object fileName}) => 'Saved to ${fileName}';
+
+	/// en: 'Open Folder'
+	String get openFolder => 'Open Folder';
+
+	/// en: 'Save As'
+	String get saveAs => 'Save As';
+
+	/// en: 'Cancel Export'
+	String get cancelExport => 'Cancel Export';
+
+	/// en: 'Saving...'
+	String get saving => 'Saving...';
+
+	/// en: 'Saving ${percent}%'
+	String savingProgress({required Object percent}) => 'Saving ${percent}%';
+
+	/// en: 'Mute preview'
+	String get mutePreview => 'Mute preview';
+
+	/// en: 'Unmute preview'
+	String get unmutePreview => 'Unmute preview';
+
+	/// en: 'HEVC SDR'
+	String get formatHevcSdr => 'HEVC SDR';
+
+	/// en: 'H.264 SDR'
+	String get formatH264Sdr => 'H.264 SDR';
+
+	/// en: 'HEVC HDR'
+	String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: accountPreferences.groups
 class Translations$accountPreferences$groups$en {
 	Translations$accountPreferences$groups$en.internal(this._root);
@@ -8613,6 +8768,17 @@ extension on Translations {
 			'settings.playerScopeLibrary' => 'Per library',
 			'settings.playerScopeTitle' => 'Per show or movie',
 			'settings.exportDialogTitle' => 'Export Plezy settings',
+			'settings.downloadLocationSelectError' => 'Failed to select folder',
+			'settings.mediaCapture' => 'Media Capture',
+			'settings.clips' => 'Clips',
+			'settings.screenshots' => 'Screenshots',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Location',
+			'settings.clipLocationDescription' => 'Choose where clips are saved.',
+			'settings.screenshotLocationDescription' => 'Choose where screenshots are saved.',
+			'settings.clipLocationChanged' => 'Clip location changed',
+			'settings.screenshotLocationChanged' => 'Screenshot location changed',
+			'settings.clipLocationReset' => 'Clip location reset to Desktop',
+			'settings.screenshotLocationReset' => 'Screenshot location reset to Desktop',
 			'themeEditor.builtIn' => 'Built-in',
 			'themeEditor.presets' => 'Presets',
 			'themeEditor.custom' => 'Custom',
@@ -8620,6 +8786,8 @@ extension on Translations {
 			'themeEditor.editCustom' => 'Edit custom theme',
 			'themeEditor.editCustomDescription' => 'Choose every color yourself',
 			'themeEditor.locked' => 'Unlock with the Theme & Icon Pack',
+			_ => null,
+		} ?? switch (path) {
 			'themeEditor.savedLocked' => 'Saved — unlocks with the Theme & Icon Pack',
 			'themeEditor.title' => 'Custom Theme',
 			'themeEditor.startFrom' => 'Start from',
@@ -8631,8 +8799,6 @@ extension on Translations {
 			'themeEditor.slots.outline' => 'Outline',
 			'themeEditor.slots.text' => 'Text',
 			'themeEditor.slots.textMuted' => 'Secondary text',
-			_ => null,
-		} ?? switch (path) {
 			'themeEditor.slots.accent' => 'Accent',
 			'themeEditor.opacity' => 'Opacity',
 			'themeEditor.hexHint' => '#RRGGBB or #AARRGGBB',
@@ -8970,6 +9136,43 @@ extension on Translations {
 			'videoControls.osdSubtitlesOff' => 'Subtitles: Off',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Subtitles: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Audio: ${track}',
+			'videoControls.clip.fineAdjust' => 'Fine adjust',
+			'videoControls.clip.title' => 'Clip',
+			'videoControls.clip.vodOnly' => 'Clips are available for on-demand video playback.',
+			'videoControls.clip.sourceUnavailable' => 'Clip source is not available for this playback session.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Play at least 1 second before clipping.',
+			'videoControls.clip.startBeforeBeginning' => 'Clip start cannot be before the beginning of the video.',
+			'videoControls.clip.endAfterStart' => 'Clip end must be after the start.',
+			'videoControls.clip.minimumDuration' => 'Clips must be at least 1 second long.',
+			'videoControls.clip.endPastVideo' => 'Clip end is past the end of the video.',
+			'videoControls.clip.exportCanceled' => 'Clip export canceled.',
+			'videoControls.clip.cacheUnavailable' => 'The selected range could not be fully cached for Original export. Try a shorter clip or play the preview once before saving.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Source-copy export does not use an encoder.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 and HEVC clip encoding is currently available on macOS and Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR export requires a direct-play HDR10 or HLG-compatible source.',
+			'videoControls.clip.transcodeStartUnavailable' => 'This clip starts before the active transcoded stream. Seek earlier and reopen clipping, or switch to original quality.',
+			'videoControls.clip.previewRequired' => 'Clip preview must finish loading before it can be saved.',
+			'videoControls.clip.h264Failed' => 'This source could not be encoded as an H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'This source could not be encoded as an HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'This source could not be encoded as an HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'This source could not be encoded as a GIF.',
+			'videoControls.clip.originalFailed' => 'This source could not be copied from the mpv cache.',
+			'videoControls.clip.previewUnavailable' => 'Clip preview playback is not available in this build.',
+			'videoControls.clip.previewFailed' => 'Clip preview playback failed.',
+			'videoControls.clip.previewLoadingScreenshot' => 'The clip preview must finish loading before taking a screenshot.',
+			'videoControls.clip.screenshotInProgress' => 'A screenshot is already being saved.',
+			'videoControls.clip.saveAsDialog' => 'Save Clip As',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Saved to ${fileName}',
+			'videoControls.clip.openFolder' => 'Open Folder',
+			'videoControls.clip.saveAs' => 'Save As',
+			'videoControls.clip.cancelExport' => 'Cancel Export',
+			'videoControls.clip.saving' => 'Saving...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Saving ${percent}%',
+			'videoControls.clip.mutePreview' => 'Mute preview',
+			'videoControls.clip.unmutePreview' => 'Unmute preview',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'Marked as watched',
 			'messages.markedAsUnwatched' => 'Marked as unwatched',
 			'messages.markedAsWatchedOffline' => 'Marked as watched (will sync when online)',
@@ -9097,6 +9300,8 @@ extension on Translations {
 			'profiles.signedOutPlex' => 'Signed out of Plex.',
 			'profiles.signOutFailed' => 'Sign out failed.',
 			'profiles.sectionTitle' => 'Profiles',
+			_ => null,
+		} ?? switch (path) {
 			'profiles.summarySingle' => 'Add profiles to mix managed users and local identities',
 			'profiles.summaryMultipleWithActive' => ({required Object count, required Object activeName}) => '${count} profiles · active: ${activeName}',
 			'profiles.summaryMultiple' => ({required Object count}) => '${count} profiles',
@@ -9145,8 +9350,6 @@ extension on Translations {
 			'profiles.pinProtectionOptional' => 'PIN protection (optional)',
 			'profiles.pinExplain' => '4-digit PIN required to switch profiles.',
 			'profiles.continueButton' => 'Continue',
-			_ => null,
-		} ?? switch (path) {
 			'profiles.pinsDontMatch' => 'PINs don\'t match',
 			'profiles.tokenIdentityMismatch' => 'The Plex profile token resolved to an unexpected server',
 			'connections.sectionTitle' => 'Connections',
@@ -9611,6 +9814,8 @@ extension on Translations {
 			'liveTv.morning' => 'Morning',
 			'liveTv.daytime' => 'Daytime',
 			'liveTv.evening' => 'Evening',
+			_ => null,
+		} ?? switch (path) {
 			'liveTv.lateNight' => 'Late Night',
 			'liveTv.whatsOn' => 'What\'s On',
 			'liveTv.watchChannel' => 'Watch Channel',
@@ -9659,8 +9864,6 @@ extension on Translations {
 			'liveTv.guideReloadFailed' => 'Couldn\'t refresh the guide',
 			'liveTv.rulesProcessRequested' => 'Rule re-evaluation requested',
 			'liveTv.rulesProcessFailed' => 'Couldn\'t re-evaluate recording rules',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.recordShow' => 'Record show',
 			'liveTv.recordSettings.startEarly' => 'Start early (seconds)',
 			'liveTv.recordSettings.endLate' => 'End late (seconds)',
@@ -10125,6 +10328,8 @@ extension on Translations {
 			'videoSettings.audioOutput' => 'Audio Output',
 			'videoSettings.performanceOverlay' => 'Performance Overlay',
 			'videoSettings.audioOutputDolbyAtmos' => 'Dolby Atmos',
+			_ => null,
+		} ?? switch (path) {
 			'videoSettings.audioOutputDolbyAudio' => 'Dolby Audio',
 			'videoSettings.audioOutputSurround' => 'Surround',
 			'videoSettings.audioOutputSpatial' => 'Spatial Audio',
@@ -10173,8 +10378,6 @@ extension on Translations {
 			'performanceOverlay.speed' => 'Speed',
 			'performanceOverlay.player' => 'Player',
 			'performanceOverlay.playMethod' => 'Play Method',
-			_ => null,
-		} ?? switch (path) {
 			'performanceOverlay.memory' => 'Memory',
 			'performanceOverlay.uiFps' => 'UI FPS',
 			'performanceOverlay.fps' => 'FPS',

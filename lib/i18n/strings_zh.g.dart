@@ -609,6 +609,17 @@ class Translations$settings$zh extends Translations$settings$en {
 	@override String get playerScopeLibrary => '按媒体库';
 	@override String get playerScopeTitle => '按剧集或电影';
 	@override String get exportDialogTitle => '导出 Plezy 设置';
+	@override String get downloadLocationSelectError => '选择文件夹失败';
+	@override String get mediaCapture => '媒体捕捉';
+	@override String get clips => '剪辑';
+	@override String get screenshots => '截图';
+	@override String captureLocationTitle({required Object title}) => '${title} 位置';
+	@override String get clipLocationDescription => '选择剪辑的保存位置。';
+	@override String get screenshotLocationDescription => '选择屏幕截图的保存位置。';
+	@override String get clipLocationChanged => '剪辑位置已更改';
+	@override String get screenshotLocationChanged => '截图位置已更改';
+	@override String get clipLocationReset => '剪辑位置重置为桌面';
+	@override String get screenshotLocationReset => '屏幕截图位置重置为桌面';
 }
 
 // Path: themeEditor
@@ -1016,6 +1027,7 @@ class Translations$videoControls$zh extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => '字幕：关闭';
 	@override String osdSubtitles({required Object track}) => '字幕：${track}';
 	@override String osdAudio({required Object track}) => '音频：${track}';
+	@override late final Translations$videoControls$clip$zh clip = Translations$videoControls$clip$zh.internal(_root);
 }
 
 // Path: messages
@@ -2621,6 +2633,52 @@ class Translations$videoControls$pipErrors$zh extends Translations$videoControls
 	@override String unknown({required Object error}) => '发生错误：${error}';
 }
 
+// Path: videoControls.clip
+class Translations$videoControls$clip$zh extends Translations$videoControls$clip$en {
+	Translations$videoControls$clip$zh.internal(TranslationsZh root) : this._root = root, super.internal(root);
+
+	final TranslationsZh _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => '微调';
+	@override String get title => '夹子';
+	@override String get vodOnly => '剪辑可用于点播视频播放。';
+	@override String get sourceUnavailable => '剪辑源不可用于此播放会话。';
+	@override String get playAtLeastOneSecond => '剪辑前至少播放 1 秒。';
+	@override String get startBeforeBeginning => '剪辑开始不能早于视频开始。';
+	@override String get endAfterStart => '剪辑结束必须在开始之后。';
+	@override String get minimumDuration => '剪辑的长度必须至少为 1 秒。';
+	@override String get endPastVideo => '剪辑结束超出了视频的结尾。';
+	@override String get exportCanceled => '剪辑导出已取消。';
+	@override String get cacheUnavailable => '无法为原始导出完全缓存所选范围。尝试使用较短的剪辑或在保存之前播放预览一次。';
+	@override String get sourceCopyNoEncoder => '源副本导出不使用编码器。';
+	@override String get encodingDesktopOnly => 'H.264 和 HEVC 剪辑编码目前可在 macOS 和 Windows 上使用。';
+	@override String get hdrRequiresSource => 'HDR 导出需要直接播放 HDR10 或 HLG 兼容的源。';
+	@override String get transcodeStartUnavailable => '该剪辑在活动转码流之前开始。提前查找并重新剪辑，或切换到原始质量。';
+	@override String get previewRequired => '剪辑预览必须完成加载才能保存。';
+	@override String get h264Failed => '该源无法编码为 H.264 SDR MP4。';
+	@override String get hevcSdrFailed => '该源无法编码为 HEVC SDR MP4。';
+	@override String get hevcHdrFailed => '该源无法编码为 HEVC HDR MP4。';
+	@override String get gifFailed => '无法将此源编码为 GIF。';
+	@override String get originalFailed => '无法从 mpv 缓存复制此源。';
+	@override String get previewUnavailable => '此版本中不支持剪辑预览播放。';
+	@override String get previewFailed => '剪辑预览播放失败。';
+	@override String get previewLoadingScreenshot => '剪辑预览必须在截图之前完成加载。';
+	@override String get screenshotInProgress => '屏幕截图已被保存。';
+	@override String get saveAsDialog => '将剪辑另存为';
+	@override String savedTo({required Object fileName}) => '保存到 ${fileName}';
+	@override String get openFolder => '打开文件夹';
+	@override String get saveAs => '另存为';
+	@override String get cancelExport => '取消导出';
+	@override String get saving => '保存...';
+	@override String savingProgress({required Object percent}) => '节省 ${percent}%';
+	@override String get mutePreview => '预览静音';
+	@override String get unmutePreview => '取消静音预览';
+	@override String get formatHevcSdr => 'HEVC特别提款权';
+	@override String get formatH264Sdr => 'H.264特别提款权';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: accountPreferences.groups
 class Translations$accountPreferences$groups$zh extends Translations$accountPreferences$groups$en {
 	Translations$accountPreferences$groups$zh.internal(TranslationsZh root) : this._root = root, super.internal(root);
@@ -3880,6 +3938,17 @@ extension on TranslationsZh {
 			'settings.playerScopeLibrary' => '按媒体库',
 			'settings.playerScopeTitle' => '按剧集或电影',
 			'settings.exportDialogTitle' => '导出 Plezy 设置',
+			'settings.downloadLocationSelectError' => '选择文件夹失败',
+			'settings.mediaCapture' => '媒体捕捉',
+			'settings.clips' => '剪辑',
+			'settings.screenshots' => '截图',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} 位置',
+			'settings.clipLocationDescription' => '选择剪辑的保存位置。',
+			'settings.screenshotLocationDescription' => '选择屏幕截图的保存位置。',
+			'settings.clipLocationChanged' => '剪辑位置已更改',
+			'settings.screenshotLocationChanged' => '截图位置已更改',
+			'settings.clipLocationReset' => '剪辑位置重置为桌面',
+			'settings.screenshotLocationReset' => '屏幕截图位置重置为桌面',
 			'themeEditor.builtIn' => '内置',
 			'themeEditor.presets' => '预设',
 			'themeEditor.custom' => '自定义',
@@ -3887,6 +3956,8 @@ extension on TranslationsZh {
 			'themeEditor.editCustom' => '编辑自定义主题',
 			'themeEditor.editCustomDescription' => '自行选择每种颜色',
 			'themeEditor.locked' => '通过主题与图标包解锁',
+			_ => null,
+		} ?? switch (path) {
 			'themeEditor.savedLocked' => '已保存 — 通过主题与图标包解锁',
 			'themeEditor.title' => '自定义主题',
 			'themeEditor.startFrom' => '从现有主题开始',
@@ -3898,8 +3969,6 @@ extension on TranslationsZh {
 			'themeEditor.slots.outline' => '描边',
 			'themeEditor.slots.text' => '文字',
 			'themeEditor.slots.textMuted' => '次要文字',
-			_ => null,
-		} ?? switch (path) {
 			'themeEditor.slots.accent' => '强调色',
 			'themeEditor.opacity' => '不透明度',
 			'themeEditor.hexHint' => '#RRGGBB 或 #AARRGGBB',
@@ -4235,6 +4304,43 @@ extension on TranslationsZh {
 			'videoControls.osdSubtitlesOff' => '字幕：关闭',
 			'videoControls.osdSubtitles' => ({required Object track}) => '字幕：${track}',
 			'videoControls.osdAudio' => ({required Object track}) => '音频：${track}',
+			'videoControls.clip.fineAdjust' => '微调',
+			'videoControls.clip.title' => '夹子',
+			'videoControls.clip.vodOnly' => '剪辑可用于点播视频播放。',
+			'videoControls.clip.sourceUnavailable' => '剪辑源不可用于此播放会话。',
+			'videoControls.clip.playAtLeastOneSecond' => '剪辑前至少播放 1 秒。',
+			'videoControls.clip.startBeforeBeginning' => '剪辑开始不能早于视频开始。',
+			'videoControls.clip.endAfterStart' => '剪辑结束必须在开始之后。',
+			'videoControls.clip.minimumDuration' => '剪辑的长度必须至少为 1 秒。',
+			'videoControls.clip.endPastVideo' => '剪辑结束超出了视频的结尾。',
+			'videoControls.clip.exportCanceled' => '剪辑导出已取消。',
+			'videoControls.clip.cacheUnavailable' => '无法为原始导出完全缓存所选范围。尝试使用较短的剪辑或在保存之前播放预览一次。',
+			'videoControls.clip.sourceCopyNoEncoder' => '源副本导出不使用编码器。',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 和 HEVC 剪辑编码目前可在 macOS 和 Windows 上使用。',
+			'videoControls.clip.hdrRequiresSource' => 'HDR 导出需要直接播放 HDR10 或 HLG 兼容的源。',
+			'videoControls.clip.transcodeStartUnavailable' => '该剪辑在活动转码流之前开始。提前查找并重新剪辑，或切换到原始质量。',
+			'videoControls.clip.previewRequired' => '剪辑预览必须完成加载才能保存。',
+			'videoControls.clip.h264Failed' => '该源无法编码为 H.264 SDR MP4。',
+			'videoControls.clip.hevcSdrFailed' => '该源无法编码为 HEVC SDR MP4。',
+			'videoControls.clip.hevcHdrFailed' => '该源无法编码为 HEVC HDR MP4。',
+			'videoControls.clip.gifFailed' => '无法将此源编码为 GIF。',
+			'videoControls.clip.originalFailed' => '无法从 mpv 缓存复制此源。',
+			'videoControls.clip.previewUnavailable' => '此版本中不支持剪辑预览播放。',
+			'videoControls.clip.previewFailed' => '剪辑预览播放失败。',
+			'videoControls.clip.previewLoadingScreenshot' => '剪辑预览必须在截图之前完成加载。',
+			'videoControls.clip.screenshotInProgress' => '屏幕截图已被保存。',
+			'videoControls.clip.saveAsDialog' => '将剪辑另存为',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => '保存到 ${fileName}',
+			'videoControls.clip.openFolder' => '打开文件夹',
+			'videoControls.clip.saveAs' => '另存为',
+			'videoControls.clip.cancelExport' => '取消导出',
+			'videoControls.clip.saving' => '保存...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => '节省 ${percent}%',
+			'videoControls.clip.mutePreview' => '预览静音',
+			'videoControls.clip.unmutePreview' => '取消静音预览',
+			'videoControls.clip.formatHevcSdr' => 'HEVC特别提款权',
+			'videoControls.clip.formatH264Sdr' => 'H.264特别提款权',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => '已标记为已观看',
 			'messages.markedAsUnwatched' => '已标记为未观看',
 			'messages.markedAsWatchedOffline' => '已标记为已观看（将在联网时同步）',
@@ -4364,6 +4470,8 @@ extension on TranslationsZh {
 			'profiles.summarySingle' => '添加用户资料，以便同时使用受管理用户和本地用户身份',
 			'profiles.summaryMultipleWithActive' => ({required Object count, required Object activeName}) => '${count} 个用户资料 · 当前：${activeName}',
 			'profiles.summaryMultiple' => ({required Object count}) => '${count} 个用户资料',
+			_ => null,
+		} ?? switch (path) {
 			'profiles.removeConnectionTitle' => '移除连接？',
 			'profiles.removeConnectionMessage' => ({required Object displayName, required Object connectionLabel}) => '移除 ${displayName} 对 ${connectionLabel} 的访问权限。其他用户资料仍可使用此连接。',
 			'profiles.deleteProfileTitle' => '删除用户资料？',
@@ -4412,8 +4520,6 @@ extension on TranslationsZh {
 			'profiles.pinsDontMatch' => 'PIN 不匹配',
 			'profiles.tokenIdentityMismatch' => 'Plex 用户资料令牌解析到了非预期服务器',
 			'connections.sectionTitle' => '连接',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnection' => '添加连接',
 			'connections.addConnectionSubtitleNoProfile' => '使用 Plex 登录，或连接 Jellyfin 或 Emby 服务器',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => '添加到 ${displayName}：Plex、Jellyfin、Emby，或其他用户资料的连接',
@@ -4878,6 +4984,8 @@ extension on TranslationsZh {
 			'liveTv.noFavoriteChannels' => '没有收藏的频道',
 			'liveTv.noFavoriteChannelsHint' => '显示所有频道，然后长按某个频道将其加入收藏。',
 			'liveTv.showAllChannels' => '显示所有频道',
+			_ => null,
+		} ?? switch (path) {
 			'liveTv.favoritesLoadFailed' => '无法加载收藏。请检查网络连接后重试。',
 			'liveTv.favoritesUpdateFailed' => '无法更新收藏。请检查网络连接后重试。',
 			'liveTv.joinSession' => '加入正在进行的会话',
@@ -4926,8 +5034,6 @@ extension on TranslationsZh {
 			'liveTv.recordSettings.anyTime' => '在任意时间录制',
 			'liveTv.recordSettings.skipInLibrary' => '跳过媒体库中已有的剧集',
 			'liveTv.recordSettings.keepUpTo' => '保留的剧集数',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.recordSettings.keepUpToHint' => '0 表示保留全部剧集',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes} 分钟后开始',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} ${time}',
@@ -5392,6 +5498,8 @@ extension on TranslationsZh {
 			'videoSettings.audioNormalizationDisablesPassthrough' => '将音频解码为 PCM；开启时直通关闭',
 			'performanceOverlay.color' => '颜色',
 			'performanceOverlay.performance' => '性能',
+			_ => null,
+		} ?? switch (path) {
 			'performanceOverlay.buffer' => '缓冲',
 			'performanceOverlay.app' => '应用',
 			'performanceOverlay.decoder' => '解码器',
@@ -5440,8 +5548,6 @@ extension on TranslationsZh {
 			'performanceOverlay.decoderMediatekHw' => 'MediaTek 硬件',
 			'performanceOverlay.decoderExynosHw' => 'Exynos 硬件',
 			'performanceOverlay.decoderSoftware' => '软件',
-			_ => null,
-		} ?? switch (path) {
 			'performanceOverlay.decoderHardware' => '硬件',
 			'performanceOverlay.tunnelingActive' => '已启用',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted}（${failures} 个失败）',

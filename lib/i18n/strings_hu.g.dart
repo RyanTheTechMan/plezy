@@ -609,6 +609,17 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Könyvtáronként';
 	@override String get playerScopeTitle => 'Sorozatonként vagy filmenként';
 	@override String get exportDialogTitle => 'Plezy-beállítások exportálása';
+	@override String get downloadLocationSelectError => 'Nem sikerült kiválasztani a mappát';
+	@override String get mediaCapture => 'Médiarögzítés';
+	@override String get clips => 'Klipek';
+	@override String get screenshots => 'Képernyőképek';
+	@override String captureLocationTitle({required Object title}) => '${title} mentési helye';
+	@override String get clipLocationDescription => 'Válaszd ki a klipek mentési helyét.';
+	@override String get screenshotLocationDescription => 'Válaszd ki a képernyőképek mentési helyét.';
+	@override String get clipLocationChanged => 'A klipek mentési helye megváltozott';
+	@override String get screenshotLocationChanged => 'A képernyőképek mentési helye megváltozott';
+	@override String get clipLocationReset => 'A klipek mentési helye visszaállt az Asztalra';
+	@override String get screenshotLocationReset => 'A képernyőképek mentési helye visszaállt az Asztalra';
 }
 
 // Path: themeEditor
@@ -1019,6 +1030,7 @@ class _Translations$videoControls$hu extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Feliratok: ki';
 	@override String osdSubtitles({required Object track}) => 'Feliratok: ${track}';
 	@override String osdAudio({required Object track}) => 'Hang: ${track}';
+	@override late final _Translations$videoControls$clip$hu clip = _Translations$videoControls$clip$hu._(_root);
 }
 
 // Path: messages
@@ -2631,6 +2643,52 @@ class _Translations$videoControls$pipErrors$hu extends Translations$videoControl
 	@override String unknown({required Object error}) => 'Hiba történt: ${error}';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$hu extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Finomhangolás';
+	@override String get title => 'Klip';
+	@override String get vodOnly => 'Klipek igény szerinti videólejátszásból készíthetők.';
+	@override String get sourceUnavailable => 'A klip forrása nem érhető el ebben a lejátszási munkamenetben.';
+	@override String get playAtLeastOneSecond => 'Klip készítése előtt játssz le legalább 1 másodpercet.';
+	@override String get startBeforeBeginning => 'A klip kezdete nem lehet a videó kezdete előtt.';
+	@override String get endAfterStart => 'A klip végének a kezdete után kell lennie.';
+	@override String get minimumDuration => 'A klipnek legalább 1 másodperc hosszúnak kell lennie.';
+	@override String get endPastVideo => 'A klip vége túlnyúlik a videó végén.';
+	@override String get exportCanceled => 'A klip exportálása megszakítva.';
+	@override String get cacheUnavailable => 'A kijelölt tartományt nem sikerült teljesen gyorsítótárazni az Eredeti formátumú exportáláshoz. Próbálj rövidebb klipet, vagy mentés előtt játszd le egyszer az előnézetet.';
+	@override String get sourceCopyNoEncoder => 'A forrásmásolással történő exportálás nem használ kódolót.';
+	@override String get encodingDesktopOnly => 'A klipek H.264 és HEVC kódolása jelenleg macOS és Windows rendszeren érhető el.';
+	@override String get hdrRequiresSource => 'A HDR-exportáláshoz közvetlenül lejátszható, HDR10- vagy HLG-kompatibilis forrás szükséges.';
+	@override String get transcodeStartUnavailable => 'Ez a klip az aktív átkódolt adatfolyam előtt kezdődik. Tekerj korábbra, és nyisd meg újra a klipszerkesztőt, vagy válts eredeti minőségre.';
+	@override String get previewRequired => 'A klip mentéséhez meg kell várni az előnézet betöltődését.';
+	@override String get h264Failed => 'Ezt a forrást nem sikerült H.264 SDR MP4 formátumba kódolni.';
+	@override String get hevcSdrFailed => 'Ezt a forrást nem sikerült HEVC SDR MP4 formátumba kódolni.';
+	@override String get hevcHdrFailed => 'Ezt a forrást nem sikerült HEVC HDR MP4 formátumba kódolni.';
+	@override String get gifFailed => 'Ezt a forrást nem sikerült GIF formátumba kódolni.';
+	@override String get originalFailed => 'Ezt a forrást nem sikerült másolni az mpv gyorsítótárából.';
+	@override String get previewUnavailable => 'A klipelőnézet lejátszása nem érhető el ebben a verzióban.';
+	@override String get previewFailed => 'A klipelőnézet lejátszása sikertelen.';
+	@override String get previewLoadingScreenshot => 'Képernyőkép készítése előtt meg kell várni a klipelőnézet betöltődését.';
+	@override String get screenshotInProgress => 'Egy képernyőkép mentése már folyamatban van.';
+	@override String get saveAsDialog => 'Klip mentése másként';
+	@override String savedTo({required Object fileName}) => 'Mentve ide: ${fileName}';
+	@override String get openFolder => 'Mappa megnyitása';
+	@override String get saveAs => 'Mentés másként';
+	@override String get cancelExport => 'Exportálás megszakítása';
+	@override String get saving => 'Mentés...';
+	@override String savingProgress({required Object percent}) => 'Mentés: ${percent}%';
+	@override String get mutePreview => 'Előnézet némítása';
+	@override String get unmutePreview => 'Előnézet némításának feloldása';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: accountPreferences.groups
 class _Translations$accountPreferences$groups$hu extends Translations$accountPreferences$groups$en {
 	_Translations$accountPreferences$groups$hu._(TranslationsHu root) : this._root = root, super.internal(root);
@@ -3892,6 +3950,17 @@ extension on TranslationsHu {
 			'settings.playerScopeLibrary' => 'Könyvtáronként',
 			'settings.playerScopeTitle' => 'Sorozatonként vagy filmenként',
 			'settings.exportDialogTitle' => 'Plezy-beállítások exportálása',
+			'settings.downloadLocationSelectError' => 'Nem sikerült kiválasztani a mappát',
+			'settings.mediaCapture' => 'Médiarögzítés',
+			'settings.clips' => 'Klipek',
+			'settings.screenshots' => 'Képernyőképek',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} mentési helye',
+			'settings.clipLocationDescription' => 'Válaszd ki a klipek mentési helyét.',
+			'settings.screenshotLocationDescription' => 'Válaszd ki a képernyőképek mentési helyét.',
+			'settings.clipLocationChanged' => 'A klipek mentési helye megváltozott',
+			'settings.screenshotLocationChanged' => 'A képernyőképek mentési helye megváltozott',
+			'settings.clipLocationReset' => 'A klipek mentési helye visszaállt az Asztalra',
+			'settings.screenshotLocationReset' => 'A képernyőképek mentési helye visszaállt az Asztalra',
 			'themeEditor.builtIn' => 'Beépített',
 			'themeEditor.presets' => 'Előre beállított',
 			'themeEditor.custom' => 'Egyéni',
@@ -3899,6 +3968,8 @@ extension on TranslationsHu {
 			'themeEditor.editCustom' => 'Egyéni téma szerkesztése',
 			'themeEditor.editCustomDescription' => 'Válaszd ki magad az összes színt',
 			'themeEditor.locked' => 'A Téma- és ikoncsomaggal oldható fel',
+			_ => null,
+		} ?? switch (path) {
 			'themeEditor.savedLocked' => 'Mentve — a Téma- és ikoncsomaggal oldható fel',
 			'themeEditor.title' => 'Egyéni téma',
 			'themeEditor.startFrom' => 'Kiindulási téma',
@@ -3910,8 +3981,6 @@ extension on TranslationsHu {
 			'themeEditor.slots.outline' => 'Körvonal',
 			'themeEditor.slots.text' => 'Szöveg',
 			'themeEditor.slots.textMuted' => 'Másodlagos szöveg',
-			_ => null,
-		} ?? switch (path) {
 			'themeEditor.slots.accent' => 'Kiemelőszín',
 			'themeEditor.opacity' => 'Átlátszatlanság',
 			'themeEditor.hexHint' => '#RRGGBB vagy #AARRGGBB',
@@ -4247,6 +4316,43 @@ extension on TranslationsHu {
 			'videoControls.osdSubtitlesOff' => 'Feliratok: ki',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Feliratok: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Hang: ${track}',
+			'videoControls.clip.fineAdjust' => 'Finomhangolás',
+			'videoControls.clip.title' => 'Klip',
+			'videoControls.clip.vodOnly' => 'Klipek igény szerinti videólejátszásból készíthetők.',
+			'videoControls.clip.sourceUnavailable' => 'A klip forrása nem érhető el ebben a lejátszási munkamenetben.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Klip készítése előtt játssz le legalább 1 másodpercet.',
+			'videoControls.clip.startBeforeBeginning' => 'A klip kezdete nem lehet a videó kezdete előtt.',
+			'videoControls.clip.endAfterStart' => 'A klip végének a kezdete után kell lennie.',
+			'videoControls.clip.minimumDuration' => 'A klipnek legalább 1 másodperc hosszúnak kell lennie.',
+			'videoControls.clip.endPastVideo' => 'A klip vége túlnyúlik a videó végén.',
+			'videoControls.clip.exportCanceled' => 'A klip exportálása megszakítva.',
+			'videoControls.clip.cacheUnavailable' => 'A kijelölt tartományt nem sikerült teljesen gyorsítótárazni az Eredeti formátumú exportáláshoz. Próbálj rövidebb klipet, vagy mentés előtt játszd le egyszer az előnézetet.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'A forrásmásolással történő exportálás nem használ kódolót.',
+			'videoControls.clip.encodingDesktopOnly' => 'A klipek H.264 és HEVC kódolása jelenleg macOS és Windows rendszeren érhető el.',
+			'videoControls.clip.hdrRequiresSource' => 'A HDR-exportáláshoz közvetlenül lejátszható, HDR10- vagy HLG-kompatibilis forrás szükséges.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Ez a klip az aktív átkódolt adatfolyam előtt kezdődik. Tekerj korábbra, és nyisd meg újra a klipszerkesztőt, vagy válts eredeti minőségre.',
+			'videoControls.clip.previewRequired' => 'A klip mentéséhez meg kell várni az előnézet betöltődését.',
+			'videoControls.clip.h264Failed' => 'Ezt a forrást nem sikerült H.264 SDR MP4 formátumba kódolni.',
+			'videoControls.clip.hevcSdrFailed' => 'Ezt a forrást nem sikerült HEVC SDR MP4 formátumba kódolni.',
+			'videoControls.clip.hevcHdrFailed' => 'Ezt a forrást nem sikerült HEVC HDR MP4 formátumba kódolni.',
+			'videoControls.clip.gifFailed' => 'Ezt a forrást nem sikerült GIF formátumba kódolni.',
+			'videoControls.clip.originalFailed' => 'Ezt a forrást nem sikerült másolni az mpv gyorsítótárából.',
+			'videoControls.clip.previewUnavailable' => 'A klipelőnézet lejátszása nem érhető el ebben a verzióban.',
+			'videoControls.clip.previewFailed' => 'A klipelőnézet lejátszása sikertelen.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Képernyőkép készítése előtt meg kell várni a klipelőnézet betöltődését.',
+			'videoControls.clip.screenshotInProgress' => 'Egy képernyőkép mentése már folyamatban van.',
+			'videoControls.clip.saveAsDialog' => 'Klip mentése másként',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Mentve ide: ${fileName}',
+			'videoControls.clip.openFolder' => 'Mappa megnyitása',
+			'videoControls.clip.saveAs' => 'Mentés másként',
+			'videoControls.clip.cancelExport' => 'Exportálás megszakítása',
+			'videoControls.clip.saving' => 'Mentés...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Mentés: ${percent}%',
+			'videoControls.clip.mutePreview' => 'Előnézet némítása',
+			'videoControls.clip.unmutePreview' => 'Előnézet némításának feloldása',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'Megjelölve megtekintettként',
 			'messages.markedAsUnwatched' => 'Megjelölve nem megtekintettként',
 			'messages.markedAsWatchedOffline' => 'Megjelölve megtekintettként (szinkronizálás online állapotban)',
@@ -4376,6 +4482,8 @@ extension on TranslationsHu {
 			'profiles.summarySingle' => 'Adj hozzá profilokat a kezelt felhasználók és a helyi profilok együttes használatához',
 			'profiles.summaryMultipleWithActive' => ({required Object count, required Object activeName}) => '${count} profil · aktív: ${activeName}',
 			'profiles.summaryMultiple' => ({required Object count}) => '${count} profil',
+			_ => null,
+		} ?? switch (path) {
 			'profiles.removeConnectionTitle' => 'Eltávolítod a kapcsolatot?',
 			'profiles.removeConnectionMessage' => ({required Object displayName, required Object connectionLabel}) => 'Eltávolítod ${displayName} hozzáférését a(z) ${connectionLabel} kapcsolathoz. Más profilok megtartják.',
 			'profiles.deleteProfileTitle' => 'Törlöd a profilt?',
@@ -4424,8 +4532,6 @@ extension on TranslationsHu {
 			'profiles.pinsDontMatch' => 'A PIN-kódok nem egyeznek',
 			'profiles.tokenIdentityMismatch' => 'A Plex-profil tokenje nem a várt szerverhez tartozik',
 			'connections.sectionTitle' => 'Kapcsolatok',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnection' => 'Kapcsolat hozzáadása',
 			'connections.addConnectionSubtitleNoProfile' => 'Jelentkezz be Plexszel, vagy csatlakoztass egy Jellyfin- vagy Emby-szervert',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => 'Hozzáadás a következőhöz (${displayName}): Plex, Jellyfin, Emby vagy más profilkapcsolat',
@@ -4890,6 +4996,8 @@ extension on TranslationsHu {
 			'liveTv.noFavoriteChannels' => 'Nincsenek kedvenc csatornák',
 			'liveTv.noFavoriteChannelsHint' => 'Jelenítsd meg az összes csatornát, majd hosszan nyomj meg egy csatornát, hogy hozzáadd a kedvenceidhez.',
 			'liveTv.showAllChannels' => 'Összes csatorna megjelenítése',
+			_ => null,
+		} ?? switch (path) {
 			'liveTv.favoritesLoadFailed' => 'Nem sikerült a kedvencek betöltése. Ellenőrizd a kapcsolatot és próbáld újra.',
 			'liveTv.favoritesUpdateFailed' => 'Nem sikerült frissíteni a kedvenceket. Ellenőrizd a kapcsolatot, majd próbáld újra.',
 			'liveTv.joinSession' => 'Csatlakozás a folyamatban lévő adáshoz',
@@ -4938,8 +5046,6 @@ extension on TranslationsHu {
 			'liveTv.recordSettings.anyTime' => 'Felvétel bármikor',
 			'liveTv.recordSettings.skipInLibrary' => 'A könyvtárban már meglévő epizódok kihagyása',
 			'liveTv.recordSettings.keepUpTo' => 'Megtartandó epizódok',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.recordSettings.keepUpToHint' => 'A 0 minden epizódot megtart',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes} perc múlva kezdődik',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day}, ${time}',
@@ -5404,6 +5510,8 @@ extension on TranslationsHu {
 			'videoSettings.audioNormalizationDisablesPassthrough' => 'PCM-mé dekódolja a hangot; a passthrough ki van kapcsolva, amíg ez be van kapcsolva',
 			'performanceOverlay.color' => 'Szín',
 			'performanceOverlay.performance' => 'Teljesítmény',
+			_ => null,
+		} ?? switch (path) {
 			'performanceOverlay.buffer' => 'Puffer',
 			'performanceOverlay.app' => 'Alkalmazás',
 			'performanceOverlay.decoder' => 'Dekóder',
@@ -5452,8 +5560,6 @@ extension on TranslationsHu {
 			'performanceOverlay.decoderMediatekHw' => 'MediaTek HW',
 			'performanceOverlay.decoderExynosHw' => 'Exynos HW',
 			'performanceOverlay.decoderSoftware' => 'Szoftveres',
-			_ => null,
-		} ?? switch (path) {
 			'performanceOverlay.decoderHardware' => 'Hardveres',
 			'performanceOverlay.tunnelingActive' => 'Aktív',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} sikertelen)',

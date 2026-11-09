@@ -609,6 +609,17 @@ class _Translations$settings$bg extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'По библиотека';
 	@override String get playerScopeTitle => 'По сериал или филм';
 	@override String get exportDialogTitle => 'Експортиране на настройките на Plezy';
+	@override String get downloadLocationSelectError => 'Неуспешен избор на папка';
+	@override String get mediaCapture => 'Media Capture';
+	@override String get clips => 'клипове';
+	@override String get screenshots => 'Екранни снимки';
+	@override String captureLocationTitle({required Object title}) => '${title} Местоположение';
+	@override String get clipLocationDescription => 'Изберете къде да се записват клиповете.';
+	@override String get screenshotLocationDescription => 'Изберете къде да се запазват екранните снимки.';
+	@override String get clipLocationChanged => 'Местоположението на клипа е променено';
+	@override String get screenshotLocationChanged => 'Местоположението на екранната снимка е променено';
+	@override String get clipLocationReset => 'Местоположението на клипа се нулира на работния плот';
+	@override String get screenshotLocationReset => 'Местоположението на екранната снимка се нулира на работния плот';
 }
 
 // Path: themeEditor
@@ -1019,6 +1030,7 @@ class _Translations$videoControls$bg extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Субтитри: изкл.';
 	@override String osdSubtitles({required Object track}) => 'Субтитри: ${track}';
 	@override String osdAudio({required Object track}) => 'Аудио: ${track}';
+	@override late final _Translations$videoControls$clip$bg clip = _Translations$videoControls$clip$bg._(_root);
 }
 
 // Path: messages
@@ -2631,6 +2643,52 @@ class _Translations$videoControls$pipErrors$bg extends Translations$videoControl
 	@override String unknown({required Object error}) => 'Възникна грешка: ${error}';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$bg extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$bg._(TranslationsBg root) : this._root = root, super.internal(root);
+
+	final TranslationsBg _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Фина настройка';
+	@override String get title => 'Клип';
+	@override String get vodOnly => 'Налични са клипове за възпроизвеждане на видео при поискване.';
+	@override String get sourceUnavailable => 'Източникът на клип не е наличен за тази сесия на възпроизвеждане.';
+	@override String get playAtLeastOneSecond => 'Пуснете поне 1 секунда преди изрязване.';
+	@override String get startBeforeBeginning => 'Началото на клипа не може да бъде преди началото на видеоклипа.';
+	@override String get endAfterStart => 'Краят на клипа трябва да е след началото.';
+	@override String get minimumDuration => 'Клиповете трябва да са с дължина поне 1 секунда.';
+	@override String get endPastVideo => 'Краят на клипа е след края на видеоклипа.';
+	@override String get exportCanceled => 'Експортирането на клип е анулирано.';
+	@override String get cacheUnavailable => 'Избраният диапазон не може да бъде напълно кеширан за първоначално експортиране. Опитайте с по-кратък клип или пуснете визуализацията веднъж, преди да запазите.';
+	@override String get sourceCopyNoEncoder => 'Експортирането на изходно копие не използва енкодер.';
+	@override String get encodingDesktopOnly => 'H.264 и HEVC кодирането на клипове в момента е налично в macOS и Windows.';
+	@override String get hdrRequiresSource => 'HDR експортирането изисква HDR10 или HLG-съвместим източник за директно възпроизвеждане.';
+	@override String get transcodeStartUnavailable => 'Този клип започва преди активния транскодиран поток. Търсете по-рано и отворете отново изрезката или превключете към оригинално качество.';
+	@override String get previewRequired => 'Визуализацията на клип трябва да завърши зареждането, преди да може да бъде запазена.';
+	@override String get h264Failed => 'Този източник не може да бъде кодиран като H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'Този източник не може да бъде кодиран като HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'Този източник не можа да бъде кодиран като HEVC HDR MP4.';
+	@override String get gifFailed => 'Този източник не можа да бъде кодиран като GIF.';
+	@override String get originalFailed => 'Този източник не можа да бъде копиран от mpv кеша.';
+	@override String get previewUnavailable => 'Възпроизвеждането на предварителен преглед на клип не е налично в тази компилация.';
+	@override String get previewFailed => 'Неуспешно възпроизвеждане на визуализация на клип.';
+	@override String get previewLoadingScreenshot => 'Визуализацията на клипа трябва да завърши зареждането, преди да направите екранна снимка.';
+	@override String get screenshotInProgress => 'Вече се запазва екранна снимка.';
+	@override String get saveAsDialog => 'Запазване на клипа като';
+	@override String savedTo({required Object fileName}) => 'Запазено в ${fileName}';
+	@override String get openFolder => 'Отворете папката';
+	@override String get saveAs => 'Запиши като';
+	@override String get cancelExport => 'Отказ от експортиране';
+	@override String get saving => 'Запазва се...';
+	@override String savingProgress({required Object percent}) => 'Спестяване на ${percent}%';
+	@override String get mutePreview => 'Визуализация без звук';
+	@override String get unmutePreview => 'Включване на звука предварителен преглед';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: accountPreferences.groups
 class _Translations$accountPreferences$groups$bg extends Translations$accountPreferences$groups$en {
 	_Translations$accountPreferences$groups$bg._(TranslationsBg root) : this._root = root, super.internal(root);
@@ -3892,6 +3950,17 @@ extension on TranslationsBg {
 			'settings.playerScopeLibrary' => 'По библиотека',
 			'settings.playerScopeTitle' => 'По сериал или филм',
 			'settings.exportDialogTitle' => 'Експортиране на настройките на Plezy',
+			'settings.downloadLocationSelectError' => 'Неуспешен избор на папка',
+			'settings.mediaCapture' => 'Media Capture',
+			'settings.clips' => 'клипове',
+			'settings.screenshots' => 'Екранни снимки',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Местоположение',
+			'settings.clipLocationDescription' => 'Изберете къде да се записват клиповете.',
+			'settings.screenshotLocationDescription' => 'Изберете къде да се запазват екранните снимки.',
+			'settings.clipLocationChanged' => 'Местоположението на клипа е променено',
+			'settings.screenshotLocationChanged' => 'Местоположението на екранната снимка е променено',
+			'settings.clipLocationReset' => 'Местоположението на клипа се нулира на работния плот',
+			'settings.screenshotLocationReset' => 'Местоположението на екранната снимка се нулира на работния плот',
 			'themeEditor.builtIn' => 'Вградени',
 			'themeEditor.presets' => 'Готови теми',
 			'themeEditor.custom' => 'Персонализирана',
@@ -3899,6 +3968,8 @@ extension on TranslationsBg {
 			'themeEditor.editCustom' => 'Редактирай персонализираната тема',
 			'themeEditor.editCustomDescription' => 'Изберете всеки цвят сами',
 			'themeEditor.locked' => 'Отключва се с пакета с теми и икони',
+			_ => null,
+		} ?? switch (path) {
 			'themeEditor.savedLocked' => 'Запазена — отключва се с пакета с теми и икони',
 			'themeEditor.title' => 'Персонализирана тема',
 			'themeEditor.startFrom' => 'Започни от',
@@ -3910,8 +3981,6 @@ extension on TranslationsBg {
 			'themeEditor.slots.outline' => 'Контур',
 			'themeEditor.slots.text' => 'Текст',
 			'themeEditor.slots.textMuted' => 'Вторичен текст',
-			_ => null,
-		} ?? switch (path) {
 			'themeEditor.slots.accent' => 'Акцент',
 			'themeEditor.opacity' => 'Непрозрачност',
 			'themeEditor.hexHint' => '#RRGGBB или #AARRGGBB',
@@ -4247,6 +4316,43 @@ extension on TranslationsBg {
 			'videoControls.osdSubtitlesOff' => 'Субтитри: изкл.',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Субтитри: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Аудио: ${track}',
+			'videoControls.clip.fineAdjust' => 'Фина настройка',
+			'videoControls.clip.title' => 'Клип',
+			'videoControls.clip.vodOnly' => 'Налични са клипове за възпроизвеждане на видео при поискване.',
+			'videoControls.clip.sourceUnavailable' => 'Източникът на клип не е наличен за тази сесия на възпроизвеждане.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Пуснете поне 1 секунда преди изрязване.',
+			'videoControls.clip.startBeforeBeginning' => 'Началото на клипа не може да бъде преди началото на видеоклипа.',
+			'videoControls.clip.endAfterStart' => 'Краят на клипа трябва да е след началото.',
+			'videoControls.clip.minimumDuration' => 'Клиповете трябва да са с дължина поне 1 секунда.',
+			'videoControls.clip.endPastVideo' => 'Краят на клипа е след края на видеоклипа.',
+			'videoControls.clip.exportCanceled' => 'Експортирането на клип е анулирано.',
+			'videoControls.clip.cacheUnavailable' => 'Избраният диапазон не може да бъде напълно кеширан за първоначално експортиране. Опитайте с по-кратък клип или пуснете визуализацията веднъж, преди да запазите.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Експортирането на изходно копие не използва енкодер.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 и HEVC кодирането на клипове в момента е налично в macOS и Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR експортирането изисква HDR10 или HLG-съвместим източник за директно възпроизвеждане.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Този клип започва преди активния транскодиран поток. Търсете по-рано и отворете отново изрезката или превключете към оригинално качество.',
+			'videoControls.clip.previewRequired' => 'Визуализацията на клип трябва да завърши зареждането, преди да може да бъде запазена.',
+			'videoControls.clip.h264Failed' => 'Този източник не може да бъде кодиран като H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'Този източник не може да бъде кодиран като HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'Този източник не можа да бъде кодиран като HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Този източник не можа да бъде кодиран като GIF.',
+			'videoControls.clip.originalFailed' => 'Този източник не можа да бъде копиран от mpv кеша.',
+			'videoControls.clip.previewUnavailable' => 'Възпроизвеждането на предварителен преглед на клип не е налично в тази компилация.',
+			'videoControls.clip.previewFailed' => 'Неуспешно възпроизвеждане на визуализация на клип.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Визуализацията на клипа трябва да завърши зареждането, преди да направите екранна снимка.',
+			'videoControls.clip.screenshotInProgress' => 'Вече се запазва екранна снимка.',
+			'videoControls.clip.saveAsDialog' => 'Запазване на клипа като',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Запазено в ${fileName}',
+			'videoControls.clip.openFolder' => 'Отворете папката',
+			'videoControls.clip.saveAs' => 'Запиши като',
+			'videoControls.clip.cancelExport' => 'Отказ от експортиране',
+			'videoControls.clip.saving' => 'Запазва се...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Спестяване на ${percent}%',
+			'videoControls.clip.mutePreview' => 'Визуализация без звук',
+			'videoControls.clip.unmutePreview' => 'Включване на звука предварителен преглед',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'Маркирано като гледано',
 			'messages.markedAsUnwatched' => 'Маркирано като негледано',
 			'messages.markedAsWatchedOffline' => 'Маркирано като гледано (ще се синхронизира, когато сте онлайн)',
@@ -4376,6 +4482,8 @@ extension on TranslationsBg {
 			'profiles.summarySingle' => 'Добавете профили, за да комбинирате управлявани потребители и локални идентичности',
 			'profiles.summaryMultipleWithActive' => ({required Object count, required Object activeName}) => '${count} профила · активен: ${activeName}',
 			'profiles.summaryMultiple' => ({required Object count}) => '${count} профила',
+			_ => null,
+		} ?? switch (path) {
 			'profiles.removeConnectionTitle' => 'Да се премахне ли връзката?',
 			'profiles.removeConnectionMessage' => ({required Object displayName, required Object connectionLabel}) => 'Премахване на достъпа на ${displayName} до ${connectionLabel}. Другите профили го запазват.',
 			'profiles.deleteProfileTitle' => 'Да се изтрие ли профилът?',
@@ -4424,8 +4532,6 @@ extension on TranslationsBg {
 			'profiles.pinsDontMatch' => 'PIN кодовете не съвпадат',
 			'profiles.tokenIdentityMismatch' => 'Токенът на профила в Plex съответства на неочакван сървър',
 			'connections.sectionTitle' => 'Връзки',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnection' => 'Добави връзка',
 			'connections.addConnectionSubtitleNoProfile' => 'Влезте с Plex или свържете Jellyfin или Emby сървър',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => 'Добави към ${displayName}: Plex, Jellyfin, Emby или връзка от друг профил',
@@ -4890,6 +4996,8 @@ extension on TranslationsBg {
 			'liveTv.noFavoriteChannels' => 'Няма любими канали',
 			'liveTv.noFavoriteChannelsHint' => 'Покажете всички канали, след което натиснете и задръжте канал, за да го добавите към любимите си.',
 			'liveTv.showAllChannels' => 'Покажи всички канали',
+			_ => null,
+		} ?? switch (path) {
 			'liveTv.favoritesLoadFailed' => 'Любимите не можаха да се заредят. Проверете връзката си и опитайте отново.',
 			'liveTv.favoritesUpdateFailed' => 'Любимите не можаха да бъдат обновени. Проверете връзката си и опитайте отново.',
 			'liveTv.joinSession' => 'Присъедини се към текуща сесия',
@@ -4938,8 +5046,6 @@ extension on TranslationsBg {
 			'liveTv.recordSettings.anyTime' => 'Записване по всяко време',
 			'liveTv.recordSettings.skipInLibrary' => 'Пропускане на епизоди, които вече са в библиотеката',
 			'liveTv.recordSettings.keepUpTo' => 'Епизоди за запазване',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.recordSettings.keepUpToHint' => '0 запазва всички епизоди',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => 'Започва след ${minutes} мин',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} в ${time}',
@@ -5404,6 +5510,8 @@ extension on TranslationsBg {
 			'videoSettings.audioNormalizationDisablesPassthrough' => 'Декодира аудиото до PCM; директното предаване е изключено, докато това е включено',
 			'performanceOverlay.color' => 'Цвят',
 			'performanceOverlay.performance' => 'Производителност',
+			_ => null,
+		} ?? switch (path) {
 			'performanceOverlay.buffer' => 'Буфер',
 			'performanceOverlay.app' => 'Приложение',
 			'performanceOverlay.decoder' => 'Декодер',
@@ -5452,8 +5560,6 @@ extension on TranslationsBg {
 			'performanceOverlay.decoderMediatekHw' => 'MediaTek HW',
 			'performanceOverlay.decoderExynosHw' => 'Exynos HW',
 			'performanceOverlay.decoderSoftware' => 'Софтуерен',
-			_ => null,
-		} ?? switch (path) {
 			'performanceOverlay.decoderHardware' => 'Хардуерен',
 			'performanceOverlay.tunnelingActive' => 'Активно',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (неуспешни: ${failures})',
