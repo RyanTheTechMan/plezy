@@ -526,7 +526,8 @@
     "clipLocationChanged": "Klippets plats har ändrats",
     "screenshotLocationChanged": "Plats för skärmdump har ändrats",
     "clipLocationReset": "Klippplats återställs till skrivbordet",
-    "screenshotLocationReset": "Skärmdumpens plats återställd till skrivbordet"
+    "screenshotLocationReset": "Skärmdumpens plats återställd till skrivbordet",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "Inbyggda",
@@ -957,7 +958,8 @@
       "formatHevcSdr": "HEVC SDR",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    }
+    },
+    "packedStereoSizingLocked": "Cannot change while playing 3D source"
   },
   "userStatus": {},
   "messages": {

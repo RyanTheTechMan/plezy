@@ -526,7 +526,8 @@
     "clipLocationChanged": "A klipek mentési helye megváltozott",
     "screenshotLocationChanged": "A képernyőképek mentési helye megváltozott",
     "clipLocationReset": "A klipek mentési helye visszaállt az Asztalra",
-    "screenshotLocationReset": "A képernyőképek mentési helye visszaállt az Asztalra"
+    "screenshotLocationReset": "A képernyőképek mentési helye visszaállt az Asztalra",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "Beépített",
@@ -957,7 +958,8 @@
       "formatHevcSdr": "HEVC SDR",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    }
+    },
+    "packedStereoSizingLocked": "Cannot change while playing 3D source"
   },
   "userStatus": {},
   "messages": {

@@ -526,7 +526,8 @@
     "clipLocationChanged": "Местоположението на клипа е променено",
     "screenshotLocationChanged": "Местоположението на екранната снимка е променено",
     "clipLocationReset": "Местоположението на клипа се нулира на работния плот",
-    "screenshotLocationReset": "Местоположението на екранната снимка се нулира на работния плот"
+    "screenshotLocationReset": "Местоположението на екранната снимка се нулира на работния плот",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "Вградени",
@@ -957,7 +958,8 @@
       "formatHevcSdr": "HEVC SDR",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    }
+    },
+    "packedStereoSizingLocked": "Cannot change while playing 3D source"
   },
   "userStatus": {},
   "messages": {

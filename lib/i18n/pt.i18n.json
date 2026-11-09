@@ -526,7 +526,8 @@
     "clipLocationChanged": "Local do clipe alterado",
     "screenshotLocationChanged": "Local da captura de tela alterado",
     "clipLocationReset": "Local do clipe redefinido para desktop",
-    "screenshotLocationReset": "Local da captura de tela redefinido para desktop"
+    "screenshotLocationReset": "Local da captura de tela redefinido para desktop",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "Integrados",
@@ -957,7 +958,8 @@
       "formatHevcSdr": "SDR HEVC",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    }
+    },
+    "packedStereoSizingLocked": "Cannot change while playing 3D source"
   },
   "userStatus": {},
   "messages": {

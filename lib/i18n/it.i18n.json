@@ -526,7 +526,8 @@
     "clipLocationChanged": "La posizione della clip è cambiata",
     "screenshotLocationChanged": "La posizione dello screenshot è cambiata",
     "clipLocationReset": "La posizione della clip è stata reimpostata sul desktop",
-    "screenshotLocationReset": "La posizione dello screenshot è stata reimpostata sul desktop"
+    "screenshotLocationReset": "La posizione dello screenshot è stata reimpostata sul desktop",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "Integrati",
@@ -957,7 +958,8 @@
       "formatHevcSdr": "HEVC DSP",
       "formatH264Sdr": "H.264 DSP",
       "formatHevcHdr": "HEVCHDR"
-    }
+    },
+    "packedStereoSizingLocked": "Cannot change while playing 3D source"
   },
   "userStatus": {},
   "messages": {

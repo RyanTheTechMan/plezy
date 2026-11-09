@@ -526,7 +526,8 @@
     "clipLocationChanged": "Клиптерді сақтау орны өзгертілді",
     "screenshotLocationChanged": "Экран суреттерін сақтау орны өзгертілді",
     "clipLocationReset": "Клиптерді сақтау орны Жұмыс үстеліне қайтарылды",
-    "screenshotLocationReset": "Экран суреттерін сақтау орны Жұмыс үстеліне қайтарылды"
+    "screenshotLocationReset": "Экран суреттерін сақтау орны Жұмыс үстеліне қайтарылды",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "Кірістірілген",
@@ -957,7 +958,8 @@
       "formatHevcSdr": "HEVC SDR",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    }
+    },
+    "packedStereoSizingLocked": "Cannot change while playing 3D source"
   },
   "userStatus": {},
   "messages": {

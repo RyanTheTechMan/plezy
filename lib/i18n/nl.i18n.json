@@ -526,7 +526,8 @@
     "clipLocationChanged": "Cliplocatie gewijzigd",
     "screenshotLocationChanged": "Locatie van screenshot gewijzigd",
     "clipLocationReset": "Cliplocatie opnieuw ingesteld op bureaublad",
-    "screenshotLocationReset": "Locatie van screenshot opnieuw ingesteld op bureaublad"
+    "screenshotLocationReset": "Locatie van screenshot opnieuw ingesteld op bureaublad",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "Ingebouwd",
@@ -957,7 +958,8 @@
       "formatHevcSdr": "HEVC SDR",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    }
+    },
+    "packedStereoSizingLocked": "Cannot change while playing 3D source"
   },
   "userStatus": {},
   "messages": {

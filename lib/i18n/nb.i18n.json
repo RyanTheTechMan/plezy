@@ -526,7 +526,8 @@
     "clipLocationChanged": "Plasseringen av klippet er endret",
     "screenshotLocationChanged": "Plassering av skjermbilde endret",
     "clipLocationReset": "Klippplassering tilbakestilt til skrivebord",
-    "screenshotLocationReset": "Skjermbildeplassering tilbakestilt til skrivebord"
+    "screenshotLocationReset": "Skjermbildeplassering tilbakestilt til skrivebord",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "Innebygde",
@@ -957,7 +958,8 @@
       "formatHevcSdr": "HEVC SDR",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    }
+    },
+    "packedStereoSizingLocked": "Cannot change while playing 3D source"
   },
   "userStatus": {},
   "messages": {

@@ -526,7 +526,8 @@
     "clipLocationChanged": "短片儲存位置已變更",
     "screenshotLocationChanged": "螢幕截圖儲存位置已變更",
     "clipLocationReset": "短片儲存位置已重設為桌面",
-    "screenshotLocationReset": "螢幕截圖儲存位置已重設為桌面"
+    "screenshotLocationReset": "螢幕截圖儲存位置已重設為桌面",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "內建",
@@ -954,7 +955,8 @@
       "formatHevcSdr": "HEVC SDR",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    }
+    },
+    "packedStereoSizingLocked": "Cannot change while playing 3D source"
   },
   "userStatus": {},
   "messages": {

@@ -526,7 +526,8 @@
     "clipLocationChanged": "Kliplarni saqlash joyi oʻzgartirildi",
     "screenshotLocationChanged": "Ekran tasvirlarini saqlash joyi oʻzgartirildi",
     "clipLocationReset": "Kliplarni saqlash joyi Ish stoliga qaytarildi",
-    "screenshotLocationReset": "Ekran tasvirlarini saqlash joyi Ish stoliga qaytarildi"
+    "screenshotLocationReset": "Ekran tasvirlarini saqlash joyi Ish stoliga qaytarildi",
+    "packedStereoUi": "3D Playback UI"
   },
   "themeEditor": {
     "builtIn": "Oʻrnatilgan",
@@ -957,7 +958,8 @@
       "formatHevcSdr": "HEVC SDR",
       "formatH264Sdr": "H.264 SDR",
       "formatHevcHdr": "HEVC HDR"
-    }
+    },
+    "packedStereoSizingLocked": "Cannot change while playing 3D source"
   },
   "userStatus": {},
   "messages": {
