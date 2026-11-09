@@ -609,6 +609,17 @@ class _Translations$settings$tr extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Kitaplık başına';
 	@override String get playerScopeTitle => 'Dizi veya film başına';
 	@override String get exportDialogTitle => 'Plezy ayarlarını dışa aktar';
+	@override String get downloadLocationSelectError => 'Klasör seçilemedi';
+	@override String get mediaCapture => 'Medya Yakalama';
+	@override String get clips => 'Klipler';
+	@override String get screenshots => 'Ekran Görüntüleri';
+	@override String captureLocationTitle({required Object title}) => '${title} Konumu';
+	@override String get clipLocationDescription => 'Kliplerin nereye kaydedileceğini seçin.';
+	@override String get screenshotLocationDescription => 'Ekran görüntülerinin nereye kaydedileceğini seçin.';
+	@override String get clipLocationChanged => 'Klip konumu değiştirildi';
+	@override String get screenshotLocationChanged => 'Ekran görüntüsü konumu değiştirildi';
+	@override String get clipLocationReset => 'Klip konumu Masaüstü olarak sıfırlandı';
+	@override String get screenshotLocationReset => 'Ekran görüntüsü konumu Masaüstü olarak sıfırlandı';
 }
 
 // Path: themeEditor
@@ -1019,6 +1030,7 @@ class _Translations$videoControls$tr extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Altyazı: Kapalı';
 	@override String osdSubtitles({required Object track}) => 'Altyazı: ${track}';
 	@override String osdAudio({required Object track}) => 'Ses: ${track}';
+	@override late final _Translations$videoControls$clip$tr clip = _Translations$videoControls$clip$tr._(_root);
 }
 
 // Path: messages
@@ -2631,6 +2643,52 @@ class _Translations$videoControls$pipErrors$tr extends Translations$videoControl
 	@override String unknown({required Object error}) => 'Bir hata oluştu: ${error}';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$tr extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Hassas ayar';
+	@override String get title => 'Klip';
+	@override String get vodOnly => 'Klipler, isteğe bağlı video oynatımında kullanılabilir.';
+	@override String get sourceUnavailable => 'Bu oynatma oturumu için klip kaynağı kullanılamıyor.';
+	@override String get playAtLeastOneSecond => 'Klip oluşturmadan önce en az 1 saniye oynatın.';
+	@override String get startBeforeBeginning => 'Klip başlangıcı videonun başlangıcından önce olamaz.';
+	@override String get endAfterStart => 'Klip bitişi başlangıcından sonra olmalıdır.';
+	@override String get minimumDuration => 'Klipler en az 1 saniye uzunluğunda olmalıdır.';
+	@override String get endPastVideo => 'Klip bitişi videonun sonunu aşıyor.';
+	@override String get exportCanceled => 'Klip dışa aktarma iptal edildi.';
+	@override String get cacheUnavailable => 'Orijinal biçimde dışa aktarmak için seçili aralık tamamen önbelleğe alınamadı. Daha kısa bir klip deneyin veya kaydetmeden önce önizlemeyi bir kez oynatın.';
+	@override String get sourceCopyNoEncoder => 'Kaynak kopyalama ile dışa aktarma, kodlayıcı kullanmaz.';
+	@override String get encodingDesktopOnly => 'H.264 ve HEVC klip kodlama şu anda macOS ve Windows\'ta kullanılabilir.';
+	@override String get hdrRequiresSource => 'HDR dışa aktarma, doğrudan oynatılabilen HDR10 veya HLG uyumlu bir kaynak gerektirir.';
+	@override String get transcodeStartUnavailable => 'Bu klip, etkin dönüştürülmüş akıştan önce başlıyor. Daha önceki bir zamana gidip klip düzenleyicisini yeniden açın veya orijinal kaliteye geçin.';
+	@override String get previewRequired => 'Klip kaydedilmeden önce önizlemenin yüklenmesi tamamlanmalıdır.';
+	@override String get h264Failed => 'Bu kaynak H.264 SDR MP4 olarak kodlanamadı.';
+	@override String get hevcSdrFailed => 'Bu kaynak HEVC SDR MP4 olarak kodlanamadı.';
+	@override String get hevcHdrFailed => 'Bu kaynak HEVC HDR MP4 olarak kodlanamadı.';
+	@override String get gifFailed => 'Bu kaynak GIF olarak kodlanamadı.';
+	@override String get originalFailed => 'Bu kaynak mpv önbelleğinden kopyalanamadı.';
+	@override String get previewUnavailable => 'Bu sürümde klip önizlemesi oynatılamıyor.';
+	@override String get previewFailed => 'Klip önizlemesi oynatılamadı.';
+	@override String get previewLoadingScreenshot => 'Ekran görüntüsü almadan önce klip önizlemesinin yüklenmesi tamamlanmalıdır.';
+	@override String get screenshotInProgress => 'Bir ekran görüntüsü zaten kaydediliyor.';
+	@override String get saveAsDialog => 'Klibi Farklı Kaydet';
+	@override String savedTo({required Object fileName}) => '${fileName} dosyasına kaydedildi';
+	@override String get openFolder => 'Klasörü Aç';
+	@override String get saveAs => 'Farklı Kaydet';
+	@override String get cancelExport => 'Dışa Aktarmayı İptal Et';
+	@override String get saving => 'Kaydediliyor...';
+	@override String savingProgress({required Object percent}) => 'Kaydediliyor: %${percent}';
+	@override String get mutePreview => 'Önizlemenin sesini kapat';
+	@override String get unmutePreview => 'Önizlemenin sesini aç';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: accountPreferences.groups
 class _Translations$accountPreferences$groups$tr extends Translations$accountPreferences$groups$en {
 	_Translations$accountPreferences$groups$tr._(TranslationsTr root) : this._root = root, super.internal(root);
@@ -3892,6 +3950,17 @@ extension on TranslationsTr {
 			'settings.playerScopeLibrary' => 'Kitaplık başına',
 			'settings.playerScopeTitle' => 'Dizi veya film başına',
 			'settings.exportDialogTitle' => 'Plezy ayarlarını dışa aktar',
+			'settings.downloadLocationSelectError' => 'Klasör seçilemedi',
+			'settings.mediaCapture' => 'Medya Yakalama',
+			'settings.clips' => 'Klipler',
+			'settings.screenshots' => 'Ekran Görüntüleri',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Konumu',
+			'settings.clipLocationDescription' => 'Kliplerin nereye kaydedileceğini seçin.',
+			'settings.screenshotLocationDescription' => 'Ekran görüntülerinin nereye kaydedileceğini seçin.',
+			'settings.clipLocationChanged' => 'Klip konumu değiştirildi',
+			'settings.screenshotLocationChanged' => 'Ekran görüntüsü konumu değiştirildi',
+			'settings.clipLocationReset' => 'Klip konumu Masaüstü olarak sıfırlandı',
+			'settings.screenshotLocationReset' => 'Ekran görüntüsü konumu Masaüstü olarak sıfırlandı',
 			'themeEditor.builtIn' => 'Yerleşik',
 			'themeEditor.presets' => 'Hazır Temalar',
 			'themeEditor.custom' => 'Özel',
@@ -3899,6 +3968,8 @@ extension on TranslationsTr {
 			'themeEditor.editCustom' => 'Özel temayı düzenle',
 			'themeEditor.editCustomDescription' => 'Her rengi kendiniz seçin',
 			'themeEditor.locked' => 'Tema ve Simge Paketi ile kilidi açın',
+			_ => null,
+		} ?? switch (path) {
 			'themeEditor.savedLocked' => 'Kaydedildi — Tema ve Simge Paketi ile kilidi açılır',
 			'themeEditor.title' => 'Özel Tema',
 			'themeEditor.startFrom' => 'Başlangıç teması',
@@ -3910,8 +3981,6 @@ extension on TranslationsTr {
 			'themeEditor.slots.outline' => 'Kenarlık',
 			'themeEditor.slots.text' => 'Metin',
 			'themeEditor.slots.textMuted' => 'İkincil metin',
-			_ => null,
-		} ?? switch (path) {
 			'themeEditor.slots.accent' => 'Vurgu',
 			'themeEditor.opacity' => 'Opaklık',
 			'themeEditor.hexHint' => '#RRGGBB veya #AARRGGBB',
@@ -4247,6 +4316,43 @@ extension on TranslationsTr {
 			'videoControls.osdSubtitlesOff' => 'Altyazı: Kapalı',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Altyazı: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Ses: ${track}',
+			'videoControls.clip.fineAdjust' => 'Hassas ayar',
+			'videoControls.clip.title' => 'Klip',
+			'videoControls.clip.vodOnly' => 'Klipler, isteğe bağlı video oynatımında kullanılabilir.',
+			'videoControls.clip.sourceUnavailable' => 'Bu oynatma oturumu için klip kaynağı kullanılamıyor.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Klip oluşturmadan önce en az 1 saniye oynatın.',
+			'videoControls.clip.startBeforeBeginning' => 'Klip başlangıcı videonun başlangıcından önce olamaz.',
+			'videoControls.clip.endAfterStart' => 'Klip bitişi başlangıcından sonra olmalıdır.',
+			'videoControls.clip.minimumDuration' => 'Klipler en az 1 saniye uzunluğunda olmalıdır.',
+			'videoControls.clip.endPastVideo' => 'Klip bitişi videonun sonunu aşıyor.',
+			'videoControls.clip.exportCanceled' => 'Klip dışa aktarma iptal edildi.',
+			'videoControls.clip.cacheUnavailable' => 'Orijinal biçimde dışa aktarmak için seçili aralık tamamen önbelleğe alınamadı. Daha kısa bir klip deneyin veya kaydetmeden önce önizlemeyi bir kez oynatın.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Kaynak kopyalama ile dışa aktarma, kodlayıcı kullanmaz.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 ve HEVC klip kodlama şu anda macOS ve Windows\'ta kullanılabilir.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR dışa aktarma, doğrudan oynatılabilen HDR10 veya HLG uyumlu bir kaynak gerektirir.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Bu klip, etkin dönüştürülmüş akıştan önce başlıyor. Daha önceki bir zamana gidip klip düzenleyicisini yeniden açın veya orijinal kaliteye geçin.',
+			'videoControls.clip.previewRequired' => 'Klip kaydedilmeden önce önizlemenin yüklenmesi tamamlanmalıdır.',
+			'videoControls.clip.h264Failed' => 'Bu kaynak H.264 SDR MP4 olarak kodlanamadı.',
+			'videoControls.clip.hevcSdrFailed' => 'Bu kaynak HEVC SDR MP4 olarak kodlanamadı.',
+			'videoControls.clip.hevcHdrFailed' => 'Bu kaynak HEVC HDR MP4 olarak kodlanamadı.',
+			'videoControls.clip.gifFailed' => 'Bu kaynak GIF olarak kodlanamadı.',
+			'videoControls.clip.originalFailed' => 'Bu kaynak mpv önbelleğinden kopyalanamadı.',
+			'videoControls.clip.previewUnavailable' => 'Bu sürümde klip önizlemesi oynatılamıyor.',
+			'videoControls.clip.previewFailed' => 'Klip önizlemesi oynatılamadı.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Ekran görüntüsü almadan önce klip önizlemesinin yüklenmesi tamamlanmalıdır.',
+			'videoControls.clip.screenshotInProgress' => 'Bir ekran görüntüsü zaten kaydediliyor.',
+			'videoControls.clip.saveAsDialog' => 'Klibi Farklı Kaydet',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => '${fileName} dosyasına kaydedildi',
+			'videoControls.clip.openFolder' => 'Klasörü Aç',
+			'videoControls.clip.saveAs' => 'Farklı Kaydet',
+			'videoControls.clip.cancelExport' => 'Dışa Aktarmayı İptal Et',
+			'videoControls.clip.saving' => 'Kaydediliyor...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Kaydediliyor: %${percent}',
+			'videoControls.clip.mutePreview' => 'Önizlemenin sesini kapat',
+			'videoControls.clip.unmutePreview' => 'Önizlemenin sesini aç',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'İzlendi olarak işaretlendi',
 			'messages.markedAsUnwatched' => 'İzlenmedi olarak işaretlendi',
 			'messages.markedAsWatchedOffline' => 'İzlendi olarak işaretlendi (çevrimiçi olunca senkronize edilecek)',
@@ -4376,6 +4482,8 @@ extension on TranslationsTr {
 			'profiles.summarySingle' => 'Yönetilen kullanıcıları ve yerel kimlikleri karıştırmak için profiller ekleyin',
 			'profiles.summaryMultipleWithActive' => ({required Object count, required Object activeName}) => '${count} profil · aktif: ${activeName}',
 			'profiles.summaryMultiple' => ({required Object count}) => '${count} profil',
+			_ => null,
+		} ?? switch (path) {
 			'profiles.removeConnectionTitle' => 'Bağlantı kaldırılsın mı?',
 			'profiles.removeConnectionMessage' => ({required Object displayName, required Object connectionLabel}) => '${displayName} kullanıcısının ${connectionLabel} erişimi kaldırılacak. Diğer profiller bunu tutar.',
 			'profiles.deleteProfileTitle' => 'Profil silinsin mi?',
@@ -4424,8 +4532,6 @@ extension on TranslationsTr {
 			'profiles.pinsDontMatch' => 'PIN\'ler eşleşmiyor',
 			'profiles.tokenIdentityMismatch' => 'Plex profil belirtecinin beklenmeyen bir sunucuya ait olduğu belirlendi',
 			'connections.sectionTitle' => 'Bağlantılar',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnection' => 'Bağlantı ekle',
 			'connections.addConnectionSubtitleNoProfile' => 'Plex ile giriş yapın veya bir Jellyfin ya da Emby sunucusu bağlayın',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => '${displayName} profiline ekle: Plex, Jellyfin, Emby veya başka bir profil bağlantısı',
@@ -4890,6 +4996,8 @@ extension on TranslationsTr {
 			'liveTv.noFavoriteChannels' => 'Favori kanal yok',
 			'liveTv.noFavoriteChannelsHint' => 'Tüm kanalları gösterin, ardından favorilerinize eklemek için bir kanalı basılı tutun.',
 			'liveTv.showAllChannels' => 'Tüm kanalları göster',
+			_ => null,
+		} ?? switch (path) {
 			'liveTv.favoritesLoadFailed' => 'Favoriler yüklenemedi. Bağlantınızı kontrol edip tekrar deneyin.',
 			'liveTv.favoritesUpdateFailed' => 'Favoriler güncellenemedi. Bağlantınızı kontrol edip tekrar deneyin.',
 			'liveTv.joinSession' => 'Devam Eden Oturuma Katıl',
@@ -4938,8 +5046,6 @@ extension on TranslationsTr {
 			'liveTv.recordSettings.anyTime' => 'Herhangi bir saatte kaydet',
 			'liveTv.recordSettings.skipInLibrary' => 'Kitaplıkta zaten bulunan bölümleri atla',
 			'liveTv.recordSettings.keepUpTo' => 'Saklanacak bölüm sayısı',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.recordSettings.keepUpToHint' => '0 tüm bölümleri saklar',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes} dk içinde başlıyor',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} saat ${time}',
@@ -5404,6 +5510,8 @@ extension on TranslationsTr {
 			'videoSettings.audioNormalizationDisablesPassthrough' => 'Sesi PCM\'e çözer; bu açıkken doğrudan geçiş kapalıdır',
 			'performanceOverlay.color' => 'Renk',
 			'performanceOverlay.performance' => 'Performans',
+			_ => null,
+		} ?? switch (path) {
 			'performanceOverlay.buffer' => 'Arabellek',
 			'performanceOverlay.app' => 'Uygulama',
 			'performanceOverlay.decoder' => 'Çözücü',
@@ -5452,8 +5560,6 @@ extension on TranslationsTr {
 			'performanceOverlay.decoderMediatekHw' => 'MediaTek Donanım',
 			'performanceOverlay.decoderExynosHw' => 'Exynos Donanım',
 			'performanceOverlay.decoderSoftware' => 'Yazılım',
-			_ => null,
-		} ?? switch (path) {
 			'performanceOverlay.decoderHardware' => 'Donanım',
 			'performanceOverlay.tunnelingActive' => 'Etkin',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} başarısız)',

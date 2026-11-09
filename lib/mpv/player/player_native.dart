@@ -43,7 +43,16 @@ class PlayerNative extends PlayerBase {
   PlayerNative.audio() : this._(channelBase: 'com.plezy/mpv_audio_player', audioOnly: true, logName: 'MPV-audio');
 
   /// Dedicated clip-preview player on its own native core/channel pair.
-  PlayerNative.preview() : this._(channelBase: 'com.plezy/clip_preview_player', audioOnly: false, logName: 'MPV-clip');
+  PlayerNative.preview()
+    : this._(
+        channelBase: 'com.plezy/clip_preview_player',
+        audioOnly: false,
+        logName: 'MPV-clip',
+        // The AVFoundation VO exposes zero-copy VideoToolbox frames that mpv's
+        // screenshot converter cannot read. Copy-back keeps hardware decoding
+        // while making preview frames available for lossless PNG capture.
+        initialOptions: Platform.isMacOS ? const {'hwdec': 'videotoolbox-copy'} : const {},
+      );
 
   /// Headless clip encoder on its own native core/channel pair.
   PlayerNative.clipEncoder(Map<String, String> initialOptions)

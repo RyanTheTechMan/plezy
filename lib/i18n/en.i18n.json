@@ -522,8 +522,6 @@
     "exportDialogTitle": "Export Plezy settings",
     "showWatchedIndicators": "Show Watched Indicators",
     "showWatchedIndicatorsDescription": "Display a checkmark on watched movies, shows, and episodes",
-    "directPlayCoveredQuality": "Play Smaller Videos at Original Quality",
-    "directPlayCoveredQualityDescription": "Direct play videos already within the quality limit instead of transcoding them",
     "skipIntroMode": "Skip Intro",
     "skipIntroModeOffDescription": "Play intros normally without a skip button",
     "skipIntroModeButtonDescription": "Show a skip button when an intro starts",

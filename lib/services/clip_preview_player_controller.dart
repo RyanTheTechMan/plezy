@@ -156,7 +156,11 @@ class PlayerClipPreviewPlayerBackend implements ClipPreviewPlayerBackend {
 
   @override
   Future<void> captureScreenshot(String outputPath) async {
-    await _player?.command(buildScreenshotCommand(outputPath));
+    final player = _player;
+    if (player == null || player.disposed) {
+      throw ClipExportException(t.videoControls.screenshotFailed);
+    }
+    await player.command(buildScreenshotCommand(outputPath));
   }
 
   @visibleForTesting
@@ -349,6 +353,9 @@ class ClipPreviewPlayerController extends ValueNotifier<ClipPreviewPlayerState> 
         directoryProvider: screenshotDirectoryProvider,
       );
       await _backend.captureScreenshot(outputFile.path);
+      if (!await outputFile.exists() || await outputFile.length() == 0) {
+        throw ClipExportException(t.videoControls.screenshotFailed);
+      }
       return outputFile.path;
     } finally {
       value = value.copyWith(screenshotting: false, error: value.error);

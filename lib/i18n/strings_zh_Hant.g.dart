@@ -610,6 +610,17 @@ class _Translations$settings$zh_Hant extends Translations$settings$zh {
 	@override String get playerScopeLibrary => '依媒體庫';
 	@override String get playerScopeTitle => '依影集或電影';
 	@override String get exportDialogTitle => '匯出 Plezy 設定';
+	@override String get downloadLocationSelectError => '無法選擇資料夾';
+	@override String get mediaCapture => '媒體擷取';
+	@override String get clips => '短片';
+	@override String get screenshots => '螢幕截圖';
+	@override String captureLocationTitle({required Object title}) => '${title}位置';
+	@override String get clipLocationDescription => '選擇短片的儲存位置。';
+	@override String get screenshotLocationDescription => '選擇螢幕截圖的儲存位置。';
+	@override String get clipLocationChanged => '短片儲存位置已變更';
+	@override String get screenshotLocationChanged => '螢幕截圖儲存位置已變更';
+	@override String get clipLocationReset => '短片儲存位置已重設為桌面';
+	@override String get screenshotLocationReset => '螢幕截圖儲存位置已重設為桌面';
 }
 
 // Path: themeEditor
@@ -1017,6 +1028,7 @@ class _Translations$videoControls$zh_Hant extends Translations$videoControls$zh 
 	@override String get osdSubtitlesOff => '字幕：關閉';
 	@override String osdSubtitles({required Object track}) => '字幕：${track}';
 	@override String osdAudio({required Object track}) => '音訊：${track}';
+	@override late final _Translations$videoControls$clip$zh_Hant clip = _Translations$videoControls$clip$zh_Hant._(_root);
 }
 
 // Path: messages
@@ -2622,6 +2634,52 @@ class _Translations$videoControls$pipErrors$zh_Hant extends Translations$videoCo
 	@override String unknown({required Object error}) => '發生錯誤：${error}';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$zh_Hant extends Translations$videoControls$clip$zh {
+	_Translations$videoControls$clip$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHant _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => '微調';
+	@override String get title => '短片';
+	@override String get vodOnly => '僅可在播放隨選影片時建立短片。';
+	@override String get sourceUnavailable => '此播放工作階段無法取得短片來源。';
+	@override String get playAtLeastOneSecond => '請先播放至少 1 秒再擷取短片。';
+	@override String get startBeforeBeginning => '短片開始時間不能早於影片起點。';
+	@override String get endAfterStart => '短片結束時間必須晚於開始時間。';
+	@override String get minimumDuration => '短片長度必須至少為 1 秒。';
+	@override String get endPastVideo => '短片結束時間超出影片長度。';
+	@override String get exportCanceled => '已取消匯出短片。';
+	@override String get cacheUnavailable => '無法完整快取所選範圍以匯出原始畫質。請嘗試縮短短片，或先播放一次預覽再儲存。';
+	@override String get sourceCopyNoEncoder => '直接複製來源的匯出方式不使用編碼器。';
+	@override String get encodingDesktopOnly => '目前僅 macOS 和 Windows 支援 H.264 與 HEVC 短片編碼。';
+	@override String get hdrRequiresSource => '匯出 HDR 需要可直接播放且相容於 HDR10 或 HLG 的來源。';
+	@override String get transcodeStartUnavailable => '此短片的開始時間早於目前的轉碼串流。請跳至更早的時間並重新開啟短片編輯器，或切換為原始畫質。';
+	@override String get previewRequired => '短片預覽必須載入完成才能儲存。';
+	@override String get h264Failed => '無法將此來源編碼為 H.264 SDR MP4。';
+	@override String get hevcSdrFailed => '無法將此來源編碼為 HEVC SDR MP4。';
+	@override String get hevcHdrFailed => '無法將此來源編碼為 HEVC HDR MP4。';
+	@override String get gifFailed => '無法將此來源編碼為 GIF。';
+	@override String get originalFailed => '無法從 mpv 快取複製此來源。';
+	@override String get previewUnavailable => '此版本不支援短片預覽播放。';
+	@override String get previewFailed => '短片預覽播放失敗。';
+	@override String get previewLoadingScreenshot => '短片預覽必須載入完成才能擷取螢幕截圖。';
+	@override String get screenshotInProgress => '正在儲存另一張螢幕截圖。';
+	@override String get saveAsDialog => '將短片另存為';
+	@override String savedTo({required Object fileName}) => '已儲存至 ${fileName}';
+	@override String get openFolder => '開啟資料夾';
+	@override String get saveAs => '另存為';
+	@override String get cancelExport => '取消匯出';
+	@override String get saving => '儲存中...';
+	@override String savingProgress({required Object percent}) => '儲存中 ${percent}%';
+	@override String get mutePreview => '將預覽靜音';
+	@override String get unmutePreview => '取消預覽靜音';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: accountPreferences.groups
 class _Translations$accountPreferences$groups$zh_Hant extends Translations$accountPreferences$groups$zh {
 	_Translations$accountPreferences$groups$zh_Hant._(TranslationsZhHant root) : this._root = root, super.internal(root);
@@ -3881,6 +3939,17 @@ extension on TranslationsZhHant {
 			'settings.playerScopeLibrary' => '依媒體庫',
 			'settings.playerScopeTitle' => '依影集或電影',
 			'settings.exportDialogTitle' => '匯出 Plezy 設定',
+			'settings.downloadLocationSelectError' => '無法選擇資料夾',
+			'settings.mediaCapture' => '媒體擷取',
+			'settings.clips' => '短片',
+			'settings.screenshots' => '螢幕截圖',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title}位置',
+			'settings.clipLocationDescription' => '選擇短片的儲存位置。',
+			'settings.screenshotLocationDescription' => '選擇螢幕截圖的儲存位置。',
+			'settings.clipLocationChanged' => '短片儲存位置已變更',
+			'settings.screenshotLocationChanged' => '螢幕截圖儲存位置已變更',
+			'settings.clipLocationReset' => '短片儲存位置已重設為桌面',
+			'settings.screenshotLocationReset' => '螢幕截圖儲存位置已重設為桌面',
 			'themeEditor.builtIn' => '內建',
 			'themeEditor.presets' => '精選',
 			'themeEditor.custom' => '自訂',
@@ -3888,6 +3957,8 @@ extension on TranslationsZhHant {
 			'themeEditor.editCustom' => '編輯自訂主題',
 			'themeEditor.editCustomDescription' => '自行選擇每一種顏色',
 			'themeEditor.locked' => '透過主題與圖示包解鎖',
+			_ => null,
+		} ?? switch (path) {
 			'themeEditor.savedLocked' => '已儲存 — 透過主題與圖示包解鎖',
 			'themeEditor.title' => '自訂主題',
 			'themeEditor.startFrom' => '從現有主題開始',
@@ -3899,8 +3970,6 @@ extension on TranslationsZhHant {
 			'themeEditor.slots.outline' => '外框',
 			'themeEditor.slots.text' => '文字',
 			'themeEditor.slots.textMuted' => '次要文字',
-			_ => null,
-		} ?? switch (path) {
 			'themeEditor.slots.accent' => '強調色',
 			'themeEditor.opacity' => '不透明度',
 			'themeEditor.hexHint' => '#RRGGBB 或 #AARRGGBB',
@@ -4236,6 +4305,43 @@ extension on TranslationsZhHant {
 			'videoControls.osdSubtitlesOff' => '字幕：關閉',
 			'videoControls.osdSubtitles' => ({required Object track}) => '字幕：${track}',
 			'videoControls.osdAudio' => ({required Object track}) => '音訊：${track}',
+			'videoControls.clip.fineAdjust' => '微調',
+			'videoControls.clip.title' => '短片',
+			'videoControls.clip.vodOnly' => '僅可在播放隨選影片時建立短片。',
+			'videoControls.clip.sourceUnavailable' => '此播放工作階段無法取得短片來源。',
+			'videoControls.clip.playAtLeastOneSecond' => '請先播放至少 1 秒再擷取短片。',
+			'videoControls.clip.startBeforeBeginning' => '短片開始時間不能早於影片起點。',
+			'videoControls.clip.endAfterStart' => '短片結束時間必須晚於開始時間。',
+			'videoControls.clip.minimumDuration' => '短片長度必須至少為 1 秒。',
+			'videoControls.clip.endPastVideo' => '短片結束時間超出影片長度。',
+			'videoControls.clip.exportCanceled' => '已取消匯出短片。',
+			'videoControls.clip.cacheUnavailable' => '無法完整快取所選範圍以匯出原始畫質。請嘗試縮短短片，或先播放一次預覽再儲存。',
+			'videoControls.clip.sourceCopyNoEncoder' => '直接複製來源的匯出方式不使用編碼器。',
+			'videoControls.clip.encodingDesktopOnly' => '目前僅 macOS 和 Windows 支援 H.264 與 HEVC 短片編碼。',
+			'videoControls.clip.hdrRequiresSource' => '匯出 HDR 需要可直接播放且相容於 HDR10 或 HLG 的來源。',
+			'videoControls.clip.transcodeStartUnavailable' => '此短片的開始時間早於目前的轉碼串流。請跳至更早的時間並重新開啟短片編輯器，或切換為原始畫質。',
+			'videoControls.clip.previewRequired' => '短片預覽必須載入完成才能儲存。',
+			'videoControls.clip.h264Failed' => '無法將此來源編碼為 H.264 SDR MP4。',
+			'videoControls.clip.hevcSdrFailed' => '無法將此來源編碼為 HEVC SDR MP4。',
+			'videoControls.clip.hevcHdrFailed' => '無法將此來源編碼為 HEVC HDR MP4。',
+			'videoControls.clip.gifFailed' => '無法將此來源編碼為 GIF。',
+			'videoControls.clip.originalFailed' => '無法從 mpv 快取複製此來源。',
+			'videoControls.clip.previewUnavailable' => '此版本不支援短片預覽播放。',
+			'videoControls.clip.previewFailed' => '短片預覽播放失敗。',
+			'videoControls.clip.previewLoadingScreenshot' => '短片預覽必須載入完成才能擷取螢幕截圖。',
+			'videoControls.clip.screenshotInProgress' => '正在儲存另一張螢幕截圖。',
+			'videoControls.clip.saveAsDialog' => '將短片另存為',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => '已儲存至 ${fileName}',
+			'videoControls.clip.openFolder' => '開啟資料夾',
+			'videoControls.clip.saveAs' => '另存為',
+			'videoControls.clip.cancelExport' => '取消匯出',
+			'videoControls.clip.saving' => '儲存中...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => '儲存中 ${percent}%',
+			'videoControls.clip.mutePreview' => '將預覽靜音',
+			'videoControls.clip.unmutePreview' => '取消預覽靜音',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => '已標記為已觀看',
 			'messages.markedAsUnwatched' => '已標記為未觀看',
 			'messages.markedAsWatchedOffline' => '已標記為已觀看（將在連線時同步）',
@@ -4365,6 +4471,8 @@ extension on TranslationsZhHant {
 			'profiles.summarySingle' => '新增使用者設定檔，以同時管理託管使用者與本地身分',
 			'profiles.summaryMultipleWithActive' => ({required Object count, required Object activeName}) => '${count} 個設定檔 · 使用中：${activeName}',
 			'profiles.summaryMultiple' => ({required Object count}) => '${count} 個設定檔',
+			_ => null,
+		} ?? switch (path) {
 			'profiles.removeConnectionTitle' => '移除連線？',
 			'profiles.removeConnectionMessage' => ({required Object displayName, required Object connectionLabel}) => '將移除 ${displayName} 對 ${connectionLabel} 的存取權限。其他使用者設定檔仍可使用此連線。',
 			'profiles.deleteProfileTitle' => '刪除使用者設定檔？',
@@ -4413,8 +4521,6 @@ extension on TranslationsZhHant {
 			'profiles.pinsDontMatch' => 'PIN 碼不符合',
 			'profiles.tokenIdentityMismatch' => 'Plex 使用者設定檔權杖解析到非預期的伺服器',
 			'connections.sectionTitle' => '連線',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnection' => '新增連線',
 			'connections.addConnectionSubtitleNoProfile' => '使用 Plex 登入或連線至 Jellyfin 或 Emby 伺服器',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => '新增至 ${displayName}：Plex、Jellyfin、Emby 或其他設定檔連線',
@@ -4879,6 +4985,8 @@ extension on TranslationsZhHant {
 			'liveTv.noFavoriteChannels' => '沒有最愛頻道',
 			'liveTv.noFavoriteChannelsHint' => '顯示所有頻道，然後長按頻道即可將其加入最愛。',
 			'liveTv.showAllChannels' => '顯示所有頻道',
+			_ => null,
+		} ?? switch (path) {
 			'liveTv.favoritesLoadFailed' => '無法載入最愛頻道。請檢查網路連線後重試。',
 			'liveTv.favoritesUpdateFailed' => '無法更新最愛頻道。請檢查網路連線後重試。',
 			'liveTv.joinSession' => '加入進行中的「一起看」',
@@ -4927,8 +5035,6 @@ extension on TranslationsZhHant {
 			'liveTv.recordSettings.anyTime' => '在任何時間錄影',
 			'liveTv.recordSettings.skipInLibrary' => '略過媒體庫中已有的劇集',
 			'liveTv.recordSettings.keepUpTo' => '要保留的劇集數',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.recordSettings.keepUpToHint' => '0 表示保留所有劇集',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes} 分鐘後開始',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} ${time}',
@@ -5393,6 +5499,8 @@ extension on TranslationsZhHant {
 			'videoSettings.audioNormalizationDisablesPassthrough' => '將音訊解碼為 PCM；開啟時直通關閉',
 			'performanceOverlay.color' => '色彩',
 			'performanceOverlay.performance' => '效能',
+			_ => null,
+		} ?? switch (path) {
 			'performanceOverlay.buffer' => '緩衝',
 			'performanceOverlay.app' => '應用程式',
 			'performanceOverlay.decoder' => '解碼器',
@@ -5441,8 +5549,6 @@ extension on TranslationsZhHant {
 			'performanceOverlay.decoderMediatekHw' => 'MediaTek 硬體',
 			'performanceOverlay.decoderExynosHw' => 'Exynos 硬體',
 			'performanceOverlay.decoderSoftware' => '軟體',
-			_ => null,
-		} ?? switch (path) {
 			'performanceOverlay.decoderHardware' => '硬體',
 			'performanceOverlay.tunnelingActive' => '已啟用',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted}（${failures} 個失敗）',

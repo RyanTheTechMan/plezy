@@ -609,6 +609,17 @@ class _Translations$settings$kk extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Кітапхана бойынша';
 	@override String get playerScopeTitle => 'Сериал немесе фильм бойынша';
 	@override String get exportDialogTitle => 'Plezy параметрлерін экспорттау';
+	@override String get downloadLocationSelectError => 'Қапшықты таңдау мүмкін болмады';
+	@override String get mediaCapture => 'Медианы түсіру';
+	@override String get clips => 'Клиптер';
+	@override String get screenshots => 'Экран суреттері';
+	@override String captureLocationTitle({required Object title}) => '${title} сақтау орны';
+	@override String get clipLocationDescription => 'Клиптер сақталатын орынды таңдаңыз.';
+	@override String get screenshotLocationDescription => 'Экран суреттері сақталатын орынды таңдаңыз.';
+	@override String get clipLocationChanged => 'Клиптерді сақтау орны өзгертілді';
+	@override String get screenshotLocationChanged => 'Экран суреттерін сақтау орны өзгертілді';
+	@override String get clipLocationReset => 'Клиптерді сақтау орны Жұмыс үстеліне қайтарылды';
+	@override String get screenshotLocationReset => 'Экран суреттерін сақтау орны Жұмыс үстеліне қайтарылды';
 }
 
 // Path: themeEditor
@@ -1019,6 +1030,7 @@ class _Translations$videoControls$kk extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Субтитр: өшірулі';
 	@override String osdSubtitles({required Object track}) => 'Субтитр: ${track}';
 	@override String osdAudio({required Object track}) => 'Дыбыс: ${track}';
+	@override late final _Translations$videoControls$clip$kk clip = _Translations$videoControls$clip$kk._(_root);
 }
 
 // Path: messages
@@ -2631,6 +2643,52 @@ class _Translations$videoControls$pipErrors$kk extends Translations$videoControl
 	@override String unknown({required Object error}) => 'Қате орын алды: ${error}';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$kk extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$kk._(TranslationsKk root) : this._root = root, super.internal(root);
+
+	final TranslationsKk _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Дәл реттеу';
+	@override String get title => 'Клип';
+	@override String get vodOnly => 'Клиптер сұрау бойынша бейне ойнату кезінде қолжетімді.';
+	@override String get sourceUnavailable => 'Бұл ойнату сеансы үшін клип көзі қолжетімсіз.';
+	@override String get playAtLeastOneSecond => 'Клип жасамас бұрын кемінде 1 секунд ойнатыңыз.';
+	@override String get startBeforeBeginning => 'Клиптің басы бейненің басынан бұрын болмауы керек.';
+	@override String get endAfterStart => 'Клиптің соңы оның басынан кейін болуы керек.';
+	@override String get minimumDuration => 'Клиптің ұзақтығы кемінде 1 секунд болуы керек.';
+	@override String get endPastVideo => 'Клиптің соңы бейненің соңынан асып кетеді.';
+	@override String get exportCanceled => 'Клипті экспорттау тоқтатылды.';
+	@override String get cacheUnavailable => 'Түпнұсқа форматында экспорттау үшін таңдалған аралықты толық кэштеу мүмкін болмады. Қысқарақ клипті таңдаңыз немесе сақтамас бұрын алдын ала қарауды бір рет ойнатыңыз.';
+	@override String get sourceCopyNoEncoder => 'Көзді көшіру арқылы экспорттау кезінде кодтаушы қолданылмайды.';
+	@override String get encodingDesktopOnly => 'Клиптерді H.264 және HEVC форматтарында кодтау қазір macOS пен Windows жүйелерінде қолжетімді.';
+	@override String get hdrRequiresSource => 'HDR экспортына тікелей ойнатылатын, HDR10 немесе HLG пішімімен үйлесімді көз қажет.';
+	@override String get transcodeStartUnavailable => 'Бұл клип белсенді қайта кодталған ағыннан бұрын басталады. Ертерек уақытқа өтіп, клип өңдегішін қайта ашыңыз немесе түпнұсқа сапасына ауысыңыз.';
+	@override String get previewRequired => 'Клипті сақтау үшін алдын ала қараудың жүктелуі аяқталуы керек.';
+	@override String get h264Failed => 'Бұл көзді H.264 SDR MP4 форматына кодтау мүмкін болмады.';
+	@override String get hevcSdrFailed => 'Бұл көзді HEVC SDR MP4 форматына кодтау мүмкін болмады.';
+	@override String get hevcHdrFailed => 'Бұл көзді HEVC HDR MP4 форматына кодтау мүмкін болмады.';
+	@override String get gifFailed => 'Бұл көзді GIF форматына кодтау мүмкін болмады.';
+	@override String get originalFailed => 'Бұл көзді mpv кэшінен көшіру мүмкін болмады.';
+	@override String get previewUnavailable => 'Бұл нұсқада клипті алдын ала ойнату қолжетімсіз.';
+	@override String get previewFailed => 'Клипті алдын ала ойнату сәтсіз аяқталды.';
+	@override String get previewLoadingScreenshot => 'Экран суретін түсірмес бұрын клипті алдын ала қараудың жүктелуі аяқталуы керек.';
+	@override String get screenshotInProgress => 'Экран суреті сақталып жатыр.';
+	@override String get saveAsDialog => 'Клипті басқаша сақтау';
+	@override String savedTo({required Object fileName}) => '${fileName} файлына сақталды';
+	@override String get openFolder => 'Қапшықты ашу';
+	@override String get saveAs => 'Басқаша сақтау';
+	@override String get cancelExport => 'Экспорттауды тоқтату';
+	@override String get saving => 'Сақталуда...';
+	@override String savingProgress({required Object percent}) => 'Сақталуда: ${percent}%';
+	@override String get mutePreview => 'Алдын ала қараудың дыбысын өшіру';
+	@override String get unmutePreview => 'Алдын ала қараудың дыбысын қосу';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: accountPreferences.groups
 class _Translations$accountPreferences$groups$kk extends Translations$accountPreferences$groups$en {
 	_Translations$accountPreferences$groups$kk._(TranslationsKk root) : this._root = root, super.internal(root);
@@ -3892,6 +3950,17 @@ extension on TranslationsKk {
 			'settings.playerScopeLibrary' => 'Кітапхана бойынша',
 			'settings.playerScopeTitle' => 'Сериал немесе фильм бойынша',
 			'settings.exportDialogTitle' => 'Plezy параметрлерін экспорттау',
+			'settings.downloadLocationSelectError' => 'Қапшықты таңдау мүмкін болмады',
+			'settings.mediaCapture' => 'Медианы түсіру',
+			'settings.clips' => 'Клиптер',
+			'settings.screenshots' => 'Экран суреттері',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} сақтау орны',
+			'settings.clipLocationDescription' => 'Клиптер сақталатын орынды таңдаңыз.',
+			'settings.screenshotLocationDescription' => 'Экран суреттері сақталатын орынды таңдаңыз.',
+			'settings.clipLocationChanged' => 'Клиптерді сақтау орны өзгертілді',
+			'settings.screenshotLocationChanged' => 'Экран суреттерін сақтау орны өзгертілді',
+			'settings.clipLocationReset' => 'Клиптерді сақтау орны Жұмыс үстеліне қайтарылды',
+			'settings.screenshotLocationReset' => 'Экран суреттерін сақтау орны Жұмыс үстеліне қайтарылды',
 			'themeEditor.builtIn' => 'Кірістірілген',
 			'themeEditor.presets' => 'Дайын тақырыптар',
 			'themeEditor.custom' => 'Жеке',
@@ -3899,6 +3968,8 @@ extension on TranslationsKk {
 			'themeEditor.editCustom' => 'Жеке тақырыпты өңдеу',
 			'themeEditor.editCustomDescription' => 'Әр түсті өзіңіз таңдаңыз',
 			'themeEditor.locked' => 'Тақырыптар мен белгішелер жинағы арқылы ашу',
+			_ => null,
+		} ?? switch (path) {
 			'themeEditor.savedLocked' => 'Сақталды — Тақырыптар мен белгішелер жинағы арқылы ашылады',
 			'themeEditor.title' => 'Жеке тақырып',
 			'themeEditor.startFrom' => 'Негізге алу',
@@ -3910,8 +3981,6 @@ extension on TranslationsKk {
 			'themeEditor.slots.outline' => 'Контур',
 			'themeEditor.slots.text' => 'Мәтін',
 			'themeEditor.slots.textMuted' => 'Қосалқы мәтін',
-			_ => null,
-		} ?? switch (path) {
 			'themeEditor.slots.accent' => 'Акцент',
 			'themeEditor.opacity' => 'Мөлдірлік',
 			'themeEditor.hexHint' => '#RRGGBB немесе #AARRGGBB',
@@ -4247,6 +4316,43 @@ extension on TranslationsKk {
 			'videoControls.osdSubtitlesOff' => 'Субтитр: өшірулі',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Субтитр: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Дыбыс: ${track}',
+			'videoControls.clip.fineAdjust' => 'Дәл реттеу',
+			'videoControls.clip.title' => 'Клип',
+			'videoControls.clip.vodOnly' => 'Клиптер сұрау бойынша бейне ойнату кезінде қолжетімді.',
+			'videoControls.clip.sourceUnavailable' => 'Бұл ойнату сеансы үшін клип көзі қолжетімсіз.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Клип жасамас бұрын кемінде 1 секунд ойнатыңыз.',
+			'videoControls.clip.startBeforeBeginning' => 'Клиптің басы бейненің басынан бұрын болмауы керек.',
+			'videoControls.clip.endAfterStart' => 'Клиптің соңы оның басынан кейін болуы керек.',
+			'videoControls.clip.minimumDuration' => 'Клиптің ұзақтығы кемінде 1 секунд болуы керек.',
+			'videoControls.clip.endPastVideo' => 'Клиптің соңы бейненің соңынан асып кетеді.',
+			'videoControls.clip.exportCanceled' => 'Клипті экспорттау тоқтатылды.',
+			'videoControls.clip.cacheUnavailable' => 'Түпнұсқа форматында экспорттау үшін таңдалған аралықты толық кэштеу мүмкін болмады. Қысқарақ клипті таңдаңыз немесе сақтамас бұрын алдын ала қарауды бір рет ойнатыңыз.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Көзді көшіру арқылы экспорттау кезінде кодтаушы қолданылмайды.',
+			'videoControls.clip.encodingDesktopOnly' => 'Клиптерді H.264 және HEVC форматтарында кодтау қазір macOS пен Windows жүйелерінде қолжетімді.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR экспортына тікелей ойнатылатын, HDR10 немесе HLG пішімімен үйлесімді көз қажет.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Бұл клип белсенді қайта кодталған ағыннан бұрын басталады. Ертерек уақытқа өтіп, клип өңдегішін қайта ашыңыз немесе түпнұсқа сапасына ауысыңыз.',
+			'videoControls.clip.previewRequired' => 'Клипті сақтау үшін алдын ала қараудың жүктелуі аяқталуы керек.',
+			'videoControls.clip.h264Failed' => 'Бұл көзді H.264 SDR MP4 форматына кодтау мүмкін болмады.',
+			'videoControls.clip.hevcSdrFailed' => 'Бұл көзді HEVC SDR MP4 форматына кодтау мүмкін болмады.',
+			'videoControls.clip.hevcHdrFailed' => 'Бұл көзді HEVC HDR MP4 форматына кодтау мүмкін болмады.',
+			'videoControls.clip.gifFailed' => 'Бұл көзді GIF форматына кодтау мүмкін болмады.',
+			'videoControls.clip.originalFailed' => 'Бұл көзді mpv кэшінен көшіру мүмкін болмады.',
+			'videoControls.clip.previewUnavailable' => 'Бұл нұсқада клипті алдын ала ойнату қолжетімсіз.',
+			'videoControls.clip.previewFailed' => 'Клипті алдын ала ойнату сәтсіз аяқталды.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Экран суретін түсірмес бұрын клипті алдын ала қараудың жүктелуі аяқталуы керек.',
+			'videoControls.clip.screenshotInProgress' => 'Экран суреті сақталып жатыр.',
+			'videoControls.clip.saveAsDialog' => 'Клипті басқаша сақтау',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => '${fileName} файлына сақталды',
+			'videoControls.clip.openFolder' => 'Қапшықты ашу',
+			'videoControls.clip.saveAs' => 'Басқаша сақтау',
+			'videoControls.clip.cancelExport' => 'Экспорттауды тоқтату',
+			'videoControls.clip.saving' => 'Сақталуда...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Сақталуда: ${percent}%',
+			'videoControls.clip.mutePreview' => 'Алдын ала қараудың дыбысын өшіру',
+			'videoControls.clip.unmutePreview' => 'Алдын ала қараудың дыбысын қосу',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'Көрілді деп белгіленді',
 			'messages.markedAsUnwatched' => 'Көрілмеді деп белгіленді',
 			'messages.markedAsWatchedOffline' => 'Көрілді деп белгіленді (онлайн болғанда синхрондалады)',
@@ -4376,6 +4482,8 @@ extension on TranslationsKk {
 			'profiles.summarySingle' => 'Басқарылатын пайдаланушыларды біріктіру үшін профильдер қосыңыз',
 			'profiles.summaryMultipleWithActive' => ({required Object count, required Object activeName}) => '${count} профиль · белсенді: ${activeName}',
 			'profiles.summaryMultiple' => ({required Object count}) => '${count} профиль',
+			_ => null,
+		} ?? switch (path) {
 			'profiles.removeConnectionTitle' => 'Қосылым өшірілсін бе?',
 			'profiles.removeConnectionMessage' => ({required Object displayName, required Object connectionLabel}) => '${displayName} пайдаланушысының ${connectionLabel} қолжетімділігі өшіріледі.',
 			'profiles.deleteProfileTitle' => 'Профиль өшірілсін бе?',
@@ -4424,8 +4532,6 @@ extension on TranslationsKk {
 			'profiles.pinsDontMatch' => 'PIN кодтар сәйкес келмейді',
 			'profiles.tokenIdentityMismatch' => 'Plex профилінің токені күтілмеген серверді анықтады',
 			'connections.sectionTitle' => 'Қосылымдар',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnection' => 'Қосылым қосу',
 			'connections.addConnectionSubtitleNoProfile' => 'Plex арқылы кіріңіз немесе Jellyfin не Emby серверіне қосылыңыз',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => '${displayName} профиліне қосу: Plex, Jellyfin, Emby немесе басқа қосылым',
@@ -4890,6 +4996,8 @@ extension on TranslationsKk {
 			'liveTv.noFavoriteChannels' => 'Таңдаулы арналар жоқ',
 			'liveTv.noFavoriteChannelsHint' => 'Барлық арнаны көрсетіп, таңдаулыларға қосу үшін арнаны ұзақ басып тұрыңыз.',
 			'liveTv.showAllChannels' => 'Барлық арнаны көрсету',
+			_ => null,
+		} ?? switch (path) {
 			'liveTv.favoritesLoadFailed' => 'Таңдаулыларды жүктеу мүмкін болмады. Байланысты тексеріп, қайталап көріңіз.',
 			'liveTv.favoritesUpdateFailed' => 'Таңдаулыларды жаңарту мүмкін болмады.',
 			'liveTv.joinSession' => 'Сеансқа қосылу',
@@ -4938,8 +5046,6 @@ extension on TranslationsKk {
 			'liveTv.recordSettings.anyTime' => 'Кез келген уақытта жазу',
 			'liveTv.recordSettings.skipInLibrary' => 'Кітапханада бар эпизодтарды өткізіп жіберу',
 			'liveTv.recordSettings.keepUpTo' => 'Сақталатын эпизодтар',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.recordSettings.keepUpToHint' => '0 барлық эпизодты сақтайды',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes} мин кейін басталады',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day}, ${time}',
@@ -5404,6 +5510,8 @@ extension on TranslationsKk {
 			'videoSettings.audioNormalizationDisablesPassthrough' => 'Дыбысты PCM-ге декодтайды; бұл қосулы кезде тікелей өткізу өшірулі',
 			'performanceOverlay.color' => 'Түс',
 			'performanceOverlay.performance' => 'Өнімділік',
+			_ => null,
+		} ?? switch (path) {
 			'performanceOverlay.buffer' => 'Буфер',
 			'performanceOverlay.app' => 'Қолданба',
 			'performanceOverlay.decoder' => 'Декодер',
@@ -5452,8 +5560,6 @@ extension on TranslationsKk {
 			'performanceOverlay.decoderMediatekHw' => 'MediaTek HW',
 			'performanceOverlay.decoderExynosHw' => 'Exynos HW',
 			'performanceOverlay.decoderSoftware' => 'Бағдарламалық',
-			_ => null,
-		} ?? switch (path) {
 			'performanceOverlay.decoderHardware' => 'Аппараттық',
 			'performanceOverlay.tunnelingActive' => 'Белсенді',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} сәтсіз аяқталды)',

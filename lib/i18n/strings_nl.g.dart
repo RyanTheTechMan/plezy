@@ -609,6 +609,17 @@ class _Translations$settings$nl extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Per bibliotheek';
 	@override String get playerScopeTitle => 'Per serie of film';
 	@override String get exportDialogTitle => 'Plezy-instellingen exporteren';
+	@override String get downloadLocationSelectError => 'Kan map niet selecteren';
+	@override String get mediaCapture => 'Media-opname';
+	@override String get clips => 'Klemmen';
+	@override String get screenshots => 'Schermafbeeldingen';
+	@override String captureLocationTitle({required Object title}) => '${title} Locatie';
+	@override String get clipLocationDescription => 'Kies waar clips worden opgeslagen.';
+	@override String get screenshotLocationDescription => 'Kies waar schermafbeeldingen worden opgeslagen.';
+	@override String get clipLocationChanged => 'Cliplocatie gewijzigd';
+	@override String get screenshotLocationChanged => 'Locatie van screenshot gewijzigd';
+	@override String get clipLocationReset => 'Cliplocatie opnieuw ingesteld op bureaublad';
+	@override String get screenshotLocationReset => 'Locatie van screenshot opnieuw ingesteld op bureaublad';
 }
 
 // Path: themeEditor
@@ -1019,6 +1030,7 @@ class _Translations$videoControls$nl extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Ondertitels: uit';
 	@override String osdSubtitles({required Object track}) => 'Ondertitels: ${track}';
 	@override String osdAudio({required Object track}) => 'Audio: ${track}';
+	@override late final _Translations$videoControls$clip$nl clip = _Translations$videoControls$clip$nl._(_root);
 }
 
 // Path: messages
@@ -2631,6 +2643,52 @@ class _Translations$videoControls$pipErrors$nl extends Translations$videoControl
 	@override String unknown({required Object error}) => 'Er is een fout opgetreden: ${error}';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$nl extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$nl._(TranslationsNl root) : this._root = root, super.internal(root);
+
+	final TranslationsNl _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Fijnafstelling';
+	@override String get title => 'Klem';
+	@override String get vodOnly => 'Er zijn clips beschikbaar voor het on-demand afspelen van video.';
+	@override String get sourceUnavailable => 'Clipbron is niet beschikbaar voor deze afspeelsessie.';
+	@override String get playAtLeastOneSecond => 'Speel minimaal 1 seconde voordat u gaat knippen.';
+	@override String get startBeforeBeginning => 'Het begin van het fragment kan niet eerder zijn dan het begin van de video.';
+	@override String get endAfterStart => 'Het einde van de clip moet na het begin liggen.';
+	@override String get minimumDuration => 'Clips moeten minimaal 1 seconde lang zijn.';
+	@override String get endPastVideo => 'Het einde van het fragment is voorbij het einde van de video.';
+	@override String get exportCanceled => 'Clipexport geannuleerd.';
+	@override String get cacheUnavailable => 'Het geselecteerde bereik kan niet volledig in de cache worden opgeslagen voor de originele export. Probeer een kortere clip of speel het voorbeeld één keer af voordat je het opslaat.';
+	@override String get sourceCopyNoEncoder => 'Bij het exporteren van bronkopieën wordt geen encoder gebruikt.';
+	@override String get encodingDesktopOnly => 'H.264- en HEVC-clipcodering is momenteel beschikbaar op macOS en Windows.';
+	@override String get hdrRequiresSource => 'Voor HDR-export is een direct-play HDR10- of HLG-compatibele bron vereist.';
+	@override String get transcodeStartUnavailable => 'Deze clip begint vóór de actieve getranscodeerde stream. Zoek eerder en heropen het knippen, of schakel over naar de originele kwaliteit.';
+	@override String get previewRequired => 'Het clipvoorbeeld moet zijn geladen voordat het kan worden opgeslagen.';
+	@override String get h264Failed => 'Deze bron kan niet worden gecodeerd als een H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'Deze bron kan niet worden gecodeerd als een HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'Deze bron kan niet worden gecodeerd als een HEVC HDR MP4.';
+	@override String get gifFailed => 'Deze bron kon niet worden gecodeerd als GIF.';
+	@override String get originalFailed => 'Deze bron kon niet worden gekopieerd uit de mpv-cache.';
+	@override String get previewUnavailable => 'Het afspelen van fragmentvoorbeelden is niet beschikbaar in deze build.';
+	@override String get previewFailed => 'Afspelen van clipvoorbeeld mislukt.';
+	@override String get previewLoadingScreenshot => 'Het clipvoorbeeld moet zijn geladen voordat er een screenshot kan worden gemaakt.';
+	@override String get screenshotInProgress => 'Er wordt al een screenshot opgeslagen.';
+	@override String get saveAsDialog => 'Clip opslaan als';
+	@override String savedTo({required Object fileName}) => 'Opgeslagen in ${fileName}';
+	@override String get openFolder => 'Map openen';
+	@override String get saveAs => 'Opslaan als';
+	@override String get cancelExport => 'Exporteren annuleren';
+	@override String get saving => 'Besparing...';
+	@override String savingProgress({required Object percent}) => '${percent}% besparen';
+	@override String get mutePreview => 'Voorbeeld dempen';
+	@override String get unmutePreview => 'Dempen van voorbeeld opheffen';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: accountPreferences.groups
 class _Translations$accountPreferences$groups$nl extends Translations$accountPreferences$groups$en {
 	_Translations$accountPreferences$groups$nl._(TranslationsNl root) : this._root = root, super.internal(root);
@@ -3892,6 +3950,17 @@ extension on TranslationsNl {
 			'settings.playerScopeLibrary' => 'Per bibliotheek',
 			'settings.playerScopeTitle' => 'Per serie of film',
 			'settings.exportDialogTitle' => 'Plezy-instellingen exporteren',
+			'settings.downloadLocationSelectError' => 'Kan map niet selecteren',
+			'settings.mediaCapture' => 'Media-opname',
+			'settings.clips' => 'Klemmen',
+			'settings.screenshots' => 'Schermafbeeldingen',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Locatie',
+			'settings.clipLocationDescription' => 'Kies waar clips worden opgeslagen.',
+			'settings.screenshotLocationDescription' => 'Kies waar schermafbeeldingen worden opgeslagen.',
+			'settings.clipLocationChanged' => 'Cliplocatie gewijzigd',
+			'settings.screenshotLocationChanged' => 'Locatie van screenshot gewijzigd',
+			'settings.clipLocationReset' => 'Cliplocatie opnieuw ingesteld op bureaublad',
+			'settings.screenshotLocationReset' => 'Locatie van screenshot opnieuw ingesteld op bureaublad',
 			'themeEditor.builtIn' => 'Ingebouwd',
 			'themeEditor.presets' => 'Voorinstellingen',
 			'themeEditor.custom' => 'Aangepast',
@@ -3899,6 +3968,8 @@ extension on TranslationsNl {
 			'themeEditor.editCustom' => 'Aangepast thema bewerken',
 			'themeEditor.editCustomDescription' => 'Kies elke kleur zelf',
 			'themeEditor.locked' => 'Ontgrendelen met het Thema- en iconenpakket',
+			_ => null,
+		} ?? switch (path) {
 			'themeEditor.savedLocked' => 'Opgeslagen — wordt ontgrendeld met het Thema- en iconenpakket',
 			'themeEditor.title' => 'Aangepast thema',
 			'themeEditor.startFrom' => 'Beginnen vanaf',
@@ -3910,8 +3981,6 @@ extension on TranslationsNl {
 			'themeEditor.slots.outline' => 'Rand',
 			'themeEditor.slots.text' => 'Tekst',
 			'themeEditor.slots.textMuted' => 'Secundaire tekst',
-			_ => null,
-		} ?? switch (path) {
 			'themeEditor.slots.accent' => 'Accent',
 			'themeEditor.opacity' => 'Dekking',
 			'themeEditor.hexHint' => '#RRGGBB of #AARRGGBB',
@@ -4247,6 +4316,43 @@ extension on TranslationsNl {
 			'videoControls.osdSubtitlesOff' => 'Ondertitels: uit',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Ondertitels: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Audio: ${track}',
+			'videoControls.clip.fineAdjust' => 'Fijnafstelling',
+			'videoControls.clip.title' => 'Klem',
+			'videoControls.clip.vodOnly' => 'Er zijn clips beschikbaar voor het on-demand afspelen van video.',
+			'videoControls.clip.sourceUnavailable' => 'Clipbron is niet beschikbaar voor deze afspeelsessie.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Speel minimaal 1 seconde voordat u gaat knippen.',
+			'videoControls.clip.startBeforeBeginning' => 'Het begin van het fragment kan niet eerder zijn dan het begin van de video.',
+			'videoControls.clip.endAfterStart' => 'Het einde van de clip moet na het begin liggen.',
+			'videoControls.clip.minimumDuration' => 'Clips moeten minimaal 1 seconde lang zijn.',
+			'videoControls.clip.endPastVideo' => 'Het einde van het fragment is voorbij het einde van de video.',
+			'videoControls.clip.exportCanceled' => 'Clipexport geannuleerd.',
+			'videoControls.clip.cacheUnavailable' => 'Het geselecteerde bereik kan niet volledig in de cache worden opgeslagen voor de originele export. Probeer een kortere clip of speel het voorbeeld één keer af voordat je het opslaat.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Bij het exporteren van bronkopieën wordt geen encoder gebruikt.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264- en HEVC-clipcodering is momenteel beschikbaar op macOS en Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'Voor HDR-export is een direct-play HDR10- of HLG-compatibele bron vereist.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Deze clip begint vóór de actieve getranscodeerde stream. Zoek eerder en heropen het knippen, of schakel over naar de originele kwaliteit.',
+			'videoControls.clip.previewRequired' => 'Het clipvoorbeeld moet zijn geladen voordat het kan worden opgeslagen.',
+			'videoControls.clip.h264Failed' => 'Deze bron kan niet worden gecodeerd als een H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'Deze bron kan niet worden gecodeerd als een HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'Deze bron kan niet worden gecodeerd als een HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Deze bron kon niet worden gecodeerd als GIF.',
+			'videoControls.clip.originalFailed' => 'Deze bron kon niet worden gekopieerd uit de mpv-cache.',
+			'videoControls.clip.previewUnavailable' => 'Het afspelen van fragmentvoorbeelden is niet beschikbaar in deze build.',
+			'videoControls.clip.previewFailed' => 'Afspelen van clipvoorbeeld mislukt.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Het clipvoorbeeld moet zijn geladen voordat er een screenshot kan worden gemaakt.',
+			'videoControls.clip.screenshotInProgress' => 'Er wordt al een screenshot opgeslagen.',
+			'videoControls.clip.saveAsDialog' => 'Clip opslaan als',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Opgeslagen in ${fileName}',
+			'videoControls.clip.openFolder' => 'Map openen',
+			'videoControls.clip.saveAs' => 'Opslaan als',
+			'videoControls.clip.cancelExport' => 'Exporteren annuleren',
+			'videoControls.clip.saving' => 'Besparing...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => '${percent}% besparen',
+			'videoControls.clip.mutePreview' => 'Voorbeeld dempen',
+			'videoControls.clip.unmutePreview' => 'Dempen van voorbeeld opheffen',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'Gemarkeerd als gekeken',
 			'messages.markedAsUnwatched' => 'Gemarkeerd als ongekeken',
 			'messages.markedAsWatchedOffline' => 'Gemarkeerd als bekeken (wordt gesynchroniseerd zodra je online bent)',
@@ -4376,6 +4482,8 @@ extension on TranslationsNl {
 			'profiles.summarySingle' => 'Voeg profielen toe om beheerde gebruikers en lokale identiteiten te combineren',
 			'profiles.summaryMultipleWithActive' => ({required Object count, required Object activeName}) => '${count} profielen · actief: ${activeName}',
 			'profiles.summaryMultiple' => ({required Object count}) => '${count} profielen',
+			_ => null,
+		} ?? switch (path) {
 			'profiles.removeConnectionTitle' => 'Verbinding verwijderen?',
 			'profiles.removeConnectionMessage' => ({required Object displayName, required Object connectionLabel}) => 'Verwijder de toegang van ${displayName} tot ${connectionLabel}. Andere profielen behouden deze toegang.',
 			'profiles.deleteProfileTitle' => 'Profiel verwijderen?',
@@ -4424,8 +4532,6 @@ extension on TranslationsNl {
 			'profiles.pinsDontMatch' => 'De pincodes komen niet overeen',
 			'profiles.tokenIdentityMismatch' => 'Het token van het Plex-profiel bleek bij een onverwachte server te horen',
 			'connections.sectionTitle' => 'Verbindingen',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnection' => 'Verbinding toevoegen',
 			'connections.addConnectionSubtitleNoProfile' => 'Meld je aan met Plex of verbind een Jellyfin- of Emby-server',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => 'Toevoegen aan ${displayName}: Plex, Jellyfin, Emby of een andere profielverbinding',
@@ -4890,6 +4996,8 @@ extension on TranslationsNl {
 			'liveTv.noFavoriteChannels' => 'Geen favoriete zenders',
 			'liveTv.noFavoriteChannelsHint' => 'Toon alle zenders en houd daarna een zender ingedrukt om deze aan je favorieten toe te voegen.',
 			'liveTv.showAllChannels' => 'Alle zenders tonen',
+			_ => null,
+		} ?? switch (path) {
 			'liveTv.favoritesLoadFailed' => 'Favorieten konden niet worden geladen. Controleer je verbinding en probeer het opnieuw.',
 			'liveTv.favoritesUpdateFailed' => 'Favorieten konden niet worden bijgewerkt. Controleer je verbinding en probeer het opnieuw.',
 			'liveTv.joinSession' => 'Deelnemen aan lopende sessie',
@@ -4938,8 +5046,6 @@ extension on TranslationsNl {
 			'liveTv.recordSettings.anyTime' => 'Op elk tijdstip opnemen',
 			'liveTv.recordSettings.skipInLibrary' => 'Afleveringen overslaan die al in de bibliotheek staan',
 			'liveTv.recordSettings.keepUpTo' => 'Te bewaren afleveringen',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.recordSettings.keepUpToHint' => '0 bewaart alle afleveringen',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => 'Begint over ${minutes} min',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} om ${time}',
@@ -5404,6 +5510,8 @@ extension on TranslationsNl {
 			'videoSettings.audioNormalizationDisablesPassthrough' => 'Decodeert audio naar PCM; doorvoer is uit zolang dit aan staat',
 			'performanceOverlay.color' => 'Kleur',
 			'performanceOverlay.performance' => 'Prestaties',
+			_ => null,
+		} ?? switch (path) {
 			'performanceOverlay.buffer' => 'Buffer',
 			'performanceOverlay.app' => 'App',
 			'performanceOverlay.decoder' => 'Decoder',
@@ -5452,8 +5560,6 @@ extension on TranslationsNl {
 			'performanceOverlay.decoderMediatekHw' => 'MediaTek HW',
 			'performanceOverlay.decoderExynosHw' => 'Exynos HW',
 			'performanceOverlay.decoderSoftware' => 'Software',
-			_ => null,
-		} ?? switch (path) {
 			'performanceOverlay.decoderHardware' => 'Hardware',
 			'performanceOverlay.tunnelingActive' => 'Actief',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} mislukt)',

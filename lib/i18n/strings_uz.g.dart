@@ -609,6 +609,17 @@ class _Translations$settings$uz extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Kutubxona boʻyicha';
 	@override String get playerScopeTitle => 'Serial yoki film boʻyicha';
 	@override String get exportDialogTitle => 'Plezy sozlamalarini eksport qilish';
+	@override String get downloadLocationSelectError => 'Jildni tanlab boʻlmadi';
+	@override String get mediaCapture => 'Media yozib olish';
+	@override String get clips => 'Kliplar';
+	@override String get screenshots => 'Ekran tasvirlari';
+	@override String captureLocationTitle({required Object title}) => '${title} saqlash joyi';
+	@override String get clipLocationDescription => 'Kliplar qayerga saqlanishini tanlang.';
+	@override String get screenshotLocationDescription => 'Ekran tasvirlari qayerga saqlanishini tanlang.';
+	@override String get clipLocationChanged => 'Kliplarni saqlash joyi oʻzgartirildi';
+	@override String get screenshotLocationChanged => 'Ekran tasvirlarini saqlash joyi oʻzgartirildi';
+	@override String get clipLocationReset => 'Kliplarni saqlash joyi Ish stoliga qaytarildi';
+	@override String get screenshotLocationReset => 'Ekran tasvirlarini saqlash joyi Ish stoliga qaytarildi';
 }
 
 // Path: themeEditor
@@ -1019,6 +1030,7 @@ class _Translations$videoControls$uz extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Subtitr: Oʻchirilgan';
 	@override String osdSubtitles({required Object track}) => 'Subtitr: ${track}';
 	@override String osdAudio({required Object track}) => 'Ovoz: ${track}';
+	@override late final _Translations$videoControls$clip$uz clip = _Translations$videoControls$clip$uz._(_root);
 }
 
 // Path: messages
@@ -2631,6 +2643,52 @@ class _Translations$videoControls$pipErrors$uz extends Translations$videoControl
 	@override String unknown({required Object error}) => 'Xatolik yuz berdi: ${error}';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$uz extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$uz._(TranslationsUz root) : this._root = root, super.internal(root);
+
+	final TranslationsUz _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Aniq sozlash';
+	@override String get title => 'Klip';
+	@override String get vodOnly => 'Kliplar talab boʻyicha video ijro etilganda mavjud.';
+	@override String get sourceUnavailable => 'Ushbu ijro seansi uchun klip manbasi mavjud emas.';
+	@override String get playAtLeastOneSecond => 'Klip yaratishdan oldin kamida 1 soniya ijro eting.';
+	@override String get startBeforeBeginning => 'Klip boshlanishi video boshidan oldin boʻlishi mumkin emas.';
+	@override String get endAfterStart => 'Klip oxiri uning boshlanishidan keyin boʻlishi kerak.';
+	@override String get minimumDuration => 'Kliplar kamida 1 soniya uzunlikda boʻlishi kerak.';
+	@override String get endPastVideo => 'Klip oxiri video oxiridan oshib ketgan.';
+	@override String get exportCanceled => 'Klipni eksport qilish bekor qilindi.';
+	@override String get cacheUnavailable => 'Asl nusxa formatida eksport qilish uchun tanlangan oraliqni toʻliq keshlash imkoni boʻlmadi. Qisqaroq klip tanlang yoki saqlashdan oldin oldindan koʻrishni bir marta ijro eting.';
+	@override String get sourceCopyNoEncoder => 'Manbani nusxalash orqali eksport qilishda kodlovchi ishlatilmaydi.';
+	@override String get encodingDesktopOnly => 'Kliplarni H.264 va HEVC formatlarida kodlash hozirda macOS va Windows tizimlarida mavjud.';
+	@override String get hdrRequiresSource => 'HDR eksporti toʻgʻridan-toʻgʻri ijro etiladigan, HDR10 yoki HLG bilan mos manbani talab qiladi.';
+	@override String get transcodeStartUnavailable => 'Bu klip faol qayta kodlangan oqimdan oldin boshlanadi. Oldinroq vaqtga oʻtib, klip muharririni qayta oching yoki asl sifatga oʻting.';
+	@override String get previewRequired => 'Klipni saqlashdan oldin oldindan koʻrish yuklanishi tugashi kerak.';
+	@override String get h264Failed => 'Bu manbani H.264 SDR MP4 formatida kodlab boʻlmadi.';
+	@override String get hevcSdrFailed => 'Bu manbani HEVC SDR MP4 formatida kodlab boʻlmadi.';
+	@override String get hevcHdrFailed => 'Bu manbani HEVC HDR MP4 formatida kodlab boʻlmadi.';
+	@override String get gifFailed => 'Bu manbani GIF formatida kodlab boʻlmadi.';
+	@override String get originalFailed => 'Bu manbani mpv keshidan nusxalab boʻlmadi.';
+	@override String get previewUnavailable => 'Ushbu versiyada klipni oldindan ijro etish mavjud emas.';
+	@override String get previewFailed => 'Klipni oldindan ijro etib boʻlmadi.';
+	@override String get previewLoadingScreenshot => 'Ekran tasvirini olishdan oldin klipni oldindan koʻrish yuklanishi tugashi kerak.';
+	@override String get screenshotInProgress => 'Ekran tasviri allaqachon saqlanmoqda.';
+	@override String get saveAsDialog => 'Klipni boshqacha saqlash';
+	@override String savedTo({required Object fileName}) => '${fileName} fayliga saqlandi';
+	@override String get openFolder => 'Jildni ochish';
+	@override String get saveAs => 'Boshqacha saqlash';
+	@override String get cancelExport => 'Eksportni bekor qilish';
+	@override String get saving => 'Saqlanmoqda...';
+	@override String savingProgress({required Object percent}) => 'Saqlanmoqda: ${percent}%';
+	@override String get mutePreview => 'Oldindan koʻrish ovozini oʻchirish';
+	@override String get unmutePreview => 'Oldindan koʻrish ovozini yoqish';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: accountPreferences.groups
 class _Translations$accountPreferences$groups$uz extends Translations$accountPreferences$groups$en {
 	_Translations$accountPreferences$groups$uz._(TranslationsUz root) : this._root = root, super.internal(root);
@@ -3892,6 +3950,17 @@ extension on TranslationsUz {
 			'settings.playerScopeLibrary' => 'Kutubxona boʻyicha',
 			'settings.playerScopeTitle' => 'Serial yoki film boʻyicha',
 			'settings.exportDialogTitle' => 'Plezy sozlamalarini eksport qilish',
+			'settings.downloadLocationSelectError' => 'Jildni tanlab boʻlmadi',
+			'settings.mediaCapture' => 'Media yozib olish',
+			'settings.clips' => 'Kliplar',
+			'settings.screenshots' => 'Ekran tasvirlari',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} saqlash joyi',
+			'settings.clipLocationDescription' => 'Kliplar qayerga saqlanishini tanlang.',
+			'settings.screenshotLocationDescription' => 'Ekran tasvirlari qayerga saqlanishini tanlang.',
+			'settings.clipLocationChanged' => 'Kliplarni saqlash joyi oʻzgartirildi',
+			'settings.screenshotLocationChanged' => 'Ekran tasvirlarini saqlash joyi oʻzgartirildi',
+			'settings.clipLocationReset' => 'Kliplarni saqlash joyi Ish stoliga qaytarildi',
+			'settings.screenshotLocationReset' => 'Ekran tasvirlarini saqlash joyi Ish stoliga qaytarildi',
 			'themeEditor.builtIn' => 'Oʻrnatilgan',
 			'themeEditor.presets' => 'Tayyor mavzular',
 			'themeEditor.custom' => 'Shaxsiy',
@@ -3899,6 +3968,8 @@ extension on TranslationsUz {
 			'themeEditor.editCustom' => 'Shaxsiy mavzuni tahrirlash',
 			'themeEditor.editCustomDescription' => 'Har bir rangni oʻzingiz tanlang',
 			'themeEditor.locked' => 'Mavzu va belgilar toʻplami bilan ochiladi',
+			_ => null,
+		} ?? switch (path) {
 			'themeEditor.savedLocked' => 'Saqlangan — Mavzu va belgilar toʻplami bilan ochiladi',
 			'themeEditor.title' => 'Shaxsiy mavzu',
 			'themeEditor.startFrom' => 'Asos qilib olish',
@@ -3910,8 +3981,6 @@ extension on TranslationsUz {
 			'themeEditor.slots.outline' => 'Kontur',
 			'themeEditor.slots.text' => 'Matn',
 			'themeEditor.slots.textMuted' => 'Ikkilamchi matn',
-			_ => null,
-		} ?? switch (path) {
 			'themeEditor.slots.accent' => 'Urgʻu rangi',
 			'themeEditor.opacity' => 'Noshaffoflik',
 			'themeEditor.hexHint' => '#RRGGBB yoki #AARRGGBB',
@@ -4247,6 +4316,43 @@ extension on TranslationsUz {
 			'videoControls.osdSubtitlesOff' => 'Subtitr: Oʻchirilgan',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Subtitr: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Ovoz: ${track}',
+			'videoControls.clip.fineAdjust' => 'Aniq sozlash',
+			'videoControls.clip.title' => 'Klip',
+			'videoControls.clip.vodOnly' => 'Kliplar talab boʻyicha video ijro etilganda mavjud.',
+			'videoControls.clip.sourceUnavailable' => 'Ushbu ijro seansi uchun klip manbasi mavjud emas.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Klip yaratishdan oldin kamida 1 soniya ijro eting.',
+			'videoControls.clip.startBeforeBeginning' => 'Klip boshlanishi video boshidan oldin boʻlishi mumkin emas.',
+			'videoControls.clip.endAfterStart' => 'Klip oxiri uning boshlanishidan keyin boʻlishi kerak.',
+			'videoControls.clip.minimumDuration' => 'Kliplar kamida 1 soniya uzunlikda boʻlishi kerak.',
+			'videoControls.clip.endPastVideo' => 'Klip oxiri video oxiridan oshib ketgan.',
+			'videoControls.clip.exportCanceled' => 'Klipni eksport qilish bekor qilindi.',
+			'videoControls.clip.cacheUnavailable' => 'Asl nusxa formatida eksport qilish uchun tanlangan oraliqni toʻliq keshlash imkoni boʻlmadi. Qisqaroq klip tanlang yoki saqlashdan oldin oldindan koʻrishni bir marta ijro eting.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Manbani nusxalash orqali eksport qilishda kodlovchi ishlatilmaydi.',
+			'videoControls.clip.encodingDesktopOnly' => 'Kliplarni H.264 va HEVC formatlarida kodlash hozirda macOS va Windows tizimlarida mavjud.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR eksporti toʻgʻridan-toʻgʻri ijro etiladigan, HDR10 yoki HLG bilan mos manbani talab qiladi.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Bu klip faol qayta kodlangan oqimdan oldin boshlanadi. Oldinroq vaqtga oʻtib, klip muharririni qayta oching yoki asl sifatga oʻting.',
+			'videoControls.clip.previewRequired' => 'Klipni saqlashdan oldin oldindan koʻrish yuklanishi tugashi kerak.',
+			'videoControls.clip.h264Failed' => 'Bu manbani H.264 SDR MP4 formatida kodlab boʻlmadi.',
+			'videoControls.clip.hevcSdrFailed' => 'Bu manbani HEVC SDR MP4 formatida kodlab boʻlmadi.',
+			'videoControls.clip.hevcHdrFailed' => 'Bu manbani HEVC HDR MP4 formatida kodlab boʻlmadi.',
+			'videoControls.clip.gifFailed' => 'Bu manbani GIF formatida kodlab boʻlmadi.',
+			'videoControls.clip.originalFailed' => 'Bu manbani mpv keshidan nusxalab boʻlmadi.',
+			'videoControls.clip.previewUnavailable' => 'Ushbu versiyada klipni oldindan ijro etish mavjud emas.',
+			'videoControls.clip.previewFailed' => 'Klipni oldindan ijro etib boʻlmadi.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Ekran tasvirini olishdan oldin klipni oldindan koʻrish yuklanishi tugashi kerak.',
+			'videoControls.clip.screenshotInProgress' => 'Ekran tasviri allaqachon saqlanmoqda.',
+			'videoControls.clip.saveAsDialog' => 'Klipni boshqacha saqlash',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => '${fileName} fayliga saqlandi',
+			'videoControls.clip.openFolder' => 'Jildni ochish',
+			'videoControls.clip.saveAs' => 'Boshqacha saqlash',
+			'videoControls.clip.cancelExport' => 'Eksportni bekor qilish',
+			'videoControls.clip.saving' => 'Saqlanmoqda...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Saqlanmoqda: ${percent}%',
+			'videoControls.clip.mutePreview' => 'Oldindan koʻrish ovozini oʻchirish',
+			'videoControls.clip.unmutePreview' => 'Oldindan koʻrish ovozini yoqish',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'Koʻrilgan deb belgilandi',
 			'messages.markedAsUnwatched' => 'Koʻrilmagan deb belgilandi',
 			'messages.markedAsWatchedOffline' => 'Koʻrilgan deb belgilandi (tarmoqqa ulanganda sinxronlanadi)',
@@ -4376,6 +4482,8 @@ extension on TranslationsUz {
 			'profiles.summarySingle' => 'Boshqariladigan foydalanuvchilarni birlashtirish uchun profillar qoʻshing',
 			'profiles.summaryMultipleWithActive' => ({required Object count, required Object activeName}) => '${count} profil · faol: ${activeName}',
 			'profiles.summaryMultiple' => ({required Object count}) => '${count} profil',
+			_ => null,
+		} ?? switch (path) {
 			'profiles.removeConnectionTitle' => 'Ulanish oʻchirilsinmi?',
 			'profiles.removeConnectionMessage' => ({required Object displayName, required Object connectionLabel}) => '${displayName} foydalanuvchisining ${connectionLabel} kirish huquqi oʻchiriladi.',
 			'profiles.deleteProfileTitle' => 'Profil oʻchirilsinmi?',
@@ -4424,8 +4532,6 @@ extension on TranslationsUz {
 			'profiles.pinsDontMatch' => 'PIN kodlar mos kelmadi',
 			'profiles.tokenIdentityMismatch' => 'Plex profil tokeni kutilmagan serverga tegishli boʻlib chiqdi',
 			'connections.sectionTitle' => 'Ulanishlar',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnection' => 'Ulanish qoʻshish',
 			'connections.addConnectionSubtitleNoProfile' => 'Plex orqali kiring yoki Jellyfin yoki Emby serveriga ulaning',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => '${displayName} profiliga qoʻshish: Plex, Jellyfin, Emby yoki boshqa ulanish',
@@ -4890,6 +4996,8 @@ extension on TranslationsUz {
 			'liveTv.noFavoriteChannels' => 'Sevimli kanallar yoʻq',
 			'liveTv.noFavoriteChannelsHint' => 'Barcha kanallarni koʻrsating, soʻng kanalni sevimlilarga qoʻshish uchun uni bosib turing.',
 			'liveTv.showAllChannels' => 'Barcha kanallarni koʻrsatish',
+			_ => null,
+		} ?? switch (path) {
 			'liveTv.favoritesLoadFailed' => 'Tanlanganlarni yuklab boʻlmadi. Ulanishni tekshirib, qayta urinib koʻring.',
 			'liveTv.favoritesUpdateFailed' => 'Tanlanganlarni yangilab boʻlmadi.',
 			'liveTv.joinSession' => 'Davom etayotgan seansga qoʻshilish',
@@ -4938,8 +5046,6 @@ extension on TranslationsUz {
 			'liveTv.recordSettings.anyTime' => 'Istalgan vaqtda yozib olish',
 			'liveTv.recordSettings.skipInLibrary' => 'Kutubxonada mavjud epizodlarni oʻtkazib yuborish',
 			'liveTv.recordSettings.keepUpTo' => 'Saqlanadigan epizodlar',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.recordSettings.keepUpToHint' => '0 barcha epizodlarni saqlaydi',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes} daqiqadan keyin boshlanadi',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day}, soat ${time} da',
@@ -5404,6 +5510,8 @@ extension on TranslationsUz {
 			'videoSettings.audioNormalizationDisablesPassthrough' => 'Ovozni PCM-ga dekodlaydi; bu yoqilganda toʻgʻridan-toʻgʻri oʻtkazish oʻchiriladi',
 			'performanceOverlay.color' => 'Rang',
 			'performanceOverlay.performance' => 'Unumdorlik',
+			_ => null,
+		} ?? switch (path) {
 			'performanceOverlay.buffer' => 'Bufer',
 			'performanceOverlay.app' => 'Ilova',
 			'performanceOverlay.decoder' => 'Dekoder',
@@ -5452,8 +5560,6 @@ extension on TranslationsUz {
 			'performanceOverlay.decoderMediatekHw' => 'MediaTek HW',
 			'performanceOverlay.decoderExynosHw' => 'Exynos HW',
 			'performanceOverlay.decoderSoftware' => 'Dasturiy',
-			_ => null,
-		} ?? switch (path) {
 			'performanceOverlay.decoderHardware' => 'Apparat',
 			'performanceOverlay.tunnelingActive' => 'Faol',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} ta muvaffaqiyatsiz)',

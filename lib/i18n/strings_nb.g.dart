@@ -609,6 +609,17 @@ class _Translations$settings$nb extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Per bibliotek';
 	@override String get playerScopeTitle => 'Per serie eller film';
 	@override String get exportDialogTitle => 'Eksporter Plezy-innstillinger';
+	@override String get downloadLocationSelectError => 'Kunne ikke velge mappe';
+	@override String get mediaCapture => 'Mediefangst';
+	@override String get clips => 'Klipp';
+	@override String get screenshots => 'Skjermbilder';
+	@override String captureLocationTitle({required Object title}) => '${title} Beliggenhet';
+	@override String get clipLocationDescription => 'Velg hvor klippene skal lagres.';
+	@override String get screenshotLocationDescription => 'Velg hvor skjermbilder skal lagres.';
+	@override String get clipLocationChanged => 'Plasseringen av klippet er endret';
+	@override String get screenshotLocationChanged => 'Plassering av skjermbilde endret';
+	@override String get clipLocationReset => 'Klippplassering tilbakestilt til skrivebord';
+	@override String get screenshotLocationReset => 'Skjermbildeplassering tilbakestilt til skrivebord';
 }
 
 // Path: themeEditor
@@ -1019,6 +1030,7 @@ class _Translations$videoControls$nb extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Undertekster: Av';
 	@override String osdSubtitles({required Object track}) => 'Undertekster: ${track}';
 	@override String osdAudio({required Object track}) => 'Lyd: ${track}';
+	@override late final _Translations$videoControls$clip$nb clip = _Translations$videoControls$clip$nb._(_root);
 }
 
 // Path: messages
@@ -2631,6 +2643,52 @@ class _Translations$videoControls$pipErrors$nb extends Translations$videoControl
 	@override String unknown({required Object error}) => 'En feil oppstod: ${error}';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$nb extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$nb._(TranslationsNb root) : this._root = root, super.internal(root);
+
+	final TranslationsNb _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Finjustering';
+	@override String get title => 'Klipp';
+	@override String get vodOnly => 'Klipp er tilgjengelig for videoavspilling på forespørsel.';
+	@override String get sourceUnavailable => 'Klippkilden er ikke tilgjengelig for denne avspillingsøkten.';
+	@override String get playAtLeastOneSecond => 'Spill minst 1 sekund før klipping.';
+	@override String get startBeforeBeginning => 'Klippstart kan ikke være før begynnelsen av videoen.';
+	@override String get endAfterStart => 'Klippslutt må være etter starten.';
+	@override String get minimumDuration => 'Klippene må være minst 1 sekund lange.';
+	@override String get endPastVideo => 'Slutten av klippet er forbi slutten av videoen.';
+	@override String get exportCanceled => 'Klippeksporten ble avbrutt.';
+	@override String get cacheUnavailable => 'Det valgte området kunne ikke bufres fullstendig for originaleksport. Prøv et kortere klipp eller spill av forhåndsvisningen én gang før du lagrer.';
+	@override String get sourceCopyNoEncoder => 'Kildekopieksport bruker ikke en koder.';
+	@override String get encodingDesktopOnly => 'H.264- og HEVC-klippkoding er for øyeblikket tilgjengelig på macOS og Windows.';
+	@override String get hdrRequiresSource => 'HDR-eksport krever en direkteavspilling HDR10 eller HLG-kompatibel kilde.';
+	@override String get transcodeStartUnavailable => 'Dette klippet starter før den aktive transkodede strømmen. Søk tidligere og åpne klipping på nytt, eller bytt til original kvalitet.';
+	@override String get previewRequired => 'Forhåndsvisning av klipp må fullføres innlasting før den kan lagres.';
+	@override String get h264Failed => 'Denne kilden kunne ikke kodes som en H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'Denne kilden kunne ikke kodes som en HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'Denne kilden kunne ikke kodes som en HEVC HDR MP4.';
+	@override String get gifFailed => 'Denne kilden kunne ikke kodes som en GIF.';
+	@override String get originalFailed => 'Denne kilden kunne ikke kopieres fra mpv-bufferen.';
+	@override String get previewUnavailable => 'Forhåndsvisning av klipp er ikke tilgjengelig i denne versjonen.';
+	@override String get previewFailed => 'Forhåndsvisning av klipp mislyktes.';
+	@override String get previewLoadingScreenshot => 'Forhåndsvisningen av klippet må fullføres innlasting før du tar et skjermbilde.';
+	@override String get screenshotInProgress => 'Et skjermbilde lagres allerede.';
+	@override String get saveAsDialog => 'Lagre klipp som';
+	@override String savedTo({required Object fileName}) => 'Lagret i ${fileName}';
+	@override String get openFolder => 'Åpne mappe';
+	@override String get saveAs => 'Lagre som';
+	@override String get cancelExport => 'Avbryt eksport';
+	@override String get saving => 'Lagrer...';
+	@override String savingProgress({required Object percent}) => 'Sparer ${percent} %';
+	@override String get mutePreview => 'Demp forhåndsvisning';
+	@override String get unmutePreview => 'Slå på lyden for forhåndsvisning';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: accountPreferences.groups
 class _Translations$accountPreferences$groups$nb extends Translations$accountPreferences$groups$en {
 	_Translations$accountPreferences$groups$nb._(TranslationsNb root) : this._root = root, super.internal(root);
@@ -3892,6 +3950,17 @@ extension on TranslationsNb {
 			'settings.playerScopeLibrary' => 'Per bibliotek',
 			'settings.playerScopeTitle' => 'Per serie eller film',
 			'settings.exportDialogTitle' => 'Eksporter Plezy-innstillinger',
+			'settings.downloadLocationSelectError' => 'Kunne ikke velge mappe',
+			'settings.mediaCapture' => 'Mediefangst',
+			'settings.clips' => 'Klipp',
+			'settings.screenshots' => 'Skjermbilder',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} Beliggenhet',
+			'settings.clipLocationDescription' => 'Velg hvor klippene skal lagres.',
+			'settings.screenshotLocationDescription' => 'Velg hvor skjermbilder skal lagres.',
+			'settings.clipLocationChanged' => 'Plasseringen av klippet er endret',
+			'settings.screenshotLocationChanged' => 'Plassering av skjermbilde endret',
+			'settings.clipLocationReset' => 'Klippplassering tilbakestilt til skrivebord',
+			'settings.screenshotLocationReset' => 'Skjermbildeplassering tilbakestilt til skrivebord',
 			'themeEditor.builtIn' => 'Innebygde',
 			'themeEditor.presets' => 'Forhåndsinnstillinger',
 			'themeEditor.custom' => 'Egendefinert',
@@ -3899,6 +3968,8 @@ extension on TranslationsNb {
 			'themeEditor.editCustom' => 'Rediger egendefinert tema',
 			'themeEditor.editCustomDescription' => 'Velg alle fargene selv',
 			'themeEditor.locked' => 'Lås opp med Tema- og ikonpakken',
+			_ => null,
+		} ?? switch (path) {
 			'themeEditor.savedLocked' => 'Lagret – låses opp med Tema- og ikonpakken',
 			'themeEditor.title' => 'Egendefinert tema',
 			'themeEditor.startFrom' => 'Start fra',
@@ -3910,8 +3981,6 @@ extension on TranslationsNb {
 			'themeEditor.slots.outline' => 'Kontur',
 			'themeEditor.slots.text' => 'Tekst',
 			'themeEditor.slots.textMuted' => 'Sekundærtekst',
-			_ => null,
-		} ?? switch (path) {
 			'themeEditor.slots.accent' => 'Aksent',
 			'themeEditor.opacity' => 'Opasitet',
 			'themeEditor.hexHint' => '#RRGGBB eller #AARRGGBB',
@@ -4247,6 +4316,43 @@ extension on TranslationsNb {
 			'videoControls.osdSubtitlesOff' => 'Undertekster: Av',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Undertekster: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Lyd: ${track}',
+			'videoControls.clip.fineAdjust' => 'Finjustering',
+			'videoControls.clip.title' => 'Klipp',
+			'videoControls.clip.vodOnly' => 'Klipp er tilgjengelig for videoavspilling på forespørsel.',
+			'videoControls.clip.sourceUnavailable' => 'Klippkilden er ikke tilgjengelig for denne avspillingsøkten.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Spill minst 1 sekund før klipping.',
+			'videoControls.clip.startBeforeBeginning' => 'Klippstart kan ikke være før begynnelsen av videoen.',
+			'videoControls.clip.endAfterStart' => 'Klippslutt må være etter starten.',
+			'videoControls.clip.minimumDuration' => 'Klippene må være minst 1 sekund lange.',
+			'videoControls.clip.endPastVideo' => 'Slutten av klippet er forbi slutten av videoen.',
+			'videoControls.clip.exportCanceled' => 'Klippeksporten ble avbrutt.',
+			'videoControls.clip.cacheUnavailable' => 'Det valgte området kunne ikke bufres fullstendig for originaleksport. Prøv et kortere klipp eller spill av forhåndsvisningen én gang før du lagrer.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'Kildekopieksport bruker ikke en koder.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264- og HEVC-klippkoding er for øyeblikket tilgjengelig på macOS og Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR-eksport krever en direkteavspilling HDR10 eller HLG-kompatibel kilde.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Dette klippet starter før den aktive transkodede strømmen. Søk tidligere og åpne klipping på nytt, eller bytt til original kvalitet.',
+			'videoControls.clip.previewRequired' => 'Forhåndsvisning av klipp må fullføres innlasting før den kan lagres.',
+			'videoControls.clip.h264Failed' => 'Denne kilden kunne ikke kodes som en H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'Denne kilden kunne ikke kodes som en HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'Denne kilden kunne ikke kodes som en HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Denne kilden kunne ikke kodes som en GIF.',
+			'videoControls.clip.originalFailed' => 'Denne kilden kunne ikke kopieres fra mpv-bufferen.',
+			'videoControls.clip.previewUnavailable' => 'Forhåndsvisning av klipp er ikke tilgjengelig i denne versjonen.',
+			'videoControls.clip.previewFailed' => 'Forhåndsvisning av klipp mislyktes.',
+			'videoControls.clip.previewLoadingScreenshot' => 'Forhåndsvisningen av klippet må fullføres innlasting før du tar et skjermbilde.',
+			'videoControls.clip.screenshotInProgress' => 'Et skjermbilde lagres allerede.',
+			'videoControls.clip.saveAsDialog' => 'Lagre klipp som',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Lagret i ${fileName}',
+			'videoControls.clip.openFolder' => 'Åpne mappe',
+			'videoControls.clip.saveAs' => 'Lagre som',
+			'videoControls.clip.cancelExport' => 'Avbryt eksport',
+			'videoControls.clip.saving' => 'Lagrer...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Sparer ${percent} %',
+			'videoControls.clip.mutePreview' => 'Demp forhåndsvisning',
+			'videoControls.clip.unmutePreview' => 'Slå på lyden for forhåndsvisning',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => 'Merket som sett',
 			'messages.markedAsUnwatched' => 'Merket som usett',
 			'messages.markedAsWatchedOffline' => 'Merket som sett (synkroniseres når tilkoblet)',
@@ -4376,6 +4482,8 @@ extension on TranslationsNb {
 			'profiles.summarySingle' => 'Legg til profiler for å blande administrerte brukere og lokale identiteter',
 			'profiles.summaryMultipleWithActive' => ({required Object count, required Object activeName}) => '${count} profiler · aktiv: ${activeName}',
 			'profiles.summaryMultiple' => ({required Object count}) => '${count} profiler',
+			_ => null,
+		} ?? switch (path) {
 			'profiles.removeConnectionTitle' => 'Fjerne tilkobling?',
 			'profiles.removeConnectionMessage' => ({required Object displayName, required Object connectionLabel}) => 'Fjern ${displayName}s tilgang til ${connectionLabel}. Andre profiler beholder den.',
 			'profiles.deleteProfileTitle' => 'Slette profil?',
@@ -4424,8 +4532,6 @@ extension on TranslationsNb {
 			'profiles.pinsDontMatch' => 'PIN-ene samsvarer ikke',
 			'profiles.tokenIdentityMismatch' => 'Plex-profiltokenet ble knyttet til en uventet server',
 			'connections.sectionTitle' => 'Tilkoblinger',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnection' => 'Legg til tilkobling',
 			'connections.addConnectionSubtitleNoProfile' => 'Logg inn med Plex eller koble til en Jellyfin- eller Emby-server',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => 'Legg til for ${displayName}: Plex, Jellyfin, Emby eller en annen profiltilkobling',
@@ -4890,6 +4996,8 @@ extension on TranslationsNb {
 			'liveTv.noFavoriteChannels' => 'Ingen favorittkanaler',
 			'liveTv.noFavoriteChannelsHint' => 'Vis alle kanaler, og trykk deretter lenge på en kanal for å legge den til i favorittene dine.',
 			'liveTv.showAllChannels' => 'Vis alle kanaler',
+			_ => null,
+		} ?? switch (path) {
 			'liveTv.favoritesLoadFailed' => 'Kunne ikke laste inn favoritter. Kontroller tilkoblingen og prøv på nytt.',
 			'liveTv.favoritesUpdateFailed' => 'Kunne ikke oppdatere favorittene. Kontroller tilkoblingen og prøv på nytt.',
 			'liveTv.joinSession' => 'Bli med i pågående økt',
@@ -4938,8 +5046,6 @@ extension on TranslationsNb {
 			'liveTv.recordSettings.anyTime' => 'Ta opp når som helst',
 			'liveTv.recordSettings.skipInLibrary' => 'Hopp over episoder som allerede finnes i biblioteket',
 			'liveTv.recordSettings.keepUpTo' => 'Episoder som skal beholdes',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.recordSettings.keepUpToHint' => '0 beholder alle episoder',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => 'Starter om ${minutes} min',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} kl. ${time}',
@@ -5404,6 +5510,8 @@ extension on TranslationsNb {
 			'videoSettings.audioNormalizationDisablesPassthrough' => 'Dekoder lyd til PCM; direkte lydutgang er av mens dette er på',
 			'performanceOverlay.color' => 'Farge',
 			'performanceOverlay.performance' => 'Ytelse',
+			_ => null,
+		} ?? switch (path) {
 			'performanceOverlay.buffer' => 'Buffer',
 			'performanceOverlay.app' => 'App',
 			'performanceOverlay.decoder' => 'Dekoder',
@@ -5452,8 +5560,6 @@ extension on TranslationsNb {
 			'performanceOverlay.decoderMediatekHw' => 'MediaTek-maskinvare',
 			'performanceOverlay.decoderExynosHw' => 'Exynos-maskinvare',
 			'performanceOverlay.decoderSoftware' => 'Programvare',
-			_ => null,
-		} ?? switch (path) {
 			'performanceOverlay.decoderHardware' => 'Maskinvare',
 			'performanceOverlay.tunnelingActive' => 'Aktiv',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} mislyktes)',

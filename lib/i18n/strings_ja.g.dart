@@ -609,6 +609,17 @@ class _Translations$settings$ja extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'ライブラリごと';
 	@override String get playerScopeTitle => '作品ごと';
 	@override String get exportDialogTitle => 'Plezyの設定をエクスポート';
+	@override String get downloadLocationSelectError => 'フォルダの選択に失敗しました';
+	@override String get mediaCapture => 'メディアキャプチャ';
+	@override String get clips => 'クリップ';
+	@override String get screenshots => 'スクリーンショット';
+	@override String captureLocationTitle({required Object title}) => '${title} 場所';
+	@override String get clipLocationDescription => 'クリップの保存場所を選択します。';
+	@override String get screenshotLocationDescription => 'スクリーンショットの保存場所を選択します。';
+	@override String get clipLocationChanged => 'クリップの位置が変更されました';
+	@override String get screenshotLocationChanged => 'スクリーンショットの場所が変更されました';
+	@override String get clipLocationReset => 'クリップの場所をデスクトップにリセット';
+	@override String get screenshotLocationReset => 'スクリーンショットの場所がデスクトップにリセットされました';
 }
 
 // Path: themeEditor
@@ -1016,6 +1027,7 @@ class _Translations$videoControls$ja extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => '字幕: オフ';
 	@override String osdSubtitles({required Object track}) => '字幕: ${track}';
 	@override String osdAudio({required Object track}) => '音声: ${track}';
+	@override late final _Translations$videoControls$clip$ja clip = _Translations$videoControls$clip$ja._(_root);
 }
 
 // Path: messages
@@ -2621,6 +2633,52 @@ class _Translations$videoControls$pipErrors$ja extends Translations$videoControl
 	@override String unknown({required Object error}) => 'エラーが発生しました: ${error}';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$ja extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$ja._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => '微調整';
+	@override String get title => 'クリップ';
+	@override String get vodOnly => 'クリップはオンデマンドのビデオ再生に利用できます。';
+	@override String get sourceUnavailable => 'クリップ ソースはこの再生セッションでは使用できません。';
+	@override String get playAtLeastOneSecond => 'クリップする前に少なくとも 1 秒間再生してください。';
+	@override String get startBeforeBeginning => 'クリップの開始をビデオの先頭より前にすることはできません。';
+	@override String get endAfterStart => 'クリップの終了は開始より後でなければなりません。';
+	@override String get minimumDuration => 'クリップの長さは少なくとも 1 秒である必要があります。';
+	@override String get endPastVideo => 'クリップの終わりがビデオの終わりを超えています。';
+	@override String get exportCanceled => 'クリップのエクスポートがキャンセルされました。';
+	@override String get cacheUnavailable => '選択した範囲を元のエクスポート用に完全にキャッシュできませんでした。短いクリップを試すか、保存する前にプレビューを一度再生してください。';
+	@override String get sourceCopyNoEncoder => 'ソースコピーのエクスポートではエンコーダーは使用されません。';
+	@override String get encodingDesktopOnly => 'H.264 および HEVC クリップ エンコーディングは現在、macOS と Windows で利用できます。';
+	@override String get hdrRequiresSource => 'HDR エクスポートには、直接再生 HDR10 または HLG 互換のソースが必要です。';
+	@override String get transcodeStartUnavailable => 'このクリップは、アクティブなトランスコードされたストリームの前から始まります。早めにシークしてクリッピングを再開するか、元の品質に切り替えてください。';
+	@override String get previewRequired => 'クリップ プレビューは、保存する前に読み込みを完了する必要があります。';
+	@override String get h264Failed => 'このソースは H.264 SDR MP4 としてエンコードできませんでした。';
+	@override String get hevcSdrFailed => 'このソースは HEVC SDR MP4 としてエンコードできませんでした。';
+	@override String get hevcHdrFailed => 'このソースは HEVC HDR MP4 としてエンコードできませんでした。';
+	@override String get gifFailed => 'このソースをGIFとしてエンコードできませんでした。';
+	@override String get originalFailed => 'このソースは mpv キャッシュからコピーできませんでした。';
+	@override String get previewUnavailable => 'このビルドではクリップ プレビュー再生は利用できません。';
+	@override String get previewFailed => 'クリップのプレビュー再生に失敗しました。';
+	@override String get previewLoadingScreenshot => 'スクリーンショットを撮る前に、クリップ プレビューの読み込みを完了する必要があります。';
+	@override String get screenshotInProgress => 'スクリーンショットはすでに保存されています。';
+	@override String get saveAsDialog => 'クリップに名前を付けて保存';
+	@override String savedTo({required Object fileName}) => '${fileName}に保存されました';
+	@override String get openFolder => 'フォルダーを開く';
+	@override String get saveAs => '名前を付けて保存';
+	@override String get cancelExport => 'エクスポートのキャンセル';
+	@override String get saving => '保存中...';
+	@override String savingProgress({required Object percent}) => '${percent}% を節約';
+	@override String get mutePreview => 'プレビューをミュートする';
+	@override String get unmutePreview => 'プレビューのミュートを解除する';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: accountPreferences.groups
 class _Translations$accountPreferences$groups$ja extends Translations$accountPreferences$groups$en {
 	_Translations$accountPreferences$groups$ja._(TranslationsJa root) : this._root = root, super.internal(root);
@@ -3880,6 +3938,17 @@ extension on TranslationsJa {
 			'settings.playerScopeLibrary' => 'ライブラリごと',
 			'settings.playerScopeTitle' => '作品ごと',
 			'settings.exportDialogTitle' => 'Plezyの設定をエクスポート',
+			'settings.downloadLocationSelectError' => 'フォルダの選択に失敗しました',
+			'settings.mediaCapture' => 'メディアキャプチャ',
+			'settings.clips' => 'クリップ',
+			'settings.screenshots' => 'スクリーンショット',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} 場所',
+			'settings.clipLocationDescription' => 'クリップの保存場所を選択します。',
+			'settings.screenshotLocationDescription' => 'スクリーンショットの保存場所を選択します。',
+			'settings.clipLocationChanged' => 'クリップの位置が変更されました',
+			'settings.screenshotLocationChanged' => 'スクリーンショットの場所が変更されました',
+			'settings.clipLocationReset' => 'クリップの場所をデスクトップにリセット',
+			'settings.screenshotLocationReset' => 'スクリーンショットの場所がデスクトップにリセットされました',
 			'themeEditor.builtIn' => '標準',
 			'themeEditor.presets' => 'プリセット',
 			'themeEditor.custom' => 'カスタム',
@@ -3887,6 +3956,8 @@ extension on TranslationsJa {
 			'themeEditor.editCustom' => 'カスタムテーマを編集',
 			'themeEditor.editCustomDescription' => 'すべての色を自分で選択',
 			'themeEditor.locked' => 'テーマ＆アイコンパックでロック解除',
+			_ => null,
+		} ?? switch (path) {
 			'themeEditor.savedLocked' => '保存済み — テーマ＆アイコンパックでロック解除',
 			'themeEditor.title' => 'カスタムテーマ',
 			'themeEditor.startFrom' => '元にするテーマ',
@@ -3898,8 +3969,6 @@ extension on TranslationsJa {
 			'themeEditor.slots.outline' => '枠線',
 			'themeEditor.slots.text' => 'テキスト',
 			'themeEditor.slots.textMuted' => '補助テキスト',
-			_ => null,
-		} ?? switch (path) {
 			'themeEditor.slots.accent' => 'アクセント',
 			'themeEditor.opacity' => '不透明度',
 			'themeEditor.hexHint' => '#RRGGBB または #AARRGGBB',
@@ -4235,6 +4304,43 @@ extension on TranslationsJa {
 			'videoControls.osdSubtitlesOff' => '字幕: オフ',
 			'videoControls.osdSubtitles' => ({required Object track}) => '字幕: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => '音声: ${track}',
+			'videoControls.clip.fineAdjust' => '微調整',
+			'videoControls.clip.title' => 'クリップ',
+			'videoControls.clip.vodOnly' => 'クリップはオンデマンドのビデオ再生に利用できます。',
+			'videoControls.clip.sourceUnavailable' => 'クリップ ソースはこの再生セッションでは使用できません。',
+			'videoControls.clip.playAtLeastOneSecond' => 'クリップする前に少なくとも 1 秒間再生してください。',
+			'videoControls.clip.startBeforeBeginning' => 'クリップの開始をビデオの先頭より前にすることはできません。',
+			'videoControls.clip.endAfterStart' => 'クリップの終了は開始より後でなければなりません。',
+			'videoControls.clip.minimumDuration' => 'クリップの長さは少なくとも 1 秒である必要があります。',
+			'videoControls.clip.endPastVideo' => 'クリップの終わりがビデオの終わりを超えています。',
+			'videoControls.clip.exportCanceled' => 'クリップのエクスポートがキャンセルされました。',
+			'videoControls.clip.cacheUnavailable' => '選択した範囲を元のエクスポート用に完全にキャッシュできませんでした。短いクリップを試すか、保存する前にプレビューを一度再生してください。',
+			'videoControls.clip.sourceCopyNoEncoder' => 'ソースコピーのエクスポートではエンコーダーは使用されません。',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 および HEVC クリップ エンコーディングは現在、macOS と Windows で利用できます。',
+			'videoControls.clip.hdrRequiresSource' => 'HDR エクスポートには、直接再生 HDR10 または HLG 互換のソースが必要です。',
+			'videoControls.clip.transcodeStartUnavailable' => 'このクリップは、アクティブなトランスコードされたストリームの前から始まります。早めにシークしてクリッピングを再開するか、元の品質に切り替えてください。',
+			'videoControls.clip.previewRequired' => 'クリップ プレビューは、保存する前に読み込みを完了する必要があります。',
+			'videoControls.clip.h264Failed' => 'このソースは H.264 SDR MP4 としてエンコードできませんでした。',
+			'videoControls.clip.hevcSdrFailed' => 'このソースは HEVC SDR MP4 としてエンコードできませんでした。',
+			'videoControls.clip.hevcHdrFailed' => 'このソースは HEVC HDR MP4 としてエンコードできませんでした。',
+			'videoControls.clip.gifFailed' => 'このソースをGIFとしてエンコードできませんでした。',
+			'videoControls.clip.originalFailed' => 'このソースは mpv キャッシュからコピーできませんでした。',
+			'videoControls.clip.previewUnavailable' => 'このビルドではクリップ プレビュー再生は利用できません。',
+			'videoControls.clip.previewFailed' => 'クリップのプレビュー再生に失敗しました。',
+			'videoControls.clip.previewLoadingScreenshot' => 'スクリーンショットを撮る前に、クリップ プレビューの読み込みを完了する必要があります。',
+			'videoControls.clip.screenshotInProgress' => 'スクリーンショットはすでに保存されています。',
+			'videoControls.clip.saveAsDialog' => 'クリップに名前を付けて保存',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => '${fileName}に保存されました',
+			'videoControls.clip.openFolder' => 'フォルダーを開く',
+			'videoControls.clip.saveAs' => '名前を付けて保存',
+			'videoControls.clip.cancelExport' => 'エクスポートのキャンセル',
+			'videoControls.clip.saving' => '保存中...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => '${percent}% を節約',
+			'videoControls.clip.mutePreview' => 'プレビューをミュートする',
+			'videoControls.clip.unmutePreview' => 'プレビューのミュートを解除する',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => '視聴済みにしました',
 			'messages.markedAsUnwatched' => '未視聴にしました',
 			'messages.markedAsWatchedOffline' => '視聴済みにしました（オンライン時に同期）',
@@ -4364,6 +4470,8 @@ extension on TranslationsJa {
 			'profiles.summarySingle' => 'プロフィールを追加すると、管理対象ユーザーとローカルユーザーを併用できます',
 			'profiles.summaryMultipleWithActive' => ({required Object count, required Object activeName}) => '${count}個のプロフィール · 使用中: ${activeName}',
 			'profiles.summaryMultiple' => ({required Object count}) => '${count}個のプロフィール',
+			_ => null,
+		} ?? switch (path) {
 			'profiles.removeConnectionTitle' => '接続を削除しますか？',
 			'profiles.removeConnectionMessage' => ({required Object displayName, required Object connectionLabel}) => '${displayName}の${connectionLabel}へのアクセスを削除します。他のプロフィールには残ります。',
 			'profiles.deleteProfileTitle' => 'プロフィールを削除しますか？',
@@ -4412,8 +4520,6 @@ extension on TranslationsJa {
 			'profiles.pinsDontMatch' => 'PINが一致しません',
 			'profiles.tokenIdentityMismatch' => 'Plexプロフィールのトークンから予期しないサーバーが特定されました',
 			'connections.sectionTitle' => '接続',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnection' => '接続を追加',
 			'connections.addConnectionSubtitleNoProfile' => 'Plexでサインインするか、JellyfinまたはEmbyサーバーに接続',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => '${displayName}に追加：Plex、Jellyfin、Emby、または別のプロフィールの接続',
@@ -4878,6 +4984,8 @@ extension on TranslationsJa {
 			'liveTv.noFavoriteChannels' => 'お気に入りのチャンネルがありません',
 			'liveTv.noFavoriteChannelsHint' => 'すべてのチャンネルを表示し、チャンネルを長押ししてお気に入りに追加してください。',
 			'liveTv.showAllChannels' => 'すべてのチャンネルを表示',
+			_ => null,
+		} ?? switch (path) {
 			'liveTv.favoritesLoadFailed' => 'お気に入りを読み込めませんでした。接続を確認してもう一度お試しください。',
 			'liveTv.favoritesUpdateFailed' => 'お気に入りを更新できませんでした。接続を確認してもう一度お試しください。',
 			'liveTv.joinSession' => '進行中のセッションに参加',
@@ -4926,8 +5034,6 @@ extension on TranslationsJa {
 			'liveTv.recordSettings.anyTime' => 'すべての時間帯で録画',
 			'liveTv.recordSettings.skipInLibrary' => 'ライブラリにあるエピソードをスキップ',
 			'liveTv.recordSettings.keepUpTo' => '保持するエピソード数',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.recordSettings.keepUpToHint' => '0 ですべてのエピソードを保持',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes}分後に開始',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} ${time}',
@@ -5392,6 +5498,8 @@ extension on TranslationsJa {
 			'videoSettings.audioNormalizationDisablesPassthrough' => '音声をPCMにデコードします。オンの間はパススルーがオフになります',
 			'performanceOverlay.color' => '色',
 			'performanceOverlay.performance' => 'パフォーマンス',
+			_ => null,
+		} ?? switch (path) {
 			'performanceOverlay.buffer' => 'バッファ',
 			'performanceOverlay.app' => 'アプリ',
 			'performanceOverlay.decoder' => 'デコーダー',
@@ -5440,8 +5548,6 @@ extension on TranslationsJa {
 			'performanceOverlay.decoderMediatekHw' => 'MediaTek HW',
 			'performanceOverlay.decoderExynosHw' => 'Exynos HW',
 			'performanceOverlay.decoderSoftware' => 'ソフトウェア',
-			_ => null,
-		} ?? switch (path) {
 			'performanceOverlay.decoderHardware' => 'ハードウェア',
 			'performanceOverlay.tunnelingActive' => '有効',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted}（${failures}件失敗）',

@@ -22,6 +22,33 @@ void main() {
   });
 
   group('player open', () {
+    test('only macOS clip previews request screenshot-compatible hardware frames', () async {
+      await withMockPlayerChannels(
+        methodChannelName: 'com.plezy/clip_preview_player',
+        eventChannelName: 'com.plezy/clip_preview_player/events',
+        testBody: () async {
+          final preview = PlayerNative.preview();
+          try {
+            expect(preview.initialOptions, Platform.isMacOS ? {'hwdec': 'videotoolbox-copy'} : isEmpty);
+          } finally {
+            await preview.dispose();
+          }
+        },
+      );
+      await withMockPlayerChannels(
+        methodChannelName: 'com.plezy/mpv_player',
+        eventChannelName: 'com.plezy/mpv_player/events',
+        testBody: () async {
+          final player = PlayerNative();
+          try {
+            expect(player.initialOptions, isEmpty);
+          } finally {
+            await player.dispose();
+          }
+        },
+      );
+    });
+
     test('ExoPlayer clears stale Dart track state before opening new media', () async {
       await withMockPlayerChannels(
         methodChannelName: 'com.plezy/exo_player',

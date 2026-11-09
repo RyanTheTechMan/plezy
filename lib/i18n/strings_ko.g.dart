@@ -609,6 +609,17 @@ class _Translations$settings$ko extends Translations$settings$en {
 	@override String get playerScopeLibrary => '라이브러리별';
 	@override String get playerScopeTitle => '시리즈 또는 영화별';
 	@override String get exportDialogTitle => 'Plezy 설정 내보내기';
+	@override String get downloadLocationSelectError => '폴더 선택 실패';
+	@override String get mediaCapture => '미디어 캡처';
+	@override String get clips => '클립';
+	@override String get screenshots => '스크린샷';
+	@override String captureLocationTitle({required Object title}) => '${title} 위치';
+	@override String get clipLocationDescription => '클립이 저장되는 위치를 선택하세요.';
+	@override String get screenshotLocationDescription => '스크린샷이 저장되는 위치를 선택하세요.';
+	@override String get clipLocationChanged => '클립 위치가 변경됨';
+	@override String get screenshotLocationChanged => '스크린샷 위치가 변경되었습니다.';
+	@override String get clipLocationReset => '클립 위치가 데스크탑으로 재설정됨';
+	@override String get screenshotLocationReset => '스크린샷 위치가 데스크톱으로 재설정됨';
 }
 
 // Path: themeEditor
@@ -1016,6 +1027,7 @@ class _Translations$videoControls$ko extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => '자막: 꺼짐';
 	@override String osdSubtitles({required Object track}) => '자막: ${track}';
 	@override String osdAudio({required Object track}) => '오디오: ${track}';
+	@override late final _Translations$videoControls$clip$ko clip = _Translations$videoControls$clip$ko._(_root);
 }
 
 // Path: messages
@@ -2621,6 +2633,52 @@ class _Translations$videoControls$pipErrors$ko extends Translations$videoControl
 	@override String unknown({required Object error}) => '오류가 발생했습니다: ${error}';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$ko extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$ko._(TranslationsKo root) : this._root = root, super.internal(root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => '미세 조정';
+	@override String get title => '클립';
+	@override String get vodOnly => '주문형 비디오 재생에 클립을 사용할 수 있습니다.';
+	@override String get sourceUnavailable => '이 재생 세션에는 클립 소스를 사용할 수 없습니다.';
+	@override String get playAtLeastOneSecond => '클리핑하기 최소 1초 전에 재생하세요.';
+	@override String get startBeforeBeginning => '클립 시작은 비디오 시작 이전일 수 없습니다.';
+	@override String get endAfterStart => '클립 끝은 시작보다 뒤에 있어야 합니다.';
+	@override String get minimumDuration => '클립의 길이는 1초 이상이어야 합니다.';
+	@override String get endPastVideo => '클립 끝이 동영상 끝을 지났습니다.';
+	@override String get exportCanceled => '클립 내보내기가 취소되었습니다.';
+	@override String get cacheUnavailable => '원본 내보내기를 위해 선택한 범위를 완전히 캐시할 수 없습니다. 더 짧은 클립을 사용해 보거나 저장하기 전에 미리보기를 한 번 재생해 보세요.';
+	@override String get sourceCopyNoEncoder => '소스 복사본 내보내기에서는 인코더를 사용하지 않습니다.';
+	@override String get encodingDesktopOnly => 'H.264 및 HEVC 클립 인코딩은 현재 macOS 및 Windows에서 사용할 수 있습니다.';
+	@override String get hdrRequiresSource => 'HDR 내보내기에는 직접 재생 HDR10 또는 HLG 호환 소스가 필요합니다.';
+	@override String get transcodeStartUnavailable => '이 클립은 활성 트랜스코딩된 스트림보다 먼저 시작됩니다. 이전에 찾아 클리핑을 다시 열거나 원본 품질로 전환하세요.';
+	@override String get previewRequired => '클립 미리보기는 저장되기 전에 로드를 완료해야 합니다.';
+	@override String get h264Failed => '이 소스는 H.264 SDR MP4로 인코딩할 수 없습니다.';
+	@override String get hevcSdrFailed => '이 소스는 HEVC SDR MP4로 인코딩할 수 없습니다.';
+	@override String get hevcHdrFailed => '이 소스는 HEVC HDR MP4로 인코딩할 수 없습니다.';
+	@override String get gifFailed => '이 소스를 GIF로 인코딩할 수 없습니다.';
+	@override String get originalFailed => '이 소스를 mpv 캐시에서 복사할 수 없습니다.';
+	@override String get previewUnavailable => '이 빌드에서는 클립 미리보기 재생을 사용할 수 없습니다.';
+	@override String get previewFailed => '클립 미리보기 재생에 실패했습니다.';
+	@override String get previewLoadingScreenshot => '스크린샷을 찍기 전에 클립 미리보기 로드가 완료되어야 합니다.';
+	@override String get screenshotInProgress => '스크린샷이 이미 저장되고 있습니다.';
+	@override String get saveAsDialog => '클립을 다른 이름으로 저장';
+	@override String savedTo({required Object fileName}) => '${fileName}에 저장되었습니다.';
+	@override String get openFolder => '폴더 열기';
+	@override String get saveAs => '다른 이름으로 저장';
+	@override String get cancelExport => '내보내기 취소';
+	@override String get saving => '절약...';
+	@override String savingProgress({required Object percent}) => '${percent}% 저장 중';
+	@override String get mutePreview => '미리보기 음소거';
+	@override String get unmutePreview => '미리보기 음소거 해제';
+	@override String get formatHevcSdr => 'HEVC SDR';
+	@override String get formatH264Sdr => 'H.264 SDR';
+	@override String get formatHevcHdr => 'HEVC HDR';
+}
+
 // Path: accountPreferences.groups
 class _Translations$accountPreferences$groups$ko extends Translations$accountPreferences$groups$en {
 	_Translations$accountPreferences$groups$ko._(TranslationsKo root) : this._root = root, super.internal(root);
@@ -3880,6 +3938,17 @@ extension on TranslationsKo {
 			'settings.playerScopeLibrary' => '라이브러리별',
 			'settings.playerScopeTitle' => '시리즈 또는 영화별',
 			'settings.exportDialogTitle' => 'Plezy 설정 내보내기',
+			'settings.downloadLocationSelectError' => '폴더 선택 실패',
+			'settings.mediaCapture' => '미디어 캡처',
+			'settings.clips' => '클립',
+			'settings.screenshots' => '스크린샷',
+			'settings.captureLocationTitle' => ({required Object title}) => '${title} 위치',
+			'settings.clipLocationDescription' => '클립이 저장되는 위치를 선택하세요.',
+			'settings.screenshotLocationDescription' => '스크린샷이 저장되는 위치를 선택하세요.',
+			'settings.clipLocationChanged' => '클립 위치가 변경됨',
+			'settings.screenshotLocationChanged' => '스크린샷 위치가 변경되었습니다.',
+			'settings.clipLocationReset' => '클립 위치가 데스크탑으로 재설정됨',
+			'settings.screenshotLocationReset' => '스크린샷 위치가 데스크톱으로 재설정됨',
 			'themeEditor.builtIn' => '기본 제공',
 			'themeEditor.presets' => '프리셋',
 			'themeEditor.custom' => '사용자 지정',
@@ -3887,6 +3956,8 @@ extension on TranslationsKo {
 			'themeEditor.editCustom' => '사용자 지정 테마 편집',
 			'themeEditor.editCustomDescription' => '모든 색상을 직접 선택',
 			'themeEditor.locked' => '테마 & 아이콘 팩으로 잠금 해제',
+			_ => null,
+		} ?? switch (path) {
 			'themeEditor.savedLocked' => '저장됨 — 테마 & 아이콘 팩으로 잠금 해제',
 			'themeEditor.title' => '사용자 지정 테마',
 			'themeEditor.startFrom' => '기반 테마',
@@ -3898,8 +3969,6 @@ extension on TranslationsKo {
 			'themeEditor.slots.outline' => '윤곽선',
 			'themeEditor.slots.text' => '텍스트',
 			'themeEditor.slots.textMuted' => '보조 텍스트',
-			_ => null,
-		} ?? switch (path) {
 			'themeEditor.slots.accent' => '강조색',
 			'themeEditor.opacity' => '불투명도',
 			'themeEditor.hexHint' => '#RRGGBB 또는 #AARRGGBB',
@@ -4235,6 +4304,43 @@ extension on TranslationsKo {
 			'videoControls.osdSubtitlesOff' => '자막: 꺼짐',
 			'videoControls.osdSubtitles' => ({required Object track}) => '자막: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => '오디오: ${track}',
+			'videoControls.clip.fineAdjust' => '미세 조정',
+			'videoControls.clip.title' => '클립',
+			'videoControls.clip.vodOnly' => '주문형 비디오 재생에 클립을 사용할 수 있습니다.',
+			'videoControls.clip.sourceUnavailable' => '이 재생 세션에는 클립 소스를 사용할 수 없습니다.',
+			'videoControls.clip.playAtLeastOneSecond' => '클리핑하기 최소 1초 전에 재생하세요.',
+			'videoControls.clip.startBeforeBeginning' => '클립 시작은 비디오 시작 이전일 수 없습니다.',
+			'videoControls.clip.endAfterStart' => '클립 끝은 시작보다 뒤에 있어야 합니다.',
+			'videoControls.clip.minimumDuration' => '클립의 길이는 1초 이상이어야 합니다.',
+			'videoControls.clip.endPastVideo' => '클립 끝이 동영상 끝을 지났습니다.',
+			'videoControls.clip.exportCanceled' => '클립 내보내기가 취소되었습니다.',
+			'videoControls.clip.cacheUnavailable' => '원본 내보내기를 위해 선택한 범위를 완전히 캐시할 수 없습니다. 더 짧은 클립을 사용해 보거나 저장하기 전에 미리보기를 한 번 재생해 보세요.',
+			'videoControls.clip.sourceCopyNoEncoder' => '소스 복사본 내보내기에서는 인코더를 사용하지 않습니다.',
+			'videoControls.clip.encodingDesktopOnly' => 'H.264 및 HEVC 클립 인코딩은 현재 macOS 및 Windows에서 사용할 수 있습니다.',
+			'videoControls.clip.hdrRequiresSource' => 'HDR 내보내기에는 직접 재생 HDR10 또는 HLG 호환 소스가 필요합니다.',
+			'videoControls.clip.transcodeStartUnavailable' => '이 클립은 활성 트랜스코딩된 스트림보다 먼저 시작됩니다. 이전에 찾아 클리핑을 다시 열거나 원본 품질로 전환하세요.',
+			'videoControls.clip.previewRequired' => '클립 미리보기는 저장되기 전에 로드를 완료해야 합니다.',
+			'videoControls.clip.h264Failed' => '이 소스는 H.264 SDR MP4로 인코딩할 수 없습니다.',
+			'videoControls.clip.hevcSdrFailed' => '이 소스는 HEVC SDR MP4로 인코딩할 수 없습니다.',
+			'videoControls.clip.hevcHdrFailed' => '이 소스는 HEVC HDR MP4로 인코딩할 수 없습니다.',
+			'videoControls.clip.gifFailed' => '이 소스를 GIF로 인코딩할 수 없습니다.',
+			'videoControls.clip.originalFailed' => '이 소스를 mpv 캐시에서 복사할 수 없습니다.',
+			'videoControls.clip.previewUnavailable' => '이 빌드에서는 클립 미리보기 재생을 사용할 수 없습니다.',
+			'videoControls.clip.previewFailed' => '클립 미리보기 재생에 실패했습니다.',
+			'videoControls.clip.previewLoadingScreenshot' => '스크린샷을 찍기 전에 클립 미리보기 로드가 완료되어야 합니다.',
+			'videoControls.clip.screenshotInProgress' => '스크린샷이 이미 저장되고 있습니다.',
+			'videoControls.clip.saveAsDialog' => '클립을 다른 이름으로 저장',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => '${fileName}에 저장되었습니다.',
+			'videoControls.clip.openFolder' => '폴더 열기',
+			'videoControls.clip.saveAs' => '다른 이름으로 저장',
+			'videoControls.clip.cancelExport' => '내보내기 취소',
+			'videoControls.clip.saving' => '절약...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => '${percent}% 저장 중',
+			'videoControls.clip.mutePreview' => '미리보기 음소거',
+			'videoControls.clip.unmutePreview' => '미리보기 음소거 해제',
+			'videoControls.clip.formatHevcSdr' => 'HEVC SDR',
+			'videoControls.clip.formatH264Sdr' => 'H.264 SDR',
+			'videoControls.clip.formatHevcHdr' => 'HEVC HDR',
 			'messages.markedAsWatched' => '시청 완료로 표시됨',
 			'messages.markedAsUnwatched' => '미시청으로 표시됨',
 			'messages.markedAsWatchedOffline' => '시청 완료로 표시됨 (연결 시 동기화됨)',
@@ -4364,6 +4470,8 @@ extension on TranslationsKo {
 			'profiles.summarySingle' => '관리되는 사용자와 로컬 ID를 혼합하려면 프로필을 추가하세요',
 			'profiles.summaryMultipleWithActive' => ({required Object count, required Object activeName}) => '${count}개 프로필 · 활성: ${activeName}',
 			'profiles.summaryMultiple' => ({required Object count}) => '${count}개 프로필',
+			_ => null,
+		} ?? switch (path) {
 			'profiles.removeConnectionTitle' => '연결을 제거하시겠습니까?',
 			'profiles.removeConnectionMessage' => ({required Object displayName, required Object connectionLabel}) => '${displayName}의 ${connectionLabel} 접근 권한을 제거합니다. 다른 프로필에는 유지됩니다.',
 			'profiles.deleteProfileTitle' => '프로필을 삭제하시겠습니까?',
@@ -4412,8 +4520,6 @@ extension on TranslationsKo {
 			'profiles.pinsDontMatch' => 'PIN이 일치하지 않습니다',
 			'profiles.tokenIdentityMismatch' => 'Plex 프로필 토큰이 예상과 다른 서버로 확인되었습니다',
 			'connections.sectionTitle' => '연결',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnection' => '연결 추가',
 			'connections.addConnectionSubtitleNoProfile' => 'Plex로 로그인하거나 Jellyfin 또는 Emby 서버에 연결',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => '${displayName}에 추가: Plex, Jellyfin, Emby 또는 다른 프로필 연결',
@@ -4878,6 +4984,8 @@ extension on TranslationsKo {
 			'liveTv.noFavoriteChannels' => '즐겨찾기 채널 없음',
 			'liveTv.noFavoriteChannelsHint' => '모든 채널을 표시한 다음 채널을 길게 눌러 즐겨찾기에 추가하세요.',
 			'liveTv.showAllChannels' => '모든 채널 표시',
+			_ => null,
+		} ?? switch (path) {
 			'liveTv.favoritesLoadFailed' => '즐겨찾기를 불러올 수 없습니다. 연결을 확인하고 다시 시도하세요.',
 			'liveTv.favoritesUpdateFailed' => '즐겨찾기를 업데이트할 수 없습니다. 연결을 확인하고 다시 시도하세요.',
 			'liveTv.joinSession' => '진행 중인 세션 참여',
@@ -4926,8 +5034,6 @@ extension on TranslationsKo {
 			'liveTv.recordSettings.anyTime' => '모든 시간대에 녹화',
 			'liveTv.recordSettings.skipInLibrary' => '라이브러리에 이미 있는 에피소드 건너뛰기',
 			'liveTv.recordSettings.keepUpTo' => '보관할 에피소드 수',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.recordSettings.keepUpToHint' => '0이면 모든 에피소드 보관',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => '${minutes}분 후 시작',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} ${time}',
@@ -5392,6 +5498,8 @@ extension on TranslationsKo {
 			'videoSettings.audioNormalizationDisablesPassthrough' => '오디오를 PCM으로 디코딩합니다. 켜져 있는 동안 패스스루가 꺼집니다',
 			'performanceOverlay.color' => '색상',
 			'performanceOverlay.performance' => '성능',
+			_ => null,
+		} ?? switch (path) {
 			'performanceOverlay.buffer' => '버퍼',
 			'performanceOverlay.app' => '앱',
 			'performanceOverlay.decoder' => '디코더',
@@ -5440,8 +5548,6 @@ extension on TranslationsKo {
 			'performanceOverlay.decoderMediatekHw' => 'MediaTek HW',
 			'performanceOverlay.decoderExynosHw' => 'Exynos HW',
 			'performanceOverlay.decoderSoftware' => '소프트웨어',
-			_ => null,
-		} ?? switch (path) {
 			'performanceOverlay.decoderHardware' => '하드웨어',
 			'performanceOverlay.tunnelingActive' => '활성',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures}개 실패)',

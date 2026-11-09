@@ -609,6 +609,17 @@ class _Translations$settings$es extends Translations$settings$en {
 	@override String get playerScopeLibrary => 'Por biblioteca';
 	@override String get playerScopeTitle => 'Por serie o película';
 	@override String get exportDialogTitle => 'Exportar ajustes de Plezy';
+	@override String get downloadLocationSelectError => 'Error al seleccionar la carpeta';
+	@override String get mediaCapture => 'Captura de medios';
+	@override String get clips => 'clips';
+	@override String get screenshots => 'Capturas de pantalla';
+	@override String captureLocationTitle({required Object title}) => 'Ubicación de ${title}';
+	@override String get clipLocationDescription => 'Elija dónde se guardan los clips.';
+	@override String get screenshotLocationDescription => 'Elija dónde se guardan las capturas de pantalla.';
+	@override String get clipLocationChanged => 'Se cambió la ubicación del clip';
+	@override String get screenshotLocationChanged => 'La ubicación de la captura de pantalla cambió';
+	@override String get clipLocationReset => 'Restablecer la ubicación del clip al escritorio';
+	@override String get screenshotLocationReset => 'Restablecer la ubicación de la captura de pantalla en el escritorio';
 }
 
 // Path: themeEditor
@@ -1019,6 +1030,7 @@ class _Translations$videoControls$es extends Translations$videoControls$en {
 	@override String get osdSubtitlesOff => 'Subtítulos: desactivados';
 	@override String osdSubtitles({required Object track}) => 'Subtítulos: ${track}';
 	@override String osdAudio({required Object track}) => 'Audio: ${track}';
+	@override late final _Translations$videoControls$clip$es clip = _Translations$videoControls$clip$es._(_root);
 }
 
 // Path: messages
@@ -2631,6 +2643,52 @@ class _Translations$videoControls$pipErrors$es extends Translations$videoControl
 	@override String unknown({required Object error}) => 'Ocurrió un error: ${error}';
 }
 
+// Path: videoControls.clip
+class _Translations$videoControls$clip$es extends Translations$videoControls$clip$en {
+	_Translations$videoControls$clip$es._(TranslationsEs root) : this._root = root, super.internal(root);
+
+	final TranslationsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get fineAdjust => 'Ajuste fino';
+	@override String get title => 'Acortar';
+	@override String get vodOnly => 'Los clips están disponibles para reproducción de vídeo bajo demanda.';
+	@override String get sourceUnavailable => 'La fuente del clip no está disponible para esta sesión de reproducción.';
+	@override String get playAtLeastOneSecond => 'Reproduzca al menos 1 segundo antes de recortar.';
+	@override String get startBeforeBeginning => 'El inicio del clip no puede ser anterior al comienzo del vídeo.';
+	@override String get endAfterStart => 'El final del clip debe ser posterior al inicio.';
+	@override String get minimumDuration => 'Los clips deben durar al menos 1 segundo.';
+	@override String get endPastVideo => 'El final del clip ha pasado el final del vídeo.';
+	@override String get exportCanceled => 'Exportación de clips cancelada.';
+	@override String get cacheUnavailable => 'El rango seleccionado no se pudo almacenar en caché por completo para la exportación original. Pruebe con un clip más corto o reproduzca la vista previa una vez antes de guardar.';
+	@override String get sourceCopyNoEncoder => 'La exportación de copia de origen no utiliza un codificador.';
+	@override String get encodingDesktopOnly => 'La codificación de clips H.264 y HEVC está actualmente disponible en macOS y Windows.';
+	@override String get hdrRequiresSource => 'La exportación HDR requiere una fuente compatible con HDR10 o HLG de reproducción directa.';
+	@override String get transcodeStartUnavailable => 'Este clip comienza antes de la transmisión transcodificada activa. Busque antes y vuelva a abrir el recorte o cambie a la calidad original.';
+	@override String get previewRequired => 'La vista previa del clip debe terminar de cargarse antes de poder guardarse.';
+	@override String get h264Failed => 'Esta fuente no se pudo codificar como H.264 SDR MP4.';
+	@override String get hevcSdrFailed => 'Esta fuente no se pudo codificar como HEVC SDR MP4.';
+	@override String get hevcHdrFailed => 'Esta fuente no se pudo codificar como HEVC HDR MP4.';
+	@override String get gifFailed => 'Esta fuente no se pudo codificar como GIF.';
+	@override String get originalFailed => 'Esta fuente no se pudo copiar del caché mpv.';
+	@override String get previewUnavailable => 'La reproducción de vista previa del clip no está disponible en esta compilación.';
+	@override String get previewFailed => 'Error en la reproducción de vista previa del clip.';
+	@override String get previewLoadingScreenshot => 'La vista previa del clip debe terminar de cargarse antes de tomar una captura de pantalla.';
+	@override String get screenshotInProgress => 'Ya se está guardando una captura de pantalla.';
+	@override String get saveAsDialog => 'Guardar clip como';
+	@override String savedTo({required Object fileName}) => 'Guardado en ${fileName}';
+	@override String get openFolder => 'Abrir carpeta';
+	@override String get saveAs => 'Guardar como';
+	@override String get cancelExport => 'Cancelar exportación';
+	@override String get saving => 'Ahorro...';
+	@override String savingProgress({required Object percent}) => 'Ahorro ${percent}%';
+	@override String get mutePreview => 'Silenciar vista previa';
+	@override String get unmutePreview => 'Vista previa para activar el silencio';
+	@override String get formatHevcSdr => 'DEG HEVC';
+	@override String get formatH264Sdr => 'H.264 DEG';
+	@override String get formatHevcHdr => 'HDR HEVC';
+}
+
 // Path: accountPreferences.groups
 class _Translations$accountPreferences$groups$es extends Translations$accountPreferences$groups$en {
 	_Translations$accountPreferences$groups$es._(TranslationsEs root) : this._root = root, super.internal(root);
@@ -3892,6 +3950,17 @@ extension on TranslationsEs {
 			'settings.playerScopeLibrary' => 'Por biblioteca',
 			'settings.playerScopeTitle' => 'Por serie o película',
 			'settings.exportDialogTitle' => 'Exportar ajustes de Plezy',
+			'settings.downloadLocationSelectError' => 'Error al seleccionar la carpeta',
+			'settings.mediaCapture' => 'Captura de medios',
+			'settings.clips' => 'clips',
+			'settings.screenshots' => 'Capturas de pantalla',
+			'settings.captureLocationTitle' => ({required Object title}) => 'Ubicación de ${title}',
+			'settings.clipLocationDescription' => 'Elija dónde se guardan los clips.',
+			'settings.screenshotLocationDescription' => 'Elija dónde se guardan las capturas de pantalla.',
+			'settings.clipLocationChanged' => 'Se cambió la ubicación del clip',
+			'settings.screenshotLocationChanged' => 'La ubicación de la captura de pantalla cambió',
+			'settings.clipLocationReset' => 'Restablecer la ubicación del clip al escritorio',
+			'settings.screenshotLocationReset' => 'Restablecer la ubicación de la captura de pantalla en el escritorio',
 			'themeEditor.builtIn' => 'Integrados',
 			'themeEditor.presets' => 'Predefinidos',
 			'themeEditor.custom' => 'Personalizado',
@@ -3899,6 +3968,8 @@ extension on TranslationsEs {
 			'themeEditor.editCustom' => 'Editar tema personalizado',
 			'themeEditor.editCustomDescription' => 'Elige cada color tú mismo',
 			'themeEditor.locked' => 'Desbloquear con el Pack de temas e iconos',
+			_ => null,
+		} ?? switch (path) {
 			'themeEditor.savedLocked' => 'Guardado — se desbloquea con el Pack de temas e iconos',
 			'themeEditor.title' => 'Tema personalizado',
 			'themeEditor.startFrom' => 'Partir de',
@@ -3910,8 +3981,6 @@ extension on TranslationsEs {
 			'themeEditor.slots.outline' => 'Contorno',
 			'themeEditor.slots.text' => 'Texto',
 			'themeEditor.slots.textMuted' => 'Texto secundario',
-			_ => null,
-		} ?? switch (path) {
 			'themeEditor.slots.accent' => 'Acento',
 			'themeEditor.opacity' => 'Opacidad',
 			'themeEditor.hexHint' => '#RRGGBB o #AARRGGBB',
@@ -4247,6 +4316,43 @@ extension on TranslationsEs {
 			'videoControls.osdSubtitlesOff' => 'Subtítulos: desactivados',
 			'videoControls.osdSubtitles' => ({required Object track}) => 'Subtítulos: ${track}',
 			'videoControls.osdAudio' => ({required Object track}) => 'Audio: ${track}',
+			'videoControls.clip.fineAdjust' => 'Ajuste fino',
+			'videoControls.clip.title' => 'Acortar',
+			'videoControls.clip.vodOnly' => 'Los clips están disponibles para reproducción de vídeo bajo demanda.',
+			'videoControls.clip.sourceUnavailable' => 'La fuente del clip no está disponible para esta sesión de reproducción.',
+			'videoControls.clip.playAtLeastOneSecond' => 'Reproduzca al menos 1 segundo antes de recortar.',
+			'videoControls.clip.startBeforeBeginning' => 'El inicio del clip no puede ser anterior al comienzo del vídeo.',
+			'videoControls.clip.endAfterStart' => 'El final del clip debe ser posterior al inicio.',
+			'videoControls.clip.minimumDuration' => 'Los clips deben durar al menos 1 segundo.',
+			'videoControls.clip.endPastVideo' => 'El final del clip ha pasado el final del vídeo.',
+			'videoControls.clip.exportCanceled' => 'Exportación de clips cancelada.',
+			'videoControls.clip.cacheUnavailable' => 'El rango seleccionado no se pudo almacenar en caché por completo para la exportación original. Pruebe con un clip más corto o reproduzca la vista previa una vez antes de guardar.',
+			'videoControls.clip.sourceCopyNoEncoder' => 'La exportación de copia de origen no utiliza un codificador.',
+			'videoControls.clip.encodingDesktopOnly' => 'La codificación de clips H.264 y HEVC está actualmente disponible en macOS y Windows.',
+			'videoControls.clip.hdrRequiresSource' => 'La exportación HDR requiere una fuente compatible con HDR10 o HLG de reproducción directa.',
+			'videoControls.clip.transcodeStartUnavailable' => 'Este clip comienza antes de la transmisión transcodificada activa. Busque antes y vuelva a abrir el recorte o cambie a la calidad original.',
+			'videoControls.clip.previewRequired' => 'La vista previa del clip debe terminar de cargarse antes de poder guardarse.',
+			'videoControls.clip.h264Failed' => 'Esta fuente no se pudo codificar como H.264 SDR MP4.',
+			'videoControls.clip.hevcSdrFailed' => 'Esta fuente no se pudo codificar como HEVC SDR MP4.',
+			'videoControls.clip.hevcHdrFailed' => 'Esta fuente no se pudo codificar como HEVC HDR MP4.',
+			'videoControls.clip.gifFailed' => 'Esta fuente no se pudo codificar como GIF.',
+			'videoControls.clip.originalFailed' => 'Esta fuente no se pudo copiar del caché mpv.',
+			'videoControls.clip.previewUnavailable' => 'La reproducción de vista previa del clip no está disponible en esta compilación.',
+			'videoControls.clip.previewFailed' => 'Error en la reproducción de vista previa del clip.',
+			'videoControls.clip.previewLoadingScreenshot' => 'La vista previa del clip debe terminar de cargarse antes de tomar una captura de pantalla.',
+			'videoControls.clip.screenshotInProgress' => 'Ya se está guardando una captura de pantalla.',
+			'videoControls.clip.saveAsDialog' => 'Guardar clip como',
+			'videoControls.clip.savedTo' => ({required Object fileName}) => 'Guardado en ${fileName}',
+			'videoControls.clip.openFolder' => 'Abrir carpeta',
+			'videoControls.clip.saveAs' => 'Guardar como',
+			'videoControls.clip.cancelExport' => 'Cancelar exportación',
+			'videoControls.clip.saving' => 'Ahorro...',
+			'videoControls.clip.savingProgress' => ({required Object percent}) => 'Ahorro ${percent}%',
+			'videoControls.clip.mutePreview' => 'Silenciar vista previa',
+			'videoControls.clip.unmutePreview' => 'Vista previa para activar el silencio',
+			'videoControls.clip.formatHevcSdr' => 'DEG HEVC',
+			'videoControls.clip.formatH264Sdr' => 'H.264 DEG',
+			'videoControls.clip.formatHevcHdr' => 'HDR HEVC',
 			'messages.markedAsWatched' => 'Marcado como visto',
 			'messages.markedAsUnwatched' => 'Marcado como no visto',
 			'messages.markedAsWatchedOffline' => 'Marcado como visto (se sincronizará al estar en línea)',
@@ -4376,6 +4482,8 @@ extension on TranslationsEs {
 			'profiles.summarySingle' => 'Añade perfiles para mezclar usuarios gestionados e identidades locales',
 			'profiles.summaryMultipleWithActive' => ({required Object count, required Object activeName}) => '${count} perfiles · activo: ${activeName}',
 			'profiles.summaryMultiple' => ({required Object count}) => '${count} perfiles',
+			_ => null,
+		} ?? switch (path) {
 			'profiles.removeConnectionTitle' => '¿Eliminar conexión?',
 			'profiles.removeConnectionMessage' => ({required Object displayName, required Object connectionLabel}) => 'Eliminar el acceso de ${displayName} a ${connectionLabel}. Los demás perfiles lo conservan.',
 			'profiles.deleteProfileTitle' => '¿Eliminar perfil?',
@@ -4424,8 +4532,6 @@ extension on TranslationsEs {
 			'profiles.pinsDontMatch' => 'Los PIN no coinciden',
 			'profiles.tokenIdentityMismatch' => 'El token del perfil de Plex correspondía a un servidor inesperado',
 			'connections.sectionTitle' => 'Conexiones',
-			_ => null,
-		} ?? switch (path) {
 			'connections.addConnection' => 'Añadir conexión',
 			'connections.addConnectionSubtitleNoProfile' => 'Inicia sesión con Plex o conecta un servidor de Jellyfin o Emby',
 			'connections.addConnectionSubtitleScoped' => ({required Object displayName}) => 'Añadir a ${displayName}: Plex, Jellyfin, Emby u otra conexión de perfil',
@@ -4890,6 +4996,8 @@ extension on TranslationsEs {
 			'liveTv.noFavoriteChannels' => 'No hay canales favoritos',
 			'liveTv.noFavoriteChannelsHint' => 'Muestra todos los canales y mantén pulsado uno para añadirlo a tus favoritos.',
 			'liveTv.showAllChannels' => 'Mostrar todos los canales',
+			_ => null,
+		} ?? switch (path) {
 			'liveTv.favoritesLoadFailed' => 'No se pudieron cargar los favoritos. Comprueba tu conexión e inténtalo de nuevo.',
 			'liveTv.favoritesUpdateFailed' => 'No se pudieron actualizar los favoritos. Comprueba tu conexión e inténtalo de nuevo.',
 			'liveTv.joinSession' => 'Unirse a sesión en curso',
@@ -4938,8 +5046,6 @@ extension on TranslationsEs {
 			'liveTv.recordSettings.anyTime' => 'Grabar a cualquier hora',
 			'liveTv.recordSettings.skipInLibrary' => 'Omitir episodios que ya están en la biblioteca',
 			'liveTv.recordSettings.keepUpTo' => 'Episodios que conservar',
-			_ => null,
-		} ?? switch (path) {
 			'liveTv.recordSettings.keepUpToHint' => '0 conserva todos los episodios',
 			'liveTv.startingInMinutes' => ({required Object minutes}) => 'Empieza en ${minutes} min',
 			'liveTv.dayAtTime' => ({required Object day, required Object time}) => '${day} a las ${time}',
@@ -5404,6 +5510,8 @@ extension on TranslationsEs {
 			'videoSettings.audioNormalizationDisablesPassthrough' => 'Decodifica el audio a PCM; la transferencia directa está desactivada mientras esta opción esté activa',
 			'performanceOverlay.color' => 'Color',
 			'performanceOverlay.performance' => 'Rendimiento',
+			_ => null,
+		} ?? switch (path) {
 			'performanceOverlay.buffer' => 'Búfer',
 			'performanceOverlay.app' => 'App',
 			'performanceOverlay.decoder' => 'Decodificador',
@@ -5452,8 +5560,6 @@ extension on TranslationsEs {
 			'performanceOverlay.decoderMediatekHw' => 'HW de MediaTek',
 			'performanceOverlay.decoderExynosHw' => 'HW de Exynos',
 			'performanceOverlay.decoderSoftware' => 'Software',
-			_ => null,
-		} ?? switch (path) {
 			'performanceOverlay.decoderHardware' => 'Hardware',
 			'performanceOverlay.tunnelingActive' => 'Activo',
 			'performanceOverlay.dvRpuFailed' => ({required Object converted, required Object failures}) => '${converted} (${failures} con error)',

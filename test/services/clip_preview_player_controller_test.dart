@@ -31,6 +31,9 @@ class _FakeClipPreviewBackend implements ClipPreviewPlayerBackend {
   int openCount = 0;
   final List<double> volumes = [];
   final List<String> screenshots = [];
+  bool writeScreenshot = true;
+  bool emptyScreenshot = false;
+  bool failScreenshot = false;
 
   @override
   Player? get player => null;
@@ -77,6 +80,10 @@ class _FakeClipPreviewBackend implements ClipPreviewPlayerBackend {
   @override
   Future<void> captureScreenshot(String outputPath) async {
     screenshots.add(outputPath);
+    if (failScreenshot) throw StateError('capture failed');
+    if (writeScreenshot) {
+      await File(outputPath).writeAsBytes(emptyScreenshot ? [] : [137, 80, 78, 71, 13, 10, 26, 10]);
+    }
   }
 
   @override
@@ -225,8 +232,34 @@ void main() {
 
       expect(outputPath, '${tempDir.path}/Show - 02m00s (2).png');
       expect(backend.screenshots, [outputPath]);
+      expect(await File(outputPath).length(), greaterThan(0));
       expect(controller.value.screenshotting, isFalse);
     });
+
+    for (final failure in ['missing', 'empty', 'command']) {
+      test('does not report success for a $failure screenshot', () async {
+        final tempDir = await Directory.systemTemp.createTemp('plezy-preview-screenshot-failure-');
+        addTearDown(() => tempDir.delete(recursive: true));
+        final backend = _FakeClipPreviewBackend()
+          ..writeScreenshot = failure != 'missing'
+          ..emptyScreenshot = failure == 'empty'
+          ..failScreenshot = failure == 'command';
+        final controller = ClipPreviewPlayerController(
+          backend: backend,
+          screenshotDirectoryProvider: () async => tempDir,
+        );
+        addTearDown(controller.dispose);
+        await controller.open(_source(), const ClipSelection(start: Duration.zero, end: Duration(minutes: 1)));
+        backend.emitFirstFrame();
+        await pumpEventQueue();
+
+        await expectLater(
+          controller.saveScreenshot(),
+          throwsA(failure == 'command' ? isA<StateError>() : isA<ClipExportException>()),
+        );
+        expect(controller.value.screenshotting, isFalse);
+      });
+    }
 
     test('trim changes update the preview range without controlling playback', () async {
       final backend = _FakeClipPreviewBackend();
