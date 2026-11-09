@@ -1661,7 +1661,8 @@
     },
     "totalResults": {
       "other": "결과 ${n}개"
-    }
+    },
+    "openInLibrary": "라이브러리에서 열기"
   },
   "liveTv": {
     "title": "실시간 TV",

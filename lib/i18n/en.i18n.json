@@ -1694,7 +1694,8 @@
     "totalResults": {
       "one": "${n} result",
       "other": "${n} results"
-    }
+    },
+    "openInLibrary": "Open in library"
   },
   "liveTv": {
     "title": "Live TV",

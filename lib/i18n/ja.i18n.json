@@ -1661,7 +1661,8 @@
     },
     "totalResults": {
       "other": "${n}件の結果"
-    }
+    },
+    "openInLibrary": "ライブラリで開く"
   },
   "liveTv": {
     "title": "ライブTV",

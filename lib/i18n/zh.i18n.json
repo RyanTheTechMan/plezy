@@ -1661,7 +1661,8 @@
     },
     "totalResults": {
       "other": "${n} 条结果"
-    }
+    },
+    "openInLibrary": "在媒体库中打开"
   },
   "liveTv": {
     "title": "直播电视",

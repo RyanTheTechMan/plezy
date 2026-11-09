@@ -1671,7 +1671,8 @@
     "totalResults": {
       "one": "${n} résultat",
       "other": "${n} résultats"
-    }
+    },
+    "openInLibrary": "Ouvrir dans la bibliothèque"
   },
   "liveTv": {
     "title": "TV en direct",
